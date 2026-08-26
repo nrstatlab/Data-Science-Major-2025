@@ -196,6 +196,29 @@ COVERAGE = {
         "clustering paradigm", "partitioning", "k-means", "k-medoid",
         "hierarchical", "dbscan", "birch", "categorical clustering",
         "stirr", "rock", "cactus"],
+
+    # ---- Semester IV, Course 9: Python for Data Analysis (pages 16-17)
+    "notes/sem-4/course-9-python-data-analysis/unit-1.md": [
+        "ndarray", "multidimensional", "creating ndarray", "data types",
+        "arithmetic", "indexing and slicing", "boolean indexing",
+        "fancy indexing", "transpos", "swapping axes", "universal function",
+        "element-wise", "statistical function", "random number"],
+    "notes/sem-4/course-9-python-data-analysis/unit-2.md": [
+        "series", "dataframe", "index object", "indexing and selection",
+        "filtering", "boolean indexing", "arithmetic", "data alignment",
+        "sorting", "ranking", "dropping entries", "duplicate index"],
+    "notes/sem-4/course-9-python-data-analysis/unit-3.md": [
+        "reading and writing text data", "csv", "json", "excel", "missing data",
+        "dropping", "filling", "replacing values", "renaming",
+        "removing duplicates", "filtering outliers", "mapping"],
+    "notes/sem-4/course-9-python-data-analysis/unit-4.md": [
+        "string method", "regular expression", "vectorized string",
+        "dummy", "indicator variable", "permutation", "random sampling"],
+    "notes/sem-4/course-9-python-data-analysis/unit-5.md": [
+        "merging", "joining", "concatenating", "combining data with overlap",
+        "pivot", "stack", "unstack", "hierarchical indexing",
+        "summary statistics", "matplotlib", "customisation", "plt.style",
+        "seaborn", "plotly", "interactive"],
 }
 
 

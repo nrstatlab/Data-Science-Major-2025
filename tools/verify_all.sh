@@ -38,8 +38,8 @@ else
     echo "SKIPPED -- run: npm --prefix tools install"
 fi
 
-banner "Course 8 labs (scikit-learn / mlxtend equivalents)"
-python3 "$ROOT/tools/run_data_labs.py" course8 | tail -3 || fail=$((fail+1))
+banner "Course 8 and 9 labs (scikit-learn, mlxtend, NumPy, Pandas)"
+python3 "$ROOT/tools/run_data_labs.py" | tail -3 || fail=$((fail+1))
 
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))

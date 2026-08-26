@@ -303,6 +303,46 @@ COURSES = [
              "categorical clustering with STIRR, ROCK and CACTUS."),
         ],
     },
+    {
+        "slug": "python-data-analysis",
+        "src": "notes/sem-4/course-9-python-data-analysis",
+        "number": 9, "year": "II", "sem": "IV",
+        "title": "Python for Data Analysis and Visualization",
+        "tagline": "NumPy and Pandas \u2014 the tools you will actually use, "
+                   "every day, in any data job you take.",
+        "blurb": "5 Units + Lab \u2022 NumPy arrays, Pandas Series and "
+                 "DataFrames, cleaning, feature engineering, wrangling and "
+                 "three plotting libraries.",
+        "units": [
+            ("NumPy Essentials",
+             "The ndarray against the Python list; creating arrays and dtypes; "
+             "arithmetic and broadcasting; basic, boolean and fancy indexing, "
+             "and which return views; transposing and swapping axes; universal "
+             "functions; statistical functions and the axis parameter; random "
+             "number generation."),
+            ("Pandas Basics and Data Structures",
+             "Series and DataFrame; Index objects; the three accessors and why "
+             "\u2018loc\u2019 is inclusive; filtering and boolean indexing; "
+             "arithmetic and data alignment; sorting and the five ranking "
+             "methods; dropping entries; duplicate indexes."),
+            ("Data Input, Output and Cleaning",
+             "read_csv and the parameters that matter; JSON and "
+             "json_normalize; Excel; detecting, dropping and filling missing "
+             "data; replacing sentinel values; renaming axes; removing "
+             "duplicates; filtering outliers by z-score and IQR; transforming "
+             "with map, apply and transform."),
+            ("String Operations and Feature Engineering",
+             "The .str accessor; regular expressions with extract, contains "
+             "and replace; engineering features from dates, numbers and "
+             "categories; dummy and indicator variables and the dummy variable "
+             "trap; permutation, stratified sampling and the bootstrap."),
+            ("Wrangling, Reshaping and Visualization",
+             "Merging and the four join types; concatenation; combining with "
+             "overlap; hierarchical indexing; pivot, melt, stack and unstack; "
+             "split\u2013apply\u2013combine; recomputing Course 4 in Pandas; "
+             "matplotlib, Seaborn and Plotly."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {

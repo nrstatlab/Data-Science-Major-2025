@@ -8,3 +8,11 @@ pandas>=2.0
 scikit-learn>=1.4
 mlxtend>=0.23
 mongomock>=4.1
+openpyxl>=3.1        # Course 9 practical 9: read_excel / to_excel
+
+# Course 9 Unit 5 names three plotting libraries. matplotlib is required;
+# seaborn and plotly are imported conditionally by practical 18, which skips
+# its section (without failing) if they are absent.
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=5.20
