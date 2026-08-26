@@ -34,6 +34,8 @@ Nine further findings are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
 
 ---
 
+**Published site:** https://nrstatlab.github.io/Data-Science-Major-2025/
+
 ## Start here
 
 | Document | What it is |
@@ -129,6 +131,22 @@ SYLLABUS-MAP.md          structure and topics
 SYLLABUS-REVIEW.md       the findings
 STUDY-PLAN.md            the schedule
 ```
+
+## Rebuilding the website
+
+The site is generated from these Markdown notes into the same house style as
+[nrstatlab/Statistics-Major](https://github.com/nrstatlab/Statistics-Major) —
+`css/styles.css` is adopted from that repository unchanged, so the two sites
+read as one family.
+
+```bash
+pip install -r tools/requirements.txt
+python3 tools/build_site.py
+```
+
+Markdown stays the source of truth: edit `notes/**/*.md`, re-run the build, and
+commit both. `.nojekyll` is present, so Pages serves the generated HTML verbatim
+rather than running Jekyll over it.
 
 ## Regenerating the extracted syllabus
 

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syllabus Review | Data Science Major 2025</title>
+<link rel="stylesheet" href="css/styles.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="banner">
+    <div class="crumbs"><a href="index.html">Home</a> &raquo; Syllabus Review</div>
+    <h1>Syllabus Review — B.Sc. (Hons) Data Science Major, APSCHE AY 2025-26</h1>
+    <p>Eleven findings from checking the official APSCHE document.</p>
+  </div>
+
+<p>A check of the official syllabus document, not a transcription of it. Every
+finding below was verified against
+<a href="docs/syllabus-extracted.md"><code>docs/syllabus-extracted.md</code></a>; page numbers refer to
+the source PDF.</p>
+<p><strong>Read this before you start studying.</strong> Two findings (D1 and D2) name topics that
+are <em>examined but not listed in the syllabus units</em>. If you study only the unit
+lists, you will walk into those questions unprepared.</p>
+<hr />
+<h2>Summary</h2>
+<table class="main-table">
+<thead>
+<tr>
+<th style="text-align: center;">ID</th>
+<th>Finding</th>
+<th>Severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">D1</td>
+<td>Bayes' theorem examined but absent from the units</td>
+<td><strong>High</strong> — affects marks</td>
+</tr>
+<tr>
+<td style="text-align: center;">D2</td>
+<td>Database triggers examined but absent from the units</td>
+<td><strong>High</strong> — affects marks</td>
+</tr>
+<tr>
+<td style="text-align: center;">D3</td>
+<td>Text truncated in three places in the official PDF</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td style="text-align: center;">D4</td>
+<td>Lab question numbering broken in all three DBMS experiments</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D5</td>
+<td>Course 2 Unit 4 title does not match its content</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D6</td>
+<td>Course 3 Unit 4 carries roughly double a normal unit's load</td>
+<td>Medium — affects planning</td>
+</tr>
+<tr>
+<td style="text-align: center;">D7</td>
+<td>Course 3 Unit 5 fuses two unrelated subjects</td>
+<td>Medium — affects planning</td>
+</tr>
+<tr>
+<td style="text-align: center;">D8</td>
+<td>Statistics lab never uses Python, though Python is taught the same semester</td>
+<td>Medium — affects skills</td>
+</tr>
+<tr>
+<td style="text-align: center;">D9</td>
+<td>Conditional formatting duplicated across Course 1 Units 4 and 5</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D10</td>
+<td>Three-semester gap between statistics and its first application</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td style="text-align: center;">D11</td>
+<td>Course 2 activity list has an orphaned entry</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What is <em>not</em> wrong:</strong> the credit arithmetic. Every course is 3 + 1 = 4 credits;
+semester totals are 8, 8, 12, 12, 12, 8 for a <strong>60-credit major</strong>, consistent with
+the structure table on pages 1–2.</p>
+<hr />
+<h2>Findings that affect your marks</h2>
+<h3>D1 — Bayes' theorem is examined but never listed as a topic</h3>
+<p><strong>Page 20</strong> (Course 4, Unit 1) lists the probability topics as: "Concept of
+Uncertainty, Axioms and rules of probability, Conditional probability". Bayes'
+theorem does not appear in Unit 1, or in any other unit of the course.</p>
+<p>But <strong>page 22</strong> (Activities) prescribes: "Classroom Quiz (MCQs &amp; short problems on
+probability, conditional probability, <strong>Bayes</strong>)". And <strong>page 23</strong>, lab experiment
+2, is a fragment reading only "a positive result." — the surviving tail of the
+standard Bayes medical-testing problem ("<em>…given that the test returns a positive
+result</em>").</p>
+<p><strong>Consequence:</strong> a topic that carries assessment weight sits outside the syllabus
+list you would revise from.</p>
+<p><strong>What to do:</strong> study Bayes' theorem as though it were listed in Unit 1. It is
+covered in <a href="notes/sem-2/course-4-statistical-foundations/unit-1.md">Course 4 Unit 1</a>,
+where it is flagged as an off-syllabus-but-examined addition, with the
+reconstructed medical-test problem worked in full.</p>
+<h3>D2 — Database triggers are examined but never listed as a topic</h3>
+<p><strong>Page 25</strong> (Course 5, Unit 5, PL/SQL) lists: "Introduction, Shortcomings of SQL,
+Structure of PL/SQL, PL/SQL Language Elements, Data Types, Operators Precedence,
+Control Structures, Steps to Create a PL/SQL Program, Iterative Control,
+Procedures, Functions." <strong>Triggers are not among them.</strong></p>
+<p>Yet triggers are required in three separate places:</p>
+<ul>
+<li><strong>Page 24</strong>, Course Objective 5: "…incorporating control structures, functions,
+  procedures, and <strong>database triggers</strong>."</li>
+<li><strong>Page 27</strong>, Activities: "Build a PL/SQL-based payroll or student grading system
+  using: Procedures and functions, Control structures (IF, LOOP), <strong>Triggers for
+  automated updates</strong>."</li>
+<li><strong>Page 37</strong>, lab Section E items 5 and 6: "Create a trigger to prevent inserting
+  employees with a salary less than 30,000" and "Create a trigger to avoid any
+  transactions (insert, update, delete) on the EMP table on Saturday &amp; Sunday."</li>
+</ul>
+<p>Note also that Course Outcome 5 (page 24) drops triggers even though the Objective
+names them — so the omission is consistent between the outcome and the unit, and
+inconsistent with the assessment.</p>
+<p><strong>What to do:</strong> study triggers as part of Unit 5. Covered in
+<a href="notes/sem-3/course-5-dbms/unit-5.md">Course 5 Unit 5</a>, with both lab triggers
+written out.</p>
+<hr />
+<h2>Defects in the document</h2>
+<h3>D3 — Truncated text in three places</h3>
+<ol>
+<li><strong>Page 20, Course Outcome 1</strong> reads: "Apply the basic rules of probability,
+   <strong>conditisolve</strong> problems involving uncertainty." Words have been dropped mid-
+   sentence. The intended reading is almost certainly "…probability, conditional
+   probability and Bayes' theorem to solve problems involving uncertainty" — which
+   independently supports <strong>D1</strong>.</li>
+<li><strong>Page 23, lab experiment 2</strong> is just "a positive result." The question stem is
+   gone. Reconstructed in the Course 4 lab notes.</li>
+<li><strong>Page 2, elective note</strong> reads: "students are required to select a pair of
+   electives from one of the TWO specified domains. <strong>is chosen</strong>, courses 12 to 15
+   to be chosen as 12 A, 13 A, 14 A and 15 A." The clause naming the two domains
+   has been lost, so <strong>the domains are never actually named anywhere in the
+   document</strong>. The A/B tracks can be inferred from the course titles (see
+   <a href="syllabus-map.html"><code>SYLLABUS-MAP.md</code></a> §1), but confirm the official names with
+   your department before committing to a track in Year III.</li>
+</ol>
+<h3>D4 — Lab question numbering is broken in all three DBMS experiments</h3>
+<p>Verified by extracting every numbered item:</p>
+<table class="main-table">
+<thead>
+<tr>
+<th>Experiment</th>
+<th style="text-align: center;">Pages</th>
+<th>Missing numbers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — Inventory Management</td>
+<td style="text-align: center;">29</td>
+<td>3, 13, 20, 22</td>
+</tr>
+<tr>
+<td>2 — Online Bookstore</td>
+<td style="text-align: center;">31–32</td>
+<td>12, 19</td>
+</tr>
+<tr>
+<td>3 — Employee DB</td>
+<td style="text-align: center;">36–37</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3 — Section E (PL/SQL)</td>
+<td style="text-align: center;">37</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Some gaps lost their text entirely; others left orphans. PL/SQL item 2 is the
+clearest case — its text survives as a dangling fragment, "If yes, print 'High
+Salary'; Otherwise print 'Standard Salary'", with no question in front of it. The
+intended question is evidently "write a PL/SQL block that checks whether an
+employee's salary exceeds some threshold".</p>
+<p>Section B of Experiment 1 also begins at 4, and items 6 and 8 are cut short
+("Update the stock quantity of" — of what?).</p>
+<p><strong>What to do:</strong> the lab notes renumber cleanly and reconstruct the missing items,
+marking each reconstruction as such so you can tell it from the official text.</p>
+<h3>D5 — Course 2 Unit 4 is titled "Functions" but opens with pointers</h3>
+<p><strong>Page 10.</strong> The unit is headed "Unit 4. Functions:" and its first topics are
+"Pointers: Pointer data type, Pointer declaration, initialization, accessing
+values using pointers. Pointer arithmetic, Pointers and arrays." Functions follow
+<em>after</em> pointers, then storage classes.</p>
+<p>Harmless to the content, but if you revise from unit titles you will not expect
+pointers to be examined under "Functions". The notes cover them in the order
+printed and flag the mismatch.</p>
+<h3>D11 — Orphaned activity in Course 2</h3>
+<p><strong>Page 11.</strong> Every activity in the document follows the pattern <code>Outcome: … /
+Activity: … / Evaluation Method: …</code>. The "Recursive Problem Solver" activity
+appears with no <code>Outcome:</code> heading above it, unlike its four siblings — its
+outcome line was dropped. It maps to Course Outcome 4 (modular code using
+functions, recursion and parameter passing).</p>
+<hr />
+<h2>Design and sequencing issues</h2>
+<h3>D6 — Course 3 Unit 4 carries roughly double the load of a normal unit</h3>
+<p><strong>Page 15.</strong> Unit 4 is "File Handling, Exception Handling &amp; Object Oriented
+Programming" and contains:</p>
+<ul>
+<li>file types, paths, open/close, read/write, CSV, <code>os</code>/<code>pathlib</code></li>
+<li>syntax errors, built-in exceptions, <code>try-except</code>, <code>raise</code>, user-defined
+  exceptions, assertions</li>
+<li>classes, objects, attributes, methods, constructors, destructors</li>
+<li>encapsulation with private and public members</li>
+<li>inheritance — single, multilevel <strong>and</strong> multiple — plus method overriding</li>
+</ul>
+<p>That is three teachable units compressed into one. OOP alone is normally a full
+unit. Compare Unit 1, which covers only literals, variables and operators.</p>
+<p><strong>What to do:</strong> budget roughly twice the study time for Unit 4 as for Unit 1. The
+<a href="study-plan.html">study plan</a> already does this, splitting it across three weeks.</p>
+<h3>D7 — Course 3 Unit 5 fuses two unrelated subjects</h3>
+<p><strong>Pages 15–16.</strong> Unit 5 is "Abstract Data Structures and GUI Programming" —
+linked lists, stacks, queues and priority queues, <em>and</em> Tkinter widgets and event
+handling. These share nothing conceptually. Data structures are algorithmic and
+carry the exam weight; Tkinter is applied and carries the lab weight (2 of the 18
+lab programs).</p>
+<p><strong>What to do:</strong> treat them as two separate topics. The notes split
+<code>unit-5.md</code> into two clearly divided halves.</p>
+<h3>D8 — The statistics lab never touches Python</h3>
+<p><strong>Page 23.</strong> Course 4's lab is headed "Advanced Spreadsheets/Excel Lab/PSPP Open
+Source", and all 15 experiments are spreadsheet exercises — <code>NORM.DIST</code>,
+<code>NORM.INV</code>, <code>EXPON.DIST</code>, the Data Analysis ToolPak, the Regression tool.</p>
+<p>Meanwhile Course 3 teaches Python <strong>in the same semester</strong>. The two courses never
+meet. Python-based data analysis waits until Semester IV, Course 9 ("Python for
+Data Analysis and Visualization").</p>
+<p>This is defensible pedagogically — a spreadsheet makes the arithmetic of variance
+or a t-test visible in a way <code>scipy.stats.ttest_ind()</code> does not. But it means you
+finish Semester II able to compute a regression in Excel and not in the language
+you just spent a semester learning.</p>
+<p><strong>What to do:</strong> do each experiment <strong>twice</strong> — once in Excel exactly as prescribed
+(that is what the exam tests) and once in Python (that is what the degree is for).
+The Course 4 lab notes give both versions of all 15.</p>
+<h3>D9 — Conditional formatting appears twice in Course 1</h3>
+<p><strong>Page 4.</strong> Unit 4 lists "Data Handling: Sorting, filtering, <strong>conditional
+formatting</strong>". Unit 5 then opens with "<strong>Conditional Formatting</strong>: Custom rules,
+Color scales, Icon sets, Data bars" as a headline topic. Minor, but worth knowing
+that Unit 5's treatment is the substantive one.</p>
+<h3>D10 — Three-semester gap between statistics and its first real application</h3>
+<p>Regression, correlation and hypothesis testing are taught in <strong>Semester II</strong>
+(Course 4). Their first genuine application is Data Mining in <strong>Semester IV</strong>, and
+Machine Learning is a Year III elective in <strong>Semester V</strong> — three semesters after
+the theory.</p>
+<p>Statistical intuition decays without use. The <a href="study-plan.html">study plan</a>
+schedules a short Course 4 refresher before Semester IV begins, so Data Mining
+does not start with re-learning what a p-value is.</p>
+<hr />
+<h2>Verification notes for this repository</h2>
+<p>The lab code in <a href="labs"><code>labs/</code></a> was checked as follows:</p>
+<table class="main-table">
+<thead>
+<tr>
+<th>Language</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C (15 programs)</td>
+<td><strong>Compiled and run.</strong> <code>gcc -Wall -Wextra</code>, no warnings, output verified against expected results.</td>
+</tr>
+<tr>
+<td>Python (16 of 18)</td>
+<td><strong>Run.</strong> Python 3.11.</td>
+</tr>
+<tr>
+<td>Python — Tkinter (2 programs)</td>
+<td><strong>Syntax-checked only.</strong> <code>tkinter</code> is not installed in this environment, so <code>python3 -m py_compile</code> is the strongest check available. Marked in the files.</td>
+</tr>
+<tr>
+<td>SQL — DDL/DML/queries</td>
+<td><strong>Executed</strong> against SQLite via <code>tools/run_sql_labs.py</code>, with schema and the official sample data loaded.</td>
+</tr>
+<tr>
+<td>PL/SQL (procedures, functions, triggers)</td>
+<td><strong>Desk-checked only, not executed.</strong> The syllabus targets Oracle PL/SQL; SQLite cannot run it and no Oracle instance is available here. These blocks are written to Oracle syntax and reviewed by hand — verify them on your college's Oracle installation.</td>
+</tr>
+<tr>
+<td>Excel/PSPP walkthroughs</td>
+<td><strong>Not executable.</strong> Written as step-by-step instructions with exact formulas; the Python equivalents of the same 15 experiments are provided and were run.</td>
+</tr>
+</tbody>
+</table>
+
+  <div class="page-nav">
+    <a href="index.html">← Home</a>
+  </div>
+
+  <footer>APSCHE Model Syllabus for B.Sc. (Data Science) Major, AY&nbsp;2025-26</footer>
+</div>
+
+</body>
+</html>
