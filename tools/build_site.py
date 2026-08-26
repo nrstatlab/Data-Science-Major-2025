@@ -264,6 +264,45 @@ COURSES = [
              "manipulation, events, effects, chaining and AJAX."),
         ],
     },
+    {
+        "slug": "data-mining",
+        "src": "notes/sem-4/course-8-data-mining",
+        "number": 8, "year": "II", "sem": "IV",
+        "title": "Data Mining",
+        "tagline": "Warehousing and OLAP, preprocessing, association rules, "
+                   "classification and clustering \u2014 the algorithmic core.",
+        "blurb": "5 Units + Lab \u2022 Star schemas and OLAP, preprocessing, "
+                 "Apriori and FP-Growth, ID3/C4.5/CART, K-Means and DBSCAN.",
+        "units": [
+            ("Data Warehousing and OLAP",
+             "Inmon\u2019s four characteristics; OLTP versus OLAP; three-tier "
+             "architecture and ETL; the multidimensional model; fact and "
+             "dimension tables; star, snowflake and fact constellation "
+             "schemas; the cube and the five OLAP operations."),
+            ("Data Mining and Preprocessing",
+             "Definitions and the KDD process; predictive versus descriptive "
+             "tasks; cleaning, missing data and noise; the curse of "
+             "dimensionality and PCA; feature subset selection; "
+             "discretization and binarization; normalisation; similarity and "
+             "dissimilarity measures; issues, ethics and applications."),
+            ("Association Analysis",
+             "Support, confidence and lift; why confidence alone misleads; "
+             "the Apriori principle and algorithm; rule generation; "
+             "Partition, Pincer-Search and Dynamic Itemset Counting; the "
+             "FP-tree and FP-Growth; generalized rules and item constraints."),
+            ("Classification",
+             "Decision trees and the best split; entropy, information gain, "
+             "gain ratio and Gini; ID3, C4.5 and CART; overfitting and "
+             "pruning; the confusion matrix, precision, recall, F1, ROC and "
+             "AUC; rule-based classifiers; k-nearest neighbour; Na\u00efve "
+             "Bayes and Laplace smoothing."),
+            ("Clustering Techniques",
+             "Clustering paradigms and validity measures; K-Means and its "
+             "five weaknesses; K-Medoids and PAM; agglomerative clustering "
+             "and linkage criteria; DBSCAN; BIRCH and the CF-tree; "
+             "categorical clustering with STIRR, ROCK and CACTUS."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {

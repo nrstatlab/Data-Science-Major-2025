@@ -171,6 +171,31 @@ COVERAGE = {
         "creating and accessing nested json", "nested", "reading", "writing", "jquery", "selector",
         "filter", "dom manipulation", "event handling", "animation",
         "effect", "chaining"],
+
+    # ---- Semester IV, Course 8: Data Mining (Sem3-4 PDF, pages 11-12)
+    "notes/sem-4/course-8-data-mining/unit-1.md": [
+        "data warehouse", "database systems", "characteristic",
+        "architecture", "component", "data modeling", "star schema",
+        "star", "snow", "fact constellation", "fact table", "olap cube",
+        "olap operation"],
+    "notes/sem-4/course-8-data-mining/unit-2.md": [
+        "what data mining is", "kdd", "data mining task", "data cleaning",
+        "missing data", "dimensionality reduction", "feature subset selection",
+        "discretization", "binarization", "data transformation",
+        "similarity", "dissimilarity", "issues", "challenge", "application",
+        "case stud"],
+    "notes/sem-4/course-8-data-mining/unit-3.md": [
+        "association rule", "two-step process", "apriori", "partition",
+        "pincer", "dynamic itemset counting", "fp-tree", "growth",
+        "generalized association", "item constraint"],
+    "notes/sem-4/course-8-data-mining/unit-4.md": [
+        "decision tree", "tree construction", "best split", "splitting indices",
+        "splitting criterion", "cart", "id3", "c4.5", "comparing classifiers",
+        "rule-based", "nearest neighbour", "bayesian"],
+    "notes/sem-4/course-8-data-mining/unit-5.md": [
+        "clustering paradigm", "partitioning", "k-means", "k-medoid",
+        "hierarchical", "dbscan", "birch", "categorical clustering",
+        "stirr", "rock", "cactus"],
 }
 
 
