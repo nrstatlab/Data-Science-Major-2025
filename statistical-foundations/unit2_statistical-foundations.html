@@ -36,17 +36,23 @@ expectation (mean), variance and standard deviation. Moments and
 moment-generating functions.</p>
 <hr />
 <h2>2.1 Random variables</h2>
-<h3>🎯 The big idea</h3>
+<div class="concept">
+<p><span class="label">THE BIG IDEA</span></p>
 <p>A random variable is a rule that attaches a <strong>number</strong> to each outcome of a
 random experiment. It turns "heads, heads, tails" into "2 heads", so you can do
 arithmetic with chance.</p>
-<h3>📖 The story</h3>
+</div>
+<div class="tip">
+<p><span class="label">STORY</span></p>
 <p>You toss a coin three times. The outcomes are things like HHT and THH — not
 numbers, so you cannot average them. But if you count the heads, every outcome
 becomes a number: 0, 1, 2 or 3. Now you can ask "on average, how many heads?"
 That counting rule is a random variable, and it is what makes probability
 computable.</p>
-<h3>🔢 Formally</h3>
+</div>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
+<h4>Formally</h4>
 <p>A random variable X is a function from the sample space to the real numbers.</p>
 <p><strong>Sample space for three coin tosses (8 outcomes):</strong></p>
 <table class="main-table">
@@ -100,6 +106,7 @@ computable.</p>
 </table>
 <p>That table is the <strong>probability distribution</strong> of X. Notice the probabilities
 sum to 1 — always check this first; if they do not, something is wrong.</p>
+</div>
 <h3>Discrete vs continuous</h3>
 <table class="main-table">
 <thead>
@@ -137,22 +144,27 @@ sum to 1 — always check this first; if they do not, something is wrong.</p>
 </tr>
 </tbody>
 </table>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Why is P(X = a) zero for a continuous variable?</strong> Ask for the probability
 that someone is <em>exactly</em> 170.000000… cm tall, to infinite precision. There are
 infinitely many possible heights, so any single one has probability zero. Only
 <em>intervals</em> have positive probability: P(169.5 &lt; X &lt; 170.5) is a sensible
 question.</p>
+</div>
 <p>A useful consequence: for continuous variables <strong>P(X ≤ a) = P(X &lt; a)</strong>, because
 the endpoint contributes nothing. For discrete variables they differ, and
 mixing them up is a common error.</p>
 <h2>2.2 PMF, PDF and CDF</h2>
 <h3>Probability mass function (PMF) — discrete</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>p(x) = P(X = x)</strong></p>
 </div>
 <p>Properties: p(x) ≥ 0 for all x, and Σ p(x) = 1.</p>
 <h3>Probability density function (PDF) — continuous</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>P(a ≤ X ≤ b) = ∫ₐᵇ f(x) dx</strong></p>
 </div>
 <p>Properties: f(x) ≥ 0, and ∫ over all x of f(x) dx = 1.</p>
@@ -160,7 +172,8 @@ mixing them up is a common error.</p>
 and it can exceed 1. Probability is the <strong>area under</strong> the curve, not the
 height of it. This is worth stating explicitly in an exam answer.</p>
 <h3>Cumulative distribution function (CDF)</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>F(x) = P(X ≤ x)</strong></p>
 </div>
 <p>The CDF works for both kinds of variable, which is why it matters.</p>
@@ -175,7 +188,9 @@ height of it. This is worth stating explicitly in an exam answer.</p>
 <li>P(a &lt; X ≤ b) = F(b) − F(a)</li>
 <li>For continuous X, f(x) = dF(x)/dx — the PDF is the derivative of the CDF</li>
 </ol>
-<p><strong>Worked example.</strong> For the coin-toss variable above:</p>
+<div class="example">
+<p><span class="label">WORKED EXAMPLE</span></p>
+<p>For the coin-toss variable above:</p>
 <table class="main-table">
 <thead>
 <tr>
@@ -204,11 +219,15 @@ height of it. This is worth stating explicitly in an exam answer.</p>
 </tbody>
 </table>
 <p>So P(X ≤ 2) = 7/8, and P(1 &lt; X ≤ 3) = F(3) − F(1) = 1 − 4/8 = <strong>4/8</strong>.</p>
+</div>
 <h2>2.3 Mathematical expectation</h2>
-<h3>🎯 The big idea</h3>
+<div class="concept">
+<p><span class="label">THE BIG IDEA</span></p>
 <p>The expected value is the long-run average — what you would get per trial if
 you repeated the experiment an enormous number of times.</p>
-<h3>📖 The story</h3>
+</div>
+<div class="tip">
+<p><span class="label">STORY</span></p>
 <p>A carnival game costs ₹10 to play. You roll a die and win ₹60 if you get a six,
 nothing otherwise. Is it worth playing?</p>
 <p>Your expected winnings are 60 × (1/6) = ₹10. The game costs ₹10. So on average
@@ -216,11 +235,11 @@ you break exactly even — play a thousand times and you finish roughly where yo
 started. Now suppose the prize is ₹50: expected winnings ₹8.33 against a ₹10
 cost, so you lose ₹1.67 per play on average. That is how every casino, lottery
 and insurance company is designed.</p>
-<h3>🔢 The formula</h3>
-<div class="tip"><span class="label">NOTE</span>
+</div>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>Discrete: E(X) = Σ xᵢ · p(xᵢ)</strong>
 <strong>Continuous: E(X) = ∫ x · f(x) dx</strong></p>
-</div>
 <p>In plain English: multiply each value by its probability, then add everything
 up. It is a <strong>weighted average</strong>, where the weights are the probabilities.</p>
 <p><strong>Worked example.</strong> X = number of heads in three tosses.</p>
@@ -261,11 +280,14 @@ up. It is a <strong>weighted average</strong>, where the weights are the probabi
 </tbody>
 </table>
 <p>E(X) = <strong>1.5 heads</strong>.</p>
-<h3>💡 The "aha!" moment</h3>
+</div>
+<div class="tip">
+<p><span class="label">KEY INSIGHT</span></p>
 <p>You can never actually get 1.5 heads. The expected value need not be a possible
 outcome at all — it is the <strong>balance point</strong> of the distribution, the place
 where the probability weights would sit level on a see-saw. "Expected" is a
 technical term, not a prediction of what will happen.</p>
+</div>
 <h3>Properties of expectation</h3>
 <table class="main-table">
 <thead>
@@ -300,15 +322,19 @@ technical term, not a prediction of what will happen.</p>
 <p>Linearity holding regardless of independence is genuinely useful and often
 tested.</p>
 <h2>2.4 Variance and standard deviation</h2>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>Var(X) = E[(X − μ)²]</strong></p>
 <p><strong>Shortcut: Var(X) = E(X²) − [E(X)]²</strong></p>
 </div>
 <p>The shortcut is faster in every exam. Use it.</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>SD(X) = σ = √Var(X)</strong></p>
 </div>
-<p><strong>Worked example</strong>, continuing with the coin tosses:</p>
+<div class="example">
+<p><span class="label">WORKED EXAMPLE</span></p>
+<p>, continuing with the coin tosses:</p>
 <table class="main-table">
 <thead>
 <tr>
@@ -358,6 +384,7 @@ tested.</p>
 <li>SD(X) = √0.75 = <strong>0.866</strong></li>
 </ul>
 <p><em>Check against the binomial formula</em> (Unit 3): np(1−p) = 3 × 0.5 × 0.5 = 0.75 ✓</p>
+</div>
 <h3>Properties of variance</h3>
 <table class="main-table">
 <thead>
@@ -391,16 +418,22 @@ tested.</p>
 </table>
 <p>Two of these are examined constantly:</p>
 <ul>
-<li><strong>Adding a constant does not change the variance.</strong> Shift every mark up by 5
-  and the spread is identical — everyone moved together.</li>
-<li><strong>Scaling multiplies the variance by a².</strong> Double every value and the
-  variance quadruples, because variance is in <em>squared</em> units.</li>
+<li>
+<p><strong>Adding a constant does not change the variance.</strong> Shift every mark up by 5
+  and the spread is identical — everyone moved together.</p>
+</li>
+<li>
+<p><strong>Scaling multiplies the variance by a².</strong> Double every value and the
+  variance quadruples, because variance is in <em>squared</em> units.</p>
+</li>
 </ul>
 <h2>2.5 Moments</h2>
-<h3>🎯 The big idea</h3>
+<div class="concept">
+<p><span class="label">THE BIG IDEA</span></p>
 <p>Moments are a family of numbers that describe a distribution's shape —
 successively capturing where it sits, how wide it is, how lopsided, and how
 heavy-tailed.</p>
+</div>
 <h3>The rth moment</h3>
 <p><strong>About the origin:</strong>  μ′ᵣ = E(Xʳ)
 <strong>About the mean (central):</strong>  μᵣ = E[(X − μ)ʳ]</p>
@@ -493,37 +526,49 @@ heavy-tailed.</p>
 <p>A memory aid: <strong>lepto</strong>kurtic <em>leaps</em> up (tall and peaked); <strong>platy</strong>kurtic is
 <em>plateau</em>-like (flat).</p>
 <h2>2.6 Moment-generating function (MGF)</h2>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>Mₓ(t) = E(e^tX)</strong></p>
 </div>
 <p>The trick that makes it useful: <strong>differentiate and set t = 0</strong> to extract each
 moment.</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>μ′ᵣ = d^r Mₓ(t)/dt^r evaluated at t = 0</strong></p>
 </div>
-<p>So:
-- M′(0) = E(X) — the mean
-- M″(0) = E(X²), from which Var(X) = M″(0) − [M′(0)]²</p>
-<p><strong>Worked example.</strong> For X ~ Binomial(n, p), Mₓ(t) = (q + peᵗ)ⁿ where q = 1−p.</p>
+<p>So:</p>
+<ul>
+<li>M′(0) = E(X) — the mean</li>
+<li>M″(0) = E(X²), from which Var(X) = M″(0) − [M′(0)]²</li>
+</ul>
+<div class="example">
+<p><span class="label">WORKED EXAMPLE</span></p>
+<p>For X ~ Binomial(n, p), Mₓ(t) = (q + peᵗ)ⁿ where q = 1−p.</p>
 <ul>
 <li>M′(t) = n(q + peᵗ)ⁿ⁻¹ · peᵗ</li>
 <li>At t = 0: eᵗ = 1 and q + p = 1, so M′(0) = n · 1ⁿ⁻¹ · p = <strong>np</strong> ✓</li>
 </ul>
 <p>That is the binomial mean, obtained without summing an infinite series.</p>
+</div>
 <h3>Why the MGF matters</h3>
 <ol>
 <li><strong>It generates all moments</strong> by differentiation — no messy summation</li>
-<li><strong>It uniquely determines the distribution</strong> — if two variables have the same
-   MGF, they have the same distribution</li>
-<li><strong>Sums become products</strong>: if X and Y are independent,
+<li>
+<p><strong>It uniquely determines the distribution</strong> — if two variables have the same
+   MGF, they have the same distribution</p>
+</li>
+<li>
+<p><strong>Sums become products</strong>: if X and Y are independent,
    M_{X+Y}(t) = Mₓ(t) · M_y(t). This is how you prove that the sum of two
-   independent Poisson variables is Poisson.</li>
+   independent Poisson variables is Poisson.</p>
+</li>
 </ol>
 <p>The MGF does not always exist (the Cauchy distribution has none), which is why
 the characteristic function E(e^{itX}) is used in more advanced work.</p>
 <hr />
 <h2>📝 Practice problems</h2>
-<h3>Problem 1</h3>
+<div class="example">
+<p><span class="label">PROBLEM 1</span></p>
 <p>A random variable X has the distribution:</p>
 <table class="main-table">
 <thead>
@@ -604,7 +649,9 @@ the characteristic function E(e^{itX}) is used in more advanced work.</p>
 <li>Step 5 — Var(X) = 8.1 − (2.7)² = 8.1 − 7.29 = <strong>0.81</strong></li>
 <li>Step 6 — SD(X) = √0.81 = <strong>0.9</strong></li>
 </ul>
-<h3>Problem 2</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 2</span></p>
 <p>If E(X) = 5 and Var(X) = 4, find E(3X + 2) and Var(3X + 2).</p>
 <p><strong>Solution.</strong></p>
 <ul>
@@ -613,7 +660,9 @@ the characteristic function E(e^{itX}) is used in more advanced work.</p>
 </ul>
 <p>The constant vanishes from the variance because adding 2 to every value moves
 the whole distribution without changing its width.</p>
-<h3>Problem 3</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 3</span></p>
 <p>A continuous random variable has PDF f(x) = 3x² for 0 ≤ x ≤ 1, and 0 elsewhere.
 Verify it is a valid PDF, then find E(X) and P(X ≤ 0.5).</p>
 <p><strong>Solution.</strong></p>
@@ -633,6 +682,7 @@ Verify it is a valid PDF, then find E(X) and P(X ≤ 0.5).</p>
 </ul>
 <p>Note the mean is 0.75, well right of the midpoint 0.5 — the density 3x² puts
 far more weight near 1 than near 0.</p>
+</div>
 <hr />
 <h2>Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
@@ -652,12 +702,18 @@ far more weight near 1 than near 0.</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain random variables in full — types, PMF/PDF, CDF, expectation and
-   variance — with worked examples.</li>
-<li>Explain the moment-generating function, its properties, and use it to derive
-   the mean and variance of the binomial distribution.</li>
+<li>
+<p>Explain random variables in full — types, PMF/PDF, CDF, expectation and
+   variance — with worked examples.</p>
+</li>
+<li>
+<p>Explain the moment-generating function, its properties, and use it to derive
+   the mean and variance of the binomial distribution.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Forgetting to check that probabilities sum to 1</li>
 <li>Treating f(x) as a probability rather than a density</li>
@@ -667,6 +723,7 @@ far more weight near 1 than near 0.</p>
 <li>Assuming E(XY) = E(X)E(Y) without independence</li>
 <li>Using E(X²) = [E(X)]² — they are equal only when the variance is zero</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_statistical-foundations.html">← Course home</a>

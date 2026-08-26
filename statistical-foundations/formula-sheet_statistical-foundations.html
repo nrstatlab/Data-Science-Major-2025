@@ -64,7 +64,8 @@ week before the exam. Each section links back to the unit that explains it.</p>
 </tbody>
 </table>
 <h3>Bayes' theorem <em>(examined but not in the syllabus — finding <span class="finding">D1</span>)</em></h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>P(A|B) = P(B|A) · P(A) / P(B)</strong></p>
 <p><strong>P(B) = P(B|A)·P(A) + P(B|A′)·P(A′)</strong>   <em>(law of total probability)</em></p>
 </div>
@@ -174,7 +175,8 @@ This is the most common arithmetic error in the course.</p>
 </tbody>
 </table>
 <h3>Variance</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>Var(X) = E[(X − μ)²] = E(X²) − [E(X)]²</strong>   ← use the shortcut
 <strong>SD(X) = √Var(X)</strong></p>
 </div>
@@ -318,7 +320,8 @@ This is the most common arithmetic error in the course.</p>
 </tbody>
 </table>
 <h3>Normal distribution essentials</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>z = (x − μ) / σ</strong></p>
 </div>
 <table class="main-table">
@@ -352,7 +355,8 @@ This is the most common arithmetic error in the course.</p>
 <li>Independent when <strong>p(x, y) = p(x)·p(y)</strong> for every pair</li>
 </ul>
 <h3>Central Limit Theorem</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p>Mean of x̄ = <strong>μ</strong> · Standard error = <strong>σ/√n</strong> · Shape → normal as n grows
 Rule of thumb: <strong>n ≥ 30</strong></p>
 </div>
@@ -416,10 +420,12 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 </tr>
 </tbody>
 </table>
-<p><strong>Checks that catch arithmetic errors:</strong>
-- Σ(x − x̄) = 0 and Σ(y − ȳ) = 0 always
-- Residuals sum to zero
-- For <strong>simple</strong> regression: <strong>R² = r²</strong> and <strong>t² = F</strong></p>
+<p><strong>Checks that catch arithmetic errors:</strong></p>
+<ul>
+<li>Σ(x − x̄) = 0 and Σ(y − ȳ) = 0 always</li>
+<li>Residuals sum to zero</li>
+<li>For <strong>simple</strong> regression: <strong>R² = r²</strong> and <strong>t² = F</strong></li>
+</ul>
 <h3>Regression ANOVA</h3>
 <table class="main-table">
 <thead>
@@ -458,7 +464,8 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 <hr />
 <h2>Unit 5 — Inference and hypothesis testing</h2>
 <h3>Confidence intervals</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p><strong>σ known:  x̄ ± z(α/2)·σ/√n</strong>
 <strong>σ unknown: x̄ ± t(α/2, n−1)·s/√n</strong></p>
 </div>
@@ -683,7 +690,8 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 </tr>
 </tbody>
 </table>
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p>These table values were used to verify
 <a href="../labs/course-4-stats/python/statlib.py"><code>statlib.py</code></a> — all 23 checks
 in <a href="../labs/course-4-stats/python/test_statlib.py"><code>test_statlib.py</code></a>

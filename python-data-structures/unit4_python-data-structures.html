@@ -40,7 +40,8 @@ classes, objects, attributes, methods, constructors and destructors.
 Encapsulation — private and public members. Inheritance — single, multilevel,
 multiple, method overriding.</p>
 <hr />
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p><strong>This unit is overloaded.</strong> It contains what would normally be three units:
 file handling, exception handling, and the whole of object-oriented
 programming. Compare Unit 1, which covers only literals and operators. See
@@ -190,8 +191,11 @@ your code works on Windows too.</p>
 <hr />
 <h1>Part B — Exception Handling</h1>
 <h2>B.1 Syntax errors vs exceptions</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>syntax error</strong> is caught before the program runs — the code is not valid
 Python and nothing executes:</p>
+</div>
 <pre><code class="language-python">if x &gt; 5          # SyntaxError: missing colon
 </code></pre>
 <p>An <strong>exception</strong> occurs <em>during</em> execution, in code that is syntactically fine:</p>
@@ -354,8 +358,11 @@ assertion for anything security- or correctness-critical at runtime.</p>
 <hr />
 <h1>Part C — Object-Oriented Programming</h1>
 <h2>C.1 Classes and objects</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>class</strong> is a blueprint; an <strong>object</strong> is an instance built from it. One
 <code>Student</code> class, many student objects.</p>
+</div>
 <pre><code class="language-python">class Student:
     college = &quot;Adikavi Nannaya University&quot;      # CLASS attribute -- shared
 
@@ -587,13 +594,19 @@ quacks like a duck, treat it as a duck."</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain exception handling in Python fully — built-in exceptions, <code>try</code>,
-   <code>except</code>, <code>else</code>, <code>finally</code>, <code>raise</code>, user-defined exceptions and assertions.</li>
-<li>Explain the types of inheritance with programs for each, and explain the MRO.</li>
+<li>
+<p>Explain exception handling in Python fully — built-in exceptions, <code>try</code>,
+   <code>except</code>, <code>else</code>, <code>finally</code>, <code>raise</code>, user-defined exceptions and assertions.</p>
+</li>
+<li>
+<p>Explain the types of inheritance with programs for each, and explain the MRO.</p>
+</li>
 <li>Explain classes, objects, constructors, destructors and encapsulation with a
    complete program.</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Forgetting <code>self</code> in a method definition or when accessing an attribute</li>
 <li>Forgetting to call <code>super().__init__()</code> in a child's constructor</li>
@@ -605,6 +618,7 @@ quacks like a duck, treat it as a duck."</p>
 <li>Claiming Python supports method overloading</li>
 <li>Believing <code>__private</code> is genuinely inaccessible</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_python-data-structures.html">← Course home</a>

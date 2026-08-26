@@ -212,21 +212,37 @@ all. Be ready to explain why in the viva.</p>
 <hr />
 <h2>Lab exam tips</h2>
 <ol>
-<li><strong><code>SET SERVEROUTPUT ON</code> before any PL/SQL.</strong> Without it <code>DBMS_OUTPUT</code>
+<li>
+<p><strong><code>SET SERVEROUTPUT ON</code> before any PL/SQL.</strong> Without it <code>DBMS_OUTPUT</code>
    produces nothing and the code looks broken when it is not. This is the most
-   common lab-exam failure.</li>
-<li><strong>End PL/SQL blocks with <code>/</code></strong> on its own line.</li>
-<li><strong>Create the tables and insert the sample data first</strong>, then test each query.
-   A query cannot be marked if the schema does not exist.</li>
-<li><strong>Test constraints deliberately.</strong> Try the negative salary and show that it
-   is rejected — examiners give marks for demonstrating that a constraint works.</li>
-<li><strong>Format your output.</strong> Use column aliases (<code>AS headcount</code>) and <code>ORDER BY</code>.
-   A readable result reads as a correct one.</li>
-<li><strong>Comment each query</strong> with the question number it answers.</li>
-<li><strong>Watch the dialect.</strong> Confirm whether your lab uses Oracle, MySQL or
-   PostgreSQL before writing date functions or row limits.</li>
-<li><strong>Expect a viva.</strong> "Why a <code>LEFT JOIN</code> here?", "what happens if I drop this
-   constraint?", "why is this trigger <code>BEFORE</code> and not <code>AFTER</code>?"</li>
+   common lab-exam failure.</p>
+</li>
+<li>
+<p><strong>End PL/SQL blocks with <code>/</code></strong> on its own line.</p>
+</li>
+<li>
+<p><strong>Create the tables and insert the sample data first</strong>, then test each query.
+   A query cannot be marked if the schema does not exist.</p>
+</li>
+<li>
+<p><strong>Test constraints deliberately.</strong> Try the negative salary and show that it
+   is rejected — examiners give marks for demonstrating that a constraint works.</p>
+</li>
+<li>
+<p><strong>Format your output.</strong> Use column aliases (<code>AS headcount</code>) and <code>ORDER BY</code>.
+   A readable result reads as a correct one.</p>
+</li>
+<li>
+<p><strong>Comment each query</strong> with the question number it answers.</p>
+</li>
+<li>
+<p><strong>Watch the dialect.</strong> Confirm whether your lab uses Oracle, MySQL or
+   PostgreSQL before writing date functions or row limits.</p>
+</li>
+<li>
+<p><strong>Expect a viva.</strong> "Why a <code>LEFT JOIN</code> here?", "what happens if I drop this
+   constraint?", "why is this trigger <code>BEFORE</code> and not <code>AFTER</code>?"</p>
+</li>
 </ol>
 
   <div class="page-nav">

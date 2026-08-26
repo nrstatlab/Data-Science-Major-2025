@@ -139,9 +139,12 @@ compute addresses.</p>
 <pre><code>base + ((i × number_of_columns) + j) × sizeof(type)
 </code></pre>
 <p>For <code>m[1][2]</code>: 2000 + ((1 × 3) + 2) × 4 = 2000 + 20 = 2020. ✓</p>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Why it matters:</strong> looping row-first is faster than column-first, because
 consecutive reads land in adjacent memory and the CPU cache fetches them
 together. That is a real performance effect you will meet again in NumPy.</p>
+</div>
 <p>(FORTRAN uses column-major, which is why NumPy has an <code>order='F'</code> option. Not
 examinable, but it explains the flag.)</p>
 <h3>Matrix operations</h3>
@@ -362,18 +365,28 @@ int my_strcmp(const char *a, const char *b)
 <p><strong>Five marks</strong></p>
 <ol>
 <li>Explain the memory representation of a one-dimensional array with an example.</li>
-<li>Explain row-major order and calculate the address of <code>a[2][3]</code> given a base
-   address of 1000 for <code>int a[4][5]</code>.</li>
-<li>Explain any five string handling functions with examples.</li>
+<li>
+<p>Explain row-major order and calculate the address of <code>a[2][3]</code> given a base
+   address of 1000 for <code>int a[4][5]</code>.</p>
+</li>
+<li>
+<p>Explain any five string handling functions with examples.</p>
+</li>
 <li>Write a program to find the largest and smallest elements of an array.</li>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain 1-D and 2-D arrays with declaration, initialization and memory
-   representation.</li>
-<li>Write a program to multiply two matrices and explain the logic.</li>
+<li>
+<p>Explain 1-D and 2-D arrays with declaration, initialization and memory
+   representation.</p>
+</li>
+<li>
+<p>Write a program to multiply two matrices and explain the logic.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Looping <code>i &lt;= n</code> instead of <code>i &lt; n</code> — reads one element past the end</li>
 <li>Forgetting <code>'\0'</code> when building a string by hand</li>
@@ -384,6 +397,7 @@ int my_strcmp(const char *a, const char *b)
 <li>Using <code>strrev</code>, <code>strlwr</code> or <code>strupr</code> and finding they do not exist in GCC —
   they are Turbo C extensions, not standard C</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_problem-solving-c.html">← Course home</a>

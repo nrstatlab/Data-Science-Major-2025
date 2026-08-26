@@ -215,9 +215,12 @@ HLOOKUP      =HLOOKUP($F$2, $A$1:$Z$5, 3, FALSE)        (for row-oriented data)
 XLOOKUP      =XLOOKUP($F$2, $B$2:$B$50, $D$2:$D$50, &quot;Not found&quot;)
 INDEX+MATCH  =INDEX($D$2:$D$50, MATCH($F$2, $B$2:$B$50, 0))
 </code></pre>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>The point of doing all four</strong> is to see the differences: VLOOKUP cannot look
 left and breaks when a column is inserted; XLOOKUP does neither; INDEX+MATCH
 matches XLOOKUP's flexibility and works in every Excel version.</p>
+</div>
 <p>Be ready to explain that in the viva — it is the obvious question.</p>
 <h3>11 — Sales report with pivot tables</h3>
 <p>Dataset: Product, Region, Date, Quantity, Revenue.</p>
@@ -279,9 +282,13 @@ the resulting savings for each.</p>
 <h3>14 — Dashboard</h3>
 <p>The capstone. Combine everything:</p>
 <ol>
-<li><strong>Combo chart</strong> — revenue as columns, growth percentage as a line on a
-   <strong>secondary axis</strong></li>
-<li><strong>Sparklines</strong> — a trend line beside each product row</li>
+<li>
+<p><strong>Combo chart</strong> — revenue as columns, growth percentage as a line on a
+   <strong>secondary axis</strong></p>
+</li>
+<li>
+<p><strong>Sparklines</strong> — a trend line beside each product row</p>
+</li>
 <li><strong>Slicers</strong> connected to every pivot table</li>
 <li><strong>KPI cells</strong> at the top: total, growth, best product, average</li>
 <li><strong>Tidy up:</strong> hide gridlines (View → uncheck Gridlines), hide the working
@@ -294,17 +301,29 @@ the first thing an examiner will check.</p>
 <h2>Lab exam tips</h2>
 <ol>
 <li><strong>Save constantly</strong>, under a filename containing your roll number.</li>
-<li><strong>Show your formulas.</strong> Press <strong>Ctrl + `</strong> to display them all; examiners
-   often ask for this.</li>
-<li><strong>Format properly.</strong> Currency for money, borders on tables, sensible column
-   widths. Marks are given for presentation.</li>
-<li><strong>Label your charts.</strong> Title, axis titles, legend.</li>
-<li><strong>Use absolute references</strong> where a formula will be copied — and be able to
-   explain why.</li>
-<li><strong>Test the edge cases</strong> yourself: a blank cell, a zero, a value not in the
-   lookup table.</li>
-<li><strong>Expect a viva.</strong> "Why <code>FALSE</code> in that VLOOKUP?", "what happens if I change
-   this cell?", "why is that reference <code>$C2</code> and not <code>$C$2</code>?"</li>
+<li>
+<p><strong>Show your formulas.</strong> Press <strong>Ctrl + `</strong> to display them all; examiners
+   often ask for this.</p>
+</li>
+<li>
+<p><strong>Format properly.</strong> Currency for money, borders on tables, sensible column
+   widths. Marks are given for presentation.</p>
+</li>
+<li>
+<p><strong>Label your charts.</strong> Title, axis titles, legend.</p>
+</li>
+<li>
+<p><strong>Use absolute references</strong> where a formula will be copied — and be able to
+   explain why.</p>
+</li>
+<li>
+<p><strong>Test the edge cases</strong> yourself: a blank cell, a zero, a value not in the
+   lookup table.</p>
+</li>
+<li>
+<p><strong>Expect a viva.</strong> "Why <code>FALSE</code> in that VLOOKUP?", "what happens if I change
+   this cell?", "why is that reference <code>$C2</code> and not <code>$C$2</code>?"</p>
+</li>
 </ol>
 
   <div class="page-nav">

@@ -81,18 +81,32 @@ nothing about each other.</p>
 <h3>Drawbacks of the file-based approach — a guaranteed exam question</h3>
 <ol>
 <li><strong>Data redundancy</strong> — the same data stored in several places</li>
-<li><strong>Data inconsistency</strong> — a customer changes address; only one file is
-   updated, and now the copies disagree</li>
-<li><strong>Difficulty accessing data</strong> — every new question needs a new program
-   written</li>
-<li><strong>Data isolation</strong> — data scattered across files in different formats</li>
-<li><strong>Integrity problems</strong> — constraints are buried in program code, not
-   declared once</li>
-<li><strong>Atomicity problems</strong> — a transfer that debits one account and crashes
-   before crediting the other leaves money destroyed</li>
-<li><strong>Concurrent access anomalies</strong> — two users updating the same record
-   simultaneously corrupt it</li>
-<li><strong>Security problems</strong> — no fine-grained control over who sees what</li>
+<li>
+<p><strong>Data inconsistency</strong> — a customer changes address; only one file is
+   updated, and now the copies disagree</p>
+</li>
+<li>
+<p><strong>Difficulty accessing data</strong> — every new question needs a new program
+   written</p>
+</li>
+<li>
+<p><strong>Data isolation</strong> — data scattered across files in different formats</p>
+</li>
+<li>
+<p><strong>Integrity problems</strong> — constraints are buried in program code, not
+   declared once</p>
+</li>
+<li>
+<p><strong>Atomicity problems</strong> — a transfer that debits one account and crashes
+   before crediting the other leaves money destroyed</p>
+</li>
+<li>
+<p><strong>Concurrent access anomalies</strong> — two users updating the same record
+   simultaneously corrupt it</p>
+</li>
+<li>
+<p><strong>Security problems</strong> — no fine-grained control over who sees what</p>
+</li>
 <li><strong>Program–data dependence</strong> — change a file's structure and every program
    reading it must be rewritten</li>
 </ol>
@@ -104,9 +118,13 @@ in a central catalogue.</p>
 <li><strong>Controlled redundancy</strong> — data stored once</li>
 <li><strong>Consistency</strong> — one copy means no disagreement</li>
 <li><strong>Data sharing</strong> — many users and applications, one database</li>
-<li><strong>Integrity enforcement</strong> — constraints declared in the schema, applied
-   everywhere</li>
-<li><strong>Security</strong> — access control per user, per table, per column</li>
+<li>
+<p><strong>Integrity enforcement</strong> — constraints declared in the schema, applied
+   everywhere</p>
+</li>
+<li>
+<p><strong>Security</strong> — access control per user, per table, per column</p>
+</li>
 <li><strong>Backup and recovery</strong> — built into the DBMS</li>
 <li><strong>Concurrency control</strong> — the DBMS serialises conflicting operations</li>
 <li><strong>Program–data independence</strong> — programs are insulated from storage details</li>
@@ -333,7 +351,8 @@ it is founded on set theory, is declarative (you say <em>what</em> you want, not
 </tbody>
 </table>
 <h3>Data independence — the whole point of the architecture</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p><strong>Physical data independence:</strong> you can change the internal schema (add an
 index, reorganise files) <strong>without</strong> changing the conceptual schema.</p>
 <p><strong>Logical data independence:</strong> you can change the conceptual schema (add a
@@ -385,8 +404,11 @@ it.</p>
 </table>
 <p>Some texts fold DQL into DML. If asked, mention both conventions.</p>
 <h2>1.8 Transactions and ACID</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>transaction</strong> is a logical unit of work — all of it happens, or none of it
 does.</p>
+</div>
 <table class="main-table">
 <thead>
 <tr>
@@ -428,29 +450,46 @@ money.</p>
 </ol>
 <p><strong>Five marks</strong></p>
 <ol>
-<li>Explain the drawbacks of the file-based system and how the database approach
-   addresses them.</li>
-<li>Explain the advantages <strong>and the costs and risks</strong> of the database approach.</li>
+<li>
+<p>Explain the drawbacks of the file-based system and how the database approach
+   addresses them.</p>
+</li>
+<li>
+<p>Explain the advantages <strong>and the costs and risks</strong> of the database approach.</p>
+</li>
 <li>Explain the components of a DBMS.</li>
 <li>Explain the classification of DBMS by architecture (1-, 2- and 3-tier).</li>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain the three-schema architecture with a diagram, and explain data
-   independence.</li>
-<li>Explain the various data models with their structures, advantages and
-   examples.</li>
+<li>
+<p>Explain the three-schema architecture with a diagram, and explain data
+   independence.</p>
+</li>
+<li>
+<p>Explain the various data models with their structures, advantages and
+   examples.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Listing only the advantages when the question asks for costs and risks too</li>
-<li>Confusing the conceptual level (one, logical) with the external level (many,
-  per-user)</li>
-<li>Saying the relational model was invented by Oracle — it was <strong>E. F. Codd</strong>,
-  1970</li>
-<li>Reversing physical and logical data independence</li>
+<li>
+<p>Confusing the conceptual level (one, logical) with the external level (many,
+  per-user)</p>
+</li>
+<li>
+<p>Saying the relational model was invented by Oracle — it was <strong>E. F. Codd</strong>,
+  1970</p>
+</li>
+<li>
+<p>Reversing physical and logical data independence</p>
+</li>
 <li>Forgetting that a database is the <em>data</em> and a DBMS is the <em>software</em></li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_dbms.html">← Course home</a>

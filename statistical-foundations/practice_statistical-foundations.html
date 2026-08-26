@@ -54,7 +54,9 @@ centimetres multiplies the covariance by 100 though nothing about the
 relationship changed. Correlation standardises this away.</p>
 <hr />
 <h2>Section B — Five-mark problems</h2>
-<h3>Problem 1 — Descriptive statistics</h3>
+<div class="example">
+<p><span class="label">PROBLEM 1</span></p>
+<h4>Descriptive statistics</h4>
 <p>The daily sales (in thousands) of a shop over 10 days were:
 12, 15, 18, 22, 15, 20, 25, 18, 15, 20</p>
 <p>Find the mean, median, mode, range, sample variance, sample standard deviation
@@ -157,7 +159,10 @@ and the coefficient of variation.</p>
 </ul>
 <p>Note that mean = median = 18 while the mode is 15 — the distribution is close
 to symmetric, with a slight cluster at the lower end.</p>
-<h3>Problem 2 — Binomial</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 2</span></p>
+<h4>Binomial</h4>
 <p>A multiple-choice test has 12 questions, each with 4 options. A student guesses
 every answer. Find the probability of (a) exactly 5 correct, (b) at most 2
 correct, and (c) the mean and variance of the number correct.</p>
@@ -186,7 +191,10 @@ correct, and (c) the mean and variance of the number correct.</p>
 </ul>
 <p>So a guesser expects 3 right out of 12, and has about a 39% chance of getting
 2 or fewer.</p>
-<h3>Problem 3 — Normal distribution</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 3</span></p>
+<h4>Normal distribution</h4>
 <p>The lifetime of a bulb is normally distributed with mean 1200 hours and
 standard deviation 150 hours. Find (a) P(lifetime &gt; 1400), (b) P(1000 &lt;
 lifetime &lt; 1300), and (c) the lifetime below which 10% of bulbs fail.</p>
@@ -207,7 +215,10 @@ lifetime &lt; 1300), and (c) the lifetime below which 10% of bulbs fail.</p>
 </li>
 </ul>
 <p>So 10% of bulbs fail before about 1008 hours.</p>
-<h3>Problem 4 — Correlation</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 4</span></p>
+<h4>Correlation</h4>
 <p>Compute Pearson's r for the following and interpret it.</p>
 <table class="main-table">
 <thead>
@@ -315,9 +326,12 @@ lifetime &lt; 1300), and (c) the lifetime below which 10% of bulbs fail.</p>
 <p><strong>Interpretation:</strong> a very strong positive linear relationship — as advertising
 spend rises, sales rise almost proportionally. This does <strong>not</strong> prove that
 advertising causes the sales; both could be driven by seasonal demand.</p>
+</div>
 <hr />
 <h2>Section C — Ten-mark problems</h2>
-<h3>Problem 5 — Full regression analysis</h3>
+<div class="example">
+<p><span class="label">PROBLEM 5</span></p>
+<h4>Full regression analysis</h4>
 <p>Using the advertising data from Problem 4:
 (a) fit the regression line, (b) predict sales for ₹7 lakh of advertising,
 (c) compute R², (d) construct the ANOVA table, (e) test whether the slope is
@@ -459,38 +473,54 @@ reasonably safe.</p>
 <p><strong>Conclusion.</strong> There is very strong evidence of a linear relationship between
 advertising spend and sales. The model explains 98.7% of the variation, and the
 slope is highly significant.</p>
-<h3>Problem 6 — Hypothesis test, full six steps</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 6</span></p>
+<h4>Hypothesis test, full six steps</h4>
 <p>A company claims its light bulbs last 1000 hours on average. A consumer group
 tests 16 bulbs and finds a mean of 960 hours with a sample standard deviation
 of 80 hours. Test the company's claim at α = 0.05.</p>
 <p><strong>Solution.</strong></p>
-<p><strong>Step 1 — Hypotheses.</strong>
-- H₀: μ = 1000 (the company's claim is correct)
-- H₁: μ ≠ 1000 (the mean lifetime differs from the claim)</p>
+<p><strong>Step 1 — Hypotheses.</strong></p>
+<ul>
+<li>H₀: μ = 1000 (the company's claim is correct)</li>
+<li>H₁: μ ≠ 1000 (the mean lifetime differs from the claim)</li>
+</ul>
 <p>Two-tailed, because the question asks whether the claim is <em>wrong</em>, not
 specifically whether bulbs last <em>less</em>.</p>
 <p><strong>Step 2 — Significance level.</strong> α = 0.05.</p>
 <p><strong>Step 3 — Choose the test.</strong> The population standard deviation is unknown and
 n = 16 is small, so use the <strong>one-sample t-test</strong> with df = 16 − 1 = <strong>15</strong>.</p>
-<p><strong>Step 4 — Test statistic.</strong>
-- standard error = s/√n = 80/√16 = 80/4 = <strong>20</strong>
-- t = (x̄ − μ₀)/SE = (960 − 1000)/20 = −40/20 = <strong>−2.00</strong></p>
-<p><strong>Step 5 — Decision.</strong>
-- Critical values: t(0.025, 15) = <strong>±2.131</strong>
-- p-value = <strong>0.0639</strong></p>
+<p><strong>Step 4 — Test statistic.</strong></p>
+<ul>
+<li>standard error = s/√n = 80/√16 = 80/4 = <strong>20</strong></li>
+<li>t = (x̄ − μ₀)/SE = (960 − 1000)/20 = −40/20 = <strong>−2.00</strong></li>
+</ul>
+<p><strong>Step 5 — Decision.</strong></p>
+<ul>
+<li>Critical values: t(0.025, 15) = <strong>±2.131</strong></li>
+<li>p-value = <strong>0.0639</strong></li>
+</ul>
 <p>|−2.00| = 2.00 &lt; 2.131, and p = 0.0639 &gt; 0.05 → <strong>fail to reject H₀</strong>.</p>
 <p><strong>Step 6 — Conclusion.</strong> At the 5% significance level there is not enough
 evidence to reject the company's claim. The observed shortfall of 40 hours
 could plausibly arise from sampling variation in a sample of only 16 bulbs.</p>
 <p><strong>Two things worth adding, which earn marks:</strong></p>
 <ul>
-<li>Note how close this is. At α = 0.10 the critical value is 1.753 and we
+<li>
+<p>Note how close this is. At α = 0.10 the critical value is 1.753 and we
   <em>would</em> reject. The conclusion depends on a threshold chosen in advance —
-  which is exactly why α must be fixed before seeing the data.</li>
-<li>"Fail to reject H₀" is not "the claim is true". A larger sample might well
-  detect a real shortfall. With n = 16 the test simply lacks the power.</li>
+  which is exactly why α must be fixed before seeing the data.</p>
+</li>
+<li>
+<p>"Fail to reject H₀" is not "the claim is true". A larger sample might well
+  detect a real shortfall. With n = 16 the test simply lacks the power.</p>
+</li>
 </ul>
-<h3>Problem 7 — Chi-square test of independence</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 7</span></p>
+<h4>Chi-square test of independence</h4>
 <p>400 students were surveyed on their preferred programming language, by year of
 study. Test at α = 0.05 whether preference is independent of year.</p>
 <table class="main-table">
@@ -535,9 +565,11 @@ study. Test at α = 0.05 whether preference is independent of year.</p>
 </tbody>
 </table>
 <p><strong>Solution.</strong></p>
-<p><strong>Step 1 — Hypotheses.</strong>
-- H₀: language preference is independent of year of study
-- H₁: they are associated</p>
+<p><strong>Step 1 — Hypotheses.</strong></p>
+<ul>
+<li>H₀: language preference is independent of year of study</li>
+<li>H₁: they are associated</li>
+</ul>
 <p><strong>Step 2 — α = 0.05.</strong></p>
 <p><strong>Step 3 — Expected frequencies.</strong> E = (row total × column total)/grand total</p>
 <table class="main-table">
@@ -575,10 +607,12 @@ study. Test at α = 0.05 whether preference is independent of year.</p>
 <p>Every observed value equals its expected value exactly, so every term
 (O − E)²/E is zero:</p>
 <p>χ² = 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = <strong>0.00</strong></p>
-<p><strong>Step 5 — Decision.</strong>
-- df = (3 − 1)(3 − 1) = <strong>4</strong>
-- Critical value χ²(0.05, 4) = <strong>9.488</strong>
-- p-value = <strong>1.000</strong></p>
+<p><strong>Step 5 — Decision.</strong></p>
+<ul>
+<li>df = (3 − 1)(3 − 1) = <strong>4</strong></li>
+<li>Critical value χ²(0.05, 4) = <strong>9.488</strong></li>
+<li>p-value = <strong>1.000</strong></li>
+</ul>
 <p>0.00 &lt; 9.488 → <strong>fail to reject H₀</strong>.</p>
 <p><strong>Step 6 — Conclusion.</strong> There is no evidence whatsoever of an association.
 Language preference is independent of year of study.</p>
@@ -587,6 +621,7 @@ row — each year splits 50% Python, 25% Java, 25% C++. Perfect independence
 gives χ² = 0 exactly. Real data never does this, so if you compute χ² = 0 on an
 exam question, check whether the data really is proportionally identical (as
 here) or whether you have made an arithmetic slip.</p>
+</div>
 <hr />
 <h2>Section D — Mixed quick problems</h2>
 <p><strong>Q8.</strong> If E(X) = 4 and Var(X) = 9, find E(2X − 3) and Var(2X − 3).</p>
@@ -620,16 +655,26 @@ confidence interval for μ.</p>
 <hr />
 <h2>Exam strategy</h2>
 <ol>
-<li><strong>Write all six steps of a hypothesis test</strong>, even when you can see the
-   answer. Each step carries marks.</li>
-<li><strong>Check Σ(x − x̄) = 0</strong> whenever you build a deviation table. It costs five
-   seconds and catches most arithmetic slips.</li>
-<li><strong>Use R² = r² and t² = F</strong> for simple regression as free verification.</li>
+<li>
+<p><strong>Write all six steps of a hypothesis test</strong>, even when you can see the
+   answer. Each step carries marks.</p>
+</li>
+<li>
+<p><strong>Check Σ(x − x̄) = 0</strong> whenever you build a deviation table. It costs five
+   seconds and catches most arithmetic slips.</p>
+</li>
+<li>
+<p><strong>Use R² = r² and t² = F</strong> for simple regression as free verification.</p>
+</li>
 <li><strong>State the conclusion in the words of the problem</strong>, not just "reject H₀".</li>
 <li><strong>Say "fail to reject"</strong>, never "accept".</li>
-<li><strong>Add "correlation does not imply causation"</strong> to every correlation
-   interpretation.</li>
-<li><strong>Check expected frequencies ≥ 5</strong> before a chi-square test, and say you did.</li>
+<li>
+<p><strong>Add "correlation does not imply causation"</strong> to every correlation
+   interpretation.</p>
+</li>
+<li>
+<p><strong>Check expected frequencies ≥ 5</strong> before a chi-square test, and say you did.</p>
+</li>
 <li><strong>Watch n vs n−1.</strong> If the question says "sample", divide by n − 1.</li>
 </ol>
 

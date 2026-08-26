@@ -185,11 +185,15 @@ Book</code> records:</p>
 <ul>
 <li><strong>Add</strong> — <code>fopen</code> in <code>"ab"</code> (append binary), then <code>fwrite</code></li>
 <li><strong>Search</strong> — <code>fread</code> in a loop until the ISBN matches</li>
-<li><strong>Update</strong> — <code>fopen</code> in <code>"rb+"</code>, <code>fread</code> until found, then
+<li>
+<p><strong>Update</strong> — <code>fopen</code> in <code>"rb+"</code>, <code>fread</code> until found, then
   <code>fseek(fp, -sizeof(b), SEEK_CUR)</code> to step back over the record just read, and
-  <code>fwrite</code> over it</li>
-<li><strong>Delete</strong> — copy every record except the target into a temporary file, then
-  <code>remove()</code> the original and <code>rename()</code> the temporary</li>
+  <code>fwrite</code> over it</p>
+</li>
+<li>
+<p><strong>Delete</strong> — copy every record except the target into a temporary file, then
+  <code>remove()</code> the original and <code>rename()</code> the temporary</p>
+</li>
 </ul>
 <p>That last technique is the one to remember: <strong>you cannot delete bytes from the
 middle of a file.</strong> Rewriting to a temporary file is the standard answer.</p>
@@ -198,16 +202,26 @@ middle of a file.</strong> Rewriting to a temporary file is the standard answer.
 <ol>
 <li><strong>Write the program on paper first.</strong> Terminals are scarce and time is short.</li>
 <li><strong>Compile early and often.</strong> One error at a time is manageable; twenty is not.</li>
-<li><strong>Read the error message.</strong> "Expected <code>;</code> before <code>int</code>" means the missing
-   semicolon is on the line <em>above</em> the one named.</li>
-<li><strong>Test edge cases</strong> before the examiner does: n = 0, an empty array, a
-   negative number, a file that does not exist.</li>
-<li><strong>Print prompts.</strong> <code>printf("Enter n: ")</code> before every <code>scanf</code>. Marks are given
-   for a usable interface.</li>
-<li><strong>Comment the logic</strong>, not the syntax. <code>/* peel off the last digit */</code> is
-   useful; <code>/* increment i */</code> is not.</li>
-<li><strong>Expect a viva.</strong> Be ready for "why did you use a <code>while</code> here?" and "what
-   happens if I enter 0?"</li>
+<li>
+<p><strong>Read the error message.</strong> "Expected <code>;</code> before <code>int</code>" means the missing
+   semicolon is on the line <em>above</em> the one named.</p>
+</li>
+<li>
+<p><strong>Test edge cases</strong> before the examiner does: n = 0, an empty array, a
+   negative number, a file that does not exist.</p>
+</li>
+<li>
+<p><strong>Print prompts.</strong> <code>printf("Enter n: ")</code> before every <code>scanf</code>. Marks are given
+   for a usable interface.</p>
+</li>
+<li>
+<p><strong>Comment the logic</strong>, not the syntax. <code>/* peel off the last digit */</code> is
+   useful; <code>/* increment i */</code> is not.</p>
+</li>
+<li>
+<p><strong>Expect a viva.</strong> Be ready for "why did you use a <code>while</code> here?" and "what
+   happens if I enter 0?"</p>
+</li>
 </ol>
 
   <div class="page-nav">

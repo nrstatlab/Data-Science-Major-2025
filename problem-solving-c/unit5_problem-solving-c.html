@@ -139,13 +139,19 @@ else
 <pre><code class="language-c">free(p);
 </code></pre>
 <ol>
-<li><strong>Memory leak</strong> — allocating and never freeing. The program's memory use
-   grows until it is killed. Every <code>malloc</code> needs a matching <code>free</code>.</li>
-<li><strong>Dangling pointer</strong> — using a pointer after freeing it. The memory may have
-   been handed to something else. Set <code>p = NULL</code> after freeing.</li>
-<li><strong>Double free</strong> — calling <code>free(p)</code> twice on the same block. Undefined
+<li>
+<p><strong>Memory leak</strong> — allocating and never freeing. The program's memory use
+   grows until it is killed. Every <code>malloc</code> needs a matching <code>free</code>.</p>
+</li>
+<li>
+<p><strong>Dangling pointer</strong> — using a pointer after freeing it. The memory may have
+   been handed to something else. Set <code>p = NULL</code> after freeing.</p>
+</li>
+<li>
+<p><strong>Double free</strong> — calling <code>free(p)</code> twice on the same block. Undefined
    behaviour, often a crash. Setting <code>p = NULL</code> prevents this too, because
-   <code>free(NULL)</code> is safely defined as doing nothing.</li>
+   <code>free(NULL)</code> is safely defined as doing nothing.</p>
+</li>
 </ol>
 <h3>Stack vs heap</h3>
 <table class="main-table">
@@ -506,20 +512,32 @@ overwrite a record in place.</p>
 <ol>
 <li>Explain the dynamic memory allocation functions with syntax and examples.</li>
 <li>Explain nested structures and arrays of structures with examples.</li>
-<li>Distinguish between a structure and a union with a program illustrating
-   the memory difference.</li>
-<li>Explain file opening modes with a table.</li>
+<li>
+<p>Distinguish between a structure and a union with a program illustrating
+   the memory difference.</p>
+</li>
+<li>
+<p>Explain file opening modes with a table.</p>
+</li>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain structures in detail — declaration, initialization, member access,
-   nesting, arrays of structures, and passing to functions.</li>
-<li>Explain text file handling in C with all the read/write functions and a
-   complete program.</li>
-<li>Write a menu-driven program to store book details in a file with add,
-   search, update and delete operations.</li>
+<li>
+<p>Explain structures in detail — declaration, initialization, member access,
+   nesting, arrays of structures, and passing to functions.</p>
+</li>
+<li>
+<p>Explain text file handling in C with all the read/write functions and a
+   complete program.</p>
+</li>
+<li>
+<p>Write a menu-driven program to store book details in a file with add,
+   search, update and delete operations.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Omitting the semicolon after a structure definition</li>
 <li>Using <code>.</code> on a pointer instead of <code>-&gt;</code></li>
@@ -533,6 +551,7 @@ overwrite a record in place.</p>
 <li>Trying to compare two structures with <code>==</code></li>
 <li>Expecting all union members to hold valid values at once</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_problem-solving-c.html">← Course home</a>

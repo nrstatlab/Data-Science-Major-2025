@@ -418,8 +418,11 @@ the whole runtime.</p>
 if item in big_set:      # fast  -- one hash computation
 </code></pre>
 <h2>3.5 Dictionaries</h2>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Key–value pairs.</strong> Keys must be unique and <strong>hashable</strong> (so immutable);
 values can be anything.</p>
+</div>
 <pre><code class="language-python">student = {&quot;name&quot;: &quot;Ananya&quot;, &quot;roll&quot;: 24001, &quot;cgpa&quot;: 8.75}
 </code></pre>
 <p>Since Python 3.7 dictionaries preserve <strong>insertion order</strong> — worth stating in
@@ -527,12 +530,18 @@ Database course.</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Compare lists, tuples, sets and dictionaries in detail, with syntax,
-   properties, methods and when to use each.</li>
-<li>Explain dictionaries fully — creation, access, methods, traversal, nesting
-   and comprehension.</li>
+<li>
+<p>Compare lists, tuples, sets and dictionaries in detail, with syntax,
+   properties, methods and when to use each.</p>
+</li>
+<li>
+<p>Explain dictionaries fully — creation, access, methods, traversal, nesting
+   and comprehension.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Writing <code>marks = marks.sort()</code> and getting <code>None</code></li>
 <li>Forgetting the trailing comma in a one-element tuple</li>
@@ -543,6 +552,7 @@ Database course.</p>
 <li>Using a list as a dictionary key</li>
 <li>Confusing <code>append</code> with <code>extend</code></li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_python-data-structures.html">← Course home</a>

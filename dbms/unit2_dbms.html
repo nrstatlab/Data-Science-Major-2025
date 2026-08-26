@@ -490,13 +490,19 @@ employee.</p>
 <h3>Limitations, worth mentioning for a complete answer</h3>
 <ol>
 <li>No standard notation — Chen, Crow's Foot and UML all differ</li>
-<li>No way to express general constraints ("salary must not exceed the
-   manager's")</li>
-<li>Loses clarity for very large schemas</li>
+<li>
+<p>No way to express general constraints ("salary must not exceed the
+   manager's")</p>
+</li>
+<li>
+<p>Loses clarity for very large schemas</p>
+</li>
 <li>Represents structure only, not behaviour or process</li>
 </ol>
 <hr />
-<h2>Worked example — designing a library database</h2>
+<div class="example">
+<p><span class="label">WORKED EXAMPLE</span></p>
+<h4>designing a library database</h4>
 <p><strong>Requirements.</strong> A library has books, each written by one or more authors. A
 member may borrow many books; a book may be borrowed by many members over time.
 Each loan records an issue date and a due date. Members belong to one of two
@@ -516,6 +522,7 @@ BORROWS(member_id FK, isbn FK, issue_date,
 </code></pre>
 <p>Note that <code>BORROWS</code> needs <code>issue_date</code> in its primary key — the same member may
 borrow the same book more than once over time.</p>
+</div>
 <hr />
 <h2>Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
@@ -535,22 +542,33 @@ borrow the same book more than once over time.</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Draw an ER diagram for a hospital (or university, or library) database, and
-   reduce it to relational tables.</li>
-<li>Explain the EER model — generalization, specialization, IS-A, attribute
-   inheritance and multiple inheritance — with a diagram.</li>
+<li>
+<p>Draw an ER diagram for a hospital (or university, or library) database, and
+   reduce it to relational tables.</p>
+</li>
+<li>
+<p>Explain the EER model — generalization, specialization, IS-A, attribute
+   inheritance and multiple inheritance — with a diagram.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
-<li>Putting the foreign key on the wrong side of a 1:N relationship (it goes on
-  the <strong>many</strong> side)</li>
-<li>Trying to represent an M:N relationship without a third table</li>
+<li>
+<p>Putting the foreign key on the wrong side of a 1:N relationship (it goes on
+  the <strong>many</strong> side)</p>
+</li>
+<li>
+<p>Trying to represent an M:N relationship without a third table</p>
+</li>
 <li>Storing a derived attribute</li>
 <li>Storing a multivalued attribute as a comma-separated column</li>
 <li>Forgetting the partial key of a weak entity</li>
 <li>Drawing an entity as a diamond or a relationship as a rectangle</li>
 <li>Omitting cardinality ratios and participation from the diagram</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_dbms.html">← Course home</a>

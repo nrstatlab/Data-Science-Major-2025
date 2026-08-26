@@ -19,26 +19,33 @@
 <p>Predict each answer before reading on.</p>
 <hr />
 <h2>Section A — Predict the output</h2>
-<h3>Q1</h3>
+<div class="example">
+<p><span class="label">Q1</span></p>
 <pre><code class="language-python">print(10 / 3, 10 // 3, 10 % 3, 10 ** 3)
 </code></pre>
 <p><strong>Answer: <code>3.3333333333333335 3 1 1000</code></strong></p>
 <p><code>/</code> always gives a float. <code>//</code> floors. Note the floating-point representation —
 <code>10/3</code> is not exactly 3.3333.</p>
-<h3>Q2</h3>
+</div>
+<div class="example">
+<p><span class="label">Q2</span></p>
 <pre><code class="language-python">print(-7 // 2, -7 % 2)
 </code></pre>
 <p><strong>Answer: <code>-4 1</code></strong></p>
 <p>Floor division rounds <strong>towards negative infinity</strong>, so −3.5 becomes −4 (not
 −3). The modulus takes the sign of the <em>divisor</em>, giving +1. C would give −3
 and −1. A favourite exam trap.</p>
-<h3>Q3</h3>
+</div>
+<div class="example">
+<p><span class="label">Q3</span></p>
 <pre><code class="language-python">print(2 ** 3 ** 2, -2 ** 2)
 </code></pre>
 <p><strong>Answer: <code>512 -4</code></strong></p>
 <p><code>**</code> is right-associative, so <code>2 ** (3 ** 2)</code> = <code>2 ** 9</code> = 512. And <code>**</code> binds
 tighter than unary minus, so <code>-2 ** 2</code> is <code>-(2 ** 2)</code> = −4.</p>
-<h3>Q4</h3>
+</div>
+<div class="example">
+<p><span class="label">Q4</span></p>
 <pre><code class="language-python">a = [1, 2, 3]
 b = a
 b.append(4)
@@ -47,7 +54,9 @@ print(a)
 <p><strong>Answer: <code>[1, 2, 3, 4]</code></strong></p>
 <p><code>b = a</code> does not copy — both names refer to the same list object. Use
 <code>b = a.copy()</code> for an independent list.</p>
-<h3>Q5</h3>
+</div>
+<div class="example">
+<p><span class="label">Q5</span></p>
 <pre><code class="language-python">def add(item, lst=[]):
     lst.append(item)
     return lst
@@ -58,12 +67,16 @@ print(add(2))
 <p><strong>Answer: <code>[1]</code> then <code>[1, 2]</code></strong></p>
 <p>The mutable default is created <strong>once</strong>, at definition time, and persists
 between calls. Fix it with <code>lst=None</code> and <code>if lst is None: lst = []</code>.</p>
-<h3>Q6</h3>
+</div>
+<div class="example">
+<p><span class="label">Q6</span></p>
 <pre><code class="language-python">print(sorted([3, 1, 2]), [3, 1, 2].sort())
 </code></pre>
 <p><strong>Answer: <code>[1, 2, 3] None</code></strong></p>
 <p><code>sorted()</code> returns a new list; <code>.sort()</code> sorts in place and returns <code>None</code>.</p>
-<h3>Q7</h3>
+</div>
+<div class="example">
+<p><span class="label">Q7</span></p>
 <pre><code class="language-python">for i in range(3):
     if i == 1:
         break
@@ -74,19 +87,25 @@ print(&quot;done&quot;)
 <p><strong>Answer: <code>done</code></strong></p>
 <p>The <code>else</code> of a loop runs only when the loop finished <strong>without</strong> <code>break</code>. It
 did break, so <code>completed</code> never prints.</p>
-<h3>Q8</h3>
+</div>
+<div class="example">
+<p><span class="label">Q8</span></p>
 <pre><code class="language-python">print({1, 2, 3} == {3, 2, 1})
 print([1, 2, 3] == [3, 2, 1])
 </code></pre>
 <p><strong>Answer: <code>True</code> then <code>False</code></strong></p>
 <p>Sets are unordered, so order is irrelevant to equality. Lists are ordered, so
 it matters.</p>
-<h3>Q9</h3>
+</div>
+<div class="example">
+<p><span class="label">Q9</span></p>
 <pre><code class="language-python">s = &quot;hello&quot;
 print(s[::-1], s[1:3], s[-2:])
 </code></pre>
 <p><strong>Answer: <code>olleh el lo</code></strong></p>
-<h3>Q10</h3>
+</div>
+<div class="example">
+<p><span class="label">Q10</span></p>
 <pre><code class="language-python">x = 10
 def f():
     x = 20
@@ -96,9 +115,11 @@ print(x)
 <p><strong>Answer: <code>10</code></strong></p>
 <p>The assignment inside <code>f</code> creates a <em>local</em> <code>x</code>. The global is untouched.
 Adding <code>global x</code> would make it print 20.</p>
+</div>
 <hr />
 <h2>Section B — Find and fix</h2>
-<h3>Q11</h3>
+<div class="example">
+<p><span class="label">Q11</span></p>
 <pre><code class="language-python">age = input(&quot;Enter age: &quot;)
 if age &gt; 18:
     print(&quot;Adult&quot;)
@@ -106,7 +127,9 @@ if age &gt; 18:
 <p><strong>Error:</strong> <code>input()</code> returns a string; comparing <code>str</code> to <code>int</code> raises
 <code>TypeError</code>.
 <strong>Fix:</strong> <code>age = int(input("Enter age: "))</code></p>
-<h3>Q12</h3>
+</div>
+<div class="example">
+<p><span class="label">Q12</span></p>
 <pre><code class="language-python">class Student:
     def __init__(name, roll):
         self.name = name
@@ -118,7 +141,9 @@ stored.
     self.name = name
     self.roll = roll
 </code></pre>
-<h3>Q13</h3>
+</div>
+<div class="example">
+<p><span class="label">Q13</span></p>
 <pre><code class="language-python">try:
     x = 1 / 0
 except:
@@ -132,7 +157,9 @@ making the program unstoppable; and <code>pass</code> silently swallows the prob
 except ZeroDivisionError as exc:
     print(f&quot;Error: {exc}&quot;)
 </code></pre>
-<h3>Q14</h3>
+</div>
+<div class="example">
+<p><span class="label">Q14</span></p>
 <pre><code class="language-python">numbers = [1, 2, 3, 4, 5, 6]
 for n in numbers:
     if n % 2 == 0:
@@ -143,16 +170,21 @@ print(numbers)
 advancing while the list shrinks, so elements are skipped. This prints
 <code>[1, 3, 5]</code> only by luck on some inputs; on <code>[2, 4]</code> it leaves <code>[4]</code>.
 <strong>Fix:</strong> <code>numbers = [n for n in numbers if n % 2 != 0]</code></p>
-<h3>Q15</h3>
+</div>
+<div class="example">
+<p><span class="label">Q15</span></p>
 <pre><code class="language-python">with open(&quot;data.txt&quot;, &quot;w&quot;) as fh:
     content = fh.read()
 </code></pre>
 <p><strong>Errors:</strong> <code>"w"</code> truncates the file — its contents are already gone — and a
 file opened for writing cannot be read.
 <strong>Fix:</strong> open with <code>"r"</code>.</p>
+</div>
 <hr />
 <h2>Section C — Write the program</h2>
-<h3>Q16 — Count word frequency in a sentence</h3>
+<div class="example">
+<p><span class="label">Q16</span></p>
+<h4>Count word frequency in a sentence</h4>
 <pre><code class="language-python">def word_frequency(sentence):
     frequency = {}
     for word in sentence.lower().split():
@@ -169,7 +201,10 @@ for word, count in sorted(word_frequency(text).items(),
 <p><code>dict.get(word, 0)</code> avoids a <code>KeyError</code> on the first sighting of each word.
 <code>collections.Counter(text.split())</code> does the same job in one line — mention it
 as the idiomatic alternative.</p>
-<h3>Q17 — Second largest element without sorting</h3>
+</div>
+<div class="example">
+<p><span class="label">Q17</span></p>
+<h4>Second largest element without sorting</h4>
 <pre><code class="language-python">def second_largest(numbers):
     if len(numbers) &lt; 2:
         raise ValueError(&quot;need at least two elements&quot;)
@@ -185,7 +220,10 @@ as the idiomatic alternative.</p>
     return second
 </code></pre>
 <p>One pass, O(n). <code>sorted(set(numbers))[-2]</code> also works but is O(n log n).</p>
-<h3>Q18 — Check whether two strings are anagrams</h3>
+</div>
+<div class="example">
+<p><span class="label">Q18</span></p>
+<h4>Check whether two strings are anagrams</h4>
 <pre><code class="language-python">def are_anagrams(a, b):
     a = &quot;&quot;.join(sorted(a.lower().replace(&quot; &quot;, &quot;&quot;)))
     b = &quot;&quot;.join(sorted(b.lower().replace(&quot; &quot;, &quot;&quot;)))
@@ -195,7 +233,10 @@ print(are_anagrams(&quot;Listen&quot;, &quot;Silent&quot;))     # True
 </code></pre>
 <p>The counting version using a dictionary is O(n) rather than O(n log n) — give
 the sorted version for brevity and mention the faster one.</p>
-<h3>Q19 — A Student class with marks and grade</h3>
+</div>
+<div class="example">
+<p><span class="label">Q19</span></p>
+<h4>A Student class with marks and grade</h4>
 <pre><code class="language-python">class Student:
     def __init__(self, roll, name, marks):
         self.roll = roll
@@ -223,7 +264,10 @@ the sorted version for brevity and mention the faster one.</p>
 s = Student(24001, &quot;Ananya&quot;, {&quot;maths&quot;: 85, &quot;python&quot;: 92, &quot;stats&quot;: 78})
 print(s)
 </code></pre>
-<h3>Q20 — Reverse a singly linked list</h3>
+</div>
+<div class="example">
+<p><span class="label">Q20</span></p>
+<h4>Reverse a singly linked list</h4>
 <pre><code class="language-python">def reverse(self):
     previous, current = None, self.head
     while current:
@@ -236,9 +280,12 @@ print(s)
 <p>Saving <code>current.next</code> <strong>before</strong> overwriting it is the whole trick. Skip that
 line and you lose the rest of the list irrecoverably.</p>
 <p>Draw it out for a three-node list — examiners award marks for the diagram.</p>
+</div>
 <hr />
 <h2>Section D — Long answers</h2>
-<h3>Q21 — Compare lists, tuples, sets and dictionaries</h3>
+<div class="example">
+<p><span class="label">Q21</span></p>
+<h4>Compare lists, tuples, sets and dictionaries</h4>
 <p>Give the property table (ordered, mutable, duplicates, indexed, syntax), then
 a short example of each, then <strong>when to use each</strong>. That last part is what
 separates a full-mark answer:</p>
@@ -248,16 +295,23 @@ separates a full-mark answer:</p>
 <li>Set — membership tests and de-duplication, both O(1)</li>
 <li>Dictionary — lookup by key</li>
 </ul>
-<h3>Q22 — Explain the types of inheritance</h3>
+</div>
+<div class="example">
+<p><span class="label">Q22</span></p>
+<h4>Explain the types of inheritance</h4>
 <p>Cover single, multilevel, multiple, hierarchical and hybrid, with a short
 program for each and a diagram. Then explain <code>super()</code> and the MRO, and finish
 with method overriding.</p>
 <p>Full treatment in <a href="unit4_python-data-structures.html">unit-4.md Part C</a>; runnable code in
 <a href="../labs/course-3-python/14_inheritance.py"><code>14_inheritance.py</code></a>.</p>
-<h3>Q23 — Explain exception handling with all clauses</h3>
+</div>
+<div class="example">
+<p><span class="label">Q23</span></p>
+<h4>Explain exception handling with all clauses</h4>
 <p><code>try</code>, <code>except</code> (specific before general), <code>else</code>, <code>finally</code>, <code>raise</code>, custom
 exception classes, and <code>assert</code>. Give a single worked program that uses all of
 them, and state clearly when each block runs.</p>
+</div>
 <hr />
 <h2>Quick self-test</h2>
 <ol>
@@ -276,10 +330,12 @@ them, and state clearly when each block runs.</p>
 · 3. <code>None</code> — it sorts in place. · 4. Only when the loop ended without <code>break</code>.
 · 5. <code>==</code> compares values, <code>is</code> compares object identity. · 6. No — a later
 definition replaces the earlier one; simulate with default arguments or
-<code>*args</code>. · 7. Otherwise the parent's attributes are never initialised. ·
-8. O(n) — every later element shifts down. · 9. The file is closed even if an
+<code>*args</code>. · 7. Otherwise the parent's attributes are never initialised. ·</p>
+<ol start="8">
+<li>O(n) — every later element shifts down. · 9. The file is closed even if an
 exception is raised. · 10. It is name-mangled to <code>_ClassName__private</code>, which
-prevents accidents but is still reachable.</p>
+prevents accidents but is still reachable.</li>
+</ol>
 
   <div class="page-nav">
     <a href="index_python-data-structures.html">← Course home</a>

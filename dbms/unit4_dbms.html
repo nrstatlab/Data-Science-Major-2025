@@ -432,8 +432,11 @@ ORDER BY avg_salary DESC;
 <pre><code class="language-sql">WHERE SUM(quantity) &gt; 2      -- SYNTAX ERROR
 HAVING SUM(quantity) &gt; 2     -- correct
 </code></pre>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Rule:</strong> every column in the <code>SELECT</code> list must either appear in <code>GROUP BY</code> or
 be inside an aggregate function.</p>
+</div>
 <h3>Logical order of evaluation</h3>
 <p>The clauses are <em>written</em> in one order and <em>evaluated</em> in another:</p>
 <pre><code>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
@@ -576,8 +579,11 @@ subqueries. <code>SELECT 1</code> is conventional — the column list is irrelev
 WHERE avg_sal &gt; 60000;
 </code></pre>
 <h2>4.10 Views</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>view</strong> is a stored query that behaves like a table. It holds no data of its
 own.</p>
+</div>
 <pre><code class="language-sql">CREATE VIEW HighEarners AS
 SELECT emp_id, first_name, last_name, salary
 FROM Employees WHERE salary &gt; 70000;
@@ -590,9 +596,13 @@ DROP VIEW HighEarners;
 <ol>
 <li><strong>Security</strong> — expose selected columns while hiding salary or personal data</li>
 <li><strong>Simplicity</strong> — hide a complicated multi-table join behind one name</li>
-<li><strong>Logical data independence</strong> — the underlying tables can change while the
-   view's interface stays constant</li>
-<li><strong>Consistency</strong> — one definition of "active customer" used everywhere</li>
+<li>
+<p><strong>Logical data independence</strong> — the underlying tables can change while the
+   view's interface stays constant</p>
+</li>
+<li>
+<p><strong>Consistency</strong> — one definition of "active customer" used everywhere</p>
+</li>
 </ol>
 <h3>Updatable views</h3>
 <p>A view is generally updatable only if it selects from a <strong>single table</strong>,
@@ -627,6 +637,8 @@ freshness for speed. Ordinary views do not.</p>
    set operations and views.</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li><code>UPDATE</code> or <code>DELETE</code> with no <code>WHERE</code> clause</li>
 <li><code>= NULL</code> instead of <code>IS NULL</code></li>
@@ -637,6 +649,7 @@ freshness for speed. Ordinary views do not.</p>
 <li>Assuming rows come back in a particular order without <code>ORDER BY</code></li>
 <li>Mixing dialects — <code>LIMIT</code> in Oracle, <code>MINUS</code> in PostgreSQL</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_dbms.html">← Course home</a>

@@ -131,9 +131,12 @@ is a simplification the exam expects.</p>
 high-level structure while still letting you manipulate memory addresses
 directly — which is exactly what makes it a good teaching language.</p>
 <h2>1.4 Algorithms and flowcharts</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>An <strong>algorithm</strong> is a finite, ordered sequence of unambiguous steps that solves
 a problem. Its required properties: finiteness, definiteness, input, output,
 effectiveness.</p>
+</div>
 <p><strong>Algorithm — largest of three numbers</strong></p>
 <pre><code>Step 1: Start
 Step 2: Read a, b, c
@@ -208,14 +211,21 @@ C90), then C99, C11, C17.</p>
 <li><strong>Recursion and dynamic memory allocation</strong></li>
 </ol>
 <h2>1.6 C tokens</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>token</strong> is the smallest individual unit the compiler recognises. There are
 six kinds:</p>
+</div>
 <ol>
-<li><strong>Keywords</strong> — 32 reserved words: <code>auto break case char const continue
+<li>
+<p><strong>Keywords</strong> — 32 reserved words: <code>auto break case char const continue
    default do double else enum extern float for goto if int long register
    return short signed sizeof static struct switch typedef union unsigned void
-   volatile while</code></li>
-<li><strong>Identifiers</strong> — names you invent for variables, functions, arrays</li>
+   volatile while</code></p>
+</li>
+<li>
+<p><strong>Identifiers</strong> — names you invent for variables, functions, arrays</p>
+</li>
 <li><strong>Constants</strong> — fixed values: <code>10</code>, <code>3.14</code>, <code>'A'</code>, <code>"hello"</code></li>
 <li><strong>Strings</strong> — character sequences in double quotes</li>
 <li><strong>Operators</strong> — <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>++</code>, and the rest</li>
@@ -525,15 +535,22 @@ exam asks, name it and explain why it is unsafe.</p>
 <li>Describe C tokens in detail with examples of each.</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Forgetting <code>&amp;</code> in <code>scanf</code> — the most common of all</li>
-<li>Writing <code>%d</code> for a <code>float</code> (needs <code>%f</code>) or <code>%f</code> for a <code>double</code> in <code>scanf</code>
-  (needs <code>%lf</code>)</li>
-<li>Expecting <code>5/2</code> to be <code>2.5</code></li>
+<li>
+<p>Writing <code>%d</code> for a <code>float</code> (needs <code>%f</code>) or <code>%f</code> for a <code>double</code> in <code>scanf</code>
+  (needs <code>%lf</code>)</p>
+</li>
+<li>
+<p>Expecting <code>5/2</code> to be <code>2.5</code></p>
+</li>
 <li>Using a keyword as a variable name</li>
 <li>Omitting <code>#include &lt;stdio.h&gt;</code> and then using <code>printf</code></li>
 <li>Ending a <code>#define</code> line with a semicolon — it becomes part of the constant</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_problem-solving-c.html">← Course home</a>

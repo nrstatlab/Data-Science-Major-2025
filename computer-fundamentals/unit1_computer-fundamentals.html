@@ -70,10 +70,13 @@ instruction inside a computer is ultimately a pattern of these.</p>
 </tr>
 </tbody>
 </table>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Why octal and hex exist:</strong> binary is unreadable for humans — <code>11111111</code> is
 hard to check at a glance, <code>FF</code> is easy. One hex digit is exactly four bits and
 one octal digit exactly three, so conversion is a matter of grouping, with no
 arithmetic at all.</p>
+</div>
 <h3>Conversion: any base → decimal</h3>
 <p>Multiply each digit by its <strong>positional weight</strong> and add.</p>
 <p><strong>Binary 1011 → decimal</strong></p>
@@ -325,9 +328,12 @@ parts <strong>downwards</strong>.</p>
 </table>
 <p>Reading <strong>downwards</strong>: <strong>0.101</strong></p>
 <p><em>Check:</em> ½ + 0 + ⅛ = 0.625 ✓</p>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Note the direction reverses.</strong> Integer conversions read remainders <em>up</em>;
 fractional conversions read integer parts <em>down</em>. Getting this backwards is a
 routine error.</p>
+</div>
 <p>Some fractions never terminate in binary — 0.1 decimal is infinite in binary,
 which is exactly why <code>0.1 + 0.2 != 0.3</code> in Python and in every other language.</p>
 <h3>Binary arithmetic</h3>
@@ -365,9 +371,11 @@ which is exactly why <code>0.1 + 0.2 != 0.3</code> in Python and in every other 
 <p><strong>2's complement is what real computers use</strong>, because addition and subtraction
 then use the same circuit, and there is only one representation of zero
 (sign–magnitude and 1's complement both have +0 and −0).</p>
-<p><strong>Finding the 2's complement of 5 (<code>00000101</code>):</strong>
-1. Flip every bit → <code>11111010</code>
-2. Add 1 → <code>11111011</code></p>
+<p><strong>Finding the 2's complement of 5 (<code>00000101</code>):</strong></p>
+<ol>
+<li>Flip every bit → <code>11111010</code></li>
+<li>Add 1 → <code>11111011</code></li>
+</ol>
 <p><em>Check:</em> 5 + (−5) should be 0. <code>00000101 + 11111011 = 100000000</code>; the ninth bit
 overflows out of 8 bits, leaving <code>00000000</code> ✓</p>
 <h3>Codes</h3>
@@ -691,14 +699,19 @@ reliable, and using less power. That single sentence answers "compare the
 generations" questions.</p>
 <hr />
 <h2>📝 Worked practice</h2>
-<h3>Problem 1 — Convert (1101101)₂ to decimal, octal and hexadecimal</h3>
+<div class="example">
+<p><span class="label">PROBLEM 1</span></p>
+<h4>Convert (1101101)₂ to decimal, octal and hexadecimal</h4>
 <p><strong>Decimal:</strong> 64 + 32 + 0 + 8 + 4 + 0 + 1 = <strong>109</strong></p>
 <p><strong>Octal:</strong> group in threes from the right: <code>001 | 101 | 101</code> → 1, 5, 5 →
 <strong>(155)₈</strong></p>
 <p><strong>Hexadecimal:</strong> group in fours from the right: <code>0110 | 1101</code> → 6, D →
 <strong>(6D)₁₆</strong></p>
 <p><em>Check:</em> 6 × 16 + 13 = 96 + 13 = 109 ✓</p>
-<h3>Problem 2 — Convert (378)₁₀ to binary and hexadecimal</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 2</span></p>
+<h4>Convert (378)₁₀ to binary and hexadecimal</h4>
 <p><strong>Binary</strong> — divide by 2:</p>
 <p>378→189 r<strong>0</strong>, 189→94 r<strong>1</strong>, 94→47 r<strong>0</strong>, 47→23 r<strong>1</strong>, 23→11 r<strong>1</strong>,
 11→5 r<strong>1</strong>, 5→2 r<strong>1</strong>, 2→1 r<strong>0</strong>, 1→0 r<strong>1</strong></p>
@@ -706,7 +719,10 @@ generations" questions.</p>
 <p><strong>Hexadecimal</strong> — group the binary in fours: <code>0001 | 0111 | 1010</code> → 1, 7, A →
 <strong>(17A)₁₆</strong></p>
 <p><em>Check:</em> 1 × 256 + 7 × 16 + 10 = 256 + 112 + 10 = 378 ✓</p>
-<h3>Problem 3 — Add (10110)₂ and (1101)₂, and verify in decimal</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 3</span></p>
+<h4>Add (10110)₂ and (1101)₂, and verify in decimal</h4>
 <pre><code>   10110      (22)
  + 01101      (13)
  -------
@@ -715,7 +731,10 @@ generations" questions.</p>
 <p>Working right to left: 0+1=1 · 1+0=1 · 1+1=0 carry 1 · 0+1+1=0 carry 1 ·
 1+0+1=0 carry 1 · carry 1</p>
 <p><em>Check:</em> 22 + 13 = 35, and 100011 = 32 + 2 + 1 = 35 ✓</p>
-<h3>Problem 4 — Find the 2's complement of (00101100)₂ and verify</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 4</span></p>
+<h4>Find the 2's complement of (00101100)₂ and verify</h4>
 <p>The number is 32 + 8 + 4 = <strong>44</strong>, so we expect −44.</p>
 <ol>
 <li><strong>1's complement</strong> — flip every bit: <code>11010011</code></li>
@@ -723,6 +742,7 @@ generations" questions.</p>
 </ol>
 <p><em>Check:</em> add it to the original. <code>00101100 + 11010100 = 100000000</code>. The ninth
 bit overflows out of 8 bits, leaving <code>00000000</code> = 0 ✓</p>
+</div>
 <hr />
 <h2>Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
@@ -742,11 +762,17 @@ bit overflows out of 8 bits, leaving <code>00000000</code> = 0 ✓</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain the generations of computers with technology, characteristics,
-   languages and examples for each.</li>
-<li>Explain number systems and all the conversions between them, with examples.</li>
+<li>
+<p>Explain the generations of computers with technology, characteristics,
+   languages and examples for each.</p>
+</li>
+<li>
+<p>Explain number systems and all the conversions between them, with examples.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Reading remainders downwards instead of upwards (integer conversions)</li>
 <li>Reading fractional multiplications upwards instead of downwards</li>
@@ -758,6 +784,7 @@ bit overflows out of 8 bits, leaving <code>00000000</code> = 0 ✓</p>
 <li>Not verifying by converting back — it takes ten seconds and catches most
   errors</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_computer-fundamentals.html">← Course home</a>

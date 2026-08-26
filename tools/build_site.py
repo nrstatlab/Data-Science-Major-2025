@@ -277,21 +277,251 @@ def rewrite_links(body, link_map, src_dir, out_dir):
     return re.sub(r'\[([^\]]*)\]\(([^)#\s]+)(#[^)\s]*)?\)', repl, body)
 
 
+# --------------------------------------------------------------------------
+# Composition: map the notes' recurring structure onto the house style's
+# semantic boxes, the way Statistics-Major composes its pages by hand.
+# --------------------------------------------------------------------------
+
+HEADING = re.compile(r'^(#{2,6})\s')
+
+# Trigger heading -> (css class, label). The notes use a consistent set of
+# marker headings, which is what makes this reliable rather than guesswork.
+SECTION_BOXES = [
+    (re.compile(r'^###\s*🎯\s*(.*)$'),  "concept", "THE BIG IDEA"),
+    (re.compile(r'^###\s*📖\s*(.*)$'),  "tip",     "STORY"),
+    (re.compile(r'^###\s*🔢\s*(.*)$'),  "formula", "FORMULA"),
+    (re.compile(r'^###\s*💡\s*(.*)$'),  "tip",     "KEY INSIGHT"),
+]
+
+PROBLEM_RE = re.compile(r'^###\s+(Problem\s+\d+|Q\d+)\b(.*)$')
+WORKED_RE = re.compile(
+    r'^(?:\*\*|\*)(Worked example|Worked solution|Worked examples|Example|Trace)'
+    r'([^*]*)(?:\*\*|\*)[.:]?')
+
+# "## Worked example — trace the output" style headings.
+WORKED_HEADING_RE = re.compile(
+    r'^#{2,4}\s+(Worked example|Example)\b\s*[—-]?\s*(.*)$', re.I)
+
+# "A **linked list** is ..." / "The **control unit** performs ..." -- the
+# notes' definition sentences, which Statistics-Major would set as .concept.
+DEFINITION_RE = re.compile(
+    r'^(?:A|An|The)\s+\*\*([^*]{2,60})\*\*\s+(?:is|are|means|refers to)\b')
+
+# Bolded rhetorical lead-ins that explain rather than define.
+INSIGHT_RE = re.compile(
+    r'^\*\*(Why|The point|Rule|Remember|Note|Careful|Key)\b[^*]*\*\*')
+
+
+def _capture(lines, start, stop_levels=(2, 3)):
+    """Return (block, next_index): lines until the next qualifying heading."""
+    out = []
+    i = start
+    while i < len(lines):
+        line = lines[i]
+        m = HEADING.match(line)
+        if m and len(m.group(1)) in stop_levels:
+            break
+        if line.strip() == "---":
+            break
+        out.append(line)
+        i += 1
+    return out, i
+
+
+def _box(cls, label, title, body_lines):
+    """Emit a house-style box, matching Statistics-Major's markup.
+
+    The label is a SIBLING of the content, not part of its first paragraph --
+    a blank line after it is what keeps Python-Markdown from absorbing the
+    following list or paragraph into the same block.
+
+    Blockquote markers are stripped from the body: the box already provides
+    the visual container, so a quoted formula inside a .formula section would
+    otherwise be boxed twice.
+    """
+    body = [re.sub(r'^>\s?', '', ln) for ln in body_lines]
+    inner = "\n".join(body).strip("\n")
+
+    parts = [f'<div class="{cls}" markdown="1">', f'<span class="label">{label}</span>', '']
+    if title:
+        parts += [f'#### {title}', '']
+    parts += [inner, '</div>', '']
+    return parts
+
+
+def _is_formula_quote(text):
+    """A blockquote that states a formula rather than making a remark."""
+    if len(text) > 420:
+        return False
+    mathy = sum(text.count(c) for c in "=Σ∫√±×÷≤≥≠∞µσ²³")
+    return "=" in text and mathy >= 1
+
+
+LIST_START = re.compile(r'^\s{0,3}(?:[-*+]\s+|\d{1,3}[.)]\s+)\S')
+
+
+def normalise_lists(md_text):
+    """Insert the blank line Python-Markdown needs before a list.
+
+    GitHub's renderer accepts a list that starts on the line straight after a
+    paragraph; Python-Markdown treats it as lazy continuation and leaves the
+    dashes as literal text. The notes are written in the GitHub style, so
+    normalise here rather than editing 41 source files.
+    """
+    lines = md_text.split("\n")
+    out = []
+    in_fence = False
+    for idx, line in enumerate(lines):
+        if line.lstrip().startswith("```"):
+            in_fence = not in_fence
+            out.append(line)
+            continue
+        if (not in_fence and LIST_START.match(line) and out
+                and out[-1].strip()
+                and not LIST_START.match(out[-1])
+                and not out[-1].lstrip().startswith((">", "|", "#"))
+                and not out[-1].rstrip().endswith(("|",))):
+            out.append("")
+        out.append(line)
+    return "\n".join(out)
+
+
+def promote_markdown_boxes(md_text):
+    """Wrap recognised sections in .concept / .formula / .example / .tip."""
+    md_text = normalise_lists(md_text)
+    lines = md_text.split("\n")
+    out = []
+    i = 0
+    in_fence = False
+
+    while i < len(lines):
+        line = lines[i]
+
+        # Never rewrite anything inside a fenced code block.
+        if line.lstrip().startswith("```"):
+            in_fence = not in_fence
+            out.append(line)
+            i += 1
+            continue
+        if in_fence:
+            out.append(line)
+            i += 1
+            continue
+
+        # --- marker headings: 🎯 big idea, 📖 story, 🔢 formula, 💡 insight ---
+        matched = False
+        for rx, cls, label in SECTION_BOXES:
+            m = rx.match(line)
+            if m:
+                title = m.group(1).strip() or None
+                # Drop a redundant title that just repeats the label.
+                if title and title.lower().strip(' "') in {
+                        "the big idea", "the story", "the formula",
+                        'the "aha!" moment'}:
+                    title = None
+                body, i = _capture(lines, i + 1, stop_levels=(2, 3))
+                out += _box(cls, label, title, body)
+                matched = True
+                break
+        if matched:
+            continue
+
+        # --- practice problems become worked examples ---
+        m = PROBLEM_RE.match(line)
+        if m:
+            label = m.group(1).upper()
+            title = m.group(2).strip(" —-").strip() or None
+            body, i = _capture(lines, i + 1, stop_levels=(2, 3))
+            out += _box("example", label, title, body)
+            continue
+
+        # --- inline "**Worked example.**" paragraphs ---
+        wm = WORKED_RE.match(line)
+        if wm:
+            qualifier = (wm.group(2) or "").strip(" ().:")
+            label = "WORKED EXAMPLE"
+            if wm.group(1).lower().startswith("trace"):
+                label = "TRACE"
+            rest = line[wm.end():].strip()
+            body, i = _capture(lines, i + 1, stop_levels=(2, 3))
+            if rest:
+                body = [rest] + body
+            out += _box("example", label, qualifier or None, body)
+            continue
+
+        # --- "## Worked example — ..." headings ---
+        m = WORKED_HEADING_RE.match(line)
+        if m:
+            title = m.group(2).strip() or None
+            body, i = _capture(lines, i + 1, stop_levels=(2, 3))
+            out += _box("example", "WORKED EXAMPLE", title, body)
+            continue
+
+        # --- definition sentences become .concept, as on Statistics-Major ---
+        if DEFINITION_RE.match(line):
+            body = [line]
+            i += 1
+            while i < len(lines) and lines[i].strip() and \
+                    not HEADING.match(lines[i]) and \
+                    not lines[i].lstrip().startswith(("```", ">", "|", "-", "*", "1.")):
+                body.append(lines[i])
+                i += 1
+            out += _box("concept", "DEFINITION", None, body)
+            continue
+
+        # --- explanatory lead-ins become .tip ---
+        if INSIGHT_RE.match(line):
+            body = [line]
+            i += 1
+            while i < len(lines) and lines[i].strip() and \
+                    not HEADING.match(lines[i]) and \
+                    not lines[i].lstrip().startswith(("```", ">", "|")):
+                body.append(lines[i])
+                i += 1
+            out += _box("tip", "WHY IT MATTERS", None, body)
+            continue
+
+        # --- blockquotes ---
+        if line.startswith(">"):
+            block = []
+            while i < len(lines) and (lines[i].startswith(">") or
+                                      (lines[i].strip() == "" and
+                                       i + 1 < len(lines) and
+                                       lines[i + 1].startswith(">"))):
+                block.append(re.sub(r'^>\s?', '', lines[i]))
+                i += 1
+            text = "\n".join(block).strip()
+            if "⚠" in text or "examined but" in text.lower():
+                cls, label = "warn", "EXAMINED BUT NOT IN THE SYLLABUS"
+            elif _is_formula_quote(text):
+                cls, label = "formula", "FORMULA"
+            else:
+                cls, label = "tip", "NOTE"
+            out += _box(cls, label, None, block)
+            continue
+
+        # --- "Mistakes that cost marks" list becomes a warning ---
+        if re.match(r'^##\s+Mistakes that cost marks\s*$', line):
+            out.append(line)
+            i += 1
+            body, i = _capture(lines, i, stop_levels=(2,))
+            out += _box("warn", "COMMON ERRORS", None, body)
+            continue
+
+        out.append(line)
+        i += 1
+
+    return "\n".join(out)
+
+
 def promote_boxes(html_text):
     """Map Markdown constructs onto the house style's semantic boxes."""
-    # Blockquotes carrying the off-syllabus warnings become .warn; the rest
-    # become .tip, matching how Statistics-Major uses those classes.
-    def blockquote(m):
-        inner = m.group(1)
-        warn = ("⚠" in inner or "examined but" in inner.lower()
-                or "not in the syllabus" in inner.lower())
-        cls = "warn" if warn else "tip"
-        label = "EXAMINED BUT NOT IN THE SYLLABUS" if warn else "NOTE"
-        return (f'<div class="{cls}"><span class="label">{label}</span>\n'
-                f'{inner}\n</div>')
-
-    html_text = re.sub(r'<blockquote>\s*(.*?)\s*</blockquote>',
-                       blockquote, html_text, flags=re.S)
+    # Any blockquote that survived promote_markdown_boxes (e.g. nested inside
+    # a list) still gets the house .tip treatment rather than browser default.
+    html_text = re.sub(
+        r'<blockquote>\s*(.*?)\s*</blockquote>',
+        r'<div class="tip"><span class="label">NOTE</span>\n\1\n</div>',
+        html_text, flags=re.S)
 
     # Review-finding references (finding D1, finding **D2**, ...) get a chip.
     html_text = re.sub(
@@ -387,7 +617,7 @@ def build_course(course, link_map):
         unit_title, unit_desc = course["units"][idx - 1]
 
         body_md = rewrite_links(body_md, link_map, src, out_dir)
-        body = promote_boxes(render_markdown(body_md))
+        body = promote_boxes(render_markdown(promote_markdown_boxes(body_md)))
 
         nav = [("← Course home", f"index_{slug}.html")]
         if idx > 1:
@@ -426,7 +656,7 @@ def build_course(course, link_map):
         raw = md_path.read_text()
         heading, body_md = strip_first_heading(raw)
         body_md = rewrite_links(body_md, link_map, src, out_dir)
-        body = promote_boxes(render_markdown(body_md))
+        body = promote_boxes(render_markdown(promote_markdown_boxes(body_md)))
 
         out = out_dir / f"{out_slug}_{slug}.html"
         out.write_text(page(
@@ -456,7 +686,7 @@ def build_course(course, link_map):
         # Keep the prose above the unit table; the cards below replace it.
         body_md = re.split(r'^## Units\b', body_md, flags=re.M)[0]
         body_md = rewrite_links(body_md, link_map, src, out_dir)
-        intro_html = promote_boxes(render_markdown(body_md))
+        intro_html = promote_boxes(render_markdown(promote_markdown_boxes(body_md)))
 
     cards = []
     for idx, (unit_title, unit_desc) in enumerate(course["units"], start=1):
@@ -508,7 +738,7 @@ def build_top_pages(link_map):
         raw = md_path.read_text()
         heading, body_md = strip_first_heading(raw)
         body_md = rewrite_links(body_md, link_map, ROOT, ROOT)
-        body = promote_boxes(render_markdown(body_md))
+        body = promote_boxes(render_markdown(promote_markdown_boxes(body_md)))
 
         out = ROOT / f"{out_slug}.html"
         out.write_text(page(

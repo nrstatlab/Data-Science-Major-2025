@@ -29,7 +29,8 @@
 
 <p><strong>Syllabus (page 10):</strong> Unit 4 is titled <strong>"Functions"</strong>, but the printed topic
 list opens with pointers:</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p>Pointers: Pointer data type, pointer declaration, initialization, accessing
 values using pointers. Pointer arithmetic, pointers and arrays. Function
 prototype, definition and calling. Return statement. Nesting of functions.
@@ -296,7 +297,10 @@ a non-standard extension — do not rely on it.)</p>
     return n * factorial(n - 1);      /* RECURSIVE CASE */
 }
 </code></pre>
-<p><strong>Trace <code>factorial(4)</code></strong> — exams ask for exactly this:</p>
+<div class="example">
+<p><span class="label">TRACE</span></p>
+<h4><code>factorial(4)</code></h4>
+<p>— exams ask for exactly this:</p>
 <pre><code>factorial(4) = 4 * factorial(3)
                    factorial(3) = 3 * factorial(2)
                                       factorial(2) = 2 * factorial(1)
@@ -339,6 +343,7 @@ because the base case is never reached.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <h2>4.3 Parameter passing — the exam's favourite topic</h2>
 <h3>Call by value</h3>
 <p>A <strong>copy</strong> of the argument is passed. The function cannot touch the original.</p>
@@ -352,7 +357,10 @@ swap(x, y);
 printf(&quot;%d %d&quot;, x, y);    /* STILL 10 20 -- only the copies were swapped */
 </code></pre>
 <h3>Call by address (call by reference)</h3>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>The <strong>address</strong> is passed, so the function reaches the original.</p>
+</div>
 <pre><code class="language-c">void swap(int *a, int *b)
 {
     int t = *a; *a = *b; *b = t;
@@ -567,12 +575,18 @@ programmer, so the keyword is obsolete in practice; it remains examinable.</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain pointers in detail — declaration, initialization, dereferencing,
-   arithmetic, and the relationship with arrays.</li>
-<li>Explain all four storage classes with scope, lifetime, default value,
-   storage location and an example each.</li>
+<li>
+<p>Explain pointers in detail — declaration, initialization, dereferencing,
+   arithmetic, and the relationship with arrays.</p>
+</li>
+<li>
+<p>Explain all four storage classes with scope, lifetime, default value,
+   storage location and an example each.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Dereferencing an uninitialised or null pointer</li>
 <li>Assuming <code>p + 1</code> adds one byte — it adds <code>sizeof(type)</code> bytes</li>
@@ -584,6 +598,7 @@ programmer, so the keyword is obsolete in practice; it remains examinable.</p>
 <li>Trying to return an array from a function (return a pointer, or pass the
   destination in)</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_problem-solving-c.html">← Course home</a>

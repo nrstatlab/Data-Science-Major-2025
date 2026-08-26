@@ -35,7 +35,8 @@
 PL/SQL language elements, data types, operator precedence, control structures,
 steps to create a PL/SQL program, iterative control, procedures, functions.</p>
 <hr />
-<div class="warn"><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span>
+<div class="warn">
+<p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
 <h2>⚠ Triggers are examined but are not in this unit's syllabus</h2>
 <p>The unit list above — copied verbatim from page 25 — ends at "procedures,
 functions". <strong>Triggers are not mentioned.</strong> Neither are they in Course Outcome 5.</p>
@@ -292,7 +293,10 @@ END LOOP;
 read-only inside the loop — you cannot assign to <code>i</code>. Even with <code>REVERSE</code>, the
 range is written low..high.</p>
 <h2>5.5 Cursors</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>cursor</strong> is a pointer to the result set of a query.</p>
+</div>
 <h3>Implicit cursors</h3>
 <p>Created automatically for every SQL statement. Their attributes are useful:</p>
 <table class="main-table">
@@ -525,7 +529,8 @@ END;
 </code></pre>
 <p><code>IN</code> parameters cannot be assigned to inside the procedure.</p>
 <h2>5.8 Triggers — off-syllabus but examined</h2>
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p>Not in the Unit 5 topic list, but required by Course Objective 5, the
 prescribed activities, and two of the six PL/SQL lab questions. Finding <strong>D2</strong>.</p>
 </div>
@@ -713,14 +718,22 @@ SELECT trigger_name, status FROM user_triggers;
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain PL/SQL in detail — block structure, data types, control structures,
-   cursors and exception handling — with examples.</li>
-<li>Write and explain a procedure, a function and a trigger for a payroll
-   system.</li>
-<li>Explain triggers fully: syntax, classification, <code>:NEW</code>/<code>:OLD</code>, advantages,
-   disadvantages, and the mutating table problem.</li>
+<li>
+<p>Explain PL/SQL in detail — block structure, data types, control structures,
+   cursors and exception handling — with examples.</p>
+</li>
+<li>
+<p>Write and explain a procedure, a function and a trigger for a payroll
+   system.</p>
+</li>
+<li>
+<p>Explain triggers fully: syntax, classification, <code>:NEW</code>/<code>:OLD</code>, advantages,
+   disadvantages, and the mutating table problem.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Forgetting <code>SET SERVEROUTPUT ON</code> and concluding the code is broken</li>
 <li>Omitting the <code>/</code> that executes the block</li>
@@ -734,6 +747,7 @@ SELECT trigger_name, status FROM user_triggers;
 <li>Using <code>:NEW</code> in a statement-level trigger, where it does not exist</li>
 <li>Declaring a table column as <code>BOOLEAN</code> — that type is PL/SQL-only</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_dbms.html">← Course home</a>

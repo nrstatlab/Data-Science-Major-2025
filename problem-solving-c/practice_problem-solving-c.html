@@ -20,7 +20,8 @@
 getting them wrong and finding out why is the whole point.</p>
 <hr />
 <h2>Section A — Trace the output</h2>
-<h3>Q1</h3>
+<div class="example">
+<p><span class="label">Q1</span></p>
 <pre><code class="language-c">int i = 5;
 printf(&quot;%d %d %d&quot;, i++, ++i, i++);
 </code></pre>
@@ -32,7 +33,9 @@ usually <code>5 7 7</code> (arguments evaluated right to left, as many compilers
 that, then add one line: <em>"this is undefined behaviour; the standard does not
 specify the order of evaluation."</em> That sentence is what distinguishes a strong
 answer.</p>
-<h3>Q2</h3>
+</div>
+<div class="example">
+<p><span class="label">Q2</span></p>
 <pre><code class="language-c">int a[5] = {1, 2, 3, 4, 5};
 int *p = a;
 printf(&quot;%d %d %d&quot;, *p, *(p + 2), *p + 2);
@@ -45,7 +48,9 @@ printf(&quot;%d %d %d&quot;, *p, *(p + 2), *p + 2);
 </ul>
 <p>The last two look alike and mean different things: brackets change what is
 dereferenced. Dereferencing binds tighter than addition.</p>
-<h3>Q3</h3>
+</div>
+<div class="example">
+<p><span class="label">Q3</span></p>
 <pre><code class="language-c">void counter(void) {
     static int c = 0;
     int d = 0;
@@ -57,7 +62,9 @@ dereferenced. Dereferencing binds tighter than addition.</p>
 <p><strong>Answer: <code>1 1 | 2 1 | 3 1 |</code></strong></p>
 <p><code>c</code> is <code>static</code>, so it is initialised once and survives between calls. <code>d</code> is a
 plain local, recreated and reset to 0 every time.</p>
-<h3>Q4</h3>
+</div>
+<div class="example">
+<p><span class="label">Q4</span></p>
 <pre><code class="language-c">int x = 10;
 if (x = 5)
     printf(&quot;Five&quot;);
@@ -68,14 +75,18 @@ else
 <p><code>x = 5</code> is an <em>assignment</em>, not a comparison. It stores 5 in <code>x</code> and the
 expression evaluates to 5, which is non-zero and therefore true. <code>if (x == 5)</code>
 was intended. Compiling with <code>-Wall</code> warns about this.</p>
-<h3>Q5</h3>
+</div>
+<div class="example">
+<p><span class="label">Q5</span></p>
 <pre><code class="language-c">char s[] = &quot;Hello&quot;;
 printf(&quot;%d %d&quot;, strlen(s), sizeof(s));
 </code></pre>
 <p><strong>Answer: <code>5 6</code></strong></p>
 <p><code>strlen</code> counts characters up to but not including <code>'\0'</code> → 5. <code>sizeof</code> counts
 allocated bytes, which includes the terminator → 6.</p>
-<h3>Q6</h3>
+</div>
+<div class="example">
+<p><span class="label">Q6</span></p>
 <pre><code class="language-c">for (int i = 0; i &lt; 3; i++) {
     for (int j = 0; j &lt; 3; j++) {
         if (j == 1) break;
@@ -86,9 +97,11 @@ allocated bytes, which includes the terminator → 6.</p>
 <p><strong>Answer: <code>00 10 20</code></strong></p>
 <p>The inner loop breaks as soon as <code>j == 1</code>, so only <code>j == 0</code> ever prints. <code>break</code>
 leaves only the inner loop; the outer one continues.</p>
+</div>
 <hr />
 <h2>Section B — Find and fix the error</h2>
-<h3>Q7</h3>
+<div class="example">
+<p><span class="label">Q7</span></p>
 <pre><code class="language-c">int main() {
     int n;
     printf(&quot;Enter n: &quot;);
@@ -98,7 +111,9 @@ leaves only the inner loop; the outer one continues.</p>
 </code></pre>
 <p><strong>Error:</strong> <code>scanf</code> is missing <code>&amp;</code>. It needs the <em>address</em> to write into.</p>
 <p><strong>Fix:</strong> <code>scanf("%d", &amp;n);</code></p>
-<h3>Q8</h3>
+</div>
+<div class="example">
+<p><span class="label">Q8</span></p>
 <pre><code class="language-c">int *p;
 *p = 10;
 printf(&quot;%d&quot;, *p);
@@ -111,7 +126,9 @@ int *p = &amp;x;
 *p = 10;
 </code></pre>
 <p>or allocate: <code>int *p = malloc(sizeof(int)); if (p) *p = 10; ... free(p);</code></p>
-<h3>Q9</h3>
+</div>
+<div class="example">
+<p><span class="label">Q9</span></p>
 <pre><code class="language-c">struct Student {
     int roll;
     char name[50];
@@ -122,7 +139,9 @@ int main() { ... }
 definition. The error message points at <code>int main</code>, which is confusing — when
 the compiler complains about a line that looks fine, check the line above.</p>
 <p><strong>Fix:</strong> <code>};</code></p>
-<h3>Q10</h3>
+</div>
+<div class="example">
+<p><span class="label">Q10</span></p>
 <pre><code class="language-c">char str1[10] = &quot;Hello&quot;, str2[10] = &quot;Hello&quot;;
 if (str1 == str2)
     printf(&quot;Equal&quot;);
@@ -130,7 +149,9 @@ if (str1 == str2)
 <p><strong>Error:</strong> <code>==</code> compares the two <em>addresses</em>, which are different. It never
 prints "Equal".</p>
 <p><strong>Fix:</strong> <code>if (strcmp(str1, str2) == 0)</code></p>
-<h3>Q11</h3>
+</div>
+<div class="example">
+<p><span class="label">Q11</span></p>
 <pre><code class="language-c">int *p = malloc(5 * sizeof(int));
 p[0] = 10;
 free(p);
@@ -139,9 +160,12 @@ printf(&quot;%d&quot;, p[0]);
 <p><strong>Error:</strong> using <code>p</code> after <code>free</code> — a dangling pointer. It may print 10, may
 print garbage, may crash.</p>
 <p><strong>Fix:</strong> print before freeing, and set <code>p = NULL;</code> after <code>free(p);</code></p>
+</div>
 <hr />
 <h2>Section C — Write the program</h2>
-<h3>Q12 — Check whether a string is a palindrome</h3>
+<div class="example">
+<p><span class="label">Q12</span></p>
+<h4>Check whether a string is a palindrome</h4>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 
@@ -168,7 +192,10 @@ int main(void)
 </code></pre>
 <p>Two pointers walking inwards from both ends. O(n) time, O(1) extra space — say
 so if the question asks for complexity.</p>
-<h3>Q13 — Reverse an array in place</h3>
+</div>
+<div class="example">
+<p><span class="label">Q13</span></p>
+<h4>Reverse an array in place</h4>
 <pre><code class="language-c">void reverse(int a[], int n)
 {
     int i = 0, j = n - 1, temp;
@@ -183,7 +210,10 @@ so if the question asks for complexity.</p>
 </code></pre>
 <p>Same two-pointer idea. Looping all the way to <code>n-1</code> instead of stopping at the
 middle would reverse it and then reverse it back.</p>
-<h3>Q14 — Count vowels, consonants, digits and spaces</h3>
+</div>
+<div class="example">
+<p><span class="label">Q14</span></p>
+<h4>Count vowels, consonants, digits and spaces</h4>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;ctype.h&gt;
 
@@ -210,7 +240,10 @@ int main(void)
 }
 </code></pre>
 <p><code>fgets</code> rather than <code>scanf("%s")</code>, because the input has spaces in it.</p>
-<h3>Q15 — Sum of digits, recursively</h3>
+</div>
+<div class="example">
+<p><span class="label">Q15</span></p>
+<h4>Sum of digits, recursively</h4>
 <pre><code class="language-c">int sum_of_digits(int n)
 {
     if (n == 0)                              /* base case */
@@ -224,7 +257,10 @@ int main(void)
 = 3 + (2 + (1 + sum_of_digits(0)))
 = 3 + (2 + (1 + 0)) = 6
 </code></pre>
-<h3>Q16 — Second largest element of an array</h3>
+</div>
+<div class="example">
+<p><span class="label">Q16</span></p>
+<h4>Second largest element of an array</h4>
 <pre><code class="language-c">int second_largest(const int a[], int n)
 {
     int largest = a[0], second = -2147483647;
@@ -243,9 +279,12 @@ int main(void)
 </code></pre>
 <p>One pass, O(n). Sorting first would work but costs O(n log n) — mention the
 difference if asked. The <code>a[i] != largest</code> guard handles duplicated maxima.</p>
+</div>
 <hr />
 <h2>Section D — Long answers</h2>
-<h3>Q17 — Compare call by value and call by address</h3>
+<div class="example">
+<p><span class="label">Q17</span></p>
+<h4>Compare call by value and call by address</h4>
 <p>Structure your answer as: definition of each → syntax → a swap program for each
 → the comparison table → a conclusion.</p>
 <p>See <a href="unit4_problem-solving-c.html">unit-4.md §4.3</a> for the full treatment and
@@ -254,14 +293,20 @@ for runnable code.</p>
 <p>The mark scheme almost always wants: both programs written out, the <em>output</em> of
 each shown, and an explicit statement that call by value cannot modify the
 caller's variables.</p>
-<h3>Q18 — Explain the four storage classes</h3>
+</div>
+<div class="example">
+<p><span class="label">Q18</span></p>
+<h4>Explain the four storage classes</h4>
 <p>Draw the four-row table (scope, lifetime, default value, storage location),
 then give a short example of each. The <code>static</code> counter example is the one that
 demonstrates understanding rather than memorisation:</p>
 <pre><code class="language-c">void f(void) { static int c = 0; printf(&quot;%d &quot;, ++c); }
 /* three calls print 1 2 3, not 1 1 1 */
 </code></pre>
-<h3>Q19 — Explain structures vs unions with a memory diagram</h3>
+</div>
+<div class="example">
+<p><span class="label">Q19</span></p>
+<h4>Explain structures vs unions with a memory diagram</h4>
 <pre><code class="language-c">struct S { int i; char c; float f; };   /* ~12 bytes, all members valid */
 union  U { int i; char c; float f; };   /*  4 bytes, one member valid   */
 </code></pre>
@@ -273,6 +318,7 @@ union  U { int i; char c; float f; };   /*  4 bytes, one member valid   */
 </code></pre>
 <p>Say explicitly: <strong>writing to one union member destroys the others</strong>. Then give
 the memory-saving use case.</p>
+</div>
 <hr />
 <h2>Quick self-test</h2>
 <p>Ten minutes, no notes. If you cannot answer these, re-read the unit named.</p>

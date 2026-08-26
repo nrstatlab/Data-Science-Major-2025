@@ -37,10 +37,13 @@ estimation, properties and analysis of variance. Multiple linear regression
 basics (conceptual understanding). Residuals and goodness of fit.</p>
 <hr />
 <h2>4.1 Bivariate data and scatter plots</h2>
-<h3>🎯 The big idea</h3>
+<div class="concept">
+<p><span class="label">THE BIG IDEA</span></p>
 <p>Until now you studied one variable at a time. Bivariate analysis asks whether
 <strong>two</strong> variables move together — and if so, whether one can predict the other.</p>
-<h3>📖 The story</h3>
+</div>
+<div class="tip">
+<p><span class="label">STORY</span></p>
 <p>A teacher suspects students who study more score higher. She records, for each
 student, hours studied and exam score. Each student is now a <strong>pair</strong> of
 numbers, and plotting those pairs as points gives a <strong>scatter plot</strong>. If the
@@ -85,27 +88,32 @@ variable (the cause, or the thing you control) goes on the x-axis; the
 </table>
 <p>That last row matters: <strong>always plot before computing r.</strong> A perfect parabola
 can have r = 0, and reporting "no relationship" would be badly wrong.</p>
+</div>
 <h2>4.2 Covariance</h2>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>Cov(X,Y) = Σ(xᵢ − x̄)(yᵢ − ȳ) / (n − 1)</strong></p>
 </div>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Why the product works.</strong> When both values are above their means, both
 deviations are positive and the product is positive. When both are below, both
 are negative and the product is <em>still</em> positive. Only when one is above and
 the other below is the product negative. Add them all up: a positive total
 means the variables move together.</p>
+</div>
 <p><strong>Its flaw:</strong> the magnitude depends entirely on the units. Measure height in
 centimetres instead of metres and the covariance multiplies by 100, though
 nothing about the relationship changed. So the <strong>sign is meaningful, the size
 is not</strong>.</p>
 <h2>4.3 Pearson's correlation coefficient</h2>
-<h3>🔢 The formula</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>r = Σ(xᵢ − x̄)(yᵢ − ȳ) / √[Σ(xᵢ − x̄)² · Σ(yᵢ − ȳ)²]</strong></p>
-</div>
 <p>or equivalently <strong>r = Cov(X,Y) / (sₓ · s_y)</strong></p>
 <p>Dividing by both standard deviations cancels the units, so r is <strong>always
 between −1 and +1</strong>.</p>
+</div>
 <h3>Interpreting r</h3>
 <table class="main-table">
 <thead>
@@ -141,7 +149,8 @@ between −1 and +1</strong>.</p>
 </tr>
 </tbody>
 </table>
-<h3>Worked example</h3>
+<div class="example">
+<p><span class="label">WORKED EXAMPLE</span></p>
 <p>Hours studied (x) and exam score (y):</p>
 <table class="main-table">
 <thead>
@@ -185,7 +194,10 @@ between −1 and +1</strong>.</p>
 <li>Step 4: <strong>r = 0.9979</strong></li>
 </ul>
 <p>A very strong positive linear relationship.</p>
-<h3>💡 Correlation is not causation</h3>
+</div>
+<div class="tip">
+<p><span class="label">KEY INSIGHT</span></p>
+<h4>Correlation is not causation</h4>
 <p>Ice cream sales and drowning deaths are strongly correlated. Ice cream does not
 cause drowning — <strong>summer</strong> causes both. That third variable is a
 <strong>confounder</strong>.</p>
@@ -198,11 +210,13 @@ cause drowning — <strong>summer</strong> causes both. That third variable is a
 <p>Correlation alone cannot tell you which. <strong>Say this in every interpretation
 question.</strong> It is a reliable mark, and it is the single most important idea in
 the unit.</p>
+</div>
 <h2>4.4 Spearman's rank correlation</h2>
 <p>Pearson measures <em>linear</em> association. <strong>Spearman</strong> replaces the values with
 their <strong>ranks</strong>, so it measures any <strong>monotonic</strong> relationship — consistently
 increasing or decreasing, whether or not it is a straight line.</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>ρ = 1 − (6 Σd²) / (n(n² − 1))</strong></p>
 </div>
 <p>where d is the difference in ranks for each pair.</p>
@@ -239,23 +253,27 @@ destroys the extremity: a value of 500 among values near 50 becomes simply
 <p><strong>Ties</strong> get the average of the ranks they would have occupied. Use Excel's
 <code>RANK.AVG</code>, not <code>RANK</code>.</p>
 <h2>4.5 Simple linear regression</h2>
-<h3>🎯 The big idea</h3>
+<div class="concept">
+<p><span class="label">THE BIG IDEA</span></p>
 <p>Correlation says <em>whether</em> two variables move together. Regression fits the
 actual <strong>line</strong>, so you can predict.</p>
-<h3>🔢 The model</h3>
-<div class="tip"><span class="label">NOTE</span>
-<p><strong>y = β₀ + β₁x + ε</strong></p>
 </div>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
+<h4>The model</h4>
+<p><strong>y = β₀ + β₁x + ε</strong></p>
 <ul>
 <li>β₀ = the <strong>intercept</strong> — predicted y when x = 0</li>
 <li>β₁ = the <strong>slope</strong> — the change in y for a one-unit increase in x</li>
 <li>ε = the <strong>error term</strong> — everything the line does not capture</li>
 </ul>
+</div>
 <h3>Estimation by least squares</h3>
 <p>The best line is the one minimising the sum of the <strong>squared vertical
 distances</strong> from the points to the line. Squaring stops positive and negative
 errors from cancelling, and penalises large misses heavily.</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>b₁ = Σ(xᵢ − x̄)(yᵢ − ȳ) / Σ(xᵢ − x̄)²</strong>
 <strong>b₀ = ȳ − b₁x̄</strong></p>
 </div>
@@ -267,11 +285,15 @@ errors from cancelling, and penalises large misses heavily.</p>
 </ul>
 <p><strong>Interpretation — where the marks are:</strong></p>
 <ul>
-<li><strong>Slope:</strong> each additional hour of study is associated with about <strong>4.3 more
-  marks</strong>.</li>
-<li><strong>Intercept:</strong> a student studying zero hours is predicted to score 43.03.
+<li>
+<p><strong>Slope:</strong> each additional hour of study is associated with about <strong>4.3 more
+  marks</strong>.</p>
+</li>
+<li>
+<p><strong>Intercept:</strong> a student studying zero hours is predicted to score 43.03.
   Treat this cautiously — x = 0 lies outside the observed range of 2 to 11
-  hours, so the model has no evidence there.</li>
+  hours, so the model has no evidence there.</p>
+</li>
 </ul>
 <p>Note the wording "<strong>is associated with</strong>", not "causes". Regression fits a
 line; it does not establish causation.</p>
@@ -282,7 +304,8 @@ impossible. The model is only valid within the range of the data you fitted it
 to.</p>
 <h2>4.6 Residuals and goodness of fit</h2>
 <h3>Residuals</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>eᵢ = yᵢ − ŷᵢ</strong>   (observed minus fitted)</p>
 </div>
 <p>Properties of least-squares residuals: they <strong>sum to zero</strong>, and the line
@@ -315,7 +338,8 @@ always passes through the point (x̄, ȳ).</p>
 </tbody>
 </table>
 <h3>Coefficient of determination R²</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>R² = SS_regression / SS_total = 1 − (SS_residual / SS_total)</strong></p>
 </div>
 <p><strong>R² is the proportion of the variation in y that the model explains.</strong></p>
@@ -370,7 +394,8 @@ regression.)</p>
 <p>F is enormous, so the model explains far more variation than chance would.
 The p-value is 8.4 × 10⁻¹¹ — reject the hypothesis that the slope is zero.</p>
 <h3>Testing the slope</h3>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>H₀: β₁ = 0</strong> (x has no linear effect on y) <strong>vs H₁: β₁ ≠ 0</strong></p>
 <p><strong>t = b₁ / SE(b₁)</strong>, where <strong>SE(b₁) = √(MS_residual / Σ(x − x̄)²)</strong></p>
 </div>
@@ -384,7 +409,8 @@ The p-value is 8.4 × 10⁻¹¹ — reject the hypothesis that the slope is zero
 <a href="../labs/course-4-stats/python/04_correlation_regression.py"><code>04_correlation_regression.py</code></a>.</p>
 <h2>4.7 Multiple linear regression (conceptual)</h2>
 <p>The syllabus asks for conceptual understanding only.</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>y = β₀ + β₁x₁ + β₂x₂ + … + βₖxₖ + ε</strong></p>
 </div>
 <p>Several predictors instead of one. Exam score might be predicted from hours
@@ -396,7 +422,8 @@ technique useful: it isolates one variable's contribution.</p>
 <h3>Adjusted R²</h3>
 <p>Adding <em>any</em> predictor — even a column of random numbers — never decreases R².
 So R² alone will always favour the bigger model.</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="formula">
+<p><span class="label">FORMULA</span></p>
 <p><strong>Adjusted R² = 1 − [(1 − R²)(n − 1) / (n − k − 1)]</strong></p>
 </div>
 <p>This penalises extra predictors, and <em>can</em> decrease when a useless one is
@@ -409,7 +436,8 @@ The coefficients become unstable and their signs may flip. This is
 predictors before fitting.</p>
 <hr />
 <h2>📝 Practice problems</h2>
-<h3>Problem 1</h3>
+<div class="example">
+<p><span class="label">PROBLEM 1</span></p>
 <p>For the data below, compute Pearson's r and interpret it.</p>
 <table class="main-table">
 <thead>
@@ -516,7 +544,9 @@ predictors before fitting.</p>
 </ul>
 <p><strong>Interpretation:</strong> a strong positive linear relationship. As x increases, y
 tends to increase. This does not establish that x causes y.</p>
-<h3>Problem 2</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 2</span></p>
 <p>Using the same data, find the regression line and predict y when x = 6.</p>
 <p><strong>Solution.</strong></p>
 <ul>
@@ -532,7 +562,9 @@ one made inside the range. Say so.</p>
 <li>Step 5 — <strong>R²</strong>: R² = r² = 0.7746² = <strong>0.60</strong>, so 60% of the variation in y
   is explained by x.</li>
 </ul>
-<h3>Problem 3</h3>
+</div>
+<div class="example">
+<p><span class="label">PROBLEM 3</span></p>
 <p>Eight students were ranked by two judges. Compute Spearman's rank correlation.</p>
 <table class="main-table">
 <thead>
@@ -661,6 +693,7 @@ one made inside the range. Say so.</p>
 students is merely swapped, never moved far. A ρ of 0.90 reflects that strong
 agreement.</p>
 <p><em>(Check: d should always sum to zero. It does.)</em></p>
+</div>
 <hr />
 <h2>Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
@@ -681,10 +714,14 @@ agreement.</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>For a given bivariate dataset, compute the correlation coefficient, fit the
-   regression line, construct the ANOVA table and interpret all results.</li>
-<li>Explain correlation and regression fully — types, formulas, interpretation,
-   goodness of fit, and the distinction between association and causation.</li>
+<li>
+<p>For a given bivariate dataset, compute the correlation coefficient, fit the
+   regression line, construct the ANOVA table and interpret all results.</p>
+</li>
+<li>
+<p>Explain correlation and regression fully — types, formulas, interpretation,
+   goodness of fit, and the distinction between association and causation.</p>
+</li>
 </ol>
 <h2>Correlation vs regression — a standard comparison</h2>
 <table class="main-table">
@@ -724,6 +761,8 @@ agreement.</p>
 </tbody>
 </table>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Reporting r without interpreting it</li>
 <li>Claiming causation from a correlation</li>
@@ -734,6 +773,7 @@ agreement.</p>
 <li>Using <code>RANK</code> instead of <code>RANK.AVG</code> in Excel when there are ties</li>
 <li>Forgetting that the residuals must sum to zero (a free check)</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_statistical-foundations.html">← Course home</a>

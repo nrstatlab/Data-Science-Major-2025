@@ -40,7 +40,8 @@ Queues — FIFO principle, implementation using a list, priority queues. GUI
 programming with Tkinter — widgets (Label, Button, Entry, Menu, Listbox,
 Canvas, etc.), event handling, building simple GUI apps.</p>
 <hr />
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p><strong>This unit contains two unrelated subjects.</strong> Data structures are
 algorithmic and carry most of the theory marks; Tkinter is applied and
 carries the lab marks (2 of the 18 lab programs). They share nothing. See
@@ -52,12 +53,18 @@ carries the lab marks (2 of the 18 lab programs). They share nothing. See
 <h2>A.1 What an ADT is</h2>
 <p>An <strong>Abstract Data Type</strong> specifies <em>what</em> operations a data structure supports
 and what they mean, without saying <em>how</em> they are implemented.</p>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>Stack ADT</strong> is defined by <code>push</code>, <code>pop</code>, <code>peek</code>, <code>is_empty</code> and the LIFO
 rule. Whether you build it from a Python list, a linked list or an array is an
 implementation detail the user never has to know.</p>
+</div>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Why it matters:</strong> the separation lets you swap implementations without
 changing any code that uses the structure. Python's own <code>list</code> is an ADT whose
 implementation (a dynamic array) you never see.</p>
+</div>
 <table class="main-table">
 <thead>
 <tr>
@@ -90,8 +97,11 @@ implementation (a dynamic array) you never see.</p>
 </tbody>
 </table>
 <h2>A.2 Linked lists</h2>
+<div class="concept">
+<p><span class="label">DEFINITION</span></p>
 <p>A <strong>linked list</strong> is a chain of <strong>nodes</strong>. Each node holds data and a reference
 to the next node.</p>
+</div>
 <pre><code>head
  |
  v
@@ -572,7 +582,8 @@ demonstrates the OOP from Unit 4 — examiners like seeing the two connected.</p
 <p>Full programs:
 <a href="../labs/course-3-python/17_tkinter_input.py"><code>17_tkinter_input.py</code></a> and
 <a href="../labs/course-3-python/18_tkinter_calculator.py"><code>18_tkinter_calculator.py</code></a>.</p>
-<div class="tip"><span class="label">NOTE</span>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
 <p>Both were <strong>syntax-checked but not executed</strong> in this repository's
 verification, because <code>tkinter</code> is not installed in that environment and a
 GUI needs a display. Run them on your own machine.</p>
@@ -590,23 +601,35 @@ GUI needs a display. Run them on your own machine.</p>
 </ol>
 <p><strong>Five marks</strong></p>
 <ol>
-<li>Explain the node structure of a singly linked list and write the insertion
-   operation.</li>
-<li>Explain stack operations with a Python implementation.</li>
+<li>
+<p>Explain the node structure of a singly linked list and write the insertion
+   operation.</p>
+</li>
+<li>
+<p>Explain stack operations with a Python implementation.</p>
+</li>
 <li>Compare a stack and a queue.</li>
 <li>Explain the three Tkinter geometry managers.</li>
 <li>Explain a priority queue with an implementation and a real example.</li>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Implement a singly linked list with insertion, deletion, search and
-   traversal, and explain each operation.</li>
-<li>Explain stacks and queues fully — principles, implementations, operations
-   and applications.</li>
-<li>Write a Tkinter application with Label, Entry and Button widgets, and
-   explain event handling.</li>
+<li>
+<p>Implement a singly linked list with insertion, deletion, search and
+   traversal, and explain each operation.</p>
+</li>
+<li>
+<p>Explain stacks and queues fully — principles, implementations, operations
+   and applications.</p>
+</li>
+<li>
+<p>Write a Tkinter application with Label, Entry and Button widgets, and
+   explain event handling.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Forgetting the head-deletion special case in a linked list</li>
 <li>Losing the rest of the chain by reassigning <code>next</code> in the wrong order</li>
@@ -616,6 +639,7 @@ GUI needs a display. Run them on your own machine.</p>
 <li>Putting code after <code>mainloop()</code> and expecting it to run</li>
 <li>Claiming a linked list gives O(1) access by index — it does not</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_python-data-structures.html">← Course home</a>

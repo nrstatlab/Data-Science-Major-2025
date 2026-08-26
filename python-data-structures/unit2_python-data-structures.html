@@ -250,10 +250,13 @@ def outer():
     inner()
     return x             # 20
 </code></pre>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Why <code>UnboundLocalError</code>?</strong> Assigning to a name anywhere in a function makes
 that name local for the whole function — including <em>before</em> the assignment. So
 <code>count += 1</code> tries to read a local <code>count</code> that does not yet exist. <code>global</code>
 says "no, I mean the module-level one".</p>
+</div>
 <h3>Recursion</h3>
 <pre><code class="language-python">def factorial(n):
     if n in (0, 1):              # base case
@@ -376,12 +379,18 @@ is used to cross-check hand-computed answers.</p>
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain functions in Python — definition, calling, arguments, return values,
-   scope and recursion — with examples.</li>
-<li>Explain modules — creating, importing, the different import forms, and
-   namespaces.</li>
+<li>
+<p>Explain functions in Python — definition, calling, arguments, return values,
+   scope and recursion — with examples.</p>
+</li>
+<li>
+<p>Explain modules — creating, importing, the different import forms, and
+   namespaces.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Forgetting the colon after <code>if</code>, <code>for</code>, <code>while</code>, <code>def</code></li>
 <li>Using <code>else if</code> instead of <code>elif</code></li>
@@ -391,6 +400,7 @@ is used to cross-check hand-computed answers.</p>
 <li>Putting <code>*args</code> before a required parameter</li>
 <li>Trying to write a statement inside a lambda</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_python-data-structures.html">← Course home</a>

@@ -211,9 +211,12 @@ numbers; <code>COUNTA</code> counts anything non-empty, including text.</p>
 =SUMIFS(C2:C20, A2:A20,&quot;IT&quot;, B2:B20,&quot;&gt;2&quot;)      multiple criteria
 =AVERAGEIF(A2:A20, &quot;IT&quot;, C2:C20)
 </code></pre>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Note the argument order differs.</strong> <code>SUMIF(range, criteria, sum_range)</code> puts
 the criteria range first; <code>SUMIFS(sum_range, range1, criteria1, …)</code> puts the sum
 range first. This inconsistency in Excel's own design catches everyone.</p>
+</div>
 <h2>4.4 Logical functions</h2>
 <h3>IF</h3>
 <pre><code class="language-excel">=IF(condition, value_if_true, value_if_false)
@@ -410,14 +413,22 @@ Last name:   =RIGHT(A2, LEN(A2)-FIND(&quot; &quot;,A2))
 </table>
 <p><strong>Four rules that cost marks when broken:</strong></p>
 <ol>
-<li><strong>Always use <code>FALSE</code></strong> unless you deliberately want a range match. <code>TRUE</code> is
-   the default and it silently returns wrong answers on unsorted data.</li>
-<li><strong>The lookup value must be in the first column</strong> of the table array. VLOOKUP
-   cannot look leftwards.</li>
-<li><strong><code>col_index_num</code> counts from the table's first column</strong>, not from column A
-   of the sheet.</li>
-<li><strong>Anchor the table array</strong> with <code>$</code>, or copying the formula down shifts the
-   table out from under it.</li>
+<li>
+<p><strong>Always use <code>FALSE</code></strong> unless you deliberately want a range match. <code>TRUE</code> is
+   the default and it silently returns wrong answers on unsorted data.</p>
+</li>
+<li>
+<p><strong>The lookup value must be in the first column</strong> of the table array. VLOOKUP
+   cannot look leftwards.</p>
+</li>
+<li>
+<p><strong><code>col_index_num</code> counts from the table's first column</strong>, not from column A
+   of the sheet.</p>
+</li>
+<li>
+<p><strong>Anchor the table array</strong> with <code>$</code>, or copying the formula down shifts the
+   table out from under it.</p>
+</li>
 </ol>
 <h3>HLOOKUP — horizontal lookup</h3>
 <p>The same thing across a row instead of down a column:</p>
@@ -429,7 +440,10 @@ Last name:   =RIGHT(A2, LEN(A2)-FIND(&quot; &quot;,A2))
 <pre><code class="language-excel">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])
 =XLOOKUP(E2, $A$2:$A$100, $D$2:$D$100, &quot;Not found&quot;)
 </code></pre>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
 <p><strong>Why it is better than VLOOKUP:</strong></p>
+</div>
 <ol>
 <li><strong>Can look left</strong> — the lookup and return arrays are independent</li>
 <li><strong>Exact match by default</strong> — no <code>FALSE</code> to forget</li>
@@ -643,22 +657,33 @@ tested against column C, while <code>2</code> moves so each row tests its own va
 </ol>
 <p><strong>Ten marks</strong></p>
 <ol>
-<li>Explain the lookup functions — VLOOKUP, HLOOKUP, XLOOKUP and INDEX+MATCH —
-   comparing them.</li>
-<li>Explain cell referencing in detail, and demonstrate with a multiplication
-   table built from one formula.</li>
+<li>
+<p>Explain the lookup functions — VLOOKUP, HLOOKUP, XLOOKUP and INDEX+MATCH —
+   comparing them.</p>
+</li>
+<li>
+<p>Explain cell referencing in detail, and demonstrate with a multiplication
+   table built from one formula.</p>
+</li>
 </ol>
 <h2>Mistakes that cost marks</h2>
+<div class="warn">
+<p><span class="label">COMMON ERRORS</span></p>
 <ul>
 <li>Omitting <code>$</code> and watching a formula break when copied</li>
 <li>Forgetting <code>FALSE</code> in VLOOKUP and getting silently wrong results</li>
-<li>Counting <code>col_index_num</code> from column A rather than from the table's first
-  column</li>
-<li>Trying to make VLOOKUP look leftwards</li>
+<li>
+<p>Counting <code>col_index_num</code> from column A rather than from the table's first
+  column</p>
+</li>
+<li>
+<p>Trying to make VLOOKUP look leftwards</p>
+</li>
 <li>Sorting one column without selecting the rest of the data</li>
 <li>Writing a nested IF ladder in the wrong order</li>
 <li>Using a pie chart for data that does not sum to a whole</li>
 </ul>
+</div>
 
   <div class="page-nav">
     <a href="index_computer-fundamentals.html">← Course home</a>
