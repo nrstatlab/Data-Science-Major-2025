@@ -193,6 +193,38 @@ COURSES = [
              "procedures, functions and database triggers."),
         ],
     },
+{
+        "slug": "data-science-r",
+        "src": "notes/sem-3/course-6-data-science-r",
+        "number": 6, "year": "II", "sem": "III",
+        "title": "Data Science with R",
+        "tagline": "The data science process, R programming, wrangling, "
+                   "visualisation, modelling and time series.",
+        "blurb": "5 Units + Lab \u2022 Data science lifecycle, R programming, "
+                 "dplyr/ggplot2, regression, clustering, ARIMA and Shiny.",
+        "units": [
+            ("Introduction to the Data Science Process",
+             "Definition and applications; the Data Analytics Life Cycle; the "
+             "toolkit and the team; exploratory data analysis; feature "
+             "engineering and data transformation."),
+            ("Basics of R Programming",
+             "R and RStudio; data types and structures; operators; control "
+             "structures and the apply family; functions and packages; "
+             "reading CSV, Excel, JSON and XML."),
+            ("Data Handling and Visualization in R",
+             "The pipe and the five dplyr verbs; tidyr reshaping; missing "
+             "data; dates and times; ggplot2 \u2014 grammar of graphics, "
+             "geometries, scales, faceting and export."),
+            ("Applications and Case Studies",
+             "Simple and multiple regression; confusion matrix, precision, "
+             "recall, ROC and AUC; K-Means clustering; text mining and "
+             "TF-IDF; recommender systems; ethics in data science."),
+            ("Advanced Topics",
+             "Time series \u2014 decomposition, stationarity, differencing, "
+             "ACF/PACF, ARIMA and forecasting; interactive plots with plotly; "
+             "building web applications with R Shiny."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {

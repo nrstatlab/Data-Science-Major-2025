@@ -28,6 +28,9 @@ else
     echo "ok -- all $(grep -c '^## Page' /tmp/extract_check.md) pages extracted"
 fi
 
+banner "Course 6 labs (R equivalents)"
+python3 "$ROOT/tools/run_r_equivalents.py" | tail -3 || fail=$((fail+1))
+
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
 
