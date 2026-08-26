@@ -149,7 +149,73 @@ That is what turns a collection of separate pivots into a genuine
 **Timeline slicers** (Insert → Timeline) do the same for dates, with a
 drag-to-select range.
 
-## 5.4 What-if analysis
+## 5.4 Data validation
+
+**Data → Data Validation** restricts what may be entered into a cell. It is the
+difference between a spreadsheet that collects clean data and one that collects
+whatever people happen to type.
+
+### The three tabs
+
+Every validation rule has three parts, and the syllabus names all three:
+
+| Tab | Purpose |
+|---|---|
+| **Settings** | The rule itself — what is allowed |
+| **Input Message** | A hint shown when the cell is selected, *before* typing |
+| **Error Alert** | The message shown when an invalid entry is attempted |
+
+### Validation criteria
+
+| Criterion | Allows | Example |
+|---|---|---|
+| **List** | Only values from a list — creates a **dropdown** | Course names |
+| **Whole number** | Integers in a range | Roll numbers 1–500 |
+| **Decimal** | Decimals in a range | Marks 0–100 |
+| **Date** | Dates in a range | DOB between 1990 and 2010 |
+| **Time** | Times in a range | Slots 09:00–17:00 |
+| **Text length** | A length range | A 10-digit phone number |
+| **Custom** | Anything expressible as a formula | `=ISNUMBER(SEARCH("@",E2))` |
+
+### Creating a dropdown list
+
+1. Select the cells
+2. **Data → Data Validation → Settings**
+3. Allow: **List**
+4. Source: either type `BSc,BCom,BA` directly, or point at a range like
+   `=$H$2:$H$10`
+5. Tick **In-cell dropdown**
+
+**Putting the source list on another sheet** keeps the form clean. Name the
+range (see §5.8) and use the name as the source — a named range works across
+sheets where a raw reference sometimes will not.
+
+### Error alert styles
+
+| Style | Behaviour |
+|---|---|
+| **Stop** | Rejects the entry outright |
+| **Warning** | Warns, but allows the user to continue |
+| **Information** | Informs only; always allows |
+
+**Choose Stop for data that must be clean** — a roll number, a course code.
+Choose Warning where an unusual value might still be legitimate.
+
+### Finding what slipped through
+
+Validation applies to what is typed *after* the rule is set. Values already in
+the cells, or pasted in, are not checked.
+
+**Data → Data Validation → Circle Invalid Data** draws a red ring around every
+cell that breaks its rule — the way to audit an existing sheet.
+
+**Pasting bypasses validation entirely.** This surprises people: a paste
+overwrites the rule along with the value. Protect the sheet if that matters.
+
+Lab experiment 12 requires a student registration form using dropdowns, input
+messages and error alerts together.
+
+## 5.5 What-if analysis
 
 Three tools that run the calculation **backwards** or across scenarios.
 
@@ -210,7 +276,7 @@ formula in the top-left corner of the block. Fill in both input cells.
 | "Show me the result for every value from 1% to 10%" | **Data Table** |
 | "Optimise with multiple constraints" | **Solver** (an add-in, beyond this syllabus) |
 
-## 5.5 Combo charts and sparklines
+## 5.6 Combo charts and sparklines
 
 ### Combo charts
 
@@ -240,7 +306,7 @@ Highlight the high and low points via **Sparkline → Show → High Point / Low
 Point**. Sparklines are ideal in a dashboard summary table: one row per product,
 with a trend line beside the totals.
 
-## 5.6 Building a dashboard
+## 5.7 Building a dashboard
 
 A **dashboard** presents the key numbers on one screen, updating as the viewer
 filters.
@@ -282,7 +348,7 @@ filters.
    legend
 6. **One screen** — a dashboard that needs scrolling is a report
 
-## 5.7 Productivity features
+## 5.8 Productivity features
 
 ### Named ranges
 

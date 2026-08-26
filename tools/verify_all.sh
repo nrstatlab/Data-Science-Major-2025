@@ -28,6 +28,9 @@ else
     echo "ok -- all $(grep -c '^## Page' /tmp/extract_check.md) pages extracted"
 fi
 
+banner "Syllabus coverage"
+python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
+
 echo
 if [ "$fail" -eq 0 ]; then
     echo "ALL VERIFICATIONS PASSED"
