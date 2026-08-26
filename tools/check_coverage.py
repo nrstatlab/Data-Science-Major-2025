@@ -219,6 +219,37 @@ COVERAGE = {
         "pivot", "stack", "unstack", "hierarchical indexing",
         "summary statistics", "matplotlib", "customisation", "plt.style",
         "seaborn", "plotly", "interactive"],
+
+    # ---- Semester IV, Course 10: Document Oriented Database (pages 21-22)
+    "notes/sem-4/course-10-document-database/unit-1.md": [
+        "nosql", "history", "features of nosql", "cap theorem", "base",
+        "key-value", "document", "column", "graph", "rdbms",
+        "when to use nosql", "misconception", "use case",
+        "redis", "cassandra", "couchdb", "neo4j", "json", "bson",
+        "installation", "mongo shell", "compass"],
+    "notes/sem-4/course-10-document-database/unit-2.md": [
+        "architecture", "database", "collection", "document", "bson format",
+        # These five follow the NOTES' wording, not the syllabus's: the notes
+        # use British spelling ("modelling"), spell out "versus", and write
+        # the shell commands themselves. The topic is the same.
+        "advantages of mongodb over rdbms", "data type", "objectid",
+        "embedded document", "null", "modelling", "schema design",
+        "embedded versus referenced", "createcollection",
+        "dropdatabase", "drop one collection"],
+    "notes/sem-4/course-10-document-database/unit-3.md": [
+        "crud", "insertone", "insertmany", "find", "updateone", "updatemany",
+        "replaceone", "deleteone", "deletemany", "$gt", "$lt", "$in", "$nin",
+        "$and", "$or", "$not", "regular expression", "bulk", "array"],
+    "notes/sem-4/course-10-document-database/unit-4.md": [
+        "embedded", "normalized", "trade-off", "benefit", "limitation",
+        "reference", "when to normalize", "relationship",
+        "one-to-one", "one-to-many", "many-to-many",
+        "aggregation framework", "pipeline", "operator"],
+    "notes/sem-4/course-10-document-database/unit-5.md": [
+        "projection", "limiting", "skipping", "sorting", "indexing",
+        "single field", "compound", "multikey", "text index",
+        "pipeline", "stage", "replication", "replica set", "failover",
+        "consistency"],
 }
 
 

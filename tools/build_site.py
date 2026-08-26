@@ -343,6 +343,49 @@ COURSES = [
              "matplotlib, Seaborn and Plotly."),
         ],
     },
+    {
+        "slug": "document-database",
+        "src": "notes/sem-4/course-10-document-database",
+        "number": 10, "year": "II", "sem": "IV",
+        "title": "Document Oriented Database",
+        "tagline": "MongoDB, and the design question behind every document "
+                   "database: embed or reference?",
+        "blurb": "5 Units + Lab \u2022 NoSQL and CAP, BSON and the document "
+                 "model, CRUD and MQL, embedded against normalized models, "
+                 "aggregation pipelines, indexing and replication.",
+        "units": [
+            ("Introduction to NoSQL and the Fundamentals of MongoDB",
+             "What NoSQL is and what it is not; the CAP theorem and BASE "
+             "against ACID; the four families \u2014 key-value, document, "
+             "column and graph; RDBMS against NoSQL, and when NOT to use "
+             "NoSQL; Redis, Cassandra, CouchDB and Neo4j compared; JSON and "
+             "BSON; installation, the Mongo shell and Compass."),
+            ("MongoDB Architecture, Data Modeling and Basics",
+             "Database, collection and document; the BSON types and where "
+             "each one bites; ObjectId and what its twelve bytes hold; schema "
+             "design strategies; embedded against referenced documents; "
+             "creating and dropping databases and collections."),
+            ("CRUD Operations and Querying",
+             "insertOne and insertMany, ordered and unordered; find and the "
+             "comparison, logical, element, evaluation and array operators; "
+             "updateOne, updateMany and the destructive replaceOne; deleteOne "
+             "and deleteMany; regular expression queries; bulk operations; "
+             "array update operators and $elemMatch."),
+            ("Data Modelling and Aggregation",
+             "Embedded against normalized models and the trade-offs of each; "
+             "when to normalize; one-to-one, one-to-many and many-to-many; "
+             "the 16 MB limit and the unbounded array; the extended reference, "
+             "computed and attribute patterns; the aggregation framework, "
+             "and $match/$group as WHERE and HAVING."),
+            ("Advanced Query Processing and Optimization",
+             "Projection, sorting, limiting and skipping, and the order the "
+             "server applies them; range pagination against skip; single "
+             "field, compound, multikey and text indexes; the prefix rule and "
+             "ESR; reading explain(\"executionStats\"); aggregation pipelines "
+             "and $lookup; replica sets, failover, write concern, and why an "
+             "odd number of members."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {
@@ -386,17 +429,24 @@ def strip_first_heading(text):
 
 
 GITHUB_BLOB = ("https://github.com/nrstatlab/Data-Science-Major-2025/blob/main/")
+GITHUB_TREE = ("https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/")
 
 
 def rewrite_links(body, link_map, src_dir, out_dir):
     """Retarget the Markdown's relative links for the generated page.
 
-    Three cases:
+    Four cases:
       * a .md file that becomes a page   -> its generated .html sibling
-      * any other repo file (lab source, -> re-relativised, because the source
+      * any other repo FILE (lab source, -> re-relativised, because the source
         the syllabus PDF)                   .md sits deeper in notes/ than the
                                             generated page does
-      * a .md file with no page           -> the file on github.com
+      * a repo DIRECTORY (labs/course-x) -> the directory on github.com.
+                                            GitHub Pages serves files, not
+                                            directory listings, so a relative
+                                            link to one 404s on the published
+                                            site even though the directory is
+                                            right there in the repository.
+      * a .md file with no page          -> the file on github.com
     """
     def repl(m):
         label, target, frag = m.group(1), m.group(2), m.group(3) or ""
@@ -414,6 +464,9 @@ def rewrite_links(body, link_map, src_dir, out_dir):
             rel_to_root = resolved.relative_to(ROOT)
         except ValueError:
             return m.group(0)
+
+        if resolved.is_dir():
+            return f'[{label}]({GITHUB_TREE}{rel_to_root}{frag})'
 
         if resolved.exists():
             import os
