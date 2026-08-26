@@ -4,8 +4,12 @@
 **Prepared by:** Adikavi Nannaya University, Rajahmundry
 **Effective:** AY 2025-26 · 4-Year UG Honours · Course structure for Semesters I–VI
 
-Source: [`docs/Data-Science-Major-Sem1-2.pdf`](docs/Data-Science-Major-Sem1-2.pdf),
-extracted verbatim in [`docs/syllabus-extracted.md`](docs/syllabus-extracted.md).
+Sources, both extracted verbatim:
+
+| Document | Covers | Extracted text |
+|---|---|---|
+| [`docs/Data-Science-Major-Sem1-2.pdf`](docs/Data-Science-Major-Sem1-2.pdf) | Programme structure + Courses 1–5 | [`syllabus-extracted.md`](docs/syllabus-extracted.md) |
+| [`docs/Data-Science-Major-Sem3-4.pdf`](docs/Data-Science-Major-Sem3-4.pdf) | Courses 6–10 | [`syllabus-extracted-sem3-4.md`](docs/syllabus-extracted-sem3-4.md) |
 
 ---
 
@@ -161,18 +165,83 @@ Notes: [`notes/sem-3/course-5-dbms/`](notes/sem-3/course-5-dbms/)
 
 ---
 
-## 3. Courses not detailed in this document
+### Course 6 — Data Science with R (Sem III)
+Notes: [`notes/sem-3/course-6-data-science-r/`](notes/sem-3/course-6-data-science-r/)
 
-Structure only — titles, hours and credits. Upload the Semester III–VI syllabus
-document and these can be expanded the same way.
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Introduction to the Data Science Process | Definition; data science in various fields; impact; Data Analytics Life Cycle; data science toolkit; the data scientist and the data science team; Exploratory Data Analysis; feature engineering and data transformation |
+| 2 | Basics of R Programming | R and RStudio; data types, variables, operators; control structures (`if`, loops, `apply`); functions and packages; data input/output (CSV, Excel, XML, JSON) |
+| 3 | Data Handling and Visualization in R | Data frames, lists, matrices; wrangling with `dplyr` and `tidyr`; missing data; date/time; `ggplot2` — grammar of graphics, aesthetics, geometries, scales, faceting, layering; customising and exporting plots |
+| 4 | Applications and Case Studies | Simple and multiple linear regression; model evaluation — accuracy, confusion matrix, ROC; K-Means clustering; text mining and word clouds; recommender system basics; ethical issues |
+| 5 | Advanced Topics **(overloaded — see review D12)** | Time series in R — trend, seasonality, noise, `ts`/`zoo`/`xts`, decomposition, stationarity and differencing, ACF/PACF, AR/MA/ARIMA, forecasting; interactive plots with `plotly`; R Shiny — UI and server functions, reactivity, widgets, dashboard layout |
+
+**Textbook:** James, Witten, Hastie & Tibshirani, *An Introduction to Statistical Learning with Applications in R* (Springer, 2e, 2021)
+**References:** Matloff, *The Art of R Programming* (No Starch, 2011) · Venables & Ripley, *Modern Applied Statistics with S* (Springer, 2002) · Irizarry, *Introduction to Data Science* (CRC, 2020) · Grus, *Data Science from Scratch*
+
+### Course 7 — Web Technologies (Sem III)
+Notes: [`notes/sem-3/course-7-web-technologies/`](notes/sem-3/course-7-web-technologies/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | HTML | Web design principles; web vs desktop applications; HTML structure, elements, attributes; headings, paragraphs, images, tables, lists, blocks, symbols; embedding multimedia; HTML forms |
+| 2 | CSS | Syntax and combinators; colours, background, borders, margins, padding, height/width; text, fonts, tables, lists; position, overflow, float; pseudo-classes and pseudo-elements; opacity, tooltips, image gallery; CSS forms and counters |
+| 3 | JavaScript | DHTML; basics, variables, operators, statements; string manipulation; mathematical functions; arrays, functions, objects; regular expressions; exception handling |
+| 4 | Client-Side Scripting | Accessing form elements through the JavaScript object model; basic and format validation; responsive messages; opening windows; dialog boxes; the status bar; animation with keyboard and mouse events |
+| 5 | JSON and jQuery | Need for data exchange formats; JSON syntax; JSON vs XML; parsing, creating and accessing nested JSON; reading/writing JSON in JavaScript. jQuery — selectors, filters, DOM manipulation, event handling, animations, effects, chaining |
+
+**Textbooks:** Chris Bates, *Web Programming: Building Internet Applications* (Wiley, 2e) · Wang & Katila, *An Introduction to Web Design plus Programming* (Thomson) · Chaffer & Swedberg, *Learning jQuery* (Packt) · *JSON at Work*
+**Reference:** David R. Brooks, *An Introduction to HTML and JavaScript* (Springer)
+
+### Course 8 — Data Mining (Sem IV)
+Notes: [`notes/sem-4/course-8-data-mining/`](notes/sem-4/course-8-data-mining/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Data Warehousing | Introduction; database systems vs data warehouse; characteristics; architecture and components; data modelling; schema design — star, snowflake, fact constellation; fact table; OLAP cube and OLAP operations |
+| 2 | Data Mining | Definitions; KDD vs data mining; data mining tasks; preprocessing — cleaning, missing data, dimensionality reduction, feature subset selection, discretization and binarization, transformation; similarity and dissimilarity measures; issues, challenges and applications |
+| 3 | Association Analysis | What an association rule is; methods to discover rules; A Priori; Partition; Pincer-Search; Dynamic Itemset Counting; FP-Tree Growth; generalized association rules; rules with item constraints |
+| 4 | Classification | Decision trees — construction principle, best split, splitting indices and criteria; CART, ID3, C4.5; comparing classifiers; rule-based classifiers; nearest neighbour; Bayesian classifiers |
+| 5 | Clustering Techniques | Clustering paradigms; partitioning (K-Means); k-Medoid; hierarchical — DBSCAN, BIRCH; categorical clustering — STIRR, ROCK, CACTUS |
+
+**Textbooks:** Arun K. Pujari, *Data Mining Techniques* (Universities Press, 3e) · Han, Kamber & Pei, *Data Mining: Concepts and Techniques* (Morgan Kaufmann, 3e)
+**References:** Soman, Diwakar & Ajay, *Insight into Data Mining Theory and Practice* (PHI, 2006) · Tan, Steinbach, Karpatne & Kumar, *Introduction to Data Mining* (2e)
+
+### Course 9 — Python for Data Analysis and Visualization (Sem IV)
+Notes: [`notes/sem-4/course-9-python-data-analysis/`](notes/sem-4/course-9-python-data-analysis/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | NumPy Essentials | The `ndarray`; creating arrays; data types; arithmetic; basic indexing and slicing; boolean and fancy indexing; transposing and swapping axes; universal functions; mathematical and statistical functions; random number generation |
+| 2 | Pandas Basics and Data Structures | `Series`, `DataFrame`, `Index` objects; indexing and selection; filtering and boolean indexing; arithmetic and data alignment; sorting and ranking; dropping entries; duplicate indexes |
+| 3 | Data Input, Output and Cleaning | Reading and writing text formats (CSV, TXT); JSON; Excel; handling missing data — dropping, filling, replacing; renaming axis indexes; removing duplicates; filtering outliers; transforming with mapping or functions |
+| 4 | String Operations and Feature Engineering | Pandas string methods; basic regular expressions; vectorized string functions; dummy/indicator variables; permutation and random sampling |
+| 5 | Data Wrangling, Reshaping and Visualization | Merging and joining; concatenating along an axis; combining with overlap; pivot, stack and unstack; hierarchical indexing; summary statistics by group or level; `matplotlib`; `seaborn`; `plotly` |
+
+**Textbooks:** Wes McKinney, *Python for Data Analysis* · Anita Goel, *Python Programming — An Object Oriented Approach* (Universities Press) · Vasiliev, *Python for Data Science For Dummies* (Wiley, 2e, 2022)
+**Reference:** Jake VanderPlas, *Python Data Science Handbook* (2023)
+
+### Course 10 — Document Oriented Database (Sem IV)
+Notes: [`notes/sem-4/course-10-document-database/`](notes/sem-4/course-10-document-database/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Introduction to NoSQL and MongoDB Fundamentals | What NoSQL is; history and evolution; features; CAP theorem and BASE; types (key-value, document, column, graph); RDBMS vs NoSQL; when to use NoSQL; misconceptions; benefits and use cases; comparison of Redis, Cassandra, CouchDB, Neo4j; JSON and BSON; installation and setup |
+| 2 | MongoDB Architecture and Data Modeling | Database, collection and document concepts; BSON; advantages over RDBMS; datatypes; schema design strategies; embedded vs referenced documents; creating and dropping databases and collections |
+| 3 | CRUD Operations and Querying | `insertOne`/`insertMany`; `find` with operators and conditions; `updateOne`/`updateMany`/`replaceOne`; `deleteOne`/`deleteMany`; query operators (`$gt`, `$lt`, `$in`, `$nin`, `$and`, `$or`, `$not`); regular expression queries; bulk operations; working with arrays |
+| 4 | Data Modelling and Aggregation | Embedded vs normalized models — use cases, benefits, limitations, trade-offs; references between documents; relationships; data models using embedded documents and document references; the aggregation framework — simple pipelines and operators |
+| 5 | Advanced Query Processing and Optimization | Projection; limiting and skipping; sorting; indexing (single field, compound, multikey, text); aggregation pipelines, stages and operators; replication — replica sets, failover, consistency |
+
+---
+
+## 4. Courses still not detailed
+
+Structure only — titles, hours and credits. These are the Year III courses,
+for which APSCHE has not yet published unit-level syllabi in the documents
+supplied.
 
 | # | Course | Sem |
 |:---:|---|:---:|
-| 6 | Data Science with R | III |
-| 7 | Web Technologies | III |
-| 8 | Data Mining | IV |
-| 9 | Python for Data Analysis and Visualization | IV |
-| 10 | Document Oriented Database | IV |
 | 11 | Business Intelligence Tools | V |
 | 12 A/B | Machine Learning / Big Data Technologies | V |
 | 13 A/B | Artificial Intelligence / Cloud Computing for Data Science | V |

@@ -71,13 +71,17 @@ worked solutions, and a `lab.md`. Course 4 also has a
 
 ## Scope
 
-The source document ([`docs/Data-Science-Major-Sem1-2.pdf`](docs/Data-Science-Major-Sem1-2.pdf),
-37 pages) contains the **full programme structure for Semesters I–VI** but
-detailed syllabi for only **five courses** — the two in Semester I, the two in
-Semester II, and Database Management Systems from Semester III.
+Two source documents, both extracted verbatim and committed under
+[`docs/`](docs/):
 
-Courses 6–15 appear as titles and credits only. Supply the Semester III–VI
-document and they can be added the same way.
+| Document | Pages | Covers |
+|---|:---:|---|
+| `Data-Science-Major-Sem1-2.pdf` | 37 | Programme structure for Semesters I–VI, plus full syllabi for Courses 1–5 |
+| `Data-Science-Major-Sem3-4.pdf` | 25 | Full syllabi for Courses 6–10 |
+
+Together they give **10 of the 15 major courses** at unit level — every course
+APSCHE has published detailed syllabi for. The five Year III courses (11, and
+the 12–15 elective pairs) appear as titles and credits only.
 
 **Credits verified:** every course is 3 credits theory + 1 credit lab. Semester
 totals are 8, 8, 12, 12, 12, 8 — a **60-credit major**.
