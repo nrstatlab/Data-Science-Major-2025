@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-IN' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="{{ '/assets/css/extra.css' | relative_url }}">
+  </head>
+
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
+      <a href="{{ '/' | relative_url }}" class="btn">Home</a>
+      <a href="{{ '/SYLLABUS-REVIEW.html' | relative_url }}" class="btn">Syllabus review</a>
+      <a href="{{ '/STUDY-PLAN.html' | relative_url }}" class="btn">Study plan</a>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner">
+            <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a>
+            is maintained by
+            <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.
+          </span>
+        {% endif %}
+        <span class="site-footer-credits">
+          Syllabus source: APSCHE Model Syllabus for B.Sc. (Data Science) Major,
+          AY&nbsp;2025-26, prepared by Adikavi Nannaya University.
+        </span>
+      </footer>
+    </main>
+
+    <!--
+      Mermaid rendering.
+
+      The notes use ```mermaid fenced blocks so that the diagrams also render
+      natively on github.com. Jekyll turns those into <pre><code class="language-mermaid">,
+      which Mermaid does not detect on its own, so convert them to
+      <pre class="mermaid"> before initialising.
+    -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      document.querySelectorAll(
+        'pre > code.language-mermaid, code.language-mermaid'
+      ).forEach((code) => {
+        const pre = code.closest('pre') || code;
+        const holder = document.createElement('pre');
+        holder.className = 'mermaid';
+        holder.textContent = code.textContent;
+        pre.replaceWith(holder);
+      });
+
+      const dark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: dark ? 'dark' : 'default',
+        securityLevel: 'strict',
+        flowchart: { useMaxWidth: true },
+        er: { useMaxWidth: true }
+      });
+    </script>
+  </body>
+</html>

@@ -76,9 +76,9 @@ bug there is.
 ```c
 int matrix[3][4];                    /* 3 rows, 4 columns */
 
-int m[2][3] = {{1, 2, 3}, {4, 5, 6}};       /* clearest form */
+int m[2][3] = { {1, 2, 3}, {4, 5, 6} };     /* clearest form */
 int m[2][3] = {1, 2, 3, 4, 5, 6};           /* same thing, filled row by row */
-int m[][3]  = {{1, 2, 3}, {4, 5, 6}};       /* rows inferred; columns REQUIRED */
+int m[][3]  = { {1, 2, 3}, {4, 5, 6} };     /* rows inferred; columns REQUIRED */
 ```
 
 The number of **columns can never be omitted** — the compiler needs it to
