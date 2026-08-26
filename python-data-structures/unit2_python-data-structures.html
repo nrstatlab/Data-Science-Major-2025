@@ -137,6 +137,71 @@ else:
 </code></pre>
 <p><code>pass</code> is <em>not</em> a loop control statement in the way the other two are — it is a
 null statement. The syllabus groups them together, so know all three.</p>
+<h3>Nested loops</h3>
+<p>A loop inside another loop. The <strong>inner loop runs completely for every single
+iteration of the outer loop</strong>, so the body executes <em>outer × inner</em> times.</p>
+<pre><code class="language-python">for i in range(1, 4):            # outer: 3 iterations
+    for j in range(1, 4):        # inner: 3 iterations, restarted each time
+        print(i * j, end=&quot; &quot;)
+    print()                      # after the inner loop finishes
+</code></pre>
+<pre><code>1 2 3
+2 4 6
+3 6 9
+</code></pre>
+<p>The classic exam question is a pattern:</p>
+<pre><code class="language-python">n = 5
+for i in range(1, n + 1):
+    print(&quot;*&quot; * i)               # 1 star, then 2, then 3...
+</code></pre>
+<pre><code>*
+**
+***
+****
+*****
+</code></pre>
+<p>And the multiplication table, which uses the inner loop's variable in the
+formatting:</p>
+<pre><code class="language-python">for i in range(1, 6):
+    for j in range(1, 6):
+        print(f&quot;{i * j:4}&quot;, end=&quot;&quot;)
+    print()
+</code></pre>
+<h3>⚠️ <code>break</code> leaves only the <em>innermost</em> loop</h3>
+<pre><code class="language-python">for i in range(3):
+    for j in range(3):
+        if j == 1:
+            break                # leaves the j loop ONLY
+        print(i, j)
+</code></pre>
+<p>This prints <code>0 0</code>, <code>1 0</code>, <code>2 0</code> — the outer loop keeps going. There is no
+<code>break 2</code> in Python. To leave both, use a flag, a <code>for…else</code>, or put the
+loops in a function and <code>return</code>:</p>
+<pre><code class="language-python">def find(grid, target):
+    for r, row in enumerate(grid):
+        for c, value in enumerate(row):
+            if value == target:
+                return r, c      # returns out of BOTH loops at once
+    return None
+</code></pre>
+<p>Returning from a function is the cleanest of the three, and it is what
+experienced Python programmers reach for.</p>
+<div class="tip">
+<p><span class="label">KEY INSIGHT</span></p>
+<h4>Nested loops and complexity</h4>
+<p>Two nested loops over <em>n</em> items each do <em>n²</em> work. At n = 1,000 that is a
+million operations — fine. At n = 100,000 it is ten billion, and your program
+appears to hang. Course 3 Unit 5 returns to this; for now, notice when you
+have written a nested loop over a large collection, because a <code>set</code> or a
+<code>dict</code> often replaces the inner one with a single lookup:</p>
+<pre><code class="language-python"># O(n²) — for every a, scan all of b
+common = [x for x in a if x in b]           # b is a list: slow
+
+# O(n) — membership in a set is one hash lookup
+b_set = set(b)
+common = [x for x in a if x in b_set]
+</code></pre>
+</div>
 <h2>2.3 Functions</h2>
 <pre><code class="language-python">def greet(name):
     &quot;&quot;&quot;Return a greeting for name.&quot;&quot;&quot;     # docstring

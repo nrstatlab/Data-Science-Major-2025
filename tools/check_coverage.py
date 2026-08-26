@@ -63,13 +63,13 @@ COVERAGE = {
         "literal", "variable", "operator", "expression", "indentation",
         "bitwise", "identity", "precedence"],
     "notes/sem-2/course-3-python-data-structures/unit-2.md": [
-        "if-elif-else", "while", "for", "nested loop", "break", "continue",
+        "elif", "while", "for", "nested loop", "break", "continue",
         "pass", "`else` with a loop", "return", "scope", "default",
         "variable-length", "main()", "docstring", "recursive", "lambda",
         "module", "namespace"],
     "notes/sem-2/course-3-python-data-structures/unit-3.md": [
         "slicing", "immutability", "traversal", "formatting", "list",
-        "comprehension", "tuple", "tuple assignment", "set", "frozenset",
+        "comprehension", "tuple", "unpacking", "set", "frozenset",
         "dictionar"],
     "notes/sem-2/course-3-python-data-structures/unit-4.md": [
         "file handling", "csv", "pathlib", "syntax error", "exception",
@@ -83,7 +83,7 @@ COVERAGE = {
         "event handling"],
 
     "notes/sem-2/course-4-statistical-foundations/unit-1.md": [
-        "uncertainty", "axiom", "conditional probability", "mean", "median",
+        "uncertain", "axiom", "conditional probability", "mean", "median",
         "mode", "range", "interquartile", "variance", "standard deviation",
         "correlation", "covariance", "histogram", "bar chart",
         "scatter plot", "bayes"],
@@ -110,8 +110,8 @@ COVERAGE = {
         "advantage", "data model", "component", "three-schema", "cost",
         "risk"],
     "notes/sem-3/course-5-dbms/unit-2.md": [
-        "building block", "entity set", "attribute classification",
-        "degree", "reducing er", "enhanced entity", "generalization",
+        "building block", "entity set", "classification of attribute",
+        "degree", "reducing an er", "enhanced er", "generalization",
         "specialization", "is-a", "attribute inheritance",
         "multiple inheritance", "constraint", "advantage"],
     "notes/sem-3/course-5-dbms/unit-3.md": [
@@ -120,13 +120,72 @@ COVERAGE = {
         "functional dependenc", "normal form"],
     "notes/sem-3/course-5-dbms/unit-4.md": [
         "command", "data type", "data definition", "selection",
-        "projection", "aggregate", "data manipulation", "table modification",
-        "join", "set operation", "view", "sub query"],
+        "projection", "aggregate", "data manipulation", "alter table",
+        "join", "set operation", "view", "subquer"],
     "notes/sem-3/course-5-dbms/unit-5.md": [
-        "shortcoming", "structure of pl/sql", "language element",
+        "shortcoming", "structure of a pl/sql", "language element",
         "data type", "precedence", "control structure", "steps to create",
         "iterative", "procedure", "function", "trigger"],
+
+    # ---- Semester III, Course 6: Data Science with R (Sem3-4 PDF, pages 1-4)
+    "notes/sem-3/course-6-data-science-r/unit-1.md": [
+        "what data science is", "application", "life cycle",
+        "toolkit", "team", "exploratory data analysis", "feature engineering",
+        "data transformation"],
+    "notes/sem-3/course-6-data-science-r/unit-2.md": [
+        "rstudio", "data type", "vector", "matrix", "list", "data frame",
+        "factor", "operator", "control structure", "apply", "function",
+        "package", "csv", "excel", "json", "xml"],
+    "notes/sem-3/course-6-data-science-r/unit-3.md": [
+        "dplyr", "filter", "select", "mutate", "arrange", "summarise",
+        "tidyr", "missing", "date", "ggplot2", "grammar of graphics",
+        "geometr", "scale", "facet"],
+    "notes/sem-3/course-6-data-science-r/unit-4.md": [
+        "linear regression", "multiple regression", "confusion matrix",
+        "precision", "recall", "roc", "auc", "k-means", "text mining",
+        "tf-idf", "recommender", "ethic"],
+    "notes/sem-3/course-6-data-science-r/unit-5.md": [
+        "time series", "decomposition", "stationar", "differencing", "acf",
+        "pacf", "arima", "forecast", "plotly", "shiny"],
+
+    # ---- Semester III, Course 7: Web Technologies (Sem3-4 PDF, pages 6-7)
+    "notes/sem-3/course-7-web-technologies/unit-1.md": [
+        "web design", "desktop application", "document structure", "element",
+        "attribute", "heading", "paragraph", "image", "table", "list",
+        "block", "symbol", "multi", "form"],
+    "notes/sem-3/course-7-web-technologies/unit-2.md": [
+        "syntax", "combinator", "color", "background", "border", "margin",
+        "padding", "height", "width", "text", "font", "table", "list",
+        "position", "overflow", "float", "pseudo-class", "pseudo-element",
+        "opacity", "tooltip", "image gallery", "css form", "counter"],
+    "notes/sem-3/course-7-web-technologies/unit-3.md": [
+        "dhtml", "variable", "operator", "statement", "string manipulation",
+        "mathematical function", "array", "function", "object",
+        "regular expression", "exception handling"],
+    "notes/sem-3/course-7-web-technologies/unit-4.md": [
+        "form element", "object model", "data validation", "data format",
+        "responsive message", "opening window", "dialog box", "status bar",
+        "animat", "keyboard", "mouse event"],
+    "notes/sem-3/course-7-web-technologies/unit-5.md": [
+        "data exchange", "json syntax", "json vs xml", "parsing and stringifying",
+        "creating and accessing nested json", "nested", "reading", "writing", "jquery", "selector",
+        "filter", "dom manipulation", "event handling", "animation",
+        "effect", "chaining"],
 }
+
+
+def body_of(path):
+    """The note's prose, lowercased, with the syllabus header stripped off.
+
+    Every unit file opens by quoting its syllabus line verbatim, so searching
+    the whole file would let a keyword match that quotation rather than any
+    material actually written. Stripping everything up to the first horizontal
+    rule makes the check mean what it claims: the TOPIC IS TAUGHT, not merely
+    listed. Without this, 19 of the keywords passed vacuously.
+    """
+    text = path.read_text()
+    parts = re.split(r"^---$", text, maxsplit=1, flags=re.M)
+    return (parts[1] if len(parts) > 1 else text).lower()
 
 
 def main():
@@ -141,8 +200,7 @@ def main():
             continue
 
         files_checked += 1
-        text = path.read_text().lower()
-        missing = [k for k in keywords if k.lower() not in text]
+        missing = [k for k in keywords if k.lower() not in body_of(path)]
 
         if missing:
             print(f"GAPS  {rel_path}")

@@ -31,6 +31,13 @@ fi
 banner "Course 6 labs (R equivalents)"
 python3 "$ROOT/tools/run_r_equivalents.py" | tail -3 || fail=$((fail+1))
 
+banner "Course 7 labs (JavaScript and DOM, under jsdom)"
+if [ -d "$ROOT/tools/node_modules/jsdom" ]; then
+    node "$ROOT/tools/run_web_labs.js" | tail -3 || fail=$((fail+1))
+else
+    echo "SKIPPED -- run: npm --prefix tools install"
+fi
+
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
 

@@ -225,6 +225,45 @@ COURSES = [
              "building web applications with R Shiny."),
         ],
     },
+    {
+        "slug": "web-technologies",
+        "src": "notes/sem-3/course-7-web-technologies",
+        "number": 7, "year": "II", "sem": "III",
+        "title": "Web Technologies",
+        "tagline": "HTML, CSS, JavaScript, the DOM, JSON and jQuery \u2014 "
+                   "the only course where you build something you can see.",
+        "blurb": "5 Units + Lab \u2022 HTML structure and forms, CSS layout "
+                 "and responsive design, JavaScript, the DOM, JSON and jQuery.",
+        "units": [
+            ("HTML",
+             "Web versus desktop applications; the client\u2013server model; "
+             "document structure, elements and attributes; headings, text, "
+             "lists, images and multimedia; tables; semantic HTML5; forms and "
+             "GET versus POST."),
+            ("CSS",
+             "Syntax and the three attachment methods; the four combinators; "
+             "specificity and the cascade; the box model; colours, borders, "
+             "backgrounds, text and fonts; positioning, float, Flexbox and "
+             "Grid; pseudo-classes and pseudo-elements; tooltips, galleries, "
+             "forms, counters and media queries."),
+            ("JavaScript",
+             "DHTML; variables and types; operators and coercion; statements "
+             "and loops; functions, closures and hoisting; string methods; "
+             "Math; arrays and objects; classes; regular expressions; "
+             "exception handling."),
+            ("Client-Side Scripting",
+             "The DOM and the BOM; selecting and changing elements; accessing "
+             "form controls; the event model \u2014 bubbling, capturing and "
+             "delegation; basic and format validation; inline messages; "
+             "windows, dialog boxes and the status bar; keyboard and mouse "
+             "events; animation."),
+            ("JSON and jQuery",
+             "Why data-exchange formats exist; JSON syntax and its "
+             "restrictions; JSON versus XML; parsing, stringifying and nested "
+             "access; fetch and localStorage; jQuery selectors, filters, DOM "
+             "manipulation, events, effects, chaining and AJAX."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {
