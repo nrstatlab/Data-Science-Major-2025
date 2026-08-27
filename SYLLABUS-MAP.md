@@ -84,12 +84,12 @@ domain names with your department before choosing.
 
 ---
 
-## 2. Detailed unit map (Courses 1–10)
+## 2. Detailed unit map (Courses 1–13)
 
-These ten courses — the whole Major through Semester IV — have full syllabi in
-the two source documents. **Courses 11–15, all of Year III, appear as titles
-and credits only**, so nothing below Semester IV can be mapped until that
-document is published.
+These thirteen courses — the whole Major through Semester V, **both elective
+tracks** — have full syllabi in the three source documents. **Courses 14 and
+15, the Semester VI elective pairs, appear as titles and credits only**, so
+they cannot be mapped until that document is published.
 
 ### Course 1 — Computer Fundamentals and Office Automation (Sem I)
 Notes: [`notes/sem-1/course-1-computer-fundamentals/`](notes/sem-1/course-1-computer-fundamentals/)
@@ -236,16 +236,84 @@ Notes: [`notes/sem-4/course-10-document-database/`](notes/sem-4/course-10-docume
 
 ---
 
+## 3a. Semester V — the core course and both elective tracks
+
+Semester V is **Course 11 plus one elective pair**. Course 11 is compulsory;
+you then take either **12 A + 13 A** or **12 B + 13 B**, and the choice binds
+you for Semester VI too. All five are mapped below, because you cannot make
+that choice well without seeing what is in both.
+
+### Course 11 — Business Intelligence Tools (Sem V) — *core, everyone takes it*
+Notes: [`notes/sem-5/course-11-business-intelligence/`](notes/sem-5/course-11-business-intelligence/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Introduction to BI and Decision Support Systems | BI definition, scope and evolution; BI vs Data Analytics vs Data Science; the BI lifecycle; applications in finance, HR, marketing, retail, education, healthcare; BI maturity models and organizational readiness; DSS concepts, components and architecture; Power BI, Tableau and other tools compared; case study — a retail chain's BI strategy for inventory |
+| 2 | Data Preparation and Visualization with Power BI | The Power BI ecosystem — Desktop, Service, Mobile; the interface; data sources (Excel, CSV, SQL Server, Web APIs); Power Query for preparation, cleaning and transformation; basic DAX — SUM, COUNT, AVERAGE, CALCULATE, IF; charts, tables and cards; sharing via Power BI Service; case studies — student performance, finance dataset |
+| 3 | Data Preparation, Visualization and Storytelling with Tableau | Tableau characteristics; architecture and components — Public, Desktop, Reader, Online, Server; the interface — shelves, marks card, views; extensions; data connection and preparation — cleaning, pivoting, filtering; calculated fields and LOD expressions; bar, line, tree, geo map and scatter visualizations; storytelling and creating a Tableau story; case study — HR analytics |
+| 4 | Data Modeling and Relationships in BI Tools | Dimensional modeling — dimension, dimension table, fact, fact table, schema; star and snowflake schemas; Power BI relationships, cardinality and cross-filtering; Tableau joins (inner, left, full) and blending; data governance — metadata, hierarchies, quality; data model design best practices; case study — retail BI for sales optimization |
+| 5 | Dashboard Design and Business Insights | When to use a dashboard; dashboard components; principles of effective visualization and dashboarding; advanced visuals — parameters, slicers, filters, drilldowns, graphs and maps; layout, alignment and accessibility; publishing to Power BI Service and Tableau Public; storytelling and insight communication; case study — sales forecasting and budgeting |
+
+### Course 12 A — Machine Learning (Sem V) — *Track A*
+Notes: [`notes/sem-5/course-12a-machine-learning/`](notes/sem-5/course-12a-machine-learning/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Introduction to Machine Learning | Types of human learning; what machine learning is; supervised, unsupervised, semi-supervised and reinforcement learning; machine learning activities; applications; types of data in ML; structure of data |
+| 2 | Model Preparation, Evaluation and Feature Engineering | Data pre-processing; model selection and training for supervised learning; model representation and interpretability; evaluating algorithms and enhancing performance; feature engineering; feature transformation; feature subset selection; principal component analysis |
+| 3 | Supervised Learning — Regression | Introduction to regression; simple linear regression; multiple linear regression; polynomial regression; logistic regression; maximum likelihood estimation |
+| 4 | Supervised Learning — Classification | Introduction to supervised learning; the classification model and its learning steps; Naïve Bayes; k-Nearest Neighbour; decision trees; support vector machines; random forest |
+| 5 | Unsupervised Learning | Introduction; unsupervised vs supervised; applications; clustering and its types; partitioning methods — k-Means and k-Medoids; hierarchical clustering; density-based methods — DBSCAN; case studies — image recognition, speech recognition, email spam filtering, online fraud detection |
+
+### Course 13 A — Artificial Intelligence (Sem V) — *Track A*
+Notes: [`notes/sem-5/course-13a-artificial-intelligence/`](notes/sem-5/course-13a-artificial-intelligence/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Introduction to AI and Intelligent Agents | Definition and scope of AI; history and evolution; the Turing Test; real-world applications; Weak vs Strong AI, Narrow vs General AI; intelligent agents — structure, rationality, agent types; environments — deterministic vs stochastic, static vs dynamic, discrete vs continuous; PEAS representation |
+| 2 | Problem Solving — State Space and Uninformed Search | State space representation — state, actions, goal test, path cost; problem formulation with the 8-puzzle, water jug and vacuum cleaner world; breadth first search; depth first search; uniform cost search; properties — completeness, optimality, time and space complexity |
+| 3 | Informed and Advanced Search Strategies | Heuristics — concept, admissibility, consistency; greedy best first search; A\*; local search — hill climbing, simulated annealing; genetic algorithms; constraint satisfaction problems and backtracking search |
+| 4 | Knowledge Representation and Reasoning | Representation issues and approaches; propositional logic — syntax, semantics, truth tables, inference rules; first order logic — syntax, semantics, quantifiers, substitution, unification; forward chaining, backward chaining, resolution; knowledge-based agents |
+| 5 | Expert Systems, Probabilistic and Emerging AI | Expert system architecture — knowledge base, inference engine, explanation facility; probabilistic reasoning — Bayes' theorem, Bayesian belief networks; fuzzy logic and uncertainty handling; NLP basics; robotics; AI ethics and societal impact |
+
+### Course 12 B — Big Data Technologies (Sem V) — *Track B*
+Notes: [`notes/sem-5/course-12b-big-data/`](notes/sem-5/course-12b-big-data/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Foundations of Big Data and the Hadoop Ecosystem | Big Data characteristics — volume, variety, velocity, veracity, value; ecosystem overview — HDFS, MapReduce, YARN, Hadoop Common; Hadoop architecture and use cases |
+| 2 | HDFS and YARN | HDFS architecture — blocks, NameNode, DataNodes; file operations; fault tolerance; replication; YARN architecture — ResourceManager, NodeManager, application scheduling |
+| 3 | MapReduce and High-Level Tools | The MapReduce programming model — map, shuffle, reduce phases; writing MapReduce applications; high-level abstractions — Hive, Pig, Crunch; introduction to Spark integration |
+| 4 | Data Ingestion and Serialization | Ingestion pipelines — Sqoop for RDBMS, Flume for streaming; data formats and serialization — Avro, Parquet, SequenceFile; batch and streaming ingestion workflows |
+| 5 | NoSQL and Ecosystem Enhancements | NoSQL within the Hadoop ecosystem — HBase; configuring and using ZooKeeper for coordination; Hadoop integration with Spark for data processing |
+
+### Course 13 B — Cloud Computing for Data Science (Sem V) — *Track B*
+Notes: [`notes/sem-5/course-13b-cloud-computing/`](notes/sem-5/course-13b-cloud-computing/)
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Introduction to Cloud Computing | Definition and evolution; service-oriented architecture and web services; utility and grid computing; characteristics of cloud computing; architecture — front-end, back-end, networking, delivery models; service models — SaaS, PaaS, IaaS; continuous delivery using PaaS |
+| 2 | Virtualization and Deployment Models | Concept and importance of virtualization; types — application, network, desktop, storage, server, data; deployment models — public, private, community, hybrid; the role of cloud computing in data science; advantages of cloud in machine learning |
+| 3 | Cloud Storage and Data Management | Cloud storage — introduction, benefits, use cases (backup, archiving, disaster recovery, content delivery); storage systems — block-based, file-based, object-based; key-value databases — features and limitations; batch vs streaming data for ML pipelines; cloud data warehouses — AWS Redshift, Google BigQuery |
+| 4 | Cloud Platforms for Data Science and ML | Machine learning in the cloud — benefits and limitations; cloud-based ML services — AIaaS, GPUaaS; managed ML platforms; AWS SageMaker, Azure ML Studio, Google Cloud AutoML |
+| 5 | Training and Deployment of ML on the Cloud | Factors for selecting a platform — ETL/ELT pipeline support, scale-up/scale-out training, ML frameworks, pre-tuned services; steps for training in the cloud — data source identification, feature engineering, training, validation, deployment, monitoring; improving cloud-deployed models; case studies and industry applications |
+
+---
+
 ## 4. Courses still not detailed
 
-Structure only — titles, hours and credits. These are the Year III courses,
-for which APSCHE has not yet published unit-level syllabi in the documents
-supplied.
+Structure only — titles, hours and credits. These are the **Semester VI**
+elective pairs, for which APSCHE has not yet published unit-level syllabi in
+the documents supplied.
 
 | # | Course | Sem |
 |:---:|---|:---:|
-| 11 | Business Intelligence Tools | V |
-| 12 A/B | Machine Learning / Big Data Technologies | V |
-| 13 A/B | Artificial Intelligence / Cloud Computing for Data Science | V |
 | 14 A/B | Neural Networks and Deep Learning / Time Series Analysis and Forecasting | VI |
 | 15 A/B | Natural Language Processing / Data Engineering & MLOps | VI |
+
+**The Semester V document confirmed the track structure** that §1 inferred from
+the Semester I–II tables: 12 A pairs with 13 A (Machine Learning →
+Artificial Intelligence) and 12 B with 13 B (Big Data → Cloud Computing). The
+inference was right, but confirm the Semester VI pairing with your department
+rather than assuming the same, because the document that would settle it has
+not been published.

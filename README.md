@@ -72,6 +72,11 @@ including **damaged bibliographies in all five Semester III–IV courses**.
 | IV | 8 — Data Mining | [notes](notes/sem-4/course-8-data-mining/) |
 | IV | 9 — Python for Data Analysis and Visualization | [notes](notes/sem-4/course-9-python-data-analysis/) |
 | IV | 10 — Document Oriented Database | [notes](notes/sem-4/course-10-document-database/) |
+| V | 11 — Business Intelligence Tools *(core)* | [notes](notes/sem-5/course-11-business-intelligence/) |
+| V | 12 A — Machine Learning *(Track A)* | [notes](notes/sem-5/course-12a-machine-learning/) |
+| V | 13 A — Artificial Intelligence *(Track A)* | [notes](notes/sem-5/course-13a-artificial-intelligence/) |
+| V | 12 B — Big Data Technologies *(Track B)* | [notes](notes/sem-5/course-12b-big-data/) |
+| V | 13 B — Cloud Computing for Data Science *(Track B)* | [notes](notes/sem-5/course-13b-cloud-computing/) |
 
 Each course folder holds a `README.md`, five unit notes, a `practice.md` with
 worked solutions, and a `lab.md`. Course 4 also has a
@@ -102,10 +107,17 @@ Two source documents, both extracted verbatim and committed under
 |---|:---:|---|
 | `Data-Science-Major-Sem1-2.pdf` | 37 | Programme structure for Semesters I–VI, plus full syllabi for Courses 1–5 |
 | `Data-Science-Major-Sem3-4.pdf` | 25 | Full syllabi for Courses 6–10 |
+| `Data-Science-Major-Sem5.pdf` | 24 | Full syllabi for Course 11 and **both** Semester V elective pairs — 12 A/B and 13 A/B |
 
-Together they give **10 of the 15 major courses** at unit level — every course
-APSCHE has published detailed syllabi for. The five Year III courses (11, and
-the 12–15 elective pairs) appear as titles and credits only.
+Together they give **13 of the 15 major courses** at unit level — every course
+APSCHE has published detailed syllabi for. Only the Semester VI elective pairs
+(14 A/B and 15 A/B) appear as titles and credits only.
+
+**Semester V is a fork.** Course 11 is compulsory; you then take either
+**12 A + 13 A** (Machine Learning → Artificial Intelligence) or **12 B + 13 B**
+(Big Data → Cloud Computing), and that choice binds you for Semester VI as
+well. **Both tracks are covered here in full**, because you cannot choose well
+without seeing what is in each.
 
 **Credits verified:** every course is 3 credits theory + 1 credit lab. Semester
 totals are 8, 8, 12, 12, 12, 8 — a **60-credit major**.
