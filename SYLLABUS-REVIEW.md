@@ -2,12 +2,16 @@
 
 A check of the official syllabus document, not a transcription of it. Every
 finding below was verified against
-[`docs/syllabus-extracted.md`](docs/syllabus-extracted.md); page numbers refer to
-the source PDF.
+[`docs/syllabus-extracted.md`](docs/syllabus-extracted.md) (Semesters I–II) and
+[`docs/syllabus-extracted-sem3-4.md`](docs/syllabus-extracted-sem3-4.md)
+(Semesters III–IV); page numbers refer to the source PDF of the semester in
+question.
 
-**Read this before you start studying.** Two findings (D1 and D2) name topics that
-are *examined but not listed in the syllabus units*. If you study only the unit
-lists, you will walk into those questions unprepared.
+**Read this before you start studying.** Three findings — **D1, D2 and D13** —
+name topics that are *examined but not listed in the syllabus units*. If you
+study only the unit lists, you will walk into those questions unprepared. D13
+sits below with the document defects because that is what caused it, but its
+consequence is the same as the other two.
 
 ---
 
@@ -26,6 +30,15 @@ lists, you will walk into those questions unprepared.
 | D9 | Conditional formatting duplicated across Course 1 Units 4 and 5 | Low |
 | D10 | Three-semester gap between statistics and its first application | Medium |
 | D11 | Course 2 activity list has an orphaned entry | Low |
+| D12 | Bibliographies damaged in all five Semester III–IV courses | Medium — you cannot order the books |
+| D13 | Course 10 Objective 4 is a fragment, and **GridFS and transactions are examined but absent from the units** | **High** — affects marks |
+| D14 | Course 10 Unit 1's "Installation & Setup" topic has lost text | Medium |
+| D15 | Course 8 numbers its units differently from every other course | Low |
+| D16 | Course 8's objectives are unnumbered, unlike every other course's | Low |
+
+D1–D11 come from the Semester I–II document; **D12–D16 from the Semester III–IV
+document**, and every one of them was found by the same method — reading the
+extracted text rather than the formatted PDF, where truncation is invisible.
 
 **What is *not* wrong:** the credit arithmetic. Every course is 3 + 1 = 4 credits;
 semester totals are 8, 8, 12, 12, 12, 8 for a **60-credit major**, consistent with
@@ -144,6 +157,107 @@ appears with no `Outcome:` heading above it, unlike its four siblings — its
 outcome line was dropped. It maps to Course Outcome 4 (modular code using
 functions, recursion and parameter passing).
 
+### D12 — Bibliographies are damaged in all five Semester III–IV courses
+
+Every one of the five courses has at least one book entry that is unusable as
+written. This is worse than it sounds: a bibliography exists so you can *order
+the book*, and none of these five entries names one you could order.
+
+| Course | Page | What the document says | What is missing |
+|---|:---:|---|---|
+| 6 — Data Science with R | 5 | `Textbooks 1. …Springer, 2nd Edition, 2021 2. Reference Books` | **Textbook 2 is empty** — the number survives, the entry does not |
+| 7 — Web Technologies | 9 | `4. JSON at Work Media. Reference Books 1. 2. An Introduction to HTML…` | Textbook 4 has lost its **author** (Tom Marrs) and its publisher is a bare "Media"; **reference book 1 is empty** |
+| 9 — Python for Data Analysis | 19 | `1. …pandas, NumPy, and Jupyter, Wes 2. Python Programming…` | The author is cut mid-name at "**Wes**" — Wes McKinney |
+| 10 — Document Oriented Database | 23 | `Textbooks: 1. MongoDB: The Definitive Guide, …Chodorow, 2. MongoDB Recipes…` | Textbook 1 has **no publisher, edition or year** |
+| 10 — Document Oriented Database | 23 | `Reference Books: 1. MongoDB in Action… 2. 3. M Web Resources:` | **Reference books 2 and 3 are gone**, leaving an orphaned "**M**" |
+
+**What to do:** the four books that *are* fully named are the ones to buy. Each
+course README in this repository lists them with the missing details filled in
+and marked as reconstructed, so you can tell my additions from the document's
+own text.
+
+### D13 — Course 10's Objective 4 is a fragment, and GridFS and transactions go missing with it
+
+**Page 21.** The five course objectives read:
+
+> 1. To introduce students to the concepts of NoSQL databases…
+> 2. To provide hands-on experience with MongoDB…
+> 3. To develop skills in schema design, data modeling…
+> **4. replication, and transactions.**
+> 5. To prepare students for real-world applications of MongoDB…
+
+Objective 4 has lost everything before "replication" — no verb, no capital, no
+sentence. Course **Outcome** 4 on the same page survives intact and shows what
+was intended: "Utilize advanced features like indexing, aggregation, GridFS,
+and transactions to optimize data handling." So the objective was almost
+certainly "To familiarise students with indexing, aggregation, GridFS,
+replication, and transactions."
+
+**Why this matters and D15 does not.** Unit 5's topic list ends at "Replication
+Concepts: Replica sets, failover, consistency". **Neither GridFS nor
+transactions appears in it, or in any other unit.** Both survive only in Course
+Outcome 4, in the activity list on page 24, and in the practical list:
+
+| Topic | Appears in | Appears in a unit? |
+|---|---|:---:|
+| **GridFS** | Outcome 4; **lab experiment 18** | **No** |
+| **Transactions** | Outcome 4; the truncated Objective 4; **lab experiment 19** | **No** |
+
+So a student who revises from the unit lists alone meets neither, and then
+finds two of the twenty lab experiments are about them. That is the same shape
+of problem as **D1** and **D2**. Both are covered in
+[Unit 5](notes/sem-4/course-10-document-database/unit-5.md) and in lab
+experiments [18](labs/course-10-mongodb/18_gridfs.js) and
+[19](labs/course-10-mongodb/19_transactions.js) for that reason — and both of
+those lab files also say plainly that they need a running server, which is the
+other half of the answer when an examiner asks you to demonstrate them.
+
+### D14 — Course 10 Unit 1's "Installation & Setup" topic has lost text
+
+**Pages 21–22.** Unit 1's topic list ends across the page break as:
+
+> …Introduction to JSON & BSON
+>
+> **Installation & Setupservice), connecting via Mongo shell or GUI.**
+
+Two words have been welded together ("Setup" + "service"), and a closing
+parenthesis survives with no opening one — so an entire parenthetical clause
+has been dropped. Judging by the surviving fragment it listed the install
+routes and named the server process, something like "Installation & Setup
+(installing MongoDB, starting the `mongod` service), connecting via Mongo shell
+or GUI."
+
+[Unit 1 §1.9](notes/sem-4/course-10-document-database/unit-1.md) covers what it
+evidently intended — Atlas, Docker and a local install, the `mongod` service,
+and connecting with `mongosh` or Compass — and says in the section itself that
+the source text is damaged.
+
+### D15 — Course 8 numbers its units differently from every other course
+
+**Pages 11–14.** Data Mining heads its units `Unit-1:`, `Unit-2:` … with a
+hyphen and a colon. All nine other courses in both documents use `Unit 1.`,
+`Unit 2.` … with a space and a full stop.
+
+Cosmetic, and listed only because it is the kind of inconsistency that suggests
+this course's text was pasted in from a different source document — which is
+also the most likely explanation for **D16**.
+
+### D16 — Course 8's objectives are unnumbered, unlike every other course's
+
+**Page 11.** Every course in both documents numbers its five objectives 1–5.
+Course 8 runs them together as unnumbered sentences:
+
+> Course Objectives: Provide an understanding of data warehousing concepts…
+> Develop knowledge of data mining fundamentals… Introduce students to
+> association rule mining algorithms… Enable learners to apply classification
+> techniques… Equip students with knowledge of clustering paradigms…
+
+There are still exactly five, and they still map one-to-one onto the five
+outcomes and the five units, so nothing is *missing* — but if an examiner asks
+you to "state the third course objective", the document does not tell you which
+one that is. Counting in printed order gives association rule mining, which is
+also Unit 3 and Outcome 3.
+
 ---
 
 ## Design and sequencing issues
@@ -218,13 +332,47 @@ does not start with re-learning what a p-value is.
 
 ## Verification notes for this repository
 
-The lab code in [`labs/`](labs/) was checked as follows:
+The lab code in [`labs/`](labs/) was checked as follows. Run
+`bash tools/verify_all.sh` to reproduce all of it.
 
-| Language | Status |
-|---|---|
-| C (15 programs) | **Compiled and run.** `gcc -Wall -Wextra`, no warnings, output verified against expected results. |
-| Python (16 of 18) | **Run.** Python 3.11. |
-| Python — Tkinter (2 programs) | **Syntax-checked only.** `tkinter` is not installed in this environment, so `python3 -m py_compile` is the strongest check available. Marked in the files. |
-| SQL — DDL/DML/queries | **Executed** against SQLite via `tools/run_sql_labs.py`, with schema and the official sample data loaded. |
-| PL/SQL (procedures, functions, triggers) | **Desk-checked only, not executed.** The syllabus targets Oracle PL/SQL; SQLite cannot run it and no Oracle instance is available here. These blocks are written to Oracle syntax and reviewed by hand — verify them on your college's Oracle installation. |
-| Excel/PSPP walkthroughs | **Not executable.** Written as step-by-step instructions with exact formulas; the Python equivalents of the same 15 experiments are provided and were run. |
+**What runs, and is asserted**
+
+| Course | Language | Status |
+|---|---|---|
+| 2 | C (15 programs) | **Compiled and run.** `gcc -Wall -Wextra`, no warnings, output verified against expected results. |
+| 3 | Python (16 of 18) | **Run.** Python 3.11. |
+| 4 | Python (15 equivalents) | **Run**, and their results checked against the notes' hand-computed figures. |
+| 5 | SQL — DDL/DML/queries | **Executed** against SQLite via `tools/run_sql_labs.py`, with schema and the official sample data loaded. |
+| 6 | Python (14 equivalents) | **Run.** One per R script that has a Python counterpart. |
+| 7 | JavaScript + DOM (16 experiments) | **Run under jsdom**, 184 assertions on the resulting DOM state, via `tools/run_web_labs.js`. |
+| 8 | scikit-learn / mlxtend (15 experiments) | **Run**, and every hand trace in the notes — Apriori's itemsets, ID3's information gains, K-Means to convergence — reproduced by executing code. |
+| 9 | NumPy / Pandas (18 practicals) | **All run**, outputs asserted. Nothing in this course is desk-checked. |
+| 10 | mongomock (16 of 20 experiments) | **Run**, every query and pipeline asserted, via `tools/run_mongo_labs.py`. |
+
+**What does not run, and says so in its own file header**
+
+| Course | What | Why, and what stands in for it |
+|---|---|---|
+| 3 | Tkinter (2 programs) | `tkinter` is not installed here, so `python3 -m py_compile` is the strongest check available. |
+| 4 | Excel and PSPP walkthroughs | Not executable. Written as step-by-step instructions with exact formulas; the Python equivalents of the same 15 experiments were run. |
+| 5 | PL/SQL (procedures, functions, triggers) | The syllabus targets Oracle PL/SQL; SQLite cannot run it and no Oracle instance is available. Written to Oracle syntax and reviewed by hand — verify on your college's installation. |
+| 6 | R (18 scripts) | R cannot be installed: the Debian repositories are blocked by this environment's egress policy. The scripts are structurally checked, and 14 have executed Python equivalents. |
+| 8 | WEKA (15 click-paths) | WEKA cannot be installed here. Each experiment documents the WEKA panel, filter and parameters, alongside the scikit-learn equivalent that runs. |
+| 10 | mongosh (all 20 scripts) | `mongod` cannot be installed — same egress policy. Each script is the one to run in the lab exam; 16 have a mongomock half that executes the same logic. |
+| 10 | Replication, GridFS, transactions (3 experiments) | These need a server, and mongomock is a library. **No runnable half exists**, and `tools/run_mongo_labs.py` asserts that each of the three still carries its NOT EXECUTED marker. |
+
+**The rule the whole repository follows:** every numeric claim in the notes is
+checked by running code, and anything that genuinely cannot run says
+**NOT EXECUTED** in its own first lines rather than implying a test that never
+happened. That discipline found **twenty-two errors of my own** while these
+notes were being written — four in Courses 1–5, three in Course 6, six in
+Course 8, seven in Course 9 and two in Course 10 — every one of which would
+otherwise have been a wrong worked example a student revised from.
+
+`tools/check_coverage.py` is held to the same standard, and it had to be fixed
+before it could be trusted: it was matching its keywords against the syllabus
+line each note file quotes in its header, so **19 of 464 topics were passing
+without a word being written about them**. Stripping the header before
+searching exposed three genuine gaps in Courses 1, 3 and 7, and three more in
+Course 10. All six are now written. The check currently reports **672 of 672
+topics across 50 unit files**.

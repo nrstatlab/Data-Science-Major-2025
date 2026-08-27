@@ -84,10 +84,12 @@ domain names with your department before choosing.
 
 ---
 
-## 2. Detailed unit map (Courses 1–5)
+## 2. Detailed unit map (Courses 1–10)
 
-Only these five courses have full syllabi in the source document. Courses 6–15
-appear as titles and credits only.
+These ten courses — the whole Major through Semester IV — have full syllabi in
+the two source documents. **Courses 11–15, all of Year III, appear as titles
+and credits only**, so nothing below Semester IV can be mapped until that
+document is published.
 
 ### Course 1 — Computer Fundamentals and Office Automation (Sem I)
 Notes: [`notes/sem-1/course-1-computer-fundamentals/`](notes/sem-1/course-1-computer-fundamentals/)

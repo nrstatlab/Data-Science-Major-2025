@@ -1,7 +1,7 @@
 # Study Plan — B.Sc. (Hons) Data Science Major
 
-A week-by-week schedule for the five courses this repository covers, weighted
-by the difficulty established in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
+A week-by-week schedule for all ten courses of the Major, weighted by the
+difficulty established in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
 
 **The weighting is the point.** An even split across five units is the wrong
 plan when one unit holds three units' worth of material. Where a unit gets more
@@ -76,35 +76,58 @@ unit list, because it is examined. Finding **D1**.
 
 ---
 
-## Semester III — 15 weeks (Course 5 only)
+## Semester III — 15 weeks
 
-Three courses run this semester; only DBMS is covered here. Adjust for Data
-Science with R and Web Technologies when you have those syllabi.
+**Three courses, 12 credits — a 50% jump from Semesters I and II, and it lands
+all at once.** Semesters III and IV are the heaviest in the programme. Plan for
+it before week 1 rather than discovering it in week 6: the two-course rhythm
+that worked for a year will not survive contact with three.
 
-| Week | Course 5 — Database Management Systems |
-|:---:|---|
-| 1 | Unit 1 — data vs information, file-based systems and their drawbacks |
-| 2 | Unit 1 — database approach, three-schema architecture, data independence |
-| 3 | Unit 2 — ER building blocks, entity and attribute classification |
-| 4 | Unit 2 — relationships, cardinality, participation |
-| 5 | Unit 2 — **reducing ER to tables**; EER, generalization, specialization |
-| 6 | Unit 3 — relational model, keys, integrity constraints |
-| 7 | **Revision 1**; Unit 3 — relational algebra |
-| 8 | **Unit 3 — functional dependencies, 1NF, 2NF** |
-| 9 | **Unit 3 — 3NF, BCNF, worked normalization** |
-| 10 | Unit 4 — DDL, constraints, DML |
-| 11 | Unit 4 — SELECT, WHERE, aggregates, GROUP BY, HAVING |
-| 12 | **Unit 4 — joins** (inner, left, self, three-table) |
-| 13 | Unit 4 — set operations, subqueries, views |
-| 14 | Unit 5 — PL/SQL blocks, control structures, cursors, exceptions |
-| 15 | **Unit 5 — procedures, functions, TRIGGERS** ⚠; **Revision 2** |
+| Week | Course 5 — DBMS | Course 6 — Data Science with R | Course 7 — Web Technologies |
+|:---:|---|---|---|
+| 1 | Unit 1 — data vs information, file-based systems | Unit 1 — the data science process, lifecycle | Unit 1 — HTML structure, elements, attributes |
+| 2 | Unit 1 — three-schema architecture, data independence | Unit 1 — EDA, feature engineering | Unit 1 — headings, images, **tables**, lists |
+| 3 | Unit 2 — ER building blocks, entity and attribute types | Unit 2 — R and RStudio, types, operators | Unit 1 — **forms and every input type** |
+| 4 | Unit 2 — relationships, cardinality, participation | Unit 2 — control structures, `apply`, functions | Unit 2 — selectors, combinators, the box model |
+| 5 | Unit 2 — **reducing ER to tables**; EER | Unit 2 — packages, I/O (CSV, Excel, JSON) | Unit 2 — **position, float, Flexbox and Grid** |
+| 6 | Unit 3 — relational model, keys, constraints | Unit 3 — data frames, lists, matrices | Unit 2 — pseudo-classes, transitions, CSS forms |
+| 7 | **Revision 1**; Unit 3 — relational algebra | **Revision 1**; Unit 3 — **dplyr and tidyr** | **Revision 1**; Unit 3 — JS basics, variables, operators |
+| 8 | **Unit 3 — functional dependencies, 1NF, 2NF** | Unit 3 — missing data, dates and times | Unit 3 — **strings, arrays, functions** |
+| 9 | **Unit 3 — 3NF, BCNF, worked normalization** | **Unit 3 — ggplot2: grammar, aesthetics, geoms** | Unit 3 — objects, regular expressions, exceptions |
+| 10 | Unit 4 — DDL, constraints, DML | Unit 3 — faceting, layering, exporting | **Unit 4 — the DOM and form elements** |
+| 11 | Unit 4 — SELECT, aggregates, GROUP BY, HAVING | Unit 4 — simple and multiple regression | **Unit 4 — validation, responsive messages** |
+| 12 | **Unit 4 — joins** (inner, left, self, three-table) | Unit 4 — accuracy, confusion matrix, ROC | Unit 4 — dialogs, windows, keyboard and mouse events |
+| 13 | Unit 4 — set operations, subqueries, views | Unit 4 — K-Means, text mining, recommenders, ethics | Unit 5 — JSON syntax, parsing, nested access |
+| 14 | Unit 5 — PL/SQL blocks, cursors, exceptions | **Unit 5 — time series: `ts`, decomposition, ACF/PACF** | Unit 5 — jQuery selectors, DOM manipulation, chaining |
+| 15 | **Unit 5 — procedures, functions, TRIGGERS** ⚠; **Revision 2** | **Unit 5 — ARIMA, forecasting; plotly and Shiny** | Unit 5 — events, animations; **Revision 2** |
 
-**Triggers are scheduled in week 15** despite being absent from the Unit 5
-syllabus list. Two of the six PL/SQL lab questions are trigger problems.
+### Why the weighting
+
+**Triggers are scheduled in week 15** despite being absent from the Course 5
+Unit 5 syllabus list. Two of the six PL/SQL lab questions are trigger problems.
 Finding **D2**.
 
-Weeks 8–9 on normalization and week 12 on joins carry the most exam weight in
-this course.
+**Course 5 weeks 8–9 (normalization) and week 12 (joins)** carry the most exam
+weight in that course. Nothing else in DBMS is asked as reliably.
+
+**Course 6 Unit 5 gets two weeks (14–15) and is still tight.** It fuses three
+unrelated subjects — ARIMA time series, plotly interactivity, and building
+Shiny web applications — any one of which would be a unit elsewhere. If you run
+short, **ARIMA is the examinable half**; Shiny is the one that gets a
+descriptive question rather than a technical one.
+
+**Course 7 is the lightest of the three to *learn* and the heaviest to
+*practise*.** Nothing in it is conceptually hard, and its 16 lab experiments
+still take longer than the other two courses' labs combined, because each one
+has to be built and looked at. Do the lab work in the week the topic is taught,
+not in a block before the exam.
+
+### Use Course 5 and Course 7 together
+
+They are taught in the same semester and they meet in Semester IV. Course 5's
+`SELECT … WHERE … GROUP BY` becomes Course 10's aggregation pipeline; Course
+7's JSON becomes Course 10's document. Every hour you spend understanding
+*why* a join exists in DBMS pays out twice more before the degree ends.
 
 ---
 
@@ -128,6 +151,75 @@ Statistical intuition decays without use. Finding **D10**.
 That last block matters. The Semester II stats lab is entirely Excel, so you
 arrive in Semester IV able to run a regression in a spreadsheet but not in the
 language you spent a semester learning.
+
+---
+
+## Semester IV — 15 weeks
+
+**Three courses, 12 credits again — and this is the semester the degree has
+been building towards.** Course 9 is the one you will use in every job you take;
+Course 8 is where the Semester II statistics finally gets applied; Course 10 is
+Course 5 seen from the other side.
+
+| Week | Course 8 — Data Mining | Course 9 — Python for Data Analysis | Course 10 — Document Database |
+|:---:|---|---|---|
+| 1 | Unit 1 — warehouse vs database, characteristics | **Unit 1 — the ndarray, dtypes, creating arrays** | Unit 1 — NoSQL, its history and features |
+| 2 | Unit 1 — architecture, **star and snowflake schemas** | **Unit 1 — indexing, slicing, views vs copies** | Unit 1 — **CAP and BASE against ACID**; the four types |
+| 3 | Unit 1 — fact constellation, **OLAP cube operations** | Unit 1 — broadcasting, ufuncs, `axis`, random | Unit 1 — RDBMS vs NoSQL; JSON and BSON; install |
+| 4 | Unit 2 — KDD vs data mining, tasks | **Unit 2 — Series, DataFrame, Index objects** | Unit 2 — database/collection/document, BSON format |
+| 5 | **Unit 2 — cleaning, missing data, dimensionality reduction** | **Unit 2 — `loc` vs `iloc`, boolean filtering** | Unit 2 — data types, ObjectId, the type traps |
+| 6 | **Unit 2 — discretization, transformation, similarity measures** | Unit 2 — alignment, sorting, ranking, duplicates | **Unit 2 — schema design; embed or reference** |
+| 7 | **Revision 1**; Unit 3 — association rules, support and confidence | **Revision 1**; Unit 3 — `read_csv` and the parameters that matter | **Revision 1**; Unit 3 — insert, and find with comparison operators |
+| 8 | **Unit 3 — Apriori, worked by hand** | Unit 3 — JSON, `json_normalize`, Excel | Unit 3 — logical, element and evaluation operators |
+| 9 | Unit 3 — Partition, Pincer-Search, DIC, **FP-Growth** | **Unit 3 — missing data, outliers, `map`/`apply`** | **Unit 3 — update, `replaceOne`, delete; arrays** |
+| 10 | **Unit 4 — decision trees, best split, ID3 by hand** | Unit 4 — the `.str` accessor, regex, `extract` | Unit 4 — embedded vs normalized, the trade-offs |
+| 11 | **Unit 4 — C4.5, CART, comparing classifiers** | Unit 4 — feature engineering, dummies, sampling | Unit 4 — the three relationships; design patterns |
+| 12 | Unit 4 — rule-based, k-NN, **Bayesian classifiers** | **Unit 5 — merge and the four join types** | **Unit 4 — the aggregation framework, `$match`/`$group`** |
+| 13 | **Unit 5 — K-Means to convergence; k-Medoid** | **Unit 5 — pivot, melt, stack, unstack** | Unit 5 — projection, sort, limit, skip; pagination |
+| 14 | Unit 5 — hierarchical linkage, **DBSCAN**, BIRCH | Unit 5 — group-by; recompute the Course 4 examples | **Unit 5 — indexes: compound, multikey, text; ESR** |
+| 15 | Unit 5 — STIRR, ROCK, CACTUS; **Revision 2** | Unit 5 — matplotlib, Seaborn, Plotly; **Revision 2** | Unit 5 — replication and failover; GridFS ⚠; **Revision 2** |
+
+### Why the weighting
+
+**Course 8 is arithmetic, not reading.** Apriori, ID3 and K-Means are all
+*asked as hand traces*: given this table, compute the support, the information
+gain, the centroids after two iterations. Weeks 8, 10 and 13 are the ones to
+protect, and the only way to prepare is to work the traces on paper until the
+arithmetic is automatic. The notes give each one fully worked, and
+[`labs/course-8-datamining/`](labs/course-8-datamining/) recomputes every figure
+in code so you can check your own work against something that runs.
+
+**Course 9 Units 1 and 2 get five weeks between them (1–6).** Everything after
+them assumes the ndarray and the DataFrame, and a student who is still unsure
+whether `loc` is inclusive will lose time in every week that follows. This is
+the course that pays out longest — treat it as the priority when three courses
+collide.
+
+**Course 10 Unit 4 gets three weeks (10–12)** because embed-or-reference is the
+whole subject in one question, and the aggregation pipeline is the other half
+of the paper.
+
+**GridFS is scheduled in week 15** although it appears in no unit's topic list —
+it survives only in Course Outcome 4 and lab experiment 18. Same shape as
+findings **D1** and **D2**; here it is finding **D13**.
+
+### Deliberately reinforce, rather than learning three subjects in parallel
+
+The three courses overlap far more than their titles suggest, and using that is
+the difference between 12 credits and three separate 4-credit efforts:
+
+| When you meet | In another course you already have |
+|---|---|
+| Course 8's preprocessing (week 5) | Course 9's cleaning (week 9) — **the same operations, in code** |
+| Course 8's K-Means (week 13) | Course 9's DataFrames; the lab does it in scikit-learn |
+| Course 9's `merge` and join types (week 12) | Course 5's SQL joins — identical semantics, one exception: **Pandas joins NaN to NaN and SQL never joins NULL to NULL** |
+| Course 10's aggregation (week 12) | Course 5's `GROUP BY`/`HAVING`, and Course 9's `groupby` |
+| Course 10's documents (week 4) | Course 7's JSON |
+| Course 8's classification metrics (week 11) | Course 6's confusion matrix and ROC |
+
+**Say the connection out loud in the viva.** "This `$group` is a `GROUP BY`,
+and this second `$match` is the `HAVING`" is worth more than a memorised
+pipeline, in every one of these three courses.
 
 ---
 
@@ -224,6 +316,48 @@ problem on it unaided.
 - [ ] Unit 4 — SQL
 - [ ] Unit 5 — PL/SQL (**including triggers** ⚠)
 - [ ] Lab — all three experiments plus PL/SQL
+
+**Course 6 — Data Science with R**
+- [ ] Unit 1 — The data science process, lifecycle and EDA
+- [ ] Unit 2 — R basics, control structures, functions, I/O
+- [ ] Unit 3 — Data handling with dplyr and tidyr; ggplot2
+- [ ] Unit 4 — Regression, evaluation, clustering, ethics
+- [ ] Unit 5 — Time series and ARIMA; plotly; Shiny ⚠
+- [ ] Lab — all 18 R scripts run in RStudio
+
+**Course 7 — Web Technologies**
+- [ ] Unit 1 — HTML structure, tables, forms
+- [ ] Unit 2 — CSS: the box model, layout, Flexbox and Grid
+- [ ] Unit 3 — JavaScript: strings, arrays, objects, regex
+- [ ] Unit 4 — The DOM, validation, events
+- [ ] Unit 5 — JSON and jQuery
+- [ ] Lab — all 16 experiments built and opened in a browser
+
+### Semester IV
+
+**Course 8 — Data Mining**
+- [ ] Unit 1 — Warehousing, schemas and OLAP
+- [ ] Unit 2 — Preprocessing and similarity measures
+- [ ] Unit 3 — Association analysis (**Apriori traced by hand**)
+- [ ] Unit 4 — Classification (**ID3 traced by hand**)
+- [ ] Unit 5 — Clustering (**K-Means traced to convergence**)
+- [ ] Lab — all 15 experiments run in WEKA
+
+**Course 9 — Python for Data Analysis and Visualization**
+- [ ] Unit 1 — NumPy: ndarray, indexing, broadcasting
+- [ ] Unit 2 — Pandas: Series, DataFrame, selection
+- [ ] Unit 3 — I/O and cleaning
+- [ ] Unit 4 — Strings and feature engineering
+- [ ] Unit 5 — Wrangling, reshaping and visualization
+- [ ] Lab — all 18 practicals run
+
+**Course 10 — Document Oriented Database**
+- [ ] Unit 1 — NoSQL, CAP and BASE
+- [ ] Unit 2 — Architecture, BSON, data modeling
+- [ ] Unit 3 — CRUD and MQL
+- [ ] Unit 4 — Embedded vs normalized; aggregation
+- [ ] Unit 5 — Indexing, pipelines, replication (**and GridFS** ⚠)
+- [ ] Lab — all 20 experiments run against a real `mongod` or Atlas
 
 ---
 

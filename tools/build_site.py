@@ -399,7 +399,7 @@ EXTRA_PAGES = {
 
 TOP_PAGES = [
     ("SYLLABUS-REVIEW.md", "syllabus-review", "Syllabus Review",
-     "Eleven findings from checking the official APSCHE document."),
+     "Sixteen findings from checking the two official APSCHE documents."),
     ("SYLLABUS-MAP.md", "syllabus-map", "Syllabus Map",
      "Programme structure for Semesters I–VI, elective tracks and unit topics."),
     ("STUDY-PLAN.md", "study-plan", "Study Plan",

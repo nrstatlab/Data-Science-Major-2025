@@ -13,16 +13,20 @@
   <div class="banner">
     <div class="crumbs"><a href="index.html">Home</a> &raquo; Syllabus Review</div>
     <h1>Syllabus Review — B.Sc. (Hons) Data Science Major, APSCHE AY 2025-26</h1>
-    <p>Eleven findings from checking the official APSCHE document.</p>
+    <p>Sixteen findings from checking the two official APSCHE documents.</p>
   </div>
 
 <p>A check of the official syllabus document, not a transcription of it. Every
 finding below was verified against
-<a href="docs/syllabus-extracted.md"><code>docs/syllabus-extracted.md</code></a>; page numbers refer to
-the source PDF.</p>
-<p><strong>Read this before you start studying.</strong> Two findings (D1 and D2) name topics that
-are <em>examined but not listed in the syllabus units</em>. If you study only the unit
-lists, you will walk into those questions unprepared.</p>
+<a href="docs/syllabus-extracted.md"><code>docs/syllabus-extracted.md</code></a> (Semesters I–II) and
+<a href="docs/syllabus-extracted-sem3-4.md"><code>docs/syllabus-extracted-sem3-4.md</code></a>
+(Semesters III–IV); page numbers refer to the source PDF of the semester in
+question.</p>
+<p><strong>Read this before you start studying.</strong> Three findings — <strong>D1, D2 and D13</strong> —
+name topics that are <em>examined but not listed in the syllabus units</em>. If you
+study only the unit lists, you will walk into those questions unprepared. D13
+sits below with the document defects because that is what caused it, but its
+consequence is the same as the other two.</p>
 <hr />
 <h2>Summary</h2>
 <table class="main-table">
@@ -89,8 +93,36 @@ lists, you will walk into those questions unprepared.</p>
 <td>Course 2 activity list has an orphaned entry</td>
 <td>Low</td>
 </tr>
+<tr>
+<td style="text-align: center;">D12</td>
+<td>Bibliographies damaged in all five Semester III–IV courses</td>
+<td>Medium — you cannot order the books</td>
+</tr>
+<tr>
+<td style="text-align: center;">D13</td>
+<td>Course 10 Objective 4 is a fragment, and <strong>GridFS and transactions are examined but absent from the units</strong></td>
+<td><strong>High</strong> — affects marks</td>
+</tr>
+<tr>
+<td style="text-align: center;">D14</td>
+<td>Course 10 Unit 1's "Installation &amp; Setup" topic has lost text</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td style="text-align: center;">D15</td>
+<td>Course 8 numbers its units differently from every other course</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D16</td>
+<td>Course 8's objectives are unnumbered, unlike every other course's</td>
+<td>Low</td>
+</tr>
 </tbody>
 </table>
+<p>D1–D11 come from the Semester I–II document; <strong>D12–D16 from the Semester III–IV
+document</strong>, and every one of them was found by the same method — reading the
+extracted text rather than the formatted PDF, where truncation is invisible.</p>
 <p><strong>What is <em>not</em> wrong:</strong> the credit arithmetic. Every course is 3 + 1 = 4 credits;
 semester totals are 8, 8, 12, 12, 12, 8 for a <strong>60-credit major</strong>, consistent with
 the structure table on pages 1–2.</p>
@@ -220,6 +252,149 @@ Activity: … / Evaluation Method: …</code>. The "Recursive Problem Solver" ac
 appears with no <code>Outcome:</code> heading above it, unlike its four siblings — its
 outcome line was dropped. It maps to Course Outcome 4 (modular code using
 functions, recursion and parameter passing).</p>
+<h3>D12 — Bibliographies are damaged in all five Semester III–IV courses</h3>
+<p>Every one of the five courses has at least one book entry that is unusable as
+written. This is worse than it sounds: a bibliography exists so you can <em>order
+the book</em>, and none of these five entries names one you could order.</p>
+<table class="main-table">
+<thead>
+<tr>
+<th>Course</th>
+<th style="text-align: center;">Page</th>
+<th>What the document says</th>
+<th>What is missing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6 — Data Science with R</td>
+<td style="text-align: center;">5</td>
+<td><code>Textbooks 1. …Springer, 2nd Edition, 2021 2. Reference Books</code></td>
+<td><strong>Textbook 2 is empty</strong> — the number survives, the entry does not</td>
+</tr>
+<tr>
+<td>7 — Web Technologies</td>
+<td style="text-align: center;">9</td>
+<td><code>4. JSON at Work Media. Reference Books 1. 2. An Introduction to HTML…</code></td>
+<td>Textbook 4 has lost its <strong>author</strong> (Tom Marrs) and its publisher is a bare "Media"; <strong>reference book 1 is empty</strong></td>
+</tr>
+<tr>
+<td>9 — Python for Data Analysis</td>
+<td style="text-align: center;">19</td>
+<td><code>1. …pandas, NumPy, and Jupyter, Wes 2. Python Programming…</code></td>
+<td>The author is cut mid-name at "<strong>Wes</strong>" — Wes McKinney</td>
+</tr>
+<tr>
+<td>10 — Document Oriented Database</td>
+<td style="text-align: center;">23</td>
+<td><code>Textbooks: 1. MongoDB: The Definitive Guide, …Chodorow, 2. MongoDB Recipes…</code></td>
+<td>Textbook 1 has <strong>no publisher, edition or year</strong></td>
+</tr>
+<tr>
+<td>10 — Document Oriented Database</td>
+<td style="text-align: center;">23</td>
+<td><code>Reference Books: 1. MongoDB in Action… 2. 3. M Web Resources:</code></td>
+<td><strong>Reference books 2 and 3 are gone</strong>, leaving an orphaned "<strong>M</strong>"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What to do:</strong> the four books that <em>are</em> fully named are the ones to buy. Each
+course README in this repository lists them with the missing details filled in
+and marked as reconstructed, so you can tell my additions from the document's
+own text.</p>
+<h3>D13 — Course 10's Objective 4 is a fragment, and GridFS and transactions go missing with it</h3>
+<p><strong>Page 21.</strong> The five course objectives read:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<ol>
+<li>To introduce students to the concepts of NoSQL databases…</li>
+<li>To provide hands-on experience with MongoDB…</li>
+<li>To develop skills in schema design, data modeling…
+<strong>4. replication, and transactions.</strong></li>
+<li>To prepare students for real-world applications of MongoDB…</li>
+</ol>
+</div>
+<p>Objective 4 has lost everything before "replication" — no verb, no capital, no
+sentence. Course <strong>Outcome</strong> 4 on the same page survives intact and shows what
+was intended: "Utilize advanced features like indexing, aggregation, GridFS,
+and transactions to optimize data handling." So the objective was almost
+certainly "To familiarise students with indexing, aggregation, GridFS,
+replication, and transactions."</p>
+<div class="tip">
+<p><span class="label">WHY IT MATTERS</span></p>
+<p><strong>Why this matters and D15 does not.</strong> Unit 5's topic list ends at "Replication
+Concepts: Replica sets, failover, consistency". <strong>Neither GridFS nor
+transactions appears in it, or in any other unit.</strong> Both survive only in Course
+Outcome 4, in the activity list on page 24, and in the practical list:</p>
+</div>
+<table class="main-table">
+<thead>
+<tr>
+<th>Topic</th>
+<th>Appears in</th>
+<th style="text-align: center;">Appears in a unit?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GridFS</strong></td>
+<td>Outcome 4; <strong>lab experiment 18</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+</tr>
+<tr>
+<td><strong>Transactions</strong></td>
+<td>Outcome 4; the truncated Objective 4; <strong>lab experiment 19</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+</tr>
+</tbody>
+</table>
+<p>So a student who revises from the unit lists alone meets neither, and then
+finds two of the twenty lab experiments are about them. That is the same shape
+of problem as <strong>D1</strong> and <strong>D2</strong>. Both are covered in
+<a href="notes/sem-4/course-10-document-database/unit-5.md">Unit 5</a> and in lab
+experiments <a href="labs/course-10-mongodb/18_gridfs.js">18</a> and
+<a href="labs/course-10-mongodb/19_transactions.js">19</a> for that reason — and both of
+those lab files also say plainly that they need a running server, which is the
+other half of the answer when an examiner asks you to demonstrate them.</p>
+<h3>D14 — Course 10 Unit 1's "Installation &amp; Setup" topic has lost text</h3>
+<p><strong>Pages 21–22.</strong> Unit 1's topic list ends across the page break as:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>…Introduction to JSON &amp; BSON</p>
+<p><strong>Installation &amp; Setupservice), connecting via Mongo shell or GUI.</strong></p>
+</div>
+<p>Two words have been welded together ("Setup" + "service"), and a closing
+parenthesis survives with no opening one — so an entire parenthetical clause
+has been dropped. Judging by the surviving fragment it listed the install
+routes and named the server process, something like "Installation &amp; Setup
+(installing MongoDB, starting the <code>mongod</code> service), connecting via Mongo shell
+or GUI."</p>
+<p><a href="notes/sem-4/course-10-document-database/unit-1.md">Unit 1 §1.9</a> covers what it
+evidently intended — Atlas, Docker and a local install, the <code>mongod</code> service,
+and connecting with <code>mongosh</code> or Compass — and says in the section itself that
+the source text is damaged.</p>
+<h3>D15 — Course 8 numbers its units differently from every other course</h3>
+<p><strong>Pages 11–14.</strong> Data Mining heads its units <code>Unit-1:</code>, <code>Unit-2:</code> … with a
+hyphen and a colon. All nine other courses in both documents use <code>Unit 1.</code>,
+<code>Unit 2.</code> … with a space and a full stop.</p>
+<p>Cosmetic, and listed only because it is the kind of inconsistency that suggests
+this course's text was pasted in from a different source document — which is
+also the most likely explanation for <strong>D16</strong>.</p>
+<h3>D16 — Course 8's objectives are unnumbered, unlike every other course's</h3>
+<p><strong>Page 11.</strong> Every course in both documents numbers its five objectives 1–5.
+Course 8 runs them together as unnumbered sentences:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Course Objectives: Provide an understanding of data warehousing concepts…
+Develop knowledge of data mining fundamentals… Introduce students to
+association rule mining algorithms… Enable learners to apply classification
+techniques… Equip students with knowledge of clustering paradigms…</p>
+</div>
+<p>There are still exactly five, and they still map one-to-one onto the five
+outcomes and the five units, so nothing is <em>missing</em> — but if an examiner asks
+you to "state the third course objective", the document does not tell you which
+one that is. Counting in printed order gives association rule mining, which is
+also Unit 3 and Outcome 3.</p>
 <hr />
 <h2>Design and sequencing issues</h2>
 <h3>D6 — Course 3 Unit 4 carries roughly double the load of a normal unit</h3>
@@ -278,41 +453,126 @@ schedules a short Course 4 refresher before Semester IV begins, so Data Mining
 does not start with re-learning what a p-value is.</p>
 <hr />
 <h2>Verification notes for this repository</h2>
-<p>The lab code in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs"><code>labs/</code></a> was checked as follows:</p>
+<p>The lab code in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs"><code>labs/</code></a> was checked as follows. Run
+<code>bash tools/verify_all.sh</code> to reproduce all of it.</p>
+<p><strong>What runs, and is asserted</strong></p>
 <table class="main-table">
 <thead>
 <tr>
+<th>Course</th>
 <th>Language</th>
 <th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>2</td>
 <td>C (15 programs)</td>
 <td><strong>Compiled and run.</strong> <code>gcc -Wall -Wextra</code>, no warnings, output verified against expected results.</td>
 </tr>
 <tr>
+<td>3</td>
 <td>Python (16 of 18)</td>
 <td><strong>Run.</strong> Python 3.11.</td>
 </tr>
 <tr>
-<td>Python — Tkinter (2 programs)</td>
-<td><strong>Syntax-checked only.</strong> <code>tkinter</code> is not installed in this environment, so <code>python3 -m py_compile</code> is the strongest check available. Marked in the files.</td>
+<td>4</td>
+<td>Python (15 equivalents)</td>
+<td><strong>Run</strong>, and their results checked against the notes' hand-computed figures.</td>
 </tr>
 <tr>
+<td>5</td>
 <td>SQL — DDL/DML/queries</td>
 <td><strong>Executed</strong> against SQLite via <code>tools/run_sql_labs.py</code>, with schema and the official sample data loaded.</td>
 </tr>
 <tr>
-<td>PL/SQL (procedures, functions, triggers)</td>
-<td><strong>Desk-checked only, not executed.</strong> The syllabus targets Oracle PL/SQL; SQLite cannot run it and no Oracle instance is available here. These blocks are written to Oracle syntax and reviewed by hand — verify them on your college's Oracle installation.</td>
+<td>6</td>
+<td>Python (14 equivalents)</td>
+<td><strong>Run.</strong> One per R script that has a Python counterpart.</td>
 </tr>
 <tr>
-<td>Excel/PSPP walkthroughs</td>
-<td><strong>Not executable.</strong> Written as step-by-step instructions with exact formulas; the Python equivalents of the same 15 experiments are provided and were run.</td>
+<td>7</td>
+<td>JavaScript + DOM (16 experiments)</td>
+<td><strong>Run under jsdom</strong>, 184 assertions on the resulting DOM state, via <code>tools/run_web_labs.js</code>.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>scikit-learn / mlxtend (15 experiments)</td>
+<td><strong>Run</strong>, and every hand trace in the notes — Apriori's itemsets, ID3's information gains, K-Means to convergence — reproduced by executing code.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>NumPy / Pandas (18 practicals)</td>
+<td><strong>All run</strong>, outputs asserted. Nothing in this course is desk-checked.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>mongomock (16 of 20 experiments)</td>
+<td><strong>Run</strong>, every query and pipeline asserted, via <code>tools/run_mongo_labs.py</code>.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>What does not run, and says so in its own file header</strong></p>
+<table class="main-table">
+<thead>
+<tr>
+<th>Course</th>
+<th>What</th>
+<th>Why, and what stands in for it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>Tkinter (2 programs)</td>
+<td><code>tkinter</code> is not installed here, so <code>python3 -m py_compile</code> is the strongest check available.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Excel and PSPP walkthroughs</td>
+<td>Not executable. Written as step-by-step instructions with exact formulas; the Python equivalents of the same 15 experiments were run.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>PL/SQL (procedures, functions, triggers)</td>
+<td>The syllabus targets Oracle PL/SQL; SQLite cannot run it and no Oracle instance is available. Written to Oracle syntax and reviewed by hand — verify on your college's installation.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>R (18 scripts)</td>
+<td>R cannot be installed: the Debian repositories are blocked by this environment's egress policy. The scripts are structurally checked, and 14 have executed Python equivalents.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>WEKA (15 click-paths)</td>
+<td>WEKA cannot be installed here. Each experiment documents the WEKA panel, filter and parameters, alongside the scikit-learn equivalent that runs.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>mongosh (all 20 scripts)</td>
+<td><code>mongod</code> cannot be installed — same egress policy. Each script is the one to run in the lab exam; 16 have a mongomock half that executes the same logic.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Replication, GridFS, transactions (3 experiments)</td>
+<td>These need a server, and mongomock is a library. <strong>No runnable half exists</strong>, and <code>tools/run_mongo_labs.py</code> asserts that each of the three still carries its NOT EXECUTED marker.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The rule the whole repository follows:</strong> every numeric claim in the notes is
+checked by running code, and anything that genuinely cannot run says
+<strong>NOT EXECUTED</strong> in its own first lines rather than implying a test that never
+happened. That discipline found <strong>twenty-two errors of my own</strong> while these
+notes were being written — four in Courses 1–5, three in Course 6, six in
+Course 8, seven in Course 9 and two in Course 10 — every one of which would
+otherwise have been a wrong worked example a student revised from.</p>
+<p><code>tools/check_coverage.py</code> is held to the same standard, and it had to be fixed
+before it could be trusted: it was matching its keywords against the syllabus
+line each note file quotes in its header, so <strong>19 of 464 topics were passing
+without a word being written about them</strong>. Stripping the header before
+searching exposed three genuine gaps in Courses 1, 3 and 7, and three more in
+Course 10. All six are now written. The check currently reports <strong>672 of 672
+topics across 50 unit files</strong>.</p>
 
   <div class="page-nav">
     <a href="index.html">← Home</a>

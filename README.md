@@ -10,10 +10,10 @@ solutions, and every lab program as runnable code.
 
 ---
 
-## ⚠ Two topics are examined but missing from the syllabus
+## ⚠ Four topics are examined but missing from the syllabus
 
 Read these before you start revising, because studying the unit lists alone
-will leave you unprepared for both.
+will leave you unprepared for all four.
 
 ### 1. Bayes' theorem — Course 4, Statistics
 
@@ -30,7 +30,21 @@ six PL/SQL lab questions are trigger problems**.
 
 → Covered in [Course 5 Unit 5](notes/sem-3/course-5-dbms/unit-5.md#58-triggers--off-syllabus-but-examined)
 
-Nine further findings are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
+### 3 and 4. GridFS and transactions — Course 10, Document Oriented Database
+
+Unit 5's topic list ends at "Replica sets, failover, consistency" — **neither
+GridFS nor transactions appears in it, or in any other unit**. Yet Course
+Outcome 4 names both, and **lab experiments 18 and 19 are exactly those two
+problems**. The course objective that would have introduced them is itself
+truncated to the fragment "4. replication, and transactions." (finding
+**D13**), which is probably how they went missing.
+
+→ Covered in [Course 10 Unit 5](notes/sem-4/course-10-document-database/unit-5.md),
+[lab experiment 18](labs/course-10-mongodb/18_gridfs.js) and
+[lab experiment 19](labs/course-10-mongodb/19_transactions.js)
+
+Thirteen further findings are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md),
+including **damaged bibliographies in all five Semester III–IV courses**.
 
 ---
 
@@ -41,8 +55,8 @@ Nine further findings are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
 | Document | What it is |
 |---|---|
 | [`SYLLABUS-MAP.md`](SYLLABUS-MAP.md) | The full Sem I–VI structure, elective tracks, and unit-level topics |
-| [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md) | 11 findings from checking the official document |
-| [`STUDY-PLAN.md`](STUDY-PLAN.md) | Week-by-week schedule, revision cycles, progress checklist |
+| [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md) | 16 findings from checking the two official documents |
+| [`STUDY-PLAN.md`](STUDY-PLAN.md) | Week-by-week schedules for Semesters I–IV, revision cycles, progress checklist |
 
 ## Course notes
 
@@ -53,6 +67,11 @@ Nine further findings are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
 | II | 3 — Python Programming and Data Structures | [notes](notes/sem-2/course-3-python-data-structures/) |
 | II | 4 — Statistical Foundations for Data Science | [notes](notes/sem-2/course-4-statistical-foundations/) |
 | III | 5 — Database Management Systems | [notes](notes/sem-3/course-5-dbms/) |
+| III | 6 — Data Science with R | [notes](notes/sem-3/course-6-data-science-r/) |
+| III | 7 — Web Technologies | [notes](notes/sem-3/course-7-web-technologies/) |
+| IV | 8 — Data Mining | [notes](notes/sem-4/course-8-data-mining/) |
+| IV | 9 — Python for Data Analysis and Visualization | [notes](notes/sem-4/course-9-python-data-analysis/) |
+| IV | 10 — Document Oriented Database | [notes](notes/sem-4/course-10-document-database/) |
 
 Each course folder holds a `README.md`, five unit notes, a `practice.md` with
 worked solutions, and a `lab.md`. Course 4 also has a
@@ -62,10 +81,15 @@ worked solutions, and a `lab.md`. Course 4 also has a
 
 | Course | Contents | Status |
 |---|---|---|
-| [C](labs/course-2-c/) | 15 programs | Compiled `-Wall -Wextra`, no warnings, run |
-| [Python](labs/course-3-python/) | 18 programs | 16 run; 2 Tkinter syntax-checked only |
-| [Statistics](labs/course-4-stats/) | 15 Excel walkthroughs + Python equivalents | Python run; `statlib` checked against tables |
-| [SQL](labs/course-5-dbms/) | 3 experiments + PL/SQL | SQL executed; PL/SQL desk-checked only |
+| [2 — C](labs/course-2-c/) | 15 programs | Compiled `-Wall -Wextra`, no warnings, run |
+| [3 — Python](labs/course-3-python/) | 18 programs | 16 run; 2 Tkinter syntax-checked only |
+| [4 — Statistics](labs/course-4-stats/) | 15 Excel walkthroughs + Python equivalents | Python run; `statlib` checked against tables |
+| [5 — SQL](labs/course-5-dbms/) | 3 experiments + PL/SQL | SQL executed; PL/SQL desk-checked only |
+| [6 — R](labs/course-6-r/) | 18 R scripts + 14 Python equivalents | R structurally checked (uninstallable here); equivalents run |
+| [7 — Web](labs/course-7-web/) | 16 experiments, HTML/CSS/JS | Run under jsdom, **184 assertions** on the resulting DOM |
+| [8 — Data Mining](labs/course-8-datamining/) | 15 experiments | WEKA click-paths documented; scikit-learn/mlxtend equivalents run |
+| [9 — Pandas](labs/course-9-python-da/) | 18 practicals | **All run**, outputs asserted |
+| [10 — MongoDB](labs/course-10-mongodb/) | 20 experiments | 16 executed through mongomock; 4 need a server and say **NOT EXECUTED** |
 
 ---
 
@@ -103,8 +127,12 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 | `run_python_labs.sh` | 20 Python files run; 2 Tkinter files syntax-check |
 | `run_stats_labs.sh` | `statlib` matches 23 published table values; 5 experiment scripts run |
 | `run_sql_labs.py` | 118 SQL statements execute; 9 constraints correctly reject bad data |
+| `run_r_equivalents.py` | 14 Python equivalents run; 18 R scripts structurally checked |
+| `run_web_labs.js` | 184 assertions on the DOM after each Course 7 lab script, under jsdom |
+| `run_data_labs.py` | 33 Course 8 and 9 programs run, each asserting the notes' own figures |
+| `run_mongo_labs.py` | 16 Course 10 experiments executed through mongomock; the other 4 audited for their NOT EXECUTED marker |
 | `extract_syllabus.py` | All 37 PDF pages yield text |
-| `check_coverage.py` | 329 syllabus topics all map to a notes section |
+| `check_coverage.py` | **672 syllabus topics across 50 unit files** all map to a notes section |
 
 Statistical results are additionally self-checked: regression output via
 **R² = r²** and **t² = F**, and every critical value in the formula sheet
@@ -121,6 +149,15 @@ Honest limits, stated rather than hidden:
   college's installation before relying on it.
 - **Excel walkthroughs** — not executable. The Python equivalents of the same 15
   experiments were run.
+- **R, WEKA and `mongod`** — none can be installed here: the Debian
+  repositories that host them are blocked by this environment's egress policy.
+  Courses 6, 8 and 10 therefore ship the native script *and* an executed
+  equivalent, and each native file says **NOT EXECUTED** in its own first lines.
+- **Replication, GridFS and transactions** (Course 10 experiments 17–19) —
+  these need a running server, and mongomock is a library. **No runnable
+  equivalent exists**, and `tools/run_mongo_labs.py` asserts that each of the
+  three still carries its marker, so they can never quietly start looking like
+  test results.
 
 ---
 
