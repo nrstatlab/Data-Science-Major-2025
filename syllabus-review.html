@@ -13,14 +13,16 @@
   <div class="banner">
     <div class="crumbs"><a href="index.html">Home</a> &raquo; Syllabus Review</div>
     <h1>Syllabus Review — B.Sc. (Hons) Data Science Major, APSCHE AY 2025-26</h1>
-    <p>Sixteen findings from checking the two official APSCHE documents.</p>
+    <p>Twenty-four findings from checking the three official APSCHE documents.</p>
   </div>
 
-<p>A check of the official syllabus document, not a transcription of it. Every
+<p>A check of the official syllabus documents, not a transcription of them. Every
 finding below was verified against
-<a href="docs/syllabus-extracted.md"><code>docs/syllabus-extracted.md</code></a> (Semesters I–II) and
+<a href="docs/syllabus-extracted.md"><code>docs/syllabus-extracted.md</code></a> (Semesters I–II),
 <a href="docs/syllabus-extracted-sem3-4.md"><code>docs/syllabus-extracted-sem3-4.md</code></a>
-(Semesters III–IV); page numbers refer to the source PDF of the semester in
+(Semesters III–IV) and
+<a href="docs/syllabus-extracted-sem5.md"><code>docs/syllabus-extracted-sem5.md</code></a>
+(Semester V); page numbers refer to the source PDF of the semester in
 question.</p>
 <p><strong>Read this before you start studying.</strong> Three findings — <strong>D1, D2 and D13</strong> —
 name topics that are <em>examined but not listed in the syllabus units</em>. If you
@@ -118,14 +120,72 @@ consequence is the same as the other two.</p>
 <td>Course 8's objectives are unnumbered, unlike every other course's</td>
 <td>Low</td>
 </tr>
+<tr>
+<td style="text-align: center;">D17</td>
+<td>Course 11's Objective 3 stops mid-sentence</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td style="text-align: center;">D18</td>
+<td>"Business IntelligenceI" — a stray capital in Course 11 Unit 1</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D19</td>
+<td>Course 12 A has 3 objectives against 4 outcomes against 5 units</td>
+<td>Medium — affects planning</td>
+</tr>
+<tr>
+<td style="text-align: center;">D20</td>
+<td>Course 11 numbers its units in Roman numerals</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D21</td>
+<td>Course 12 B's reference books are numbered 3 and 4</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D22</td>
+<td>Course 13 B's reference list has an empty entry 4</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D23</td>
+<td>"SudoStudents" — two words merged in Course 13 A's activities</td>
+<td>Low</td>
+</tr>
+<tr>
+<td style="text-align: center;">D24</td>
+<td>"HadoopSpark" and "HBaseSpark" — separators lost, twice</td>
+<td>Low</td>
+</tr>
 </tbody>
 </table>
-<p>D1–D11 come from the Semester I–II document; <strong>D12–D16 from the Semester III–IV
-document</strong>, and every one of them was found by the same method — reading the
-extracted text rather than the formatted PDF, where truncation is invisible.</p>
+<p>D1–D11 come from the Semester I–II document, <strong>D12–D16 from the Semester III–IV
+document</strong>, and <strong>D17–D24 from the Semester V document</strong>. Every one was found by
+the same method — reading the extracted text rather than the formatted PDF,
+where truncation is invisible.</p>
+<div class="concept">
+<p><span class="label">THE BIG IDEA</span></p>
+<h4>The pattern that emerged once all three documents were read</h4>
+<p><strong>Nine of the twenty-four findings are the same defect: text lost at a word or
+sentence boundary.</strong> D3 (three instances), D13, D14, D17, D23 and D24 (two
+instances).</p>
+<p>Three separate documents, one recurring mechanism. That is no longer a
+scattering of typos — it is a defect in how the PDFs were produced, and the
+honest conclusion is that <strong>all three need a proofreading pass against their
+extracted text before being issued to students.</strong></p>
+<p><strong>And a second, milder pattern:</strong> D15 and D20 are the same inconsistency
+(one course numbering its units differently from every other), D12, D21 and
+D22 are all damaged bibliographies, and D16 and D19 are both objective lists
+that do not follow the document's own five-and-five convention. Together they
+suggest each course description was authored separately and never passed
+through a single formatting pass.</p>
 <p><strong>What is <em>not</em> wrong:</strong> the credit arithmetic. Every course is 3 + 1 = 4 credits;
 semester totals are 8, 8, 12, 12, 12, 8 for a <strong>60-credit major</strong>, consistent with
 the structure table on pages 1–2.</p>
+</div>
 <hr />
 <h2>Findings that affect your marks</h2>
 <h3>D1 — Bayes' theorem is examined but never listed as a topic</h3>
@@ -451,6 +511,176 @@ the theory.</p>
 <p>Statistical intuition decays without use. The <a href="study-plan.html">study plan</a>
 schedules a short Course 4 refresher before Semester IV begins, so Data Mining
 does not start with re-learning what a p-value is.</p>
+<h3>D17 — Course 11's Objective 3 stops mid-sentence</h3>
+<p><strong>Page 5.</strong> The third objective of Business Intelligence Tools reads:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<ol start="3">
+<li>Enable students to clean, transform and model data using Power Query and</li>
+</ol>
+</div>
+<p>and then stops. The verb, the object and the full stop are all missing.</p>
+<p><strong>What was almost certainly there:</strong> "…using Power Query and DAX", since DAX
+is the whole of Unit 3 and Outcome 3 names it. But that is an inference, and
+if an examiner asks you to state Objective 3 the document cannot tell you.</p>
+<p><strong>This is the third truncation of the same kind</strong> — see <strong>D3</strong> (three in the
+Semesters I–II document) and <strong>D13</strong> (Course 10's Objective 4). Four
+truncations across two documents in the same position — the end of a numbered
+objective — suggests a systematic problem in whatever produced the PDF rather
+than four independent typing errors.</p>
+<h3>D18 — "Business IntelligenceI" — a stray capital in Course 11 Unit 1</h3>
+<p><strong>Page 5.</strong> Unit 1's topic list reads:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Business Intelligence: Definition, Scope, and Evolution, Business
+<strong>IntelligenceI</strong> vs. Data Analytics vs. Data Science, BI…</p>
+</div>
+<p>A stray capital I is welded onto "Intelligence" the second time it appears.
+Trivially cosmetic — but it sits in the <em>first line of the first unit of the
+first course of the semester</em>, which is the last place a proofreading pass
+should miss.</p>
+<h3>D19 — Course 12 A has three objectives against four outcomes against five units</h3>
+<p><strong>Pages 8–9.</strong> Every other course in both documents has <strong>five objectives and
+five outcomes</strong>, mapping one-to-one onto five units. Machine Learning has
+<strong>three objectives and four outcomes</strong> — and five units.</p>
+<table class="main-table">
+<thead>
+<tr>
+<th>Course</th>
+<th style="text-align: right;">Objectives</th>
+<th style="text-align: right;">Outcomes</th>
+<th style="text-align: right;">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><strong>12 A</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+<td style="text-align: right;"><strong>4</strong></td>
+<td style="text-align: right;"><strong>5</strong></td>
+</tr>
+<tr>
+<td>12 B</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>13 A</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>13 B</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>All four outcomes do have activities and evaluation methods</strong>, so nothing is
+left outside continuous assessment. What breaks is the <em>mapping</em>: Outcome 4
+carries both Unit 5's clustering algorithms <strong>and</strong> "identify suitable machine
+learning approaches for specific application domains", which is the case-study
+material. Two units' worth of content, one outcome.</p>
+<p><strong>The practical consequence for a student:</strong> Unit 5 is the largest unit in the
+course by topic count — k-Means, k-Medoids, hierarchical clustering, DBSCAN,
+internal and external validation, and four case studies — and it is weighted
+in the outcomes as half of one. Do not read that as permission to give it half
+the time. <a href="notes/sem-5/course-12a-machine-learning/unit-5.md">The Course 12 A notes</a>
+give it the same weight as the other four.</p>
+<p><strong>And Outcome 4 has no full stop</strong> — it runs straight into "Unit 1." on the
+same line — which is the same boundary defect as D17 and D23, in a milder
+form.</p>
+<h3>D20 — Course 11 numbers its units in Roman numerals</h3>
+<p><strong>Pages 5–6.</strong> Business Intelligence Tools heads its units <code>Unit-I:</code>,
+<code>Unit-II:</code> … Every other course in the Semester V document uses <code>Unit 1.</code> with
+an Arabic numeral, a space and a full stop.</p>
+<p>This is <strong>D15</strong> again in a different course — Data Mining used <code>Unit-1:</code> where
+everything else used <code>Unit 1.</code> — and it is the same signal: these course
+descriptions were assembled from separately-authored sources and never passed
+through a single formatting pass.</p>
+<h3>D21 — Course 12 B's reference books are numbered 3 and 4</h3>
+<p><strong>Page 13.</strong> The bibliography reads:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Textbooks
+1. Hadoop: The Definitive Guide…
+2. Learning Spark, 2nd Edition…
+Reference Books
+<strong>3.</strong> BIG DATA, Black Book™…
+<strong>4.</strong> BIG DATA and ANALYTICS, Seema Acharya…</p>
+</div>
+<p>The reference list continues the textbook numbering instead of restarting at</p>
+<ol>
+<li>Harmless in itself — but <strong>D12</strong> found the Semester III–IV bibliographies
+damaged in all five courses, and this is the same section behaving oddly
+again.</li>
+</ol>
+<h3>D22 — Course 13 B's reference list has an empty entry 4</h3>
+<p><strong>Page 22.</strong> The list runs:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<ol start="3">
+<li>Cloud Computing for Data Analysis, Noah Gift, Alfredo Deza…
+<strong>4.</strong></li>
+<li>Machine Learning in the AWS Cloud: Amazon SageMaker, Abhishek Mishra…</li>
+</ol>
+</div>
+<p><strong>Entry 4 is a number with nothing after it.</strong> A book was removed, or failed to
+paste, and the numbering was never closed up. The list claims five references
+and supplies four.</p>
+<h3>D23 — "e.g., SudoStudents" — a merged word in Course 13 A's activities</h3>
+<p><strong>Page 18.</strong> The Outcome 4 activity reads:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Give students a logic puzzle (e.g., SudoStudents write propositional and/or
+FOL statements, draw inference chains…</p>
+</div>
+<p><strong>"Sudoku)" and "Students" have merged into "SudoStudents"</strong>, taking the
+closing bracket with them. The intended text is almost certainly "(e.g.,
+Sudoku). Students write…".</p>
+<p><strong>Same defect class as D3, D13, D14 and D17</strong>, and the fourth instance of text
+being lost at a boundary in this pair of documents.</p>
+<h3>D24 — "HadoopSpark" appears twice in Course 12 B</h3>
+<p><strong>Pages 12 and 13.</strong> Objective 5 and Outcome 5 both read "<strong>HadoopSpark</strong>
+integration", and the case-study activity reads "<strong>HBaseSpark</strong> integration".</p>
+<p>The missing character is presumably a hyphen or a slash — "Hadoop-Spark",
+"Hadoop/Spark". <strong>Two words joined where a separator was lost</strong>, which is the
+same mechanism as D23 and D14.</p>
+<p><strong>Counting the whole class:</strong> across the two documents there are now <strong>nine</strong>
+places where text has been lost at a word or sentence boundary — D3 (three),
+D13, D14, D17, D23, and D24 (two). That is no longer a scattering of typos; it
+is a defect in the production of the documents, and the honest summary is that
+<strong>both PDFs need a proofreading pass before they are issued to students.</strong></p>
+<hr />
+<h2>What the five Semester V courses do well</h2>
+<p>The defects above are worth recording, but a review that lists only faults
+misrepresents the document. Four things in Semester V are genuinely well done.</p>
+<p><strong>The elective tracks are coherent.</strong> Track A (Machine Learning → AI → Neural
+Networks → NLP) and Track B (Big Data → Cloud → Time Series → Data
+Engineering) each build properly, and the constraint that you stay in one
+domain across both semesters is correct — the Semester VI courses genuinely
+depend on their Semester V predecessors.</p>
+<p><strong>Course 12 A's unit ordering is right.</strong> Putting <em>model preparation and
+evaluation</em> (Unit 2) <strong>before</strong> any algorithm is unusual and correct. Most
+syllabi teach algorithms first and evaluation last, which is how students
+learn to quote accuracy without a base rate.</p>
+<p><strong>Course 13 B ends on monitoring and cost.</strong> Unit 5 covers deployment,
+monitoring, scalability and cost optimisation as examinable content rather
+than as an afterthought. That is more realistic than most cloud syllabi, which
+stop at "deploy the model".</p>
+<p><strong>Course 12 B pairs every high-level tool with its foundation.</strong> MapReduce
+before Hive, HDFS before HBase, and the Spark comparison stated in terms of
+what MapReduce does between stages. A student who follows the order will
+understand <em>why</em> Spark replaced MapReduce rather than merely that it did.</p>
 <hr />
 <h2>Verification notes for this repository</h2>
 <p>The lab code in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs"><code>labs/</code></a> was checked as follows. Run
@@ -510,6 +740,31 @@ does not start with re-learning what a p-value is.</p>
 <td>mongomock (16 of 20 experiments)</td>
 <td><strong>Run</strong>, every query and pipeline asserted, via <code>tools/run_mongo_labs.py</code>.</td>
 </tr>
+<tr>
+<td>11</td>
+<td>Python (BI semantics)</td>
+<td><strong>Run</strong> via <code>tools/run_bi_labs.py</code>. Every DAX, Power Query and LOD figure in the notes was computed, not quoted.</td>
+</tr>
+<tr>
+<td>12 A</td>
+<td>scikit-learn (12 practicals)</td>
+<td><strong>All run</strong> via <code>tools/run_ml_labs.py</code>. <strong>No file in this course is marked NOT EXECUTED</strong> — nothing it needs is blocked.</td>
+</tr>
+<tr>
+<td>12 B</td>
+<td>Python, DuckDB, fastavro, pyarrow, <strong>PySpark</strong> (14 of 17)</td>
+<td><strong>Run</strong> via <code>tools/run_bigdata_labs.py</code>, including a <strong>real <code>SparkSession</code></strong> with a real shuffle, and <strong>real Avro and Parquet files</strong>.</td>
+</tr>
+<tr>
+<td>13 A</td>
+<td>pytholog + Python (7 programs, 19 experiments)</td>
+<td><strong>Run</strong> via <code>tools/run_ai_labs.py</code>. <strong>Five experiments execute as real logic programs</strong> through SLD resolution.</td>
+</tr>
+<tr>
+<td>13 B</td>
+<td>Python, DuckDB, scikit-learn, <code>http.server</code> (7 programs, 15 experiments)</td>
+<td><strong>Run</strong> via <code>tools/run_cloud_labs.py</code>, including a <strong>real web server</strong>, a <strong>real ETL into a real columnar warehouse</strong>, and a <strong>real REST endpoint</strong> serving a real model.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>What does not run, and says so in its own file header</strong></p>
@@ -557,15 +812,82 @@ does not start with re-learning what a p-value is.</p>
 <td>Replication, GridFS, transactions (3 experiments)</td>
 <td>These need a server, and mongomock is a library. <strong>No runnable half exists</strong>, and <code>tools/run_mongo_labs.py</code> asserts that each of the three still carries its NOT EXECUTED marker.</td>
 </tr>
+<tr>
+<td>11</td>
+<td>Power BI and Tableau (all 15 click-paths)</td>
+<td>Neither tool runs on Linux, and Tableau Public needs an account. Each experiment documents the exact click-path; the semantics behind every figure were computed in Python.</td>
+</tr>
+<tr>
+<td>12 B</td>
+<td>Hadoop, Hive, Pig, Sqoop, Flume, HBase, ZooKeeper (15 files)</td>
+<td>Same egress policy as R and <code>mongod</code>. Each file names the tool it needs and the runnable half that verifies its logic; <code>tools/run_bigdata_labs.py</code> asserts the markers.</td>
+</tr>
+<tr>
+<td>13 A</td>
+<td>SWI-Prolog (all 16 <code>.pl</code> files)</td>
+<td>Not installable — same egress policy. The <code>.pl</code> file is the deliverable; 7 Python halves verify the logic, and five of them run through a real Prolog engine.</td>
+</tr>
+<tr>
+<td>13 B</td>
+<td>AWS, Azure, GCP and VMware (14 files)</td>
+<td><strong>No cloud account exists for this repository and none was created</strong> — signing up requires a payment card and accepts a billing relationship. Every provider claim is documented, never demonstrated.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>The rule the whole repository follows:</strong> every numeric claim in the notes is
 checked by running code, and anything that genuinely cannot run says
 <strong>NOT EXECUTED</strong> in its own first lines rather than implying a test that never
-happened. That discipline found <strong>twenty-two errors of my own</strong> while these
-notes were being written — four in Courses 1–5, three in Course 6, six in
-Course 8, seven in Course 9 and two in Course 10 — every one of which would
-otherwise have been a wrong worked example a student revised from.</p>
+happened.</p>
+<p>That discipline found <strong>more than fifty errors of my own</strong> while these notes
+were being written — four in Courses 1–5, three in Course 6, six in Course 8,
+seven in Course 9, two in Course 10, and roughly thirty more across the five
+Semester V courses. Every one would otherwise have been a wrong worked example
+a student revised from.</p>
+<p><strong>And it caught more than arithmetic.</strong> Several results came out contradicting
+what I had expected to write, and the notes report the measurement rather than
+the expectation:</p>
+<ul>
+<li>
+<p><strong>Random forest lost to a single decision tree</strong> on an iris split
+  (0.8889 against 0.9778), and the cross-validated figures overlap almost
+  entirely — so the honest conclusion is that the models are not
+  distinguishable on that data.</p>
+</li>
+<li>
+<p><strong>Scaling made k-NN worse</strong> on iris — <strong>0.9778 unscaled against 0.9111
+  scaled</strong> — even though it transformed a synthetic case from 0.5500 to
+  0.9750. Iris's four features already share a scale, so standardising only
+  discarded information.</p>
+</li>
+<li>
+<p><strong>Adjusted R² rose by chance in 119 of 300 trials</strong>, so a single-dataset
+  demonstration of "adjusted R² penalises useless predictors" would have been
+  luck rather than evidence; the notes run the distribution instead.</p>
+</li>
+<li>
+<p><strong>Hive's three-bucket hash left one bucket empty</strong> with three store names.</p>
+</li>
+<li>
+<p><strong>The MapReduce combiner saved only 18.75%</strong>, because the splits are tiny —
+  which is the honest way to teach that its value scales with split size.</p>
+</li>
+<li>
+<p><strong>Autoscaling cost more than fixed capacity</strong> in one measured configuration
+  (188 instance-hours against 168), directly contradicting the slogan.</p>
+</li>
+<li>
+<p><strong>pytholog gives a wrong answer</strong> for <code>cousin/2</code> through a nested derived
+  predicate, returning a person as his own cousin — documented as an engine
+  limitation, with the correct flat formulation shown alongside.</p>
+</li>
+<li>
+<p><strong>Parquet is 4.8× LARGER than CSV at nine rows</strong>, and its 303× advantage on
+  repeated data falls to 12× once every row differs.</p>
+</li>
+</ul>
+<p><strong>Reporting a result that undercuts the point you were about to make is the
+whole value of executing the code.</strong> A note that only ever confirms its own
+claims has not been checked; it has been decorated.</p>
 <p><code>tools/check_coverage.py</code> is held to the same standard, and it had to be fixed
 before it could be trusted: it was matching its keywords against the syllabus
 line each note file quotes in its header, so <strong>19 of 464 topics were passing

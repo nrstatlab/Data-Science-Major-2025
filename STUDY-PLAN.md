@@ -223,6 +223,125 @@ pipeline, in every one of these three courses.
 
 ---
 
+## Before Semester V — choose your track
+
+**You choose once, and it binds both Semester V and Semester VI.** There is no
+switching in January.
+
+| | **Track A — Modelling / AI** | **Track B — Infrastructure / Engineering** |
+|---|---|---|
+| Sem V | Machine Learning, Artificial Intelligence | Big Data Technologies, Cloud Computing |
+| Sem VI | Neural Networks & Deep Learning, NLP | Time Series Analysis, Data Engineering & MLOps |
+| Builds on | Courses 4, 8, 9 | Courses 3, 5, 10 |
+| You will spend your time | **fitting and evaluating models** | **moving data and running systems** |
+| Job titles | Data Scientist, ML Engineer, Research | Data Engineer, Platform Engineer, MLOps |
+| Maths load | **heavier** — probability, linear algebra | lighter; more systems and SQL |
+| The honest test | *do you enjoy Course 4?* | *do you enjoy Course 5 and Course 10?* |
+
+**Both tracks are written out in full in this repository**, so read the two
+Semester V READMEs before deciding. And note the market reality worth knowing:
+**there are more data-engineering jobs than data-science jobs**, and Track B
+graduates are hired faster. That is not a reason to pick it if you dislike the
+work — but it is a fact worth having.
+
+---
+
+## Semester V — 15 weeks
+
+**Three courses again, 12 credits — Course 11 plus your two track courses.**
+
+Course 11 is the lightest of the three and the most immediately employable;
+your two track courses are where the effort goes.
+
+### Course 11 — Business Intelligence Tools (all students)
+
+| Week | Topic |
+|:---:|---|
+| 1 | Unit 1 — BI concepts, the BI lifecycle, BI against BA |
+| 2 | Unit 1 — **the data warehouse; star and snowflake**; OLAP against OLTP |
+| 3 | Unit 2 — Power BI Desktop, connecting and shaping data |
+| 4 | **Unit 2 — Power Query: step order matters; the M language** |
+| 5 | Unit 3 — the data model, relationships, cardinality; **the fan trap** |
+| 6 | **Unit 3 — DAX: calculated columns against measures; row and filter context** |
+| 7 | **Revision 1**; Unit 3 — `CALCULATE`, and why it is the whole language |
+| 8 | Unit 4 — Tableau, dimensions and measures, the shelves |
+| 9 | **Unit 4 — LOD expressions: FIXED, INCLUDE, EXCLUDE** |
+| 10 | Unit 5 — dashboard components, filters, slicers, drill-down |
+| 11 | **Revision 2**; Unit 5 — visualization principles and accessibility |
+| 12 | Unit 5 — publishing, storytelling, insight communication |
+| 13 | Lab: the click-paths, worked end to end on a real dataset |
+| 14 | **Revision 3** — the whole course |
+| 15 | Past papers |
+
+### Track A — Courses 12 A and 13 A
+
+| Week | Course 12 A — Machine Learning | Course 13 A — Artificial Intelligence |
+|:---:|---|---|
+| 1 | Unit 1 — types of learning, Mitchell's definition | Unit 1 — definition and scope, history, the Turing Test |
+| 2 | Unit 1 — the ML pipeline; types and structure of data | Unit 1 — **agents, rationality, PEAS, environments** |
+| 3 | **Unit 2 — preprocessing IN ORDER; split first** | **Unit 2 — state space, the four components; problem formulation** |
+| 4 | **Unit 2 — why accuracy lies; the confusion matrix** | **Unit 2 — BFS, DFS, UCS; completeness and optimality** |
+| 5 | Unit 2 — cross-validation, bias and variance, PCA | Unit 2 — iterative deepening; the Romania map by hand |
+| 6 | Unit 3 — simple and multiple regression; LINE | **Unit 3 — heuristics, admissibility, consistency** |
+| 7 | **Revision 1**; Unit 3 — **logistic regression and the odds ratio** | **Revision 1**; **Unit 3 — A\*, and what an inadmissible heuristic costs** |
+| 8 | Unit 3 — MLE; Ridge, Lasso, elastic net | Unit 3 — hill climbing, simulated annealing, genetic algorithms |
+| 9 | Unit 4 — Naive Bayes, k-NN, decision trees | **Unit 3 — CSPs, backtracking, MRV and LCV** |
+| 10 | **Unit 4 — SVM, the margin and the kernel trick; random forest** | Unit 4 — propositional logic, truth tables, entailment |
+| 11 | **Revision 2**; Unit 5 — K-Means, WCSS, the elbow | **Revision 2**; **Unit 4 — FOL, unification, forward and backward chaining** |
+| 12 | Unit 5 — hierarchical, DBSCAN, validation metrics | Unit 4 — resolution and CNF; Unit 5 — expert systems |
+| 13 | Unit 5 — the four case studies; lab experiments 1–12 | Unit 5 — Bayes, belief networks, fuzzy logic, ethics |
+| 14 | **Revision 3** | **Revision 3**; the 19 Prolog programs, typed and run |
+| 15 | Past papers | Past papers |
+
+### Track B — Courses 12 B and 13 B
+
+| Week | Course 12 B — Big Data Technologies | Course 13 B — Cloud Computing |
+|:---:|---|---|
+| 1 | Unit 1 — what big data means; the five Vs | Unit 1 — the NIST definition; the five characteristics |
+| 2 | Unit 1 — the ecosystem by layer; data locality | Unit 1 — SOA and web services; the four-part architecture |
+| 3 | **Unit 2 — HDFS: blocks, NameNode, DataNodes** | **Unit 1 — IaaS, PaaS, SaaS by who manages what** |
+| 4 | **Unit 2 — the block arithmetic and the small-files problem** | Unit 2 — virtualization; type 1 and type 2; the six types |
+| 5 | **Unit 2 — replication, rack awareness, fault tolerance** | **Unit 2 — overcommit; the four deployment models** |
+| 6 | Unit 2 — YARN and the three schedulers | **Unit 3 — block, file and object storage** |
+| 7 | **Revision 1**; **Unit 3 — map, shuffle, reduce; word count** | **Revision 1**; **Unit 3 — storage classes and the retrieval trap** |
+| 8 | **Unit 3 — combiners, and when they are unsafe; partitioning and skew** | **Unit 3 — egress and data gravity; key-value databases** |
+| 9 | Unit 3 — Hive: partitioning, bucketing, managed vs external | **Unit 3 — batch vs streaming; the cloud data warehouse** |
+| 10 | Unit 3 — Pig, Crunch, and the abstraction ladder | Unit 4 — ML in the cloud; AIaaS and GPUaaS |
+| 11 | **Revision 2**; **Unit 4 — Sqoop, splits, and the DELETE it never sees** | **Revision 2**; Unit 4 — managed platforms; **AutoML and its limits** |
+| 12 | **Unit 4 — Flume, back-pressure; Avro and Parquet** | Unit 5 — the four selection factors; the six steps |
+| 13 | Unit 5 — HBase, row-key design; ZooKeeper; **Spark** | **Unit 5 — deployment shapes, monitoring, autoscaling, drift** |
+| 14 | **Revision 3**; the 17 experiments | **Revision 3**; the 15 experiments |
+| 15 | Past papers | Past papers |
+
+### 🎯 The three cross-course checks to do yourself
+
+These are the highest-value hours in the semester, because they catch
+misunderstandings that a single course cannot.
+
+1. **Course 12 A's regression against Course 4's.** The same ten (hours,
+   score) pairs must give slope **4.3030**, intercept **43.0303**, R²
+   **0.9958**. If your hand calculation and scikit-learn disagree, one of them
+   is wrong.
+2. **Naive Bayes across Courses 8, 12 A and 13 A.** The same play-tennis table
+   must give **0.005291** and **0.020571**, normalising to **79.54% no**.
+3. **The star schema across Courses 11, 12 B and 13 B.** South revenue must be
+   **₹10,360** in DAX, in Hive, in Spark and in the cloud warehouse. Four
+   engines, nine rows.
+
+**If you can reproduce all three, you have understood the material rather than
+memorised three separate procedures.**
+
+### And the one habit that matters most this semester
+
+**Type and run every lab program.** Semester V prescribes **46 experiments on
+Track A** (15 + 12 + 19) and **47 on Track B** (15 + 17 + 15) across the three
+courses you take. Reading them is worth almost nothing;
+running them, breaking them and fixing them is where the marks are — and it is
+what the viva examines.
+
+
+---
+
 ## Weekly rhythm
 
 A schedule you can actually keep beats an ambitious one you abandon in week 3.
@@ -359,14 +478,64 @@ problem on it unaided.
 - [ ] Unit 5 — Indexing, pipelines, replication (**and GridFS** ⚠)
 - [ ] Lab — all 20 experiments run against a real `mongod` or Atlas
 
+### Semester V
+
+**Course 11 — Business Intelligence Tools** *(everyone)*
+- [ ] Unit 1 — BI concepts, the warehouse, star and snowflake, OLAP
+- [ ] Unit 2 — Power BI and **Power Query** (step order matters)
+- [ ] Unit 3 — the data model, **DAX, row and filter context, `CALCULATE`**
+- [ ] Unit 4 — Tableau and **LOD expressions**
+- [ ] Unit 5 — dashboard design, storytelling, publishing
+- [ ] Lab — all 15 experiments, click-paths worked end to end
+
+#### Track A
+
+**Course 12 A — Machine Learning**
+- [ ] Unit 1 — paradigms, the pipeline, types and structure of data
+- [ ] Unit 2 — **preprocessing in order; why accuracy lies**; CV; PCA
+- [ ] Unit 3 — regression, **logistic regression and the odds ratio**, MLE
+- [ ] Unit 4 — Naive Bayes, k-NN, trees, **SVM and the kernel trick**, forests
+- [ ] Unit 5 — K-Means, hierarchical, DBSCAN, validation, case studies ⚠ *(D19)*
+- [ ] Lab — all 12 practicals run
+- [ ] **Cross-check:** slope 4.3030 against Course 4
+
+**Course 13 A — Artificial Intelligence**
+- [ ] Unit 1 — agents, rationality, PEAS, environments
+- [ ] Unit 2 — state space, **BFS/DFS/UCS and their properties**, IDS
+- [ ] Unit 3 — **heuristics, admissibility, A\***, local search, CSPs
+- [ ] Unit 4 — propositional and first-order logic, chaining, resolution
+- [ ] Unit 5 — expert systems, Bayes, fuzzy logic, NLP, robotics, ethics
+- [ ] Lab — all 19 Prolog programs typed and run in SWiSH
+- [ ] **Cross-check:** Naive Bayes 0.005291 / 0.020571 against Course 8
+
+#### Track B
+
+**Course 12 B — Big Data Technologies**
+- [ ] Unit 1 — the five Vs, the ecosystem by layer, data locality
+- [ ] Unit 2 — **HDFS blocks and the arithmetic**, replication, YARN
+- [ ] Unit 3 — **map, shuffle, reduce; combiners; skew**; Hive; Pig
+- [ ] Unit 4 — Sqoop, Flume, **Avro and Parquet**, batch and streaming
+- [ ] Unit 5 — HBase and row-key design, ZooKeeper, **Spark**
+- [ ] Lab — all 17 experiments (14 run here; 3 need a cluster)
+- [ ] **Cross-check:** South = ₹10,360 against Course 11
+
+**Course 13 B — Cloud Computing for Data Science**
+- [ ] Unit 1 — the five characteristics, SOA, **IaaS/PaaS/SaaS**
+- [ ] Unit 2 — virtualization, overcommit, the four deployment models
+- [ ] Unit 3 — **block/file/object, storage classes, egress**, warehouses
+- [ ] Unit 4 — AIaaS and GPUaaS, managed platforms, **AutoML and its limits**
+- [ ] Unit 5 — the six steps, deployment shapes, **monitoring and drift**
+- [ ] Lab — all 15 experiments (7 runnable halves; 14 need an account)
+- [ ] **Cross-check:** South = ₹10,360 against Courses 11 and 12 B
+
 ---
 
 ## The four things that matter most
 
 If you do nothing else from this plan:
 
-1. **Type every lab program.** Reading code teaches nothing. All 52 programs in
-   [`labs/`](labs/) run — type them, break them, fix them.
+1. **Type every lab program.** Reading code teaches nothing. Everything in
+   [`labs/`](labs/) that can run here does — type them, break them, fix them.
 2. **Give Course 3 Unit 4 and Course 4 Units 3–5 double time.** They carry the
    difficulty and the marks.
 3. **Study Bayes' theorem and database triggers**, though neither appears in

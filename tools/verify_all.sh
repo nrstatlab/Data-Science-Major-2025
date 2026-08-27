@@ -56,6 +56,9 @@ python3 "$ROOT/tools/run_bigdata_labs.py" | tail -8 || fail=$((fail+1))
 banner "Course 13A labs (AI: Prolog through pytholog, search, logic)"
 python3 "$ROOT/tools/run_ai_labs.py" | tail -7 || fail=$((fail+1))
 
+banner "Course 13B labs (Cloud: IAM, storage costs, ETL, a live endpoint)"
+python3 "$ROOT/tools/run_cloud_labs.py" | tail -8 || fail=$((fail+1))
+
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
 

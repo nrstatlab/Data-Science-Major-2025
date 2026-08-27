@@ -43,8 +43,14 @@ truncated to the fragment "4. replication, and transactions." (finding
 [lab experiment 18](labs/course-10-mongodb/18_gridfs.js) and
 [lab experiment 19](labs/course-10-mongodb/19_transactions.js)
 
-Thirteen further findings are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md),
-including **damaged bibliographies in all five Semester III–IV courses**.
+**Twenty further findings** are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md),
+including damaged bibliographies in all five Semester III–IV courses, a
+Semester V objective that stops mid-sentence, and a course with three
+objectives against four outcomes against five units.
+
+**And a pattern worth naming:** nine of the twenty-four findings are the same
+defect — **text lost at a word or sentence boundary**, across all three
+documents. That is a production problem, not a scattering of typos.
 
 ---
 
@@ -55,8 +61,8 @@ including **damaged bibliographies in all five Semester III–IV courses**.
 | Document | What it is |
 |---|---|
 | [`SYLLABUS-MAP.md`](SYLLABUS-MAP.md) | The full Sem I–VI structure, elective tracks, and unit-level topics |
-| [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md) | 16 findings from checking the two official documents |
-| [`STUDY-PLAN.md`](STUDY-PLAN.md) | Week-by-week schedules for Semesters I–IV, revision cycles, progress checklist |
+| [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md) | **24 findings** from checking the three official documents |
+| [`STUDY-PLAN.md`](STUDY-PLAN.md) | Week-by-week schedules for **Semesters I–V**, the track decision, revision cycles, progress checklist |
 
 ## Course notes
 
@@ -95,12 +101,17 @@ worked solutions, and a `lab.md`. Course 4 also has a
 | [8 — Data Mining](labs/course-8-datamining/) | 15 experiments | WEKA click-paths documented; scikit-learn/mlxtend equivalents run |
 | [9 — Pandas](labs/course-9-python-da/) | 18 practicals | **All run**, outputs asserted |
 | [10 — MongoDB](labs/course-10-mongodb/) | 20 experiments | 16 executed through mongomock; 4 need a server and say **NOT EXECUTED** |
+| [11 — BI](labs/course-11-bi/) | 15 experiments | Every DAX, Power Query and LOD figure computed; tool click-paths **NOT EXECUTED** |
+| [12 A — ML](labs/course-12a-ml/) | 12 practicals | **All run** under scikit-learn. Nothing in this course is marked NOT EXECUTED |
+| [13 A — AI](labs/course-13a-ai/) | 19 experiments | 16 Prolog programs **NOT EXECUTED**; 7 Python halves run, **five as real logic programs** |
+| [12 B — Big Data](labs/course-12b-bigdata/) | 17 experiments | 14 run, including **real Apache Spark, Avro and Parquet**; 15 tool files **NOT EXECUTED** |
+| [13 B — Cloud](labs/course-13b-cloud/) | 15 experiments | 7 run, including a **real web server, a real ETL and a real REST endpoint**; 14 console files **NOT EXECUTED** |
 
 ---
 
 ## Scope
 
-Two source documents, both extracted verbatim and committed under
+**Three** source documents, all extracted verbatim and committed under
 [`docs/`](docs/):
 
 | Document | Pages | Covers |

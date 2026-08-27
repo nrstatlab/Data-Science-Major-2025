@@ -86,8 +86,10 @@ domain names with your department before choosing.
 
 ## 2. Detailed unit map (Courses 1–13)
 
-These thirteen courses — the whole Major through Semester V, **both elective
-tracks** — have full syllabi in the three source documents. **Courses 14 and
+These **fifteen course numbers** — Courses 1–11 plus both halves of each
+Semester V elective pair, 12 A/B and 13 A/B — cover the whole Major through
+Semester V and have full syllabi in the three source documents. **You take
+thirteen of them**: Courses 1–11 and one track's pair. **Courses 14 and
 15, the Semester VI elective pairs, appear as titles and credits only**, so
 they cannot be mapped until that document is published.
 

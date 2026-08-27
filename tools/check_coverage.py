@@ -330,6 +330,33 @@ COVERAGE = {
         "nosql", "hbase", "zookeeper", "coordination",
         "hadoop integration with spark"],
 
+    # ---- Semester V, Course 13 B: Cloud Computing (pages 21-24), Track B
+    "notes/sem-5/course-13b-cloud-computing/unit-1.md": [
+        "definition", "evolution of cloud computing",
+        "service-oriented architecture", "web services", "utility",
+        "grid computing", "characteristics of cloud computing",
+        "cloud computing architecture", "front-end", "back-end",
+        "networking", "delivery models", "saas", "paas", "iaas",
+        "continuous delivery"],
+    "notes/sem-5/course-13b-cloud-computing/unit-2.md": [
+        "virtualization", "application", "network", "desktop", "storage",
+        "server", "data virtualization", "deployment models", "public",
+        "private", "community", "hybrid", "role of cloud computing in data science",
+        "advantages of cloud in machine learning"],
+    "notes/sem-5/course-13b-cloud-computing/unit-3.md": [
+        "cloud storage", "benefits", "backup", "archiving",
+        "content delivery", "block-based", "file-based", "object-based",
+        "key-value databases", "batch", "streaming", "cloud data warehouse",
+        "redshift", "bigquery"],
+    "notes/sem-5/course-13b-cloud-computing/unit-4.md": [
+        "machine learning in the cloud", "limitations", "aiaas", "gpuaas",
+        "managed ml platforms", "sagemaker", "azure ml", "automl"],
+    "notes/sem-5/course-13b-cloud-computing/unit-5.md": [
+        "selecting cloud ml platforms", "etl", "scale-up", "scale-out",
+        "ml frameworks", "pre-tuned services", "data source identification",
+        "feature engineering", "training", "validation", "deployment",
+        "monitoring", "case studies"],
+
     # ---- Semester V, Course 13 A: Artificial Intelligence (pages 16-20), Track A
     "notes/sem-5/course-13a-artificial-intelligence/unit-1.md": [
         "definition and scope of ai", "history", "turing test",

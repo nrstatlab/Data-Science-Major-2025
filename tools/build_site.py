@@ -538,6 +538,61 @@ COURSES = [
         ],
     },
     {
+        "slug": "cloud-computing",
+        "src": "notes/sem-5/course-13b-cloud-computing",
+        "number": 13, "year": "III", "sem": "V",
+        "title": "Cloud Computing for Data Science",
+        "tagline": "Track B. Capacity you no longer need can be given back "
+                   "\u2014 and nothing you forget to switch off will switch "
+                   "itself off.",
+        "blurb": "5 Units + Lab \u2022 Service and deployment models, "
+                 "virtualization, cloud storage and warehouses, managed ML "
+                 "platforms, training, deployment and monitoring. IAM "
+                 "evaluation, a real ETL, a real endpoint.",
+        "units": [
+            ("Introduction to Cloud Computing",
+             "The NIST definition and the sentence underneath it; the "
+             "evolution from time-sharing through grid and utility "
+             "computing; the five essential characteristics, and how to use "
+             "them as a test; SOA, web services and why REST replaced SOAP; "
+             "the four-part architecture and the control plane; IaaS, PaaS "
+             "and SaaS by what the customer manages; continuous delivery, "
+             "blue/green and canary."),
+            ("Virtualization and Deployment Models",
+             "Why virtualization is what makes the cloud possible; "
+             "partitioning, isolation and encapsulation; type 1 against type "
+             "2 hypervisors, and containers; the six types of virtualization; "
+             "overcommitment measured, and why CPU degrades gracefully while "
+             "memory falls off a cliff; public, private, community and "
+             "hybrid; the role of the cloud in data science, and what it "
+             "does not fix."),
+            ("Cloud Storage and Data Management",
+             "Block, file and object storage compared on access unit, "
+             "sharing and cost; why an object store has no directories and no "
+             "rename; storage classes, minimum durations and the retrieval "
+             "fees that reverse the discount; egress and data gravity; "
+             "backup, archiving, DR and content delivery; key-value "
+             "databases and their limitations; batch against streaming; "
+             "cloud data warehouses, bytes scanned, and the break-even."),
+            ("Cloud Platforms for Data Science and ML",
+             "What the cloud changes about machine learning and what it does "
+             "not; the benefits and the catch attached to each; AIaaS and "
+             "GPUaaS as SaaS and IaaS for particular things; managed "
+             "platforms compared \u2014 SageMaker, Azure ML, Vertex AI; the "
+             "model registry, feature store and experiment tracking; AutoML "
+             "run for real, what it costs, and the seven things it cannot "
+             "do."),
+            ("Training and Deployment of ML on the Cloud",
+             "Choosing a platform \u2014 pipeline support, scale-up against "
+             "scale-out, framework support, pre-tuned services; the six "
+             "steps and the failure mode at each; the container contract and "
+             "why /ping must not run the model; real-time, serverless and "
+             "batch inference with cost figures; monitoring, alarming on the "
+             "tail, and autoscaling measured honestly; drift, retraining and "
+             "case studies."),
+        ],
+    },
+    {
         "slug": "artificial-intelligence",
         "src": "notes/sem-5/course-13a-artificial-intelligence",
         "number": 13, "year": "III", "sem": "V",
@@ -601,7 +656,7 @@ EXTRA_PAGES = {
 
 TOP_PAGES = [
     ("SYLLABUS-REVIEW.md", "syllabus-review", "Syllabus Review",
-     "Sixteen findings from checking the two official APSCHE documents."),
+     "Twenty-four findings from checking the three official APSCHE documents."),
     ("SYLLABUS-MAP.md", "syllabus-map", "Syllabus Map",
      "Programme structure for Semesters I–VI, elective tracks and unit topics."),
     ("STUDY-PLAN.md", "study-plan", "Study Plan",
