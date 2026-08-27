@@ -308,6 +308,35 @@ COVERAGE = {
         "k-means", "k-medoid", "hierarchical clustering",
         "density-based", "dbscan", "image recognition",
         "speech recognition", "email spam filtering", "fraud detection"],
+
+    # ---- Semester V, Course 13 A: Artificial Intelligence (pages 16-20), Track A
+    "notes/sem-5/course-13a-artificial-intelligence/unit-1.md": [
+        "definition and scope of ai", "history", "turing test",
+        "applications of ai", "weak ai", "strong ai", "narrow ai",
+        "general ai", "intelligent agents", "structure of agents",
+        "rationality", "agent types", "deterministic", "stochastic",
+        "static", "dynamic", "discrete", "continuous", "peas"],
+    "notes/sem-5/course-13a-artificial-intelligence/unit-2.md": [
+        "state space representation", "goal test", "path cost",
+        "problem formulation", "8-puzzle", "water jug", "vacuum",
+        "uninformed search", "breadth first search", "depth first search",
+        "uniform cost search", "completeness", "optimality",
+        "space complexity"],
+    "notes/sem-5/course-13a-artificial-intelligence/unit-3.md": [
+        "informed search", "heuristic", "admissibility", "consistency",
+        "greedy best first search", "a* algorithm", "local search",
+        "hill climbing", "simulated annealing", "genetic algorithm",
+        "constraint satisfaction", "backtracking search"],
+    "notes/sem-5/course-13a-artificial-intelligence/unit-4.md": [
+        "knowledge representation", "propositional logic", "syntax",
+        "semantics", "truth table", "inference rules", "first order logic",
+        "quantifier", "substitution", "unification", "forward chaining",
+        "backward chaining", "resolution", "knowledge-based agents"],
+    "notes/sem-5/course-13a-artificial-intelligence/unit-5.md": [
+        "expert systems", "architecture", "knowledge base",
+        "inference engine", "explanation facility", "probabilistic reasoning",
+        "bayes' theorem", "bayesian belief network", "fuzzy logic",
+        "uncertainty", "nlp", "robotics", "ai ethics", "societal impact"],
 }
 
 

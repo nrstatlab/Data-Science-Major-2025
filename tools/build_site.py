@@ -480,6 +480,57 @@ COURSES = [
              "recognition, spam filtering and fraud detection."),
         ],
     },
+    {
+        "slug": "artificial-intelligence",
+        "src": "notes/sem-5/course-13a-artificial-intelligence",
+        "number": 13, "year": "III", "sem": "V",
+        "title": "Artificial Intelligence",
+        "tagline": "Track A. The other half of AI \u2014 search and logic, "
+                   "where nothing is trained and every answer can be "
+                   "explained.",
+        "blurb": "5 Units + Lab \u2022 Intelligent agents, uninformed and "
+                 "informed search, CSPs, propositional and first-order logic, "
+                 "expert systems. 19 Prolog experiments, five of them running "
+                 "as real logic programs.",
+        "units": [
+            ("Introduction to AI and Intelligent Agents",
+             "Definition and scope of AI; history, the two winters and the "
+             "Turing Test; applications; Weak against Strong AI and Narrow "
+             "against General AI; the structure of an agent and what "
+             "rationality actually requires; the five agent types; PEAS; and "
+             "the six environment properties \u2014 observable, "
+             "deterministic, episodic, static, discrete and single-agent."),
+            ("Problem Solving \u2014 State Space and Uninformed Search",
+             "State space representation and its four components; problem "
+             "formulation for the 8-puzzle, water jug and vacuum world; the "
+             "general search algorithm and the frontier; completeness, "
+             "optimality, time and space complexity; Breadth First, Depth "
+             "First and Uniform Cost Search measured against each other on "
+             "the Romania map; iterative deepening."),
+            ("Informed and Advanced Search Strategies",
+             "Heuristics, admissibility and consistency; Greedy Best First "
+             "Search and why it is short-sighted; A*, its optimality proof "
+             "and what an inadmissible heuristic costs; heuristic dominance; "
+             "local search, hill climbing and its local maxima; simulated "
+             "annealing and the cooling schedule; genetic algorithms; "
+             "constraint satisfaction, backtracking, MRV, degree and LCV."),
+            ("Knowledge Representation and Reasoning",
+             "Knowledge-based agents and the TELL/ASK interface; "
+             "representation issues and the four approaches; propositional "
+             "logic syntax, semantics, truth tables, validity, "
+             "satisfiability, entailment and inference rules; first order "
+             "logic, quantifiers, substitution and unification; forward and "
+             "backward chaining and when each is right; resolution, CNF and "
+             "proof by refutation."),
+            ("Expert Systems, Probabilistic and Emerging AI",
+             "Expert system architecture \u2014 knowledge base, working "
+             "memory, inference engine and explanation facility \u2014 and "
+             "why the explanation falls out of the proof; Bayes theorem and "
+             "Bayesian belief networks; fuzzy logic and how degree of truth "
+             "differs from probability; NLP basics; robotics; AI ethics, "
+             "bias, accountability and societal impact."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {
