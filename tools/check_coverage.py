@@ -250,6 +250,38 @@ COVERAGE = {
         "single field", "compound", "multikey", "text index",
         "pipeline", "stage", "replication", "replica set", "failover",
         "consistency"],
+
+    # ---- Semester V, Course 11: Business Intelligence Tools (pages 1-3)
+    "notes/sem-5/course-11-business-intelligence/unit-1.md": [
+        "definition", "scope", "evolution", "data analytics", "data science",
+        "bi lifecycle", "finance", "hr", "marketing", "retail", "education",
+        "healthcare", "maturity model", "readiness",
+        "decision support system", "component", "architecture",
+        "power bi", "tableau", "comparison", "suitability", "case study"],
+    "notes/sem-5/course-11-business-intelligence/unit-2.md": [
+        "power bi", "ecosystem", "desktop", "service", "mobile", "interface",
+        "data source", "excel", "csv", "sql server", "web api",
+        "power query", "cleaning", "transformation", "dax",
+        "sum", "count", "average", "calculate", "if",
+        "chart", "table", "card", "sharing"],
+    "notes/sem-5/course-11-business-intelligence/unit-3.md": [
+        "tableau", "characteristic", "architecture", "tableau public",
+        "desktop", "reader", "online", "server", "shelves", "marks card",
+        "view", "extension", "data connection", "cleaning", "pivot",
+        "filtering", "calculated field", "lod", "bar", "line", "tree",
+        "geo map", "scatter", "storytelling", "story"],
+    "notes/sem-5/course-11-business-intelligence/unit-4.md": [
+        "dimensional modeling", "dimension table", "fact table", "schema",
+        "star", "snowflake", "relationship", "cardinality", "cross-filter",
+        "join", "inner", "left", "full", "blending",
+        "governance", "metadata", "hierarchies", "quality",
+        "best practice"],
+    "notes/sem-5/course-11-business-intelligence/unit-5.md": [
+        "dashboard", "when to use", "component", "principles",
+        "parameter", "slicer", "filter", "drilldown", "graph", "map",
+        "layout", "alignment", "accessibility", "publishing",
+        "power bi service", "tableau public", "storytelling",
+        "insight communication"],
 }
 
 

@@ -386,6 +386,52 @@ COURSES = [
              "odd number of members."),
         ],
     },
+    {
+        "slug": "business-intelligence",
+        "src": "notes/sem-5/course-11-business-intelligence",
+        "number": 11, "year": "III", "sem": "V",
+        "title": "Business Intelligence Tools",
+        "tagline": "Power BI and Tableau \u2014 and the modelling decisions "
+                   "that decide whether a dashboard is right or merely pretty.",
+        "blurb": "5 Units + Lab \u2022 BI and DSS concepts, Power BI and DAX, "
+                 "Tableau and LOD expressions, dimensional modelling, "
+                 "dashboard design and storytelling.",
+        "units": [
+            ("Introduction to BI and Decision Support Systems",
+             "BI definition, scope and evolution; BI against data analytics "
+             "and data science; the BI lifecycle and where projects fail; "
+             "applications across finance, HR, marketing, retail, education "
+             "and healthcare; maturity models and organizational readiness; "
+             "DSS concepts, components and architecture; Power BI and Tableau "
+             "compared."),
+            ("Data Preparation and Visualization with Power BI",
+             "The Desktop / Service / Mobile ecosystem; connecting to Excel, "
+             "CSV, SQL Server and Web APIs; Import against DirectQuery; Power "
+             "Query as a recorded, replayable recipe; calculated columns "
+             "against measures; SUM, COUNT, AVERAGE, IF and CALCULATE; the "
+             "average-of-averages trap; sharing through the Service."),
+            ("Preparation, Visualization and Storytelling with Tableau",
+             "VizQL and the Tableau products; live against extract; shelves, "
+             "the marks card and views; blue against green; data preparation "
+             "and the filter order of operations; calculated fields; LOD "
+             "expressions \u2014 FIXED, INCLUDE and EXCLUDE; joins against "
+             "blending and the fan trap; building a story."),
+            ("Data Modeling and Relationships in BI Tools",
+             "Fact and dimension tables; the grain, and additive, "
+             "semi-additive and non-additive measures; star against "
+             "snowflake, and why never one flat table; relationships, "
+             "cardinality and cross-filter direction; data governance \u2014 "
+             "metadata, hierarchies and the six dimensions of quality; model "
+             "design best practices."),
+            ("Dashboard Design and Business Insights",
+             "When a dashboard is and is not the right answer; dashboard "
+             "components; the principles of effective visualization and "
+             "accessibility; filters, slicers, parameters and drilldowns; "
+             "layout, alignment and the F-pattern; publishing to the Power BI "
+             "Service and Tableau Public; storytelling and insight "
+             "communication."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {
