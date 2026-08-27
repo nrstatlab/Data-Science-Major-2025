@@ -1,4 +1,4 @@
-# B.Sc. (Hons) Data Science — Major
+# B.Sc. (Hons) Data Science — Major  https://nrstatlab.github.io/Data-Science-Major-2025/
 
 Study material for the **APSCHE Model Syllabus for 4-Year UG Honours in B.Sc.
 (Data Science) as Major**, effective AY 2025-26, prepared by Adikavi Nannaya
