@@ -282,6 +282,32 @@ COVERAGE = {
         "layout", "alignment", "accessibility", "publishing",
         "power bi service", "tableau public", "storytelling",
         "insight communication"],
+
+    # ---- Semester V, Course 12 A: Machine Learning (pages 8-9), Track A
+    "notes/sem-5/course-12a-machine-learning/unit-1.md": [
+        "types of human learning", "what is machine learning", "supervised",
+        "unsupervised", "semi-supervised", "reinforcement",
+        "machine learning activities", "application",
+        "types of data", "structure of data"],
+    "notes/sem-5/course-12a-machine-learning/unit-2.md": [
+        "pre-processing", "model selection", "training",
+        "model representation", "interpretability", "evaluating",
+        "performance enhancement", "feature engineering",
+        "feature transformation", "feature subset selection",
+        "principal component analysis"],
+    "notes/sem-5/course-12a-machine-learning/unit-3.md": [
+        "regression", "simple linear regression", "multiple linear regression",
+        "polynomial regression", "logistic regression",
+        "maximum likelihood estimation"],
+    "notes/sem-5/course-12a-machine-learning/unit-4.md": [
+        "supervised learning", "classification model", "learning steps",
+        "naive bayes", "k-nearest neighbour", "decision tree",
+        "support vector machine", "random forest"],
+    "notes/sem-5/course-12a-machine-learning/unit-5.md": [
+        "unsupervised learning", "clustering", "partitioning method",
+        "k-means", "k-medoid", "hierarchical clustering",
+        "density-based", "dbscan", "image recognition",
+        "speech recognition", "email spam filtering", "fraud detection"],
 }
 
 

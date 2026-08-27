@@ -47,6 +47,9 @@ python3 "$ROOT/tools/run_mongo_labs.py" | tail -4 || fail=$((fail+1))
 banner "Course 11 labs (BI: Power Query, DAX and LOD semantics)"
 python3 "$ROOT/tools/run_bi_labs.py" | tail -4 || fail=$((fail+1))
 
+banner "Course 12A labs (Machine Learning, scikit-learn)"
+python3 "$ROOT/tools/run_ml_labs.py" | tail -6 || fail=$((fail+1))
+
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
 

@@ -432,6 +432,54 @@ COURSES = [
              "communication."),
         ],
     },
+    {
+        "slug": "machine-learning",
+        "src": "notes/sem-5/course-12a-machine-learning",
+        "number": 12, "year": "III", "sem": "V",
+        "title": "Machine Learning",
+        "tagline": "Track A. The pipeline is the work \u2014 the model is the "
+                   "easy part, and knowing whether it is any good is the rest.",
+        "blurb": "5 Units + Lab \u2022 ML paradigms, preprocessing and "
+                 "evaluation, regression, classification and clustering. All "
+                 "12 practicals run under scikit-learn.",
+        "units": [
+            ("Introduction to Machine Learning",
+             "Types of human learning and their machine analogues; Mitchell's "
+             "definition; machine learning against traditional programming, "
+             "and when not to use it; supervised, unsupervised, "
+             "semi-supervised and reinforcement learning; the ML pipeline and "
+             "where the effort goes; types of data and how each should be "
+             "encoded; the feature matrix and the curse of dimensionality."),
+            ("Model Preparation, Evaluation and Feature Engineering",
+             "Preprocessing in order, and why splitting comes first; missing "
+             "values, outliers, encoding and scaling; the three-way split and "
+             "cross-validation; bias and variance; interpretability; why "
+             "accuracy lies, the confusion matrix, precision, recall, F1 and "
+             "AUC; performance enhancement and class imbalance; feature "
+             "engineering, target leakage, subset selection and PCA."),
+            ("Supervised Learning \u2014 Regression",
+             "What changes when explanation becomes prediction; simple linear "
+             "regression and the LINE assumptions; multiple regression, "
+             "multicollinearity and adjusted R\u00b2; polynomial regression "
+             "and the conditioning trap; logistic regression, the sigmoid and "
+             "the odds ratio; maximum likelihood estimation; Ridge, Lasso and "
+             "elastic net."),
+            ("Supervised Learning \u2014 Classification",
+             "The classification pipeline; binary, multi-class and "
+             "multi-label; Na\u00efve Bayes, the naive assumption and Laplace "
+             "smoothing; k-Nearest Neighbour, distance metrics and choosing "
+             "k; decision trees and pruning; support vector machines, the "
+             "margin, support vectors and the kernel trick; random forest, "
+             "its two sources of randomness and out-of-bag error."),
+            ("Unsupervised Learning",
+             "Unsupervised against supervised, and why evaluation is the hard "
+             "part; clustering types; K-Means, WCSS and the elbow; k-Medoids "
+             "and robustness; hierarchical clustering and linkage; DBSCAN, "
+             "core, border and noise points; internal against external "
+             "validation metrics; case studies in image and speech "
+             "recognition, spam filtering and fraud detection."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {
