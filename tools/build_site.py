@@ -481,6 +481,63 @@ COURSES = [
         ],
     },
     {
+        "slug": "big-data",
+        "src": "notes/sem-5/course-12b-big-data",
+        "number": 12, "year": "III", "sem": "V",
+        "title": "Big Data Technologies",
+        "tagline": "Track B. The shuffle is the only step that costs real "
+                   "money \u2014 everything else is an attempt to shuffle "
+                   "less.",
+        "blurb": "5 Units + Lab \u2022 Big data characteristics, HDFS and "
+                 "YARN, MapReduce, Hive and Pig, ingestion and "
+                 "serialization, HBase, ZooKeeper and Spark. 14 of the 17 "
+                 "practicals run, including REAL Apache Spark, Avro and "
+                 "Parquet.",
+        "units": [
+            ("Foundations of Big Data and the Hadoop Ecosystem",
+             "What big data means and why a byte count is the wrong "
+             "definition; the five Vs and which of them actually drive a "
+             "design; big data against a traditional RDBMS; the Hadoop "
+             "ecosystem by layer; the four core components including the one "
+             "everybody forgets; the two-cluster architecture, data locality "
+             "and why the cloud has weakened it; use cases, and when Hadoop "
+             "is the wrong answer."),
+            ("Hadoop Distributed File System and YARN",
+             "The NameNode and DataNode split, and why the NameNode never "
+             "touches your data; block arithmetic and why a block is a "
+             "maximum rather than an allocation; the small-files problem "
+             "measured; replica placement, rack awareness and what "
+             "replication 3 really guarantees; the read and write paths, and "
+             "why a pipeline; DataNode and NameNode failure; YARN's four "
+             "components and the three schedulers, measured."),
+            ("MapReduce and High-Level Tools",
+             "The map, shuffle and reduce phases, and why the shuffle is the "
+             "only expensive step; combiners, their measured saving and when "
+             "one silently gives wrong answers; partitioning and skew; the "
+             "three Java details that are examined; Hive as a compiler, "
+             "partitioning, bucketing and managed against external tables; "
+             "Pig as a dataflow language and its two operators with no SQL "
+             "equivalent; Crunch, the abstraction ladder, and why Spark "
+             "replaced MapReduce."),
+            ("Data Ingestion and Serialization",
+             "Sqoop's whole trick in two lines of SQL, split columns and what "
+             "skew costs; incremental imports and the deletes they never "
+             "catch; Flume's source, channel and sink, back-pressure, channel "
+             "durability and the defaults that manufacture the small-files "
+             "problem; Avro, Parquet and SequenceFile; schema evolution "
+             "demonstrated; column projection and predicate pushdown; batch "
+             "and streaming joined, the fan trap, and Lambda against Kappa."),
+            ("NoSQL and Ecosystem Enhancements",
+             "Why HBase exists and what HDFS cannot do; the sparse sorted-map "
+             "model, versions, tombstones and compaction; row-key design and "
+             "the hotspot-against-scans trade you cannot escape; HBase "
+             "against Hive and against MongoDB; CAP and why HBase is CP; "
+             "ZooKeeper's ephemeral and sequential znodes, leader election, "
+             "distributed locking and quorum arithmetic; Spark's RDDs, "
+             "lineage, lazy evaluation, caching and the HBase integration."),
+        ],
+    },
+    {
         "slug": "artificial-intelligence",
         "src": "notes/sem-5/course-13a-artificial-intelligence",
         "number": 13, "year": "III", "sem": "V",

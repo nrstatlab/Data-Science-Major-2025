@@ -50,6 +50,9 @@ python3 "$ROOT/tools/run_bi_labs.py" | tail -4 || fail=$((fail+1))
 banner "Course 12A labs (Machine Learning, scikit-learn)"
 python3 "$ROOT/tools/run_ml_labs.py" | tail -6 || fail=$((fail+1))
 
+banner "Course 12B labs (Big Data: MapReduce, Avro, Parquet, Spark)"
+python3 "$ROOT/tools/run_bigdata_labs.py" | tail -8 || fail=$((fail+1))
+
 banner "Course 13A labs (AI: Prolog through pytholog, search, logic)"
 python3 "$ROOT/tools/run_ai_labs.py" | tail -7 || fail=$((fail+1))
 

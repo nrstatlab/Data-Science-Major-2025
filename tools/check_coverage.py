@@ -309,6 +309,27 @@ COVERAGE = {
         "density-based", "dbscan", "image recognition",
         "speech recognition", "email spam filtering", "fraud detection"],
 
+    # ---- Semester V, Course 12 B: Big Data Technologies (pages 12-15), Track B
+    "notes/sem-5/course-12b-big-data/unit-1.md": [
+        "introduction to big data", "volume", "variety", "velocity",
+        "veracity", "value", "hadoop ecosystem", "hdfs", "mapreduce",
+        "yarn", "hadoop common", "hadoop architecture", "use cases"],
+    "notes/sem-5/course-12b-big-data/unit-2.md": [
+        "hdfs architecture", "blocks", "namenode", "datanode",
+        "hdfs file operations", "fault tolerance", "replication",
+        "yarn architecture", "resourcemanager", "nodemanager",
+        "application scheduling"],
+    "notes/sem-5/course-12b-big-data/unit-3.md": [
+        "mapreduce programming model", "map", "shuffle", "reduce",
+        "writing mapreduce applications", "hive", "pig", "crunch",
+        "spark integration"],
+    "notes/sem-5/course-12b-big-data/unit-4.md": [
+        "data ingestion", "sqoop", "flume", "serialization", "avro",
+        "parquet", "sequencefile", "batch", "streaming"],
+    "notes/sem-5/course-12b-big-data/unit-5.md": [
+        "nosql", "hbase", "zookeeper", "coordination",
+        "hadoop integration with spark"],
+
     # ---- Semester V, Course 13 A: Artificial Intelligence (pages 16-20), Track A
     "notes/sem-5/course-13a-artificial-intelligence/unit-1.md": [
         "definition and scope of ai", "history", "turing test",
