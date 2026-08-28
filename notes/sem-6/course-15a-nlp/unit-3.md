@@ -75,8 +75,12 @@ a two-token personal name.
 ### 💡 And the fix is not a bigger model
 
 The lab adds a **gazetteer** through spaCy's `EntityRuler` — nine lines of
-patterns naming Indian cities and states — and re-scores. **The wrong labels
-are recovered.**
+patterns naming Indian cities and states — and re-scores:
+
+| | Correct |
+|---|---|
+| before the gazetteer | **11 / 13** |
+| **after the gazetteer** | **13 / 13** |
 
 ```python
 ruler = nlp.add_pipe("entity_ruler", before="ner")

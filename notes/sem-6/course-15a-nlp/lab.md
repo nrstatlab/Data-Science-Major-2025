@@ -195,8 +195,8 @@ and the model falls back on surface cues.
 
 ### The gazetteer fix
 
-Nine lines of `EntityRuler` patterns **recovered the wrong labels**. When your
-domain has a closed list of entities, matching it beats inference.
+Nine lines of `EntityRuler` patterns took it from **11/13 to 13/13**. When
+your domain has a closed list of entities, matching it beats inference.
 
 ### And a lesson about the gold standard
 

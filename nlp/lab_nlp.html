@@ -502,8 +502,8 @@ kills a top-down parser is <code>NP -&gt; NP PP</code> — <strong>left recursio
 trained on OntoNotes — mostly American news — so Indian state names are rare
 and the model falls back on surface cues.</p>
 <h3>The gazetteer fix</h3>
-<p>Nine lines of <code>EntityRuler</code> patterns <strong>recovered the wrong labels</strong>. When your
-domain has a closed list of entities, matching it beats inference.</p>
+<p>Nine lines of <code>EntityRuler</code> patterns took it from <strong>11/13 to 13/13</strong>. When
+your domain has a closed list of entities, matching it beats inference.</p>
 <h3>And a lesson about the gold standard</h3>
 <p>spaCy also found <code>2,400</code> (CARDINAL) and <code>three years</code> (DATE), <strong>which were not
 in the hand-built truth list — and both are correct.</strong> The gold list was

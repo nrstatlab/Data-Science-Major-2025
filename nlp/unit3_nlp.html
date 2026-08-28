@@ -175,8 +175,25 @@ means you can predict and fix them.</p>
 <p><span class="label">KEY INSIGHT</span></p>
 <h4>And the fix is not a bigger model</h4>
 <p>The lab adds a <strong>gazetteer</strong> through spaCy's <code>EntityRuler</code> — nine lines of
-patterns naming Indian cities and states — and re-scores. <strong>The wrong labels
-are recovered.</strong></p>
+patterns naming Indian cities and states — and re-scores:</p>
+<table class="main-table">
+<thead>
+<tr>
+<th></th>
+<th>Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before the gazetteer</td>
+<td><strong>11 / 13</strong></td>
+</tr>
+<tr>
+<td><strong>after the gazetteer</strong></td>
+<td><strong>13 / 13</strong></td>
+</tr>
+</tbody>
+</table>
 <pre><code class="language-python">ruler = nlp.add_pipe(&quot;entity_ruler&quot;, before=&quot;ner&quot;)
 ruler.add_patterns([{&quot;label&quot;: &quot;GPE&quot;, &quot;pattern&quot;: p} for p in places])
 </code></pre>
