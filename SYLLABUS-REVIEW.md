@@ -1,4 +1,4 @@
-# Syllabus Review — B.Sc. (Hons) Data Science Major, APSCHE AY 2025-26
+# Syllabus Review — B.Sc. (Hons) Data Science Major, AY 2025-26
 
 A check of the official syllabus documents, not a transcription of them. Every
 finding below was verified against
@@ -6,7 +6,9 @@ finding below was verified against
 [`docs/syllabus-extracted-sem3-4.md`](docs/syllabus-extracted-sem3-4.md)
 (Semesters III–IV) and
 [`docs/syllabus-extracted-sem5.md`](docs/syllabus-extracted-sem5.md)
-(Semester V); page numbers refer to the source PDF of the semester in
+(Semester V) and
+[`docs/syllabus-extracted-sem6.md`](docs/syllabus-extracted-sem6.md)
+(Semester VI); page numbers refer to the source PDF of the semester in
 question.
 
 **Read this before you start studying.** Three findings — **D1, D2 and D13** —
@@ -51,11 +53,11 @@ document**, and **D17–D24 from the Semester V document**. Every one was found 
 the same method — reading the extracted text rather than the formatted PDF,
 where truncation is invisible.
 
-### 🎯 The pattern that emerged once all three documents were read
+### 🎯 The pattern that emerged once all four documents were read
 
-**Nine of the twenty-four findings are the same defect: text lost at a word or
-sentence boundary.** D3 (three instances), D13, D14, D17, D23 and D24 (two
-instances).
+**Fourteen of the thirty-three findings are the same defect: text lost or
+inserted at a word or sentence boundary.** D3 (three instances), D13, D14,
+D17, D23, D24 (two), D25, D26, D28 (two) and D29.
 
 Three separate documents, one recurring mechanism. That is no longer a
 scattering of typos — it is a defect in how the PDFs were produced, and the

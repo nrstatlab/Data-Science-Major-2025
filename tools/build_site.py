@@ -923,7 +923,8 @@ EXTRA_PAGES = {
 
 TOP_PAGES = [
     ("SYLLABUS-REVIEW.md", "syllabus-review", "Syllabus Review",
-     "Twenty-four findings from checking the three official APSCHE documents."),
+     "Thirty-three findings from checking the four official syllabus "
+     "documents."),
     ("SYLLABUS-MAP.md", "syllabus-map", "Syllabus Map",
      "Programme structure for Semesters I–VI, elective tracks and unit topics."),
     ("STUDY-PLAN.md", "study-plan", "Study Plan",
@@ -1477,7 +1478,7 @@ def build_top_pages(link_map):
             css_prefix="",
             mathjax=True,
             nav=[("← Home", "index.html")],
-            footer="APSCHE Model Syllabus for B.Sc. (Data Science) Major, "
+            footer="Model Syllabus for B.Sc. (Data Science) Major, "
                    "AY&nbsp;2025-26",
         ))
         written.append(out)

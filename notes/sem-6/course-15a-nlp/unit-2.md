@@ -280,7 +280,7 @@ accept if S in table[0][n]
 
 | Property | Value |
 |---|---|
-| Time | **O(n³ · |G|)** |
+| Time | **O(n³ · \|G\|)** |
 | Space | O(n²) |
 | Finds | **all** parses |
 | Requires | **CNF** |

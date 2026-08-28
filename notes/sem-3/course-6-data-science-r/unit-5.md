@@ -170,7 +170,7 @@ acf(series); pacf(series)
 | ACF **tails off**, PACF **cuts off** after lag p | **AR(p)** | p from PACF |
 | ACF **cuts off** after lag q, PACF **tails off** | **MA(q)** | q from ACF |
 | Both tail off | **ARMA(p,q)** | Use AIC to choose |
-| ACF decays very slowly | Non-stationary — **difference it first** |
+| ACF decays very slowly | Non-stationary | **Difference it first** |
 
 **The mnemonic:** *PACF for AR, ACF for MA.* PACF gives **p**, ACF gives **q**.
 Both alphabetically inverted, which is oddly the easiest way to remember it.

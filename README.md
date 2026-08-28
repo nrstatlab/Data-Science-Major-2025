@@ -1,6 +1,6 @@
 # B.Sc. (Hons) Data Science — Major
 
-Study material for the **APSCHE Model Syllabus for 4-Year UG Honours in B.Sc.
+Study material for the **Model Syllabus for 4-Year UG Honours in B.Sc.
 (Data Science) as Major**, effective AY 2025-26, prepared by Adikavi Nannaya
 University.
 
@@ -61,8 +61,8 @@ documents. That is a production problem, not a scattering of typos.
 | Document | What it is |
 |---|---|
 | [`SYLLABUS-MAP.md`](SYLLABUS-MAP.md) | The full Sem I–VI structure, elective tracks, and unit-level topics |
-| [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md) | **24 findings** from checking the three official documents |
-| [`STUDY-PLAN.md`](STUDY-PLAN.md) | Week-by-week schedules for **Semesters I–V**, the track decision, revision cycles, progress checklist |
+| [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md) | **33 findings** from checking the four official documents |
+| [`STUDY-PLAN.md`](STUDY-PLAN.md) | Week-by-week schedules for **Semesters I–VI**, the track decision, revision cycles, progress checklist |
 
 ## Course notes
 
@@ -172,7 +172,8 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 | `run_nlp_labs.py` | Course 15 A on **real NLTK corpora and real spaCy models**, every result scored; 3 markers audited |
 | `run_mlops_labs.py` | Course 15 B against **real MLflow, git, DVC and Flask**; 5 markers audited |
 | `extract_syllabus.py` | All PDF pages yield text |
-| `check_coverage.py` | **672 syllabus topics across 50 unit files** all map to a notes section |
+| `check_coverage.py` | **1,273 syllabus topics across 95 unit files** all map to a notes section |
+| `audit_content.py` | The documents' own **stated counts match the files on disk**; every course has its full note set; no malformed table; every link resolves |
 
 Statistical results are additionally self-checked: regression output via
 **R² = r²** and **t² = F**, and every critical value in the formula sheet

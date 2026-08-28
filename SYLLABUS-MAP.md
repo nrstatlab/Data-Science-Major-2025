@@ -1,15 +1,16 @@
 # Syllabus Map — B.Sc. (Hons) Data Science, Major
 
-**Issuing body:** Andhra Pradesh State Council of Higher Education (APSCHE)
 **Prepared by:** Adikavi Nannaya University, Rajahmundry
 **Effective:** AY 2025-26 · 4-Year UG Honours · Course structure for Semesters I–VI
 
-Sources, both extracted verbatim:
+Sources, all four extracted verbatim:
 
 | Document | Covers | Extracted text |
 |---|---|---|
 | [`docs/Data-Science-Major-Sem1-2.pdf`](docs/Data-Science-Major-Sem1-2.pdf) | Programme structure + Courses 1–5 | [`syllabus-extracted.md`](docs/syllabus-extracted.md) |
 | [`docs/Data-Science-Major-Sem3-4.pdf`](docs/Data-Science-Major-Sem3-4.pdf) | Courses 6–10 | [`syllabus-extracted-sem3-4.md`](docs/syllabus-extracted-sem3-4.md) |
+| [`docs/Data-Science-Major-Sem5.pdf`](docs/Data-Science-Major-Sem5.pdf) | Course 11 + both Semester V pairs | [`syllabus-extracted-sem5.md`](docs/syllabus-extracted-sem5.md) |
+| [`docs/Data-Science-Major-Sem6.pdf`](docs/Data-Science-Major-Sem6.pdf) | Both Semester VI pairs | [`syllabus-extracted-sem6.md`](docs/syllabus-extracted-sem6.md) |
 
 ---
 
@@ -86,12 +87,16 @@ domain names with your department before choosing.
 
 ## 2. Detailed unit map (Courses 1–13)
 
-These **fifteen course numbers** — Courses 1–11 plus both halves of each
-Semester V elective pair, 12 A/B and 13 A/B — cover the whole Major through
-Semester V and have full syllabi in the three source documents. **You take
-thirteen of them**: Courses 1–11 and one track's pair. **Courses 14 and
-15, the Semester VI elective pairs, appear as titles and credits only**, so
-they cannot be mapped until that document is published.
+**Nineteen course numbers** make up the Major — Courses 1–11, plus both halves
+of each elective pair in Semesters V and VI: 12 A/B, 13 A/B, 14 A/B and
+15 A/B. All four source documents are now published, so **every one of them
+has a full unit-level syllabus** and is mapped here.
+
+**You take fifteen of them**: Courses 1–11, then one track's pair in
+Semester V and the same track's pair in Semester VI.
+
+Courses 1–13 are mapped in this section; the Semester VI pairs are in
+[§3b](#3b-semester-vi--both-elective-tracks).
 
 ### Course 1 — Computer Fundamentals and Office Automation (Sem I)
 Notes: [`notes/sem-1/course-1-computer-fundamentals/`](notes/sem-1/course-1-computer-fundamentals/)

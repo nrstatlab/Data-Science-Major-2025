@@ -284,7 +284,7 @@ them apart.
 
 | | Cost per example |
 |---|---|
-| Full softmax | **|V|** — say 500,000 |
+| Full softmax | **\|V\|** — say 500,000 |
 | Negative sampling | **k + 1** — typically 6 to 21 |
 
 Negatives are drawn from the unigram distribution raised to the **3/4 power**,

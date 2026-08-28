@@ -76,6 +76,9 @@ python3 "$ROOT/tools/run_nlp_labs.py" | tail -8 || fail=$((fail+1))
 banner "Course 15B labs (MLOps: MLflow, DVC, Flask, drift detection)"
 python3 "$ROOT/tools/run_mlops_labs.py" | tail -8 || fail=$((fail+1))
 
+banner "Content audit (stated counts, tables, links, branding)"
+python3 "$ROOT/tools/audit_content.py" | tail -6 || fail=$((fail+1))
+
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
 

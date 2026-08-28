@@ -1,7 +1,12 @@
 # Study Plan — B.Sc. (Hons) Data Science Major
 
-A week-by-week schedule for all ten courses of the Major, weighted by the
-difficulty established in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
+A week-by-week schedule for the whole Major — Semesters I to VI, and both
+elective tracks — weighted by the difficulty established in
+[`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md).
+
+**You take fifteen courses**: Courses 1–11, then one track's pair in
+Semester V and the same track's pair in Semester VI. All nineteen course
+numbers are scheduled below so you can see both tracks before choosing.
 
 **The weighting is the point.** An even split across five units is the wrong
 plan when one unit holds three units' worth of material. Where a unit gets more

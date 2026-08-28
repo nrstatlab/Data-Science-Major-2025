@@ -1,4 +1,4 @@
-# APSCHE B.Sc. (Data Science) Major — extracted syllabus text
+# B.Sc. (Data Science) Major — extracted syllabus text
 
 Source: `docs/Data-Science-Major-Sem6.pdf` — 17 pages.
 Extracted verbatim so every claim in the notes is traceable to a page.
