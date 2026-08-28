@@ -565,12 +565,13 @@ method. **This repository resolves it by using Python throughout**, and says so
 — but a student following the syllabus literally has no basis for the choice.
 
 **Updating the count from D24:** across the four documents there are now
-**thirteen** places where text has been lost or inserted at a word or sentence
+**fourteen** places where text has been lost or inserted at a word or sentence
 boundary — D3 (three), D13, D14, D17, D23, D24 (two), D25, D26, D28 (two), and
-D29. Semester VI adds five of them in seventeen pages, which is the **highest
-density of any document in the set**. The recommendation from D24 stands and
-strengthens: **all four PDFs need a proofreading pass before they are issued
-to students.**
+D29. **Semester VI contributes five of them in seventeen pages** — one defect
+per 3.4 pages, and it is the shortest of the four documents.
+
+The recommendation from D24 stands and strengthens: **all four PDFs need a
+proofreading pass before they are issued to students.**
 
 ### D31 — Course 15 B's only textbook has no publisher and no year
 
