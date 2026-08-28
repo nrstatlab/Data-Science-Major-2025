@@ -4,7 +4,10 @@ markdown>=3.5
 # Lab verification for Courses 8-10. The notes, Courses 1-5 labs and the
 # syllabus extractor need nothing beyond the Python standard library.
 numpy>=1.26
-pandas>=2.0
+# pandas 3, NOT 2. Courses 8, 9 and 12 A assert pandas 3 behaviour --
+# groupby().apply() dropping the grouping column, and chained assignment
+# failing silently rather than warning. On pandas 2 those labs fail.
+pandas>=3.0
 scikit-learn>=1.4
 mlxtend>=0.23
 mongomock>=4.1
@@ -53,6 +56,9 @@ spacy>=3.7
 # real model endpoint. MLflow 3 requires a database backend -- the old
 # ./mlruns file store is in maintenance mode and raises -- so the lab uses
 # sqlite:///mlflow.db, which is what MLflow itself recommends.
+# NOTE: installing mlflow or dvc can pull pandas back to 2.x, which BREAKS
+# Courses 8, 9 and 12 A -- they are written against pandas 3. If that
+# happens, reinstall it: pip install --force-reinstall --no-deps pandas==3.0.5
 mlflow>=3.0
 dvc>=3.0
 flask>=3.0

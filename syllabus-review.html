@@ -1025,8 +1025,37 @@ before it could be trusted: it was matching its keywords against the syllabus
 line each note file quotes in its header, so <strong>19 of 464 topics were passing
 without a word being written about them</strong>. Stripping the header before
 searching exposed three genuine gaps in Courses 1, 3 and 7, and three more in
-Course 10. All six are now written. The check currently reports <strong>672 of 672
-topics across 50 unit files</strong>.</p>
+Course 10. All six are now written. Two further fixes followed as Semester VI
+was added: the checker now folds <strong>-ise/-ize</strong> spellings and en-dashes, and
+<strong>collapses whitespace</strong>, because a keyword that happened to straddle a line
+wrap was being reported as a missing topic. The check currently reports
+<strong>1,273 of 1,273 topics across 95 unit files</strong>.</p>
+<h3>And the harness itself failed, in the way harnesses do</h3>
+<p><code>tools/verify_all.sh</code> reported <strong>ALL VERIFICATIONS PASSED</strong> while six lab
+programs were failing underneath it.</p>
+<p>Every suite in that script is piped into <code>tail</code> so the summary stays readable:</p>
+<pre><code class="language-bash">python3 &quot;$ROOT/tools/run_data_labs.py&quot; | tail -3 || fail=$((fail+1))
+</code></pre>
+<p><strong>A pipeline's exit status is the status of its last command</strong>, which is
+<code>tail</code>, which always succeeds. The <code>||</code> branch could never fire. The fix is
+one line — <code>set -o pipefail</code> — and the script had run green for the whole
+project without it.</p>
+<p><strong>What it was hiding</strong> was real: installing <code>mlflow</code> and <code>dvc</code> for Course 15 B
+pulled <strong>pandas back from 3.0.5 to 2.3.3</strong>, leaving two conflicting
+<code>dist-info</code> directories in the same location. Courses 8, 9 and 12 A are
+written against pandas 3 — they assert that <code>groupby().apply()</code> drops the
+grouping column and that chained assignment now fails <em>silently</em> rather than
+warning — so five programs in Courses 8 and 9 and one in Course 12 A began
+failing. Restoring pandas 3.0.5 returned both suites to <strong>33 of 33</strong> and
+<strong>12 of 12</strong>, and <code>tools/requirements.txt</code> now pins <code>pandas&gt;=3.0</code> with the
+reason recorded.</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p><strong>The lesson is the one this whole document is about.</strong> A green check you
+have not tested is worth nothing, and the failure mode was not in the labs
+but in the thing that was supposed to be watching them. <strong>Verify the
+verifier</strong>, and be suspicious of any check that has never once failed.</p>
+</div>
 
   <div class="page-nav">
     <a href="index.html">← Home</a>

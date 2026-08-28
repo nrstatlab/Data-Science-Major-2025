@@ -737,5 +737,39 @@ before it could be trusted: it was matching its keywords against the syllabus
 line each note file quotes in its header, so **19 of 464 topics were passing
 without a word being written about them**. Stripping the header before
 searching exposed three genuine gaps in Courses 1, 3 and 7, and three more in
-Course 10. All six are now written. The check currently reports **672 of 672
-topics across 50 unit files**.
+Course 10. All six are now written. Two further fixes followed as Semester VI
+was added: the checker now folds **-ise/-ize** spellings and en-dashes, and
+**collapses whitespace**, because a keyword that happened to straddle a line
+wrap was being reported as a missing topic. The check currently reports
+**1,273 of 1,273 topics across 95 unit files**.
+
+### And the harness itself failed, in the way harnesses do
+
+`tools/verify_all.sh` reported **ALL VERIFICATIONS PASSED** while six lab
+programs were failing underneath it.
+
+Every suite in that script is piped into `tail` so the summary stays readable:
+
+```bash
+python3 "$ROOT/tools/run_data_labs.py" | tail -3 || fail=$((fail+1))
+```
+
+**A pipeline's exit status is the status of its last command**, which is
+`tail`, which always succeeds. The `||` branch could never fire. The fix is
+one line — `set -o pipefail` — and the script had run green for the whole
+project without it.
+
+**What it was hiding** was real: installing `mlflow` and `dvc` for Course 15 B
+pulled **pandas back from 3.0.5 to 2.3.3**, leaving two conflicting
+`dist-info` directories in the same location. Courses 8, 9 and 12 A are
+written against pandas 3 — they assert that `groupby().apply()` drops the
+grouping column and that chained assignment now fails *silently* rather than
+warning — so five programs in Courses 8 and 9 and one in Course 12 A began
+failing. Restoring pandas 3.0.5 returned both suites to **33 of 33** and
+**12 of 12**, and `tools/requirements.txt` now pins `pandas>=3.0` with the
+reason recorded.
+
+> **The lesson is the one this whole document is about.** A green check you
+> have not tested is worth nothing, and the failure mode was not in the labs
+> but in the thing that was supposed to be watching them. **Verify the
+> verifier**, and be suspicious of any check that has never once failed.

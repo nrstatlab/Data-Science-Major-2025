@@ -2,6 +2,11 @@
 # Run every verification in this repository.
 # Usage: bash tools/verify_all.sh
 set -u
+# pipefail is ESSENTIAL here. Every suite below is piped into `tail`, and
+# without it the pipeline's exit status is tail's -- which is always 0. That
+# masked five real failures in Courses 8 and 9 and one in Course 12 A while
+# this script cheerfully reported ALL VERIFICATIONS PASSED.
+set -o pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fail=0
 
