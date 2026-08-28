@@ -488,6 +488,90 @@ is a defect in the production of the documents, and the honest summary is that
 
 ---
 
+### D25 — "design an end-to-ple:" — a truncated sentence in Course 14 B
+
+**Page 8.** The activity for Outcome 4 reads:
+
+> Students will **design an end-to-ple:** forecasting COVID-19 daily cases or
+> retail sales.
+
+The intended text is almost certainly "design an **end-to-end pipeline**", and
+**"pipeline" has been chopped to "ple:"** — the colon is what survived of the
+word plus the punctuation that followed it. This is the most severe of the
+truncation class because the sentence no longer parses at all.
+
+### D26 — "Coders(Based" — a missing space in Course 14 A's references
+
+**Page 2.** Reference 2 reads:
+
+> Howard, J., & Gugger, S. (2020). Practical Deep Learning for
+> **Coders(Based** on the fast.ai course)
+
+A space has been lost before the opening parenthesis. **Same mechanism as
+D23 and D24** — a word boundary that did not survive whatever produced the PDF.
+
+### D27 — Course 15 A numbers its second reference "2. 2."
+
+**Page 12.** The reference list reads:
+
+> Reference Book: 1. Natural Language Processing and Information Retrieval …
+> **2. 2.** Natural Language Processing Recipes …
+
+A duplicated list marker. Cosmetic, but it is the third distinct
+list-numbering defect in the programme, after D21 (Roman numerals in Course
+11) and D22 (an empty entry 4 in Course 13 B).
+
+### D28 — "Tensor Flow" and "Mobile Net" split in Course 14 A's practicals
+
+**Page 3.** Practical 2 reads "Google Teachable Machine or **Tensor Flow**
+Playground" and practical 8 reads "Fine-tune a pre-trained CNN (**Mobile Net**,
+VGG)".
+
+**These are the inverse of D23, D24 and D26**: a space inserted *into* a proper
+noun rather than lost between two words. Both product names are single words —
+TensorFlow, MobileNet. That the same document contains both failure modes
+points at automated text extraction rather than typing.
+
+### D29 — A "short reflective note (12 pages)" in Course 14 A
+
+**Page 2.** The evaluation method for the Unit 5 activity asks for:
+
+> Evaluation of demo + **short reflective note (12 pages)** on challenges,
+> benefits, and application potential
+
+**A "short" note of twelve pages is a contradiction**, and it is almost
+certainly "**1-2 pages**" with the hyphen lost — the same class of defect as
+D25, D26 and the rest, but here it changes the *workload* a student is being
+asked for by a factor of six to twelve. **This one has a practical
+consequence**, not just a cosmetic one: a student reading it literally would
+write twelve pages, and a marker expecting one page would not know why.
+
+### D30 — Course 14 B's evaluation names R and Python; the practicals assume both
+
+**Pages 6 and 9.** The course objectives say "hands-on practice with
+real-world datasets using **R/Python** statistical libraries", and the
+practical list is headed "Using **R/Python** statsmodels, pandas, forecast, or
+equivalent".
+
+`statsmodels` and `pandas` are Python; `forecast` is an R package. **The
+practical list mixes the two ecosystems in a single line** without saying which
+a student should use, and the department has not stated which will be
+available in the lab.
+
+**This is not a typo but a specification gap**, and it matters: the two
+languages differ in how they handle seasonal periods, in what `auto.arima`
+does that `statsmodels` does not, and in the default confidence-interval
+method. **This repository resolves it by using Python throughout**, and says so
+— but a student following the syllabus literally has no basis for the choice.
+
+**Updating the count from D24:** across the four documents there are now
+**thirteen** places where text has been lost or inserted at a word or sentence
+boundary — D3 (three), D13, D14, D17, D23, D24 (two), D25, D26, D28 (two), and
+D29. Semester VI adds five of them in seventeen pages, which is the **highest
+density of any document in the set**. The recommendation from D24 stands and
+strengthens: **all four PDFs need a proofreading pass before they are issued
+to students.**
+
 ## What the five Semester V courses do well
 
 The defects above are worth recording, but a review that lists only faults

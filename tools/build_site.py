@@ -643,6 +643,128 @@ COURSES = [
              "bias, accountability and societal impact."),
         ],
     },
+    {
+        "slug": "deep-learning",
+        "src": "notes/sem-6/course-14a-deep-learning",
+        "number": 14, "year": "III", "sem": "VI",
+        "title": "Neural Networks and Deep Learning",
+        "tagline": "Track A. Where the features are learned rather than "
+                   "chosen \u2014 and what that costs.",
+        "blurb": "5 Units + Lab \u2022 Perceptrons, activations, "
+                 "backpropagation, CNNs, RNNs, LSTM, attention and "
+                 "transformers, transfer learning and AI ethics. Ten of "
+                 "twelve experiments run against real MNIST, Fashion-MNIST, "
+                 "IMDb and real ImageNet weights.",
+        "units": [
+            ("Foundations of Deep Learning",
+             "AI, machine learning and deep learning as nested sets; the "
+             "history from McCulloch\u2013Pitts to the Transformer and what "
+             "actually changed in 2012; biological against artificial "
+             "neurons and the limits of the analogy; the perceptron, its "
+             "learning rule, and a four-line proof that it cannot compute "
+             "XOR; linear, ReLU, sigmoid, tanh and softmax with their "
+             "derivative bounds; why a stack of linear layers is one linear "
+             "layer; the dying ReLU and softmax overflow; MSE against "
+             "cross-entropy; gradient descent and backpropagation."),
+            ("Deep Neural Networks",
+             "Forward propagation and getting every shape right; "
+             "backpropagation as the chain rule and why dz = a \u2212 y for "
+             "softmax with cross-entropy; the symmetry problem and why He "
+             "initialisation uses 2/fan_in; the learning rate as the one "
+             "hyperparameter that makes training fail, with the two opposite "
+             "failures distinguished; SGD, RMSProp and Adam measured; "
+             "overfitting against underfitting; dropout, batch "
+             "normalisation, early stopping and why both need a train/eval "
+             "mode; MSE, cross-entropy and hinge loss; Keras 3 on any "
+             "backend."),
+            ("Convolutional Neural Networks",
+             "Images, pixels and the channel-order trap; the three "
+             "properties convolution has that a dense layer lacks; the "
+             "output-size formula and where a classical CNN's parameters "
+             "actually live; padding and pooling and what each costs; "
+             "measuring whether the learned filters are really edge "
+             "detectors, and reporting zero when that is the answer; feature "
+             "map sparsity and the layer where it goes the wrong way; "
+             "LeNet-5, AlexNet and VGG, and why two 3\u00d73 convolutions "
+             "beat one 5\u00d75; classification, detection, segmentation "
+             "and face embeddings."),
+            ("Recurrent Neural Networks and NLP",
+             "Why sequences break a feedforward network; the recurrence and "
+             "weight sharing along time; the many-to-one, one-to-many and "
+             "many-to-many patterns; the vanishing gradient as arithmetic, "
+             "stated precisely enough to say that 3e-151 is not zero; LSTM "
+             "gates, the additive cell path, and the forget-gate bias of 1; "
+             "GRU; RNN against LSTM against GRU measured on both a "
+             "constructed dataset and real IMDb, and why the gap narrows; "
+             "Word2Vec, GloVe and the biases embeddings inherit; contextual "
+             "embeddings and BERT; character-level generation and "
+             "temperature."),
+            ("Advanced and Emerging Topics",
+             "Scaled dot-product attention worked through on checkable "
+             "numbers; why the scores are divided by \u221ad_k, measured "
+             "against softmax saturation; multi-head attention and the "
+             "encoder block; positional encoding and an honest null "
+             "ablation; attention weights scored against a known ground "
+             "truth, and why 92.5% is not an explanation; the O(T\u00b2) "
+             "cost and context length; BERT against GPT; transfer learning "
+             "on real ImageNet weights, including the two results that "
+             "contradict the usual story; GANs and mode collapse; VAEs; "
+             "bias, the three incompatible fairness definitions, privacy, "
+             "safety and explainability."),
+        ],
+    },
+    {
+        "slug": "time-series",
+        "src": "notes/sem-6/course-14b-time-series",
+        "number": 14, "year": "III", "sem": "VI",
+        "title": "Time Series Analysis and Forecasting",
+        "tagline": "Track B. Where the observations are not independent, and "
+                   "that single fact breaks almost every method you know.",
+        "blurb": "5 Units + Lab \u2022 Stationarity, ACF and PACF, ARMA, "
+                 "ARIMA and SARIMA, model selection, prediction intervals, "
+                 "VAR and Granger causality, Kalman filtering, spectral "
+                 "analysis and forecast evaluation. Every one of the 13 "
+                 "experiments runs.",
+        "units": [
+            ("Fundamentals and Stationary Processes",
+             "Why a random split lets a model see the future, and which of "
+             "your habits from Courses 4, 8 and 12 A stop being valid; time "
+             "series types, components and the forecasting process; "
+             "stationarity defined; autocovariance, ACF and PACF, and "
+             "reading them together to identify a model; decomposition into "
+             "trend, seasonal and residual, classical against STL, checked "
+             "against known coefficients."),
+            ("ARMA and Forecasting",
+             "AR, MA and ARMA(p,q) definitions and their signatures in the "
+             "ACF and PACF; estimation, and a 200-draw Monte Carlo showing "
+             "the estimator unbiased when a single fit misses; AIC and BIC "
+             "against rolling-origin cross-validation, and what to do when "
+             "they disagree; Ljung\u2013Box residual diagnostics; "
+             "forecasting from an ARMA and where the intervals come from."),
+            ("Non-Stationary and Seasonal Models",
+             "Differencing, the ADF and KPSS tests, and using the ct "
+             "regression to tell a trend-stationary series from a random "
+             "walk; over-differencing measured as a variance increase; "
+             "ARIMA and SARIMA with seasonal orders; the airline model; "
+             "prediction intervals and a measured coverage of 75% against a "
+             "nominal 95%."),
+            ("Multivariate and State-Space Models",
+             "Vector autoregression on a macro system built with known "
+             "causality; Granger causality tested in all four directions; "
+             "state-space form and the Kalman filter through unobserved "
+             "components; what a zero variance estimate means; spectral "
+             "analysis and the periodogram, and why detrending first "
+             "changes the answer."),
+            ("Forecast Evaluation and Comparison",
+             "ARIMA against exponential smoothing against machine learning "
+             "on the same series; naive and seasonal-naive baselines; RMSE, "
+             "MAE, MAPE and MASE, and the cases where they disagree; why "
+             "MAPE reaches 75% on a uniform error of 1.0; recursive "
+             "forecasting and a measured result that contradicts the "
+             "textbook; tree models that cannot extrapolate; testing a "
+             "forecast for bias."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {

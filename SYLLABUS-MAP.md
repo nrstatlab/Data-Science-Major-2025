@@ -302,20 +302,68 @@ Notes: [`notes/sem-5/course-13b-cloud-computing/`](notes/sem-5/course-13b-cloud-
 
 ---
 
-## 4. Courses still not detailed
+## 3b. Semester VI — both elective tracks
 
-Structure only — titles, hours and credits. These are the **Semester VI**
-elective pairs, for which APSCHE has not yet published unit-level syllabi in
-the documents supplied.
+Source: **`docs/Data-Science-Major-Sem6.pdf`**, 17 pages, extracted to
+`docs/syllabus-extracted-sem6.md`.
 
-| # | Course | Sem |
-|:---:|---|:---:|
-| 14 A/B | Neural Networks and Deep Learning / Time Series Analysis and Forecasting | VI |
-| 15 A/B | Natural Language Processing / Data Engineering & MLOps | VI |
+**The Semester VI document confirms the track pairing** that §1 inferred and
+§3a partly confirmed: **14 A pairs with 15 A** (Deep Learning → NLP) and
+**14 B with 15 B** (Time Series → Data Engineering & MLOps). You stay in the
+same track across both semesters of Year III.
 
-**The Semester V document confirmed the track structure** that §1 inferred from
-the Semester I–II tables: 12 A pairs with 13 A (Machine Learning →
-Artificial Intelligence) and 12 B with 13 B (Big Data → Cloud Computing). The
-inference was right, but confirm the Semester VI pairing with your department
-rather than assuming the same, because the document that would settle it has
-not been published.
+### Course 14 A — Neural Networks and Deep Learning (Sem VI) — *Track A*
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Foundations of Deep Learning | What AI, ML and deep learning are; history and applications; biological vs. artificial neurons; neural networks; perceptron and activation functions (linear, ReLU, sigmoid, tanh, softmax); shallow vs. deep and feedforward vs. recurrent; gradient descent and backpropagation (conceptual); loss functions (MSE, cross-entropy) intuitively |
+| 2 | Deep Neural Networks | Forward and backward propagation; weight initialization, learning rate, and optimization (SGD, Adam, RMSProp); overfitting and underfitting; regularization, dropout, batch normalization; activation functions in deep networks; loss functions in detail (MSE, cross-entropy, hinge); introduction to Keras/TensorFlow |
+| 3 | Convolutional Neural Networks | Images and pixels; filters/kernels, padding and pooling; CNN layers (Conv, Pooling, Fully Connected, Softmax); LeNet-5, AlexNet, VGG; applications in image classification, object detection, facial recognition |
+| 4 | Recurrent Neural Networks and NLP | Sequences and time series data; RNNs and the vanishing/exploding gradient; LSTM and GRU; word embeddings — Word2Vec, GloVe, contextual embeddings and BERT at a high level; sentiment analysis, text generation, simple time-series forecasting |
+| 5 | Advanced and Emerging Topics | Generative models — GANs (generator and discriminator intuition), VAEs (introduction only); transformers and the attention mechanism (intuitive); BERT and the GPT family; transfer learning and fine-tuning pre-trained models; AI ethics — bias, fairness, privacy, safety, explainability |
+
+**Lab:** 12 practicals (page 3). Ten run here against **real MNIST,
+Fashion-MNIST, IMDb and real MobileNetV2/VGG16 ImageNet weights**. Two are
+documented rather than demonstrated — experiment 2 is two interactive web
+applications, and experiment 12 needs `huggingface.co`, which this
+environment refuses with a 403 at the gateway.
+
+### Course 14 B — Time Series Analysis and Forecasting (Sem VI) — *Track B*
+
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Fundamentals and Stationary Processes | Time series types, components and the forecasting process; stationary processes; autocovariance and the ACF/PACF; model evaluation metrics; ACF/PACF example analyses |
+| 2 | ARMA and Forecasting with ARMA | ARMA(p,q) — definition, estimation, forecasting; model identification via AIC and the ACF/PACF; diagnostic checks; practical fitting and forecast generation |
+| 3 | Non-Stationary and Seasonal Models | Differencing; the Augmented Dickey-Fuller and KPSS tests; ARIMA and SARIMA for seasonal data; prediction intervals |
+| 4 | State-Space and Multivariate Models | Vector autoregression; Granger causality; state-space representation and the Kalman filter |
+| 5 | Advanced Topics and Forecast Evaluation | Spectral analysis and the periodogram; exponential smoothing and Holt-Winters; comparing ARIMA against exponential smoothing against machine learning; RMSE, MAE, MAPE and MASE |
+
+**Lab:** 13 practicals (page 9). **All thirteen run** — statsmodels implements
+every technique the syllabus names, so this course has no `NOT EXECUTED` file
+anywhere.
+
+---
+
+## 4. Courses still to be written up
+
+The Semester VI document **does** carry unit-level syllabi for all four of its
+courses. Two are written up in full above; the remaining two are extracted and
+mapped but their notes and labs are still being built.
+
+| # | Course | Sem | Source pages | Status |
+|:---:|---|:---:|:---:|---|
+| 15 A | Natural Language Processing | VI | 10-13 | syllabus extracted; notes and 14 practicals pending |
+| 15 B | Data Engineering and MLOps | VI | 14-17 | syllabus extracted; notes and 16 practicals pending |
+
+### Course 15 A — Natural Language Processing (Sem VI) — *Track A*
+
+Five units covering NLP fundamentals and text processing; preprocessing and
+parsing; information extraction and text representation; deep learning for
+NLP; and pre-trained transformer models. **14 practicals**, of which the
+Hugging Face experiments (12-14) will need the host this environment refuses.
+
+### Course 15 B — Data Engineering and MLOps (Sem VI) — *Track B*
+
+Five units covering data engineering and its roles; data architecture;
+MLOps fundamentals; model deployment and CI/CD pipelines; and monitoring,
+feedback loops and governance. **16 practicals.**

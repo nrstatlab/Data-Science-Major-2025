@@ -119,16 +119,17 @@ worked solutions, and a `lab.md`. Course 4 also has a
 | `Data-Science-Major-Sem1-2.pdf` | 37 | Programme structure for Semesters I–VI, plus full syllabi for Courses 1–5 |
 | `Data-Science-Major-Sem3-4.pdf` | 25 | Full syllabi for Courses 6–10 |
 | `Data-Science-Major-Sem5.pdf` | 24 | Full syllabi for Course 11 and **both** Semester V elective pairs — 12 A/B and 13 A/B |
+| `Data-Science-Major-Sem6.pdf` | 17 | Full syllabi for **both** Semester VI elective pairs — 14 A/B and 15 A/B |
 
-Together they give **13 of the 15 major courses** at unit level — every course
-APSCHE has published detailed syllabi for. Only the Semester VI elective pairs
-(14 A/B and 15 A/B) appear as titles and credits only.
+Together they give **all 15 major courses at unit level**, across four source
+documents. Nothing in the programme is now titles-and-credits only.
 
 **Semester V is a fork.** Course 11 is compulsory; you then take either
 **12 A + 13 A** (Machine Learning → Artificial Intelligence) or **12 B + 13 B**
 (Big Data → Cloud Computing), and that choice binds you for Semester VI as
-well. **Both tracks are covered here in full**, because you cannot choose well
-without seeing what is in each.
+well — **14 A + 15 A** (Deep Learning → NLP) or **14 B + 15 B** (Time Series →
+Data Engineering & MLOps). **Both tracks are covered here in full**, because
+you cannot choose well without seeing what is in each.
 
 **Credits verified:** every course is 3 credits theory + 1 credit lab. Semester
 totals are 8, 8, 12, 12, 12, 8 — a **60-credit major**.

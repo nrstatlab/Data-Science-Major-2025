@@ -59,6 +59,12 @@ python3 "$ROOT/tools/run_ai_labs.py" | tail -7 || fail=$((fail+1))
 banner "Course 13B labs (Cloud: IAM, storage costs, ETL, a live endpoint)"
 python3 "$ROOT/tools/run_cloud_labs.py" | tail -8 || fail=$((fail+1))
 
+banner "Course 14A labs (Deep Learning: real MNIST, Fashion-MNIST, IMDb, ImageNet weights)"
+KERAS_BACKEND=torch python3 "$ROOT/tools/run_deeplearning_labs.py" | tail -8 || fail=$((fail+1))
+
+banner "Course 14B labs (Time Series: ARIMA, SARIMA, VAR, Kalman, spectral)"
+python3 "$ROOT/tools/run_timeseries_labs.py" | tail -6 || fail=$((fail+1))
+
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
 

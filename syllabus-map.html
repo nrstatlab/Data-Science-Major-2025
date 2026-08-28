@@ -989,37 +989,136 @@ that choice well without seeing what is in both.</p>
 </tbody>
 </table>
 <hr />
-<h2>4. Courses still not detailed</h2>
-<p>Structure only — titles, hours and credits. These are the <strong>Semester VI</strong>
-elective pairs, for which APSCHE has not yet published unit-level syllabi in
-the documents supplied.</p>
+<h2>3b. Semester VI — both elective tracks</h2>
+<p>Source: <strong><code>docs/Data-Science-Major-Sem6.pdf</code></strong>, 17 pages, extracted to
+<code>docs/syllabus-extracted-sem6.md</code>.</p>
+<p><strong>The Semester VI document confirms the track pairing</strong> that §1 inferred and
+§3a partly confirmed: <strong>14 A pairs with 15 A</strong> (Deep Learning → NLP) and
+<strong>14 B with 15 B</strong> (Time Series → Data Engineering &amp; MLOps). You stay in the
+same track across both semesters of Year III.</p>
+<h3>Course 14 A — Neural Networks and Deep Learning (Sem VI) — <em>Track A</em></h3>
+<table class="main-table">
+<thead>
+<tr>
+<th style="text-align: center;">Unit</th>
+<th>Title</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>Foundations of Deep Learning</td>
+<td>What AI, ML and deep learning are; history and applications; biological vs. artificial neurons; neural networks; perceptron and activation functions (linear, ReLU, sigmoid, tanh, softmax); shallow vs. deep and feedforward vs. recurrent; gradient descent and backpropagation (conceptual); loss functions (MSE, cross-entropy) intuitively</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>Deep Neural Networks</td>
+<td>Forward and backward propagation; weight initialization, learning rate, and optimization (SGD, Adam, RMSProp); overfitting and underfitting; regularization, dropout, batch normalization; activation functions in deep networks; loss functions in detail (MSE, cross-entropy, hinge); introduction to Keras/TensorFlow</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Convolutional Neural Networks</td>
+<td>Images and pixels; filters/kernels, padding and pooling; CNN layers (Conv, Pooling, Fully Connected, Softmax); LeNet-5, AlexNet, VGG; applications in image classification, object detection, facial recognition</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>Recurrent Neural Networks and NLP</td>
+<td>Sequences and time series data; RNNs and the vanishing/exploding gradient; LSTM and GRU; word embeddings — Word2Vec, GloVe, contextual embeddings and BERT at a high level; sentiment analysis, text generation, simple time-series forecasting</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Advanced and Emerging Topics</td>
+<td>Generative models — GANs (generator and discriminator intuition), VAEs (introduction only); transformers and the attention mechanism (intuitive); BERT and the GPT family; transfer learning and fine-tuning pre-trained models; AI ethics — bias, fairness, privacy, safety, explainability</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lab:</strong> 12 practicals (page 3). Ten run here against <strong>real MNIST,
+Fashion-MNIST, IMDb and real MobileNetV2/VGG16 ImageNet weights</strong>. Two are
+documented rather than demonstrated — experiment 2 is two interactive web
+applications, and experiment 12 needs <code>huggingface.co</code>, which this
+environment refuses with a 403 at the gateway.</p>
+<h3>Course 14 B — Time Series Analysis and Forecasting (Sem VI) — <em>Track B</em></h3>
+<table class="main-table">
+<thead>
+<tr>
+<th style="text-align: center;">Unit</th>
+<th>Title</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>Fundamentals and Stationary Processes</td>
+<td>Time series types, components and the forecasting process; stationary processes; autocovariance and the ACF/PACF; model evaluation metrics; ACF/PACF example analyses</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>ARMA and Forecasting with ARMA</td>
+<td>ARMA(p,q) — definition, estimation, forecasting; model identification via AIC and the ACF/PACF; diagnostic checks; practical fitting and forecast generation</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Non-Stationary and Seasonal Models</td>
+<td>Differencing; the Augmented Dickey-Fuller and KPSS tests; ARIMA and SARIMA for seasonal data; prediction intervals</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>State-Space and Multivariate Models</td>
+<td>Vector autoregression; Granger causality; state-space representation and the Kalman filter</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Advanced Topics and Forecast Evaluation</td>
+<td>Spectral analysis and the periodogram; exponential smoothing and Holt-Winters; comparing ARIMA against exponential smoothing against machine learning; RMSE, MAE, MAPE and MASE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lab:</strong> 13 practicals (page 9). <strong>All thirteen run</strong> — statsmodels implements
+every technique the syllabus names, so this course has no <code>NOT EXECUTED</code> file
+anywhere.</p>
+<hr />
+<h2>4. Courses still to be written up</h2>
+<p>The Semester VI document <strong>does</strong> carry unit-level syllabi for all four of its
+courses. Two are written up in full above; the remaining two are extracted and
+mapped but their notes and labs are still being built.</p>
 <table class="main-table">
 <thead>
 <tr>
 <th style="text-align: center;">#</th>
 <th>Course</th>
 <th style="text-align: center;">Sem</th>
+<th style="text-align: center;">Source pages</th>
+<th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">14 A/B</td>
-<td>Neural Networks and Deep Learning / Time Series Analysis and Forecasting</td>
+<td style="text-align: center;">15 A</td>
+<td>Natural Language Processing</td>
 <td style="text-align: center;">VI</td>
+<td style="text-align: center;">10-13</td>
+<td>syllabus extracted; notes and 14 practicals pending</td>
 </tr>
 <tr>
-<td style="text-align: center;">15 A/B</td>
-<td>Natural Language Processing / Data Engineering &amp; MLOps</td>
+<td style="text-align: center;">15 B</td>
+<td>Data Engineering and MLOps</td>
 <td style="text-align: center;">VI</td>
+<td style="text-align: center;">14-17</td>
+<td>syllabus extracted; notes and 16 practicals pending</td>
 </tr>
 </tbody>
 </table>
-<p><strong>The Semester V document confirmed the track structure</strong> that §1 inferred from
-the Semester I–II tables: 12 A pairs with 13 A (Machine Learning →
-Artificial Intelligence) and 12 B with 13 B (Big Data → Cloud Computing). The
-inference was right, but confirm the Semester VI pairing with your department
-rather than assuming the same, because the document that would settle it has
-not been published.</p>
+<h3>Course 15 A — Natural Language Processing (Sem VI) — <em>Track A</em></h3>
+<p>Five units covering NLP fundamentals and text processing; preprocessing and
+parsing; information extraction and text representation; deep learning for
+NLP; and pre-trained transformer models. <strong>14 practicals</strong>, of which the
+Hugging Face experiments (12-14) will need the host this environment refuses.</p>
+<h3>Course 15 B — Data Engineering and MLOps (Sem VI) — <em>Track B</em></h3>
+<p>Five units covering data engineering and its roles; data architecture;
+MLOps fundamentals; model deployment and CI/CD pipelines; and monitoring,
+feedback loops and governance. <strong>16 practicals.</strong></p>
 
   <div class="page-nav">
     <a href="index.html">← Home</a>

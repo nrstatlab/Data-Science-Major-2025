@@ -661,6 +661,78 @@ D13, D14, D17, D23, and D24 (two). That is no longer a scattering of typos; it
 is a defect in the production of the documents, and the honest summary is that
 <strong>both PDFs need a proofreading pass before they are issued to students.</strong></p>
 <hr />
+<h3>D25 — "design an end-to-ple:" — a truncated sentence in Course 14 B</h3>
+<p><strong>Page 8.</strong> The activity for Outcome 4 reads:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Students will <strong>design an end-to-ple:</strong> forecasting COVID-19 daily cases or
+retail sales.</p>
+</div>
+<p>The intended text is almost certainly "design an <strong>end-to-end pipeline</strong>", and
+<strong>"pipeline" has been chopped to "ple:"</strong> — the colon is what survived of the
+word plus the punctuation that followed it. This is the most severe of the
+truncation class because the sentence no longer parses at all.</p>
+<h3>D26 — "Coders(Based" — a missing space in Course 14 A's references</h3>
+<p><strong>Page 2.</strong> Reference 2 reads:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Howard, J., &amp; Gugger, S. (2020). Practical Deep Learning for
+<strong>Coders(Based</strong> on the fast.ai course)</p>
+</div>
+<p>A space has been lost before the opening parenthesis. <strong>Same mechanism as
+D23 and D24</strong> — a word boundary that did not survive whatever produced the PDF.</p>
+<h3>D27 — Course 15 A numbers its second reference "2. 2."</h3>
+<p><strong>Page 12.</strong> The reference list reads:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Reference Book: 1. Natural Language Processing and Information Retrieval …
+<strong>2. 2.</strong> Natural Language Processing Recipes …</p>
+</div>
+<p>A duplicated list marker. Cosmetic, but it is the third distinct
+list-numbering defect in the programme, after D21 (Roman numerals in Course</p>
+<p>11) and D22 (an empty entry 4 in Course 13 B).</p>
+<h3>D28 — "Tensor Flow" and "Mobile Net" split in Course 14 A's practicals</h3>
+<p><strong>Page 3.</strong> Practical 2 reads "Google Teachable Machine or <strong>Tensor Flow</strong>
+Playground" and practical 8 reads "Fine-tune a pre-trained CNN (<strong>Mobile Net</strong>,
+VGG)".</p>
+<p><strong>These are the inverse of D23, D24 and D26</strong>: a space inserted <em>into</em> a proper
+noun rather than lost between two words. Both product names are single words —
+TensorFlow, MobileNet. That the same document contains both failure modes
+points at automated text extraction rather than typing.</p>
+<h3>D29 — A "short reflective note (12 pages)" in Course 14 A</h3>
+<p><strong>Page 2.</strong> The evaluation method for the Unit 5 activity asks for:</p>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p>Evaluation of demo + <strong>short reflective note (12 pages)</strong> on challenges,
+benefits, and application potential</p>
+</div>
+<p><strong>A "short" note of twelve pages is a contradiction</strong>, and it is almost
+certainly "<strong>1-2 pages</strong>" with the hyphen lost — the same class of defect as
+D25, D26 and the rest, but here it changes the <em>workload</em> a student is being
+asked for by a factor of six to twelve. <strong>This one has a practical
+consequence</strong>, not just a cosmetic one: a student reading it literally would
+write twelve pages, and a marker expecting one page would not know why.</p>
+<h3>D30 — Course 14 B's evaluation names R and Python; the practicals assume both</h3>
+<p><strong>Pages 6 and 9.</strong> The course objectives say "hands-on practice with
+real-world datasets using <strong>R/Python</strong> statistical libraries", and the
+practical list is headed "Using <strong>R/Python</strong> statsmodels, pandas, forecast, or
+equivalent".</p>
+<p><code>statsmodels</code> and <code>pandas</code> are Python; <code>forecast</code> is an R package. <strong>The
+practical list mixes the two ecosystems in a single line</strong> without saying which
+a student should use, and the department has not stated which will be
+available in the lab.</p>
+<p><strong>This is not a typo but a specification gap</strong>, and it matters: the two
+languages differ in how they handle seasonal periods, in what <code>auto.arima</code>
+does that <code>statsmodels</code> does not, and in the default confidence-interval
+method. <strong>This repository resolves it by using Python throughout</strong>, and says so
+— but a student following the syllabus literally has no basis for the choice.</p>
+<p><strong>Updating the count from D24:</strong> across the four documents there are now
+<strong>thirteen</strong> places where text has been lost or inserted at a word or sentence
+boundary — D3 (three), D13, D14, D17, D23, D24 (two), D25, D26, D28 (two), and
+D29. Semester VI adds five of them in seventeen pages, which is the <strong>highest
+density of any document in the set</strong>. The recommendation from D24 stands and
+strengthens: <strong>all four PDFs need a proofreading pass before they are issued
+to students.</strong></p>
 <h2>What the five Semester V courses do well</h2>
 <p>The defects above are worth recording, but a review that lists only faults
 misrepresents the document. Four things in Semester V are genuinely well done.</p>

@@ -25,7 +25,7 @@ own file, and the `<font>` tag is now obsolete.
 |---|---|---|---|
 | **Inline** | `<p style="color:red">` | That one element | Almost never |
 | **Internal** | `<style>` in `<head>` | That one page | Single-page demos |
-| **External** | `<link rel="stylesheet" href="s.css">` | Every page that links it | **Always, in real work** |
+| **External** | `<link rel="stylesheet" href="styles.css">` | Every page that links it | **Always, in real work** |
 
 ```html
 <head>

@@ -385,6 +385,50 @@ COVERAGE = {
         "inference engine", "explanation facility", "probabilistic reasoning",
         "bayes' theorem", "bayesian belief network", "fuzzy logic",
         "uncertainty", "nlp", "robotics", "ai ethics", "societal impact"],
+
+    "notes/sem-6/course-14a-deep-learning/unit-1.md": [
+        "artificial intelligence", "machine learning", "deep learning",
+        "history", "biological", "artificial neuron", "perceptron",
+        "activation function", "relu", "sigmoid", "tanh", "softmax",
+        "shallow", "feedforward", "recurrent", "gradient descent",
+        "backpropagation", "loss function", "cross-entropy"],
+    "notes/sem-6/course-14a-deep-learning/unit-2.md": [
+        "forward propagation", "backward propagation",
+        "weight initialization", "learning rate", "sgd", "adam", "rmsprop",
+        "overfitting", "underfitting", "regularization", "dropout",
+        "batch normalization", "hinge loss", "keras", "tensorflow"],
+    "notes/sem-6/course-14a-deep-learning/unit-3.md": [
+        "pixel", "filter", "kernel", "padding", "pooling", "convolution",
+        "fully connected", "softmax", "lenet", "alexnet", "vgg",
+        "image classification", "object detection", "facial recognition"],
+    "notes/sem-6/course-14a-deep-learning/unit-4.md": [
+        "sequence", "time series", "recurrent neural network",
+        "vanishing", "exploding gradient", "lstm", "gru",
+        "word embedding", "word2vec", "glove", "contextual", "bert",
+        "sentiment analysis", "text generation", "forecasting"],
+    "notes/sem-6/course-14a-deep-learning/unit-5.md": [
+        "generative", "gan", "generator", "discriminator", "vae",
+        "transformer", "attention", "bert", "gpt", "transfer learning",
+        "fine-tuning", "bias", "fairness", "privacy", "safety",
+        "explainability"],
+
+    "notes/sem-6/course-14b-time-series/unit-1.md": [
+        "time series", "components", "forecasting process", "stationary",
+        "autocovariance", "autocorrelation", "acf", "pacf",
+        "evaluation metrics"],
+    "notes/sem-6/course-14b-time-series/unit-2.md": [
+        "arma", "estimation", "forecasting", "model selection", "aic",
+        "diagnostic", "residual", "prediction interval"],
+    "notes/sem-6/course-14b-time-series/unit-3.md": [
+        "non-stationary", "differencing", "arima", "sarima", "seasonal",
+        "dickey-fuller", "kpss"],
+    "notes/sem-6/course-14b-time-series/unit-4.md": [
+        "multivariate", "vector autoregression", "var", "granger",
+        "state space", "kalman filter"],
+    "notes/sem-6/course-14b-time-series/unit-5.md": [
+        "exponential smoothing", "holt-winters", "machine learning",
+        "rmse", "mae", "mape", "mase", "baseline", "spectral analysis",
+        "periodogram"],
 }
 
 
@@ -399,7 +443,27 @@ def body_of(path):
     """
     text = path.read_text()
     parts = re.split(r"^---$", text, maxsplit=1, flags=re.M)
-    return (parts[1] if len(parts) > 1 else text).lower()
+    return normalise((parts[1] if len(parts) > 1 else text))
+
+
+def normalise(text):
+    """Lowercase, and fold the two spelling differences that are not gaps.
+
+    The notes are written in British English; several syllabus lines use
+    American spellings. 'Regularisation' and 'regularization' are the same
+    topic, and a coverage checker that reports one as missing is measuring
+    orthography rather than content. Likewise an en-dash in a name such as
+    Dickey-Fuller.
+
+    This folds ONLY -ise/-isation to -ize/-ization and the dash characters.
+    It does not loosen matching in any other way, so a keyword that fails
+    still means the topic is genuinely absent.
+    """
+    text = text.lower()
+    text = text.replace("\u2013", "-").replace("\u2014", "-")
+    text = re.sub(r"is(ation|ations|ing|ed|es|e)\b", lambda m: "iz" + m.group(1),
+                  text)
+    return text
 
 
 def main():
@@ -414,7 +478,10 @@ def main():
             continue
 
         files_checked += 1
-        missing = [k for k in keywords if k.lower() not in body_of(path)]
+        body = body_of(path)
+        # the keywords go through the same fold, so the two sides always
+        # agree even where the fold is crude
+        missing = [k for k in keywords if normalise(k) not in body]
 
         if missing:
             print(f"GAPS  {rel_path}")

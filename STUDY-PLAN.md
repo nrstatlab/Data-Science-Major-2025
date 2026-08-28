@@ -528,6 +528,49 @@ problem on it unaided.
 - [ ] Lab — all 15 experiments (7 runnable halves; 14 need an account)
 - [ ] **Cross-check:** South = ₹10,360 against Courses 11 and 12 B
 
+### Semester VI
+
+*You stay in the track you chose for Semester V.* 14 A pairs with 15 A;
+14 B pairs with 15 B.
+
+#### Track A
+
+**Course 14 A — Neural Networks and Deep Learning**
+- [ ] Unit 1 — perceptron, **the XOR proof**, five activations, loss functions
+- [ ] Unit 2 — forward/backward propagation, **initialisation, the learning rate**, dropout, batch norm
+- [ ] Unit 3 — **the output-size formula**, padding, pooling, LeNet/AlexNet/VGG
+- [ ] Unit 4 — RNN, **the vanishing gradient as arithmetic**, LSTM gates, GRU, embeddings
+- [ ] Unit 5 — **attention and `√d_k`**, transformers, BERT vs GPT, transfer learning, ethics ⚠ *(D29 — the "12 pages" is almost certainly 1-2)*
+- [ ] Lab — 12 experiments (10 run here; 2 need a browser tool or Hugging Face)
+- [ ] **Cross-check:** the linear baseline, MNIST 0.9100 against Fashion-MNIST 0.8060
+
+**Course 15 A — Natural Language Processing**
+- [ ] Unit 1 — NLP fundamentals and text processing
+- [ ] Unit 2 — preprocessing and parsing
+- [ ] Unit 3 — information extraction and text representation
+- [ ] Unit 4 — deep learning for NLP ⚠ *(overlaps Course 14 A Unit 4 — do them together)*
+- [ ] Unit 5 — pre-trained transformer models
+- [ ] Lab — 14 practicals
+
+#### Track B
+
+**Course 14 B — Time Series Analysis and Forecasting**
+- [ ] Unit 1 — **stationarity**, autocovariance, ACF and PACF read together
+- [ ] Unit 2 — ARMA, **AIC/BIC against cross-validation**, Ljung-Box
+- [ ] Unit 3 — differencing, **ADF and KPSS with the `ct` regression**, ARIMA, SARIMA
+- [ ] Unit 4 — VAR and Granger causality, state space, the Kalman filter
+- [ ] Unit 5 — spectral analysis, Holt-Winters, **RMSE/MAE/MAPE/MASE and when they disagree**
+- [ ] Lab — **all 13 experiments run**
+- [ ] **Cross-check:** the seasonal-naive baseline at 14.152 before you trust any model
+
+**Course 15 B — Data Engineering and MLOps**
+- [ ] Unit 1 — data engineering and its roles
+- [ ] Unit 2 — data architecture, monolith vs microservices vs event-driven
+- [ ] Unit 3 — MLOps fundamentals, reproducibility, experiment tracking
+- [ ] Unit 4 — CI/CD, deployment strategies, containerisation
+- [ ] Unit 5 — drift detection, feedback loops, governance
+- [ ] Lab — 16 practicals
+
 ---
 
 ## The four things that matter most
