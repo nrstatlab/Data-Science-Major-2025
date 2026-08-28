@@ -448,6 +448,30 @@ COVERAGE = {
         "recurrent neural network", "rnn", "cnn", "feedforward", "lstm",
         "gru", "sequence modeling", "transformer", "pretrained", "bert",
         "gpt", "hugging face"],
+    "notes/sem-6/course-15b-mlops/unit-1.md": [
+        "data engineering", "lifecycle", "skills", "activities",
+        "evolution", "roles", "technical", "business", "internal",
+        "external", "data science", "data lifecycle"],
+    "notes/sem-6/course-15b-mlops/unit-2.md": [
+        "enterprise", "data architecture", "principles", "scalability",
+        "failure", "tiers", "microservices", "monolith", "modular",
+        "event-driven", "hybrid cloud", "multicloud", "edge computing",
+        "team size", "interoperability", "cost", "tco"],
+    "notes/sem-6/course-15b-mlops/unit-3.md": [
+        "mlops", "challenges", "risk", "responsible ai", "scaling",
+        "eda", "feature engineering", "model training", "evaluation",
+        "reproducibility", "deployment requirements", "monitoring",
+        "model versioning", "experimentation tracking"],
+    "notes/sem-6/course-15b-mlops/unit-4.md": [
+        "production", "runtime environments", "ci/cd", "artifact",
+        "testing", "batch", "online", "a/b testing", "canary",
+        "containerization", "docker", "kubernetes", "scaling"],
+    "notes/sem-6/course-15b-mlops/unit-5.md": [
+        "drift detection", "ground truth", "feedback loop", "retraining",
+        "online evaluation", "logging", "monitoring", "governance",
+        "gdpr", "ccpa", "gxp", "responsible ai", "compliance",
+        "model risk management"],
+
     "notes/sem-6/course-15a-nlp/unit-5.md": [
         "transformer architecture", "self-attention", "encoder-decoder",
         "bert", "pretraining", "fine-tuning", "gpt", "generative",

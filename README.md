@@ -83,6 +83,10 @@ documents. That is a production problem, not a scattering of typos.
 | V | 13 A — Artificial Intelligence *(Track A)* | [notes](notes/sem-5/course-13a-artificial-intelligence/) |
 | V | 12 B — Big Data Technologies *(Track B)* | [notes](notes/sem-5/course-12b-big-data/) |
 | V | 13 B — Cloud Computing for Data Science *(Track B)* | [notes](notes/sem-5/course-13b-cloud-computing/) |
+| VI | 14 A — Neural Networks and Deep Learning *(Track A)* | [notes](notes/sem-6/course-14a-deep-learning/) |
+| VI | 15 A — Natural Language Processing *(Track A)* | [notes](notes/sem-6/course-15a-nlp/) |
+| VI | 14 B — Time Series Analysis and Forecasting *(Track B)* | [notes](notes/sem-6/course-14b-time-series/) |
+| VI | 15 B — Data Engineering and MLOps *(Track B)* | [notes](notes/sem-6/course-15b-mlops/) |
 
 Each course folder holds a `README.md`, five unit notes, a `practice.md` with
 worked solutions, and a `lab.md`. Course 4 also has a
@@ -106,12 +110,16 @@ worked solutions, and a `lab.md`. Course 4 also has a
 | [13 A — AI](labs/course-13a-ai/) | 19 experiments | 16 Prolog programs **NOT EXECUTED**; 7 Python halves run, **five as real logic programs** |
 | [12 B — Big Data](labs/course-12b-bigdata/) | 17 experiments | 14 run, including **real Apache Spark, Avro and Parquet**; 15 tool files **NOT EXECUTED** |
 | [13 B — Cloud](labs/course-13b-cloud/) | 15 experiments | 7 run, including a **real web server, a real ETL and a real REST endpoint**; 14 console files **NOT EXECUTED** |
+| [14 A — Deep Learning](labs/course-14a-deeplearning/) | 12 experiments | **10 run against real MNIST, Fashion-MNIST, IMDb and real MobileNetV2/VGG16 ImageNet weights**; 2 **NOT EXECUTED** |
+| [14 B — Time Series](labs/course-14b-timeseries/) | 13 experiments | **All 13 run.** No file in this course is marked NOT EXECUTED |
+| [15 A — NLP](labs/course-15a-nlp/) | 14 experiments | **11 run against real NLTK corpora and real spaCy models**, every result scored against hand-labelled truth; 3 **NOT EXECUTED** |
+| [15 B — MLOps](labs/course-15b-mlops/) | 16 experiments | **11 run against real MLflow, git, DVC and Flask**; 5 **NOT EXECUTED** |
 
 ---
 
 ## Scope
 
-**Three** source documents, all extracted verbatim and committed under
+**Four** source documents, all extracted verbatim and committed under
 [`docs/`](docs/):
 
 | Document | Pages | Covers |
@@ -155,7 +163,15 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 | `run_web_labs.js` | 184 assertions on the DOM after each Course 7 lab script, under jsdom |
 | `run_data_labs.py` | 33 Course 8 and 9 programs run, each asserting the notes' own figures |
 | `run_mongo_labs.py` | 16 Course 10 experiments executed through mongomock; the other 4 audited for their NOT EXECUTED marker |
-| `extract_syllabus.py` | All 37 PDF pages yield text |
+| `run_ml_labs.py` | Course 12 A's 12 practicals run under scikit-learn |
+| `run_ai_labs.py` | Course 13 A's search and logic programs; 5 run as real Prolog |
+| `run_bigdata_labs.py` | 14 of 17 Course 12 B experiments, including real Spark, Avro and Parquet |
+| `run_cloud_labs.py` | Course 13 B's runnable halves, and 15 NOT EXECUTED markers audited |
+| `run_deeplearning_labs.py` | Course 14 A on **real MNIST, Fashion-MNIST, IMDb and real ImageNet weights**; 2 markers audited |
+| `run_timeseries_labs.py` | **All 13** Course 14 B experiments; no NOT EXECUTED file exists |
+| `run_nlp_labs.py` | Course 15 A on **real NLTK corpora and real spaCy models**, every result scored; 3 markers audited |
+| `run_mlops_labs.py` | Course 15 B against **real MLflow, git, DVC and Flask**; 5 markers audited |
+| `extract_syllabus.py` | All PDF pages yield text |
 | `check_coverage.py` | **672 syllabus topics across 50 unit files** all map to a notes section |
 
 Statistical results are additionally self-checked: regression output via

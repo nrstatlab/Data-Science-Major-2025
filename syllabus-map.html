@@ -1079,46 +1079,130 @@ environment refuses with a 403 at the gateway.</p>
 every technique the syllabus names, so this course has no <code>NOT EXECUTED</code> file
 anywhere.</p>
 <hr />
-<h2>4. Courses still to be written up</h2>
-<p>The Semester VI document <strong>does</strong> carry unit-level syllabi for all four of its
-courses. Two are written up in full above; the remaining two are extracted and
-mapped but their notes and labs are still being built.</p>
+<h3>Course 15 A — Natural Language Processing (Sem VI) — <em>Track A</em></h3>
 <table class="main-table">
 <thead>
 <tr>
-<th style="text-align: center;">#</th>
-<th>Course</th>
-<th style="text-align: center;">Sem</th>
-<th style="text-align: center;">Source pages</th>
+<th style="text-align: center;">Unit</th>
+<th>Title</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>Introduction to NLP and Language Fundamentals</td>
+<td>Definition, goals and scope of NLP; real-world applications (assistants, chatbots, translation, summarization, QA, spam detection); fundamentals of language processing; ambiguities — lexical, structural, contextual; installations — Python, NLTK, spaCy basics; regular expressions (<code>findall</code>, <code>split</code>, <code>sub</code>, matching tokens)</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>Text Preprocessing and Linguistic Analysis</td>
+<td>Morphology, lexicon, orthographic rules; finite state transducers; tokenization, stopword removal, stemming, lemmatization; grammar and context-free grammar; parsing — top-down, bottom-up, the CYK algorithm; semantic analysis — elements and meaning representation</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Information Extraction and Representation</td>
+<td>Named entity recognition with spaCy and NLTK; word embeddings — Word2Vec (skip-gram, CBOW), comparison and implementations; bag of words and n-grams; the text classification pipeline; sentiment analysis; ethical considerations in preprocessing and classification</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>Deep Learning for NLP</td>
+<td>Recurrent neural networks; RNN against CNN and feedforward networks; LSTM and GRU for sequence modeling; transformer models; pretrained models (BERT, GPT); the Hugging Face ecosystem</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Transformers and Modern NLP</td>
+<td>Transformer architecture basics — self-attention, encoder-decoder; BERT pretraining and fine-tuning; GPT and generative NLP; using pre-trained models; text summarization — extractive, abstractive, hybrid; applications — document classification, chatbots, virtual assistants</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lab:</strong> 14 practicals (page 12). <strong>Eleven run</strong> against real NLTK corpora
+(Brown, Reuters, the Penn Treebank, movie_reviews, Gutenberg, WordNet), real
+spaCy models, scikit-learn and PyTorch. The three Hugging Face experiments
+(12–14) are marked NOT EXECUTED — <code>huggingface.co</code> is refused at the gateway
+with a 403 — and each has a runnable half that builds the same mechanism.</p>
+<h3>Course 15 B — Data Engineering and MLOps (Sem VI) — <em>Track B</em></h3>
+<table class="main-table">
+<thead>
+<tr>
+<th style="text-align: center;">Unit</th>
+<th>Title</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>Foundations of Data Engineering</td>
+<td>Data engineering — definition, lifecycle, skills, activities; the evolution and roles of data engineers, technical against business responsibilities, internal against external; the relationship between data engineering and data science; the data lifecycle against the data engineering lifecycle</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>Data Architecture and Distributed Systems</td>
+<td>Enterprise and data architecture; principles of good data architecture; scalability, failure design, tiers, microservices, monolith against modular; event-driven architecture, hybrid cloud, multicloud, edge computing; technology selection — team size, interoperability, cost, TCO</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>MLOps Fundamentals</td>
+<td>MLOps challenges and risk mitigation; Responsible AI and scaling ML solutions; EDA, feature engineering, model training and evaluation, reproducibility; deployment requirements and monitoring basics; model versioning and experimentation tracking</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>Model Deployment and CI/CD Pipelines</td>
+<td>Preparing models for production; runtime environments from dev to production; CI/CD pipelines — building ML artifacts, testing pipelines; deployment strategies — batch, online, A/B testing, canary releases; containerization and scaling with Docker and Kubernetes</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Monitoring, Feedback Loops and Governance</td>
+<td>Monitoring in production — drift detection, ground truth evaluation; feedback loops — retraining workflows, online evaluation; logging and monitoring frameworks; governance — GDPR, CCPA, GxP, Responsible AI principles; templates for governance, compliance and model risk management</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lab:</strong> 16 practicals (page 17). <strong>Eleven run</strong> against the real tools —
+MLflow 3 on a SQLite backend, git and DVC with a genuine data rollback, a
+Flask server on a real socket, SQLite constraints that reject bad rows, and
+scipy's statistical tests scored against injected drift. Five are marked NOT
+EXECUTED: Kafka/RabbitMQ and Hadoop need broker and JVM processes, the Docker
+daemon is not running, GitHub Actions needs a runner, and Prometheus and
+Grafana are servers. Each names a runnable half.</p>
+<hr />
+<h2>4. Every course is now written up</h2>
+<p>All fifteen major courses across four source documents have unit-level notes,
+laboratory material and practice questions in this repository.</p>
+<table class="main-table">
+<thead>
+<tr>
+<th style="text-align: center;">Semester</th>
+<th>Courses</th>
 <th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">15 A</td>
-<td>Natural Language Processing</td>
-<td style="text-align: center;">VI</td>
-<td style="text-align: center;">10-13</td>
-<td>syllabus extracted; notes and 14 practicals pending</td>
+<td style="text-align: center;">I–II</td>
+<td>1–5</td>
+<td>complete</td>
 </tr>
 <tr>
-<td style="text-align: center;">15 B</td>
-<td>Data Engineering and MLOps</td>
+<td style="text-align: center;">III–IV</td>
+<td>6–10</td>
+<td>complete</td>
+</tr>
+<tr>
+<td style="text-align: center;">V</td>
+<td>11, 12 A/B, 13 A/B</td>
+<td>complete, <strong>both tracks</strong></td>
+</tr>
+<tr>
 <td style="text-align: center;">VI</td>
-<td style="text-align: center;">14-17</td>
-<td>syllabus extracted; notes and 16 practicals pending</td>
+<td>14 A/B, 15 A/B</td>
+<td>complete, <strong>both tracks</strong></td>
 </tr>
 </tbody>
 </table>
-<h3>Course 15 A — Natural Language Processing (Sem VI) — <em>Track A</em></h3>
-<p>Five units covering NLP fundamentals and text processing; preprocessing and
-parsing; information extraction and text representation; deep learning for
-NLP; and pre-trained transformer models. <strong>14 practicals</strong>, of which the
-Hugging Face experiments (12-14) will need the host this environment refuses.</p>
-<h3>Course 15 B — Data Engineering and MLOps (Sem VI) — <em>Track B</em></h3>
-<p>Five units covering data engineering and its roles; data architecture;
-MLOps fundamentals; model deployment and CI/CD pipelines; and monitoring,
-feedback loops and governance. <strong>16 practicals.</strong></p>
+<p><strong>Both elective tracks are covered in full</strong>, because the choice made at the
+start of Semester V binds you through Semester VI and you cannot choose well
+without seeing what is in each.</p>
 
   <div class="page-nav">
     <a href="index.html">← Home</a>

@@ -339,6 +339,72 @@ courses you take. Reading them is worth almost nothing;
 running them, breaking them and fixing them is where the marks are — and it is
 what the viva examines.
 
+---
+
+## Semester VI — 15 weeks
+
+**Two courses, 8 credits — the lightest semester on paper, and the one where
+the project usually lands.** You stay in the track you chose for Semester V:
+**14 A + 15 A** or **14 B + 15 B**.
+
+### The scheduling advantage nobody uses
+
+> **Within each track the two courses overlap heavily, and doing the
+> overlapping units in the same week roughly halves the work.**
+
+| Track | The overlap |
+|---|---|
+| **A** | Course 14 A Units 4–5 (RNN, LSTM, attention, transformers) and Course 15 A Units 4–5 are **the same architectures**, from two directions |
+| **B** | Course 14 B's forecasting and Course 15 B's drift detection are both **distribution change over time**; PSI and the ADF test answer related questions |
+
+### Track A — Courses 14 A and 15 A
+
+| Weeks | 14 A — Deep Learning | 15 A — NLP |
+|:---:|---|---|
+| 1–2 | Unit 1: perceptron, **the XOR proof**, activations, loss | Unit 1: ambiguity, regex, NLTK and spaCy |
+| 3–4 | Unit 2: propagation, initialisation, **the learning rate** | Unit 2: tokenization, stemming, grammars |
+| 5–6 | Unit 2: dropout, batch norm, Keras | Unit 2: **parsing, CYK**, semantic analysis |
+| 7–8 | Unit 3: **conv arithmetic**, pooling, LeNet/AlexNet/VGG | Unit 3: NER, TF-IDF, n-grams |
+| 9–10 | **Unit 4: RNN, LSTM, GRU** ← | **Unit 3–4: embeddings, RNN** ← *do these together* |
+| 11–12 | **Unit 5: attention, transformers** ← | **Unit 4–5: transformers, BERT** ← *and these* |
+| 13 | Unit 5: transfer learning, **AI ethics** | Unit 5: summarization, chatbots |
+| 14–15 | revision, labs, project | revision, labs, project |
+
+### Track B — Courses 14 B and 15 B
+
+| Weeks | 14 B — Time Series | 15 B — Data Engineering & MLOps |
+|:---:|---|---|
+| 1–2 | Unit 1: **stationarity**, ACF and PACF | Unit 1: the lifecycle, ETL vs ELT |
+| 3–4 | Unit 2: ARMA, AIC/BIC, Ljung-Box | Unit 2: architecture, **monolith vs microservices** |
+| 5–6 | Unit 3: **ADF and KPSS**, ARIMA | Unit 2: batch vs event-driven, TCO |
+| 7–8 | Unit 3: SARIMA, prediction intervals | Unit 3: **MLflow, reproducibility, DVC** |
+| 9–10 | Unit 4: VAR, Granger, Kalman | Unit 4: deployment, **CI/CD and the metric gate** |
+| 11–12 | **Unit 5: forecast evaluation** ← | **Unit 5: drift detection** ← *do these together* |
+| 13 | Unit 5: Holt-Winters, MASE | Unit 5: **GDPR, governance, Responsible AI** |
+| 14–15 | revision, labs, project | revision, labs, project |
+
+### ⚠️ Two things to plan for in Semester VI
+
+**1. The labs are heavier than the credit count suggests.** Track A prescribes
+**26 experiments** (12 + 14) and Track B **29** (13 + 16), and several are
+genuinely slow to run — training a CNN or a transformer is not a two-hour
+exercise on a laptop.
+
+**Start the lab record in week 3, not week 12.**
+
+**2. Some experiments need tools your lab may not have.** This repository
+records exactly which, and why, for every one — Hugging Face, Kafka, Hadoop,
+Docker, GitHub Actions, Prometheus. **Check what is available in your lab in
+week 1**, and agree with your instructor what the substitute is before you
+need it.
+
+### 💡 And the thing worth doing that nobody assigns
+
+**Take one dataset through both of your courses.** On Track A, classify it and
+then explain the classification. On Track B, forecast it and then deploy the
+forecaster with monitoring. **A single worked example that crosses both
+courses is worth more in a viva than two separate ones**, and it is the shape
+of an actual job.
 
 ---
 

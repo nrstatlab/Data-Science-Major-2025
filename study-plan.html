@@ -886,6 +886,159 @@ courses you take. Reading them is worth almost nothing;
 running them, breaking them and fixing them is where the marks are — and it is
 what the viva examines.</p>
 <hr />
+<h2>Semester VI — 15 weeks</h2>
+<p><strong>Two courses, 8 credits — the lightest semester on paper, and the one where
+the project usually lands.</strong> You stay in the track you chose for Semester V:
+<strong>14 A + 15 A</strong> or <strong>14 B + 15 B</strong>.</p>
+<h3>The scheduling advantage nobody uses</h3>
+<div class="tip">
+<p><span class="label">NOTE</span></p>
+<p><strong>Within each track the two courses overlap heavily, and doing the
+overlapping units in the same week roughly halves the work.</strong></p>
+</div>
+<table class="main-table">
+<thead>
+<tr>
+<th>Track</th>
+<th>The overlap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>Course 14 A Units 4–5 (RNN, LSTM, attention, transformers) and Course 15 A Units 4–5 are <strong>the same architectures</strong>, from two directions</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>Course 14 B's forecasting and Course 15 B's drift detection are both <strong>distribution change over time</strong>; PSI and the ADF test answer related questions</td>
+</tr>
+</tbody>
+</table>
+<h3>Track A — Courses 14 A and 15 A</h3>
+<table class="main-table">
+<thead>
+<tr>
+<th style="text-align: center;">Weeks</th>
+<th>14 A — Deep Learning</th>
+<th>15 A — NLP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1–2</td>
+<td>Unit 1: perceptron, <strong>the XOR proof</strong>, activations, loss</td>
+<td>Unit 1: ambiguity, regex, NLTK and spaCy</td>
+</tr>
+<tr>
+<td style="text-align: center;">3–4</td>
+<td>Unit 2: propagation, initialisation, <strong>the learning rate</strong></td>
+<td>Unit 2: tokenization, stemming, grammars</td>
+</tr>
+<tr>
+<td style="text-align: center;">5–6</td>
+<td>Unit 2: dropout, batch norm, Keras</td>
+<td>Unit 2: <strong>parsing, CYK</strong>, semantic analysis</td>
+</tr>
+<tr>
+<td style="text-align: center;">7–8</td>
+<td>Unit 3: <strong>conv arithmetic</strong>, pooling, LeNet/AlexNet/VGG</td>
+<td>Unit 3: NER, TF-IDF, n-grams</td>
+</tr>
+<tr>
+<td style="text-align: center;">9–10</td>
+<td><strong>Unit 4: RNN, LSTM, GRU</strong> ←</td>
+<td><strong>Unit 3–4: embeddings, RNN</strong> ← <em>do these together</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">11–12</td>
+<td><strong>Unit 5: attention, transformers</strong> ←</td>
+<td><strong>Unit 4–5: transformers, BERT</strong> ← <em>and these</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td>Unit 5: transfer learning, <strong>AI ethics</strong></td>
+<td>Unit 5: summarization, chatbots</td>
+</tr>
+<tr>
+<td style="text-align: center;">14–15</td>
+<td>revision, labs, project</td>
+<td>revision, labs, project</td>
+</tr>
+</tbody>
+</table>
+<h3>Track B — Courses 14 B and 15 B</h3>
+<table class="main-table">
+<thead>
+<tr>
+<th style="text-align: center;">Weeks</th>
+<th>14 B — Time Series</th>
+<th>15 B — Data Engineering &amp; MLOps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1–2</td>
+<td>Unit 1: <strong>stationarity</strong>, ACF and PACF</td>
+<td>Unit 1: the lifecycle, ETL vs ELT</td>
+</tr>
+<tr>
+<td style="text-align: center;">3–4</td>
+<td>Unit 2: ARMA, AIC/BIC, Ljung-Box</td>
+<td>Unit 2: architecture, <strong>monolith vs microservices</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">5–6</td>
+<td>Unit 3: <strong>ADF and KPSS</strong>, ARIMA</td>
+<td>Unit 2: batch vs event-driven, TCO</td>
+</tr>
+<tr>
+<td style="text-align: center;">7–8</td>
+<td>Unit 3: SARIMA, prediction intervals</td>
+<td>Unit 3: <strong>MLflow, reproducibility, DVC</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">9–10</td>
+<td>Unit 4: VAR, Granger, Kalman</td>
+<td>Unit 4: deployment, <strong>CI/CD and the metric gate</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">11–12</td>
+<td><strong>Unit 5: forecast evaluation</strong> ←</td>
+<td><strong>Unit 5: drift detection</strong> ← <em>do these together</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td>Unit 5: Holt-Winters, MASE</td>
+<td>Unit 5: <strong>GDPR, governance, Responsible AI</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">14–15</td>
+<td>revision, labs, project</td>
+<td>revision, labs, project</td>
+</tr>
+</tbody>
+</table>
+<h3>⚠️ Two things to plan for in Semester VI</h3>
+<p><strong>1. The labs are heavier than the credit count suggests.</strong> Track A prescribes
+<strong>26 experiments</strong> (12 + 14) and Track B <strong>29</strong> (13 + 16), and several are
+genuinely slow to run — training a CNN or a transformer is not a two-hour
+exercise on a laptop.</p>
+<p><strong>Start the lab record in week 3, not week 12.</strong></p>
+<p><strong>2. Some experiments need tools your lab may not have.</strong> This repository
+records exactly which, and why, for every one — Hugging Face, Kafka, Hadoop,
+Docker, GitHub Actions, Prometheus. <strong>Check what is available in your lab in
+week 1</strong>, and agree with your instructor what the substitute is before you
+need it.</p>
+<div class="tip">
+<p><span class="label">KEY INSIGHT</span></p>
+<h4>And the thing worth doing that nobody assigns</h4>
+<p><strong>Take one dataset through both of your courses.</strong> On Track A, classify it and
+then explain the classification. On Track B, forecast it and then deploy the
+forecaster with monitoring. <strong>A single worked example that crosses both
+courses is worth more in a viva than two separate ones</strong>, and it is the shape
+of an actual job.</p>
+</div>
+<hr />
 <h2>Weekly rhythm</h2>
 <p>A schedule you can actually keep beats an ambitious one you abandon in week 3.</p>
 <table class="main-table">

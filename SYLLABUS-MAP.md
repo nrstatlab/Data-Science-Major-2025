@@ -344,26 +344,54 @@ anywhere.
 
 ---
 
-## 4. Courses still to be written up
-
-The Semester VI document **does** carry unit-level syllabi for all four of its
-courses. Two are written up in full above; the remaining two are extracted and
-mapped but their notes and labs are still being built.
-
-| # | Course | Sem | Source pages | Status |
-|:---:|---|:---:|:---:|---|
-| 15 A | Natural Language Processing | VI | 10-13 | syllabus extracted; notes and 14 practicals pending |
-| 15 B | Data Engineering and MLOps | VI | 14-17 | syllabus extracted; notes and 16 practicals pending |
-
 ### Course 15 A — Natural Language Processing (Sem VI) — *Track A*
 
-Five units covering NLP fundamentals and text processing; preprocessing and
-parsing; information extraction and text representation; deep learning for
-NLP; and pre-trained transformer models. **14 practicals**, of which the
-Hugging Face experiments (12-14) will need the host this environment refuses.
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Introduction to NLP and Language Fundamentals | Definition, goals and scope of NLP; real-world applications (assistants, chatbots, translation, summarization, QA, spam detection); fundamentals of language processing; ambiguities — lexical, structural, contextual; installations — Python, NLTK, spaCy basics; regular expressions (`findall`, `split`, `sub`, matching tokens) |
+| 2 | Text Preprocessing and Linguistic Analysis | Morphology, lexicon, orthographic rules; finite state transducers; tokenization, stopword removal, stemming, lemmatization; grammar and context-free grammar; parsing — top-down, bottom-up, the CYK algorithm; semantic analysis — elements and meaning representation |
+| 3 | Information Extraction and Representation | Named entity recognition with spaCy and NLTK; word embeddings — Word2Vec (skip-gram, CBOW), comparison and implementations; bag of words and n-grams; the text classification pipeline; sentiment analysis; ethical considerations in preprocessing and classification |
+| 4 | Deep Learning for NLP | Recurrent neural networks; RNN against CNN and feedforward networks; LSTM and GRU for sequence modeling; transformer models; pretrained models (BERT, GPT); the Hugging Face ecosystem |
+| 5 | Transformers and Modern NLP | Transformer architecture basics — self-attention, encoder-decoder; BERT pretraining and fine-tuning; GPT and generative NLP; using pre-trained models; text summarization — extractive, abstractive, hybrid; applications — document classification, chatbots, virtual assistants |
+
+**Lab:** 14 practicals (page 12). **Eleven run** against real NLTK corpora
+(Brown, Reuters, the Penn Treebank, movie_reviews, Gutenberg, WordNet), real
+spaCy models, scikit-learn and PyTorch. The three Hugging Face experiments
+(12–14) are marked NOT EXECUTED — `huggingface.co` is refused at the gateway
+with a 403 — and each has a runnable half that builds the same mechanism.
 
 ### Course 15 B — Data Engineering and MLOps (Sem VI) — *Track B*
 
-Five units covering data engineering and its roles; data architecture;
-MLOps fundamentals; model deployment and CI/CD pipelines; and monitoring,
-feedback loops and governance. **16 practicals.**
+| Unit | Title | Topics |
+|:---:|---|---|
+| 1 | Foundations of Data Engineering | Data engineering — definition, lifecycle, skills, activities; the evolution and roles of data engineers, technical against business responsibilities, internal against external; the relationship between data engineering and data science; the data lifecycle against the data engineering lifecycle |
+| 2 | Data Architecture and Distributed Systems | Enterprise and data architecture; principles of good data architecture; scalability, failure design, tiers, microservices, monolith against modular; event-driven architecture, hybrid cloud, multicloud, edge computing; technology selection — team size, interoperability, cost, TCO |
+| 3 | MLOps Fundamentals | MLOps challenges and risk mitigation; Responsible AI and scaling ML solutions; EDA, feature engineering, model training and evaluation, reproducibility; deployment requirements and monitoring basics; model versioning and experimentation tracking |
+| 4 | Model Deployment and CI/CD Pipelines | Preparing models for production; runtime environments from dev to production; CI/CD pipelines — building ML artifacts, testing pipelines; deployment strategies — batch, online, A/B testing, canary releases; containerization and scaling with Docker and Kubernetes |
+| 5 | Monitoring, Feedback Loops and Governance | Monitoring in production — drift detection, ground truth evaluation; feedback loops — retraining workflows, online evaluation; logging and monitoring frameworks; governance — GDPR, CCPA, GxP, Responsible AI principles; templates for governance, compliance and model risk management |
+
+**Lab:** 16 practicals (page 17). **Eleven run** against the real tools —
+MLflow 3 on a SQLite backend, git and DVC with a genuine data rollback, a
+Flask server on a real socket, SQLite constraints that reject bad rows, and
+scipy's statistical tests scored against injected drift. Five are marked NOT
+EXECUTED: Kafka/RabbitMQ and Hadoop need broker and JVM processes, the Docker
+daemon is not running, GitHub Actions needs a runner, and Prometheus and
+Grafana are servers. Each names a runnable half.
+
+---
+
+## 4. Every course is now written up
+
+All fifteen major courses across four source documents have unit-level notes,
+laboratory material and practice questions in this repository.
+
+| Semester | Courses | Status |
+|:---:|---|---|
+| I–II | 1–5 | complete |
+| III–IV | 6–10 | complete |
+| V | 11, 12 A/B, 13 A/B | complete, **both tracks** |
+| VI | 14 A/B, 15 A/B | complete, **both tracks** |
+
+**Both elective tracks are covered in full**, because the choice made at the
+start of Semester V binds you through Semester VI and you cannot choose well
+without seeing what is in each.

@@ -572,6 +572,56 @@ density of any document in the set**. The recommendation from D24 stands and
 strengthens: **all four PDFs need a proofreading pass before they are issued
 to students.**
 
+### D31 — Course 15 B's only textbook has no publisher and no year
+
+**Page 16.** The reading list reads, in full:
+
+> Text/ Reference books 1. **Fundamentals of Data Engineering, Joe Reis & Matt
+> Housley,** 2. Web Resources: …
+
+The trailing comma after "Housley" is where the publisher and year should be
+— the book is O'Reilly, 2022 — and item 2 turns out not to be a book at all
+but the heading "Web Resources", so **the list has exactly one text and it is
+incompletely cited.**
+
+**Compare this with the other Semester VI courses**, which give author,
+year, title, edition and publisher. Course 15 B is the only one whose
+students cannot locate their single prescribed text from the syllabus alone.
+
+### D32 — Course 15 B prescribes a paywalled article as a course resource
+
+**Page 16.** Among the three web resources is a Towards Data Science article.
+**That publication moved to a Medium members-only model**, so a student
+following the syllabus may find the prescribed reading behind a paywall.
+
+**This is a different class of defect from the truncations.** It is not a
+production error — somebody chose that link — but it is a maintenance
+failure: **a syllabus that cites a URL has taken on the obligation to check
+that the URL still serves what it did.** The IBM and Martin Fowler links
+alongside it remain freely readable.
+
+### D33 — The Semester VI practical lists name tools the theory never mentions
+
+Three cases, across both tracks:
+
+| Course | The practical asks for | The theory units mention |
+|---|---|---|
+| 14 A, practical 2 | Google Teachable Machine, TensorFlow Playground | neither |
+| 15 B, practical 4 | **Apache Kafka or RabbitMQ** | "event-driven architecture", no product named |
+| 15 B, practical 15 | **Prometheus / Grafana** | "logging, monitoring frameworks", no product named |
+
+**Practical 4 is the significant one.** A student is asked to *compare batch
+and event-driven ingestion using Kafka or RabbitMQ* having been taught the
+architectural concept and nothing about either product — not the broker
+model, not partitions, not consumer groups, not delivery semantics.
+
+**The lab is being asked to teach the tool as well as apply it**, in two
+hours, and the syllabus allots no theory time to it. Either the unit should
+name the technology it expects, or the practical should say that learning it
+is part of the exercise.
+
+---
+
 ## What the five Semester V courses do well
 
 The defects above are worth recording, but a review that lists only faults

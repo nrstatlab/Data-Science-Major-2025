@@ -837,6 +837,79 @@ COURSES = [
              "needs."),
         ],
     },
+    {
+        "slug": "mlops",
+        "src": "notes/sem-6/course-15b-mlops",
+        "number": 15, "year": "III", "sem": "VI",
+        "title": "Data Engineering and MLOps",
+        "tagline": "Track B. Every other course ends when the model works. "
+                   "This one starts there.",
+        "blurb": "5 Units + Lab \u2022 The data engineering lifecycle, "
+                 "architecture and distributed systems, MLOps fundamentals, "
+                 "deployment and CI/CD, monitoring and governance. Eleven of "
+                 "sixteen experiments run against the real tools \u2014 "
+                 "MLflow, git and DVC, a Flask server on a real socket, and "
+                 "a drift detector scored against injected drift.",
+        "units": [
+            ("Foundations of Data Engineering",
+             "What data engineering is, and why 'systems' and 'maintenance' "
+             "are the load-bearing words; the activities from ingestion to "
+             "monitoring; the data lifecycle against the data ENGINEERING "
+             "lifecycle, with the five undercurrents and why they are drawn "
+             "underneath; the evolution of the role; ETL against ELT and why "
+             "ELT won; technical against business responsibilities, internal "
+             "against external; how data engineering relates to data "
+             "science, in both directions; and the measured demonstration "
+             "that a pipeline reporting a 1% error is more dangerous than "
+             "one that crashes."),
+            ("Data Architecture and Distributed Systems",
+             "Enterprise, data and solution architecture; the principles of "
+             "good architecture and why reversibility deserves your design "
+             "effort; availability, reliability, RTO and RPO, with what each "
+             "nine actually costs; tiers; monolith against microservices "
+             "MEASURED, including the honest admission that microservices "
+             "are slower and the one-database-per-service cost; "
+             "event-driven architecture and batch against streaming "
+             "ingestion measured at a 160x latency difference; dead-letter "
+             "queues; hybrid cloud, multicloud and edge; and TCO, where the "
+             "licence fee is rarely the largest line."),
+            ("MLOps Fundamentals",
+             "How MLOps differs from DevOps \u2014 code, data and model "
+             "versioned together; training/serving skew and its "
+             "architectural fix; data leakage and the three ways it happens; "
+             "EDA, feature engineering and recording the base rate first; "
+             "experiment tracking with real MLflow, and why the train/test "
+             "gap belongs in the table; the four things that must be pinned "
+             "for reproducibility, with the split's random_state "
+             "demonstrated as the one people forget; model versioning; what "
+             "DVC stores in git and what it does not; Responsible AI "
+             "controls and what breaks at each scale."),
+            ("Model Deployment and CI/CD Pipelines",
+             "What production-ready means concretely, and why returning 400 "
+             "with a reason matters more than the model; dev, staging and "
+             "production, and putting the differences in configuration; "
+             "CI/CD for ML including the two stages with no software "
+             "equivalent \u2014 data validation and the metric gate; why a "
+             "non-deterministic pipeline makes CI meaningless; batch, "
+             "online, streaming and embedded deployment; canary, blue-green, "
+             "A/B and shadow releases; the seven Docker traps; layer caching "
+             "and image size; and Kubernetes readiness against liveness "
+             "probes."),
+            ("Monitoring, Feedback Loops and Governance",
+             "Data, concept and label drift told apart, and the asymmetry "
+             "that only one is detectable early; PSI and the KS test scored "
+             "against drift injected at a known magnitude \u2014 4 of 5 "
+             "batches caught with no false alarms and a one-batch lag; why "
+             "statistical significance is not operational significance; "
+             "ground truth evaluation and the partial-label feedback trap; "
+             "the seven-step retraining loop and the step that must stay "
+             "human; metrics against logs, the four Prometheus types, and "
+             "why latency needs a histogram; GDPR, CCPA, GxP and the EU AI "
+             "Act; why Article 17 breaks trained models; fairness measured "
+             "with a control condition; and a model risk management "
+             "template."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {
