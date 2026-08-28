@@ -765,6 +765,78 @@ COURSES = [
              "forecast for bias."),
         ],
     },
+    {
+        "slug": "nlp",
+        "src": "notes/sem-6/course-15a-nlp",
+        "number": 15, "year": "III", "sem": "VI",
+        "title": "Natural Language Processing",
+        "tagline": "Track A. Turning text into numbers without throwing away "
+                   "what it means.",
+        "blurb": "5 Units + Lab \u2022 Ambiguity and regular expressions, "
+                 "tokenization, stemming and lemmatization, grammars and "
+                 "parsing, named entity recognition, embeddings, "
+                 "classification, RNNs and transformers. Eleven of fourteen "
+                 "experiments run against real NLTK corpora and real spaCy "
+                 "models, every result scored against hand-labelled truth.",
+        "units": [
+            ("Introduction to NLP and Language Fundamentals",
+             "What NLP is and the three properties that make language hard; "
+             "the levels of analysis from phonology to discourse; "
+             "applications, and why spam detection is adversarial; lexical, "
+             "structural and contextual ambiguity told apart, with WordNet "
+             "sense counts and actual parse trees; garden-path sentences; "
+             "NLTK against spaCy and when to use each; regular expressions "
+             "scored against hand-labelled truth, greedy against lazy "
+             "quantifiers, and where a regex stops being the right tool."),
+            ("Text Preprocessing and Linguistic Analysis",
+             "Morphology, lexicon, orthographic rules; inflectional against "
+             "derivational morphology; finite state transducers and why "
+             "bidirectionality matters; sentence and word tokenization, and "
+             "why two trained tokenisers disagree; stopword removal measured "
+             "on the Brown corpus, and the sentences it destroys; stemming "
+             "against lemmatization on 'ran', 'better' and "
+             "'university'/'universal'; context-free grammars and the "
+             "Chomsky hierarchy; top-down, bottom-up and chart parsing; why "
+             "left recursion kills a top-down parser; CYK and its "
+             "O(n\u00b3); semantic analysis and meaning representation."),
+            ("Information Extraction and Representation",
+             "Named entity recognition, the BIO scheme, and spaCy scored "
+             "against thirteen hand-assigned labels \u2014 including the "
+             "two Indian state names it gets wrong and the gazetteer that "
+             "fixes them; bag of words, TF-IDF and what IDF actually is; "
+             "n-grams and the word order unigrams cannot see; the "
+             "measurement where counts rank an unrelated document above a "
+             "paraphrase; the distributional hypothesis, CBOW against "
+             "skip-gram, negative sampling, GloVe; the classification "
+             "pipeline and why the vectoriser is fitted on train only; "
+             "comparing a model gap against the cross-validation spread; "
+             "the ethics of preprocessing."),
+            ("Deep Learning for NLP",
+             "Why sequences break feedforward networks; RNN against CNN for "
+             "text; the vanishing gradient as arithmetic, stated precisely "
+             "enough to say that 3e-151 is not zero; LSTM gates and the "
+             "additive cell path; GRU; the LSTM-RNN gap measured on both a "
+             "constructed dataset and real IMDb, and why it narrows; "
+             "perplexity and what value means no better than guessing; "
+             "temperature; the O(T\u00b2) cost and why parallelism won; "
+             "BERT against GPT; what pre-training buys, measured by "
+             "training the small version; subword tokenization and the "
+             "Hugging Face ecosystem."),
+            ("Transformers and Modern NLP",
+             "Self-attention worked on checkable numbers; why the scores "
+             "are divided by \u221ad_k, measured against softmax "
+             "saturation; multi-head attention, the encoder block, "
+             "residuals and layer norm; positional encoding; "
+             "encoder-decoder and what cross-attention does; BERT's "
+             "pretraining, the full masking recipe including the 10% random "
+             "and 10% unchanged, and why NSP was dropped; fine-tuning; GPT "
+             "and hallucination; extractive, abstractive and hybrid "
+             "summarization, the lead-3 baseline, and why regulated domains "
+             "stay extractive; document classification, retrieval against "
+             "generative chatbots, and the threshold every retrieval bot "
+             "needs."),
+        ],
+    },
 ]
 
 EXTRA_PAGES = {

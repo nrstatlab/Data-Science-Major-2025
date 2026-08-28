@@ -65,6 +65,9 @@ KERAS_BACKEND=torch python3 "$ROOT/tools/run_deeplearning_labs.py" | tail -8 || 
 banner "Course 14B labs (Time Series: ARIMA, SARIMA, VAR, Kalman, spectral)"
 python3 "$ROOT/tools/run_timeseries_labs.py" | tail -6 || fail=$((fail+1))
 
+banner "Course 15A labs (NLP: NLTK corpora, spaCy, scikit-learn, PyTorch)"
+python3 "$ROOT/tools/run_nlp_labs.py" | tail -8 || fail=$((fail+1))
+
 banner "Syllabus coverage"
 python3 "$ROOT/tools/check_coverage.py" | tail -3 || fail=$((fail+1))
 

@@ -429,6 +429,30 @@ COVERAGE = {
         "exponential smoothing", "holt-winters", "machine learning",
         "rmse", "mae", "mape", "mase", "baseline", "spectral analysis",
         "periodogram"],
+
+    "notes/sem-6/course-15a-nlp/unit-1.md": [
+        "definition", "goals", "scope of nlp", "applications", "chatbot",
+        "translation", "summarization", "spam detection",
+        "language processing", "lexical", "structural", "contextual",
+        "nltk", "spacy", "regular expression", "findall", "split", "sub"],
+    "notes/sem-6/course-15a-nlp/unit-2.md": [
+        "morphology", "lexicon", "orthographic", "finite state transducer",
+        "tokenization", "stopword", "stemming", "lemmatization", "grammar",
+        "context-free grammar", "top-down", "bottom-up", "cyk",
+        "semantic analysis", "meaning representation"],
+    "notes/sem-6/course-15a-nlp/unit-3.md": [
+        "named entity recognition", "ner", "spacy", "word embedding",
+        "word2vec", "skip-gram", "cbow", "bag of words", "n-gram",
+        "text classification", "sentiment analysis", "ethical"],
+    "notes/sem-6/course-15a-nlp/unit-4.md": [
+        "recurrent neural network", "rnn", "cnn", "feedforward", "lstm",
+        "gru", "sequence modeling", "transformer", "pretrained", "bert",
+        "gpt", "hugging face"],
+    "notes/sem-6/course-15a-nlp/unit-5.md": [
+        "transformer architecture", "self-attention", "encoder-decoder",
+        "bert", "pretraining", "fine-tuning", "gpt", "generative",
+        "hugging face", "extractive", "abstractive", "hybrid",
+        "document classification", "chatbot", "virtual assistant"],
 }
 
 
@@ -461,6 +485,10 @@ def normalise(text):
     """
     text = text.lower()
     text = text.replace("\u2013", "-").replace("\u2014", "-")
+    # collapse every run of whitespace to one space, so a keyword broken
+    # across a line wrap still matches. Without this the check reports a
+    # false gap whenever a phrase happens to straddle the margin.
+    text = " ".join(text.split())
     text = re.sub(r"is(ation|ations|ing|ed|es|e)\b", lambda m: "iz" + m.group(1),
                   text)
     return text

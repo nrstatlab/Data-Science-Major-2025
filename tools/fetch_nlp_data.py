@@ -23,6 +23,15 @@ PACKAGES = [
     ("averaged_perceptron_tagger",     "POS tagger"),
     ("averaged_perceptron_tagger_eng", "its English model"),
     ("treebank",                       "parsed sentences (experiment 7)"),
+    ("brown",                          "1.16M tagged words (experiments 5, 9)"),
+    ("movie_reviews",                  "2,000 labelled reviews (experiment 10)"),
+    ("gutenberg",                      "18 literary texts (experiment 11)"),
+    ("reuters",                        "10,788 news documents (experiments 8, 9)"),
+    ("names",                          "male and female name lists"),
+    ("conll2000",                      "chunked text, for shallow parsing"),
+    ("universal_tagset",               "the coarse tagset, for comparison"),
+    ("maxent_ne_chunker_tab",          "NLTK's own NER, to compare with spaCy"),
+    ("words",                          "an English word list, which NER needs"),
 ]
 
 
