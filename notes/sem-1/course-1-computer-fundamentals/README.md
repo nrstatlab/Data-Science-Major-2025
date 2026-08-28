@@ -59,7 +59,7 @@ Unit 5 (as a headline topic). Unit 5's treatment is the substantive one. See
 - [lab.md](lab.md) — all 14 lab experiments
 
 For spreadsheet formulas in a statistical context, see
-[`labs/course-4-stats/excel-walkthroughs.md`](../../../labs/course-4-stats/excel-walkthroughs.md),
+`labs/course-4-stats/excel-walkthroughs.md`,
 which covers the same functions applied to real data analysis.
 
 ## Textbooks

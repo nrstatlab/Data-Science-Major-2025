@@ -165,6 +165,18 @@ def main():
     check(f"{len(pages)} pages, every internal link resolves", not broken,
           str(broken[:5]))
 
+    # a link to a .md file is useless on the published site: the server hands
+    # the visitor raw markdown, or the browser downloads it. Every such link
+    # was unlinked; this keeps them from creeping back.
+    md_links = []
+    for p in pages:
+        text = p.read_text(errors="replace")
+        text = re.sub(r"<code>.*?</code>", "", text, flags=re.S)
+        text = re.sub(r"<pre.*?</pre>", "", text, flags=re.S)
+        for mo in re.finditer(r'href="([^"]*\.md[^"]*)"', text):
+            md_links.append(f"{p.relative_to(ROOT)} -> {mo.group(1)}")
+    check("no page links to a .md file", not md_links, str(md_links[:5]))
+
     md_broken = []
     for name in ("README.md", "SYLLABUS-MAP.md", "SYLLABUS-REVIEW.md",
                  "STUDY-PLAN.md"):

@@ -147,7 +147,7 @@ Statistical intuition decays without use. Finding **D10**.
 
 | Day | Revise |
 |---|---|
-| 1–2 | Descriptive statistics, distributions ([formula sheet](notes/sem-2/course-4-statistical-foundations/formula-sheet.md)) |
+| 1–2 | Descriptive statistics, distributions (formula sheet) |
 | 3–4 | Correlation and regression; re-run [`04_correlation_regression.py`](labs/course-4-stats/python/04_correlation_regression.py) |
 | 5–6 | Hypothesis testing; re-run [`05_inference_hypothesis_tests.py`](labs/course-4-stats/python/05_inference_hypothesis_tests.py) |
 | 7–10 | Bridge the Excel/Python gap — redo the stats labs in Python (finding **D8**) |

@@ -7,7 +7,7 @@ than code, so there are no files in `labs/` for it. What follows is what each
 experiment asks for and how to do it well.
 
 For the same spreadsheet functions applied to statistical data, see
-[`labs/course-4-stats/excel-walkthroughs.md`](../../../labs/course-4-stats/excel-walkthroughs.md).
+`labs/course-4-stats/excel-walkthroughs.md`.
 
 ---
 

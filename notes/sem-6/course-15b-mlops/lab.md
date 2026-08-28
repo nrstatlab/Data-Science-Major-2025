@@ -148,7 +148,7 @@ record waits for the next tick.
 
 The real Kafka and RabbitMQ code — with `acks`, consumer groups, offset replay
 and delivery semantics — is in
-[`04_kafka_rabbitmq.md`](../../../labs/course-15b-mlops/04_kafka_rabbitmq.md).
+`04_kafka_rabbitmq.md`.
 
 ---
 

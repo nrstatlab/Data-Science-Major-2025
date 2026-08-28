@@ -7,10 +7,10 @@ Sources, all four extracted verbatim:
 
 | Document | Covers | Extracted text |
 |---|---|---|
-| [`docs/Data-Science-Major-Sem1-2.pdf`](docs/Data-Science-Major-Sem1-2.pdf) | Programme structure + Courses 1–5 | [`syllabus-extracted.md`](docs/syllabus-extracted.md) |
-| [`docs/Data-Science-Major-Sem3-4.pdf`](docs/Data-Science-Major-Sem3-4.pdf) | Courses 6–10 | [`syllabus-extracted-sem3-4.md`](docs/syllabus-extracted-sem3-4.md) |
-| [`docs/Data-Science-Major-Sem5.pdf`](docs/Data-Science-Major-Sem5.pdf) | Course 11 + both Semester V pairs | [`syllabus-extracted-sem5.md`](docs/syllabus-extracted-sem5.md) |
-| [`docs/Data-Science-Major-Sem6.pdf`](docs/Data-Science-Major-Sem6.pdf) | Both Semester VI pairs | [`syllabus-extracted-sem6.md`](docs/syllabus-extracted-sem6.md) |
+| [`docs/Data-Science-Major-Sem1-2.pdf`](docs/Data-Science-Major-Sem1-2.pdf) | Programme structure + Courses 1–5 | `syllabus-extracted.md` |
+| [`docs/Data-Science-Major-Sem3-4.pdf`](docs/Data-Science-Major-Sem3-4.pdf) | Courses 6–10 | `syllabus-extracted-sem3-4.md` |
+| [`docs/Data-Science-Major-Sem5.pdf`](docs/Data-Science-Major-Sem5.pdf) | Course 11 + both Semester V pairs | `syllabus-extracted-sem5.md` |
+| [`docs/Data-Science-Major-Sem6.pdf`](docs/Data-Science-Major-Sem6.pdf) | Both Semester VI pairs | `syllabus-extracted-sem6.md` |
 
 ---
 

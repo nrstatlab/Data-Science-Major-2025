@@ -2,12 +2,12 @@
 
 A check of the official syllabus documents, not a transcription of them. Every
 finding below was verified against
-[`docs/syllabus-extracted.md`](docs/syllabus-extracted.md) (Semesters I–II),
-[`docs/syllabus-extracted-sem3-4.md`](docs/syllabus-extracted-sem3-4.md)
+`docs/syllabus-extracted.md` (Semesters I–II),
+`docs/syllabus-extracted-sem3-4.md`
 (Semesters III–IV) and
-[`docs/syllabus-extracted-sem5.md`](docs/syllabus-extracted-sem5.md)
+`docs/syllabus-extracted-sem5.md`
 (Semester V) and
-[`docs/syllabus-extracted-sem6.md`](docs/syllabus-extracted-sem6.md)
+`docs/syllabus-extracted-sem6.md`
 (Semester VI); page numbers refer to the source PDF of the semester in
 question.
 
@@ -95,7 +95,7 @@ result*").
 list you would revise from.
 
 **What to do:** study Bayes' theorem as though it were listed in Unit 1. It is
-covered in [Course 4 Unit 1](notes/sem-2/course-4-statistical-foundations/unit-1.md),
+covered in Course 4 Unit 1,
 where it is flagged as an off-syllabus-but-examined addition, with the
 reconstructed medical-test problem worked in full.
 
@@ -122,7 +122,7 @@ names them — so the omission is consistent between the outcome and the unit, a
 inconsistent with the assessment.
 
 **What to do:** study triggers as part of Unit 5. Covered in
-[Course 5 Unit 5](notes/sem-3/course-5-dbms/unit-5.md), with both lab triggers
+Course 5 Unit 5, with both lab triggers
 written out.
 
 ---
@@ -237,7 +237,7 @@ Outcome 4, in the activity list on page 24, and in the practical list:
 So a student who revises from the unit lists alone meets neither, and then
 finds two of the twenty lab experiments are about them. That is the same shape
 of problem as **D1** and **D2**. Both are covered in
-[Unit 5](notes/sem-4/course-10-document-database/unit-5.md) and in lab
+Unit 5 and in lab
 experiments [18](labs/course-10-mongodb/18_gridfs.js) and
 [19](labs/course-10-mongodb/19_transactions.js) for that reason — and both of
 those lab files also say plainly that they need a running server, which is the
@@ -258,7 +258,7 @@ routes and named the server process, something like "Installation & Setup
 (installing MongoDB, starting the `mongod` service), connecting via Mongo shell
 or GUI."
 
-[Unit 1 §1.9](notes/sem-4/course-10-document-database/unit-1.md) covers what it
+Unit 1 §1.9 covers what it
 evidently intended — Atlas, Docker and a local install, the `mongod` service,
 and connecting with `mongosh` or Compass — and says in the section itself that
 the source text is damaged.
@@ -413,7 +413,7 @@ material. Two units' worth of content, one outcome.
 course by topic count — k-Means, k-Medoids, hierarchical clustering, DBSCAN,
 internal and external validation, and four case studies — and it is weighted
 in the outcomes as half of one. Do not read that as permission to give it half
-the time. [The Course 12 A notes](notes/sem-5/course-12a-machine-learning/unit-5.md)
+the time. The Course 12 A notes
 give it the same weight as the other four.
 
 **And Outcome 4 has no full stop** — it runs straight into "Unit 1." on the

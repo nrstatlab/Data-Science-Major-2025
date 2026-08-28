@@ -20,7 +20,7 @@ will leave you unprepared for all four.
 Unit 1 lists only "conditional probability". Bayes appears in the prescribed
 activities quiz and in lab experiment 2, but in **no unit**.
 
-→ Covered in [Course 4 Unit 1](notes/sem-2/course-4-statistical-foundations/unit-1.md#16-bayes-theorem--examined-but-not-in-the-syllabus)
+→ Covered in Course 4 Unit 1
 
 ### 2. Database triggers — Course 5, DBMS
 
@@ -28,7 +28,7 @@ Unit 5 lists control structures, procedures and functions — **no triggers**.
 Yet Course Objective 5 names them, the activities require them, and **two of the
 six PL/SQL lab questions are trigger problems**.
 
-→ Covered in [Course 5 Unit 5](notes/sem-3/course-5-dbms/unit-5.md#58-triggers--off-syllabus-but-examined)
+→ Covered in Course 5 Unit 5
 
 ### 3 and 4. GridFS and transactions — Course 10, Document Oriented Database
 
@@ -39,7 +39,7 @@ problems**. The course objective that would have introduced them is itself
 truncated to the fragment "4. replication, and transactions." (finding
 **D13**), which is probably how they went missing.
 
-→ Covered in [Course 10 Unit 5](notes/sem-4/course-10-document-database/unit-5.md),
+→ Covered in Course 10 Unit 5,
 [lab experiment 18](labs/course-10-mongodb/18_gridfs.js) and
 [lab experiment 19](labs/course-10-mongodb/19_transactions.js)
 
@@ -90,7 +90,7 @@ documents. That is a production problem, not a scattering of typos.
 
 Each course folder holds a `README.md`, five unit notes, a `practice.md` with
 worked solutions, and a `lab.md`. Course 4 also has a
-[formula sheet](notes/sem-2/course-4-statistical-foundations/formula-sheet.md).
+formula sheet.
 
 ## Lab code
 

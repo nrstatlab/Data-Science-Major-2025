@@ -66,8 +66,8 @@ a sandboxed environment is the opposite.
 
 | Experiment | Why | Where it lives |
 |---|---|---|
-| **2** — TensorFlow Playground, Teachable Machine | interactive web apps; there is no output to capture | [`02_playground.md`](../../../labs/course-14a-deeplearning/02_playground.md) — a full experiment protocol with a results table to fill in |
-| **12** — Hugging Face deployment | `huggingface.co` is refused at the gateway with a **403** | [`12_huggingface_app.md`](../../../labs/course-14a-deeplearning/12_huggingface_app.md) — the complete app, the traps, and the error analysis that carries the marks |
+| **2** — TensorFlow Playground, Teachable Machine | interactive web apps; there is no output to capture | `02_playground.md` — a full experiment protocol with a results table to fill in |
+| **12** — Hugging Face deployment | `huggingface.co` is refused at the gateway with a **403** | `12_huggingface_app.md` — the complete app, the traps, and the error analysis that carries the marks |
 
 Both files carry `*** NOT EXECUTED ***` in their header, and
 `tools/run_deeplearning_labs.py` asserts that the marker is still there.

@@ -308,7 +308,7 @@ did not want.**
 | Face recognition with far higher error rates on darker skin | the training set was not representative |
 
 **The lab's own version of this:** the
-[Teachable Machine exercise](../../../labs/course-14a-deeplearning/02_playground.md)
+Teachable Machine exercise
 has you deliberately photograph one class against a window and the other
 against a dark wall. Accuracy looks perfect; swap the backgrounds and it
 collapses. **The model learned the background.** That five-minute experiment is

@@ -18,7 +18,7 @@ That gap is worth closing yourself. See
 
 | | Where |
 |---|---|
-| Excel walkthroughs, all 15 | [`labs/course-4-stats/excel-walkthroughs.md`](../../../labs/course-4-stats/excel-walkthroughs.md) |
+| Excel walkthroughs, all 15 | `labs/course-4-stats/excel-walkthroughs.md` |
 | Python equivalents | [`labs/course-4-stats/python/`](../../../labs/course-4-stats/python/) |
 | Distribution functions | [`statlib.py`](../../../labs/course-4-stats/python/statlib.py) |
 | Table-value checks | [`test_statlib.py`](../../../labs/course-4-stats/python/test_statlib.py) |

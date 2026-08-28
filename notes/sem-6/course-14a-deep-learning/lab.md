@@ -359,7 +359,7 @@ distance and ask whether it shares the label.
 ## Experiment 12 — attention from scratch
 
 *(The Hugging Face deployment itself is
-[`12_huggingface_app.md`](../../../labs/course-14a-deeplearning/12_huggingface_app.md),
+`12_huggingface_app.md`,
 marked NOT EXECUTED. What runs is the mechanism.)*
 
 ### Scaled dot-product attention, on checkable numbers
@@ -418,8 +418,8 @@ carries no information.
 
 | File | Why | What it contains |
 |---|---|---|
-| [`02_playground.md`](../../../labs/course-14a-deeplearning/02_playground.md) | TensorFlow Playground and Teachable Machine are **interactive web apps** — there is no output to capture | a full experiment protocol: eight settings to run, what to record, and the deliberate background-bias experiment |
-| [`12_huggingface_app.md`](../../../labs/course-14a-deeplearning/12_huggingface_app.md) | `huggingface.co` returns **403 at the gateway** | the complete Gradio app, four deployment traps, and the error analysis that carries the marks |
+| `02_playground.md` | TensorFlow Playground and Teachable Machine are **interactive web apps** — there is no output to capture | a full experiment protocol: eight settings to run, what to record, and the deliberate background-bias experiment |
+| `12_huggingface_app.md` | `huggingface.co` returns **403 at the gateway** | the complete Gradio app, four deployment traps, and the error analysis that carries the marks |
 
 Neither claims an output. Both name the runnable half that covers the same
 ground.
