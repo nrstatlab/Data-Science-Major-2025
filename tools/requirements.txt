@@ -49,9 +49,14 @@ nltk>=3.8
 spacy>=3.7
 # python3 -m spacy download en_core_web_sm
 
-# Course 15 B (MLOps): real experiment tracking, and a real model endpoint.
-mlflow>=2.10
+# Course 15 B (MLOps): real experiment tracking, real data versioning, and a
+# real model endpoint. MLflow 3 requires a database backend -- the old
+# ./mlruns file store is in maintenance mode and raises -- so the lab uses
+# sqlite:///mlflow.db, which is what MLflow itself recommends.
+mlflow>=3.0
+dvc>=3.0
 flask>=3.0
+scipy>=1.11
 
 # transformers installs, but NO PRETRAINED MODEL CAN BE FETCHED here:
 # huggingface.co is refused by the egress policy with a 403 at the gateway.
