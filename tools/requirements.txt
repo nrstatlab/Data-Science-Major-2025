@@ -16,3 +16,46 @@ openpyxl>=3.1        # Course 9 practical 9: read_excel / to_excel
 matplotlib>=3.8
 seaborn>=0.13
 plotly>=5.20
+
+# --- Semester V ---
+# Course 12 B (Big Data): real Avro, real Parquet, and Hive-style SQL.
+pyarrow>=15.0
+fastavro>=1.9
+duckdb>=1.0
+
+# Course 13 A (AI): a small Prolog engine. Its limits are real -- no list
+# terms, no arithmetic evaluation, no cut, no DCG, arity >= 1 -- and
+# tools/run_ai_labs.py PROVES each limit before working around it.
+pytholog>=2.4
+
+# PySpark is deliberately NOT here. It needs a JRE and its own build
+# environment, and a failed install must not break the other suites, so it
+# lives in its own virtualenv: run tools/setup_spark.sh.
+
+# --- Semester VI ---
+# Course 14 A (Deep Learning) and 15 A (NLP): PyTorch on CPU, plus Keras 3
+# driven by the torch backend (KERAS_BACKEND=torch), which is how the
+# syllabus's "Keras/TensorFlow" content is executed here without TensorFlow.
+torch>=2.2
+keras>=3.0
+
+# Course 14 B (Time Series): ARIMA, SARIMA, VAR, state-space and spectral
+# analysis are all real statsmodels calls.
+statsmodels>=0.14
+
+# Course 15 A (NLP): both run for real. The NLTK corpora are fetched by
+# tools/fetch_nlp_data.py, and the spaCy model is a pip package.
+nltk>=3.8
+spacy>=3.7
+# python3 -m spacy download en_core_web_sm
+
+# Course 15 B (MLOps): real experiment tracking, and a real model endpoint.
+mlflow>=2.10
+flask>=3.0
+
+# transformers installs, but NO PRETRAINED MODEL CAN BE FETCHED here:
+# huggingface.co is refused by the egress policy with a 403 at the gateway.
+# Every Hugging Face experiment is therefore marked NOT EXECUTED, and the
+# runnable half builds the mechanism -- self-attention, an encoder block --
+# from scratch in PyTorch instead.
+# transformers>=4.38
