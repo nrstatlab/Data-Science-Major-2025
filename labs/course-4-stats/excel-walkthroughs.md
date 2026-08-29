@@ -8,7 +8,7 @@ Then do each one again in Python. See
 [`SYLLABUS-REVIEW.md`](../../SYLLABUS-REVIEW.md) finding **D8**: this lab never
 touches Python even though Python is taught in the same semester, and that gap
 is worth closing yourself. The Python versions live in
-[`python/`](python/) and every number below was cross-checked against them.
+`python/` and every number below was cross-checked against them.
 
 > **Experiment 2 is reconstructed.** The official text survives only as the
 > fragment "a positive result." — see review findings **D1** and **D3**.

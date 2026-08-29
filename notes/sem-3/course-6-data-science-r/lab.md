@@ -6,8 +6,8 @@
 
 | | Location | Status |
 |---|---|---|
-| **R** — as the exam tests it | [`labs/course-6-r/`](../../../labs/course-6-r/) | ⚠ desk-checked, not executed |
-| **Python equivalents** | [`labs/course-6-r/python/`](../../../labs/course-6-r/python/) | ✅ executed, with assertions |
+| **R** — as the exam tests it | `labs/course-6-r/` | ⚠ desk-checked, not executed |
+| **Python equivalents** | `labs/course-6-r/python/` | ✅ executed, with assertions |
 
 **R could not be installed** in the environment where this repository is
 verified — the Debian package repositories are blocked by the network policy,
@@ -17,7 +17,7 @@ than implying a test that never ran.
 What the Python side buys you: **the statistics are machine-checked even though
 the R syntax is not.** When `04_regression.R` says the slope is 4.3030, that
 number came from
-[`04_regression.py`](../../../labs/course-6-r/python/04_regression.py), which
+`04_regression.py`, which
 runs and asserts it — and which cross-checks against Course 4 Unit 4, where the
 same data was worked by hand.
 

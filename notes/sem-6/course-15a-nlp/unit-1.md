@@ -98,7 +98,7 @@ industrial answer to it.
 ### 🔢 Lexical ambiguity is countable
 
 WordNet puts a number on it, and
-[`03_ambiguity_tokenize.py`](../../../labs/course-15a-nlp/03_ambiguity_tokenize.py)
+`03_ambiguity_tokenize.py`
 prints it:
 
 | Word | WordNet senses |
@@ -203,7 +203,7 @@ the components you are not using. Doing NER only? Disable the parser.
 
 ### ⚠️ Greedy against lazy — the single most common regex bug
 
-[`01_setup_regex.py`](../../../labs/course-15a-nlp/01_setup_regex.py) measures
+`01_setup_regex.py` measures
 it on `<b>bold</b> and <i>italic</i>`:
 
 | Pattern | Result |
@@ -265,6 +265,6 @@ sentence.
 - [ ] Say why splitting on `"."` is wrong, and what to use instead
 
 **Cross-check yourself:** run
-[`01_setup_regex.py`](../../../labs/course-15a-nlp/01_setup_regex.py) and
-[`03_ambiguity_tokenize.py`](../../../labs/course-15a-nlp/03_ambiguity_tokenize.py).
+`01_setup_regex.py` and
+`03_ambiguity_tokenize.py`.
 Every figure in this unit is printed by one of them.

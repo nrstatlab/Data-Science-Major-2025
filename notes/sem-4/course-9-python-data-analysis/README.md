@@ -80,12 +80,12 @@ flag as Course 3 Unit 4 and Course 6 Unit 5.
 
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 18 practicals
-- [`labs/course-9-python-da/`](../../../labs/course-9-python-da/) — code
+- `labs/course-9-python-da/` — code
 
 > **Everything here runs.** This is the one Semester IV course whose prescribed
 > tools install cleanly, so nothing is desk-checked and nothing says "not
 > executed". All 18 practicals are executed and asserted by
-> [`tools/run_data_labs.py`](../../../tools/run_data_labs.py), on
+> `tools/run_data_labs.py`, on
 > NumPy 2.4 and Pandas 3.0.
 
 ## Textbooks

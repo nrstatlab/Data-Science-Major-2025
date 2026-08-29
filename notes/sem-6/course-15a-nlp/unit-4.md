@@ -136,7 +136,7 @@ Course 14 A ran the comparison twice:
 
 ## 4.4 Text generation with an RNN
 
-[`10_sentiment_rnn.py`](../../../labs/course-15a-nlp/10_sentiment_rnn.py)
+`10_sentiment_rnn.py`
 trains a character-level LSTM on **Jane Austen's *Emma*** from NLTK's
 Gutenberg corpus — 119,232 characters, 47 distinct, 197,183 parameters.
 
@@ -217,7 +217,7 @@ entire architectural difference**; both are stacks of the same block.
 
 ### 🔢 What pre-training buys, measured from below
 
-[`12_transformer_local.py`](../../../labs/course-15a-nlp/12_transformer_local.py)
+`12_transformer_local.py`
 trains **the same architecture** — a bidirectional transformer encoder with a
 masked-LM objective, BERT's exact shape — on the Brown corpus, and asks it to
 fill masks.
@@ -299,5 +299,5 @@ precisely because it lacks this.
 - [ ] Name the five pieces of the Hugging Face ecosystem
 
 **Cross-check yourself:** run
-[`10_sentiment_rnn.py`](../../../labs/course-15a-nlp/10_sentiment_rnn.py) and
-[`12_transformer_local.py`](../../../labs/course-15a-nlp/12_transformer_local.py).
+`10_sentiment_rnn.py` and
+`12_transformer_local.py`.

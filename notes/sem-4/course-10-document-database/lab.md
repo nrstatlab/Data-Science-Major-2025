@@ -2,7 +2,7 @@
 
 **20 experiments**
 
-Code lives in [`labs/course-10-mongodb/`](../../../labs/course-10-mongodb/).
+Code lives in `labs/course-10-mongodb/`.
 
 > **On the tooling.** `mongod` cannot be installed in the verification
 > environment — the Debian repositories that host `mongodb-org` are blocked by
@@ -13,7 +13,7 @@ Code lives in [`labs/course-10-mongodb/`](../../../labs/course-10-mongodb/).
 >   ask you to demonstrate.**
 > - **`NN_name.py`** — the same query logic executed through **mongomock** and
 >   asserted, verified by
->   [`tools/run_mongo_labs.py`](../../../tools/run_mongo_labs.py).
+>   `tools/run_mongo_labs.py`.
 >
 > **Three experiments have no runnable half.** mongomock implements the query
 > and aggregation language but is not a server, so **replication (17), GridFS

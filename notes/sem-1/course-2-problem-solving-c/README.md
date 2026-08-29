@@ -67,7 +67,7 @@ weeks between them.
 
 - [practice.md](practice.md) — exam-style questions with full solutions
 - [lab.md](lab.md) — all 15 lab experiments, with the code and expected output
-- [`labs/course-2-c/`](../../../labs/course-2-c/) — the programs as `.c` files,
+- `labs/course-2-c/` — the programs as `.c` files,
   all compiled and run
 
 ## Textbooks

@@ -429,7 +429,7 @@ current namespaces as dictionaries.
 | `csv`, `json` | file formats |
 
 `statistics` is genuinely useful for Course 4 — see
-[`labs/course-4-stats/python/`](../../../labs/course-4-stats/python/), where it
+`labs/course-4-stats/python/`, where it
 is used to cross-check hand-computed answers.
 
 ---

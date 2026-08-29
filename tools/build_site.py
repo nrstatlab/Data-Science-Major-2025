@@ -1089,25 +1089,37 @@ def strip_first_heading(text):
     return None, text
 
 
-GITHUB_BLOB = ("https://github.com/nrstatlab/Data-Science-Major-2025/blob/main/")
-GITHUB_TREE = ("https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/")
+def unlink(label, target):
+    """Drop a link, keeping its text as an inline-code path.
+
+    Used for anything that is not a generated page. A reader following one of
+    these on the published site was taken OUT of the study material and into
+    a code browser or a raw file download -- the same failure the .md links
+    had. The path is still worth naming, so it stays as text; it simply is
+    not a link any more.
+    """
+    text = label.strip()
+    if not text:
+        text = target
+    # `labs/course-7-web/` already reads as a path; a bare word does not
+    if not (text.startswith("`") and text.endswith("`")):
+        if "/" in text or "." in text.rsplit("/", 1)[-1]:
+            text = f"`{text}`"
+    return text
 
 
 def rewrite_links(body, link_map, src_dir, out_dir):
     """Retarget the Markdown's relative links for the generated page.
 
-    Four cases:
-      * a .md file that becomes a page   -> its generated .html sibling
-      * any other repo FILE (lab source, -> re-relativised, because the source
-        the syllabus PDF)                   .md sits deeper in notes/ than the
-                                            generated page does
-      * a repo DIRECTORY (labs/course-x) -> the directory on github.com.
-                                            GitHub Pages serves files, not
-                                            directory listings, so a relative
-                                            link to one 404s on the published
-                                            site even though the directory is
-                                            right there in the repository.
-      * a .md file with no page          -> the file on github.com
+    Only one case still produces a link: a .md file that becomes a page gets
+    its generated .html sibling. Everything else -- a repository directory, a
+    lab source file, a .md file with no page -- is UNLINKED and left as text.
+
+    Those used to point at github.com or at the raw file. Both took the
+    reader off the site: GitHub Pages serves files rather than directory
+    listings, so a relative directory link 404s, and a relative link to a .py
+    or .c file hands over source code the browser cannot render. A study page
+    should not be a doorway into a code host.
     """
     def repl(m):
         label, target, frag = m.group(1), m.group(2), m.group(3) or ""
@@ -1116,27 +1128,13 @@ def rewrite_links(body, link_map, src_dir, out_dir):
         if key in link_map:
             return f'[{label}]({link_map[key]}{frag})'
 
-        # Resolve against the SOURCE directory to get a repo-relative path,
-        # then re-relativise from the OUTPUT directory. Without this a link
-        # written as ../../../labs/... from notes/sem-1/course-2-x/ keeps a
-        # depth that is wrong for a page living one level down.
         resolved = (src_dir / target).resolve()
         try:
-            rel_to_root = resolved.relative_to(ROOT)
+            resolved.relative_to(ROOT)
         except ValueError:
-            return m.group(0)
+            return m.group(0)          # not ours -- leave it alone
 
-        if resolved.is_dir():
-            return f'[{label}]({GITHUB_TREE}{rel_to_root}{frag})'
-
-        if resolved.exists():
-            import os
-            new_target = os.path.relpath(resolved, out_dir).replace("\\", "/")
-            return f'[{label}]({new_target}{frag})'
-
-        if target.endswith(".md"):
-            return f'[{label}]({GITHUB_BLOB}{rel_to_root}{frag})'
-        return m.group(0)
+        return unlink(label, target)
 
     return re.sub(r'\[([^\]]*)\]\(([^)#\s]+)(#[^)\s]*)?\)', repl, body)
 

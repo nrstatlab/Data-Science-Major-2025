@@ -57,7 +57,7 @@ Units 3, 4 and 5 carry the difficulty. They also carry the marks.
 - [formula-sheet.md](formula-sheet.md) — every formula in one place, for revision
 - [practice.md](practice.md) — problems with full worked solutions
 - [lab.md](lab.md) — all 15 experiments
-- [`labs/course-4-stats/`](../../../labs/course-4-stats/) — Excel walkthroughs
+- `labs/course-4-stats/` — Excel walkthroughs
   and runnable Python
 
 ## Textbooks

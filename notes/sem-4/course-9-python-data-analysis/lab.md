@@ -2,12 +2,12 @@
 
 **18 practicals**
 
-Code lives in [`labs/course-9-python-da/`](../../../labs/course-9-python-da/).
+Code lives in `labs/course-9-python-da/`.
 
 > **Everything here runs.** This is the one Semester IV course whose prescribed
 > tools install cleanly, so nothing is desk-checked and nothing says "not
 > executed". All 18 practicals are executed and asserted by
-> [`tools/run_data_labs.py`](../../../tools/run_data_labs.py) on
+> `tools/run_data_labs.py` on
 > **NumPy 2.4.6 and Pandas 3.0.5**, and their results are checked against the
 > hand-computed values in the notes.
 

@@ -104,7 +104,7 @@ query runs at the speed of the slowest source.
 ### 🔢 Measured, on a 32 GB / 8 vCPU host
 
 Four guests, in
-[`01_vm_and_hosting.py`](../../../labs/course-13b-cloud/01_vm_and_hosting.py):
+`01_vm_and_hosting.py`:
 
 | VM | RAM | vCPU | Active |
 |---|---:|---:|---:|
@@ -241,7 +241,7 @@ baseline.
 
 ### 🔢 The catch that is measured
 
-From [`11_train_and_automl.py`](../../../labs/course-13b-cloud/11_train_and_automl.py),
+From `11_train_and_automl.py`,
 for the same ten-minute job:
 
 | Instance | $/hour | 10 min |

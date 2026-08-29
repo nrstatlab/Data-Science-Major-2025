@@ -55,7 +55,7 @@ student performance analysis in higher education; analyzing a finance dataset.</
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>All figures in this unit are computed from the sample star schema in
-<a href="../labs/course-11-bi/fixtures.py"><code>labs/course-11-bi/fixtures.py</code></a></strong>
+<code>labs/course-11-bi/fixtures.py</code></strong>
 and asserted by the lab scripts, so the notes and the code check each other.
 The fact table is nine rows — small enough to verify every number by hand.</p>
 </div>
@@ -292,7 +292,7 @@ documenting exactly what you did.</p>
 <p><span class="label">FORMULA</span></p>
 <h4>The transformations to know</h4>
 <p>Each has a pandas equivalent, given because
-<a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-11-bi"><code>labs/course-11-bi/</code></a> runs them and asserts the
+<code>labs/course-11-bi/</code> runs them and asserts the
 result. Learning the pair makes both stick.</p>
 <table class="main-table">
 <thead>
@@ -486,7 +486,7 @@ Order Size    = IF([Total Qty] &gt; 10, &quot;Large&quot;, &quot;Small&quot;)
 South Revenue = CALCULATE([Total Revenue], dim_store[region] = &quot;South&quot;)
 </code></pre>
 <p>Against the sample data, asserted in
-<a href="../labs/course-11-bi/06_dax_functions.py"><code>06_dax_functions.py</code></a>:</p>
+<code>06_dax_functions.py</code>:</p>
 <table class="main-table">
 <thead>
 <tr>

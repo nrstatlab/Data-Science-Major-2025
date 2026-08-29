@@ -1,8 +1,8 @@
 # Course 13 A — Practice Questions with Worked Solutions
 
 Every figure quoted here is produced by
-[`labs/course-13a-ai/`](../../../labs/course-13a-ai/) and checked by
-[`tools/run_ai_labs.py`](../../../tools/run_ai_labs.py).
+`labs/course-13a-ai/` and checked by
+`tools/run_ai_labs.py`.
 
 ---
 

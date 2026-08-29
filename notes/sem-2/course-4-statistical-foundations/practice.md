@@ -5,7 +5,7 @@ them. Work each one fully before reading the solution — statistics is the one
 subject where reading a solution feels like understanding and is not.
 
 Every numeric answer here has been checked against
-[`statlib.py`](../../../labs/course-4-stats/python/statlib.py).
+`statlib.py`.
 
 ---
 

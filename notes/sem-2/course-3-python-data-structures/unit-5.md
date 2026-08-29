@@ -120,7 +120,7 @@ class SinglyLinkedList:
 `None` you must move `self.head`, not `previous.next`.
 
 Full implementation, including reversal:
-[`16_linked_list.py`](../../../labs/course-3-python/16_linked_list.py).
+`16_linked_list.py`.
 
 ### Linked list vs array/list
 
@@ -287,7 +287,7 @@ in a long answer.
 | Used in | Recursion, undo, DFS | Scheduling, buffering, BFS |
 
 Full implementations of all of these:
-[`15_stack_queue.py`](../../../labs/course-3-python/15_stack_queue.py).
+`15_stack_queue.py`.
 
 ---
 
@@ -435,8 +435,8 @@ Wrapping the GUI in a class keeps the widgets and their handlers together, and
 demonstrates the OOP from Unit 4 — examiners like seeing the two connected.
 
 Full programs:
-[`17_tkinter_input.py`](../../../labs/course-3-python/17_tkinter_input.py) and
-[`18_tkinter_calculator.py`](../../../labs/course-3-python/18_tkinter_calculator.py).
+`17_tkinter_input.py` and
+`18_tkinter_calculator.py`.
 
 > Both were **syntax-checked but not executed** in this repository's
 > verification, because `tkinter` is not installed in that environment and a

@@ -114,7 +114,7 @@ Two points that cost marks: pass **`newline=""`** when opening a CSV (without
 it, Windows writes blank lines between rows), and remember that **every value
 read from a CSV is a string** — convert numbers explicitly.
 
-Worked example: [`11_csv_marks.py`](../../../labs/course-3-python/11_csv_marks.py).
+Worked example: `11_csv_marks.py`.
 
 ## A.6 `os` and `pathlib`
 
@@ -275,7 +275,7 @@ input**, because Python's `-O` flag removes them entirely. Never rely on an
 assertion for anything security- or correctness-critical at runtime.
 
 Worked examples:
-[`12_exception_handling.py`](../../../labs/course-3-python/12_exception_handling.py).
+`12_exception_handling.py`.
 
 ---
 
@@ -504,8 +504,8 @@ used here, regardless of what it inherits from. "If it walks like a duck and
 quacks like a duck, treat it as a duck."
 
 Worked examples:
-[`13_student_class.py`](../../../labs/course-3-python/13_student_class.py) and
-[`14_inheritance.py`](../../../labs/course-3-python/14_inheritance.py).
+`13_student_class.py` and
+`14_inheritance.py`.
 
 ---
 

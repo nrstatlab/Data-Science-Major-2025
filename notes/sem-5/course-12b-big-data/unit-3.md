@@ -55,7 +55,7 @@ joins, broadcast joins, map-side joins, columnar formats — all of them.
 ### 🔢 Word count, measured
 
 On six documents, 48 words
-([`07_wordcount.py`](../../../labs/course-12b-bigdata/07_wordcount.py)):
+(`07_wordcount.py`):
 
 | Phase | Records |
 |---|---:|
@@ -138,8 +138,8 @@ Fixes, in order of preference:
 ## 3.5 Writing MapReduce applications in Hadoop
 
 The canonical Java is in
-[`WordCount.java`](../../../labs/course-12b-bigdata/WordCount.java) and
-[`InvertedIndex.java`](../../../labs/course-12b-bigdata/InvertedIndex.java),
+`WordCount.java` and
+`InvertedIndex.java`,
 both marked NOT EXECUTED. Three details are examinable.
 
 ### 🎯 The map key is a byte offset, not a line number
@@ -207,7 +207,7 @@ Everything surprising about it follows.
 ### 🔢 Partitioning, measured
 
 The same nine-row star schema as Course 11
-([`10_hive_duckdb.py`](../../../labs/course-12b-bigdata/10_hive_duckdb.py)):
+(`10_hive_duckdb.py`):
 
 | Partition | Rows | Revenue | Scanned for `WHERE quarter='Q2'` |
 |---|---:|---:|---:|

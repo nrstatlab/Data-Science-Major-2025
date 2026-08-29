@@ -242,8 +242,8 @@ This is the most common arithmetic error in the course.
 | **3** | 5.41 | 3.86 | 3.71 |
 
 > These table values were used to verify
-> [`statlib.py`](../../../labs/course-4-stats/python/statlib.py) — all 23 checks
-> in [`test_statlib.py`](../../../labs/course-4-stats/python/test_statlib.py)
+> `statlib.py` — all 23 checks
+> in `test_statlib.py`
 > pass, so the numbers here and the code agree.
 
 ---

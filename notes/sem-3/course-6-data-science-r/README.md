@@ -64,13 +64,13 @@ it is worth learning for that alone.
 
 - [practice.md](practice.md) — exam-style questions with worked solutions
 - [lab.md](lab.md) — all 18 practicals
-- [`labs/course-6-r/`](../../../labs/course-6-r/) — R scripts, with runnable
+- `labs/course-6-r/` — R scripts, with runnable
   Python equivalents
 
 > **On the lab code:** R could not be installed in the environment where this
 > material was verified (the package repositories are blocked), so the R scripts
 > are **desk-checked, not executed** — each says so in its header. Every one has
-> a Python equivalent in [`labs/course-6-r/python/`](../../../labs/course-6-r/python/)
+> a Python equivalent in `labs/course-6-r/python/`
 > that **was** executed, so the logic and the expected numbers are machine-checked
 > even though the R syntax is not. Run the R yourself in RStudio.
 

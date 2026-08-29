@@ -170,7 +170,7 @@ noise**, and not a basis for a decision.
 ### Step 5 — Deployment
 
 **The artefact is the deliverable.** In
-[`15_deploy_endpoint.py`](../../../labs/course-13b-cloud/15_deploy_endpoint.py)
+`15_deploy_endpoint.py`
 a 138,945-byte model file is written, reloaded and served — and the endpoint's
 answers are **identical** to calling the model in-process.
 
@@ -270,7 +270,7 @@ dashboards are blind to.
 
 A day of traffic (peak 1,000 req/s, trough 164), instances serving 150 req/s
 each, in
-[`13_monitoring_autoscale.py`](../../../labs/course-13b-cloud/13_monitoring_autoscale.py):
+`13_monitoring_autoscale.py`:
 
 | Strategy | Instance-hours | Dropped |
 |---|---:|---:|

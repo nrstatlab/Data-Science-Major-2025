@@ -64,14 +64,14 @@ revise in the last week.
 
 - [practice.md](practice.md) — exam questions with fully worked numeric solutions
 - [lab.md](lab.md) — all 15 experiments
-- [`labs/course-8-datamining/`](../../../labs/course-8-datamining/) — code
+- `labs/course-8-datamining/` — code
 
 > **On the lab code.** The syllabus prescribes **WEKA**, which cannot be
 > installed here — it needs a host the egress policy blocks. So every
 > experiment comes in two halves: the **WEKA click-path** documented step by
 > step (panel, filter name, parameters) for the lab exam, and a
 > **scikit-learn or mlxtend equivalent that actually runs** and is asserted by
-> [`tools/run_data_labs.py`](../../../tools/run_data_labs.py).
+> `tools/run_data_labs.py`.
 >
 > The WEKA halves are marked "NOT EXECUTED" in their own headers. Nothing here
 > implies a test that did not run.

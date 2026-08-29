@@ -3,7 +3,7 @@
 **Semester V**
 
 **This is a Track B course**, paired with
-[Course 13 B (Cloud Computing)](../course-13b-cloud-computing/). Take one track
+Course 13 B (Cloud Computing). Take one track
 and you take it for Semester VI too.
 
 ---
@@ -71,7 +71,7 @@ notes are explicit about it throughout.
 
 Every file that cannot run says **`*** NOT EXECUTED ***`** in its own header,
 names the tool it needs, and points at the runnable half that verifies its
-logic. [`tools/run_bigdata_labs.py`](../../../tools/run_bigdata_labs.py)
+logic. `tools/run_bigdata_labs.py`
 asserts that the marker is still there.
 
 **The Debian repositories that host Hadoop are blocked by the egress policy** —

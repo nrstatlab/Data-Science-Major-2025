@@ -328,5 +328,5 @@ standard exam example.**
 - [ ] Choose between `sparse_categorical_crossentropy` and `categorical_crossentropy`
 
 **Cross-check yourself:** run
-[`04_deep_network.py`](../../../labs/course-14a-deeplearning/04_deep_network.py).
+`04_deep_network.py`.
 Every table in this unit is printed by it.

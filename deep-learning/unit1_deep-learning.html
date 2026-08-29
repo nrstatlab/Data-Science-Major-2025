@@ -221,7 +221,7 @@ of intuition, not a claim about the brain.</p>
 number of steps. If it is not, it never converges — it cycles forever.</p>
 </div>
 <h3 id="the-measurement-that-makes-the-point">The measurement that makes the point</h3>
-<p><a href="../labs/course-14a-deeplearning/01_perceptron_scratch.py"><code>01_perceptron_scratch.py</code></a>
+<p><code>01_perceptron_scratch.py</code>
 trains one perceptron on each of the four basic logic gates:</p>
 <table class="main-table">
 <thead>
@@ -360,7 +360,7 @@ non-linearity between the layers.</p>
 <tr>
 <td><strong>ReLU</strong></td>
 <td><code>max(0, z)</code></td>
-<td>[0, ∞)</td>
+<td>`0, ∞)</td>
 <td><strong>0 or 1</strong></td>
 <td><strong>hidden layers — the default</strong></td>
 </tr>
@@ -379,7 +379,7 @@ non-linearity between the layers.</p>
 <h4>Why ReLU won, as arithmetic</h4>
 <p>Backpropagation multiplies derivatives along the chain. Over <code>n</code> layers the
 gradient carries a factor of roughly <code>(max derivative)ⁿ</code>.
-<a href="../labs/course-14a-deeplearning/01_perceptron_scratch.py"><code>01_perceptron_scratch.py</code></a>
+[`01_perceptron_scratch.py``
 computes it:</p>
 <table class="main-table">
 <thead>
@@ -625,7 +625,7 @@ gradients exist.</p>
 <li>[ ] State what backpropagation computes and why it is efficient</li>
 </ul>
 <p><strong>Cross-check yourself:</strong> run
-<a href="../labs/course-14a-deeplearning/01_perceptron_scratch.py"><code>01_perceptron_scratch.py</code></a>.
+<code>01_perceptron_scratch.py</code>.
 Every number quoted in this unit is printed by it.</p>
 
   <div class="page-nav">

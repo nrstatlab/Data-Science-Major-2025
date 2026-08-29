@@ -9,7 +9,7 @@ tables, cards; sharing reports via the Power BI Service. Case studies —
 student performance analysis in higher education; analyzing a finance dataset.
 
 > **All figures in this unit are computed from the sample star schema in
-> [`labs/course-11-bi/fixtures.py`](../../../labs/course-11-bi/fixtures.py)**
+> `labs/course-11-bi/fixtures.py`**
 > and asserted by the lab scripts, so the notes and the code check each other.
 > The fact table is nine rows — small enough to verify every number by hand.
 
@@ -114,7 +114,7 @@ The language underneath is **M** — case-sensitive, and *not* DAX.
 ### 🔢 The transformations to know
 
 Each has a pandas equivalent, given because
-[`labs/course-11-bi/`](../../../labs/course-11-bi/) runs them and asserts the
+`labs/course-11-bi/` runs them and asserts the
 result. Learning the pair makes both stick.
 
 | Power Query (ribbon) | What it does | pandas |
@@ -202,7 +202,7 @@ South Revenue = CALCULATE([Total Revenue], dim_store[region] = "South")
 ```
 
 Against the sample data, asserted in
-[`06_dax_functions.py`](../../../labs/course-11-bi/06_dax_functions.py):
+`06_dax_functions.py`:
 
 | Measure | Value |
 |---|---:|

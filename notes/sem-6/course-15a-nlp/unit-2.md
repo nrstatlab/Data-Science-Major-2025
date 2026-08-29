@@ -59,7 +59,7 @@ with the morphology as another transducer.
 
 ### ⚠️ Sentence tokenization is not splitting on "."
 
-[`03_ambiguity_tokenize.py`](../../../labs/course-15a-nlp/03_ambiguity_tokenize.py)
+`03_ambiguity_tokenize.py`
 runs three methods on one hard sentence containing *Dr.*, *U.S.A.*, *Rs.* and
 an email address:
 
@@ -232,7 +232,7 @@ justification for CFGs.
 
 ### 🔢 The measurement
 
-[`07_parsing_ner_similarity.py`](../../../labs/course-15a-nlp/07_parsing_ner_similarity.py)
+`07_parsing_ner_similarity.py`
 runs all three on *"I saw the man with the telescope"*:
 
 | Parser | Parses found |
@@ -349,6 +349,6 @@ baseline every WSD paper reports.
 - [ ] Name the four elements of semantic analysis and one meaning representation
 
 **Cross-check yourself:** run
-[`03_ambiguity_tokenize.py`](../../../labs/course-15a-nlp/03_ambiguity_tokenize.py)
+`03_ambiguity_tokenize.py`
 and
-[`07_parsing_ner_similarity.py`](../../../labs/course-15a-nlp/07_parsing_ner_similarity.py).
+`07_parsing_ner_similarity.py`.

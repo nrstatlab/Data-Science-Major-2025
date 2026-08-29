@@ -201,4 +201,4 @@ syllabus pairs data engineering with MLOps in one course rather than two.
 - [ ] Explain why a silently-wrong pipeline is worse than one that crashes
 
 **Cross-check yourself:** run
-[`01_environment_etl.py`](../../../labs/course-15b-mlops/01_environment_etl.py).
+`01_environment_etl.py`.

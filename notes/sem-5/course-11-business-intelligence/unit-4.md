@@ -140,7 +140,7 @@ enormous, or an attribute is shared and changes often.
 
 Beginners import one wide spreadsheet and build on it. It works, and then it
 does not. Measured on the sample model, and asserted in
-[`13_data_model.py`](../../../labs/course-11-bi/13_data_model.py):
+`13_data_model.py`:
 
 | Model | Cells stored |
 |---|---:|
@@ -291,7 +291,7 @@ BI's relationships is what this unit adds.
 | **Full outer** | Everything from both | **5 rows** |
 
 All four counts are asserted in
-[`14_joins_blending.py`](../../../labs/course-11-bi/14_joins_blending.py).
+`14_joins_blending.py`.
 **Inner loses both the store that sold nothing and the sale with no store;
 full outer keeps both and is how you find them.** "Which stores sold nothing?"
 is a **left join filtered to null** — the same question §4.3 used to argue

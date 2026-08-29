@@ -112,7 +112,7 @@ indexed by (row key, column family, column qualifier, timestamp).</strong></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The model, implemented and run</h4>
-<p><a href="../labs/course-12b-bigdata/15_hbase_model.py"><code>15_hbase_model.py</code></a>
+<p><code>15_hbase_model.py</code>
 builds the map, with real versioning, real tombstones and real range scans.</p>
 <p><strong>Versions:</strong> after two more <code>put</code>s to the same cell, <code>VERSIONS =&gt; 3</code> keeps
 three:</p>
@@ -337,7 +337,7 @@ not a queue and not a cache.</p>
 <h4>Leader election, the standard recipe</h4>
 <p>Each candidate creates an <strong>ephemeral sequential</strong> znode; the <strong>lowest</strong>
 sequence number is the leader
-(<a href="../labs/course-12b-bigdata/16_zookeeper_model.py"><code>16_zookeeper_model.py</code></a>):</p>
+(<code>16_zookeeper_model.py</code>):</p>
 <pre><code>nn1 -&gt; lock-0000000000        LEADER: nn1
 nn2 -&gt; lock-0000000001
 nn3 -&gt; lock-0000000002
@@ -534,7 +534,7 @@ wrote it — and why Spark can fuse the whole chain into one pass over the data.
 <p><span class="label">FORMULA</span></p>
 <h4><code>reduceByKey</code> against <code>groupByKey</code> — the most examined Spark question</h4>
 <p>Measured on a real <code>SparkSession</code>
-(<a href="../labs/course-12b-bigdata/17_spark.py"><code>17_spark.py</code></a>, 48 words in
+(<code>17_spark.py</code>, 48 words in
 3 partitions):</p>
 <table class="main-table">
 <thead>
@@ -652,7 +652,7 @@ which is far harder to notice than an error.</p>
 <strong>MapReduce</strong>, and it runs on YARN over HDFS. "Hadoop is dead, use Spark" is a
 category error, and saying so is worth marks.</p>
 <h3 id="hbase-and-spark-together">HBase and Spark together</h3>
-<p><a href="../labs/course-12b-bigdata/17_spark_hbase.scala"><code>17_spark_hbase.scala</code></a>
+<p><code>17_spark_hbase.scala</code>
 (NOT EXECUTED — the connector needs a live HBase) shows the integration, and
 two points from it are examinable:</p>
 <p><strong>One Spark partition per HBase region.</strong> That is the whole integration: Spark

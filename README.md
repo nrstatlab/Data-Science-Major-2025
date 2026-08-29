@@ -39,9 +39,7 @@ problems**. The course objective that would have introduced them is itself
 truncated to the fragment "4. replication, and transactions." (finding
 **D13**), which is probably how they went missing.
 
-→ Covered in Course 10 Unit 5,
-[lab experiment 18](labs/course-10-mongodb/18_gridfs.js) and
-[lab experiment 19](labs/course-10-mongodb/19_transactions.js)
+→ Covered in Course 10 Unit 5, and in lab experiments 18 and 19
 
 **Twenty further findings** are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md),
 including damaged bibliographies in all five Semester III–IV courses, a
@@ -68,25 +66,25 @@ documents. That is a production problem, not a scattering of typos.
 
 | Sem | Course | Notes |
 |:---:|---|---|
-| I | 1 — Computer Fundamentals and Office Automation | [notes](notes/sem-1/course-1-computer-fundamentals/) |
-| I | 2 — Problem Solving Using C | [notes](notes/sem-1/course-2-problem-solving-c/) |
-| II | 3 — Python Programming and Data Structures | [notes](notes/sem-2/course-3-python-data-structures/) |
-| II | 4 — Statistical Foundations for Data Science | [notes](notes/sem-2/course-4-statistical-foundations/) |
-| III | 5 — Database Management Systems | [notes](notes/sem-3/course-5-dbms/) |
-| III | 6 — Data Science with R | [notes](notes/sem-3/course-6-data-science-r/) |
-| III | 7 — Web Technologies | [notes](notes/sem-3/course-7-web-technologies/) |
-| IV | 8 — Data Mining | [notes](notes/sem-4/course-8-data-mining/) |
-| IV | 9 — Python for Data Analysis and Visualization | [notes](notes/sem-4/course-9-python-data-analysis/) |
-| IV | 10 — Document Oriented Database | [notes](notes/sem-4/course-10-document-database/) |
-| V | 11 — Business Intelligence Tools *(core)* | [notes](notes/sem-5/course-11-business-intelligence/) |
-| V | 12 A — Machine Learning *(Track A)* | [notes](notes/sem-5/course-12a-machine-learning/) |
-| V | 13 A — Artificial Intelligence *(Track A)* | [notes](notes/sem-5/course-13a-artificial-intelligence/) |
-| V | 12 B — Big Data Technologies *(Track B)* | [notes](notes/sem-5/course-12b-big-data/) |
-| V | 13 B — Cloud Computing for Data Science *(Track B)* | [notes](notes/sem-5/course-13b-cloud-computing/) |
-| VI | 14 A — Neural Networks and Deep Learning *(Track A)* | [notes](notes/sem-6/course-14a-deep-learning/) |
-| VI | 15 A — Natural Language Processing *(Track A)* | [notes](notes/sem-6/course-15a-nlp/) |
-| VI | 14 B — Time Series Analysis and Forecasting *(Track B)* | [notes](notes/sem-6/course-14b-time-series/) |
-| VI | 15 B — Data Engineering and MLOps *(Track B)* | [notes](notes/sem-6/course-15b-mlops/) |
+| I | 1 — Computer Fundamentals and Office Automation | notes |
+| I | 2 — Problem Solving Using C | notes |
+| II | 3 — Python Programming and Data Structures | notes |
+| II | 4 — Statistical Foundations for Data Science | notes |
+| III | 5 — Database Management Systems | notes |
+| III | 6 — Data Science with R | notes |
+| III | 7 — Web Technologies | notes |
+| IV | 8 — Data Mining | notes |
+| IV | 9 — Python for Data Analysis and Visualization | notes |
+| IV | 10 — Document Oriented Database | notes |
+| V | 11 — Business Intelligence Tools *(core)* | notes |
+| V | 12 A — Machine Learning *(Track A)* | notes |
+| V | 13 A — Artificial Intelligence *(Track A)* | notes |
+| V | 12 B — Big Data Technologies *(Track B)* | notes |
+| V | 13 B — Cloud Computing for Data Science *(Track B)* | notes |
+| VI | 14 A — Neural Networks and Deep Learning *(Track A)* | notes |
+| VI | 15 A — Natural Language Processing *(Track A)* | notes |
+| VI | 14 B — Time Series Analysis and Forecasting *(Track B)* | notes |
+| VI | 15 B — Data Engineering and MLOps *(Track B)* | notes |
 
 Each course folder holds a `README.md`, five unit notes, a `practice.md` with
 worked solutions, and a `lab.md`. Course 4 also has a
@@ -96,25 +94,25 @@ formula sheet.
 
 | Course | Contents | Status |
 |---|---|---|
-| [1 — Office](labs/course-1-office/) | 14 experiments + 2 unit checks | 8 spreadsheet computations run and asserted, plus every number-system conversion and text-function result in the notes; 6 experiments produce documents, with nothing to compute |
-| [2 — C](labs/course-2-c/) | 15 programs | Compiled `-Wall -Wextra`, no warnings, run |
-| [3 — Python](labs/course-3-python/) | 18 programs | 16 run; 2 Tkinter syntax-checked only |
-| [4 — Statistics](labs/course-4-stats/) | 15 Excel walkthroughs + Python equivalents | Python run; `statlib` checked against tables |
-| [5 — SQL](labs/course-5-dbms/) | 3 experiments + PL/SQL | SQL executed; PL/SQL desk-checked only |
-| [6 — R](labs/course-6-r/) | 18 R scripts + 14 Python equivalents | R structurally checked (uninstallable here); equivalents run |
-| [7 — Web](labs/course-7-web/) | 16 experiments, HTML/CSS/JS | Run under jsdom, **184 assertions** on the resulting DOM |
-| [8 — Data Mining](labs/course-8-datamining/) | 15 experiments | WEKA click-paths documented; scikit-learn/mlxtend equivalents run |
-| [9 — Pandas](labs/course-9-python-da/) | 18 practicals | **All run**, outputs asserted |
-| [10 — MongoDB](labs/course-10-mongodb/) | 20 experiments | 16 executed through mongomock; 4 need a server and say **NOT EXECUTED** |
-| [11 — BI](labs/course-11-bi/) | 15 experiments | Every DAX, Power Query and LOD figure computed; tool click-paths **NOT EXECUTED** |
-| [12 A — ML](labs/course-12a-ml/) | 12 practicals | **All run** under scikit-learn. Nothing in this course is marked NOT EXECUTED |
-| [13 A — AI](labs/course-13a-ai/) | 19 experiments | 16 Prolog programs **NOT EXECUTED**; 7 Python halves run, **five as real logic programs** |
-| [12 B — Big Data](labs/course-12b-bigdata/) | 17 experiments | 14 run, including **real Apache Spark, Avro and Parquet**; 15 tool files **NOT EXECUTED** |
-| [13 B — Cloud](labs/course-13b-cloud/) | 15 experiments | 7 run, including a **real web server, a real ETL and a real REST endpoint**; 14 console files **NOT EXECUTED** |
-| [14 A — Deep Learning](labs/course-14a-deeplearning/) | 12 experiments | **10 run against real MNIST, Fashion-MNIST, IMDb and real MobileNetV2/VGG16 ImageNet weights**; 2 **NOT EXECUTED** |
-| [14 B — Time Series](labs/course-14b-timeseries/) | 13 experiments | **All 13 run.** No file in this course is marked NOT EXECUTED |
-| [15 A — NLP](labs/course-15a-nlp/) | 14 experiments | **11 run against real NLTK corpora and real spaCy models**, every result scored against hand-labelled truth; 3 **NOT EXECUTED** |
-| [15 B — MLOps](labs/course-15b-mlops/) | 16 experiments | **11 run against real MLflow, git, DVC and Flask**; 5 **NOT EXECUTED** |
+| 1 — Office | 14 experiments + 2 unit checks | 8 spreadsheet computations run and asserted, plus every number-system conversion and text-function result in the notes; 6 experiments produce documents, with nothing to compute |
+| 2 — C | 15 programs | Compiled `-Wall -Wextra`, no warnings, run |
+| 3 — Python | 18 programs | 16 run; 2 Tkinter syntax-checked only |
+| 4 — Statistics | 15 Excel walkthroughs + Python equivalents | Python run; `statlib` checked against tables |
+| 5 — SQL | 3 experiments + PL/SQL | SQL executed; PL/SQL desk-checked only |
+| 6 — R | 18 R scripts + 14 Python equivalents | R structurally checked (uninstallable here); equivalents run |
+| 7 — Web | 16 experiments, HTML/CSS/JS | Run under jsdom, **184 assertions** on the resulting DOM |
+| 8 — Data Mining | 15 experiments | WEKA click-paths documented; scikit-learn/mlxtend equivalents run |
+| 9 — Pandas | 18 practicals | **All run**, outputs asserted |
+| 10 — MongoDB | 20 experiments | 16 executed through mongomock; 4 need a server and say **NOT EXECUTED** |
+| 11 — BI | 15 experiments | Every DAX, Power Query and LOD figure computed; tool click-paths **NOT EXECUTED** |
+| 12 A — ML | 12 practicals | **All run** under scikit-learn. Nothing in this course is marked NOT EXECUTED |
+| 13 A — AI | 19 experiments | 16 Prolog programs **NOT EXECUTED**; 7 Python halves run, **five as real logic programs** |
+| 12 B — Big Data | 17 experiments | 14 run, including **real Apache Spark, Avro and Parquet**; 15 tool files **NOT EXECUTED** |
+| 13 B — Cloud | 15 experiments | 7 run, including a **real web server, a real ETL and a real REST endpoint**; 14 console files **NOT EXECUTED** |
+| 14 A — Deep Learning | 12 experiments | **10 run against real MNIST, Fashion-MNIST, IMDb and real MobileNetV2/VGG16 ImageNet weights**; 2 **NOT EXECUTED** |
+| 14 B — Time Series | 13 experiments | **All 13 run.** No file in this course is marked NOT EXECUTED |
+| 15 A — NLP | 14 experiments | **11 run against real NLTK corpora and real spaCy models**, every result scored against hand-labelled truth; 3 **NOT EXECUTED** |
+| 15 B — MLOps | 16 experiments | **11 run against real MLflow, git, DVC and Flask**; 5 **NOT EXECUTED** |
 
 ---
 

@@ -301,7 +301,7 @@ Putting the larger variance on top makes F ≥ 1 and lets you use the standard
 right-tail tables.
 
 *(All of these worked figures are computed in
-[`05_inference_hypothesis_tests.py`](../../../labs/course-4-stats/python/05_inference_hypothesis_tests.py).)*
+`05_inference_hypothesis_tests.py`.)*
 
 ## 5.6 Type I and Type II errors
 

@@ -3,7 +3,7 @@
 **Semester VI**
 
 **This is a Track A course**, paired with
-[Course 14 A (Neural Networks & Deep Learning)](../course-14a-deep-learning/),
+Course 14 A (Neural Networks & Deep Learning),
 and it is the last course of the track you began in Semester V.
 
 ---
@@ -133,7 +133,7 @@ and [practice.md](practice.md) — exam questions with worked solutions.
 ## If you read one thing
 
 **Unit 1's section on ambiguity**, and then run
-[`03_ambiguity_tokenize.py`](../../../labs/course-15a-nlp/03_ambiguity_tokenize.py).
+`03_ambiguity_tokenize.py`.
 
 Six sentences, each ambiguous in a documented way, with WordNet sense counts
 and actual parse trees for the structural cases. **Everything else in the

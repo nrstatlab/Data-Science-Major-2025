@@ -1,8 +1,8 @@
 # Course 12 B — Practice Questions with Worked Solutions
 
 Every figure quoted here is produced by
-[`labs/course-12b-bigdata/`](../../../labs/course-12b-bigdata/) and checked by
-[`tools/run_bigdata_labs.py`](../../../tools/run_bigdata_labs.py).
+`labs/course-12b-bigdata/` and checked by
+`tools/run_bigdata_labs.py`.
 
 ---
 

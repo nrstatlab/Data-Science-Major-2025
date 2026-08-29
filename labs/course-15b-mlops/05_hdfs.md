@@ -14,7 +14,7 @@ arithmetic**, computed and asserted, plus a real MapReduce implementation and
 real Apache Spark. Read that first — this file adds only the commands.
 
 The relevant runnable material here is
-[`01_environment_etl.py`](01_environment_etl.py), which does the same
+`01_environment_etl.py`, which does the same
 extract-transform-load into a warehouse that a Hadoop job would, at a scale
 where the distributed machinery earns nothing.
 

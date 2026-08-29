@@ -162,7 +162,7 @@ still say 64).</p>
 </tr>
 </tbody>
 </table>
-<p><em>(Every row computed in <a href="../labs/course-12b-bigdata/04_blocks_replication.py"><code>04_blocks_replication.py</code></a>.)</em></p>
+<p><em>(Every row computed in <code>04_blocks_replication.py</code>.)</em></p>
 </div>
 <h3 id="an-hdfs-block-is-a-maximum-not-an-allocation">⚠️ An HDFS block is a maximum, not an allocation</h3>
 <p><strong>260 MB is 128 + 128 + 4, not three 128 MB blocks.</strong> The last block occupies
@@ -270,7 +270,7 @@ losing <em>two</em> racks — which is far rarer than losing one. Cross-rack ban
 is the scarce resource in a datacentre, so the policy buys the important
 guarantee and stops.</p>
 <p><strong>Measured</strong>, on a 1 GB file over 6 DataNodes in 2 racks
-(<a href="../labs/course-12b-bigdata/05_fault_tolerance.py"><code>05_fault_tolerance.py</code></a>):</p>
+(<code>05_fault_tolerance.py</code>):</p>
 <table class="main-table">
 <thead>
 <tr>
@@ -573,7 +573,7 @@ nodes holding its blocks</em>, and the RM honours the preference when it can.</p
 <h2 id="27-the-three-schedulers">2.7 The three schedulers</h2>
 <p>Measured on one workload — an 8-container cluster, four jobs, <code>big_etl</code>
 needing the whole cluster for 10 s
-(<a href="../labs/course-12b-bigdata/06_yarn_scheduling.py"><code>06_yarn_scheduling.py</code></a>):</p>
+(<code>06_yarn_scheduling.py</code>):</p>
 <table class="main-table">
 <thead>
 <tr>

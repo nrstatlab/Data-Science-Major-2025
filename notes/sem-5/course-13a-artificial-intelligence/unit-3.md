@@ -7,7 +7,7 @@ Satisfaction Problems (CSP) — definition, backtracking search.
 
 > **This unit and Unit 4 carry the marks.** A* and its admissibility guarantee
 > are asked almost every year. Every figure below is computed in
-> [`labs/course-13a-ai/`](../../../labs/course-13a-ai/).
+> `labs/course-13a-ai/`.
 
 ---
 

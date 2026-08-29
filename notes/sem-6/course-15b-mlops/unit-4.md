@@ -289,6 +289,6 @@ until you need distributed training, which is a different problem.
 - [ ] **Distinguish readiness from liveness**, and say what going wrong costs
 
 **Cross-check yourself:** run
-[`12_serve_drift_govern.py`](../../../labs/course-15b-mlops/12_serve_drift_govern.py)
+`12_serve_drift_govern.py`
 and
-[`07_mlflow_dvc.py`](../../../labs/course-15b-mlops/07_mlflow_dvc.py).
+`07_mlflow_dvc.py`.

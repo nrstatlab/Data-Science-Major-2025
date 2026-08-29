@@ -11,8 +11,8 @@ are verified in, so each experiment has two halves:
 >   Marked **NOT EXECUTED**. This is what the lab examiner asks you to
 >   demonstrate.
 > - **A Python equivalent that runs** — the same arithmetic, executed and
->   asserted by [`tools/run_office_labs.py`](../../../tools/run_office_labs.py),
->   with the scripts in [`labs/course-1-office/`](../../../labs/course-1-office/).
+>   asserted by `tools/run_office_labs.py`,
+>   with the scripts in `labs/course-1-office/`.
 >
 > **Eight of the fourteen have a runnable half.** Experiments 1–6 produce
 > documents, a drawing or a layout, with nothing to compute; they are

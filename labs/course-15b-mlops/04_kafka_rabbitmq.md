@@ -7,7 +7,7 @@ installed here: this environment's egress policy blocks the Debian
 repositories, and neither ships as a pip-installable server. **Nothing in this
 file has been run**, and nothing in the notes claims an output for it.
 
-**The runnable half is [`04_batch_vs_event.py`](04_batch_vs_event.py)**, which
+**The runnable half is `04_batch_vs_event.py`**, which
 implements both ingestion modes over a real in-process queue and measures the
 latency difference: **batch p50 of ~354 ms against event-driven ~2 ms, a
 factor of about 160**, on 300 records with a 250 ms batch interval.
@@ -127,7 +127,7 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 > application twice must not create two loan records. That requirement
 > propagates all the way into your database schema — a unique constraint on
 > the application id — and it is the same idempotency requirement that
-> [`01_environment_etl.py`](01_environment_etl.py) puts in the warehouse's
+> `01_environment_etl.py` puts in the warehouse's
 > `PRIMARY KEY`.
 
 ---

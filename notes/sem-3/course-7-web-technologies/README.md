@@ -52,12 +52,12 @@ underestimate: the lab exam asks you to *build* things, not describe them.
 
 - [practice.md](practice.md) — exam questions with solutions
 - [lab.md](lab.md) — all 16 experiments
-- [`labs/course-7-web/`](../../../labs/course-7-web/) — runnable code
+- `labs/course-7-web/` — runnable code
 
 > **On the lab code:** unlike the R labs, these **do run**. Node 22 with jsdom
 > is available in the verification environment, so every JavaScript and DOM
 > experiment is executed and asserted by
-> [`tools/run_web_labs.js`](../../../tools/run_web_labs.js). The HTML and CSS
+> `tools/run_web_labs.js`. The HTML and CSS
 > files are structurally validated. What is *not* automated is visual
 > appearance — open them in a browser for that.
 

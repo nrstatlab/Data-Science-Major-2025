@@ -238,8 +238,8 @@ So a student who revises from the unit lists alone meets neither, and then
 finds two of the twenty lab experiments are about them. That is the same shape
 of problem as **D1** and **D2**. Both are covered in
 Unit 5 and in lab
-experiments [18](labs/course-10-mongodb/18_gridfs.js) and
-[19](labs/course-10-mongodb/19_transactions.js) for that reason — and both of
+experiments 18 and
+19 for that reason — and both of
 those lab files also say plainly that they need a running server, which is the
 other half of the answer when an examiner asks you to demonstrate them.
 
@@ -655,7 +655,7 @@ understand *why* Spark replaced MapReduce rather than merely that it did.
 
 ## Verification notes for this repository
 
-The lab code in [`labs/`](labs/) was checked as follows. Run
+The lab code in `labs/` was checked as follows. Run
 `bash tools/verify_all.sh` to reproduce all of it.
 
 **What runs, and is asserted**

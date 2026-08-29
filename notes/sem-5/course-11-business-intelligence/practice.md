@@ -5,8 +5,8 @@ answer script should be written — a definition, a table or diagram, a worked
 example, and the point that earns the last two marks.
 
 Every figure quoted comes from
-[`labs/course-11-bi/`](../../../labs/course-11-bi/) and is checked by
-[`tools/run_bi_labs.py`](../../../tools/run_bi_labs.py).
+`labs/course-11-bi/` and is checked by
+`tools/run_bi_labs.py`.
 
 ---
 

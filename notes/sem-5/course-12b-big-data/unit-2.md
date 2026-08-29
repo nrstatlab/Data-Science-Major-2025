@@ -58,7 +58,7 @@ still say 64).
 | 1 GB | **8** | 128 MB |
 | 5,000 MB | **40** | 8 MB |
 
-*(Every row computed in [`04_blocks_replication.py`](../../../labs/course-12b-bigdata/04_blocks_replication.py).)*
+*(Every row computed in `04_blocks_replication.py`.)*
 
 ### ⚠️ An HDFS block is a maximum, not an allocation
 
@@ -124,7 +124,7 @@ is the scarce resource in a datacentre, so the policy buys the important
 guarantee and stops.
 
 **Measured**, on a 1 GB file over 6 DataNodes in 2 racks
-([`05_fault_tolerance.py`](../../../labs/course-12b-bigdata/05_fault_tolerance.py)):
+(`05_fault_tolerance.py`):
 
 | Failure | Blocks lost |
 |---|---:|
@@ -311,7 +311,7 @@ nodes holding its blocks*, and the RM honours the preference when it can.
 
 Measured on one workload — an 8-container cluster, four jobs, `big_etl`
 needing the whole cluster for 10 s
-([`06_yarn_scheduling.py`](../../../labs/course-12b-bigdata/06_yarn_scheduling.py)):
+(`06_yarn_scheduling.py`):
 
 | Job | FIFO turnaround | Fair turnaround |
 |---|---:|---:|

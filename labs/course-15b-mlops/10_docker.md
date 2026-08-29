@@ -13,7 +13,7 @@ check if the path is correct and if the daemon is running
 So no image can be built and no container run. **Nothing in this file has been
 run**, and nothing in the notes claims an output for it.
 
-**The runnable half is [`12_serve_drift_govern.py`](12_serve_drift_govern.py)**,
+**The runnable half is `12_serve_drift_govern.py`**,
 which runs the *same Flask application* directly — a real server on a real
 socket, called over HTTP, with `/health`, `/predict` and `/metrics` all
 exercised and their status codes asserted. **The container adds packaging, not

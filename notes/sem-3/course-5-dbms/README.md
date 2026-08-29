@@ -56,7 +56,7 @@ conceptually difficult; Unit 4 because SQL is what the lab exam tests.
 
 - [practice.md](practice.md) — exam-style questions with solutions
 - [lab.md](lab.md) — the three experiments plus PL/SQL
-- [`labs/course-5-dbms/`](../../../labs/course-5-dbms/) — executable SQL
+- `labs/course-5-dbms/` — executable SQL
 
 ## Textbooks
 

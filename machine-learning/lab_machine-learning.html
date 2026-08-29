@@ -37,13 +37,13 @@
   </ol>
 </details>
 <p><strong>12 experiments</strong></p>
-<p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-12a-ml"><code>labs/course-12a-ml/</code></a>.</p>
+<p>Code lives in <code>labs/course-12a-ml/</code>.</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>Everything in this course runs.</strong> scikit-learn, NumPy, pandas, SciPy and
 matplotlib are all installed, so <strong>all 12 practicals execute</strong> and every
 figure in these notes is asserted by
-<a href="../tools/run_ml_labs.py"><code>tools/run_ml_labs.py</code></a>.</p>
+<code>tools/run_ml_labs.py</code>.</p>
 <p><strong>There is no "NOT EXECUTED" file anywhere in Course 12 A.</strong> Unlike Courses
 6 (R), 8 (WEKA), 10 (mongod), 11 (Power BI and Tableau) and 13 B (AWS),
 nothing this course needs is blocked by the verification environment.</p>
@@ -104,7 +104,7 @@ so.</strong> That is the point of reusing the datasets rather than inventing new
 </table>
 <hr />
 <h2 id="experiment-1-import-and-export-data-with-pandas">Experiment 1 — Import and export data with pandas</h2>
-<p><a href="../labs/course-12a-ml/01_import_export.py"><code>01_import_export.py</code></a></p>
+<p><code>01_import_export.py</code></p>
 <p>CSV, Excel, JSON and Parquet round trips. Every format has a way of silently
 changing your data, and each one is demonstrated failing and then fixed:</p>
 <table class="main-table">
@@ -137,7 +137,7 @@ changing your data, and each one is demonstrated failing and then fixed:</p>
 and <strong>Parquet</strong>, which preserves every dtype exactly. Also <code>nrows</code>, <code>usecols</code>
 and <code>chunksize</code> for files that will not fit in memory.</p>
 <h2 id="experiment-2-data-pre-processing-techniques">Experiment 2 — Data pre-processing techniques</h2>
-<p><a href="../labs/course-12a-ml/02_preprocessing.py"><code>02_preprocessing.py</code></a></p>
+<p><code>02_preprocessing.py</code></p>
 <table class="main-table">
 <thead>
 <tr>
@@ -180,7 +180,7 @@ the test rows.</p>
 means.</p>
 </div>
 <h2 id="experiment-3-dimensionality-reduction-with-pca">Experiment 3 — Dimensionality reduction with PCA</h2>
-<p><a href="../labs/course-12a-ml/03_pca.py"><code>03_pca.py</code></a></p>
+<p><code>03_pca.py</code></p>
 <table class="main-table">
 <thead>
 <tr>
@@ -244,7 +244,7 @@ means.</p>
 </li>
 </ul>
 <h2 id="experiment-4-data-visualization-techniques">Experiment 4 — Data visualization techniques</h2>
-<p><a href="../labs/course-12a-ml/04_visualization.py"><code>04_visualization.py</code></a></p>
+<p><code>04_visualization.py</code></p>
 <p><strong>Anscombe's quartet</strong>, with the precision stated honestly:</p>
 <table class="main-table">
 <thead>
@@ -306,7 +306,7 @@ directions</em> — 2 bins show no structure, 5 and 15 find both real modes, and
 iris correlations (petal length ~ petal width <strong>0.9629</strong>), and the class
 balance plot that should be the first thing you make.</p>
 <h2 id="experiment-5-maximum-likelihood-estimation">Experiment 5 — Maximum likelihood estimation</h2>
-<p><a href="../labs/course-12a-ml/05_mle.py"><code>05_mle.py</code></a></p>
+<p><code>05_mle.py</code></p>
 <ul>
 <li>
 <p><strong>The coin:</strong> 7 heads in 10 gives p̂ = <strong>0.7000</strong> by calculus and by grid
@@ -327,7 +327,7 @@ balance plot that should be the first thing you make.</p>
 </li>
 </ul>
 <h2 id="experiment-6-simple-and-multiple-linear-regression">Experiment 6 — Simple and multiple linear regression</h2>
-<p><a href="../labs/course-12a-ml/06_linear_regression.py"><code>06_linear_regression.py</code></a></p>
+<p><code>06_linear_regression.py</code></p>
 <p>Reproduces Course 4 exactly (slope 4.3030, intercept 43.0303, R² 0.9958,
 residuals summing to 7.1e-15, and R² = r²), then:</p>
 <table class="main-table">
@@ -389,7 +389,7 @@ random datasets</strong>, adding 5 columns of pure noise:</p>
 <p><strong>R² rose every single time.</strong> The smallest change seen was still +0.000299.</p>
 </div>
 <h2 id="experiment-7-logistic-regression">Experiment 7 — Logistic regression</h2>
-<p><a href="../labs/course-12a-ml/07_logistic_regression.py"><code>07_logistic_regression.py</code></a></p>
+<p><code>07_logistic_regression.py</code></p>
 <p><strong>The baseline first</strong>, as Unit 2 §2.5 insists:</p>
 <table class="main-table">
 <thead>
@@ -475,7 +475,7 @@ at 0.90 it is never wrong about the ones it flags. The 0.5 cut-off is a
 convention, not part of the model.</p>
 </div>
 <h2 id="experiment-8-decision-tree-classification">Experiment 8 — Decision tree classification</h2>
-<p><a href="../labs/course-12a-ml/08_decision_tree.py"><code>08_decision_tree.py</code></a></p>
+<p><code>08_decision_tree.py</code></p>
 <p>Course 8's entropy arithmetic first — parent 0.9403, weighted children 0.6935,
 <strong>gain 0.2467</strong> — then the machine-learning question:</p>
 <table class="main-table">
@@ -531,7 +531,7 @@ convention, not part of the model.</p>
 <code>[0.975, 0.9625, 0.925, 0.9, 0.95]</code> — mean 0.9425, sd 0.0269. A single split
 could have reported anything from 0.90 to 0.975.</p>
 <h2 id="experiment-9-naive-bayes-classification">Experiment 9 — Naive Bayes classification</h2>
-<p><a href="../labs/course-12a-ml/09_naive_bayes.py"><code>09_naive_bayes.py</code></a></p>
+<p><code>09_naive_bayes.py</code></p>
 <p>Course 8's posteriors reproduced — <strong>0.005291</strong> for Yes and <strong>0.020571</strong> for
 No, normalising to 79.54% / 20.46% — then the two ideas that matter:</p>
 <ul>
@@ -550,7 +550,7 @@ No, normalising to 79.54% / 20.46% — then the two ideas that matter:</p>
 <p>Plus <code>MultinomialNB</code> on a toy spam corpus, and the note that scikit-learn's
 <code>alpha=1.0</code> <strong>is</strong> Laplace smoothing, on by default.</p>
 <h2 id="experiment-10-k-means-clustering">Experiment 10 — K-Means clustering</h2>
-<p><a href="../labs/course-12a-ml/10_kmeans.py"><code>10_kmeans.py</code></a></p>
+<p><code>10_kmeans.py</code></p>
 <table class="main-table">
 <thead>
 <tr>
@@ -603,7 +603,7 @@ metric and the ground truth disagree.</p>
 versicolor (39/11) and virginica (14/36) bleed into each other. It is a
 property of the flowers, not a bug.</p>
 <h2 id="experiment-11-k-nearest-neighbour-classification">Experiment 11 — k-Nearest Neighbour classification</h2>
-<p><a href="../labs/course-12a-ml/11_knn.py"><code>11_knn.py</code></a></p>
+<p><code>11_knn.py</code></p>
 <p><strong>Scaling, when units genuinely differ</strong> — age in years against income in
 rupees, where the true rule depends on age alone:</p>
 <table class="main-table">
@@ -633,7 +633,7 @@ ritual.</p>
 k = n_train = 105 every query sees the same 105 votes and returns one fixed
 class — <strong>0.3333</strong> on three balanced species.</p>
 <h2 id="experiment-12-dbscan">Experiment 12 — DBSCAN</h2>
-<p><a href="../labs/course-12a-ml/12_dbscan.py"><code>12_dbscan.py</code></a></p>
+<p><code>12_dbscan.py</code></p>
 <p><strong>The headline:</strong> two interleaved crescents, 300 points.</p>
 <table class="main-table">
 <thead>

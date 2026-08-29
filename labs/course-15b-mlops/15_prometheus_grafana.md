@@ -7,7 +7,7 @@ installed here — this environment's egress policy blocks the Debian
 repositories, and neither is pip-installable as a server. **Nothing in this
 file has been run**, and nothing in the notes claims an output for it.
 
-**The runnable half is [`12_serve_drift_govern.py`](12_serve_drift_govern.py)**,
+**The runnable half is `12_serve_drift_govern.py`**,
 which serves a real `/metrics` endpoint in **Prometheus exposition format**,
 calls it over HTTP, and parses the response back to confirm the format is
 valid:
@@ -137,7 +137,7 @@ ignore alerts; too long and you find out from a customer.
 
 **Note that `FeatureDrift` uses `for: 1h`** — drift is a slow phenomenon and a
 single noisy batch should not page anyone. That threshold of 0.2 is the same
-one [`12_serve_drift_govern.py`](12_serve_drift_govern.py) measures against
+one `12_serve_drift_govern.py` measures against
 known injected drift, where it caught 4 of 5 drifted batches with 0 false
 alarms.
 

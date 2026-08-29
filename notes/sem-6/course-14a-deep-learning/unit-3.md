@@ -290,5 +290,5 @@ measure whether the nearest neighbour shares the label — **0.8150 against
 - [ ] Explain why face recognition uses embeddings rather than classes
 
 **Cross-check yourself:** run
-[`06_cnn.py`](../../../labs/course-14a-deeplearning/06_cnn.py). Every table in
+`06_cnn.py`. Every table in
 this unit is printed by it, including the ones that disagree with the textbook.

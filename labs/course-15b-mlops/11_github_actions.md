@@ -7,7 +7,7 @@ a repository. There is no runner here and no way to trigger one. **Nothing in
 this file has been run**, and nothing in the notes claims an output for it.
 
 **What is verified** is the pipeline the workflow would execute:
-[`07_mlflow_dvc.py`](07_mlflow_dvc.py) runs the training pipeline twice and
+`07_mlflow_dvc.py` runs the training pipeline twice and
 asserts the results are **byte-identical**, which is the property CI exists to
 protect. A workflow that runs a non-deterministic pipeline tells you nothing.
 

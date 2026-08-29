@@ -77,7 +77,7 @@ anything.
 
 **Referential integrity** is what stops you assigning an employee to department
 99 when no such department exists — as demonstrated in
-[`03_employee.sql`](../../../labs/course-5-dbms/03_employee.sql), where that
+`03_employee.sql`, where that
 exact update is tested and correctly rejected.
 
 ### Referential actions

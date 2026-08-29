@@ -7,7 +7,7 @@ the gateway — so `sentence-transformers` cannot download a model. **Nothing
 in this file has been run here**, and nothing in the notes claims an output
 for it.
 
-**The runnable half is [`12_transformer_local.py`](12_transformer_local.py),
+**The runnable half is `12_transformer_local.py`,
 experiment 14**, which builds the identical retriever on TF-IDF embeddings
 and scores it against hand-labelled answers. **The architecture is the same
 — embed, cosine, argmax, threshold — and only the embedding function

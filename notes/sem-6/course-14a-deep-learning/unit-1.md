@@ -99,7 +99,7 @@ number of steps. If it is not, it never converges — it cycles forever.
 
 ### The measurement that makes the point
 
-[`01_perceptron_scratch.py`](../../../labs/course-14a-deeplearning/01_perceptron_scratch.py)
+`01_perceptron_scratch.py`
 trains one perceptron on each of the four basic logic gates:
 
 | Gate | Linearly separable? | Epochs to converge | Accuracy |
@@ -159,14 +159,14 @@ non-linearity between the layers.
 | **Linear** | `z` | (−∞, ∞) | 1 | output layer of a **regression** |
 | **Sigmoid** | `1/(1+e⁻ᶻ)` | (0, 1) | ≤ **0.25** | output of **binary** classification |
 | **Tanh** | `(eᶻ−e⁻ᶻ)/(eᶻ+e⁻ᶻ)` | (−1, 1) | ≤ **1.0** | RNN hidden states |
-| **ReLU** | `max(0, z)` | [0, ∞) | **0 or 1** | **hidden layers — the default** |
+| **ReLU** | `max(0, z)` | `0, ∞) | **0 or 1** | **hidden layers — the default** |
 | **Softmax** | `eᶻⁱ/Σeᶻʲ` | (0,1), sums to 1 | — | output of **multi-class** classification |
 
 ### 🔢 Why ReLU won, as arithmetic
 
 Backpropagation multiplies derivatives along the chain. Over `n` layers the
 gradient carries a factor of roughly `(max derivative)ⁿ`.
-[`01_perceptron_scratch.py`](../../../labs/course-14a-deeplearning/01_perceptron_scratch.py)
+[`01_perceptron_scratch.py``
 computes it:
 
 | Activation | 10 layers | 50 layers |
@@ -314,5 +314,5 @@ gradients exist.
 - [ ] State what backpropagation computes and why it is efficient
 
 **Cross-check yourself:** run
-[`01_perceptron_scratch.py`](../../../labs/course-14a-deeplearning/01_perceptron_scratch.py).
+`01_perceptron_scratch.py`.
 Every number quoted in this unit is printed by it.

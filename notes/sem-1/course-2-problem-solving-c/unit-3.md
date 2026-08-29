@@ -260,7 +260,7 @@ int my_strcmp(const char *a, const char *b)
 ```
 
 Working versions of all of these are in
-[`labs/course-2-c/06_string_operations.c`](../../../labs/course-2-c/06_string_operations.c).
+`labs/course-2-c/06_string_operations.c`.
 
 ---
 

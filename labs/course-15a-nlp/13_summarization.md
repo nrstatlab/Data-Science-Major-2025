@@ -7,7 +7,7 @@ the gateway**, so BART, T5 and Pegasus cannot be downloaded. **Nothing in
 this file has been run**, and nothing in the notes claims an output for it.
 
 **The extractive half needed no pre-trained model and therefore did run** —
-[`12_transformer_local.py`](12_transformer_local.py), experiment 13, builds
+`12_transformer_local.py`, experiment 13, builds
 TextRank over TF-IDF sentence similarity on a real Reuters article and scores
 it against the lead-3 baseline. Read that first; this file is the half that
 is missing.

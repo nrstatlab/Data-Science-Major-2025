@@ -1,8 +1,8 @@
 # Course 13 B — Practice Questions with Worked Solutions
 
 Every figure quoted here is produced by
-[`labs/course-13b-cloud/`](../../../labs/course-13b-cloud/) and checked by
-[`tools/run_cloud_labs.py`](../../../tools/run_cloud_labs.py).
+`labs/course-13b-cloud/` and checked by
+`tools/run_cloud_labs.py`.
 
 ---
 

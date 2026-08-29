@@ -1,7 +1,7 @@
 # Course 5 — Practice Questions with Solutions
 
 The SQL answers below run against the three lab schemas in
-[`labs/course-5-dbms/`](../../../labs/course-5-dbms/). Verify any of them with
+`labs/course-5-dbms/`. Verify any of them with
 `python3 tools/run_sql_labs.py`.
 
 ---
@@ -276,7 +276,7 @@ automatically; never called); the syntax; the classification by timing
 
 Finish with advantages, disadvantages and the mutating-table restriction. Full
 treatment in [unit-5.md §5.8](unit-5.md); the code is in
-[`04_plsql_oracle.sql`](../../../labs/course-5-dbms/04_plsql_oracle.sql).
+`04_plsql_oracle.sql`.
 
 **Remember:** triggers are not in the Unit 5 syllabus list, but two of six lab
 questions require them.

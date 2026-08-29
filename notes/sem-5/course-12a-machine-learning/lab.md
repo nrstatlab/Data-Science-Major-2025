@@ -2,12 +2,12 @@
 
 **12 experiments**
 
-Code lives in [`labs/course-12a-ml/`](../../../labs/course-12a-ml/).
+Code lives in `labs/course-12a-ml/`.
 
 > **Everything in this course runs.** scikit-learn, NumPy, pandas, SciPy and
 > matplotlib are all installed, so **all 12 practicals execute** and every
 > figure in these notes is asserted by
-> [`tools/run_ml_labs.py`](../../../tools/run_ml_labs.py).
+> `tools/run_ml_labs.py`.
 >
 > **There is no "NOT EXECUTED" file anywhere in Course 12 A.** Unlike Courses
 > 6 (R), 8 (WEKA), 10 (mongod), 11 (Power BI and Tableau) and 13 B (AWS),
@@ -44,7 +44,7 @@ so.** That is the point of reusing the datasets rather than inventing new ones.
 
 ## Experiment 1 — Import and export data with pandas
 
-[`01_import_export.py`](../../../labs/course-12a-ml/01_import_export.py)
+`01_import_export.py`
 
 CSV, Excel, JSON and Parquet round trips. Every format has a way of silently
 changing your data, and each one is demonstrated failing and then fixed:
@@ -62,7 +62,7 @@ and `chunksize` for files that will not fit in memory.
 
 ## Experiment 2 — Data pre-processing techniques
 
-[`02_preprocessing.py`](../../../labs/course-12a-ml/02_preprocessing.py)
+`02_preprocessing.py`
 
 | Result | Figure |
 |---|---|
@@ -86,7 +86,7 @@ means.
 
 ## Experiment 3 — Dimensionality reduction with PCA
 
-[`03_pca.py`](../../../labs/course-12a-ml/03_pca.py)
+`03_pca.py`
 
 | Component | Eigenvalue | Explained | Cumulative |
 |---|---:|---:|---:|
@@ -114,7 +114,7 @@ Also asserted:
 
 ## Experiment 4 — Data visualization techniques
 
-[`04_visualization.py`](../../../labs/course-12a-ml/04_visualization.py)
+`04_visualization.py`
 
 **Anscombe's quartet**, with the precision stated honestly:
 
@@ -137,7 +137,7 @@ balance plot that should be the first thing you make.
 
 ## Experiment 5 — Maximum likelihood estimation
 
-[`05_mle.py`](../../../labs/course-12a-ml/05_mle.py)
+`05_mle.py`
 
 - **The coin:** 7 heads in 10 gives p̂ = **0.7000** by calculus and by grid
   search. The MLE is the sample proportion.
@@ -151,7 +151,7 @@ balance plot that should be the first thing you make.
 
 ## Experiment 6 — Simple and multiple linear regression
 
-[`06_linear_regression.py`](../../../labs/course-12a-ml/06_linear_regression.py)
+`06_linear_regression.py`
 
 Reproduces Course 4 exactly (slope 4.3030, intercept 43.0303, R² 0.9958,
 residuals summing to 7.1e-15, and R² = r²), then:
@@ -178,7 +178,7 @@ random datasets**, adding 5 columns of pure noise:
 
 ## Experiment 7 — Logistic regression
 
-[`07_logistic_regression.py`](../../../labs/course-12a-ml/07_logistic_regression.py)
+`07_logistic_regression.py`
 
 **The baseline first**, as Unit 2 §2.5 insists:
 
@@ -213,7 +213,7 @@ convention, not part of the model.
 
 ## Experiment 8 — Decision tree classification
 
-[`08_decision_tree.py`](../../../labs/course-12a-ml/08_decision_tree.py)
+`08_decision_tree.py`
 
 Course 8's entropy arithmetic first — parent 0.9403, weighted children 0.6935,
 **gain 0.2467** — then the machine-learning question:
@@ -234,7 +234,7 @@ could have reported anything from 0.90 to 0.975.
 
 ## Experiment 9 — Naive Bayes classification
 
-[`09_naive_bayes.py`](../../../labs/course-12a-ml/09_naive_bayes.py)
+`09_naive_bayes.py`
 
 Course 8's posteriors reproduced — **0.005291** for Yes and **0.020571** for
 No, normalising to 79.54% / 20.46% — then the two ideas that matter:
@@ -252,7 +252,7 @@ Plus `MultinomialNB` on a toy spam corpus, and the note that scikit-learn's
 
 ## Experiment 10 — K-Means clustering
 
-[`10_kmeans.py`](../../../labs/course-12a-ml/10_kmeans.py)
+`10_kmeans.py`
 
 | k | WCSS | drop | silhouette |
 |---:|---:|---:|---:|
@@ -277,7 +277,7 @@ property of the flowers, not a bug.
 
 ## Experiment 11 — k-Nearest Neighbour classification
 
-[`11_knn.py`](../../../labs/course-12a-ml/11_knn.py)
+`11_knn.py`
 
 **Scaling, when units genuinely differ** — age in years against income in
 rupees, where the true rule depends on age alone:
@@ -300,7 +300,7 @@ class — **0.3333** on three balanced species.
 
 ## Experiment 12 — DBSCAN
 
-[`12_dbscan.py`](../../../labs/course-12a-ml/12_dbscan.py)
+`12_dbscan.py`
 
 **The headline:** two interleaved crescents, 300 points.
 

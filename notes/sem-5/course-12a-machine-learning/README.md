@@ -5,7 +5,7 @@
 **This is a Track A course.** Semester V is Course 11 plus one elective pair:
 **12 A + 13 A** (Machine Learning → Artificial Intelligence) or **12 B + 13 B**
 (Big Data → Cloud Computing). Taking this means taking
-[Course 13 A](../course-13a-artificial-intelligence/) too, and Track A again in
+Course 13 A too, and Track A again in
 Semester VI.
 
 ---
@@ -92,12 +92,12 @@ where the marks that separate answers are.
 
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 12 experiments
-- [`labs/course-12a-ml/`](../../../labs/course-12a-ml/) — code
+- `labs/course-12a-ml/` — code
 
 > **On the lab code.** **Everything in this course runs.** scikit-learn, NumPy,
 > pandas and matplotlib are all installed, so all 12 practicals execute and
 > every figure in these notes is asserted by
-> [`tools/run_ml_labs.py`](../../../tools/run_ml_labs.py). There is no
+> `tools/run_ml_labs.py`. There is no
 > "NOT EXECUTED" file anywhere in this course — unlike Courses 6, 8, 10, 11 and
 > 13 B, nothing here needs a tool this environment cannot install.
 >

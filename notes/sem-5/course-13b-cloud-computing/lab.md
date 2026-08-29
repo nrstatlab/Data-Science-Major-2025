@@ -2,7 +2,7 @@
 
 **15 experiments**
 
-Code lives in [`labs/course-13b-cloud/`](../../../labs/course-13b-cloud/).
+Code lives in `labs/course-13b-cloud/`.
 
 ## Read this before you read anything else
 
@@ -16,7 +16,7 @@ notes about a provider's behaviour was demonstrated here.
 | Half | Files | Status |
 |---|---|---|
 | **The console and CLI steps** | **14 Markdown files** | **`*** NOT EXECUTED ***`** at the top of every one |
-| **The verification** | **7 programs** | **Executed and asserted** by [`tools/run_cloud_labs.py`](../../../tools/run_cloud_labs.py) |
+| **The verification** | **7 programs** | **Executed and asserted** by `tools/run_cloud_labs.py` |
 
 ```bash
 pip install -r tools/requirements.txt
@@ -29,7 +29,7 @@ Most of what this course teaches is **not proprietary**:
 
 | Runs for real | What it is |
 |---|---|
-| **IAM policy evaluation** | the actual algorithm, in [`iam.py`](../../../labs/course-13b-cloud/iam.py) |
+| **IAM policy evaluation** | the actual algorithm, in `iam.py` |
 | **Object-store semantics** | prefixes, no directories, copy-plus-delete, versioning |
 | **All the pricing arithmetic** | storage classes, egress, per-TB, per-node-hour |
 | **Hypervisor overcommit** | and the point at which it fails |
@@ -55,7 +55,7 @@ and `verify_all.sh` fails if any of them drifts.
 ## Experiment 1 — Create a virtual machine
 
 `01_create_vm.md` (NOT EXECUTED) ·
-[`01_vm_and_hosting.py`](../../../labs/course-13b-cloud/01_vm_and_hosting.py) — **runs**
+`01_vm_and_hosting.py` — **runs**
 
 ### The three wizard choices that get people
 
@@ -145,7 +145,7 @@ once.
 
 `03_account_setup.md` ·
 `10_sagemaker_notebook.md` (NOT EXECUTED) ·
-[`03_iam_and_account.py`](../../../labs/course-13b-cloud/03_iam_and_account.py) — **runs**
+`03_iam_and_account.py` — **runs**
 
 ### 🎯 The three rules, and they are the whole subject
 
@@ -227,7 +227,7 @@ rates, whether or not anything calls it.
 `04_buckets.md` ·
 `05_ebs.md` ·
 `06_efs.md` (NOT EXECUTED) ·
-[`04_storage.py`](../../../labs/course-13b-cloud/04_storage.py) — **runs**
+`04_storage.py` — **runs**
 
 ### ⚠️ There are no directories
 
@@ -366,7 +366,7 @@ disconnecting is an annoyance; a cloud notebook *not* disconnecting is a bill.
 
 `08_cloud_db.md` ·
 `12_etl_to_warehouse.md` (NOT EXECUTED) ·
-[`09_etl_warehouse.py`](../../../labs/course-13b-cloud/09_etl_warehouse.py) — **runs end to end**
+`09_etl_warehouse.py` — **runs end to end**
 
 ### 🔢 The pipeline, with an audit trail
 
@@ -427,7 +427,7 @@ re-extracting from a production database that may no longer hold the old rows
 
 `11_sagemaker_train.md` ·
 `14_automl.md` (NOT EXECUTED) ·
-[`11_train_and_automl.py`](../../../labs/course-13b-cloud/11_train_and_automl.py) — **runs**
+`11_train_and_automl.py` — **runs**
 
 ### 🎯 Quote the dummy first, always
 
@@ -513,7 +513,7 @@ leaves the weeks untouched.
 ## Experiment 13 — Monitoring, alarms and auto-scaling
 
 `13_monitoring.md` (NOT EXECUTED) ·
-[`13_monitoring_autoscale.py`](../../../labs/course-13b-cloud/13_monitoring_autoscale.py) — **runs**
+`13_monitoring_autoscale.py` — **runs**
 
 A day of traffic: peak **1,000 req/s**, trough **164**; instances serve 150
 req/s; the group is 2–12.
@@ -601,7 +601,7 @@ or on-demand for the peak.
 ## Experiment 15 — Deploy the model as a REST endpoint
 
 `15_deploy.md` (NOT EXECUTED) ·
-[`15_deploy_endpoint.py`](../../../labs/course-13b-cloud/15_deploy_endpoint.py) —
+`15_deploy_endpoint.py` —
 **a REAL HTTP server, serving a REAL model**
 
 ```

@@ -76,7 +76,7 @@ the repetition falls so you do not study it twice.
 
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 20 experiments
-- [`labs/course-10-mongodb/`](../../../labs/course-10-mongodb/) — code
+- `labs/course-10-mongodb/` — code
 
 > **On the lab code.** `mongod` cannot be installed here — the Debian
 > repositories are blocked by the egress policy — so each experiment has two
@@ -86,7 +86,7 @@ the repetition falls so you do not study it twice.
 >   its own header. That is what the lab examiner will ask you to demonstrate.
 > - **A Python equivalent that runs**, executing the same query logic through
 >   **mongomock** and asserting the results, verified by
->   [`tools/run_mongo_labs.py`](../../../tools/run_mongo_labs.py).
+>   `tools/run_mongo_labs.py`.
 >
 > mongomock implements the query and aggregation language faithfully but is not
 > a server, so **replication (17), GridFS (18) and transactions (19) genuinely

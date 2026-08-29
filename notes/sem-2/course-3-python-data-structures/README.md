@@ -61,7 +61,7 @@ them as two separate topics; the notes split the file accordingly. See finding
 
 - [practice.md](practice.md) — exam-style questions with solutions
 - [lab.md](lab.md) — all 18 lab experiments explained
-- [`labs/course-3-python/`](../../../labs/course-3-python/) — the programs, all run
+- `labs/course-3-python/` — the programs, all run
 
 ## Textbooks
 

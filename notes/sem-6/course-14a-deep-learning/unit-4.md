@@ -237,7 +237,7 @@ representation is a function of the context.
 
 > **BERT is the mechanism of Unit 5 applied to the problem of this one.** The
 > lab cannot download BERT — `huggingface.co` is refused at the gateway — but
-> [`11_attention.py`](../../../labs/course-14a-deeplearning/11_attention.py)
+> `11_attention.py`
 > implements and trains the attention mechanism BERT is built from, and
 > `12_huggingface_app.md`
 > carries the pipeline code marked NOT EXECUTED.
@@ -310,6 +310,6 @@ An RNN can forecast a **time series**: feed `y_{t−n} … y_{t−1}`, predict
 - [ ] Explain the temperature parameter and its two limits
 
 **Cross-check yourself:** run
-[`09_rnn_lstm.py`](../../../labs/course-14a-deeplearning/09_rnn_lstm.py). Both
+`09_rnn_lstm.py`. Both
 comparison tables, the single-word probe and the temperature samples are
 printed by it.

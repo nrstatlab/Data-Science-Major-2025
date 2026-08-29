@@ -4,7 +4,7 @@
 Recommended datasets: `weather.arff`, `iris.arff`, `supermarket.arff`,
 `vote.arff`, `contact-lenses.arff`, or custom CSV.
 
-Code lives in [`labs/course-8-datamining/`](../../../labs/course-8-datamining/).
+Code lives in `labs/course-8-datamining/`.
 
 > **On the tooling.** The syllabus prescribes **WEKA**, which cannot be
 > installed in the verification environment — it needs a host the egress policy
@@ -14,7 +14,7 @@ Code lives in [`labs/course-8-datamining/`](../../../labs/course-8-datamining/).
 >   what to read off the output). Marked **NOT EXECUTED** — it is documentation
 >   for your lab exam, not something that ran here.
 > - **A scikit-learn / mlxtend equivalent that does run**, executed and asserted
->   by [`tools/run_data_labs.py`](../../../tools/run_data_labs.py), with results
+>   by `tools/run_data_labs.py`, with results
 >   checked against the hand-computed values in Units 3–5.
 >
 > Learn the WEKA path — that is what the examiner will ask you to demonstrate.

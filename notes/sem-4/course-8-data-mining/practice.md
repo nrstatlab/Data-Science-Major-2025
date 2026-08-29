@@ -5,7 +5,7 @@ trace: run Apriori, build a tree, classify with Bayes, iterate K-Means. This
 file works those traces end to end.
 
 **Every number here has been machine-checked** against
-[`tools/run_data_labs.py`](../../../tools/run_data_labs.py).
+`tools/run_data_labs.py`.
 
 ---
 

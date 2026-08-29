@@ -148,8 +148,8 @@ Statistical intuition decays without use. Finding **D10**.
 | Day | Revise |
 |---|---|
 | 1–2 | Descriptive statistics, distributions (formula sheet) |
-| 3–4 | Correlation and regression; re-run [`04_correlation_regression.py`](labs/course-4-stats/python/04_correlation_regression.py) |
-| 5–6 | Hypothesis testing; re-run [`05_inference_hypothesis_tests.py`](labs/course-4-stats/python/05_inference_hypothesis_tests.py) |
+| 3–4 | Correlation and regression; re-run `04_correlation_regression.py` |
+| 5–6 | Hypothesis testing; re-run `05_inference_hypothesis_tests.py` |
 | 7–10 | Bridge the Excel/Python gap — redo the stats labs in Python (finding **D8**) |
 | 11–14 | Python revision: NumPy and Pandas basics, ready for Course 9 |
 
@@ -191,7 +191,7 @@ Course 5 seen from the other side.
 gain, the centroids after two iterations. Weeks 8, 10 and 13 are the ones to
 protect, and the only way to prepare is to work the traces on paper until the
 arithmetic is automatic. The notes give each one fully worked, and
-[`labs/course-8-datamining/`](labs/course-8-datamining/) recomputes every figure
+`labs/course-8-datamining/` recomputes every figure
 in code so you can check your own work against something that runs.
 
 **Course 9 Units 1 and 2 get five weeks between them (1–6).** Everything after
@@ -649,7 +649,7 @@ problem on it unaided.
 If you do nothing else from this plan:
 
 1. **Type every lab program.** Reading code teaches nothing. Everything in
-   [`labs/`](labs/) that can run here does — type them, break them, fix them.
+   `labs/` that can run here does — type them, break them, fix them.
 2. **Give Course 3 Unit 4 and Course 4 Units 3–5 double time.** They carry the
    difficulty and the marks.
 3. **Study Bayes' theorem and database triggers**, though neither appears in

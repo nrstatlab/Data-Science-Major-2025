@@ -40,7 +40,7 @@
   </ol>
 </details>
 <p><strong>17 experiments</strong></p>
-<p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-12b-bigdata"><code>labs/course-12b-bigdata/</code></a>.</p>
+<p>Code lives in <code>labs/course-12b-bigdata/</code>.</p>
 <h2 id="read-this-before-you-read-anything-else">Read this before you read anything else</h2>
 <p><strong>This is the most environment-constrained course in the programme, and the
 lab is split in two.</strong></p>
@@ -61,7 +61,7 @@ lab is split in two.</strong></p>
 <tr>
 <td><strong>The verification</strong></td>
 <td><strong>14 programs</strong></td>
-<td><strong>Executed and asserted</strong> by <a href="../tools/run_bigdata_labs.py"><code>tools/run_bigdata_labs.py</code></a></td>
+<td><strong>Executed and asserted</strong> by <code>tools/run_bigdata_labs.py</code></td>
 </tr>
 </tbody>
 </table>
@@ -124,9 +124,9 @@ experiment 10, and by Spark in experiment 17. <strong>If they ever disagree, one
 them is wrong and <code>verify_all.sh</code> says so.</strong></p>
 <hr />
 <h2 id="experiments-13-installation-commands-architecture">Experiments 1–3 — Installation, commands, architecture</h2>
-<p><a href="../labs/course-12b-bigdata/01_install_hadoop.sh"><code>01_install_hadoop.sh</code></a> ·
-<a href="../labs/course-12b-bigdata/02_hdfs_commands.sh"><code>02_hdfs_commands.sh</code></a> ·
-<a href="../labs/course-12b-bigdata/03_architecture.sh"><code>03_architecture.sh</code></a> —
+<p><code>01_install_hadoop.sh</code> ·
+<code>02_hdfs_commands.sh</code> ·
+<code>03_architecture.sh</code> —
 <strong>all NOT EXECUTED</strong></p>
 <p>There is no query logic in an installation, so these three carry the commands
 and the failure modes rather than an equivalent.</p>
@@ -176,8 +176,8 @@ data crosses the network in bulk, and it is what the combiner in experiment 7
 exists to shrink.</p>
 <hr />
 <h2 id="experiment-4-blocks-distribution-and-replication">Experiment 4 — Blocks, distribution and replication</h2>
-<p><a href="../labs/course-12b-bigdata/04_hdfs_store.sh"><code>04_hdfs_store.sh</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/04_blocks_replication.py"><code>04_blocks_replication.py</code></a> — <strong>runs</strong></p>
+<p><code>04_hdfs_store.sh</code> (NOT EXECUTED) ·
+<code>04_blocks_replication.py</code> — <strong>runs</strong></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The block table</h4>
@@ -312,8 +312,8 @@ two on another. Asserted for all 8 blocks.</p>
 reconstruction reads.</p>
 <hr />
 <h2 id="experiment-5-fault-tolerance-and-recovery">Experiment 5 — Fault tolerance and recovery</h2>
-<p><a href="../labs/course-12b-bigdata/05_fault_tolerance.sh"><code>05_fault_tolerance.sh</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/05_fault_tolerance.py"><code>05_fault_tolerance.py</code></a> — <strong>runs</strong></p>
+<p><code>05_fault_tolerance.sh</code> (NOT EXECUTED) ·
+<code>05_fault_tolerance.py</code> — <strong>runs</strong></p>
 <table class="main-table">
 <thead>
 <tr>
@@ -431,8 +431,8 @@ minutes to leave safe mode. <strong>And the Secondary NameNode is a checkpointer
 not a standby</strong> — the most misleadingly named component in Hadoop.</p>
 <hr />
 <h2 id="experiment-6-yarn">Experiment 6 — YARN</h2>
-<p><a href="../labs/course-12b-bigdata/06_yarn.sh"><code>06_yarn.sh</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/06_yarn_scheduling.py"><code>06_yarn_scheduling.py</code></a> — <strong>runs</strong></p>
+<p><code>06_yarn.sh</code> (NOT EXECUTED) ·
+<code>06_yarn_scheduling.py</code> — <strong>runs</strong></p>
 <p>The workload: an 8-container cluster; <code>big_etl</code> needs all 8 for 10 s;
 <code>small_q1</code> and <code>small_q2</code> need 1 container for 2 s; <code>medium</code> needs 4 for 5 s.</p>
 <table class="main-table">
@@ -508,9 +508,9 @@ JobTracker did both scheduling and per-job management, so it was the
 bottleneck <em>and</em> the single point of failure, and it could run only MapReduce.</p>
 <hr />
 <h2 id="experiment-7-word-count-in-mapreduce">Experiment 7 — Word count in MapReduce</h2>
-<p><a href="../labs/course-12b-bigdata/WordCount.java"><code>WordCount.java</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/07_wordcount.py"><code>07_wordcount.py</code></a> +
-<a href="../labs/course-12b-bigdata/mapreduce.py"><code>mapreduce.py</code></a> — <strong>run</strong></p>
+<p><code>WordCount.java</code> (NOT EXECUTED) ·
+<code>07_wordcount.py</code> +
+<code>mapreduce.py</code> — <strong>run</strong></p>
 <p><code>mapreduce.py</code> is a MapReduce engine in forty lines, written out in full. <strong>The
 point is that it makes the shuffle visible</strong>, and the shuffle is the part
 students never see and the part that costs the money.</p>
@@ -607,8 +607,8 @@ objects</strong> — a <code>new Text()</code> per word makes GC the job. <stron
 can be walked once</strong> — it streams from disk.</p>
 <hr />
 <h2 id="experiment-8-inverted-index">Experiment 8 — Inverted index</h2>
-<p><a href="../labs/course-12b-bigdata/InvertedIndex.java"><code>InvertedIndex.java</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/08_inverted_index.py"><code>08_inverted_index.py</code></a> — <strong>runs</strong></p>
+<p><code>InvertedIndex.java</code> (NOT EXECUTED) ·
+<code>08_inverted_index.py</code> — <strong>runs</strong></p>
 <p>6 documents in, <strong>26 index terms</strong> out, from <strong>48 postings</strong>.</p>
 <table class="main-table">
 <thead>
@@ -683,8 +683,8 @@ string) differs from its input type (a document id), and a combiner must match
 the reducer on both.</p>
 <hr />
 <h2 id="experiment-9-pig-latin">Experiment 9 — Pig Latin</h2>
-<p><a href="../labs/course-12b-bigdata/09_analysis.pig"><code>09_analysis.pig</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/09_pig_equivalent.py"><code>09_pig_equivalent.py</code></a> — <strong>runs</strong></p>
+<p><code>09_analysis.pig</code> (NOT EXECUTED) ·
+<code>09_pig_equivalent.py</code> — <strong>runs</strong></p>
 <p>The Python half walks the dataflow <strong>one operator at a time</strong>, which is how you
 debug a Pig script anyway — that is what <code>ILLUSTRATE</code> does.</p>
 <pre><code>A = LOAD 'sales'                 -- 9 rows
@@ -717,8 +717,8 @@ every mapper's memory and there is <strong>no shuffle</strong>. It dies with an
 have a size threshold.</p>
 <hr />
 <h2 id="experiment-10-hive">Experiment 10 — Hive</h2>
-<p><a href="../labs/course-12b-bigdata/10_hive.hql"><code>10_hive.hql</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/10_hive_duckdb.py"><code>10_hive_duckdb.py</code></a> — <strong>runs</strong></p>
+<p><code>10_hive.hql</code> (NOT EXECUTED) ·
+<code>10_hive_duckdb.py</code> — <strong>runs</strong></p>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The cross-course check</h4>
@@ -846,8 +846,8 @@ anything you did not produce and cannot recreate — the classic Hive accident.<
 </div>
 <hr />
 <h2 id="experiment-11-sqoop">Experiment 11 — Sqoop</h2>
-<p><a href="../labs/course-12b-bigdata/11_sqoop.sh"><code>11_sqoop.sh</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/11_sqoop_equivalent.py"><code>11_sqoop_equivalent.py</code></a> — <strong>runs</strong></p>
+<p><code>11_sqoop.sh</code> (NOT EXECUTED) ·
+<code>11_sqoop_equivalent.py</code> — <strong>runs</strong></p>
 <p><strong>A real SQLite database at one end and a real Parquet file at the other.</strong>
 Only the cluster is missing.</p>
 <p>Source: 90 rows, <strong>₹128,800</strong> — exactly ten times Course 11's ₹12,880.</p>
@@ -941,8 +941,8 @@ having used Sqoop and having read about it.</p>
 </div>
 <hr />
 <h2 id="experiment-12-flume">Experiment 12 — Flume</h2>
-<p><a href="../labs/course-12b-bigdata/12_flume.conf"><code>12_flume.conf</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/12_flume_equivalent.py"><code>12_flume_equivalent.py</code></a> — <strong>runs</strong></p>
+<p><code>12_flume.conf</code> (NOT EXECUTED) ·
+<code>12_flume_equivalent.py</code> — <strong>runs</strong></p>
 <h3 id="the-interceptor">The interceptor</h3>
 <pre><code>headers {'host': '10.0.0.1', 'status': '200'}
 body    (unchanged, 78 chars)
@@ -1007,7 +1007,7 @@ produce ~4 HDFS files</strong>, each a few hundred bytes. Left alone, Flume gene
 the Unit 2 small-files problem at two files a minute.</p>
 <hr />
 <h2 id="experiment-13-avro-and-parquet">Experiment 13 — Avro and Parquet</h2>
-<p><a href="../labs/course-12b-bigdata/13_avro_parquet.py"><code>13_avro_parquet.py</code></a> —
+<p><code>13_avro_parquet.py</code> —
 <strong>fully runs, on the real formats</strong></p>
 <p><code>fastavro</code> and <code>pyarrow</code> are real implementations, so <strong>the files written here
 are byte-for-byte readable by Hadoop, Hive and Spark.</strong></p>
@@ -1118,7 +1118,7 @@ repetitive your data is</strong>, and a benchmark on duplicated rows says nothin
 all.</p>
 <hr />
 <h2 id="experiment-14-batch-and-streaming-joined">Experiment 14 — Batch and streaming, joined</h2>
-<p><a href="../labs/course-12b-bigdata/14_pipeline.py"><code>14_pipeline.py</code></a> — <strong>runs
+<p><code>14_pipeline.py</code> — <strong>runs
 end to end</strong></p>
 <p>SQLite → Parquet (batch), log events → Parquet (streaming), then a real DuckDB
 query across both.</p>
@@ -1198,8 +1198,8 @@ the stream replayable.</p>
 two codebases and drifting.</strong></p>
 <hr />
 <h2 id="experiment-15-hbase">Experiment 15 — HBase</h2>
-<p><a href="../labs/course-12b-bigdata/15_hbase.rb"><code>15_hbase.rb</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/15_hbase_model.py"><code>15_hbase_model.py</code></a> — <strong>runs</strong></p>
+<p><code>15_hbase.rb</code> (NOT EXECUTED) ·
+<code>15_hbase_model.py</code> — <strong>runs</strong></p>
 <h3 id="the-row-key-that-silently-loses-a-sale">⚠️ The row key that silently loses a sale</h3>
 <pre><code>row key 'region#store#date' over 9 fact rows
 produces only 8 DISTINCT KEYS -- 1 row would be overwritten
@@ -1263,8 +1263,8 @@ dimension. Choosing is what row-key design means.</strong></p>
 </div>
 <hr />
 <h2 id="experiment-16-zookeeper">Experiment 16 — ZooKeeper</h2>
-<p><a href="../labs/course-12b-bigdata/16_zookeeper.sh"><code>16_zookeeper.sh</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/16_zookeeper_model.py"><code>16_zookeeper_model.py</code></a> — <strong>runs</strong></p>
+<p><code>16_zookeeper.sh</code> (NOT EXECUTED) ·
+<code>16_zookeeper_model.py</code> — <strong>runs</strong></p>
 <h3 id="leader-election">Leader election</h3>
 <pre><code>nn1 -&gt; lock-0000000000     LEADER: nn1
 nn2 -&gt; lock-0000000001
@@ -1335,8 +1335,8 @@ machine buys nothing and adds a write to every quorum. <strong>3, 5 or 7.</stron
 </div>
 <hr />
 <h2 id="experiment-17-spark">Experiment 17 — Spark</h2>
-<p><a href="../labs/course-12b-bigdata/17_spark_hbase.scala"><code>17_spark_hbase.scala</code></a> (NOT EXECUTED) ·
-<a href="../labs/course-12b-bigdata/17_spark.py"><code>17_spark.py</code></a> — <strong>runs on a
+<p><code>17_spark_hbase.scala</code> (NOT EXECUTED) ·
+<code>17_spark.py</code> — <strong>runs on a
 REAL SparkSession</strong></p>
 <pre><code>real SparkSession: version 4.2.0, master local[2]
 </code></pre>

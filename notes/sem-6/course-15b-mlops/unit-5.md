@@ -384,4 +384,4 @@ a regulator can ask and a student can answer about their own project.
 - [ ] List the rows of a model risk management template
 
 **Cross-check yourself:** run
-[`12_serve_drift_govern.py`](../../../labs/course-15b-mlops/12_serve_drift_govern.py).
+`12_serve_drift_govern.py`.

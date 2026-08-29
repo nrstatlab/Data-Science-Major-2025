@@ -2,7 +2,7 @@
 
 **17 experiments**
 
-Code lives in [`labs/course-12b-bigdata/`](../../../labs/course-12b-bigdata/).
+Code lives in `labs/course-12b-bigdata/`.
 
 ## Read this before you read anything else
 
@@ -12,7 +12,7 @@ lab is split in two.**
 | Half | Files | Status |
 |---|---|---|
 | **The tools you run on a cluster** | **15 files** | **`*** NOT EXECUTED ***`** in every header |
-| **The verification** | **14 programs** | **Executed and asserted** by [`tools/run_bigdata_labs.py`](../../../tools/run_bigdata_labs.py) |
+| **The verification** | **14 programs** | **Executed and asserted** by `tools/run_bigdata_labs.py` |
 
 Hadoop, Hive, Pig, Sqoop, Flume, HBase and ZooKeeper cannot be installed here
 — **the Debian repositories that host them are blocked by the egress policy**,
@@ -55,9 +55,9 @@ them is wrong and `verify_all.sh` says so.**
 
 ## Experiments 1–3 — Installation, commands, architecture
 
-[`01_install_hadoop.sh`](../../../labs/course-12b-bigdata/01_install_hadoop.sh) ·
-[`02_hdfs_commands.sh`](../../../labs/course-12b-bigdata/02_hdfs_commands.sh) ·
-[`03_architecture.sh`](../../../labs/course-12b-bigdata/03_architecture.sh) —
+`01_install_hadoop.sh` ·
+`02_hdfs_commands.sh` ·
+`03_architecture.sh` —
 **all NOT EXECUTED**
 
 There is no query logic in an installation, so these three carry the commands
@@ -100,8 +100,8 @@ exists to shrink.
 
 ## Experiment 4 — Blocks, distribution and replication
 
-[`04_hdfs_store.sh`](../../../labs/course-12b-bigdata/04_hdfs_store.sh) (NOT EXECUTED) ·
-[`04_blocks_replication.py`](../../../labs/course-12b-bigdata/04_blocks_replication.py) — **runs**
+`04_hdfs_store.sh` (NOT EXECUTED) ·
+`04_blocks_replication.py` — **runs**
 
 ### 🔢 The block table
 
@@ -152,8 +152,8 @@ reconstruction reads.
 
 ## Experiment 5 — Fault tolerance and recovery
 
-[`05_fault_tolerance.sh`](../../../labs/course-12b-bigdata/05_fault_tolerance.sh) (NOT EXECUTED) ·
-[`05_fault_tolerance.py`](../../../labs/course-12b-bigdata/05_fault_tolerance.py) — **runs**
+`05_fault_tolerance.sh` (NOT EXECUTED) ·
+`05_fault_tolerance.py` — **runs**
 
 | Failure | Blocks live | Blocks lost |
 |---|---:|---:|
@@ -204,8 +204,8 @@ not a standby** — the most misleadingly named component in Hadoop.
 
 ## Experiment 6 — YARN
 
-[`06_yarn.sh`](../../../labs/course-12b-bigdata/06_yarn.sh) (NOT EXECUTED) ·
-[`06_yarn_scheduling.py`](../../../labs/course-12b-bigdata/06_yarn_scheduling.py) — **runs**
+`06_yarn.sh` (NOT EXECUTED) ·
+`06_yarn_scheduling.py` — **runs**
 
 The workload: an 8-container cluster; `big_etl` needs all 8 for 10 s;
 `small_q1` and `small_q2` need 1 container for 2 s; `medium` needs 4 for 5 s.
@@ -246,9 +246,9 @@ bottleneck *and* the single point of failure, and it could run only MapReduce.
 
 ## Experiment 7 — Word count in MapReduce
 
-[`WordCount.java`](../../../labs/course-12b-bigdata/WordCount.java) (NOT EXECUTED) ·
-[`07_wordcount.py`](../../../labs/course-12b-bigdata/07_wordcount.py) +
-[`mapreduce.py`](../../../labs/course-12b-bigdata/mapreduce.py) — **run**
+`WordCount.java` (NOT EXECUTED) ·
+`07_wordcount.py` +
+`mapreduce.py` — **run**
 
 `mapreduce.py` is a MapReduce engine in forty lines, written out in full. **The
 point is that it makes the shuffle visible**, and the shuffle is the part
@@ -308,8 +308,8 @@ can be walked once** — it streams from disk.
 
 ## Experiment 8 — Inverted index
 
-[`InvertedIndex.java`](../../../labs/course-12b-bigdata/InvertedIndex.java) (NOT EXECUTED) ·
-[`08_inverted_index.py`](../../../labs/course-12b-bigdata/08_inverted_index.py) — **runs**
+`InvertedIndex.java` (NOT EXECUTED) ·
+`08_inverted_index.py` — **runs**
 
 6 documents in, **26 index terms** out, from **48 postings**.
 
@@ -360,8 +360,8 @@ the reducer on both.
 
 ## Experiment 9 — Pig Latin
 
-[`09_analysis.pig`](../../../labs/course-12b-bigdata/09_analysis.pig) (NOT EXECUTED) ·
-[`09_pig_equivalent.py`](../../../labs/course-12b-bigdata/09_pig_equivalent.py) — **runs**
+`09_analysis.pig` (NOT EXECUTED) ·
+`09_pig_equivalent.py` — **runs**
 
 The Python half walks the dataflow **one operator at a time**, which is how you
 debug a Pig script anyway — that is what `ILLUSTRATE` does.
@@ -406,8 +406,8 @@ have a size threshold.
 
 ## Experiment 10 — Hive
 
-[`10_hive.hql`](../../../labs/course-12b-bigdata/10_hive.hql) (NOT EXECUTED) ·
-[`10_hive_duckdb.py`](../../../labs/course-12b-bigdata/10_hive_duckdb.py) — **runs**
+`10_hive.hql` (NOT EXECUTED) ·
+`10_hive_duckdb.py` — **runs**
 
 ### 🎯 The cross-course check
 
@@ -477,8 +477,8 @@ Four products clear ₹1,000 (Grocery total ₹9,800). **`WHERE` filters rows,
 
 ## Experiment 11 — Sqoop
 
-[`11_sqoop.sh`](../../../labs/course-12b-bigdata/11_sqoop.sh) (NOT EXECUTED) ·
-[`11_sqoop_equivalent.py`](../../../labs/course-12b-bigdata/11_sqoop_equivalent.py) — **runs**
+`11_sqoop.sh` (NOT EXECUTED) ·
+`11_sqoop_equivalent.py` — **runs**
 
 **A real SQLite database at one end and a real Parquet file at the other.**
 Only the cluster is missing.
@@ -533,8 +533,8 @@ having used Sqoop and having read about it.
 
 ## Experiment 12 — Flume
 
-[`12_flume.conf`](../../../labs/course-12b-bigdata/12_flume.conf) (NOT EXECUTED) ·
-[`12_flume_equivalent.py`](../../../labs/course-12b-bigdata/12_flume_equivalent.py) — **runs**
+`12_flume.conf` (NOT EXECUTED) ·
+`12_flume_equivalent.py` — **runs**
 
 ### The interceptor
 
@@ -581,7 +581,7 @@ the Unit 2 small-files problem at two files a minute.
 
 ## Experiment 13 — Avro and Parquet
 
-[`13_avro_parquet.py`](../../../labs/course-12b-bigdata/13_avro_parquet.py) —
+`13_avro_parquet.py` —
 **fully runs, on the real formats**
 
 `fastavro` and `pyarrow` are real implementations, so **the files written here
@@ -643,7 +643,7 @@ all.
 
 ## Experiment 14 — Batch and streaming, joined
 
-[`14_pipeline.py`](../../../labs/course-12b-bigdata/14_pipeline.py) — **runs
+`14_pipeline.py` — **runs
 end to end**
 
 SQLite → Parquet (batch), log events → Parquet (streaming), then a real DuckDB
@@ -690,8 +690,8 @@ two codebases and drifting.**
 
 ## Experiment 15 — HBase
 
-[`15_hbase.rb`](../../../labs/course-12b-bigdata/15_hbase.rb) (NOT EXECUTED) ·
-[`15_hbase_model.py`](../../../labs/course-12b-bigdata/15_hbase_model.py) — **runs**
+`15_hbase.rb` (NOT EXECUTED) ·
+`15_hbase_model.py` — **runs**
 
 ### ⚠️ The row key that silently loses a sale
 
@@ -748,8 +748,8 @@ dimension. Choosing is what row-key design means.**
 
 ## Experiment 16 — ZooKeeper
 
-[`16_zookeeper.sh`](../../../labs/course-12b-bigdata/16_zookeeper.sh) (NOT EXECUTED) ·
-[`16_zookeeper_model.py`](../../../labs/course-12b-bigdata/16_zookeeper_model.py) — **runs**
+`16_zookeeper.sh` (NOT EXECUTED) ·
+`16_zookeeper_model.py` — **runs**
 
 ### Leader election
 
@@ -798,8 +798,8 @@ machine buys nothing and adds a write to every quorum. **3, 5 or 7.**
 
 ## Experiment 17 — Spark
 
-[`17_spark_hbase.scala`](../../../labs/course-12b-bigdata/17_spark_hbase.scala) (NOT EXECUTED) ·
-[`17_spark.py`](../../../labs/course-12b-bigdata/17_spark.py) — **runs on a
+`17_spark_hbase.scala` (NOT EXECUTED) ·
+`17_spark.py` — **runs on a
 REAL SparkSession**
 
 ```

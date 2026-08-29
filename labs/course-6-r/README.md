@@ -7,7 +7,7 @@
 | Directory | Language | Status |
 |---|---|---|
 | this one | **R** — as the exam tests it | ⚠ **Desk-checked, not executed** |
-| [`python/`](python/) | Python equivalents | ✅ **Executed and verified** |
+| `python/` | Python equivalents | ✅ **Executed and verified** |
 
 **R could not be installed in the environment where this material was
 verified** — the Debian package repositories are blocked by the network policy,
@@ -17,7 +17,7 @@ ran, the R scripts say so in their own headers.
 What the Python equivalents buy you: the **logic and the expected numbers are
 machine-checked**. When `02_distributions.R` says a Binomial(10, 0.3) has mean
 3 and variance 2.1, that came from
-[`python/02_distributions.py`](python/02_distributions.py), which was run. The
+`python/02_distributions.py`, which was run. The
 R *syntax* is unverified; the *statistics* are not.
 
 Run the Python side yourself:

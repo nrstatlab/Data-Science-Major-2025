@@ -9,7 +9,7 @@ scatter plots; storytelling with Tableau; creating a Tableau story. Case study
 — HR analytics.
 
 > Figures here come from the same sample star schema as Unit 2
-> ([`fixtures.py`](../../../labs/course-11-bi/fixtures.py)) and are asserted by
+> (`fixtures.py`) and are asserted by
 > the lab scripts.
 
 ---
@@ -206,7 +206,7 @@ does not travel to another workbook.
 
 If two spellings must genuinely become one value, use a **Group**, a calculated
 field, or fix it upstream — asserted in
-[`10_tableau_prep.py`](../../../labs/course-11-bi/10_tableau_prep.py), which
+`10_tableau_prep.py`, which
 shows the displayed values changing while the stored ones stay `S` and `N`.
 
 ### ⚠️ Tableau's "Pivot" means Power Query's "Unpivot"
@@ -361,7 +361,7 @@ per quarter). Join them **on store alone**:
 store's sales rows (Vijayawada has 4, Guntur 2, Hyderabad 3).
 
 All four figures are asserted in
-[`14_joins_blending.py`](../../../labs/course-11-bi/14_joins_blending.py).
+`14_joins_blending.py`.
 
 ### The three fixes
 

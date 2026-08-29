@@ -3,7 +3,7 @@
 **Semester V**
 
 **This is a Track A course**, paired with
-[Course 12 A (Machine Learning)](../course-12a-machine-learning/). Take one
+Course 12 A (Machine Learning). Take one
 track and you take it for Semester VI too.
 
 ---
@@ -91,7 +91,7 @@ and both are asked every year.
 
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 19 experiments
-- [`labs/course-13a-ai/`](../../../labs/course-13a-ai/) — code
+- `labs/course-13a-ai/` — code
 
 > **On the lab code.** SWI-Prolog cannot be installed here — the Debian
 > repositories that host it are blocked by the egress policy — so each
@@ -100,7 +100,7 @@ and both are asked every year.
 > - **The `.pl` file** you would run in SWI-Prolog or SWISH. Marked
 >   **NOT EXECUTED**. **This is what the lab examiner will ask for.**
 > - **A Python half that runs**, verified by
->   [`tools/run_ai_labs.py`](../../../tools/run_ai_labs.py).
+>   `tools/run_ai_labs.py`.
 >
 > **Five experiments genuinely execute Prolog-style resolution.** The
 > `pytholog` package on PyPI implements SLD resolution over facts and

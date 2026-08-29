@@ -42,7 +42,7 @@ scheme exists.
 
 ### 🔢 The measurement, scored against hand-labelled truth
 
-[`07_parsing_ner_similarity.py`](../../../labs/course-15a-nlp/07_parsing_ner_similarity.py)
+`07_parsing_ner_similarity.py`
 runs spaCy's `en_core_web_sm` on a paragraph of Indian business news with
 **13 hand-assigned entity labels**:
 
@@ -352,6 +352,6 @@ performance issue; it inverts the meaning of the record.**
 - [ ] Name three ethical concerns with a mechanism for each
 
 **Cross-check yourself:** run
-[`07_parsing_ner_similarity.py`](../../../labs/course-15a-nlp/07_parsing_ner_similarity.py)
+`07_parsing_ner_similarity.py`
 and
-[`10_sentiment_rnn.py`](../../../labs/course-15a-nlp/10_sentiment_rnn.py).
+`10_sentiment_rnn.py`.

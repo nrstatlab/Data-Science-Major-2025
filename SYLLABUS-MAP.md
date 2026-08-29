@@ -69,7 +69,7 @@ Courses 1–13 are mapped in this section; the Semester VI pairs are in
 [§3b](#3b-semester-vi--both-elective-tracks).
 
 ### Course 1 — Computer Fundamentals and Office Automation (Sem I)
-Notes: [`notes/sem-1/course-1-computer-fundamentals/`](notes/sem-1/course-1-computer-fundamentals/)
+Notes: `notes/sem-1/course-1-computer-fundamentals/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -83,7 +83,7 @@ Notes: [`notes/sem-1/course-1-computer-fundamentals/`](notes/sem-1/course-1-comp
 **References:** Alexander & Kusleika, *Excel 2021 Bible* (Wiley) · Doug Lowe, *Networking All-in-One For Dummies* (Wiley) · learn.microsoft.com · Google Workspace Learning Center
 
 ### Course 2 — Problem Solving Using C (Sem I)
-Notes: [`notes/sem-1/course-2-problem-solving-c/`](notes/sem-1/course-2-problem-solving-c/)
+Notes: `notes/sem-1/course-2-problem-solving-c/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -97,7 +97,7 @@ Notes: [`notes/sem-1/course-2-problem-solving-c/`](notes/sem-1/course-2-problem-
 **References:** Y. Kanetkar, *Let Us C* (BPB) · Griffiths & Griffiths, *Head First C*
 
 ### Course 3 — Python Programming and Data Structures (Sem II)
-Notes: [`notes/sem-2/course-3-python-data-structures/`](notes/sem-2/course-3-python-data-structures/)
+Notes: `notes/sem-2/course-3-python-data-structures/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -111,7 +111,7 @@ Notes: [`notes/sem-2/course-3-python-data-structures/`](notes/sem-2/course-3-pyt
 **References:** Martin C. Brown, *Python: The Complete Reference* (McGraw-Hill, 2018) · Kenneth A. Lambert, *Fundamentals of Python: First Programs* (Cengage, 2e, 2019)
 
 ### Course 4 — Statistical Foundations for Data Science (Sem II)
-Notes: [`notes/sem-2/course-4-statistical-foundations/`](notes/sem-2/course-4-statistical-foundations/)
+Notes: `notes/sem-2/course-4-statistical-foundations/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -127,7 +127,7 @@ Notes: [`notes/sem-2/course-4-statistical-foundations/`](notes/sem-2/course-4-st
 **References:** D. C. Agarwal, *Statistics for Data Science and AI* · Larry J. Stephens, *Excel Data Analysis*
 
 ### Course 5 — Database Management Systems (Sem III)
-Notes: [`notes/sem-3/course-5-dbms/`](notes/sem-3/course-5-dbms/)
+Notes: `notes/sem-3/course-5-dbms/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -145,7 +145,7 @@ Notes: [`notes/sem-3/course-5-dbms/`](notes/sem-3/course-5-dbms/)
 ---
 
 ### Course 6 — Data Science with R (Sem III)
-Notes: [`notes/sem-3/course-6-data-science-r/`](notes/sem-3/course-6-data-science-r/)
+Notes: `notes/sem-3/course-6-data-science-r/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -159,7 +159,7 @@ Notes: [`notes/sem-3/course-6-data-science-r/`](notes/sem-3/course-6-data-scienc
 **References:** Matloff, *The Art of R Programming* (No Starch, 2011) · Venables & Ripley, *Modern Applied Statistics with S* (Springer, 2002) · Irizarry, *Introduction to Data Science* (CRC, 2020) · Grus, *Data Science from Scratch*
 
 ### Course 7 — Web Technologies (Sem III)
-Notes: [`notes/sem-3/course-7-web-technologies/`](notes/sem-3/course-7-web-technologies/)
+Notes: `notes/sem-3/course-7-web-technologies/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -173,7 +173,7 @@ Notes: [`notes/sem-3/course-7-web-technologies/`](notes/sem-3/course-7-web-techn
 **Reference:** David R. Brooks, *An Introduction to HTML and JavaScript* (Springer)
 
 ### Course 8 — Data Mining (Sem IV)
-Notes: [`notes/sem-4/course-8-data-mining/`](notes/sem-4/course-8-data-mining/)
+Notes: `notes/sem-4/course-8-data-mining/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -187,7 +187,7 @@ Notes: [`notes/sem-4/course-8-data-mining/`](notes/sem-4/course-8-data-mining/)
 **References:** Soman, Diwakar & Ajay, *Insight into Data Mining Theory and Practice* (PHI, 2006) · Tan, Steinbach, Karpatne & Kumar, *Introduction to Data Mining* (2e)
 
 ### Course 9 — Python for Data Analysis and Visualization (Sem IV)
-Notes: [`notes/sem-4/course-9-python-data-analysis/`](notes/sem-4/course-9-python-data-analysis/)
+Notes: `notes/sem-4/course-9-python-data-analysis/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -201,7 +201,7 @@ Notes: [`notes/sem-4/course-9-python-data-analysis/`](notes/sem-4/course-9-pytho
 **Reference:** Jake VanderPlas, *Python Data Science Handbook* (2023)
 
 ### Course 10 — Document Oriented Database (Sem IV)
-Notes: [`notes/sem-4/course-10-document-database/`](notes/sem-4/course-10-document-database/)
+Notes: `notes/sem-4/course-10-document-database/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -221,7 +221,7 @@ you for Semester VI too. All five are mapped below, because you cannot make
 that choice well without seeing what is in both.
 
 ### Course 11 — Business Intelligence Tools (Sem V) — *core, everyone takes it*
-Notes: [`notes/sem-5/course-11-business-intelligence/`](notes/sem-5/course-11-business-intelligence/)
+Notes: `notes/sem-5/course-11-business-intelligence/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -232,7 +232,7 @@ Notes: [`notes/sem-5/course-11-business-intelligence/`](notes/sem-5/course-11-bu
 | 5 | Dashboard Design and Business Insights | When to use a dashboard; dashboard components; principles of effective visualization and dashboarding; advanced visuals — parameters, slicers, filters, drilldowns, graphs and maps; layout, alignment and accessibility; publishing to Power BI Service and Tableau Public; storytelling and insight communication; case study — sales forecasting and budgeting |
 
 ### Course 12 A — Machine Learning (Sem V) — *Track A*
-Notes: [`notes/sem-5/course-12a-machine-learning/`](notes/sem-5/course-12a-machine-learning/)
+Notes: `notes/sem-5/course-12a-machine-learning/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -243,7 +243,7 @@ Notes: [`notes/sem-5/course-12a-machine-learning/`](notes/sem-5/course-12a-machi
 | 5 | Unsupervised Learning | Introduction; unsupervised vs supervised; applications; clustering and its types; partitioning methods — k-Means and k-Medoids; hierarchical clustering; density-based methods — DBSCAN; case studies — image recognition, speech recognition, email spam filtering, online fraud detection |
 
 ### Course 13 A — Artificial Intelligence (Sem V) — *Track A*
-Notes: [`notes/sem-5/course-13a-artificial-intelligence/`](notes/sem-5/course-13a-artificial-intelligence/)
+Notes: `notes/sem-5/course-13a-artificial-intelligence/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -254,7 +254,7 @@ Notes: [`notes/sem-5/course-13a-artificial-intelligence/`](notes/sem-5/course-13
 | 5 | Expert Systems, Probabilistic and Emerging AI | Expert system architecture — knowledge base, inference engine, explanation facility; probabilistic reasoning — Bayes' theorem, Bayesian belief networks; fuzzy logic and uncertainty handling; NLP basics; robotics; AI ethics and societal impact |
 
 ### Course 12 B — Big Data Technologies (Sem V) — *Track B*
-Notes: [`notes/sem-5/course-12b-big-data/`](notes/sem-5/course-12b-big-data/)
+Notes: `notes/sem-5/course-12b-big-data/`
 
 | Unit | Title | Topics |
 |:---:|---|---|
@@ -265,7 +265,7 @@ Notes: [`notes/sem-5/course-12b-big-data/`](notes/sem-5/course-12b-big-data/)
 | 5 | NoSQL and Ecosystem Enhancements | NoSQL within the Hadoop ecosystem — HBase; configuring and using ZooKeeper for coordination; Hadoop integration with Spark for data processing |
 
 ### Course 13 B — Cloud Computing for Data Science (Sem V) — *Track B*
-Notes: [`notes/sem-5/course-13b-cloud-computing/`](notes/sem-5/course-13b-cloud-computing/)
+Notes: `notes/sem-5/course-13b-cloud-computing/`
 
 | Unit | Title | Topics |
 |:---:|---|---|

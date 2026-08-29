@@ -44,7 +44,7 @@ you wrote yourself.
 ### 🔢 A real import, measured
 
 90 rows, 4 mappers
-([`11_sqoop_equivalent.py`](../../../labs/course-12b-bigdata/11_sqoop_equivalent.py)):
+(`11_sqoop_equivalent.py`):
 
 | Mapper | `WHERE` clause | Rows |
 |---:|---|---:|
@@ -139,7 +139,7 @@ body, and a **channel selector**, which routes on those headers.
 ### 🔢 What the channel capacity actually does
 
 Running the agent over 40 log events
-([`12_flume_equivalent.py`](../../../labs/course-12b-bigdata/12_flume_equivalent.py)):
+(`12_flume_equivalent.py`):
 
 | Configuration | Delivered | Rejected | Peak depth |
 |---|---:|---:|---:|
@@ -219,7 +219,7 @@ Everything else follows:
 
 ### Avro — measured, and really written
 
-[`13_avro_parquet.py`](../../../labs/course-12b-bigdata/13_avro_parquet.py)
+`13_avro_parquet.py`
 uses `fastavro`, so the files are byte-for-byte readable by Hadoop, Hive and
 Spark. **Nothing here is simulated.**
 
@@ -329,7 +329,7 @@ Parquet".
 ### 🔢 The fan trap, in a data pipeline
 
 Joining the batch table (9 orders) to the stream table (40 events) on `host`
-([`14_pipeline.py`](../../../labs/course-12b-bigdata/14_pipeline.py)):
+(`14_pipeline.py`):
 
 ```
 events counted through the join: 90

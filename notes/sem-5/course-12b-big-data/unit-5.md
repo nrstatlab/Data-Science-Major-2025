@@ -45,7 +45,7 @@ Every word earns its place:
 
 ### 🔢 The model, implemented and run
 
-[`15_hbase_model.py`](../../../labs/course-12b-bigdata/15_hbase_model.py)
+`15_hbase_model.py`
 builds the map, with real versioning, real tombstones and real range scans.
 
 **Versions:** after two more `put`s to the same cell, `VERSIONS => 3` keeps
@@ -205,7 +205,7 @@ not a queue and not a cache.
 
 Each candidate creates an **ephemeral sequential** znode; the **lowest**
 sequence number is the leader
-([`16_zookeeper_model.py`](../../../labs/course-12b-bigdata/16_zookeeper_model.py)):
+(`16_zookeeper_model.py`):
 
 ```
 nn1 -> lock-0000000000        LEADER: nn1
@@ -322,7 +322,7 @@ wrote it — and why Spark can fuse the whole chain into one pass over the data.
 ### 🔢 `reduceByKey` against `groupByKey` — the most examined Spark question
 
 Measured on a real `SparkSession`
-([`17_spark.py`](../../../labs/course-12b-bigdata/17_spark.py), 48 words in
+(`17_spark.py`, 48 words in
 3 partitions):
 
 | | What crosses the network |
@@ -382,7 +382,7 @@ category error, and saying so is worth marks.
 
 ### HBase and Spark together
 
-[`17_spark_hbase.scala`](../../../labs/course-12b-bigdata/17_spark_hbase.scala)
+`17_spark_hbase.scala`
 (NOT EXECUTED — the connector needs a live HBase) shows the integration, and
 two points from it are examinable:
 

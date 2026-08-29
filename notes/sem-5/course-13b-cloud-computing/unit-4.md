@@ -28,7 +28,7 @@ Google Cloud AutoML.
 **reproducible**, deployment **routine** and cost **visible**.
 
 Measured, in
-[`11_train_and_automl.py`](../../../labs/course-13b-cloud/11_train_and_automl.py):
+`11_train_and_automl.py`:
 
 | Model | Accuracy | F1 | AUC |
 |---|---:|---:|---:|

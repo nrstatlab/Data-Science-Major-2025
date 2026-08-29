@@ -496,9 +496,9 @@ fseek(fp, 10, SEEK_SET);       /* 10 bytes from the beginning */
 fseek(fp, -5, SEEK_CUR);       /* 5 bytes back from here      */
 </code></pre>
 <p>Origins: <code>SEEK_SET</code> (start), <code>SEEK_CUR</code> (current), <code>SEEK_END</code> (end).</p>
-<p>Used in <a href="../labs/course-2-c/14_reverse_file.c"><code>14_reverse_file.c</code></a> to walk
+<p>Used in <code>14_reverse_file.c</code> to walk
 a file backwards, and in
-<a href="../labs/course-2-c/15_book_file_crud.c"><code>15_book_file_crud.c</code></a> to
+<code>15_book_file_crud.c</code> to
 overwrite a record in place.</p>
 <h3 id="deleting-a-record-from-a-file">Deleting a record from a file</h3>
 <p>You cannot remove bytes from the middle of a file. The standard technique:</p>
@@ -508,7 +508,7 @@ overwrite a record in place.</p>
 <li>Close both, <code>remove()</code> the original, <code>rename()</code> the temporary</li>
 </ol>
 <p>Implemented in
-<a href="../labs/course-2-c/15_book_file_crud.c"><code>15_book_file_crud.c</code></a>.</p>
+<code>15_book_file_crud.c</code>.</p>
 <hr />
 <h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>

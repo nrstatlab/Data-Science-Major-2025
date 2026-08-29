@@ -7,7 +7,7 @@ Search (BFS), Depth First Search (DFS), Uniform Cost Search. Properties —
 completeness, optimality, time and space complexity.
 
 > All node counts and path costs in this unit are computed by
-> [`labs/course-13a-ai/`](../../../labs/course-13a-ai/) on **Russell and
+> `labs/course-13a-ai/` on **Russell and
 > Norvig's Romania map**, so they can be checked against the textbook as well
 > as against the code.
 
@@ -238,7 +238,7 @@ which is why UCS is slightly slower on such problems.
 ## 2.7 The three strategies compared — measured
 
 Russell and Norvig's Romania map, **Arad → Bucharest**, computed in
-[`03_uninformed_search.py`](../../../labs/course-13a-ai/03_uninformed_search.py):
+`03_uninformed_search.py`:
 
 | Strategy | Nodes expanded | Path cost | Path |
 |---|---:|---:|---|

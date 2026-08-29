@@ -3,7 +3,7 @@
 **13 experiments**
 *"Using R/Python statsmodels, pandas, forecast, or equivalent."*
 
-Code lives in [`labs/course-14b-timeseries/`](../../../labs/course-14b-timeseries/).
+Code lives in `labs/course-14b-timeseries/`.
 
 ## 🎯 Every experiment in this course runs
 
@@ -41,7 +41,7 @@ prove the estimator was fine and the draw unusual.
 
 ## Experiments 1 and 2 — Import, visualize, decompose
 
-[`01_explore_decompose.py`](../../../labs/course-14b-timeseries/01_explore_decompose.py)
+`01_explore_decompose.py`
 
 **120 monthly observations**, 2016-01 to 2025-12, mean 145.24.
 
@@ -103,7 +103,7 @@ shape evolve, and has a robust option for outliers.
 
 ## Experiments 3 and 4 — ACF, PACF and stationarity
 
-[`03_acf_stationarity.py`](../../../labs/course-14b-timeseries/03_acf_stationarity.py)
+`03_acf_stationarity.py`
 
 ### 🔢 Both identification rules, checked against known truth
 
@@ -175,7 +175,7 @@ genuine unit root.
 
 ## Experiments 5 and 6 — ARMA, ARIMA and SARIMA
 
-[`05_arma_arima_sarima.py`](../../../labs/course-14b-timeseries/05_arma_arima_sarima.py)
+`05_arma_arima_sarima.py`
 
 ### ⚠️ The estimate that missed, and what it taught
 
@@ -263,7 +263,7 @@ arbiter.
 
 ## Experiments 7 and 8 — Selection and forecasting
 
-[`07_selection_forecast.py`](../../../labs/course-14b-timeseries/07_selection_forecast.py)
+`07_selection_forecast.py`
 
 ### 🔢 AIC, BIC and rolling-origin CV
 
@@ -338,7 +338,7 @@ scores 14.15.**
 
 ## Experiments 9, 10 and 11 — VAR, state-space, spectral
 
-[`09_var_statespace_spectral.py`](../../../labs/course-14b-timeseries/09_var_statespace_spectral.py)
+`09_var_statespace_spectral.py`
 
 ### 🔢 The VAR recovered a known structure
 
@@ -431,7 +431,7 @@ length, which is the trend.** Detrend first.
 
 ## Experiments 12 and 13 — Comparison and evaluation
 
-[`12_compare_evaluate.py`](../../../labs/course-14b-timeseries/12_compare_evaluate.py)
+`12_compare_evaluate.py`
 
 ### 🔢 Five methods, one held-out year
 

@@ -58,8 +58,8 @@ warehouses: AWS Redshift, Google BigQuery.</p>
 <h2 id="the-unit-where-the-money-is">The unit where the money is</h2>
 <p><strong>Storage decisions are where cloud bills are made and lost</strong>, and they are
 the most examinable arithmetic in the course. Every figure below is computed
-in <a href="../labs/course-13b-cloud/04_storage.py"><code>04_storage.py</code></a> and
-<a href="../labs/course-13b-cloud/09_etl_warehouse.py"><code>09_etl_warehouse.py</code></a>.</p>
+in <code>04_storage.py</code> and
+<code>09_etl_warehouse.py</code>.</p>
 <hr />
 <h2 id="31-the-three-storage-types-block-based-file-based-object-based">3.1 The three storage types — block-based, file-based, object-based</h2>
 <p>The <strong>benefits</strong> of cloud storage are durability you do not engineer, capacity you do not provision, and access from anywhere. What you choose between is the <em>shape</em>.</p>
@@ -825,7 +825,7 @@ the <code>DELETE</code> problem Course 12 B found in Sqoop</strong>.</p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The pipeline, run end to end</h4>
-<p><a href="../labs/course-13b-cloud/09_etl_warehouse.py"><code>09_etl_warehouse.py</code></a>
+<p><code>09_etl_warehouse.py</code>
 extracts from SQLite, transforms with an audit trail, and loads DuckDB:</p>
 <table class="main-table">
 <thead>

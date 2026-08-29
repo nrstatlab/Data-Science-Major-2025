@@ -2,7 +2,7 @@
 
 **15 experiments**
 
-Code lives in [`labs/course-11-bi/`](../../../labs/course-11-bi/).
+Code lives in `labs/course-11-bi/`.
 
 > **On the tooling.** Power BI Desktop is **Windows-only** and Tableau Desktop
 > is proprietary; neither can be installed in the environment these notes are
@@ -13,7 +13,7 @@ Code lives in [`labs/course-11-bi/`](../../../labs/course-11-bi/).
 >   demonstrate.**
 > - **A Python equivalent that runs** — the same transformation, measure or
 >   join, executed and asserted by
->   [`tools/run_bi_labs.py`](../../../tools/run_bi_labs.py).
+>   `tools/run_bi_labs.py`.
 >
 > **Eleven of the fifteen have a runnable half.** Experiments 1, 2, 8 and 12
 > are pure tool operation with nothing to compute, so they are click-path only
@@ -82,7 +82,7 @@ tools have converged. Unit 1 §1.7 has the full comparison.
 **Click-path only.**
 
 Use the star schema from
-[`fixtures.py`](../../../labs/course-11-bi/fixtures.py) — export it to CSV
+`fixtures.py` — export it to CSV
 first, or use any retail dataset.
 
 **In Power BI:** Get Data → Text/CSV → Transform Data → set types → Close &
@@ -98,7 +98,7 @@ think.** That comparison is worth more than either dashboard.
 
 ## Experiment 3 — Connecting to different data sources in Power BI
 
-**Both halves.** [`03_data_sources.py`](../../../labs/course-11-bi/03_data_sources.py)
+**Both halves.** `03_data_sources.py`
 
 ```
 Get Data -> Excel Workbook   -> pick the TABLE, not the sheet
@@ -123,7 +123,7 @@ look at it before pressing Load.
 
 ## Experiment 4 — Data cleaning and transformation with Power Query
 
-**Both halves.** [`04_power_query.py`](../../../labs/course-11-bi/04_power_query.py)
+**Both halves.** `04_power_query.py`
 
 ```
 Transform -> Format -> Trim / Capitalize Each Word
@@ -158,7 +158,7 @@ and averages move; totals do not.
 
 ## Experiment 5 — Student performance: clean, reshape, visualize
 
-**Both halves.** [`05_student_performance.py`](../../../labs/course-11-bi/05_student_performance.py)
+**Both halves.** `05_student_performance.py`
 
 The higher-education case from Unit 1 §1.4 and Unit 2 §2.7.
 
@@ -187,7 +187,7 @@ n = 4 each), programme averages (BSc-DS 80.25 over 8 marks, BSc-STAT 58.25 over
 
 ## Experiment 6 — Implementing DAX functions
 
-**Both halves.** [`06_dax_functions.py`](../../../labs/course-11-bi/06_dax_functions.py)
+**Both halves.** `06_dax_functions.py`
 
 ```dax
 Total Qty     = SUM(fact_sales[qty])
@@ -220,7 +220,7 @@ answer *is* the revenue-weighted average of the row margins — which is what
 
 ## Experiment 7 — Creating basic visualizations in Power BI
 
-**Both halves.** [`07_visualizations.py`](../../../labs/course-11-bi/07_visualizations.py)
+**Both halves.** `07_visualizations.py`
 
 ```
 Visualizations pane -> Card    -> drop a measure
@@ -265,7 +265,7 @@ changes the chart entirely.
 
 ## Experiment 9 — Employee turnover in Tableau, with LOD expressions
 
-**Both halves.** [`09_hr_lod.py`](../../../labs/course-11-bi/09_hr_lod.py)
+**Both halves.** `09_hr_lod.py`
 
 ```
 Attrition Rate  = SUM([Is Leaver]) / COUNTD([Emp Id])
@@ -300,7 +300,7 @@ average-of-averages trap wearing Tableau's clothes.**
 
 ## Experiment 10 — Cleaning, pivoting and filtering in Tableau
 
-**Both halves.** [`10_tableau_prep.py`](../../../labs/course-11-bi/10_tableau_prep.py)
+**Both halves.** `10_tableau_prep.py`
 
 ```
 Data Source tab -> select the quarter columns -> Pivot
@@ -331,7 +331,7 @@ untouched — so an alias cannot fix a join key.
 
 ## Experiment 11 — Creating visualizations in Tableau
 
-**Both halves.** [`11_tableau_viz.py`](../../../labs/course-11-bi/11_tableau_viz.py)
+**Both halves.** `11_tableau_viz.py`
 
 ```
 Rows / Columns shelves -> dimensions and measures
@@ -380,7 +380,7 @@ that is how the examiner will open it.
 
 ## Experiment 13 — Designing data models in Power BI
 
-**Both halves.** [`13_data_model.py`](../../../labs/course-11-bi/13_data_model.py)
+**Both halves.** `13_data_model.py`
 
 ```
 Model view -> drag product_key from fact_sales to dim_product
@@ -418,7 +418,7 @@ table.
 
 ## Experiment 14 — Joins and blending in Tableau
 
-**Both halves.** [`14_joins_blending.py`](../../../labs/course-11-bi/14_joins_blending.py)
+**Both halves.** `14_joins_blending.py`
 
 ```
 Data Source tab -> drag the second table -> click the join icon
@@ -460,7 +460,7 @@ a left join filtered to null.
 
 ## Experiment 15 — A dashboard with drill-downs, filters and slicers
 
-**Both halves.** [`15_dashboard_interactivity.py`](../../../labs/course-11-bi/15_dashboard_interactivity.py)
+**Both halves.** `15_dashboard_interactivity.py`
 
 ```
 Model view -> right-click a column -> Create hierarchy -> add levels

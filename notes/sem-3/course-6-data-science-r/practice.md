@@ -1,7 +1,7 @@
 # Course 6 — Practice Questions with Solutions
 
 Every numeric answer here was produced by the executed Python equivalents in
-[`labs/course-6-r/python/`](../../../labs/course-6-r/python/).
+`labs/course-6-r/python/`.
 
 ---
 
@@ -164,7 +164,7 @@ false positives, raise recall. Report the confusion matrix and per-class recall,
 never accuracy alone.
 
 *(These are the numbers in
-[`14_evaluation.py`](../../../labs/course-6-r/python/14_evaluation.py), which
+`14_evaluation.py`, which
 asserts them.)*
 
 ### Q12 — Explain the ARIMA workflow on a trending seasonal series
@@ -186,7 +186,7 @@ asserts them.)*
 4. On the raw airline series the ACF just decays monotonically — the trend
 swamps everything and the 12-month seasonality is **invisible**. Only after
 differencing does the ACF oscillate, peaking at lag 12 and troughing at lag 6.
-[`16_arima.py`](../../../labs/course-6-r/python/16_arima.py) demonstrates
+`16_arima.py` demonstrates
 exactly this and asserts both patterns.
 
 ---

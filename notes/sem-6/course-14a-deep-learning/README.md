@@ -3,7 +3,7 @@
 **Semester VI**
 
 **This is a Track A course**, paired with
-[Course 15 A (Natural Language Processing)](../course-15a-nlp/), and it
+Course 15 A (Natural Language Processing), and it
 continues the track you began in Semester V with Machine Learning and
 Artificial Intelligence.
 

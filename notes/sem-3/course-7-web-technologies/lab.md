@@ -2,10 +2,10 @@
 
 **16 experiments**
 
-Code lives in [`labs/course-7-web/`](../../../labs/course-7-web/).
+Code lives in `labs/course-7-web/`.
 
 > **These run.** Unlike the Course 6 R scripts, every JavaScript experiment
-> here is executed by [`tools/run_web_labs.js`](../../../tools/run_web_labs.js)
+> here is executed by `tools/run_web_labs.js`
 > under Node 22 with jsdom, and its result asserted. The HTML and CSS files are
 > structurally checked — balanced tags, every `<label for>` resolving to a real
 > id, every `<img>` carrying `alt`. What is **not** automated is visual

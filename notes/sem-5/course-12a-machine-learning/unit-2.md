@@ -11,7 +11,7 @@ principal component analysis.
 > scikit-learn. This unit is what makes any of them mean something.
 >
 > Every figure below is computed by
-> [`labs/course-12a-ml/`](../../../labs/course-12a-ml/) with a fixed random
+> `labs/course-12a-ml/` with a fixed random
 > seed, so you can reproduce all of it.
 
 ---

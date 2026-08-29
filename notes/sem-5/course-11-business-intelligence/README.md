@@ -86,7 +86,7 @@ wrong answer produces a dashboard that is confidently, silently incorrect.
 
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 15 experiments
-- [`labs/course-11-bi/`](../../../labs/course-11-bi/) — code
+- `labs/course-11-bi/` — code
 
 > **On the lab code.** Power BI Desktop is Windows-only and Tableau Desktop is
 > proprietary; neither can be installed in the environment these notes are
@@ -97,7 +97,7 @@ wrong answer produces a dashboard that is confidently, silently incorrect.
 >   **NOT EXECUTED**. That is what the lab examiner will ask you to demonstrate.
 > - **A Python equivalent that runs** — the same transformation, the same
 >   measure, the same join — executed and asserted by
->   [`tools/run_bi_labs.py`](../../../tools/run_bi_labs.py).
+>   `tools/run_bi_labs.py`.
 >
 > The equivalents are not a substitute for the tools, and the notes never
 > pretend otherwise. They exist so that **the numbers in these notes are

@@ -352,9 +352,9 @@ fseek(fp, -5, SEEK_CUR);       /* 5 bytes back from here      */
 
 Origins: `SEEK_SET` (start), `SEEK_CUR` (current), `SEEK_END` (end).
 
-Used in [`14_reverse_file.c`](../../../labs/course-2-c/14_reverse_file.c) to walk
+Used in `14_reverse_file.c` to walk
 a file backwards, and in
-[`15_book_file_crud.c`](../../../labs/course-2-c/15_book_file_crud.c) to
+`15_book_file_crud.c` to
 overwrite a record in place.
 
 ### Deleting a record from a file
@@ -366,7 +366,7 @@ You cannot remove bytes from the middle of a file. The standard technique:
 3. Close both, `remove()` the original, `rename()` the temporary
 
 Implemented in
-[`15_book_file_crud.c`](../../../labs/course-2-c/15_book_file_crud.c).
+`15_book_file_crud.c`.
 
 ---
 

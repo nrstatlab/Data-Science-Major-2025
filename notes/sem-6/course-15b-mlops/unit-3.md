@@ -286,4 +286,4 @@ platform instead of shipping models.
 - [ ] Name the five Responsible AI controls
 
 **Cross-check yourself:** run
-[`07_mlflow_dvc.py`](../../../labs/course-15b-mlops/07_mlflow_dvc.py).
+`07_mlflow_dvc.py`.

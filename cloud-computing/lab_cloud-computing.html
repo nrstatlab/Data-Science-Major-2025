@@ -34,7 +34,7 @@
   </ol>
 </details>
 <p><strong>15 experiments</strong></p>
-<p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-13b-cloud"><code>labs/course-13b-cloud/</code></a>.</p>
+<p>Code lives in <code>labs/course-13b-cloud/</code>.</p>
 <h2 id="read-this-before-you-read-anything-else">Read this before you read anything else</h2>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -61,7 +61,7 @@ notes about a provider's behaviour was demonstrated here.</p>
 <tr>
 <td><strong>The verification</strong></td>
 <td><strong>7 programs</strong></td>
-<td><strong>Executed and asserted</strong> by <a href="../tools/run_cloud_labs.py"><code>tools/run_cloud_labs.py</code></a></td>
+<td><strong>Executed and asserted</strong> by <code>tools/run_cloud_labs.py</code></td>
 </tr>
 </tbody>
 </table>
@@ -82,7 +82,7 @@ python3 tools/run_cloud_labs.py
 <tbody>
 <tr>
 <td><strong>IAM policy evaluation</strong></td>
-<td>the actual algorithm, in <a href="../labs/course-13b-cloud/iam.py"><code>iam.py</code></a></td>
+<td>the actual algorithm, in <code>iam.py</code></td>
 </tr>
 <tr>
 <td><strong>Object-store semantics</strong></td>
@@ -130,7 +130,7 @@ and <code>verify_all.sh</code> fails if any of them drifts.</p>
 <hr />
 <h2 id="experiment-1-create-a-virtual-machine">Experiment 1 — Create a virtual machine</h2>
 <p><code>01_create_vm.md</code> (NOT EXECUTED) ·
-<a href="../labs/course-13b-cloud/01_vm_and_hosting.py"><code>01_vm_and_hosting.py</code></a> — <strong>runs</strong></p>
+<code>01_vm_and_hosting.py</code> — <strong>runs</strong></p>
 <h3 id="the-three-wizard-choices-that-get-people">The three wizard choices that get people</h3>
 <ol>
 <li>
@@ -231,7 +231,7 @@ once.</p>
 <h2 id="experiments-3-and-10-accounts-roles-and-iam">Experiments 3 and 10 — Accounts, roles and IAM</h2>
 <p><code>03_account_setup.md</code> ·
 <code>10_sagemaker_notebook.md</code> (NOT EXECUTED) ·
-<a href="../labs/course-13b-cloud/03_iam_and_account.py"><code>03_iam_and_account.py</code></a> — <strong>runs</strong></p>
+<code>03_iam_and_account.py</code> — <strong>runs</strong></p>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The three rules, and they are the whole subject</h4>
@@ -374,7 +374,7 @@ rates, whether or not anything calls it.</p>
 <p><code>04_buckets.md</code> ·
 <code>05_ebs.md</code> ·
 <code>06_efs.md</code> (NOT EXECUTED) ·
-<a href="../labs/course-13b-cloud/04_storage.py"><code>04_storage.py</code></a> — <strong>runs</strong></p>
+<code>04_storage.py</code> — <strong>runs</strong></p>
 <h3 id="there-are-no-directories">⚠️ There are no directories</h3>
 <pre><code>LIST prefix 'raw/' with delimiter '/':
   objects at this level : (none)
@@ -582,7 +582,7 @@ disconnecting is an annoyance; a cloud notebook <em>not</em> disconnecting is a 
 <h2 id="experiments-8-9-and-12-cloud-db-batch-etl-warehouse-load">Experiments 8, 9 and 12 — Cloud DB, batch ETL, warehouse load</h2>
 <p><code>08_cloud_db.md</code> ·
 <code>12_etl_to_warehouse.md</code> (NOT EXECUTED) ·
-<a href="../labs/course-13b-cloud/09_etl_warehouse.py"><code>09_etl_warehouse.py</code></a> — <strong>runs end to end</strong></p>
+<code>09_etl_warehouse.py</code> — <strong>runs end to end</strong></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The pipeline, with an audit trail</h4>
@@ -699,7 +699,7 @@ re-extracting from a production database that may no longer hold the old rows
 <h2 id="experiments-11-and-14-training-and-automl">Experiments 11 and 14 — Training and AutoML</h2>
 <p><code>11_sagemaker_train.md</code> ·
 <code>14_automl.md</code> (NOT EXECUTED) ·
-<a href="../labs/course-13b-cloud/11_train_and_automl.py"><code>11_train_and_automl.py</code></a> — <strong>runs</strong></p>
+<code>11_train_and_automl.py</code> — <strong>runs</strong></p>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Quote the dummy first, always</h4>
@@ -875,7 +875,7 @@ leaves the weeks untouched.</p>
 <hr />
 <h2 id="experiment-13-monitoring-alarms-and-auto-scaling">Experiment 13 — Monitoring, alarms and auto-scaling</h2>
 <p><code>13_monitoring.md</code> (NOT EXECUTED) ·
-<a href="../labs/course-13b-cloud/13_monitoring_autoscale.py"><code>13_monitoring_autoscale.py</code></a> — <strong>runs</strong></p>
+<code>13_monitoring_autoscale.py</code> — <strong>runs</strong></p>
 <p>A day of traffic: peak <strong>1,000 req/s</strong>, trough <strong>164</strong>; instances serve 150
 req/s; the group is 2–12.</p>
 <table class="main-table">
@@ -1061,7 +1061,7 @@ or on-demand for the peak.</p>
 <hr />
 <h2 id="experiment-15-deploy-the-model-as-a-rest-endpoint">Experiment 15 — Deploy the model as a REST endpoint</h2>
 <p><code>15_deploy.md</code> (NOT EXECUTED) ·
-<a href="../labs/course-13b-cloud/15_deploy_endpoint.py"><code>15_deploy_endpoint.py</code></a> —
+<code>15_deploy_endpoint.py</code> —
 <strong>a REAL HTTP server, serving a REAL model</strong></p>
 <pre><code>artefact loaded from disk: 138,945 bytes
 endpoint listening on http://127.0.0.1:PORT   (a REAL HTTP server)

@@ -1,8 +1,8 @@
 # Course 12 A — Practice Questions with Worked Solutions
 
 Every figure quoted here is produced by
-[`labs/course-12a-ml/`](../../../labs/course-12a-ml/) and checked by
-[`tools/run_ml_labs.py`](../../../tools/run_ml_labs.py).
+`labs/course-12a-ml/` and checked by
+`tools/run_ml_labs.py`.
 
 ---
 

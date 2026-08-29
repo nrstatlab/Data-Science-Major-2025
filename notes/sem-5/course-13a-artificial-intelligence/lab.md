@@ -5,7 +5,7 @@ The syllabus names **SWI-Prolog** and adds *"environment for practice without
 installation"* — meaning [swish.swi-prolog.org](https://swish.swi-prolog.org/),
 which runs in a browser.
 
-Code lives in [`labs/course-13a-ai/`](../../../labs/course-13a-ai/).
+Code lives in `labs/course-13a-ai/`.
 
 ## Read this before you read anything else
 
@@ -18,7 +18,7 @@ So this course ships **two halves**, and you must know which is which:
 | Half | Files | Status |
 |---|---|---|
 | **The Prolog you submit** | **16 `.pl` files** | **`*** NOT EXECUTED ***`** in the header of every one |
-| **The verification** | **7 `.py` files** | **Executed and asserted** by [`tools/run_ai_labs.py`](../../../tools/run_ai_labs.py) |
+| **The verification** | **7 `.py` files** | **Executed and asserted** by `tools/run_ai_labs.py` |
 
 **The `.pl` file is the deliverable.** It is what you paste into SWiSH and what
 the examiner marks. The `.py` file exists so that every number quoted in these
@@ -71,11 +71,11 @@ handles it correctly.** The engine limitation is documented, not hidden.
 
 ## Experiment 1 — A family tree
 
-[`01_family_tree.pl`](../../../labs/course-13a-ai/01_family_tree.pl) ·
-[`01_family_tree.py`](../../../labs/course-13a-ai/01_family_tree.py) — **runs
+`01_family_tree.pl` ·
+`01_family_tree.py` — **runs
 through real SLD resolution**
 
-The tree, from [`fixtures.py`](../../../labs/course-13a-ai/fixtures.py):
+The tree, from `fixtures.py`:
 `ram` and `sita` have `asha` and `ravi`; `asha` has `meena` and `kiran`;
 `ravi` has `bhanu`.
 
@@ -140,13 +140,13 @@ because it is the idiomatic encoding. This is an **engine** limitation.
 
 ## Experiments 2–7 — Lists, arithmetic and the cut
 
-[`02_lists.pl`](../../../labs/course-13a-ai/02_lists.pl) ·
-[`03_maximum.pl`](../../../labs/course-13a-ai/03_maximum.pl) ·
-[`04_flatten.pl`](../../../labs/course-13a-ai/04_flatten.pl) ·
-[`05_factorial_fib.pl`](../../../labs/course-13a-ai/05_factorial_fib.pl) ·
-[`06_gcd.pl`](../../../labs/course-13a-ai/06_gcd.pl) ·
-[`07_cut_fail.pl`](../../../labs/course-13a-ai/07_cut_fail.pl) ·
-[`02_lists_and_arithmetic.py`](../../../labs/course-13a-ai/02_lists_and_arithmetic.py)
+`02_lists.pl` ·
+`03_maximum.pl` ·
+`04_flatten.pl` ·
+`05_factorial_fib.pl` ·
+`06_gcd.pl` ·
+`07_cut_fail.pl` ·
+`02_lists_and_arithmetic.py`
 
 pytholog has neither list terms nor arithmetic evaluation, and the script
 **asserts both failures first** — `mem(b, [a,b,c]) -> ['No']` and
@@ -247,8 +247,8 @@ negation would require *proving* the fact untrue. A kiwi is a bird.
 
 ## Experiments 8–11 — A graph, DFS, BFS, and the comparison
 
-[`08_graph_search.pl`](../../../labs/course-13a-ai/08_graph_search.pl) ·
-[`03_uninformed_search.py`](../../../labs/course-13a-ai/03_uninformed_search.py)
+`08_graph_search.pl` ·
+`03_uninformed_search.py`
 
 Four experiments, one graph. The Python half runs both on the **Romania map**
 from Russell & Norvig (20 cities, real distances) and on a six-node graph built
@@ -333,8 +333,8 @@ unknown — and 111,111 / 123,456 are pleasing enough to remember.
 
 ## Experiment 12 — Greedy Best-First and A*
 
-[`12_astar.pl`](../../../labs/course-13a-ai/12_astar.pl) ·
-[`04_informed_search.py`](../../../labs/course-13a-ai/04_informed_search.py)
+`12_astar.pl` ·
+`04_informed_search.py`
 
 ### 🔢 The single most quotable result in the course
 
@@ -417,9 +417,9 @@ far stronger claim than "it was faster on my example".
 
 ## Experiments 13 and 14 — CSP: map colouring and N-Queens
 
-[`13_map_colouring.pl`](../../../labs/course-13a-ai/13_map_colouring.pl) ·
-[`14_n_queens.pl`](../../../labs/course-13a-ai/14_n_queens.pl) ·
-[`05_csp_backtracking.py`](../../../labs/course-13a-ai/05_csp_backtracking.py)
+`13_map_colouring.pl` ·
+`14_n_queens.pl` ·
+`05_csp_backtracking.py`
 
 ### Experiment 13 — Australia, 3 colours, 7 regions
 
@@ -500,10 +500,10 @@ search problem at all, and it is a better answer than "92" on its own.
 
 ## Experiments 15–17 — Logic, chaining and an expert system
 
-[`15_logic.pl`](../../../labs/course-13a-ai/15_logic.pl) ·
-[`16_chaining.pl`](../../../labs/course-13a-ai/16_chaining.pl) ·
-[`17_expert_system.pl`](../../../labs/course-13a-ai/17_expert_system.pl) ·
-[`06_logic_and_chaining.py`](../../../labs/course-13a-ai/06_logic_and_chaining.py)
+`15_logic.pl` ·
+`16_chaining.pl` ·
+`17_expert_system.pl` ·
+`06_logic_and_chaining.py`
 — **16 and 17 run through real SLD resolution**
 
 ### Experiment 15 — truth tables and entailment
@@ -613,8 +613,8 @@ limit: an expert system knows only what someone wrote down.
 
 ## Experiment 18 — A DCG grammar for English
 
-[`18_dcg.pl`](../../../labs/course-13a-ai/18_dcg.pl) ·
-[`07_bayes_and_local_search.py`](../../../labs/course-13a-ai/07_bayes_and_local_search.py)
+`18_dcg.pl` ·
+`07_bayes_and_local_search.py`
 
 pytholog does not parse `-->`, so the Python half runs the equivalent recursive
 descent and the `.pl` file carries the real DCG.
@@ -649,8 +649,8 @@ why it sits in an AI course rather than a compilers course.
 
 ## Experiment 19 — Deterministic Naive Bayes
 
-[`19_naive_bayes.pl`](../../../labs/course-13a-ai/19_naive_bayes.pl) ·
-[`07_bayes_and_local_search.py`](../../../labs/course-13a-ai/07_bayes_and_local_search.py)
+`19_naive_bayes.pl` ·
+`07_bayes_and_local_search.py`
 
 The 14-day play-tennis table: **9 play, 5 do not**.
 
@@ -669,7 +669,7 @@ Query `(sunny, cool, high, strong)`:
 three implementations — WEKA-equivalent scikit-learn in Course 8, `GaussianNB`
 and a hand calculation in Course 12 A, and this — and the same
 0.005291 / 0.020571. **If they ever disagree, one of them is wrong**, and
-[`tools/verify_all.sh`](../../../tools/verify_all.sh) says so.
+`tools/verify_all.sh` says so.
 
 ### ⚠️ Zero frequency vetoes a class
 

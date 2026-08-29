@@ -313,7 +313,7 @@ void doubleAll(int a[], int n)     /* identical to int *a */
 ```
 
 Working demonstration:
-[`labs/course-2-c/05_swap_value_address.c`](../../../labs/course-2-c/05_swap_value_address.c).
+`labs/course-2-c/05_swap_value_address.c`.
 
 ## 4.4 Local and global variables
 

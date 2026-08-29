@@ -40,7 +40,7 @@
   </ol>
 </details>
 <p><strong>15 experiments</strong></p>
-<p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-11-bi"><code>labs/course-11-bi/</code></a>.</p>
+<p>Code lives in <code>labs/course-11-bi/</code>.</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>On the tooling.</strong> Power BI Desktop is <strong>Windows-only</strong> and Tableau Desktop
@@ -52,7 +52,7 @@ verified in. So each experiment has two halves:</p>
   demonstrate.</strong></li>
 <li><strong>A Python equivalent that runs</strong> — the same transformation, measure or
   join, executed and asserted by
-  <a href="../tools/run_bi_labs.py"><code>tools/run_bi_labs.py</code></a>.</li>
+  <code>tools/run_bi_labs.py</code>.</li>
 </ul>
 <p><strong>Eleven of the fifteen have a runnable half.</strong> Experiments 1, 2, 8 and 12
 are pure tool operation with nothing to compute, so they are click-path only
@@ -181,7 +181,7 @@ tools have converged. Unit 1 §1.7 has the full comparison.</p>
 <h2 id="experiment-2-a-simple-retail-dashboard-in-both-tools">Experiment 2 — A simple retail dashboard in both tools</h2>
 <p><strong>Click-path only.</strong></p>
 <p>Use the star schema from
-<a href="../labs/course-11-bi/fixtures.py"><code>fixtures.py</code></a> — export it to CSV
+<code>fixtures.py</code> — export it to CSV
 first, or use any retail dataset.</p>
 <p><strong>In Power BI:</strong> Get Data → Text/CSV → Transform Data → set types → Close &amp;
 Apply → Model view → check relationships → build three visuals (a card, a
@@ -192,7 +192,7 @@ in.</p>
 <p><strong>Build the same dashboard twice and note where each tool made you stop and
 think.</strong> That comparison is worth more than either dashboard.</p>
 <h2 id="experiment-3-connecting-to-different-data-sources-in-power-bi">Experiment 3 — Connecting to different data sources in Power BI</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/03_data_sources.py"><code>03_data_sources.py</code></a></p>
+<p><strong>Both halves.</strong> <code>03_data_sources.py</code></p>
 <pre><code>Get Data -&gt; Excel Workbook   -&gt; pick the TABLE, not the sheet
 Get Data -&gt; Text/CSV         -&gt; CHECK the delimiter and encoding in the preview
 Get Data -&gt; Web              -&gt; paste a JSON URL, then expand records and lists
@@ -234,7 +234,7 @@ Get Data -&gt; Folder           -&gt; Combine, for many identically shaped files
 look at it before pressing Load.</p>
 <p><strong>Also asserted:</strong> the Import vs DirectQuery comparison. Import is the default.</p>
 <h2 id="experiment-4-data-cleaning-and-transformation-with-power-query">Experiment 4 — Data cleaning and transformation with Power Query</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/04_power_query.py"><code>04_power_query.py</code></a></p>
+<p><strong>Both halves.</strong> <code>04_power_query.py</code></p>
 <pre><code>Transform -&gt; Format -&gt; Trim / Capitalize Each Word
 Transform -&gt; Fill -&gt; Down
 Home      -&gt; Remove Rows -&gt; Remove Duplicates
@@ -275,7 +275,7 @@ duplicates until they have been trimmed, so de-duplicating first misses them.</p
 with <strong>0</strong> gives 1,194.29, while the <strong>sum is identical</strong> either way. Ratios
 and averages move; totals do not.</p>
 <h2 id="experiment-5-student-performance-clean-reshape-visualize">Experiment 5 — Student performance: clean, reshape, visualize</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/05_student_performance.py"><code>05_student_performance.py</code></a></p>
+<p><strong>Both halves.</strong> <code>05_student_performance.py</code></p>
 <p>The higher-education case from Unit 1 §1.4 and Unit 2 §2.7.</p>
 <pre><code>Remove Duplicates on (student, semester, subject)
 Select the subject columns -&gt; Unpivot Columns
@@ -315,7 +315,7 @@ n = 4 each), programme averages (BSc-DS 80.25 over 8 marks, BSc-STAT 58.25 over
 <strong>4</strong>), and the rate-measure shape — <code>CALCULATE</code> in the numerator, plain
 <code>COUNTROWS</code> in the denominator.</p>
 <h2 id="experiment-6-implementing-dax-functions">Experiment 6 — Implementing DAX functions</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/06_dax_functions.py"><code>06_dax_functions.py</code></a></p>
+<p><strong>Both halves.</strong> <code>06_dax_functions.py</code></p>
 <pre><code class="language-dax">Total Qty     = SUM(fact_sales[qty])
 Line Count    = COUNTROWS(fact_sales)
 Avg Qty       = AVERAGE(fact_sales[qty])
@@ -376,7 +376,7 @@ Order Size    = IF([Total Qty] &gt; 10, &quot;Large&quot;, &quot;Small&quot;)
 answer <em>is</em> the revenue-weighted average of the row margins — which is what
 "aggregate, then divide" means.</p>
 <h2 id="experiment-7-creating-basic-visualizations-in-power-bi">Experiment 7 — Creating basic visualizations in Power BI</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/07_visualizations.py"><code>07_visualizations.py</code></a></p>
+<p><strong>Both halves.</strong> <code>07_visualizations.py</code></p>
 <pre><code>Visualizations pane -&gt; Card    -&gt; drop a measure
                     -&gt; Stacked bar chart -&gt; Axis: category, Values: revenue
                     -&gt; Line chart -&gt; Axis: a continuous date
@@ -410,7 +410,7 @@ Public makes the workbook and its data available to anyone.</p>
 It is not about field type — a date can be either, and converting between them
 changes the chart entirely.</p>
 <h2 id="experiment-9-employee-turnover-in-tableau-with-lod-expressions">Experiment 9 — Employee turnover in Tableau, with LOD expressions</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/09_hr_lod.py"><code>09_hr_lod.py</code></a></p>
+<p><strong>Both halves.</strong> <code>09_hr_lod.py</code></p>
 <pre><code>Attrition Rate  = SUM([Is Leaver]) / COUNTD([Emp Id])
 Company Rate    = {FIXED : [Attrition Rate]}
 Gap vs Company  = [Attrition Rate] - [Company Rate]
@@ -475,7 +475,7 @@ gives Sales <strong>687,500</strong> against the view's <strong>554,000</strong>
 four Execs and the one Manager as <em>two</em> numbers. <strong>That is the
 average-of-averages trap wearing Tableau's clothes.</strong></p>
 <h2 id="experiment-10-cleaning-pivoting-and-filtering-in-tableau">Experiment 10 — Cleaning, pivoting and filtering in Tableau</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/10_tableau_prep.py"><code>10_tableau_prep.py</code></a></p>
+<p><strong>Both halves.</strong> <code>10_tableau_prep.py</code></p>
 <pre><code>Data Source tab -&gt; select the quarter columns -&gt; Pivot
 Column menu -&gt; Split / Custom Split
 Column menu -&gt; Aliases...
@@ -509,7 +509,7 @@ The full six-step order is asserted so it cannot be misremembered.</p>
 <p><strong>Also asserted:</strong> an <strong>alias changes only the display</strong>. The stored value is
 untouched — so an alias cannot fix a join key.</p>
 <h2 id="experiment-11-creating-visualizations-in-tableau">Experiment 11 — Creating visualizations in Tableau</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/11_tableau_viz.py"><code>11_tableau_viz.py</code></a></p>
+<p><strong>Both halves.</strong> <code>11_tableau_viz.py</code></p>
 <pre><code>Rows / Columns shelves -&gt; dimensions and measures
 Marks card -&gt; Colour, Size, Label, Detail, Tooltip
 Show Me -&gt; suggested chart types
@@ -553,7 +553,7 @@ points showing the same dashboard with different filters and no argument.</p>
 <p><strong>Submit the published link</strong>, and check it opens in a private browser window —
 that is how the examiner will open it.</p>
 <h2 id="experiment-13-designing-data-models-in-power-bi">Experiment 13 — Designing data models in Power BI</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/13_data_model.py"><code>13_data_model.py</code></a></p>
+<p><strong>Both halves.</strong> <code>13_data_model.py</code></p>
 <pre><code>Model view -&gt; drag product_key from fact_sales to dim_product
 Double-click the relationship -&gt; Cardinality: Many to one (*:1)
                               -&gt; Cross filter direction: Single
@@ -597,7 +597,7 @@ and cannot happen in a star; and the three additivity classes — revenue totals
 table.</p>
 </div>
 <h2 id="experiment-14-joins-and-blending-in-tableau">Experiment 14 — Joins and blending in Tableau</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/14_joins_blending.py"><code>14_joins_blending.py</code></a></p>
+<p><strong>Both halves.</strong> <code>14_joins_blending.py</code></p>
 <pre><code>Data Source tab -&gt; drag the second table -&gt; click the join icon
                 -&gt; Inner / Left / Right / Full Outer, and set the join clauses
 Second connection -&gt; Data menu -&gt; the linking icon 🔗 on the shared field
@@ -668,7 +668,7 @@ aggregation</em>, which is the sentence to say in the exam.</p>
 inner 3 rows, left 4, right 4, full outer 5. <em>"Which stores sold nothing?"</em> is
 a left join filtered to null.</p>
 <h2 id="experiment-15-a-dashboard-with-drill-downs-filters-and-slicers">Experiment 15 — A dashboard with drill-downs, filters and slicers</h2>
-<p><strong>Both halves.</strong> <a href="../labs/course-11-bi/15_dashboard_interactivity.py"><code>15_dashboard_interactivity.py</code></a></p>
+<p><strong>Both halves.</strong> <code>15_dashboard_interactivity.py</code></p>
 <pre><code>Model view -&gt; right-click a column -&gt; Create hierarchy -&gt; add levels
 Visual -&gt; the drill icons (down arrow, forked arrow, up arrow)
 Report page -&gt; right-click -&gt; Add drillthrough page

@@ -1,9 +1,9 @@
 # Course 14 B — Practice Questions with Worked Solutions
 
 Every figure quoted here is produced by
-[`labs/course-14b-timeseries/`](../../../labs/course-14b-timeseries/) and
+`labs/course-14b-timeseries/` and
 checked by
-[`tools/run_timeseries_labs.py`](../../../tools/run_timeseries_labs.py).
+`tools/run_timeseries_labs.py`.
 
 ---
 

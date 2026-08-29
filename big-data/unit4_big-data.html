@@ -76,7 +76,7 @@ you wrote yourself.</p>
 <p><span class="label">FORMULA</span></p>
 <h4>A real import, measured</h4>
 <p>90 rows, 4 mappers
-(<a href="../labs/course-12b-bigdata/11_sqoop_equivalent.py"><code>11_sqoop_equivalent.py</code></a>):</p>
+(<code>11_sqoop_equivalent.py</code>):</p>
 <table class="main-table">
 <thead>
 <tr>
@@ -239,7 +239,7 @@ body, and a <strong>channel selector</strong>, which routes on those headers.</p
 <p><span class="label">FORMULA</span></p>
 <h4>What the channel capacity actually does</h4>
 <p>Running the agent over 40 log events
-(<a href="../labs/course-12b-bigdata/12_flume_equivalent.py"><code>12_flume_equivalent.py</code></a>):</p>
+(<code>12_flume_equivalent.py</code>):</p>
 <table class="main-table">
 <thead>
 <tr>
@@ -409,7 +409,7 @@ format</strong> stores every value of column 1, then every value of column 2.</p
 </table>
 </div>
 <h3 id="avro-measured-and-really-written">Avro — measured, and really written</h3>
-<p><a href="../labs/course-12b-bigdata/13_avro_parquet.py"><code>13_avro_parquet.py</code></a>
+<p><code>13_avro_parquet.py</code>
 uses <code>fastavro</code>, so the files are byte-for-byte readable by Hadoop, Hive and
 Spark. <strong>Nothing here is simulated.</strong></p>
 <p><strong>The property that matters: the writer's schema is stored in the file
@@ -592,7 +592,7 @@ Parquet".</p>
 <p><span class="label">FORMULA</span></p>
 <h4>The fan trap, in a data pipeline</h4>
 <p>Joining the batch table (9 orders) to the stream table (40 events) on <code>host</code>
-(<a href="../labs/course-12b-bigdata/14_pipeline.py"><code>14_pipeline.py</code></a>):</p>
+(<code>14_pipeline.py</code>):</p>
 <pre><code>events counted through the join: 90
 events actually ingested       : 40
 </code></pre>

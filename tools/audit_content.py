@@ -201,6 +201,32 @@ def main():
             pdf_links.append(f"{p.relative_to(ROOT)} -> {mo.group(1)}")
     check("no page links to a PDF", not pdf_links, str(pdf_links[:5]))
 
+    # No page sends the reader into a code host or hands them a raw source
+    # file. Both took them out of the study material: a github.com link opens
+    # a code browser, and a relative link to a .py or .c file is source the
+    # browser cannot render. The paths are still NAMED on the pages -- as
+    # inline code -- they are simply not links.
+    code_links = []
+    source_suffixes = (".py", ".c", ".h", ".pl", ".sh", ".sql", ".java",
+                       ".js", ".scala", ".r", ".pig", ".hql", ".conf",
+                       ".rb", ".json", ".yml", ".yaml", ".avsc")
+    for p in pages:
+        text = p.read_text(errors="replace")
+        text = re.sub(r"<code>.*?</code>", "", text, flags=re.S)
+        text = re.sub(r"<pre.*?</pre>", "", text, flags=re.S)
+        for mo in re.finditer(r'href="([^"]+)"', text):
+            href = mo.group(1)
+            if "github.com" in href or "githubusercontent" in href:
+                code_links.append(f"{p.relative_to(ROOT)} -> {href}")
+                continue
+            if href.startswith(("http", "mailto:", "#")):
+                continue
+            target = href.split("#")[0].split("?")[0]
+            if pathlib.PurePosixPath(target).suffix.lower() in source_suffixes:
+                code_links.append(f"{p.relative_to(ROOT)} -> {href}")
+    check("no page links to a code host or a source file",
+          not code_links, str(code_links[:5]))
+
     # The administrative metadata was stripped out: which page of the source
     # document a topic sits on, how many credits a course carries, how many
     # hours a week it meets. None of it helps anyone study, all of it dates,
@@ -260,17 +286,26 @@ def main():
     check("top-level markdown links resolve", not md_broken,
           str(md_broken[:5]))
 
-    # the notes point at lab files constantly; a renamed lab silently breaks
-    # every reference to it, and nothing else in this repository would notice
+    # The notes name lab files constantly. They used to LINK to them, and this
+    # check followed the links; now they are plain inline-code paths, so it
+    # follows the text instead. Same guarantee either way -- a renamed lab
+    # silently breaks every reference to it, and nothing else here would
+    # notice -- but it no longer depends on those references being hyperlinks.
     note_broken, n_links = [], 0
+    repo_path = re.compile(r"`((?:labs|notes|tools|docs|css)/[\w./-]+)`")
     for md in ROOT.glob("notes/**/*.md"):
         body = re.sub(r"```.*?```", "", md.read_text(), flags=re.S)
+        for mo in re.finditer(repo_path, body):
+            target = mo.group(1).rstrip("/")
+            n_links += 1
+            if not (ROOT / target).exists():
+                note_broken.append(f"{md.relative_to(ROOT)} -> {mo.group(1)}")
         for mo in re.finditer(r"\]\((\.\./[^)#]*)\)", body):
             href = mo.group(1)
             n_links += 1
             if not (md.parent / href.split("#")[0]).resolve().exists():
                 note_broken.append(f"{md.relative_to(ROOT)} -> {href}")
-    check(f"{n_links} note-to-lab cross-references resolve", not note_broken,
+    check(f"{n_links} note-to-lab references resolve", not note_broken,
           str(note_broken[:5]))
 
     # -- 8 -----------------------------------------------------------------

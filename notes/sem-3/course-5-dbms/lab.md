@@ -2,14 +2,14 @@
 
 **3 experiments plus PL/SQL**
 
-All SQL is in [`labs/course-5-dbms/`](../../../labs/course-5-dbms/):
+All SQL is in `labs/course-5-dbms/`:
 
 | File | Contents | Verified? |
 |---|---|---|
-| [`01_inventory.sql`](../../../labs/course-5-dbms/01_inventory.sql) | Experiment 1 — Inventory Management | ✅ executed |
-| [`02_bookstore.sql`](../../../labs/course-5-dbms/02_bookstore.sql) | Experiment 2 — Online Bookstore | ✅ executed |
-| [`03_employee.sql`](../../../labs/course-5-dbms/03_employee.sql) | Experiment 3 — Employee DB, sections A–D | ✅ executed |
-| [`04_plsql_oracle.sql`](../../../labs/course-5-dbms/04_plsql_oracle.sql) | Experiment 3 section E — PL/SQL | ⚠ desk-checked only |
+| `01_inventory.sql` | Experiment 1 — Inventory Management | ✅ executed |
+| `02_bookstore.sql` | Experiment 2 — Online Bookstore | ✅ executed |
+| `03_employee.sql` | Experiment 3 — Employee DB, sections A–D | ✅ executed |
+| `04_plsql_oracle.sql` | Experiment 3 section E — PL/SQL | ⚠ desk-checked only |
 
 ```bash
 python3 tools/run_sql_labs.py

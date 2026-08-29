@@ -9,7 +9,7 @@ constructed. **Nothing in this file has been run here**, and nothing in the
 notes claims an output for it.
 
 **The runnable half is
-[`12_transformer_local.py`](12_transformer_local.py)**, which trains the same
+`12_transformer_local.py`**, which trains the same
 architecture — a bidirectional transformer encoder with a masked-LM objective
 — from scratch on the Brown corpus, and reports honestly that its predictions
 are weak. **That gap is the measurement**: it is what pre-training on 3.3

@@ -196,7 +196,7 @@ fluency is uncorrelated with accuracy.
 
 ### 🔢 The measurement — and the baseline nobody reports
 
-[`12_transformer_local.py`](../../../labs/course-15a-nlp/12_transformer_local.py)
+`12_transformer_local.py`
 builds **TextRank** — PageRank over a TF-IDF sentence-similarity graph — on a
 real 22-sentence Reuters article, and compares it with **lead-3**:
 
@@ -334,7 +334,7 @@ confidently wrong 20% of the time is worse than no bot.**
 - [ ] Explain why a retrieval bot needs a threshold
 
 **Cross-check yourself:** run
-[`12_transformer_local.py`](../../../labs/course-15a-nlp/12_transformer_local.py),
+`12_transformer_local.py`,
 and Course 14 A's
-[`11_attention.py`](../../../labs/course-14a-deeplearning/11_attention.py) for
+`11_attention.py` for
 the attention numbers.

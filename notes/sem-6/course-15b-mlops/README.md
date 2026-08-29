@@ -3,7 +3,7 @@
 **Semester VI**
 
 **This is a Track B course**, paired with
-[Course 14 B (Time Series Analysis)](../course-14b-time-series/), and it is
+Course 14 B (Time Series Analysis), and it is
 the last course of the track you began in Semester V.
 
 ---
@@ -61,7 +61,7 @@ descriptions of them:
 
 | # | Experiment | Reason | Its runnable half |
 |---|---|---|---|
-| 4 | Kafka / RabbitMQ | needs a **broker process** | [`04_batch_vs_event.py`](../../../labs/course-15b-mlops/04_batch_vs_event.py) — both modes over a real queue, **latency measured** |
+| 4 | Kafka / RabbitMQ | needs a **broker process** | `04_batch_vs_event.py` — both modes over a real queue, **latency measured** |
 | 5 | HDFS | needs a **JVM and a NameNode** | the ETL job, plus Course 12 B's block arithmetic |
 | 10 | Docker | the client is installed; **the daemon is not** | the Flask app the container would package, **running** |
 | 11 | GitHub Actions | needs a **GitHub runner** | the determinism check CI exists to protect |
@@ -143,7 +143,7 @@ and Spark, and Course 13 B's warehouse.
 ## If you read one thing
 
 **Unit 5's section on the three kinds of drift**, and then run
-[`12_serve_drift_govern.py`](../../../labs/course-15b-mlops/12_serve_drift_govern.py).
+`12_serve_drift_govern.py`.
 
 Data drift, concept drift and label drift are routinely conflated, they need
 different detectors, and only one of them is detectable before the damage is

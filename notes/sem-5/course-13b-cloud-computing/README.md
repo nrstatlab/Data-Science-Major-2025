@@ -3,7 +3,7 @@
 **Semester V**
 
 **This is a Track B course**, paired with
-[Course 12 B (Big Data Technologies)](../course-12b-big-data/). Take one
+Course 12 B (Big Data Technologies). Take one
 track and you take it for Semester VI too.
 
 ---
@@ -67,11 +67,11 @@ So this course is the most explicitly split of the ten:
 not proprietary. IAM's three evaluation rules, the fact that an object store
 has no directories, and the arithmetic that decides between serverless and
 provisioned are all implementable — and all implemented, in
-[`labs/course-13b-cloud/`](../../../labs/course-13b-cloud/).
+`labs/course-13b-cloud/`.
 
 Every file that cannot run says **`*** NOT EXECUTED ***`** at the top, names
 the service it needs, and points at the runnable half.
-[`tools/run_cloud_labs.py`](../../../tools/run_cloud_labs.py) asserts the
+`tools/run_cloud_labs.py` asserts the
 marker is still there.
 
 ---

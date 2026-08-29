@@ -323,7 +323,7 @@ Structure your answer as: definition of each → syntax → a swap program for e
 → the comparison table → a conclusion.
 
 See [unit-4.md §4.3](unit-4.md) for the full treatment and
-[`05_swap_value_address.c`](../../../labs/course-2-c/05_swap_value_address.c)
+`05_swap_value_address.c`
 for runnable code.
 
 The mark scheme almost always wants: both programs written out, the *output* of

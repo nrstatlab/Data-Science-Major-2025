@@ -281,6 +281,6 @@ boring, managed option until you can name what it is costing you.**
 - [ ] **Compute a TCO and say why the licence fee is not it**
 
 **Cross-check yourself:** run
-[`01_environment_etl.py`](../../../labs/course-15b-mlops/01_environment_etl.py)
+`01_environment_etl.py`
 and
-[`04_batch_vs_event.py`](../../../labs/course-15b-mlops/04_batch_vs_event.py).
+`04_batch_vs_event.py`.

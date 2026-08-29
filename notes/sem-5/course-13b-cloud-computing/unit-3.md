@@ -12,8 +12,8 @@ warehouses: AWS Redshift, Google BigQuery.
 
 **Storage decisions are where cloud bills are made and lost**, and they are
 the most examinable arithmetic in the course. Every figure below is computed
-in [`04_storage.py`](../../../labs/course-13b-cloud/04_storage.py) and
-[`09_etl_warehouse.py`](../../../labs/course-13b-cloud/09_etl_warehouse.py).
+in `04_storage.py` and
+`09_etl_warehouse.py`.
 
 ---
 
@@ -386,7 +386,7 @@ the `DELETE` problem Course 12 B found in Sqoop**.
 
 ### 🔢 The pipeline, run end to end
 
-[`09_etl_warehouse.py`](../../../labs/course-13b-cloud/09_etl_warehouse.py)
+`09_etl_warehouse.py`
 extracts from SQLite, transforms with an audit trail, and loads DuckDB:
 
 | Step | Rows |

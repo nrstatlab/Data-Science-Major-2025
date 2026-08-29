@@ -11,7 +11,7 @@ SQL is what the lab exam tests and what you will use for the rest of your
 career. Type every example.
 
 Every query in this unit is executable and was verified against the three lab
-schemas — see [`labs/course-5-dbms/`](../../../labs/course-5-dbms/) and run
+schemas — see `labs/course-5-dbms/` and run
 `python3 tools/run_sql_labs.py`.
 
 ## 4.1 SQL command categories

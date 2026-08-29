@@ -373,6 +373,6 @@ out to be detecting which hospital took the scan.
 - [ ] Explain why attention maps are not explanations
 
 **Cross-check yourself:** run
-[`11_attention.py`](../../../labs/course-14a-deeplearning/11_attention.py) and
-[`08_pretrained.py`](../../../labs/course-14a-deeplearning/08_pretrained.py).
+`11_attention.py` and
+`08_pretrained.py`.
 Every number in this unit is printed by one of them.
