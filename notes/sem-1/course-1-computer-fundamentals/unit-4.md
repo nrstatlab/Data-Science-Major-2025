@@ -92,6 +92,19 @@ the column moves. One formula, filled across and down, produces the whole table.
 | `ABS`, `SQRT`, `POWER` | Arithmetic | `=SQRT(A1)` |
 | `TODAY()`, `NOW()` | Current date / date-time | `=TODAY()` |
 
+**The three counts on one range.** Given `45`, *(empty)*, `absent`, `0`, `78`,
+*(empty)*, `N/A`, `91`:
+
+| Formula | Result | Counts |
+|---|---:|---|
+| `=COUNT(A1:A8)` | **4** | numeric cells only — `0` counts, `absent` does not |
+| `=COUNTA(A1:A8)` | **6** | every non-empty cell, text included |
+| `=COUNTBLANK(A1:A8)` | **2** | the empty ones |
+
+`COUNTA + COUNTBLANK` always equals the size of the range. `COUNT` does not —
+which is exactly why a "how many students sat the exam?" formula written with
+`COUNT` silently ignores anyone marked `absent`.
+
 **`COUNT` vs `COUNTA` is a favourite two-mark question.** `COUNT` counts only
 numbers; `COUNTA` counts anything non-empty, including text.
 

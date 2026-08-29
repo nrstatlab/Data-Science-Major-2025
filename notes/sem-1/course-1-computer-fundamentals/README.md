@@ -57,6 +57,12 @@ Unit 5 (as a headline topic). Unit 5's treatment is the substantive one. See
 
 - [practice.md](practice.md) — questions with worked solutions
 - [lab.md](lab.md) — all 14 lab experiments
+- [`labs/course-1-office/`](../../../labs/course-1-office/) — the code behind
+  the figures. Excel cannot be installed in the environment these notes are
+  verified in, so the eight experiments that compute something are recomputed
+  and asserted there, along with every number-system conversion in Unit 1 and
+  every text-function result in Unit 4. Run it with
+  `python3 tools/run_office_labs.py`; it needs nothing but Python itself.
 
 For spreadsheet formulas in a statistical context, see
 `labs/course-4-stats/excel-walkthroughs.md`,

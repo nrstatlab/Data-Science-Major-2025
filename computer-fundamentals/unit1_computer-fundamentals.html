@@ -191,8 +191,12 @@ arithmetic at all.</p>
 <p>Group from the right in fours: <code>1101 | 0110</code> → 13(D) | 6 → <strong>D6</strong></p>
 <p><strong>Hexadecimal 3E → binary</strong></p>
 <p>3 → <code>0011</code>, E → <code>1110</code> → <strong>00111110</strong></p>
-<p><strong>Pad with leading zeros</strong> when the leftmost group is short. <code>1101101</code> becomes
-<code>0110 | 1101</code> → 6D, not <code>110|1101</code>.</p>
+<p><strong>Group from the right, always.</strong> <code>1101101</code> splits as <code>110 | 1101</code> → 6, D →
+<strong>6D</strong>. Group it from the <em>left</em> instead and you get <code>1101 | 101</code> → D, 5 →
+<strong>D5</strong>, which is 213 rather than 109. Padding the short leftmost group with
+zeros — <code>0110 | 1101</code> — changes nothing about the answer; it is a tidiness
+habit that makes the direction obvious at a glance, and that is its whole
+value.</p>
 <h3 id="octal-hexadecimal">Octal ↔ hexadecimal</h3>
 <p>There is no direct route. <strong>Go via binary</strong>: octal → binary → regroup in fours
 → hex.</p>

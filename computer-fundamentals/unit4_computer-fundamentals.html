@@ -217,6 +217,37 @@ the column moves. One formula, filled across and down, produces the whole table.
 </tr>
 </tbody>
 </table>
+<p><strong>The three counts on one range.</strong> Given <code>45</code>, <em>(empty)</em>, <code>absent</code>, <code>0</code>, <code>78</code>,
+<em>(empty)</em>, <code>N/A</code>, <code>91</code>:</p>
+<table class="main-table">
+<thead>
+<tr>
+<th>Formula</th>
+<th style="text-align: right;">Result</th>
+<th>Counts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=COUNT(A1:A8)</code></td>
+<td style="text-align: right;"><strong>4</strong></td>
+<td>numeric cells only — <code>0</code> counts, <code>absent</code> does not</td>
+</tr>
+<tr>
+<td><code>=COUNTA(A1:A8)</code></td>
+<td style="text-align: right;"><strong>6</strong></td>
+<td>every non-empty cell, text included</td>
+</tr>
+<tr>
+<td><code>=COUNTBLANK(A1:A8)</code></td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td>the empty ones</td>
+</tr>
+</tbody>
+</table>
+<p><code>COUNTA + COUNTBLANK</code> always equals the size of the range. <code>COUNT</code> does not —
+which is exactly why a "how many students sat the exam?" formula written with
+<code>COUNT</code> silently ignores anyone marked <code>absent</code>.</p>
 <p><strong><code>COUNT</code> vs <code>COUNTA</code> is a favourite two-mark question.</strong> <code>COUNT</code> counts only
 numbers; <code>COUNTA</code> counts anything non-empty, including text.</p>
 <h3 id="conditional-aggregates">Conditional aggregates</h3>

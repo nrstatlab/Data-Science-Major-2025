@@ -54,7 +54,12 @@ def markdown_files():
 
 def main():
     pdfs = sorted(ROOT.glob("docs/*.pdf"))
-    lab_files = [p for p in (ROOT / "labs").rglob("*") if p.is_file()]
+    # Source files only. Counting __pycache__ made this number depend on
+    # whether the suites had been run since the last clean, so the hub
+    # figure it is checked against drifted every time.
+    lab_files = [p for p in (ROOT / "labs").rglob("*")
+                 if p.is_file() and "__pycache__" not in p.parts
+                 and p.suffix != ".pyc"]
     note_dirs = sorted(p for p in ROOT.glob("notes/sem-*/*") if p.is_dir())
     unit_files = sorted(ROOT.glob("notes/sem-*/*/unit-*.md"))
     pages = sorted(list(ROOT.glob("*.html")) + list(ROOT.glob("*/*.html")))

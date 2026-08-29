@@ -4,7 +4,9 @@
 
 ## Section A — Number system conversions
 
-Every answer below was verified computationally.
+Every answer below is checked by
+`labs/course-1-office/unit1_number_systems.py`, which fails if any conversion
+on this page is wrong.
 
 ### Q1 — Convert (11010110)₂ to decimal, octal and hexadecimal
 

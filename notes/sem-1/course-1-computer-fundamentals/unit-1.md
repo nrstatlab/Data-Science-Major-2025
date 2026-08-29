@@ -99,8 +99,12 @@ Group from the right in fours: `1101 | 0110` → 13(D) | 6 → **D6**
 
 3 → `0011`, E → `1110` → **00111110**
 
-**Pad with leading zeros** when the leftmost group is short. `1101101` becomes
-`0110 | 1101` → 6D, not `110|1101`.
+**Group from the right, always.** `1101101` splits as `110 | 1101` → 6, D →
+**6D**. Group it from the *left* instead and you get `1101 | 101` → D, 5 →
+**D5**, which is 213 rather than 109. Padding the short leftmost group with
+zeros — `0110 | 1101` — changes nothing about the answer; it is a tidiness
+habit that makes the direction obvious at a glance, and that is its whole
+value.
 
 ### Octal ↔ hexadecimal
 

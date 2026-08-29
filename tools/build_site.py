@@ -1035,24 +1035,36 @@ def add_anchors_and_toc(body_html, min_sections=4):
         return base if used[base] == 1 else f"{base}-{used[base]}"
 
     sections = []
+    subsections = []
 
     def tag(m):
         level, attrs, text = m.group(1), m.group(2) or "", m.group(3)
         if "id=" in attrs:
             return m.group(0)
         anchor = slug(text)
-        if level == "2":
-            sections.append((anchor, re.sub(r"<[^>]+>", "", text)))
+        target = sections if level == "2" else subsections
+        target.append((anchor, re.sub(r"<[^>]+>", "", text)))
         return f'<h{level}{attrs} id="{anchor}">{text}</h{level}>'
 
     body_html = re.sub(r"<h([23])([^>]*)>(.*?)</h\1>", tag, body_html,
                        flags=re.S)
 
+    # A practice page is three h2 headings over fifty questions, so a contents
+    # list built from h2 alone would say "Section A, Section B, Section C" and
+    # help nobody. Where the h2 headings are too few to be a map, list the h3
+    # headings instead -- those are the questions, and jumping to question 31
+    # is the thing a reader actually wants.
     if len(sections) < min_sections:
-        return body_html
+        if len(subsections) < 2 * min_sections:
+            return body_html
+        sections = subsections
 
+    # `t` came out of the rendered HTML, so it is already escaped -- escaping
+    # it again turns <!DOCTYPE html> into &amp;lt;!DOCTYPE html&amp;gt; in the
+    # contents list. Unescape first, then escape once.
     items = "\n".join(
-        f'    <li><a href="#{a}">{html.escape(t)}</a></li>' for a, t in sections)
+        f'    <li><a href="#{a}">{html.escape(html.unescape(t))}</a></li>'
+        for a, t in sections)
     toc = ('<details class="toc">\n'
            '  <summary>On this page</summary>\n'
            f'  <ol>\n{items}\n  </ol>\n'

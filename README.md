@@ -96,6 +96,7 @@ formula sheet.
 
 | Course | Contents | Status |
 |---|---|---|
+| [1 — Office](labs/course-1-office/) | 14 experiments + 2 unit checks | 8 spreadsheet computations run and asserted, plus every number-system conversion and text-function result in the notes; 6 experiments produce documents, with nothing to compute |
 | [2 — C](labs/course-2-c/) | 15 programs | Compiled `-Wall -Wextra`, no warnings, run |
 | [3 — Python](labs/course-3-python/) | 18 programs | 16 run; 2 Tkinter syntax-checked only |
 | [4 — Statistics](labs/course-4-stats/) | 15 Excel walkthroughs + Python equivalents | Python run; `statlib` checked against tables |

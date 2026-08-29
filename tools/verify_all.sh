@@ -12,6 +12,9 @@ fail=0
 
 banner() { echo; echo "=============================================="; echo "$1"; echo "=============================================="; }
 
+banner "Course 1 labs (spreadsheet arithmetic, standard library only)"
+python3 "$ROOT/tools/run_office_labs.py" | tail -6 || fail=$((fail+1))
+
 banner "C labs (Course 2)"
 bash "$ROOT/tools/run_c_labs.sh" || fail=$((fail+1))
 
