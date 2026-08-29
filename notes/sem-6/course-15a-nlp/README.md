@@ -1,7 +1,7 @@
 # Course 15 A — Natural Language Processing
 
-**Semester VI · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 10–13 of the Semester VI syllabus
+**Semester VI**
+
 **This is a Track A course**, paired with
 [Course 14 A (Neural Networks & Deep Learning)](../course-14a-deep-learning/),
 and it is the last course of the track you began in Semester V.

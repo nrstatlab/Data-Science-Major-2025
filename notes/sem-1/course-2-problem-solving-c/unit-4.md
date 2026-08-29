@@ -1,6 +1,6 @@
 # Unit 4 — Pointers, Functions and Storage Classes
 
-**Syllabus (page 10):** Unit 4 is titled **"Functions"**, but the printed topic
+**Syllabus topics:** Unit 4 is titled **"Functions"**, but the printed topic
 list opens with pointers:
 
 > Pointers: Pointer data type, pointer declaration, initialization, accessing

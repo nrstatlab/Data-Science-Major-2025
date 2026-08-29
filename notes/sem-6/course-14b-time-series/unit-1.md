@@ -1,6 +1,6 @@
 # Unit 1 — Fundamentals and Stationary Processes
 
-**Syllabus (page 6):** Introduction to time series: types, components,
+**Syllabus topics:** Introduction to time series: types, components,
 forecasting process. Stationary processes: definitions, autocovariance,
 autocorrelation functions (ACF/PACF). Model evaluation metrics. ACF/PACF
 example analyses.

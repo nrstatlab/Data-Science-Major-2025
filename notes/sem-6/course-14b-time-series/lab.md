@@ -1,6 +1,6 @@
 # Course 14 B — Practical Lab
 
-**Syllabus (page 9):** 13 experiments, 1 credit, 2 hrs/week.
+**13 experiments**
 *"Using R/Python statsmodels, pandas, forecast, or equivalent."*
 
 Code lives in [`labs/course-14b-timeseries/`](../../../labs/course-14b-timeseries/).

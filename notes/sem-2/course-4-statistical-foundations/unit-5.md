@@ -1,6 +1,6 @@
 # Unit 5 — Statistical Inference, Estimation and Hypothesis Testing
 
-**Syllabus (page 21):** Population and sample, parameters and statistics.
+**Syllabus topics:** Population and sample, parameters and statistics.
 Sampling distributions. Point and interval estimation (confidence intervals).
 Tests of significance — z-test, t-test, chi-square test and F-test. p-values
 and errors (Type I and II). Power of a statistical test.

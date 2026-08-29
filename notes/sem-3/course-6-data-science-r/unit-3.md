@@ -1,6 +1,6 @@
 # Unit 3 — Data Handling and Visualization in R
 
-**Syllabus (pages 1–2):** Data frames, lists, matrices. Data wrangling with
+**Syllabus topics:** Data frames, lists, matrices. Data wrangling with
 `dplyr` and `tidyr`. Handling missing data. Working with date/time in R.
 Visualization with `ggplot2` — grammar of graphics, aesthetics, geometries,
 scales. Faceting and layering techniques. Visualizing categorical and numerical

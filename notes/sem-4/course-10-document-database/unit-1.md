@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to NoSQL and Fundamentals of MongoDB
 
-**Syllabus (pages 21–22):** What is NoSQL DB? History and evolution of NoSQL,
+**Syllabus topics:** What is NoSQL DB? History and evolution of NoSQL,
 features of NoSQL databases, CAP theorem and BASE properties, types of NoSQL
 (key-value, document, column, graph), difference between RDBMS and NoSQL, why
 and when to use NoSQL, NoSQL database misconceptions, benefits and real-world

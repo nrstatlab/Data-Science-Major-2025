@@ -1,6 +1,6 @@
 # Unit 4 — File Handling, Exception Handling and Object-Oriented Programming
 
-**Syllabus (page 15):** File handling — types, paths, basic operations
+**Syllabus topics:** File handling — types, paths, basic operations
 (open/close, read/write), CSV files, `os`/`pathlib`. Error and exception
 handling — syntax errors, built-in exceptions, catching and handling exceptions
 (`try-except`, `raise`), user-defined exceptions, assertions. OOP concepts —

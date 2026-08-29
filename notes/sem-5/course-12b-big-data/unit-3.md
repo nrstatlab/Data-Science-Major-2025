@@ -1,6 +1,6 @@
 # Unit 3 — MapReduce and High-Level Tools
 
-**Syllabus (page 13):** MapReduce programming model: map, shuffle, reduce
+**Syllabus topics:** MapReduce programming model: map, shuffle, reduce
 phases. Writing MapReduce applications in Hadoop. High-level abstractions:
 Hive, Pig, Crunch, and introduction to Spark integration.
 

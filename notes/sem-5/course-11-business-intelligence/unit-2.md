@@ -1,6 +1,6 @@
 # Unit 2 — Data Preparation and Visualization with Power BI
 
-**Syllabus (page 2):** Introduction to Power BI; the Power BI ecosystem —
+**Syllabus topics:** Introduction to Power BI; the Power BI ecosystem —
 Desktop, Service, Mobile; the Power BI interface; data sources — Excel, CSV,
 SQL Server, Web APIs; Power Query — data preparation, cleaning and
 transformation; connect, transform and model a dataset; basic DAX functions —

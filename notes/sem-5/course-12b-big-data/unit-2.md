@@ -1,6 +1,6 @@
 # Unit 2 — HDFS and YARN
 
-**Syllabus (pages 12–13):** Deep dive into HDFS architecture: blocks,
+**Syllabus topics:** Deep dive into HDFS architecture: blocks,
 NameNode, DataNodes, HDFS file operations, fault tolerance, replication. YARN
 architecture: ResourceManager, NodeManager, application scheduling.
 

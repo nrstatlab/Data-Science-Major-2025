@@ -1,6 +1,6 @@
 # Unit 5 — Monitoring, Feedback Loops and Governance
 
-**Syllabus (page 16):** Monitoring models in production: drift detection,
+**Syllabus topics:** Monitoring models in production: drift detection,
 ground truth evaluation. Feedback loops: retraining workflows, online
 evaluation. Logging, monitoring frameworks. Governance: regulations (GDPR,
 CCPA, GxP), Responsible AI principles. Templates for governance, compliance

@@ -1,7 +1,7 @@
 # Course 11 — Business Intelligence Tools
 
-**Semester V · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 1–7 of the Semester V syllabus
+**Semester V**
+
 **This is the one Semester V course everyone takes.** Courses 12 and 13 fork
 into Track A and Track B; this one does not.
 
@@ -47,7 +47,7 @@ You have met more of this course than you think.
 **If you did Course 1 Unit 5 properly, you already know what a dashboard is
 for.** The new material is the modelling in Unit 4 and the tooling in Units 2–3.
 
-## Course objectives (verbatim, page 1)
+## Course objectives (verbatim)
 
 1. Introduce foundational concepts of Business Intelligence (BI) and Decision
    Support Systems (DSS), including their scope, evolution, and organizational
@@ -116,7 +116,7 @@ wrong answer produces a dashboard that is confidently, silently incorrect.
 - Loth, *Visual Analytics with Tableau*, Addison-Wesley, 2019.
 
 **Free and genuinely good:** Microsoft Learn's Power BI learning paths, and
-Tableau's own Learning Hub. Both are listed on page 3 of the syllabus.
+Tableau's own Learning Hub. Both are named in the prescribed reading.
 
 ## How to study this course
 

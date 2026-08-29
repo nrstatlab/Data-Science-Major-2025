@@ -1,6 +1,6 @@
 # Unit 3 — Data Preparation, Visualization and Storytelling with Tableau
 
-**Syllabus (page 2):** Introduction to Tableau; characteristics of Tableau;
+**Syllabus topics:** Introduction to Tableau; characteristics of Tableau;
 Tableau architecture and components — Tableau Public, Desktop, Reader, Online,
 Server; the Tableau interface — shelves, marks card, views; Tableau extensions;
 data connection and preparation — cleaning, pivoting, filtering; calculated

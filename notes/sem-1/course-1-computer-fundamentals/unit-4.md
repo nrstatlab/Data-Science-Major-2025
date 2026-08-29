@@ -1,6 +1,6 @@
 # Unit 4 — Spreadsheet Basics
 
-**Syllabus (page 4):** Spreadsheet concepts — understanding rows, columns,
+**Syllabus topics:** Spreadsheet concepts — understanding rows, columns,
 cells in tools like MS Excel/Google Sheets, cell referencing. Functions and
 formulae — SUM, AVERAGE, IF, COUNT. Charts and graphs — creating visual
 representations. Data handling — sorting, filtering, conditional formatting.

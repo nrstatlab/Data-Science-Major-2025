@@ -1,6 +1,6 @@
 # Unit 2 — Basics of R Programming
 
-**Syllabus (page 1):** Introduction to R and RStudio. Data types, variables,
+**Syllabus topics:** Introduction to R and RStudio. Data types, variables,
 operators. Control structures (`if`, loops, `apply`). Functions and packages.
 Data input/output (CSV, Excel, XML, JSON).
 

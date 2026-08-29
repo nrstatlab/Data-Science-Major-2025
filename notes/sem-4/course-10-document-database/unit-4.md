@@ -1,6 +1,6 @@
 # Unit 4 — Data Modelling and Aggregation
 
-**Syllabus (page 22):** Data models — introduction to embedded vs normalized
+**Syllabus topics:** Data models — introduction to embedded vs normalized
 models, advantages and trade-offs. Embedded data models: use cases, benefits
 and limitations. Normalized data models: references between documents, when to
 normalize data. Relationships between documents. Data model using an embedded

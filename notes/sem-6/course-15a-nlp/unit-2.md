@@ -1,6 +1,6 @@
 # Unit 2 — Text Preprocessing and Linguistic Analysis
 
-**Syllabus (page 10):** Key NLP terminologies: morphology, lexicon,
+**Syllabus topics:** Key NLP terminologies: morphology, lexicon,
 orthographic rules. Finite state transducers. Text preprocessing techniques:
 tokenization, stopword removal, stemming, lemmatization. Grammar and
 context-free grammar. Parsing techniques: top-down, bottom-up, CYK algorithm.

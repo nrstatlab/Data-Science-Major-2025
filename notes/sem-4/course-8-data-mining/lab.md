@@ -1,6 +1,6 @@
 # Course 8 — Practical Lab
 
-**Syllabus (page 15):** 15 experiments, 1 credit, 2 hrs/week.
+**15 experiments**
 Recommended datasets: `weather.arff`, `iris.arff`, `supermarket.arff`,
 `vote.arff`, `contact-lenses.arff`, or custom CSV.
 

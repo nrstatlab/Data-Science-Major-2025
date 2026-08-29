@@ -1,6 +1,6 @@
 # Unit 3 — Non-Stationary and Seasonal Models
 
-**Syllabus (page 7):** Non-stationary time series: differencing, unit roots.
+**Syllabus topics:** Non-stationary time series: differencing, unit roots.
 Seasonal models: SARIMA and multiplicative seasonal ARIMA. Identification,
 estimation, and diagnostic checks for seasonal models.
 

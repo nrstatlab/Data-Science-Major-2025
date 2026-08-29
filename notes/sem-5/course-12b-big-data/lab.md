@@ -1,6 +1,6 @@
 # Course 12 B — Practical Lab
 
-**Syllabus (page 15):** 17 experiments, 1 credit, 2 hrs/week.
+**17 experiments**
 
 Code lives in [`labs/course-12b-bigdata/`](../../../labs/course-12b-bigdata/).
 

@@ -1,6 +1,6 @@
 # Unit 2 — CSS
 
-**Syllabus (page 7):** CSS home, introduction, syntax, CSS combinators, colors,
+**Syllabus topics:** CSS home, introduction, syntax, CSS combinators, colors,
 background, borders, margins, padding, height/width, text, fonts, tables, lists,
 position, overflow, float, pseudo class, pseudo elements, opacity, tool tips,
 image gallery, CSS forms, CSS counters.
@@ -468,8 +468,8 @@ its parent computes a height of zero. Three fixes, in order of modernity:
 ### ⚠️ Do not use float for layout
 
 Use **Flexbox** for one dimension and **Grid** for two. The syllabus does not
-name them, but the practical activity on page 8 explicitly says
-"Flexbox/Grid", and lab experiment 8 requires them.
+name them in the unit list, but the prescribed practical activity explicitly
+says "Flexbox/Grid", and lab experiment 8 requires them.
 
 ```css
 /* one row, spaced out, wrapping on small screens */

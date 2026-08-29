@@ -1,6 +1,6 @@
 # Unit 4 — Applications and Case Studies in Data Science
 
-**Syllabus (page 2):** Simple linear regression. Multiple regression. Model
+**Syllabus topics:** Simple linear regression. Multiple regression. Model
 evaluation method — accuracy, confusion matrix, ROC. K-Means clustering. Text
 mining and word clouds. Recommender systems basics. Ethical issues in data
 science.

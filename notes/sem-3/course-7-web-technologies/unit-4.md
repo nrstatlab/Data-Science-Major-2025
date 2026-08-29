@@ -1,6 +1,6 @@
 # Unit 4 — Client-Side Scripting
 
-**Syllabus (page 7):** Accessing HTML form elements using JavaScript object
+**Syllabus topics:** Accessing HTML form elements using JavaScript object
 model, basic data validations, data format validations, generating responsive
 messages, opening windows using JavaScript, different kinds of dialog boxes,
 accessing status bar using JavaScript, embedding basic animative features using

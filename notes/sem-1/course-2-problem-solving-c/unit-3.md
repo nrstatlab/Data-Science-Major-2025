@@ -1,6 +1,6 @@
 # Unit 3 — Derived Data Types: Arrays and Strings
 
-**Syllabus (page 10):** Arrays — one-dimensional: declaration, initialization
+**Syllabus topics:** Arrays — one-dimensional: declaration, initialization
 and memory representation; two-dimensional: declaration, initialization and
 memory representation. Strings — declaring and initializing string variables;
 string handling functions; character handling functions.

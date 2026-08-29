@@ -1,6 +1,6 @@
 # Unit 2 — Data Architecture and Distributed Systems
 
-**Syllabus (pages 14–15):** Enterprise and data architecture definitions.
+**Syllabus topics:** Enterprise and data architecture definitions.
 Principles of good data architecture. Scalability, failure design, tiers,
 microservices, monolith vs modular. Event-driven architecture, hybrid cloud,
 multicloud, edge computing. Technology selection criteria: team size,

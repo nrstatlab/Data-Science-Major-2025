@@ -1,6 +1,6 @@
 # Unit 5 — Data Wrangling, Reshaping and Visualization
 
-**Syllabus (page 17):** Merging and joining datasets, concatenating along an
+**Syllabus topics:** Merging and joining datasets, concatenating along an
 axis, combining data with overlap, reshaping with pivot, stack and unstack,
 basic hierarchical indexing, summary statistics by group or level.
 Introduction to matplotlib — plots, customization, styling; Seaborn for

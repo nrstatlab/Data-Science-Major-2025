@@ -1,6 +1,6 @@
 # Course 1 Lab — Computer Fundamentals and Office Automation
 
-**1 credit · 2 hrs/week · 14 experiments** (syllabus pages 7–8)
+**14 experiments**
 
 Word, PowerPoint and Excel cannot be installed in the environment these notes
 are verified in, so each experiment has two halves:

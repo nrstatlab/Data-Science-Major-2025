@@ -1,6 +1,6 @@
 # Unit 3 — Supervised Learning: Regression
 
-**Syllabus (page 9):** Regression — introduction to regression; regression
+**Syllabus topics:** Regression — introduction to regression; regression
 algorithms: simple linear regression, multiple linear regression, polynomial
 regression model, logistic regression, maximum likelihood estimation.
 

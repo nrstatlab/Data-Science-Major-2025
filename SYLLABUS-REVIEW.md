@@ -71,9 +71,9 @@ that do not follow the document's own five-and-five convention. Together they
 suggest each course description was authored separately and never passed
 through a single formatting pass.
 
-**What is *not* wrong:** the credit arithmetic. Every course is 3 + 1 = 4 credits;
-semester totals are 8, 8, 12, 12, 12, 8 for a **60-credit major**, consistent with
-the structure table on pages 1–2.
+**What is *not* wrong:** the programme structure. The course list, the six
+semesters and the two elective tracks are internally consistent; nothing below
+disputes them.
 
 ---
 
@@ -81,13 +81,13 @@ the structure table on pages 1–2.
 
 ### D1 — Bayes' theorem is examined but never listed as a topic
 
-**Page 20** (Course 4, Unit 1) lists the probability topics as: "Concept of
+Course 4, Unit 1 lists the probability topics as: "Concept of
 Uncertainty, Axioms and rules of probability, Conditional probability". Bayes'
 theorem does not appear in Unit 1, or in any other unit of the course.
 
-But **page 22** (Activities) prescribes: "Classroom Quiz (MCQs & short problems on
-probability, conditional probability, **Bayes**)". And **page 23**, lab experiment
-2, is a fragment reading only "a positive result." — the surviving tail of the
+But the prescribed activities say: "Classroom Quiz (MCQs & short problems on
+probability, conditional probability, **Bayes**)". And lab experiment 2 is a
+fragment reading only "a positive result." — the surviving tail of the
 standard Bayes medical-testing problem ("*…given that the test returns a positive
 result*").
 
@@ -101,23 +101,23 @@ reconstructed medical-test problem worked in full.
 
 ### D2 — Database triggers are examined but never listed as a topic
 
-**Page 25** (Course 5, Unit 5, PL/SQL) lists: "Introduction, Shortcomings of SQL,
+Course 5, Unit 5 (PL/SQL) lists: "Introduction, Shortcomings of SQL,
 Structure of PL/SQL, PL/SQL Language Elements, Data Types, Operators Precedence,
 Control Structures, Steps to Create a PL/SQL Program, Iterative Control,
 Procedures, Functions." **Triggers are not among them.**
 
 Yet triggers are required in three separate places:
 
-- **Page 24**, Course Objective 5: "…incorporating control structures, functions,
+- **Course Objective 5:** "…incorporating control structures, functions,
   procedures, and **database triggers**."
-- **Page 27**, Activities: "Build a PL/SQL-based payroll or student grading system
+- **The prescribed activities:** "Build a PL/SQL-based payroll or student grading system
   using: Procedures and functions, Control structures (IF, LOOP), **Triggers for
   automated updates**."
-- **Page 37**, lab Section E items 5 and 6: "Create a trigger to prevent inserting
+- **Lab Section E, items 5 and 6:** "Create a trigger to prevent inserting
   employees with a salary less than 30,000" and "Create a trigger to avoid any
   transactions (insert, update, delete) on the EMP table on Saturday & Sunday."
 
-Note also that Course Outcome 5 (page 24) drops triggers even though the Objective
+Note also that Course Outcome 5 drops triggers even though the Objective
 names them — so the omission is consistent between the outcome and the unit, and
 inconsistent with the assessment.
 
@@ -131,14 +131,14 @@ written out.
 
 ### D3 — Truncated text in three places
 
-1. **Page 20, Course Outcome 1** reads: "Apply the basic rules of probability,
+1. **Course 4, Outcome 1** reads: "Apply the basic rules of probability,
    **conditisolve** problems involving uncertainty." Words have been dropped mid-
    sentence. The intended reading is almost certainly "…probability, conditional
    probability and Bayes' theorem to solve problems involving uncertainty" — which
    independently supports **D1**.
-2. **Page 23, lab experiment 2** is just "a positive result." The question stem is
+2. **Course 4, lab experiment 2** is just "a positive result." The question stem is
    gone. Reconstructed in the Course 4 lab notes.
-3. **Page 2, elective note** reads: "students are required to select a pair of
+3. **The elective note** reads: "students are required to select a pair of
    electives from one of the TWO specified domains. **is chosen**, courses 12 to 15
    to be chosen as 12 A, 13 A, 14 A and 15 A." The clause naming the two domains
    has been lost, so **the domains are never actually named anywhere in the
@@ -171,7 +171,7 @@ marking each reconstruction as such so you can tell it from the official text.
 
 ### D5 — Course 2 Unit 4 is titled "Functions" but opens with pointers
 
-**Page 10.** The unit is headed "Unit 4. Functions:" and its first topics are
+The unit is headed "Unit 4. Functions:" and its first topics are
 "Pointers: Pointer data type, Pointer declaration, initialization, accessing
 values using pointers. Pointer arithmetic, Pointers and arrays." Functions follow
 *after* pointers, then storage classes.
@@ -182,7 +182,7 @@ printed and flag the mismatch.
 
 ### D11 — Orphaned activity in Course 2
 
-**Page 11.** Every activity in the document follows the pattern `Outcome: … /
+Every activity in the document follows the pattern `Outcome: … /
 Activity: … / Evaluation Method: …`. The "Recursive Problem Solver" activity
 appears with no `Outcome:` heading above it, unlike its four siblings — its
 outcome line was dropped. It maps to Course Outcome 4 (modular code using
@@ -209,7 +209,7 @@ own text.
 
 ### D13 — Course 10's Objective 4 is a fragment, and GridFS and transactions go missing with it
 
-**Page 21.** The five course objectives read:
+The five course objectives read:
 
 > 1. To introduce students to the concepts of NoSQL databases…
 > 2. To provide hands-on experience with MongoDB…
@@ -227,7 +227,7 @@ replication, and transactions."
 **Why this matters and D15 does not.** Unit 5's topic list ends at "Replication
 Concepts: Replica sets, failover, consistency". **Neither GridFS nor
 transactions appears in it, or in any other unit.** Both survive only in Course
-Outcome 4, in the activity list on page 24, and in the practical list:
+Outcome 4, in the activity list, and in the practical list:
 
 | Topic | Appears in | Appears in a unit? |
 |---|---|:---:|
@@ -245,7 +245,7 @@ other half of the answer when an examiner asks you to demonstrate them.
 
 ### D14 — Course 10 Unit 1's "Installation & Setup" topic has lost text
 
-**Pages 21–22.** Unit 1's topic list ends across the page break as:
+Unit 1's topic list ends across the page break as:
 
 > …Introduction to JSON & BSON
 >
@@ -265,7 +265,7 @@ the source text is damaged.
 
 ### D15 — Course 8 numbers its units differently from every other course
 
-**Pages 11–14.** Data Mining heads its units `Unit-1:`, `Unit-2:` … with a
+Data Mining heads its units `Unit-1:`, `Unit-2:` … with a
 hyphen and a colon. All nine other courses in both documents use `Unit 1.`,
 `Unit 2.` … with a space and a full stop.
 
@@ -275,7 +275,7 @@ also the most likely explanation for **D16**.
 
 ### D16 — Course 8's objectives are unnumbered, unlike every other course's
 
-**Page 11.** Every course in both documents numbers its five objectives 1–5.
+Every course in both documents numbers its five objectives 1–5.
 Course 8 runs them together as unnumbered sentences:
 
 > Course Objectives: Provide an understanding of data warehousing concepts…
@@ -295,7 +295,7 @@ also Unit 3 and Outcome 3.
 
 ### D6 — Course 3 Unit 4 carries roughly double the load of a normal unit
 
-**Page 15.** Unit 4 is "File Handling, Exception Handling & Object Oriented
+Unit 4 is "File Handling, Exception Handling & Object Oriented
 Programming" and contains:
 
 - file types, paths, open/close, read/write, CSV, `os`/`pathlib`
@@ -313,7 +313,7 @@ unit. Compare Unit 1, which covers only literals, variables and operators.
 
 ### D7 — Course 3 Unit 5 fuses two unrelated subjects
 
-**Pages 15–16.** Unit 5 is "Abstract Data Structures and GUI Programming" —
+Unit 5 is "Abstract Data Structures and GUI Programming" —
 linked lists, stacks, queues and priority queues, *and* Tkinter widgets and event
 handling. These share nothing conceptually. Data structures are algorithmic and
 carry the exam weight; Tkinter is applied and carries the lab weight (2 of the 18
@@ -324,7 +324,7 @@ lab programs).
 
 ### D8 — The statistics lab never touches Python
 
-**Page 23.** Course 4's lab is headed "Advanced Spreadsheets/Excel Lab/PSPP Open
+Course 4's lab is headed "Advanced Spreadsheets/Excel Lab/PSPP Open
 Source", and all 15 experiments are spreadsheet exercises — `NORM.DIST`,
 `NORM.INV`, `EXPON.DIST`, the Data Analysis ToolPak, the Regression tool.
 
@@ -343,7 +343,7 @@ The Course 4 lab notes give both versions of all 15.
 
 ### D9 — Conditional formatting appears twice in Course 1
 
-**Page 4.** Unit 4 lists "Data Handling: Sorting, filtering, **conditional
+Unit 4 lists "Data Handling: Sorting, filtering, **conditional
 formatting**". Unit 5 then opens with "**Conditional Formatting**: Custom rules,
 Color scales, Icon sets, Data bars" as a headline topic. Minor, but worth knowing
 that Unit 5's treatment is the substantive one.
@@ -361,7 +361,7 @@ does not start with re-learning what a p-value is.
 
 ### D17 — Course 11's Objective 3 stops mid-sentence
 
-**Page 5.** The third objective of Business Intelligence Tools reads:
+The third objective of Business Intelligence Tools reads:
 
 > 3. Enable students to clean, transform and model data using Power Query and
 
@@ -379,7 +379,7 @@ than four independent typing errors.
 
 ### D18 — "Business IntelligenceI" — a stray capital in Course 11 Unit 1
 
-**Page 5.** Unit 1's topic list reads:
+Unit 1's topic list reads:
 
 > Business Intelligence: Definition, Scope, and Evolution, Business
 > **IntelligenceI** vs. Data Analytics vs. Data Science, BI…
@@ -391,7 +391,7 @@ should miss.
 
 ### D19 — Course 12 A has three objectives against four outcomes against five units
 
-**Pages 8–9.** Every other course in both documents has **five objectives and
+Every other course in both documents has **five objectives and
 five outcomes**, mapping one-to-one onto five units. Machine Learning has
 **three objectives and four outcomes** — and five units.
 
@@ -422,7 +422,7 @@ form.
 
 ### D20 — Course 11 numbers its units in Roman numerals
 
-**Pages 5–6.** Business Intelligence Tools heads its units `Unit-I:`,
+Business Intelligence Tools heads its units `Unit-I:`,
 `Unit-II:` … Every other course in the Semester V document uses `Unit 1.` with
 an Arabic numeral, a space and a full stop.
 
@@ -433,7 +433,7 @@ through a single formatting pass.
 
 ### D21 — Course 12 B's reference books are numbered 3 and 4
 
-**Page 13.** The bibliography reads:
+The bibliography reads:
 
 > Textbooks
 > 1. Hadoop: The Definitive Guide…
@@ -449,7 +449,7 @@ again.
 
 ### D22 — Course 13 B's reference list has an empty entry 4
 
-**Page 22.** The list runs:
+The list runs:
 
 > 3. Cloud Computing for Data Analysis, Noah Gift, Alfredo Deza…
 > **4.**
@@ -461,7 +461,7 @@ and supplies four.
 
 ### D23 — "e.g., SudoStudents" — a merged word in Course 13 A's activities
 
-**Page 18.** The Outcome 4 activity reads:
+The Outcome 4 activity reads:
 
 > Give students a logic puzzle (e.g., SudoStudents write propositional and/or
 > FOL statements, draw inference chains…
@@ -475,7 +475,7 @@ being lost at a boundary in this pair of documents.
 
 ### D24 — "HadoopSpark" appears twice in Course 12 B
 
-**Pages 12 and 13.** Objective 5 and Outcome 5 both read "**HadoopSpark**
+Objective 5 and Outcome 5 both read "**HadoopSpark**
 integration", and the case-study activity reads "**HBaseSpark** integration".
 
 The missing character is presumably a hyphen or a slash — "Hadoop-Spark",
@@ -492,7 +492,7 @@ is a defect in the production of the documents, and the honest summary is that
 
 ### D25 — "design an end-to-ple:" — a truncated sentence in Course 14 B
 
-**Page 8.** The activity for Outcome 4 reads:
+The activity for Outcome 4 reads:
 
 > Students will **design an end-to-ple:** forecasting COVID-19 daily cases or
 > retail sales.
@@ -504,7 +504,7 @@ truncation class because the sentence no longer parses at all.
 
 ### D26 — "Coders(Based" — a missing space in Course 14 A's references
 
-**Page 2.** Reference 2 reads:
+Reference 2 reads:
 
 > Howard, J., & Gugger, S. (2020). Practical Deep Learning for
 > **Coders(Based** on the fast.ai course)
@@ -514,7 +514,7 @@ D23 and D24** — a word boundary that did not survive whatever produced the PDF
 
 ### D27 — Course 15 A numbers its second reference "2. 2."
 
-**Page 12.** The reference list reads:
+The reference list reads:
 
 > Reference Book: 1. Natural Language Processing and Information Retrieval …
 > **2. 2.** Natural Language Processing Recipes …
@@ -525,7 +525,7 @@ list-numbering defect in the programme, after D21 (Roman numerals in Course
 
 ### D28 — "Tensor Flow" and "Mobile Net" split in Course 14 A's practicals
 
-**Page 3.** Practical 2 reads "Google Teachable Machine or **Tensor Flow**
+Practical 2 reads "Google Teachable Machine or **Tensor Flow**
 Playground" and practical 8 reads "Fine-tune a pre-trained CNN (**Mobile Net**,
 VGG)".
 
@@ -536,7 +536,7 @@ points at automated text extraction rather than typing.
 
 ### D29 — A "short reflective note (12 pages)" in Course 14 A
 
-**Page 2.** The evaluation method for the Unit 5 activity asks for:
+The evaluation method for the Unit 5 activity asks for:
 
 > Evaluation of demo + **short reflective note (12 pages)** on challenges,
 > benefits, and application potential
@@ -550,7 +550,7 @@ write twelve pages, and a marker expecting one page would not know why.
 
 ### D30 — Course 14 B's evaluation names R and Python; the practicals assume both
 
-**Pages 6 and 9.** The course objectives say "hands-on practice with
+The course objectives say "hands-on practice with
 real-world datasets using **R/Python** statistical libraries", and the
 practical list is headed "Using **R/Python** statsmodels, pandas, forecast, or
 equivalent".
@@ -577,7 +577,7 @@ proofreading pass before they are issued to students.**
 
 ### D31 — Course 15 B's only textbook has no publisher and no year
 
-**Page 16.** The reading list reads, in full:
+The reading list reads, in full:
 
 > Text/ Reference books 1. **Fundamentals of Data Engineering, Joe Reis & Matt
 > Housley,** 2. Web Resources: …
@@ -593,7 +593,7 @@ students cannot locate their single prescribed text from the syllabus alone.
 
 ### D32 — Course 15 B prescribes a paywalled article as a course resource
 
-**Page 16.** Among the three web resources is a Towards Data Science article.
+Among the three web resources is a Towards Data Science article.
 **That publication moved to a Medium members-only model**, so a student
 following the syllabus may find the prescribed reading behind a paywall.
 

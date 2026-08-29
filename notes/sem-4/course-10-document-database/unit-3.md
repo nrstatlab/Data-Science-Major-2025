@@ -1,6 +1,6 @@
 # Unit 3 — CRUD Operations and Querying in MongoDB
 
-**Syllabus (page 22):** CRUD operations — insert documents (insertOne,
+**Syllabus topics:** CRUD operations — insert documents (insertOne,
 insertMany), query documents (find, operators, conditions), update documents
 (updateOne, updateMany, replaceOne), delete documents (deleteOne, deleteMany).
 Query operators (`$gt`, `$lt`, `$in`, `$nin`, `$and`, `$or`, `$not`), regular

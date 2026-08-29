@@ -1,7 +1,7 @@
 # Course 7 — Web Technologies
 
-**Semester III · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 6–10 of the Semester III–IV syllabus
+**Semester III**
+
 ---
 
 ## Why a data science degree teaches web development
@@ -21,7 +21,7 @@ stores JSON-shaped documents natively.
 
 This is also, incidentally, how the site you are reading was built.
 
-## Course objectives (verbatim, page 6)
+## Course objectives (verbatim)
 
 1. Understand the principles of web design and distinguish between web and
    desktop application architectures.

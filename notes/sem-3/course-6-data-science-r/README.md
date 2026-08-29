@@ -1,7 +1,7 @@
 # Course 6 — Data Science with R
 
-**Semester III · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 1–5 of the Semester III–IV syllabus
+**Semester III**
+
 ---
 
 ## Why R, when you already have Python
@@ -21,7 +21,7 @@ this course sits beside Course 9 rather than replacing it.
 `ggplot2` is also, plainly, the best plotting library in either language, and
 it is worth learning for that alone.
 
-## Course objectives (verbatim, page 1)
+## Course objectives (verbatim)
 
 1. Introduce the data science process, lifecycle, and applications in real-world
    domains.

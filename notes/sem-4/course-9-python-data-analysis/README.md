@@ -1,7 +1,7 @@
 # Course 9 — Python for Data Analysis and Visualization
 
-**Semester IV · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 16–20 of the Semester III–IV syllabus
+**Semester IV**
+
 ---
 
 ## Why this is the most important course in the degree
@@ -48,7 +48,7 @@ Pandas express the same operations**:
 
 Learn one column and you have learned three.
 
-## Course objectives (verbatim, page 16)
+## Course objectives (verbatim)
 
 1. Introduce foundational concepts of NumPy arrays and array operations for
    efficient numerical computing.

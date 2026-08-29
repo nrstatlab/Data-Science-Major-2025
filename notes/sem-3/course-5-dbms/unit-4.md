@@ -1,6 +1,6 @@
 # Unit 4 — Structured Query Language
 
-**Syllabus (page 25):** Introduction, commands in SQL, data types in SQL, Data
+**Syllabus topics:** Introduction, commands in SQL, data types in SQL, Data
 Definition Language, selection operation, projection operation, aggregate
 functions, Data Manipulation Language, table modification commands, join
 operation, set operations, view, sub query.

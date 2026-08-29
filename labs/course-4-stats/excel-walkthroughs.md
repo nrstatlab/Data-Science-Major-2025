@@ -1,6 +1,6 @@
 # Course 4 Lab — Excel / PSPP walkthroughs
 
-The official lab (syllabus page 23) is headed **"Advanced Spreadsheets/Excel
+The official lab is headed **"Advanced Spreadsheets/Excel
 Lab/PSPP Open Source"**. All 15 experiments are spreadsheet exercises, and the
 practical exam tests them in a spreadsheet — so learn these first.
 

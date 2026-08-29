@@ -123,15 +123,15 @@ formula sheet.
 **Four** source documents, all extracted verbatim. The extracted text is
 committed under `docs/` and is what every claim here is checked against:
 
-| Source document | Pages | Covers | Extracted to |
-|---|:---:|---|---|
-| Semester I–II syllabus | 37 | Programme structure for Semesters I–VI, plus full syllabi for Courses 1–5 | `syllabus-extracted.md` |
-| Semester III–IV syllabus | 25 | Full syllabi for Courses 6–10 | `syllabus-extracted-sem3-4.md` |
-| Semester V syllabus | 24 | Full syllabi for Course 11 and **both** Semester V elective pairs — 12 A/B and 13 A/B | `syllabus-extracted-sem5.md` |
-| Semester VI syllabus | 17 | Full syllabi for **both** Semester VI elective pairs — 14 A/B and 15 A/B | `syllabus-extracted-sem6.md` |
+| Source document | Covers | Extracted to |
+|---|---|---|
+| Semester I–II syllabus | Programme structure for Semesters I–VI, plus full syllabi for Courses 1–5 | `syllabus-extracted.md` |
+| Semester III–IV syllabus | Full syllabi for Courses 6–10 | `syllabus-extracted-sem3-4.md` |
+| Semester V syllabus | Full syllabi for Course 11 and **both** Semester V elective pairs — 12 A/B and 13 A/B | `syllabus-extracted-sem5.md` |
+| Semester VI syllabus | Full syllabi for **both** Semester VI elective pairs — 14 A/B and 15 A/B | `syllabus-extracted-sem6.md` |
 
 Together they give **all 15 major courses at unit level**, across four source
-documents. Nothing in the programme is now titles-and-credits only.
+documents. Nothing in the programme is now a title and nothing else.
 
 **Semester V is a fork.** Course 11 is compulsory; you then take either
 **12 A + 13 A** (Machine Learning → Artificial Intelligence) or **12 B + 13 B**
@@ -139,9 +139,6 @@ documents. Nothing in the programme is now titles-and-credits only.
 well — **14 A + 15 A** (Deep Learning → NLP) or **14 B + 15 B** (Time Series →
 Data Engineering & MLOps). **Both tracks are covered here in full**, because
 you cannot choose well without seeing what is in each.
-
-**Credits verified:** every course is 3 credits theory + 1 credit lab. Semester
-totals are 8, 8, 12, 12, 12, 8 — a **60-credit major**.
 
 ---
 
@@ -172,7 +169,7 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 | `run_timeseries_labs.py` | **All 13** Course 14 B experiments; no NOT EXECUTED file exists |
 | `run_nlp_labs.py` | Course 15 A on **real NLTK corpora and real spaCy models**, every result scored; 3 markers audited |
 | `run_mlops_labs.py` | Course 15 B against **real MLflow, git, DVC and Flask**; 5 markers audited |
-| `extract_syllabus.py` | All PDF pages yield text |
+| `extract_syllabus.py` | Every page of every source document yields text |
 | `check_coverage.py` | **1,273 syllabus topics across 95 unit files** all map to a notes section |
 | `audit_content.py` | The documents' own **stated counts match the files on disk**; every course has its full note set; no malformed table; every link resolves |
 

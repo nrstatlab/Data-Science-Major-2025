@@ -1,6 +1,6 @@
 # Unit 3 — Informed and Advanced Search Strategies
 
-**Syllabus (page 17):** Informed search strategies — heuristics (concept,
+**Syllabus topics:** Informed search strategies — heuristics (concept,
 admissibility, consistency), Greedy Best First Search, A* Algorithm. Local
 search — Hill Climbing, Simulated Annealing. Genetic Algorithms. Constraint
 Satisfaction Problems (CSP) — definition, backtracking search.

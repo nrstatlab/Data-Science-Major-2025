@@ -1,6 +1,6 @@
 # Unit 5 — Advanced and Emerging Topics
 
-**Syllabus (page 2):** Generative models: GANs (Generator & Discriminator
+**Syllabus topics:** Generative models: GANs (Generator & Discriminator
 intuition), VAEs (introduction only). Transformers: attention mechanism
 (intuitive), BERT, GPT family (overview). Transfer learning & fine-tuning
 pre-trained models (vision & NLP). AI ethics: Bias, fairness, privacy, safety,

@@ -1,6 +1,6 @@
 # Unit 3 — Association Analysis
 
-**Syllabus (page 12):** Association Rules — What is an Association Rule?,
+**Syllabus topics:** Association Rules — What is an Association Rule?,
 Methods to Discover Association Rules, A Priori Algorithm, Partition Algorithm,
 Pincer-Search Algorithm, Dynamic Itemset Counting Algorithm, FP-Tree Growth
 Algorithm, Generalized Association Rule, Association Rules with Item

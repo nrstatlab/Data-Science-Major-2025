@@ -1,6 +1,6 @@
 # Course 11 — Practical Lab
 
-**Syllabus (pages 6–7):** 15 experiments, 1 credit, 2 hrs/week.
+**15 experiments**
 
 Code lives in [`labs/course-11-bi/`](../../../labs/course-11-bi/).
 

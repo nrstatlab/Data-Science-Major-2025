@@ -1,6 +1,6 @@
 # Unit 4 — Deep Learning for NLP
 
-**Syllabus (page 11):** Recurrent Neural Networks (RNN): basics, RNN vs
+**Syllabus topics:** Recurrent Neural Networks (RNN): basics, RNN vs
 CNN/feedforward NN. LSTM and GRU for sequence modeling. Transformer models:
 introduction, pretrained models (BERT, GPT), Hugging Face ecosystem.
 

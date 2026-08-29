@@ -1,6 +1,6 @@
 # Unit 1 — Foundations of Data Engineering
 
-**Syllabus (page 14):** Data engineering: definition, lifecycle, skills,
+**Syllabus topics:** Data engineering: definition, lifecycle, skills,
 activities. Evolution and roles of data engineers: technical vs business
 responsibilities, internal vs external roles. Relationship between data
 engineering and data science. Data lifecycle vs data engineering lifecycle.

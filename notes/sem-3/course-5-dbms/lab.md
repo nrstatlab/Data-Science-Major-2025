@@ -1,6 +1,6 @@
 # Course 5 Lab — Database Management Systems
 
-**1 credit · 2 hrs/week · 3 experiments plus PL/SQL** (syllabus pages 28–37)
+**3 experiments plus PL/SQL**
 
 All SQL is in [`labs/course-5-dbms/`](../../../labs/course-5-dbms/):
 

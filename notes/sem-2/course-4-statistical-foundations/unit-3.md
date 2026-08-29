@@ -1,6 +1,6 @@
 # Unit 3 — Probability Distributions
 
-**Syllabus (page 21):** Discrete distributions — Binomial, Poisson, Geometric,
+**Syllabus topics:** Discrete distributions — Binomial, Poisson, Geometric,
 Negative Binomial: definitions, properties and examples. Continuous
 distributions — Uniform, Normal (Gaussian), Exponential, Gamma: definitions,
 properties and applications. Joint, marginal and conditional distributions.

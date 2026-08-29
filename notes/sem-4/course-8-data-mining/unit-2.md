@@ -1,6 +1,6 @@
 # Unit 2 — Data Mining and Preprocessing
 
-**Syllabus (page 12):** What is Data Mining? Definitions, KDD vs Data Mining,
+**Syllabus topics:** What is Data Mining? Definitions, KDD vs Data Mining,
 Data Mining Tasks, Data Preprocessing — Data Cleaning, Missing Data,
 Dimensionality Reduction, Feature Subset Selection, Discretization and
 Binarization, Data Transformation; Measures of Similarity and Dissimilarity —

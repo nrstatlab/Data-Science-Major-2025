@@ -1,6 +1,6 @@
 # Unit 3 — Sequences, Sets and Mapping Types
 
-**Syllabus (page 15):** Strings — representation, indexing, slicing,
+**Syllabus topics:** Strings — representation, indexing, slicing,
 immutability, operators, traversal, accumulation, formatting and methods.
 Lists — overview, indexing, slicing, methods, mutability, operations (add,
 update, delete, search, copy, traverse), comprehension. Tuples — operations,

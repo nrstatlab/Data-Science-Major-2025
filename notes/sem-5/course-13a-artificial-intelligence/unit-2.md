@@ -1,6 +1,6 @@
 # Unit 2 — Problem Solving: State Space and Uninformed Search
 
-**Syllabus (page 17):** State space representation — components (state,
+**Syllabus topics:** State space representation — components (state,
 actions, goal test, path cost). Problem formulation and examples (8-puzzle,
 water jug, vacuum cleaner world). Uninformed search strategies — Breadth First
 Search (BFS), Depth First Search (DFS), Uniform Cost Search. Properties —

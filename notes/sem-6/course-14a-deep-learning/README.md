@@ -1,7 +1,7 @@
 # Course 14 A — Neural Networks and Deep Learning
 
-**Semester VI · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 1–5 of the Semester VI syllabus
+**Semester VI**
+
 **This is a Track A course**, paired with
 [Course 15 A (Natural Language Processing)](../course-15a-nlp/), and it
 continues the track you began in Semester V with Machine Learning and

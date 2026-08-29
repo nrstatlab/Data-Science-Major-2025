@@ -16,7 +16,7 @@ weeks than its neighbours below, the review explains why.
 
 ## Semester I — 15 weeks
 
-Two courses, 8 credits. The lightest semester of the degree; use the slack to
+Two courses. The lightest semester of the degree; use the slack to
 build programming habits that will carry you through the next two years.
 
 | Week | Course 1 — Computer Fundamentals | Course 2 — Problem Solving Using C |
@@ -45,7 +45,7 @@ pointers — see finding **D5**. Draw memory diagrams for every pointer example.
 
 ## Semester II — 15 weeks
 
-Two courses, 8 credits. **The most important semester in the degree.** Python
+Two courses. **The most important semester in the degree.** Python
 and statistics are the foundation of everything from Semester III onward.
 
 | Week | Course 3 — Python | Course 4 — Statistics |
@@ -83,7 +83,7 @@ unit list, because it is examined. Finding **D1**.
 
 ## Semester III — 15 weeks
 
-**Three courses, 12 credits — a 50% jump from Semesters I and II, and it lands
+**Three courses — half as much again as Semesters I and II, and it lands
 all at once.** Semesters III and IV are the heaviest in the programme. Plan for
 it before week 1 rather than discovering it in week 6: the two-course rhythm
 that worked for a year will not survive contact with three.
@@ -161,7 +161,7 @@ language you spent a semester learning.
 
 ## Semester IV — 15 weeks
 
-**Three courses, 12 credits again — and this is the semester the degree has
+**Three courses again — and this is the semester the degree has
 been building towards.** Course 9 is the one you will use in every job you take;
 Course 8 is where the Semester II statistics finally gets applied; Course 10 is
 Course 5 seen from the other side.
@@ -211,7 +211,7 @@ findings **D1** and **D2**; here it is finding **D13**.
 ### Deliberately reinforce, rather than learning three subjects in parallel
 
 The three courses overlap far more than their titles suggest, and using that is
-the difference between 12 credits and three separate 4-credit efforts:
+the difference between one semester's work and three separate efforts:
 
 | When you meet | In another course you already have |
 |---|---|
@@ -253,7 +253,7 @@ work — but it is a fact worth having.
 
 ## Semester V — 15 weeks
 
-**Three courses again, 12 credits — Course 11 plus your two track courses.**
+**Three courses again — Course 11 plus your two track courses.**
 
 Course 11 is the lightest of the three and the most immediately employable;
 your two track courses are where the effort goes.
@@ -348,7 +348,7 @@ what the viva examines.
 
 ## Semester VI — 15 weeks
 
-**Two courses, 8 credits — the lightest semester on paper, and the one where
+**Two courses — the lightest semester on paper, and the one where
 the project usually lands.** You stay in the track you chose for Semester V:
 **14 A + 15 A** or **14 B + 15 B**.
 

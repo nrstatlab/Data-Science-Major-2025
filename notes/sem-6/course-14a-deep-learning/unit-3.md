@@ -1,6 +1,6 @@
 # Unit 3 — Convolutional Neural Networks
 
-**Syllabus (page 2):** Introduction to images and pixels. Filters/kernels,
+**Syllabus topics:** Introduction to images and pixels. Filters/kernels,
 padding, and pooling. CNN architecture and layers (Conv, Pooling, Fully
 Connected, Softmax). Classical CNN architectures: LeNet-5 (digit recognition —
 first CNN model), AlexNet (ImageNet breakthrough — deeper CNN), VGG (concept of

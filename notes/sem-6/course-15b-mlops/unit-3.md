@@ -1,6 +1,6 @@
 # Unit 3 — MLOps Fundamentals
 
-**Syllabus (page 15):** MLOps challenges and risk mitigation. Responsible AI
+**Syllabus topics:** MLOps challenges and risk mitigation. Responsible AI
 and scaling ML solutions. Key MLOps features: EDA, feature engineering, model
 training and evaluation, reproducibility. Deployment requirements, monitoring
 basics. Model versioning and experimentation tracking.

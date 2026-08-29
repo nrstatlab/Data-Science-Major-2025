@@ -1,6 +1,6 @@
 # Unit 3 — Cloud Storage and Data Management
 
-**Syllabus (page 22):** Cloud storage: introduction, benefits, use cases
+**Syllabus topics:** Cloud storage: introduction, benefits, use cases
 (backup, archiving, disaster recovery, content delivery). Cloud storage
 systems: block-based, file-based, object-based. Key-value databases: features
 and limitations. Batch against streaming data for ML pipelines. Cloud data

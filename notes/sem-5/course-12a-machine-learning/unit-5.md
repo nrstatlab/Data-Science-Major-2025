@@ -1,6 +1,6 @@
 # Unit 5 — Unsupervised Learning
 
-**Syllabus (page 9):** Introduction of unsupervised learning; unsupervised vs
+**Syllabus topics:** Introduction of unsupervised learning; unsupervised vs
 supervised learning; application of unsupervised learning; clustering and its
 types; partitioning method — k-Means and k-Medoids; hierarchical clustering;
 density-based methods — DBSCAN. Case studies of ML applications — image

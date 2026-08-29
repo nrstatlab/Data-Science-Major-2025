@@ -1,6 +1,6 @@
 # Course 13 A — Practical Lab
 
-**Syllabus (page 20):** 19 experiments, 1 credit, 2 hrs/week.
+**19 experiments**
 The syllabus names **SWI-Prolog** and adds *"environment for practice without
 installation"* — meaning [swish.swi-prolog.org](https://swish.swi-prolog.org/),
 which runs in a browser.

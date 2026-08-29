@@ -1,6 +1,6 @@
 # Course 7 — Practical Lab
 
-**Syllabus (pages 9–10):** 16 experiments, 1 credit, 2 hrs/week.
+**16 experiments**
 
 Code lives in [`labs/course-7-web/`](../../../labs/course-7-web/).
 

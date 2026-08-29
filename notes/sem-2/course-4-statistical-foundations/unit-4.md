@@ -1,6 +1,6 @@
 # Unit 4 — Correlation and Regression
 
-**Syllabus (page 21):** Bivariate data and scatter plots. Correlation — Pearson
+**Syllabus topics:** Bivariate data and scatter plots. Correlation — Pearson
 and Spearman coefficients, interpretation. Simple linear regression — model,
 estimation, properties and analysis of variance. Multiple linear regression
 basics (conceptual understanding). Residuals and goodness of fit.

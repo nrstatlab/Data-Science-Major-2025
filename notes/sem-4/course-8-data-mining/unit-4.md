@@ -1,6 +1,6 @@
 # Unit 4 — Classification
 
-**Syllabus (page 12):** Definition, What is a Decision Tree?, Tree Construction
+**Syllabus topics:** Definition, What is a Decision Tree?, Tree Construction
 Principle, Best Split, Splitting Indices, Splitting Criteria, Decision Tree
 Construction Algorithms: CART, ID3, C4.5, Method for Comparing Classifiers,
 Rule Based Classifiers, Nearest Neighbor Classifiers, Bayesian Classifiers.

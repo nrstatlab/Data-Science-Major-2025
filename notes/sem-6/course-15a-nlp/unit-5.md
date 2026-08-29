@@ -1,6 +1,6 @@
 # Unit 5 — Transformers and Modern NLP
 
-**Syllabus (page 11):** Transformer architecture basics (self-attention,
+**Syllabus topics:** Transformer architecture basics (self-attention,
 encoder-decoder). BERT: pretraining, fine-tuning. GPT and generative NLP.
 Hugging Face ecosystem (using pre-trained models). Text summarization:
 extractive, abstractive, hybrid approaches. Applications: document

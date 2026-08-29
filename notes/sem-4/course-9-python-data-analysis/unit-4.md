@@ -1,6 +1,6 @@
 # Unit 4 — String Operations and Feature Engineering
 
-**Syllabus (page 17):** String methods in Pandas, basic regular expressions,
+**Syllabus topics:** String methods in Pandas, basic regular expressions,
 vectorized string functions, creating dummy/indicator variables, permutation
 and random sampling.
 

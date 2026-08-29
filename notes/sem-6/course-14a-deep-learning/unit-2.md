@@ -1,6 +1,6 @@
 # Unit 2 — Deep Neural Networks
 
-**Syllabus (page 2):** Forward and backward propagation. Weight
+**Syllabus topics:** Forward and backward propagation. Weight
 initialization, learning rate, and optimization algorithms (SGD, Adam,
 RMSProp). Overfitting & underfitting: Regularization, Dropout, Batch
 normalization. Activation functions in deep networks. Loss functions in detail

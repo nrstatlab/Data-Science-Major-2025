@@ -127,7 +127,7 @@ COVERAGE = {
         "data type", "precedence", "control structure", "steps to create",
         "iterative", "procedure", "function", "trigger"],
 
-    # ---- Semester III, Course 6: Data Science with R (Sem3-4 PDF, pages 1-4)
+    # ---- Semester III, Course 6: Data Science with R
     "notes/sem-3/course-6-data-science-r/unit-1.md": [
         "what data science is", "application", "life cycle",
         "toolkit", "team", "exploratory data analysis", "feature engineering",
@@ -148,7 +148,7 @@ COVERAGE = {
         "time series", "decomposition", "stationar", "differencing", "acf",
         "pacf", "arima", "forecast", "plotly", "shiny"],
 
-    # ---- Semester III, Course 7: Web Technologies (Sem3-4 PDF, pages 6-7)
+    # ---- Semester III, Course 7: Web Technologies
     "notes/sem-3/course-7-web-technologies/unit-1.md": [
         "web design", "desktop application", "document structure", "element",
         "attribute", "heading", "paragraph", "image", "table", "list",
@@ -172,7 +172,7 @@ COVERAGE = {
         "filter", "dom manipulation", "event handling", "animation",
         "effect", "chaining"],
 
-    # ---- Semester IV, Course 8: Data Mining (Sem3-4 PDF, pages 11-12)
+    # ---- Semester IV, Course 8: Data Mining
     "notes/sem-4/course-8-data-mining/unit-1.md": [
         "data warehouse", "database systems", "characteristic",
         "architecture", "component", "data modeling", "star schema",
@@ -197,7 +197,7 @@ COVERAGE = {
         "hierarchical", "dbscan", "birch", "categorical clustering",
         "stirr", "rock", "cactus"],
 
-    # ---- Semester IV, Course 9: Python for Data Analysis (pages 16-17)
+    # ---- Semester IV, Course 9: Python for Data Analysis
     "notes/sem-4/course-9-python-data-analysis/unit-1.md": [
         "ndarray", "multidimensional", "creating ndarray", "data types",
         "arithmetic", "indexing and slicing", "boolean indexing",
@@ -220,7 +220,7 @@ COVERAGE = {
         "summary statistics", "matplotlib", "customisation", "plt.style",
         "seaborn", "plotly", "interactive"],
 
-    # ---- Semester IV, Course 10: Document Oriented Database (pages 21-22)
+    # ---- Semester IV, Course 10: Document Oriented Database
     "notes/sem-4/course-10-document-database/unit-1.md": [
         "nosql", "history", "features of nosql", "cap theorem", "base",
         "key-value", "document", "column", "graph", "rdbms",
@@ -251,7 +251,7 @@ COVERAGE = {
         "pipeline", "stage", "replication", "replica set", "failover",
         "consistency"],
 
-    # ---- Semester V, Course 11: Business Intelligence Tools (pages 1-3)
+    # ---- Semester V, Course 11: Business Intelligence Tools
     "notes/sem-5/course-11-business-intelligence/unit-1.md": [
         "definition", "scope", "evolution", "data analytics", "data science",
         "bi lifecycle", "finance", "hr", "marketing", "retail", "education",
@@ -283,7 +283,7 @@ COVERAGE = {
         "power bi service", "tableau public", "storytelling",
         "insight communication"],
 
-    # ---- Semester V, Course 12 A: Machine Learning (pages 8-9), Track A
+    # ---- Semester V, Course 12 A: Machine Learning, Track A
     "notes/sem-5/course-12a-machine-learning/unit-1.md": [
         "types of human learning", "what is machine learning", "supervised",
         "unsupervised", "semi-supervised", "reinforcement",
@@ -309,7 +309,7 @@ COVERAGE = {
         "density-based", "dbscan", "image recognition",
         "speech recognition", "email spam filtering", "fraud detection"],
 
-    # ---- Semester V, Course 12 B: Big Data Technologies (pages 12-15), Track B
+    # ---- Semester V, Course 12 B: Big Data Technologies, Track B
     "notes/sem-5/course-12b-big-data/unit-1.md": [
         "introduction to big data", "volume", "variety", "velocity",
         "veracity", "value", "hadoop ecosystem", "hdfs", "mapreduce",
@@ -330,7 +330,7 @@ COVERAGE = {
         "nosql", "hbase", "zookeeper", "coordination",
         "hadoop integration with spark"],
 
-    # ---- Semester V, Course 13 B: Cloud Computing (pages 21-24), Track B
+    # ---- Semester V, Course 13 B: Cloud Computing, Track B
     "notes/sem-5/course-13b-cloud-computing/unit-1.md": [
         "definition", "evolution of cloud computing",
         "service-oriented architecture", "web services", "utility",
@@ -357,7 +357,7 @@ COVERAGE = {
         "feature engineering", "training", "validation", "deployment",
         "monitoring", "case studies"],
 
-    # ---- Semester V, Course 13 A: Artificial Intelligence (pages 16-20), Track A
+    # ---- Semester V, Course 13 A: Artificial Intelligence, Track A
     "notes/sem-5/course-13a-artificial-intelligence/unit-1.md": [
         "definition and scope of ai", "history", "turing test",
         "applications of ai", "weak ai", "strong ai", "narrow ai",

@@ -1,6 +1,6 @@
 # Unit 4 — Data Modeling and Relationships in BI Tools
 
-**Syllabus (page 2):** Dimensional modeling — dimension, dimension table, fact,
+**Syllabus topics:** Dimensional modeling — dimension, dimension table, fact,
 fact table, schema; star and snowflake schemas. Power BI — relationships,
 cardinality, cross-filtering. Tableau — joins (inner, left, full), blending.
 Data governance — metadata, hierarchies, quality. Data model design best

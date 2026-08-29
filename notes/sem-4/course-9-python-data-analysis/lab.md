@@ -1,6 +1,6 @@
 # Course 9 — Practical Lab
 
-**Syllabus (page 20):** 18 practicals, 1 credit, 2 hrs/week.
+**18 practicals**
 
 Code lives in [`labs/course-9-python-da/`](../../../labs/course-9-python-da/).
 

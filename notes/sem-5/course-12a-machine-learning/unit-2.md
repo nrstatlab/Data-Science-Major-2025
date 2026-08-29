@@ -1,6 +1,6 @@
 # Unit 2 — Model Preparation, Evaluation and Feature Engineering
 
-**Syllabus (page 8):** Data pre-processing; model selection and training (for
+**Syllabus topics:** Data pre-processing; model selection and training (for
 supervised learning); model representation and interpretability; evaluating
 machine learning algorithms and performance enhancement of models. What is
 feature engineering?; feature transformation; feature subset selection;

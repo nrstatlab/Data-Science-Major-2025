@@ -1,6 +1,6 @@
 # Course 3 Lab — Python Programming and Data Structures
 
-**1 credit · 2 hrs/week · 18 experiments** (syllabus pages 18–19)
+**18 experiments**
 
 All programs are in
 [`labs/course-3-python/`](../../../labs/course-3-python/). Sixteen were run

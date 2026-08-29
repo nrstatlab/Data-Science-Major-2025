@@ -1,6 +1,6 @@
 # Unit 4 — Supervised Learning: Classification
 
-**Syllabus (page 9):** Introduction of supervised learning; classification
+**Syllabus topics:** Introduction of supervised learning; classification
 model and learning steps; classification algorithms — Naïve Bayes classifier,
 k-Nearest Neighbour (kNN), decision tree, support vector machines, random
 forest.

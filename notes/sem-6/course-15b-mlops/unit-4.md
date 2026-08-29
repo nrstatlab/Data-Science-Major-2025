@@ -1,6 +1,6 @@
 # Unit 4 — Model Deployment and CI/CD Pipelines
 
-**Syllabus (page 15):** Preparing models for production. Runtime
+**Syllabus topics:** Preparing models for production. Runtime
 environments: dev to production adaptation. CI/CD pipelines: building ML
 artifacts, testing pipelines. Deployment strategies: batch, online, A/B
 testing, canary releases. Containerization and scaling (Docker, Kubernetes).

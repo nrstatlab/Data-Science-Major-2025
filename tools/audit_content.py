@@ -201,6 +201,35 @@ def main():
             pdf_links.append(f"{p.relative_to(ROOT)} -> {mo.group(1)}")
     check("no page links to a PDF", not pdf_links, str(pdf_links[:5]))
 
+    # The administrative metadata was stripped out: which page of the source
+    # document a topic sits on, how many credits a course carries, how many
+    # hours a week it meets. None of it helps anyone study, all of it dates,
+    # and it made the notes read as a transcription rather than a course.
+    #
+    # The patterns are deliberately narrow. "credits: 4" is a field name in
+    # Course 10's MongoDB documents and "page 500" is pagination in the same
+    # course -- both are content, and a looser check would delete them.
+    admin = []
+    patterns = [
+        (r"\b\d+\s*credits?\b",            "a credit count"),
+        (r"\bhrs?\s*/\s*w(?:k|eek)\b",      "an hours-per-week figure"),
+        (r"\bsyllabus\s*\(?pages?\s*\d+",   "a syllabus page number"),
+        (r"\bverbatim,\s*pages?\s*\d+",     "a syllabus page number"),
+        (r"^Syllabus source: pages?\s*\d+",  "a syllabus page number"),
+    ]
+    for m in mds:
+        if m.parts[-2].startswith("syllabus-extracted") or \
+                m.name.startswith("syllabus-extracted"):
+            continue          # the verbatim extraction is the source, not prose
+        text = m.read_text()
+        for pattern, what in patterns:
+            for mo in re.finditer(pattern, text, re.M | re.I):
+                line = text.count("\n", 0, mo.start()) + 1
+                admin.append(f"{m.relative_to(ROOT)}:{line} {what}"
+                             f" -- {mo.group(0)!r}")
+    check("no credit, hours or syllabus-page references", not admin,
+          str(admin[:5]))
+
     # a contents entry pointing at a heading that is not on the page is worse
     # than no contents at all -- the click does nothing and the reader assumes
     # the section is missing

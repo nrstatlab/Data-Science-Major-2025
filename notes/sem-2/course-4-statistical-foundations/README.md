@@ -1,7 +1,7 @@
 # Course 4 — Statistical Foundations for Data Science
 
-**Semester II · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 20–23 of the Semester I–II syllabus
+**Semester II**
+
 ---
 
 ## Why this is the most important course in the degree
@@ -27,7 +27,7 @@ though you are learning Python in Course 3 the same semester. Do them in Excel
 for the exam and again in Python for the skill — both versions are provided.
 See finding **D8**.
 
-## Course objectives (verbatim, page 20)
+## Course objectives (verbatim)
 
 1. To introduce the fundamental concepts of probability and statistics for
    quantifying and analyzing uncertainty in real-world problems.

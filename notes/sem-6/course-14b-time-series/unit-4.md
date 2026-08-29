@@ -1,6 +1,6 @@
 # Unit 4 — State-Space and Multivariate Time Series
 
-**Syllabus (page 7):** Multivariate time series: Vector ARMA models (VARMA),
+**Syllabus topics:** Multivariate time series: Vector ARMA models (VARMA),
 estimation, forecasting. State-space representation: formulation, Kalman
 filter basics, forecasting in state-space models.
 

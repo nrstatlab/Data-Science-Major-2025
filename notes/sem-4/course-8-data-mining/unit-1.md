@@ -1,6 +1,6 @@
 # Unit 1 — Data Warehousing
 
-**Syllabus (pages 11–12):** Introduction to Data Warehouse, differences between
+**Syllabus topics:** Introduction to Data Warehouse, differences between
 database systems and data warehouse, data warehouse characteristics, data
 warehouse architecture and its components, data modeling, schema design, star
 and snowflake schema, fact constellation, fact table, OLAP cube, OLAP

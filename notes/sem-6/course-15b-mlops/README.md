@@ -1,7 +1,7 @@
 # Course 15 B — Data Engineering and MLOps
 
-**Semester VI · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 14–17 of the Semester VI syllabus
+**Semester VI**
+
 **This is a Track B course**, paired with
 [Course 14 B (Time Series Analysis)](../course-14b-time-series/), and it is
 the last course of the track you began in Semester V.

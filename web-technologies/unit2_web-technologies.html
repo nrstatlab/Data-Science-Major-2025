@@ -63,7 +63,7 @@
     <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
   </ol>
 </details>
-<p><strong>Syllabus (page 7):</strong> CSS home, introduction, syntax, CSS combinators, colors,
+<p><strong>Syllabus topics:</strong> CSS home, introduction, syntax, CSS combinators, colors,
 background, borders, margins, padding, height/width, text, fonts, tables, lists,
 position, overflow, float, pseudo class, pseudo elements, opacity, tool tips,
 image gallery, CSS forms, CSS counters.</p>
@@ -833,8 +833,8 @@ its parent computes a height of zero. Three fixes, in order of modernity:</p>
 <p><code>clear: left | right | both</code> on a later element pushes it below the floats.</p>
 <h3 id="do-not-use-float-for-layout">⚠️ Do not use float for layout</h3>
 <p>Use <strong>Flexbox</strong> for one dimension and <strong>Grid</strong> for two. The syllabus does not
-name them, but the practical activity on page 8 explicitly says
-"Flexbox/Grid", and lab experiment 8 requires them.</p>
+name them in the unit list, but the prescribed practical activity explicitly
+says "Flexbox/Grid", and lab experiment 8 requires them.</p>
 <pre><code class="language-css">/* one row, spaced out, wrapping on small screens */
 .row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
 .row &gt; * { flex: 1 1 250px; }

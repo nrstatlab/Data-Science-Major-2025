@@ -1,6 +1,6 @@
 # Unit 5 — Abstract Data Structures and GUI Programming
 
-**Syllabus (pages 15–16):** Abstract Data Structures (ADTs) — concepts and
+**Syllabus topics:** Abstract Data Structures (ADTs) — concepts and
 importance. Linked list — definition, types (singly, doubly, circular), node
 structure, insertion, deletion, traversal (**singly linked list implementation
 only**). Stacks — LIFO principle, implementation using a list, applications.

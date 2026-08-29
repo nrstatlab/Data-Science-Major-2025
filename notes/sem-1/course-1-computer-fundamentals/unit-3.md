@@ -1,6 +1,6 @@
 # Unit 3 — Word Processing and Presentations
 
-**Syllabus (page 4):** Word processing basics — using MS Word/Google Docs:
+**Syllabus topics:** Word processing basics — using MS Word/Google Docs:
 formatting, styles, tables, mail merge. Presentation tools — using
 PowerPoint/Google Slides: slide design, animations, transitions. Applications —
 creating resumes, reports, brochures, and presentations. Keyboard shortcuts.

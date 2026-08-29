@@ -1,7 +1,7 @@
 # Course 3 — Python Programming and Data Structures
 
-**Semester II · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 14–19 of the Semester I–II syllabus
+**Semester II**
+
 ---
 
 ## Why this course matters more than any other in the first year
@@ -15,7 +15,7 @@ Weak Python here means struggling in every later course. Strong Python here
 makes them comfortable. If you have limited time in Semester II, spend it on
 this course.
 
-## Course objectives (verbatim, page 14)
+## Course objectives (verbatim)
 
 1. To introduce the fundamentals of Python programming, including environment
    setup, syntax and core concepts.

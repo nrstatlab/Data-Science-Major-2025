@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to AI and Intelligent Agents
 
-**Syllabus (page 16):** Definition and scope of AI; history and evolution of
+**Syllabus topics:** Definition and scope of AI; history and evolution of
 AI; the Turing Test; applications of AI in the real world. Types of AI — Weak
 AI vs Strong AI, Narrow AI vs General AI. Intelligent agents — structure of
 agents, rationality, agent types. Environments — deterministic vs stochastic,

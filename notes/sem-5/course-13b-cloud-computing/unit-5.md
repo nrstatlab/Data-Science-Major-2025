@@ -1,6 +1,6 @@
 # Unit 5 — Training and Deployment of ML on the Cloud
 
-**Syllabus (page 22):** Factors for selecting cloud ML platforms: ETL/ELT
+**Syllabus topics:** Factors for selecting cloud ML platforms: ETL/ELT
 pipeline support, scale-up/scale-out training, ML frameworks, pre-tuned
 services. Steps for training ML models in the cloud: data source
 identification, feature engineering, training, validation, deployment,

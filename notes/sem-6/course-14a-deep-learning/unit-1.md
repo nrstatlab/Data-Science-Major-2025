@@ -1,6 +1,6 @@
 # Unit 1 — Foundations of Deep Learning
 
-**Syllabus (page 1):** What is Artificial Intelligence, Machine Learning, and
+**Syllabus topics:** What is Artificial Intelligence, Machine Learning, and
 Deep Learning? History and applications of deep learning. Biological vs.
 Artificial Neurons. Introduction to Neural Networks. Perceptron and activation
 functions (Linear, ReLU, Sigmoid, Tanh, Softmax). Types of Neural Networks

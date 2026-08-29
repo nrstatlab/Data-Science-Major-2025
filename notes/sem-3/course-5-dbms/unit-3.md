@@ -1,6 +1,6 @@
 # Unit 3 — The Relational Model and Normalization
 
-**Syllabus (page 25):** Introduction, CODD rules, relational data model,
+**Syllabus topics:** Introduction, CODD rules, relational data model,
 concept of key, relational integrity, relational algebra, relational algebra
 operations, advantages of relational algebra, limitations of relational
 algebra, functional dependencies and normal forms.

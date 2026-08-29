@@ -1,7 +1,7 @@
 # Course 13 B — Cloud Computing for Data Science
 
-**Semester V · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 21–24 of the Semester V syllabus
+**Semester V**
+
 **This is a Track B course**, paired with
 [Course 12 B (Big Data Technologies)](../course-12b-big-data/). Take one
 track and you take it for Semester VI too.

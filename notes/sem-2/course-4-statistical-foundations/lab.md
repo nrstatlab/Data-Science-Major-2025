@@ -1,6 +1,6 @@
 # Course 4 Lab — Statistical Foundations for Data Science
 
-**1 credit · 2 hrs/week · 15 experiments** (syllabus page 23)
+**15 experiments**
 
 The prescribed lab is headed **"Advanced Spreadsheets/Excel Lab/PSPP Open
 Source"**. Every experiment is a spreadsheet exercise, and the practical exam

@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to Business Intelligence and Decision Support Systems
 
-**Syllabus (pages 1–2):** Business Intelligence — definition, scope and
+**Syllabus topics:** Business Intelligence — definition, scope and
 evolution; Business Intelligence vs. Data Analytics vs. Data Science; BI
 lifecycle; applications of BI in functional domains — finance, HR, marketing,
 retail, education, healthcare, etc.; BI maturity models and organizational

@@ -1,6 +1,6 @@
 # Course 6 Lab — Data Science with R
 
-**18 practicals** (syllabus page 5)
+**18 practicals**
 
 ## Two versions of every experiment
 

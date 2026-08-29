@@ -1,6 +1,6 @@
 # Unit 4 — Recurrent Neural Networks and NLP
 
-**Syllabus (page 2):** Sequences and time series data. Introduction to RNNs:
+**Syllabus topics:** Sequences and time series data. Introduction to RNNs:
 vanishing/exploding gradient issue. LSTM and GRU (intuitive and architectural
 view). Word embeddings: Word2Vec, GloVe, introduction to contextual embeddings
 (BERT at high level). Applications: Sentiment analysis, text generation,

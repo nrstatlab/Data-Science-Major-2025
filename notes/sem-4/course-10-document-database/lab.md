@@ -1,6 +1,6 @@
 # Course 10 — Practical Lab
 
-**Syllabus (page 25):** 20 experiments, 1 credit, 2 hrs/week.
+**20 experiments**
 
 Code lives in [`labs/course-10-mongodb/`](../../../labs/course-10-mongodb/).
 

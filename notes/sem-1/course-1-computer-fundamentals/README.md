@@ -1,7 +1,7 @@
 # Course 1 — Computer Fundamentals and Office Automation
 
-**Semester I · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 3–8 of the Semester I–II syllabus
+**Semester I**
+
 ---
 
 ## Why this course is not filler
@@ -21,7 +21,7 @@ data-analysis skills in the world by a very large margin.
 This is also the course with the highest marks-per-hour ratio in the semester.
 It is largely procedural and rewards practice rather than insight.
 
-## Course objectives (verbatim, page 3)
+## Course objectives (verbatim)
 
 1. Understand foundational computing concepts, including number systems, the
    evolution of computers, block diagrams, and generational progress.

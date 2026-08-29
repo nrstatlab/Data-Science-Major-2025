@@ -17,58 +17,27 @@ here is checked against, so that is what is named:
 
 ## 1. Programme structure (Semesters I–VI)
 
-Every course follows the same shape: **3 credits theory (3 hrs/week) + 1 credit
-lab (2 hrs/week) = 4 credits**.
+Every course is a theory paper with its own laboratory.
 
-| Year | Sem | # | Course | Hrs/wk | Credits |
-|:---:|:---:|:---:|---|:---:|:---:|
-| I | I | 1 | Computer Fundamentals and Office Automation | 3 | 3 |
-| | | | Computer Fundamentals and Office Automation Lab | 2 | 1 |
-| I | I | 2 | Problem Solving Using C | 3 | 3 |
-| | | | Problem Solving Using C Lab | 2 | 1 |
-| I | II | 3 | Python Programming and Data Structures | 3 | 3 |
-| | | | Python Programming and Data Structures Lab | 2 | 1 |
-| I | II | 4 | Statistical Foundations for Data Science | 3 | 3 |
-| | | | Statistical Foundations for Data Science Lab | 2 | 1 |
-| II | III | 5 | Database Management Systems | 3 | 3 |
-| | | | Database Management Systems Lab | 2 | 1 |
-| II | III | 6 | Data Science with R | 3 | 3 |
-| | | | Data Science with R Lab | 2 | 1 |
-| II | III | 7 | Web Technologies | 3 | 3 |
-| | | | Web Technologies Lab | 2 | 1 |
-| II | IV | 8 | Data Mining | 3 | 3 |
-| | | | Data Mining Lab | 2 | 1 |
-| II | IV | 9 | Python for Data Analysis and Visualization | 3 | 3 |
-| | | | Python for Data Analysis and Visualization Lab | 2 | 1 |
-| II | IV | 10 | Document Oriented Database | 3 | 3 |
-| | | | Document Oriented Database Lab | 2 | 1 |
-| III | V | 11 | Business Intelligence Tools | 3 | 3 |
-| | | | Business Intelligence Tools Lab | 2 | 1 |
-| III | V | 12 A / B | **Elective** — Machine Learning **or** Big Data Technologies | 3 | 3 |
-| | | | (matching lab) | 2 | 1 |
-| III | V | 13 A / B | **Elective** — Artificial Intelligence **or** Cloud Computing for Data Science | 3 | 3 |
-| | | | (matching lab) | 2 | 1 |
-| III | VI | 14 A / B | **Elective** — Neural Networks and Deep Learning **or** Time Series Analysis and Forecasting | 3 | 3 |
-| | | | (matching lab) | 2 | 1 |
-| III | VI | 15 A / B | **Elective** — Natural Language Processing **or** Data Engineering & MLOps | 3 | 3 |
-| | | | (matching lab) | 2 | 1 |
+| Year | Sem | # | Course |
+|:---:|:---:|:---:|---|
+| I | I | 1 | Computer Fundamentals and Office Automation |
+| I | I | 2 | Problem Solving Using C |
+| I | II | 3 | Python Programming and Data Structures |
+| I | II | 4 | Statistical Foundations for Data Science |
+| II | III | 5 | Database Management Systems |
+| II | III | 6 | Data Science with R |
+| II | III | 7 | Web Technologies |
+| II | IV | 8 | Data Mining |
+| II | IV | 9 | Python for Data Analysis and Visualization |
+| II | IV | 10 | Document Oriented Database |
+| III | V | 11 | Business Intelligence Tools |
+| III | V | 12 A / B | **Elective** — Machine Learning **or** Big Data Technologies |
+| III | V | 13 A / B | **Elective** — Artificial Intelligence **or** Cloud Computing for Data Science |
+| III | VI | 14 A / B | **Elective** — Neural Networks and Deep Learning **or** Time Series Analysis and Forecasting |
+| III | VI | 15 A / B | **Elective** — Natural Language Processing **or** Data Engineering & MLOps |
 
-### Credit totals
-
-| Semester | Courses | Credits |
-|:---:|:---:|:---:|
-| I | 1, 2 | 8 |
-| II | 3, 4 | 8 |
-| III | 5, 6, 7 | 12 |
-| IV | 8, 9, 10 | 12 |
-| V | 11, 12, 13 | 12 |
-| VI | 14, 15 | 8 |
-| **Total (Major)** | **15 courses** | **60** |
-
-Verified against the structure table on pages 1–2; the arithmetic is internally
-consistent.
-
-### Elective rule (page 2)
+### Elective rule
 
 In Year III you choose a **pair of electives from one of two domains**, and must
 **stay in the same domain across both Semester V and VI**. Choosing the A track
@@ -328,7 +297,7 @@ same track across both semesters of Year III.
 | 4 | Recurrent Neural Networks and NLP | Sequences and time series data; RNNs and the vanishing/exploding gradient; LSTM and GRU; word embeddings — Word2Vec, GloVe, contextual embeddings and BERT at a high level; sentiment analysis, text generation, simple time-series forecasting |
 | 5 | Advanced and Emerging Topics | Generative models — GANs (generator and discriminator intuition), VAEs (introduction only); transformers and the attention mechanism (intuitive); BERT and the GPT family; transfer learning and fine-tuning pre-trained models; AI ethics — bias, fairness, privacy, safety, explainability |
 
-**Lab:** 12 practicals (page 3). Ten run here against **real MNIST,
+**Lab:** 12 practicals. Ten run here against **real MNIST,
 Fashion-MNIST, IMDb and real MobileNetV2/VGG16 ImageNet weights**. Two are
 documented rather than demonstrated — experiment 2 is two interactive web
 applications, and experiment 12 needs `huggingface.co`, which this
@@ -344,7 +313,7 @@ environment refuses with a 403 at the gateway.
 | 4 | State-Space and Multivariate Models | Vector autoregression; Granger causality; state-space representation and the Kalman filter |
 | 5 | Advanced Topics and Forecast Evaluation | Spectral analysis and the periodogram; exponential smoothing and Holt-Winters; comparing ARIMA against exponential smoothing against machine learning; RMSE, MAE, MAPE and MASE |
 
-**Lab:** 13 practicals (page 9). **All thirteen run** — statsmodels implements
+**Lab:** 13 practicals. **All thirteen run** — statsmodels implements
 every technique the syllabus names, so this course has no `NOT EXECUTED` file
 anywhere.
 
@@ -360,7 +329,7 @@ anywhere.
 | 4 | Deep Learning for NLP | Recurrent neural networks; RNN against CNN and feedforward networks; LSTM and GRU for sequence modeling; transformer models; pretrained models (BERT, GPT); the Hugging Face ecosystem |
 | 5 | Transformers and Modern NLP | Transformer architecture basics — self-attention, encoder-decoder; BERT pretraining and fine-tuning; GPT and generative NLP; using pre-trained models; text summarization — extractive, abstractive, hybrid; applications — document classification, chatbots, virtual assistants |
 
-**Lab:** 14 practicals (page 12). **Eleven run** against real NLTK corpora
+**Lab:** 14 practicals. **Eleven run** against real NLTK corpora
 (Brown, Reuters, the Penn Treebank, movie_reviews, Gutenberg, WordNet), real
 spaCy models, scikit-learn and PyTorch. The three Hugging Face experiments
 (12–14) are marked NOT EXECUTED — `huggingface.co` is refused at the gateway
@@ -376,7 +345,7 @@ with a 403 — and each has a runnable half that builds the same mechanism.
 | 4 | Model Deployment and CI/CD Pipelines | Preparing models for production; runtime environments from dev to production; CI/CD pipelines — building ML artifacts, testing pipelines; deployment strategies — batch, online, A/B testing, canary releases; containerization and scaling with Docker and Kubernetes |
 | 5 | Monitoring, Feedback Loops and Governance | Monitoring in production — drift detection, ground truth evaluation; feedback loops — retraining workflows, online evaluation; logging and monitoring frameworks; governance — GDPR, CCPA, GxP, Responsible AI principles; templates for governance, compliance and model risk management |
 
-**Lab:** 16 practicals (page 17). **Eleven run** against the real tools —
+**Lab:** 16 practicals. **Eleven run** against the real tools —
 MLflow 3 on a SQLite backend, git and DVC with a genuine data rollback, a
 Flask server on a real socket, SQLite constraints that reject bad rows, and
 scipy's statistical tests scored against injected drift. Five are marked NOT

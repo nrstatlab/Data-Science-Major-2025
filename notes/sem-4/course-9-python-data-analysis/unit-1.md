@@ -1,6 +1,6 @@
 # Unit 1 — NumPy Essentials
 
-**Syllabus (page 16):** NumPy ndarray — a multidimensional array object,
+**Syllabus topics:** NumPy ndarray — a multidimensional array object,
 creating ndarrays, data types for ndarrays, arithmetic with arrays, basic
 indexing and slicing, boolean indexing, fancy indexing, transposing arrays,
 swapping axes, universal functions — element-wise operations, basic

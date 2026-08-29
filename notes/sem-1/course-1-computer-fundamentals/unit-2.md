@@ -1,6 +1,6 @@
 # Unit 2 — Basic Organization and Networking Fundamentals
 
-**Syllabus (page 4):** Computer organization — functional components,
+**Syllabus topics:** Computer organization — functional components,
 input/output devices, storage types, memory hierarchy. Types of computers —
 micro, mini, mainframe, and supercomputers. Networking fundamentals —
 definition, need for networks, types (LAN, WAN, MAN), topology (star, ring,

@@ -1,6 +1,6 @@
 # Unit 3 — Data Input, Output and Cleaning
 
-**Syllabus (page 17):** Reading and writing data in text format (CSV, TXT),
+**Syllabus topics:** Reading and writing data in text format (CSV, TXT),
 working with JSON, reading Microsoft Excel files, handling missing data,
 dropping and filling missing values, replacing values, renaming axis indexes,
 removing duplicates, filtering outliers, transforming data using mapping or

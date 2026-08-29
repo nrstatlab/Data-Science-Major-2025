@@ -1,6 +1,6 @@
 # Unit 5 — Expert Systems, Probabilistic and Emerging AI
 
-**Syllabus (page 17):** Expert Systems — architecture, knowledge base,
+**Syllabus topics:** Expert Systems — architecture, knowledge base,
 inference engine, explanation facility. Probabilistic Reasoning — Bayes'
 theorem, Bayesian Belief Networks (concepts and examples). Fuzzy Logic and
 uncertainty handling. Emerging topics — NLP basics, Robotics, AI Ethics and

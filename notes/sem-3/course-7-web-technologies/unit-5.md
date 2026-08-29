@@ -1,6 +1,6 @@
 # Unit 5 — JSON and jQuery
 
-**Syllabus (page 7):** Introduction to JSON — need for data exchange formats,
+**Syllabus topics:** Introduction to JSON — need for data exchange formats,
 JSON syntax, JSON vs XML, parsing JSON, creating JSON objects and arrays,
 accessing nested JSON data, reading/writing JSON in JavaScript. Working with
 jQuery — introduction, selectors, filters, DOM manipulation, event handling,

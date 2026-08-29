@@ -1,6 +1,6 @@
 # Unit 1 — Fundamentals of Probability and Basic Statistics
 
-**Syllabus (pages 20–21):** Probability — concept of uncertainty, axioms and
+**Syllabus topics:** Probability — concept of uncertainty, axioms and
 rules of probability, conditional probability. Measures of central tendency —
 mean, median, mode. Measures of dispersion — range, interquartile range,
 variance, standard deviation. Introduction to correlation and covariance. Data
@@ -326,8 +326,8 @@ you report.
 
 > Unit 1 lists only "conditional probability". Bayes' theorem appears in the
 > prescribed activities ("quiz on probability, conditional probability,
-> **Bayes**", page 22) and in lab experiment 2 (page 23) — but in no unit.
-> Study it. See review finding **D1**.
+> **Bayes**") and in lab experiment 2 — but in no unit. Study it.
+> See review finding **D1**.
 
 ### 🎯 The big idea
 

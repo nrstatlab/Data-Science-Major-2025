@@ -1,6 +1,6 @@
 # Unit 2 — Control Flow, Functions and Modules
 
-**Syllabus (page 15):** Control flow — `if`, `if-else`, `if-elif-else`.
+**Syllabus topics:** Control flow — `if`, `if-else`, `if-elif-else`.
 Iterative statements — `while`, `for`, nested loops. Loop control statements —
 `break`, `continue`, `pass`; `else` with loops. Need for functions, defining and
 invoking user-defined functions, `return`, function input/output cases, scope of

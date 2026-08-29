@@ -1,6 +1,6 @@
 # Course 12 A — Practical Lab
 
-**Syllabus (page 11):** 12 experiments, 1 credit, 2 hrs/week.
+**12 experiments**
 
 Code lives in [`labs/course-12a-ml/`](../../../labs/course-12a-ml/).
 

@@ -1,6 +1,6 @@
 # Unit 3 — Information Extraction and Representation
 
-**Syllabus (page 11):** Named Entity Recognition (NER): concepts, examples,
+**Syllabus topics:** Named Entity Recognition (NER): concepts, examples,
 using spaCy and NLTK. Word embeddings: Word2Vec (Skip-Gram, CBOW),
 comparison, implementations. Bag of Words and N-grams. Text classification
 pipeline. Sentiment analysis applications. Ethical considerations in

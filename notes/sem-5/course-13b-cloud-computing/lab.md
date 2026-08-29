@@ -1,6 +1,6 @@
 # Course 13 B — Practical Lab
 
-**Syllabus (page 24):** 15 experiments, 1 credit, 2 hrs/week.
+**15 experiments**
 
 Code lives in [`labs/course-13b-cloud/`](../../../labs/course-13b-cloud/).
 

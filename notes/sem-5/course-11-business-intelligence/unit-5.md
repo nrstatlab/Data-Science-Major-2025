@@ -1,6 +1,6 @@
 # Unit 5 — Dashboard Design and Business Insights
 
-**Syllabus (page 3):** Introduction to dashboards; when to use dashboards;
+**Syllabus topics:** Introduction to dashboards; when to use dashboards;
 dashboard components; principles of effective visualization and dashboarding;
 advanced visualizations — parameters, slicers, filters, drilldowns, graphs and
 maps; dashboard design — layout, alignment, accessibility; publishing

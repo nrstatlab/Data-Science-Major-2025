@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to Cloud Computing
 
-**Syllabus (page 21):** Definition and evolution of cloud computing.
+**Syllabus topics:** Definition and evolution of cloud computing.
 Service-Oriented Architecture (SOA) and web services. Utility and grid
 computing concepts. Characteristics of cloud computing. Cloud computing
 architecture: front-end, back-end, networking, delivery models. Cloud service

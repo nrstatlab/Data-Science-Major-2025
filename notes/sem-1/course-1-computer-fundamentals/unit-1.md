@@ -1,6 +1,6 @@
 # Unit 1 — Number Systems, Evolution, Block Diagram and Generations
 
-**Syllabus (pages 3–4):** Number systems — binary, decimal, octal,
+**Syllabus topics:** Number systems — binary, decimal, octal,
 hexadecimal; conversions between number systems. Evolution of computers —
 history from early mechanical devices to modern-day systems. Block diagram of a
 computer — components like input unit, output unit, memory, CPU (ALU + CU).

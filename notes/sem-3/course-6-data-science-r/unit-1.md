@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to the Data Science Process
 
-**Syllabus (page 1):** Introduction — definition — data science in various
+**Syllabus topics:** Introduction — definition — data science in various
 fields — examples — impact of data science — Data Analytics Life Cycle — data
 science toolkit — data scientist — data science team. Exploratory Data Analysis
 (EDA). Feature engineering and data transformation.

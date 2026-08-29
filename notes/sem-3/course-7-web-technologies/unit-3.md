@@ -1,6 +1,6 @@
 # Unit 3 — JavaScript
 
-**Syllabus (page 7):** What is DHTML, JavaScript, basics, variables, operators,
+**Syllabus topics:** What is DHTML, JavaScript, basics, variables, operators,
 statements, string manipulations, mathematical functions, arrays, functions,
 objects, regular expressions, exception handling.
 

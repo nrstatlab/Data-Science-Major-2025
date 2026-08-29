@@ -1,6 +1,6 @@
 # Unit 5 — Advanced Topics in Data Science with R
 
-**Syllabus (page 2):** Introduction to Time Series Analysis in R (ARIMA basics)
+**Syllabus topics:** Introduction to Time Series Analysis in R (ARIMA basics)
 — concept of time series (trend, seasonality, noise), time series objects in R
 (`ts`, `zoo`, `xts`), plotting and decomposing time series, stationarity and
 differencing, autocorrelation and partial autocorrelation (ACF/PACF), AR, MA,

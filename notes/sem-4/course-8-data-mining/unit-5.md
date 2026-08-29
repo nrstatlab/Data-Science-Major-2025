@@ -1,6 +1,6 @@
 # Unit 5 — Clustering Techniques
 
-**Syllabus (page 12):** Clustering Paradigms, Partitioning Algorithms
+**Syllabus topics:** Clustering Paradigms, Partitioning Algorithms
 (K-Means), k-Medoid Algorithms, Hierarchical Clustering: DBSCAN, BIRCH,
 Categorical Clustering Algorithms: STIRR, ROCK, CACTUS.
 

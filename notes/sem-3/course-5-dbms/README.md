@@ -1,7 +1,7 @@
 # Course 5 — Database Management Systems
 
-**Semester III · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 24–37 of the Semester I–II syllabus
+**Semester III**
+
 ---
 
 ## Why this course matters
@@ -24,7 +24,7 @@ and **two of the six PL/SQL lab questions are trigger problems**.
 Study them. They are covered in [unit-5.md](unit-5.md). See
 [`SYLLABUS-REVIEW.md`](../../../SYLLABUS-REVIEW.md) finding **D2**.
 
-## Course objectives (verbatim, page 24)
+## Course objectives (verbatim)
 
 1. To understand the fundamentals of data, information, and the evolution from
    file-based systems to modern database management systems.

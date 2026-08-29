@@ -1,6 +1,6 @@
 # Unit 5 — NoSQL and Ecosystem Enhancements
 
-**Syllabus (pages 13–14):** Overview of NoSQL within the Hadoop ecosystem:
+**Syllabus topics:** Overview of NoSQL within the Hadoop ecosystem:
 HBase. Configuration and usage of ZooKeeper for coordination. Hadoop
 integration with Spark for data processing.
 

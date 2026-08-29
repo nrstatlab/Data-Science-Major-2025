@@ -1,6 +1,6 @@
 # Unit 5 — Advanced Query Processing and Optimization
 
-**Syllabus (page 22):** Query optimization and operations — projection, limiting
+**Syllabus topics:** Query optimization and operations — projection, limiting
 and skipping records, sorting records. Indexing in MongoDB (single field,
 compound, multikey, text index). Aggregation framework (pipelines, stages,
 operators). Replication concepts — replica sets, failover, consistency.

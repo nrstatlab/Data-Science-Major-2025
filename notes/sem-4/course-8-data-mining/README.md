@@ -1,7 +1,7 @@
 # Course 8 — Data Mining
 
-**Semester IV · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 11–15 of the Semester III–IV syllabus
+**Semester IV**
+
 ---
 
 ## What this course actually is
@@ -32,7 +32,7 @@ Unit 1 is the surprise: it is not mining at all but **data warehousing**, and
 it exists because you cannot mine what you cannot assemble. It also directly
 contradicts Course 5's normalisation teaching, on purpose — §1.6 explains why.
 
-## Course objectives (verbatim, page 11)
+## Course objectives (verbatim)
 
 1. Provide an understanding of data warehousing concepts, architecture, and
    OLAP operations for effective storage, modeling, and analysis.

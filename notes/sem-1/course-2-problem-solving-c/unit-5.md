@@ -1,6 +1,6 @@
 # Unit 5 — Dynamic Memory, Structures, Unions and Files
 
-**Syllabus (page 10):** Dynamic Memory Management — introduction, functions
+**Syllabus topics:** Dynamic Memory Management — introduction, functions
 `malloc`, `calloc`, `realloc`, `free`. Structures — basics, structure members,
 accessing members, nested structures, array of structures, structures and
 functions, structures and pointers. Unions — definition, difference between

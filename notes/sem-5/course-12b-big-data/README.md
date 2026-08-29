@@ -1,7 +1,7 @@
 # Course 12 B — Big Data Technologies
 
-**Semester V · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 12–15 of the Semester V syllabus
+**Semester V**
+
 **This is a Track B course**, paired with
 [Course 13 B (Cloud Computing)](../course-13b-cloud-computing/). Take one track
 and you take it for Semester VI too.

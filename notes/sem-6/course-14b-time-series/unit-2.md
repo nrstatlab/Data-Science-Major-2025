@@ -1,6 +1,6 @@
 # Unit 2 — ARMA and Forecasting with ARMA
 
-**Syllabus (page 6):** ARMA(p,q) models: definition, estimation, forecasting
+**Syllabus topics:** ARMA(p,q) models: definition, estimation, forecasting
 approaches. Model identification: AIC, PACF/ACF, diagnostic checks. Practical
 examples of fitting ARMA and generating forecasts.
 

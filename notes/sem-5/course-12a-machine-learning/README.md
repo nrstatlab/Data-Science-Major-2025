@@ -1,7 +1,7 @@
 # Course 12 A — Machine Learning
 
-**Semester V · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 8–11 of the Semester V syllabus
+**Semester V**
+
 **This is a Track A course.** Semester V is Course 11 plus one elective pair:
 **12 A + 13 A** (Machine Learning → Artificial Intelligence) or **12 B + 13 B**
 (Big Data → Cloud Computing). Taking this means taking
@@ -58,7 +58,7 @@ would you know?* Same algorithm, a different question, and both are examined.
 
 If you took Course 8, budget your time on Units 2 and 3, which are new.
 
-## Course objectives (verbatim, page 8)
+## Course objectives (verbatim)
 
 1. Understand fundamental concepts, types, and applications of machine
    learning.

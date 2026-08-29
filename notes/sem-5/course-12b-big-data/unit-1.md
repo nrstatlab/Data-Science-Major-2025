@@ -1,6 +1,6 @@
 # Unit 1 — Foundations of Big Data and the Hadoop Ecosystem
 
-**Syllabus (page 12):** Introduction to Big Data: characteristics (volume,
+**Syllabus topics:** Introduction to Big Data: characteristics (volume,
 variety, velocity, veracity, value). Hadoop Ecosystem Overview: HDFS,
 MapReduce, YARN, Hadoop Common. Hadoop architecture and use cases.
 

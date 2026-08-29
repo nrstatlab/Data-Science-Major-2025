@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to Computer Programming
 
-**Syllabus (page 9):** Introduction, types of software, compiler and
+**Syllabus topics:** Introduction, types of software, compiler and
 interpreter, machine/assembly/high-level programming, flowcharts and
 algorithms. Fundamentals of C: history, features, C tokens — variables,
 keywords, identifiers, constants and data types, rules for constructing

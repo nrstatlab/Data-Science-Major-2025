@@ -1,7 +1,7 @@
 # Course 13 A — Artificial Intelligence
 
-**Semester V · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 16–20 of the Semester V syllabus
+**Semester V**
+
 **This is a Track A course**, paired with
 [Course 12 A (Machine Learning)](../course-12a-machine-learning/). Take one
 track and you take it for Semester VI too.
@@ -60,7 +60,7 @@ true* and let the engine search.
 Budget two weeks for the shift in thinking. §Lab setup below gets you running
 without installing anything.
 
-## Course objectives (verbatim, page 16)
+## Course objectives (verbatim)
 
 1. Understand the fundamental concepts, history, types, and applications of
    Artificial Intelligence.

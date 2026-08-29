@@ -1594,8 +1594,7 @@ def build_course(course, link_map):
         css_prefix="../",
         mathjax=True,
         nav=[("← All courses", "../index.html")],
-        footer=f"Course {course['number']} — {html.escape(course['title'])} • "
-               f"3 credits theory + 1 credit lab",
+        footer=f"Course {course['number']} — {html.escape(course['title'])}",
     ))
     written.append(out)
     return written

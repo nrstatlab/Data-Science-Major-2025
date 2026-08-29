@@ -1,6 +1,6 @@
 # Unit 4 — Cloud Platforms for Data Science and ML
 
-**Syllabus (page 22):** Machine learning in the cloud: benefits and
+**Syllabus topics:** Machine learning in the cloud: benefits and
 limitations. Cloud-based ML services: AIaaS, GPUaaS. Managed ML platforms:
 overview and advantages. Cloud ML platforms: AWS SageMaker, Azure ML Studio,
 Google Cloud AutoML.

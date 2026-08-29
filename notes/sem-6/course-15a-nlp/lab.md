@@ -1,6 +1,6 @@
 # Course 15 A — Laboratory
 
-**Syllabus (page 12):** fourteen practicals, 1 credit, 2 hrs/week.
+**14 practicals**
 
 Every number on this page was **printed by code in this repository**:
 

@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to Machine Learning
 
-**Syllabus (page 8):** Introduction to machine learning — types of human
+**Syllabus topics:** Introduction to machine learning — types of human
 learning; what is machine learning?; types of machine learning — supervised,
 unsupervised, semi-supervised and reinforcement learning; machine learning
 activities; applications of machine learning. Types of data in machine

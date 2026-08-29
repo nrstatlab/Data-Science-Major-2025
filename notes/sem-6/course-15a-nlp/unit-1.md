@@ -1,6 +1,6 @@
 # Unit 1 — Introduction to NLP and Language Fundamentals
 
-**Syllabus (page 10):** Definition, goals and scope of NLP. Real-world
+**Syllabus topics:** Definition, goals and scope of NLP. Real-world
 applications (assistants, chatbots, translation, summarization, QA, spam
 detection). Fundamentals of language processing. Ambiguities in NLP (lexical,
 structural, contextual). Installations: Python setup, NLTK, spaCy basics.

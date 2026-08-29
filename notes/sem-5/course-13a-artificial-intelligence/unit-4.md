@@ -1,6 +1,6 @@
 # Unit 4 — Knowledge Representation and Reasoning
 
-**Syllabus (page 17):** Knowledge representation — issues, approaches.
+**Syllabus topics:** Knowledge representation — issues, approaches.
 Propositional logic — syntax, semantics, truth tables, inference rules. First
 Order Logic (FOL) — syntax, semantics, quantifiers, substitution, unification.
 Inference in logic — forward chaining, backward chaining, resolution.

@@ -1,6 +1,6 @@
 # Unit 2 — Virtualization and Deployment Models
 
-**Syllabus (page 21):** Concept and importance of virtualization. Types of
+**Syllabus topics:** Concept and importance of virtualization. Types of
 virtualization: application, network, desktop, storage, server, data. Cloud
 deployment models: public, private, community, hybrid. Role of cloud
 computing in data science. Advantages of cloud in machine learning.

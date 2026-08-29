@@ -1,7 +1,7 @@
 # Course 10 — Document Oriented Database (MongoDB)
 
-**Semester IV · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 21–25 of the Semester III–IV syllabus
+**Semester IV**
+
 ---
 
 ## The one thing to understand before anything else
@@ -39,7 +39,7 @@ and the whole course is about telling which one you have.
 **If you learned Course 5 properly, you already know 70% of this course** — you
 just have to learn where the answers differ and why.
 
-## Course objectives (verbatim, page 21)
+## Course objectives (verbatim)
 
 1. To introduce students to the concepts of NoSQL databases and their
    significance compared to traditional relational databases.

@@ -1,7 +1,7 @@
 # Course 2 — Problem Solving Using C
 
-**Semester I · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 9–13 of the Semester I–II syllabus
+**Semester I**
+
 ---
 
 ## Why this course exists
@@ -19,7 +19,7 @@ memory management** (Unit 5). When a Pandas operation is unexpectedly slow
 because it copied a dataframe instead of viewing it, this course is why you
 will know what happened.
 
-## Course objectives (verbatim, page 9)
+## Course objectives (verbatim)
 
 1. Understand the fundamentals of computer programming; apply structured
    problem-solving approaches using algorithms, flowcharts and C constructs.

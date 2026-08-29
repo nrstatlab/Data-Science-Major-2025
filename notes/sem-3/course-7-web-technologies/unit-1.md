@@ -1,6 +1,6 @@
 # Unit 1 — HTML
 
-**Syllabus (page 6):** Introduction to web designing, difference between web
+**Syllabus topics:** Introduction to web designing, difference between web
 applications and desktop applications, introduction to HTML, HTML structure,
 elements, attributes, headings, paragraphs, images, tables, lists, blocks,
 symbols, embedding multi-media components in HTML, HTML forms.

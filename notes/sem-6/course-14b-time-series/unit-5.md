@@ -1,6 +1,6 @@
 # Unit 5 — Advanced Topics and Forecast Evaluation
 
-**Syllabus (page 7):** Spectral analysis: frequency-domain representation,
+**Syllabus topics:** Spectral analysis: frequency-domain representation,
 spectral density. Forecast performance: measures, monitoring, choosing models.
 
 ---

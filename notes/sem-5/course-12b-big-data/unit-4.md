@@ -1,6 +1,6 @@
 # Unit 4 — Data Ingestion and Serialization
 
-**Syllabus (page 13):** Data ingestion pipelines: Sqoop (for RDBMS), Flume
+**Syllabus topics:** Data ingestion pipelines: Sqoop (for RDBMS), Flume
 (streaming). Data formats and serialization: Avro, Parquet, SequenceFile.
 Practical ingestion workflows — batch and streaming.
 

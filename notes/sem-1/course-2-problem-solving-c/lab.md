@@ -1,6 +1,6 @@
 # Course 2 Lab — Problem Solving Using C
 
-**1 credit · 2 hrs/week · 15 experiments** (syllabus page 13)
+**15 experiments**
 
 Every program is in [`labs/course-2-c/`](../../../labs/course-2-c/) as a
 compilable `.c` file. All fifteen compile under `gcc -Wall -Wextra` with no

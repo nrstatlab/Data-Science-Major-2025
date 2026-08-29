@@ -1,6 +1,6 @@
 # Unit 2 — MongoDB Architecture, Data Modeling and Basics
 
-**Syllabus (page 22):** MongoDB architecture — database, collection, document
+**Syllabus topics:** MongoDB architecture — database, collection, document
 concepts; BSON format; advantages of MongoDB over RDBMS; MongoDB datatypes
 (String, Number, Date, Boolean, Array, ObjectId, Embedded Documents, Null).
 Data modeling in MongoDB — schema design strategies, embedded vs referenced

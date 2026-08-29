@@ -1,6 +1,6 @@
 # Unit 2 — Pandas Basics and Data Structures
 
-**Syllabus (page 17):** Series, DataFrame, Index objects, indexing and
+**Syllabus topics:** Series, DataFrame, Index objects, indexing and
 selection, filtering and boolean indexing, arithmetic and data alignment,
 sorting and ranking, dropping entries, handling duplicate indexes.
 
