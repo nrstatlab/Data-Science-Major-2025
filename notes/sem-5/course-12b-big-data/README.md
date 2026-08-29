@@ -80,6 +80,25 @@ Course 10 and SWI-Prolog in Course 13 A.
 
 ---
 
+## Course objectives (verbatim)
+
+1. Introduce students to the concepts, characteristics, and challenges of Big
+   Data.
+2. Familiarize students with the Hadoop ecosystem and its core components
+   (HDFS, YARN, MapReduce).
+3. Develop practical knowledge of distributed storage and parallel processing
+   in Hadoop.
+4. Provide hands-on exposure to data ingestion tools (Sqoop, Flume) and
+   serialization techniques.
+5. Enable students to explore NoSQL databases (HBase), coordination services
+   (ZooKeeper), and HadoopSpark integration for large-scale data analysis.
+
+> ### ⚠️ "HadoopSpark" is two words
+>
+> Objective 5 and Outcome 5 both read **HadoopSpark**, with the space lost.
+> They mean **Hadoop and Spark** — two systems, and the distinction is the
+> whole point of Unit 5. See review finding **D24**.
+
 ## The five units, and how they fit together
 
 | Unit | Question it answers |
@@ -96,6 +115,13 @@ blocks, replication and the NameNode's memory can derive most of Units 3–5.
 
 ---
 
+## Also here
+
+- [practice.md](practice.md) — exam questions with worked solutions
+- [lab.md](lab.md) — all 17 experiments
+- `labs/course-12b-bigdata/` — the code, and the runner that asserts every figure
+  these notes quote
+
 ## Cross-course connections
 
 This course does not stand alone, and the labs make the links checkable.
@@ -109,6 +135,23 @@ This course does not stand alone, and the labs make the links checkable.
 | **Course 12 A (ML)** | Unit 3 | Spark's `MLlib` is the same algorithms, distributed — and the reason Spark beat MapReduce is *iterative* ML jobs. |
 
 ---
+
+## Textbooks
+
+- White, *Hadoop: The Definitive Guide*, 4th edition, O'Reilly — the reference
+  for Units 1–3. The syllabus gives "4th" and then stops, without a publisher.
+- Damji, Wenig, Das & Lee, *Learning Spark*, 2nd edition, O'Reilly, 2020 —
+  Unit 5, and free from Databricks.
+
+**References:** *BIG DATA, Black Book*, DreamTech Press, 2016 · Acharya &
+Chellappan, *Big Data and Analytics*, Wiley, 2016.
+
+> ### ⚠️ The reference list starts at 3
+>
+> The syllabus numbers its two textbooks 1 and 2, then numbers the reference
+> books **3 and 4** rather than restarting — so the four titles read as one
+> list and the distinction between prescribed and recommended is lost. See
+> review finding **D21**.
 
 ## How to study this course
 

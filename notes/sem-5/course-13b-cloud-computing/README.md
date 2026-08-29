@@ -76,6 +76,15 @@ marker is still there.
 
 ---
 
+## Course objectives (verbatim)
+
+1. Introduce the fundamentals of cloud computing and its role in data science.
+2. Provide understanding of virtualization, service, and deployment models.
+3. Familiarize students with cloud storage, data management, and databases.
+4. Expose students to cloud-based big data and machine learning platforms.
+5. Train students in building, deploying, and monitoring ML pipelines on the
+   cloud.
+
 ## The five units
 
 | Unit | Question it answers |
@@ -91,6 +100,13 @@ are made and lost, and they are the most examinable arithmetic in the course.
 
 ---
 
+## Also here
+
+- [practice.md](practice.md) — exam questions with worked solutions
+- [lab.md](lab.md) — all 15 experiments
+- `labs/course-13b-cloud/` — the code, and the runner that asserts every figure
+  these notes quote
+
 ## Cross-course connections
 
 | From | To | What is shared |
@@ -102,6 +118,28 @@ are made and lost, and they are the most examinable arithmetic in the course.
 | **Course 5 (DBMS)** | Unit 3 | A cloud warehouse is columnar, indexless, and billed per byte scanned. Every row of that comparison is a departure from Course 5. |
 
 ---
+
+## Textbooks
+
+The syllabus gives a single combined **Text / Reference** list:
+
+- Nayyar, *Handbook of Cloud Computing*, BPB Publications, 2019 — the closest
+  match to Units 1–3.
+- Velte, Velte & Elsenpeter, *Cloud Computing: A Practical Approach*,
+  McGraw Hill.
+- Gift & Deza, *Cloud Computing for Data Analysis*, Pragmatic AI Labs — the one
+  that actually addresses Units 4 and 5.
+- Mishra, *Machine Learning in the AWS Cloud: Amazon SageMaker*, Wiley.
+
+> ### ⚠️ Item 4 of the list is empty
+>
+> The prescribed list runs 1, 2, 3, **4**, 5 with nothing beside the 4 — a
+> title has been lost, and the four books above are items 1, 2, 3 and 5. See
+> review finding **D22**.
+>
+> None of the four is free. **AWS, Azure and Google Cloud all publish their own
+> documentation and free tiers**, and for Units 4 and 5 the vendor
+> documentation is more current than any of these books.
 
 ## How to study this course
 

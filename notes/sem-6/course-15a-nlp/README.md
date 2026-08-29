@@ -97,6 +97,20 @@ them rather than hide them.** That is the point of grading.
 
 ---
 
+## Course objectives (verbatim)
+
+1. Introduce the foundations of Natural Language Processing and its
+   applications in real-world tasks.
+2. Familiarize students with text preprocessing, linguistic analysis, and
+   parsing techniques.
+3. Equip learners with methods for information extraction, word
+   representations, and sentiment classification.
+4. Explore deep learning techniques for NLP, including RNNs, LSTMs, GRUs, and
+   Transformers.
+5. Provide hands-on experience with modern NLP tools (NLTK, spaCy, Hugging
+   Face) for implementing applications such as chatbots, summarization, and
+   document classification.
+
 ## The five units
 
 | Unit | Topic | Notes | Hardest part |
@@ -111,6 +125,13 @@ Plus [lab.md](lab.md) — all fourteen experiments with their measured output �
 and [practice.md](practice.md) — exam questions with worked solutions.
 
 ---
+
+## Also here
+
+- [practice.md](practice.md) — exam questions with worked solutions
+- [lab.md](lab.md) — all 14 practicals
+- `labs/course-15a-nlp/` — the code, and the runner that asserts every figure
+  these notes quote
 
 ## How this course connects to the rest of the programme
 
@@ -129,6 +150,45 @@ and [practice.md](practice.md) — exam questions with worked solutions.
 > **Doing them in the same week roughly halves the work.**
 
 ---
+
+## Textbooks
+
+- Pulari, Maramreddy & Vasudevan, *Natural Language Processing*, Oxford
+  University Press — the prescribed text, and the closest match to Units 1–3.
+- Jurafsky & Martin, *Speech and Language Processing*, Pearson, 2023 — the
+  standard reference for the whole field. **Draft chapters of the 3rd edition
+  are free** from the authors, and they are the current ones for Units 4 and 5.
+
+**References:** Siddiqui & Tiwary, *Natural Language Processing and Information
+Retrieval*, Oxford University Press · Kulkarni & Shivananda, *Natural Language
+Processing Recipes*, Apress, 2019.
+
+> ### ⚠️ The second reference is numbered "2. 2."
+>
+> The list reads "Reference Book: 1. … 2. **2.** Natural Language Processing
+> Recipes …" — a duplicated numeral, not a missing entry. There are two
+> reference books, not three. See review finding **D27**.
+
+## How to study this course
+
+1. **Install NLTK and spaCy on your own machine, and download the models.**
+   `python -m spacy download en_core_web_sm` is the step everyone forgets, and
+   nothing in Units 2–3 runs without it.
+2. **Tokenize a real paragraph in both, side by side.** NLTK and spaCy disagree
+   on contractions, hyphens and punctuation, and seeing where is worth more
+   than the definition of a token.
+3. **Learn the difference between stemming and lemmatization by example.**
+   `studies` → `studi` against `study` answers the exam question in one line.
+4. **Do the parsing by hand.** CYK on a five-word sentence is tedious exactly
+   once, and then the algorithm is obvious. This is the unit students skip and
+   then lose ten marks on.
+5. **Score your own output.** Every result in these notes is checked against
+   hand-labelled truth rather than eyeballed — that is how it emerged that
+   bag-of-words ranked an unrelated document above a paraphrase, and that spaCy
+   mislabels two Indian state names while getting both cities right.
+6. **Do not wait for a GPU.** Everything up to Unit 4 runs on a laptop CPU, and
+   the transformer material can be understood from the mechanism before it is
+   ever run at scale.
 
 ## If you read one thing
 

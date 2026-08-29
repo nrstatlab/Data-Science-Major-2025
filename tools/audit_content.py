@@ -90,6 +90,25 @@ def main():
     check(f"{len(note_dirs)} course directories complete", not incomplete,
           "; ".join(incomplete))
 
+    # Six courses had a thinner page than the other thirteen -- no prescribed
+    # reading, no objectives, no pointer to the lab code. Nothing was WRONG on
+    # them, which is why no check caught it: a reader simply lost the textbook
+    # list a third of the way through the programme.
+    # "How to study statistics" is Course 4's wording and is right for it, so
+    # match the stem rather than the whole heading.
+    SECTIONS = ["Course objectives (verbatim)", "Also here", "How to study"]
+    thin = []
+    for d in note_dirs:
+        heads = re.findall(r"^## (.+)$", (d / "README.md").read_text(), re.M)
+        for want in SECTIONS:
+            if not any(want.lower() in h.lower() for h in heads):
+                thin.append(f"{d.name} has no '{want}'")
+        # the singular "Textbook" is right where a course prescribes only one
+        if not any("textbook" in h.lower() for h in heads):
+            thin.append(f"{d.name} lists no prescribed reading")
+    check("every course page carries objectives, reading, a lab pointer and "
+          "study guidance", not thin, "; ".join(thin[:4]))
+
     # -- 2 -----------------------------------------------------------------
     print("\n2. REVIEW FINDINGS ARE NUMBERED CLEANLY")
     nums = [int(f[1:]) for f in findings]

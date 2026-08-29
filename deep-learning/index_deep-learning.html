@@ -167,6 +167,29 @@ between a lab report and a demo.</p>
 <p>The lab does both, every time, and says which is which.</p>
 </div>
 <hr />
+<h2>Course objectives (verbatim)</h2>
+<ol>
+<li>
+<p>Introduce the fundamental concepts of Artificial Neural Networks and Deep
+   Learning, along with their historical and biological inspirations.</p>
+</li>
+<li>
+<p>Provide an in-depth understanding of different neural network architectures
+   including Perceptron, DNN, CNN, RNN, and advanced models.</p>
+</li>
+<li>
+<p>Develop hands-on skills to design, train, and evaluate deep learning models
+   using popular frameworks such as TensorFlow and Keras.</p>
+</li>
+<li>
+<p>Expose students to applications of deep learning in computer vision, natural
+   language processing, and generative modeling.</p>
+</li>
+<li>
+<p>Enable students to critically analyze challenges in deep learning such as
+   overfitting, bias, and ethical concerns.</p>
+</li>
+</ol>
 <h2>The five units</h2>
 <table class="main-table">
 <thead>
@@ -213,6 +236,13 @@ between a lab report and a demo.</p>
 <p>Plus <a href="lab_deep-learning.html">lab.md</a> — all twelve experiments with their measured output —
 and <a href="practice_deep-learning.html">practice.md</a> — exam questions with worked solutions.</p>
 <hr />
+<h2>Also here</h2>
+<ul>
+<li><a href="practice_deep-learning.html">practice.md</a> — exam questions with worked solutions</li>
+<li><a href="lab_deep-learning.html">lab.md</a> — all 12 practicals</li>
+<li><code>labs/course-14a-deeplearning/</code> — the code, and the runner that asserts every figure
+  these notes quote</li>
+</ul>
 <h2>How this course connects to the rest of the programme</h2>
 <table class="main-table">
 <thead>
@@ -249,6 +279,66 @@ and <a href="practice_deep-learning.html">practice.md</a> — exam questions wit
 </tbody>
 </table>
 <hr />
+<h2>Textbooks</h2>
+<ul>
+<li>
+<p>Chollet, <em>Deep Learning with Python</em>, 1st edition, Manning, 2018 — written by
+  the author of Keras, and the best fit to Units 2–5. A 2nd edition exists
+  (2021); the syllabus prescribes the 1st.</p>
+</li>
+<li>
+<p>Nielsen, <em>Neural Networks and Deep Learning</em>, Determination Press, 2015 —
+  <strong>free and legal to read online</strong> at
+  <code>neuralnetworksanddeeplearning.com</code>.
+  The clearest explanation of backpropagation on this syllabus.</p>
+</li>
+</ul>
+<p><strong>References:</strong> Géron, <em>Hands-On Machine Learning with Scikit-Learn, Keras and
+TensorFlow</em>, O'Reilly, 2019 · Howard &amp; Gugger, <em>Practical Deep Learning for
+Coders</em>, 2020, based on the fast.ai course · Shane, <em>You Look Like a Thing and
+I Love You</em>, Voracious/Hachette, 2019 — the one on Unit 5's ethics, and the
+only genuinely funny book on the syllabus.</p>
+<div class="warn">
+<p><span class="label">WATCH OUT</span></p>
+<h3>⚠️ "Coders(Based" — a lost space</h3>
+<p>The reference list reads "Practical Deep Learning for <strong>Coders(Based</strong> on the
+fast.ai course)". The title ends at <em>Coders</em>; the rest is a parenthetical.
+See review finding <span class="finding">D26</span>.</p>
+</div>
+<h2>How to study this course</h2>
+<ol>
+<li>
+<p><strong>Fix the seed and read the numbers.</strong> Every script here sets one, so the
+   figures reproduce on your machine. If yours differ, something differs — that
+   is the point of fixing it.</p>
+</li>
+<li>
+<p><strong>Do experiment 4 before anything else in Unit 2.</strong> The learning-rate table
+   is the fastest way to see that a model which "does not work" is usually a
+   model that was never going to converge.</p>
+</li>
+<li>
+<p><strong>Do the arithmetic by hand once.</strong> The output-size formula in Unit 3 and
+   the <code>√d_k</code> scaling in Unit 5 are two-mark questions you can derive rather
+   than memorise — and deriving them is faster than looking them up.</p>
+</li>
+<li>
+<p><strong>Train something small on your own laptop.</strong> MNIST trains in under a minute
+   on a CPU. Waiting for a GPU you do not have is how this course gets
+   abandoned in week 9.</p>
+</li>
+<li>
+<p><strong>Take Unit 5's ethics seriously.</strong> It carries marks, it is the part
+   examiners ask about in the viva, and "bias, fairness, privacy, safety,
+   explainability" is five separate answers, not one.</p>
+</li>
+<li>
+<p><strong>Read the failures in these notes.</strong> Zero of eight first-layer kernels came
+   out clearly oriented, VGG16 lost to a small CNN trained from scratch, and
+   fine-tuning lost to frozen features. Those results are reported rather than
+   tidied away, because the tidy version would have taught you something false.</p>
+</li>
+</ol>
 <h2>If you read one thing</h2>
 <p><strong>Unit 2</strong>, and specifically the part on what makes training fail. Depth,
 width and architecture are choices you can reason about. A learning rate that

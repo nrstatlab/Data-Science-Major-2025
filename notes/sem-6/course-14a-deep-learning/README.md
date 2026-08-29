@@ -87,6 +87,19 @@ The lab does both, every time, and says which is which.
 
 ---
 
+## Course objectives (verbatim)
+
+1. Introduce the fundamental concepts of Artificial Neural Networks and Deep
+   Learning, along with their historical and biological inspirations.
+2. Provide an in-depth understanding of different neural network architectures
+   including Perceptron, DNN, CNN, RNN, and advanced models.
+3. Develop hands-on skills to design, train, and evaluate deep learning models
+   using popular frameworks such as TensorFlow and Keras.
+4. Expose students to applications of deep learning in computer vision, natural
+   language processing, and generative modeling.
+5. Enable students to critically analyze challenges in deep learning such as
+   overfitting, bias, and ethical concerns.
+
 ## The five units
 
 | Unit | Topic | Notes | Hardest part |
@@ -102,6 +115,13 @@ and [practice.md](practice.md) — exam questions with worked solutions.
 
 ---
 
+## Also here
+
+- [practice.md](practice.md) — exam questions with worked solutions
+- [lab.md](lab.md) — all 12 practicals
+- `labs/course-14a-deeplearning/` — the code, and the runner that asserts every figure
+  these notes quote
+
 ## How this course connects to the rest of the programme
 
 | Course | What it gives you here |
@@ -114,6 +134,50 @@ and [practice.md](practice.md) — exam questions with worked solutions.
 | **Course 15 A** (NLP) | takes the RNN and attention material and applies it to language |
 
 ---
+
+## Textbooks
+
+- Chollet, *Deep Learning with Python*, 1st edition, Manning, 2018 — written by
+  the author of Keras, and the best fit to Units 2–5. A 2nd edition exists
+  (2021); the syllabus prescribes the 1st.
+- Nielsen, *Neural Networks and Deep Learning*, Determination Press, 2015 —
+  **free and legal to read online** at
+  [neuralnetworksanddeeplearning.com](http://neuralnetworksanddeeplearning.com).
+  The clearest explanation of backpropagation on this syllabus.
+
+**References:** Géron, *Hands-On Machine Learning with Scikit-Learn, Keras and
+TensorFlow*, O'Reilly, 2019 · Howard & Gugger, *Practical Deep Learning for
+Coders*, 2020, based on the fast.ai course · Shane, *You Look Like a Thing and
+I Love You*, Voracious/Hachette, 2019 — the one on Unit 5's ethics, and the
+only genuinely funny book on the syllabus.
+
+> ### ⚠️ "Coders(Based" — a lost space
+>
+> The reference list reads "Practical Deep Learning for **Coders(Based** on the
+> fast.ai course)". The title ends at *Coders*; the rest is a parenthetical.
+> See review finding **D26**.
+
+## How to study this course
+
+1. **Fix the seed and read the numbers.** Every script here sets one, so the
+   figures reproduce on your machine. If yours differ, something differs — that
+   is the point of fixing it.
+2. **Do experiment 4 before anything else in Unit 2.** The learning-rate table
+   is the fastest way to see that a model which "does not work" is usually a
+   model that was never going to converge.
+3. **Do the arithmetic by hand once.** The output-size formula in Unit 3 and
+   the `√d_k` scaling in Unit 5 are two-mark questions you can derive rather
+   than memorise — and deriving them is faster than looking them up.
+4. **Train something small on your own laptop.** MNIST trains in under a minute
+   on a CPU. Waiting for a GPU you do not have is how this course gets
+   abandoned in week 9.
+5. **Take Unit 5's ethics seriously.** It carries marks, it is the part
+   examiners ask about in the viva, and "bias, fairness, privacy, safety,
+   explainability" is five separate answers, not one.
+6. **Read the failures in these notes.** Zero of eight first-layer kernels came
+   out clearly oriented, VGG16 lost to a small CNN trained from scratch, and
+   fine-tuning lost to frozen features. Those results are reported rather than
+   tidied away, because the tidy version would have taught you something false.
 
 ## If you read one thing
 

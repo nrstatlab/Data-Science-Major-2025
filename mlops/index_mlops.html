@@ -184,6 +184,20 @@ makes two things checkable that otherwise could only be reported:</p>
 </table>
 </div>
 <hr />
+<h2>Course objectives (verbatim)</h2>
+<ol>
+<li>To introduce the lifecycle and roles in Data Engineering.</li>
+<li>
+<p>To explore data architecture principles, distributed systems, and technology
+   choices.</p>
+</li>
+<li>
+<p>To analyze MLOps features, risks, and challenges in developing ML systems.</p>
+</li>
+<li>To design CI/CD pipelines and deployment strategies for ML models.</li>
+<li>To understand monitoring, governance, and Responsible AI compliance in
+   production ML.</li>
+</ol>
 <h2>The five units</h2>
 <table class="main-table">
 <thead>
@@ -229,6 +243,13 @@ makes two things checkable that otherwise could only be reported:</p>
 </table>
 <p>Plus <a href="lab_mlops.html">lab.md</a> and <a href="practice_mlops.html">practice.md</a>.</p>
 <hr />
+<h2>Also here</h2>
+<ul>
+<li><a href="practice_mlops.html">practice.md</a> — exam questions with worked solutions</li>
+<li><a href="lab_mlops.html">lab.md</a> — all 16 practicals</li>
+<li><code>labs/course-15b-mlops/</code> — the code, and the runner that asserts every figure
+  these notes quote</li>
+</ul>
 <h2>The result that surprised the lab</h2>
 <p><a href="lab_mlops.html#experiment-14">Experiment 14</a> builds an automatic retraining loop:
 detect drift, retrain, deploy. It fires at four batches — and improves
@@ -285,6 +306,66 @@ and it is the honest result of the code as written.</p>
 here by a fifth independent engine, after Course 11's DAX, Course 12 B's Hive
 and Spark, and Course 13 B's warehouse.</p>
 <hr />
+<h2>Textbooks</h2>
+<p>The syllabus prescribes a single combined <strong>Text / Reference</strong> list, and it has
+exactly one book in it:</p>
+<ul>
+<li>Reis &amp; Housley, <em>Fundamentals of Data Engineering</em>, O'Reilly, 2022 — Units 1
+  and 2. The publisher and year are <strong>not</strong> in the syllabus; they are supplied
+  here so you can find the book.</li>
+</ul>
+<p><strong>Web resources named in the syllabus:</strong> IBM's data-engineering topic page ·
+Martin Fowler on microservices · a <em>Towards Data Science</em> introduction to
+MLOps.</p>
+<div class="warn">
+<p><span class="label">WATCH OUT</span></p>
+<h3>⚠️ One incomplete citation, and one resource behind a paywall</h3>
+<p>The reading list ends "Fundamentals of Data Engineering, Joe Reis &amp; Matt
+Housley<strong>,</strong>" — the trailing comma is where the publisher and year should
+be, and item 2 turns out to be the heading "Web Resources" rather than a
+book. Course 15 B is the only Semester VI course whose students cannot
+locate their single prescribed text from the syllabus alone. See review
+finding <span class="finding">D31</span>.</p>
+<p><em>Towards Data Science</em> moved to a Medium members-only model, so the third
+web resource may be <strong>paywalled</strong>. See review finding <span class="finding">D32</span>. Google's
+<em>Practitioners Guide to MLOps</em> and Microsoft's MLOps documentation cover the
+same ground and are free.</p>
+</div>
+<h2>How to study this course</h2>
+<ol>
+<li>
+<p><strong>Run MLflow locally in week 3.</strong> <code>mlflow ui</code> against a SQLite backend takes
+   five minutes and makes Unit 3 concrete. Reading about experiment tracking
+   teaches nothing; losing a good result because you did not track it teaches
+   it permanently.</p>
+</li>
+<li>
+<p><strong>Put one real project under version control, data included.</strong> DVC's whole
+   idea — the pointer is in git, the bytes are not — only lands once you have
+   seen a repository stay small while the dataset changes.</p>
+</li>
+<li>
+<p><strong>Learn the lifecycle as a sequence you can name.</strong> Units 1 and 2 are
+   vocabulary questions: ingestion, storage, transformation, serving, and the
+   architecture choices behind each. They are the easy marks.</p>
+</li>
+<li>
+<p><strong>Build the smallest possible CI/CD pipeline.</strong> A workflow that runs the
+   tests and refuses to deploy when a metric drops is the whole of Unit 4 in
+   about thirty lines.</p>
+</li>
+<li>
+<p><strong>Understand what drift is <em>not</em>.</strong> Retraining on the drift in these notes
+   gained 0.0016 accuracy, because the inputs moved and the relationship did
+   not. Knowing when retraining will not help is the Unit 5 answer worth
+   having.</p>
+</li>
+<li>
+<p><strong>Read Unit 5's governance material properly.</strong> GDPR, CCPA and Responsible
+   AI are examinable, they are the part with no code, and they are what makes
+   this course different from Course 12 A.</p>
+</li>
+</ol>
 <h2>If you read one thing</h2>
 <p><strong>Unit 5's section on the three kinds of drift</strong>, and then run
 <code>12_serve_drift_govern.py</code>.</p>

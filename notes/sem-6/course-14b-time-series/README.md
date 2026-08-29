@@ -78,6 +78,27 @@ errors from the truth on one draw.
 
 ---
 
+## Course objectives (verbatim)
+
+The course aims to:
+
+1. Provide fundamental understanding of time series data, components, and
+   characteristics.
+2. Train students in identifying, modeling, and forecasting using
+   ARMA/ARIMA/SARIMA models.
+3. Introduce state-space and multivariate approaches for complex data.
+4. Familiarize students with modern forecasting methods, including spectral and
+   evaluation techniques.
+5. Enable hands-on practice with real-world datasets using R/Python statistical
+   libraries.
+
+> ### ⚠️ Objective 5 says R **or** Python, and never chooses
+>
+> The evaluation method names both languages, and the practicals assume
+> whichever you have. These notes use **Python throughout** and say so; a
+> student following the syllabus literally has no basis for the choice. See
+> review finding **D30**.
+
 ## The five units
 
 | Unit | Question it answers |
@@ -94,6 +115,13 @@ best?" depends on a metric you should have chosen first.
 
 ---
 
+## Also here
+
+- [practice.md](practice.md) — exam questions with worked solutions
+- [lab.md](lab.md) — all 13 experiments
+- `labs/course-14b-timeseries/` — the code, and the runner that asserts every figure
+  these notes quote
+
 ## Cross-course connections
 
 | From | To | What is shared |
@@ -105,6 +133,21 @@ best?" depends on a metric you should have chosen first.
 | **Course 15 B (MLOps)** | Unit 5 | Rolling-origin backtesting is what monitoring a deployed forecast actually means |
 
 ---
+
+## Textbooks
+
+- Brockwell & Davis, *Introduction to Time Series and Forecasting*, 2nd edition,
+  Springer — the prescribed text, and it covers Units 1–4 closely.
+
+**References:** Box, Jenkins & Reinsel, *Time Series Analysis: Forecasting and
+Control* — the origin of the ARIMA notation this course uses · Montgomery,
+Jennings & Kulahci, *Introduction to Time Series Analysis and Forecasting*,
+Wiley · Shumway & Stoffer, *Time Series Analysis and Its Applications: With R
+Examples*.
+
+**Free and current:** Hyndman & Athanasopoulos, *Forecasting: Principles and
+Practice*, is open access at [otexts.com/fpp3](https://otexts.com/fpp3/). It is
+not on the syllabus, and it is the book most working forecasters actually use.
 
 ## How to study this course
 

@@ -89,6 +89,16 @@ makes two things checkable that otherwise could only be reported:
 
 ---
 
+## Course objectives (verbatim)
+
+1. To introduce the lifecycle and roles in Data Engineering.
+2. To explore data architecture principles, distributed systems, and technology
+   choices.
+3. To analyze MLOps features, risks, and challenges in developing ML systems.
+4. To design CI/CD pipelines and deployment strategies for ML models.
+5. To understand monitoring, governance, and Responsible AI compliance in
+   production ML.
+
 ## The five units
 
 | Unit | Topic | Notes | Hardest part |
@@ -102,6 +112,13 @@ makes two things checkable that otherwise could only be reported:
 Plus [lab.md](lab.md) and [practice.md](practice.md).
 
 ---
+
+## Also here
+
+- [practice.md](practice.md) — exam questions with worked solutions
+- [lab.md](lab.md) — all 16 practicals
+- `labs/course-15b-mlops/` — the code, and the runner that asserts every figure
+  these notes quote
 
 ## The result that surprised the lab
 
@@ -139,6 +156,56 @@ here by a fifth independent engine, after Course 11's DAX, Course 12 B's Hive
 and Spark, and Course 13 B's warehouse.
 
 ---
+
+## Textbooks
+
+The syllabus prescribes a single combined **Text / Reference** list, and it has
+exactly one book in it:
+
+- Reis & Housley, *Fundamentals of Data Engineering*, O'Reilly, 2022 — Units 1
+  and 2. The publisher and year are **not** in the syllabus; they are supplied
+  here so you can find the book.
+
+**Web resources named in the syllabus:** IBM's data-engineering topic page ·
+Martin Fowler on microservices · a *Towards Data Science* introduction to
+MLOps.
+
+> ### ⚠️ One incomplete citation, and one resource behind a paywall
+>
+> The reading list ends "Fundamentals of Data Engineering, Joe Reis & Matt
+> Housley**,**" — the trailing comma is where the publisher and year should
+> be, and item 2 turns out to be the heading "Web Resources" rather than a
+> book. Course 15 B is the only Semester VI course whose students cannot
+> locate their single prescribed text from the syllabus alone. See review
+> finding **D31**.
+>
+> *Towards Data Science* moved to a Medium members-only model, so the third
+> web resource may be **paywalled**. See review finding **D32**. Google's
+> *Practitioners Guide to MLOps* and Microsoft's MLOps documentation cover the
+> same ground and are free.
+
+## How to study this course
+
+1. **Run MLflow locally in week 3.** `mlflow ui` against a SQLite backend takes
+   five minutes and makes Unit 3 concrete. Reading about experiment tracking
+   teaches nothing; losing a good result because you did not track it teaches
+   it permanently.
+2. **Put one real project under version control, data included.** DVC's whole
+   idea — the pointer is in git, the bytes are not — only lands once you have
+   seen a repository stay small while the dataset changes.
+3. **Learn the lifecycle as a sequence you can name.** Units 1 and 2 are
+   vocabulary questions: ingestion, storage, transformation, serving, and the
+   architecture choices behind each. They are the easy marks.
+4. **Build the smallest possible CI/CD pipeline.** A workflow that runs the
+   tests and refuses to deploy when a metric drops is the whole of Unit 4 in
+   about thirty lines.
+5. **Understand what drift is *not*.** Retraining on the drift in these notes
+   gained 0.0016 accuracy, because the inputs moved and the relationship did
+   not. Knowing when retraining will not help is the Unit 5 answer worth
+   having.
+6. **Read Unit 5's governance material properly.** GDPR, CCPA and Responsible
+   AI are examinable, they are the part with no code, and they are what makes
+   this course different from Course 12 A.
 
 ## If you read one thing
 
