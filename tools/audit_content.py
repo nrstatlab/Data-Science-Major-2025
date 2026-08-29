@@ -109,6 +109,42 @@ def main():
           f"{len(lab_files)} lab source files" in index,
           "the hub's file count has drifted")
 
+    # Two counts are DERIVED from the findings list, so both go stale silently
+    # whenever a finding is added. They had: the hub said thirteen further
+    # findings and the README said twenty, against a real total of 33 with 3
+    # of them highlighted on the hub.
+    WORDS = {13: "Thirteen", 20: "Twenty", 30: "Thirty", 33: "Thirty-three"}
+    highlighted = 3          # D1, D2 and D13 are called out in the hub's box
+    further = len(findings) - highlighted
+    word = WORDS.get(further, str(further))
+    check(f"hub and README state {further} further findings",
+          f"{word} further findings" in index
+          and f"**{word} further findings**" in readme,
+          f"expected the word {word!r}")
+
+    # The pattern claim names the findings it counts, so the count and the
+    # list can be checked against each other and against the review itself.
+    mo = re.search(r"\*\*(\w+) of the ([\w-]+) findings are the\s+same defect\*\*"
+                   r"(.*?)(?:\n\n|That is a production)", readme, re.S)
+    if not mo:
+        check("README's defect-pattern claim is parseable", False, "not found")
+    else:
+        ids = re.findall(r"\bD\d+\b", mo.group(3))
+        stated = {"fifteen": 15, "nine": 9, "fourteen": 14, "sixteen": 16}.get(
+            mo.group(1).lower())
+        total = {"thirty-three": 33, "twenty-four": 24}.get(mo.group(2).lower())
+        problems_here = []
+        if stated != len(ids):
+            problems_here.append(f"says {mo.group(1)} but lists {len(ids)}")
+        if total != len(findings):
+            problems_here.append(f"says {mo.group(2)} findings, there are "
+                                 f"{len(findings)}")
+        missing = [i for i in ids if i not in findings]
+        if missing:
+            problems_here.append(f"names findings that do not exist: {missing}")
+        check(f"README's defect-pattern claim: {len(ids)} of {len(findings)}",
+              not problems_here, "; ".join(problems_here))
+
     # -- 4 -----------------------------------------------------------------
     print("\n4. NO ISSUING-BODY BRANDING")
     # -i matters. This check passed for weeks while six LOWERCASE occurrences
@@ -243,7 +279,10 @@ def main():
         (r"\bverbatim,\s*pages?\s*\d+",     "a syllabus page number"),
         (r"^Syllabus source: pages?\s*\d+",  "a syllabus page number"),
     ]
-    for m in mds:
+    # index.html is hand-maintained, and the first version of this check looked
+    # only at markdown -- which is how "listed by title and credits only"
+    # survived on the hub while every note file was clean.
+    for m in mds + [ROOT / "index.html"]:
         if m.parts[-2].startswith("syllabus-extracted") or \
                 m.name.startswith("syllabus-extracted"):
             continue          # the verbatim extraction is the source, not prose

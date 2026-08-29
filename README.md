@@ -41,14 +41,16 @@ truncated to the fragment "4. replication, and transactions." (finding
 
 → Covered in Course 10 Unit 5, and in lab experiments 18 and 19
 
-**Twenty further findings** are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md),
+**Thirty further findings** are in [`SYLLABUS-REVIEW.md`](SYLLABUS-REVIEW.md),
 including damaged bibliographies in all five Semester III–IV courses, a
 Semester V objective that stops mid-sentence, and a course with three
 objectives against four outcomes against five units.
 
-**And a pattern worth naming:** nine of the twenty-four findings are the same
-defect — **text lost at a word or sentence boundary**, across all three
-documents. That is a production problem, not a scattering of typos.
+**And a pattern worth naming:** **fifteen of the thirty-three findings are the
+same defect** — text lost, truncated or merged at a word or sentence boundary —
+and they appear in all four documents: D3, D11, D12, D13, D14, D17, D18, D22,
+D23, D24, D25, D26, D27, D28 and D31. That is a production problem, not a
+scattering of typos.
 
 ---
 
