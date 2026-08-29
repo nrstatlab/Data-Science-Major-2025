@@ -46,17 +46,9 @@
   footer { text-align:center; margin-top:40px; font-size:.85rem; color:#6b7280; }
   @media (max-width:700px){ .banner h1{font-size:1.5rem;} }
 
-  /* Blocks this hub carries that the Statistics hub has no counterpart for:
-     a warning about topics examined outside the syllabus, and tiles for the
-     three repository-level documents. Same palette, same tile geometry. */
-  .warn {
-    background:#fef2f2; border-left:5px solid #dc2626; padding:16px 20px;
-    margin:22px 0; border-radius:8px;
-  }
-  .warn h3 { margin:0 0 8px; color:#991b1b; font-size:1.05rem; }
-  .warn p  { margin:6px 0; font-size:.94rem; }
-  .warn a  { color:#991b1b; font-weight:600; }
-  .warn-more { margin-top:10px; }
+  /* Blocks this hub carries that the Statistics hub has no counterpart
+     for: tiles for the two repository-level documents, and the Semester V
+     track note. Same palette, same tile geometry. */
   .refs { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:16px 0; }
   .ref {
     background:#fff; border:1px solid #e2e8f0; border-left:4px solid #0f4c81;
@@ -78,28 +70,9 @@
     </div>
 
   <p>Click any course tile to open its full study material. <strong>All nineteen
-     course numbers are written &mdash; every semester, both elective
+     course numbers are written — every semester, both elective
      tracks</strong>, with 358 lab source files behind them: every numeric claim
      on this site was produced by running code.</p>
-
-  <div class="warn">
-    <h3>⚠ Four topics are examined but appear in no syllabus unit</h3>
-    <p><strong>Bayes' theorem</strong> — Statistics Unit 1 lists only "conditional
-       probability", yet Bayes appears in the prescribed activities quiz and in lab
-       experiment 2.
-       <a href="statistical-foundations/unit1_statistical-foundations.html">Covered here →</a></p>
-    <p><strong>Database triggers</strong> — DBMS Unit 5 lists procedures and functions
-       with no mention of triggers, yet the course objective names them and two of the
-       six PL/SQL lab questions are trigger problems.
-       <a href="dbms/unit5_dbms.html">Covered here →</a></p>
-    <p><strong>GridFS and transactions</strong> — Document Database Unit 5 ends at
-       replication and mentions neither, yet course outcome 4 names both and lab
-       experiments 18 and 19 are exactly those two problems.
-       <a href="document-database/unit5_document-database.html">Covered here →</a></p>
-    <p class="warn-more">Thirty further findings are in the
-       <a href="syllabus-review.html">syllabus review</a>, including damaged
-       bibliographies in all five Semester III&ndash;IV courses.</p>
-  </div>
 
   <h2>Year I — Semester I</h2>
   <div class="sem">
@@ -107,7 +80,7 @@
       <a class="course ready" href="computer-fundamentals/index_computer-fundamentals.html">
         <span class="num">Course 1</span><span class="status">READY</span>
         <h4>Computer Fundamentals &amp; Office Automation</h4>
-        <p>5 Units + Lab • Number systems, memory hierarchy, networks, Word, Excel, pivot tables and dashboards.</p>
+        <p>5 Units + Lab • Number systems, memory hierarchy, networks, Word, Excel, pivot tables and dashboards. Ten programs re-compute every spreadsheet figure and every number-system conversion.</p>
       </a>
       <a class="course ready" href="problem-solving-c/index_problem-solving-c.html">
         <span class="num">Course 2</span><span class="status">READY</span>
@@ -123,7 +96,7 @@
       <a class="course ready" href="python-data-structures/index_python-data-structures.html">
         <span class="num">Course 3</span><span class="status">READY</span>
         <h4>Python Programming &amp; Data Structures</h4>
-        <p>5 Units + Lab • Syntax, collections, files, exceptions, OOP, linked lists, stacks, queues. 18 runnable programs.</p>
+        <p>5 Units + Lab • Syntax, collections, files, exceptions, OOP, linked lists, stacks, queues. 18 experiments; 16 run, the two Tkinter programs syntax-checked only.</p>
       </a>
       <a class="course ready" href="statistical-foundations/index_statistical-foundations.html">
         <span class="num">Course 4</span><span class="status">READY</span>
@@ -170,39 +143,39 @@
       <a class="course ready" href="document-database/index_document-database.html">
         <span class="num">Course 10</span><span class="status">READY</span>
         <h4>Document Oriented Database</h4>
-        <p>5 Units + Lab • NoSQL and CAP, the BSON document model, CRUD and MQL, embed against reference, aggregation pipelines, indexing and replication. Every query executed through mongomock.</p>
+        <p>5 Units + Lab • NoSQL and CAP, the BSON document model, CRUD and MQL, embed against reference, aggregation pipelines, indexing and replication. Sixteen of the twenty experiments execute through mongomock; the rest need a running server and say so.</p>
       </a>
     </div>
   </div>
 
-  <h2>Year III &mdash; Semester V</h2>
+  <h2>Year III — Semester V</h2>
   <div class="sem">
-    <h3>Course 11, plus a pair of electives from one domain &mdash; both tracks are covered here</h3>
+    <h3>Course 11, plus a pair of electives from one domain — both tracks are covered here</h3>
     <div class="courses">
       <a class="course ready" href="business-intelligence/index_business-intelligence.html">
         <span class="num">Course 11</span><span class="status">READY</span>
         <h4>Business Intelligence Tools</h4>
-        <p>5 Units + Lab &bull; BI concepts and the data warehouse, Power BI and Power Query, DAX, Tableau and LOD expressions, dashboard design. Every figure computed, tool click-paths marked not executed.</p>
+        <p>5 Units + Lab • BI concepts and the data warehouse, Power BI and Power Query, DAX, Tableau and LOD expressions, dashboard design. Every figure computed, tool click-paths marked not executed.</p>
       </a>
       <a class="course ready" href="machine-learning/index_machine-learning.html">
         <span class="num">Course 12 A</span><span class="status">READY</span>
         <h4>Machine Learning</h4>
-        <p>5 Units + Lab &bull; ML paradigms, preprocessing and evaluation, regression, classification and clustering. All 12 practicals run under scikit-learn.</p>
+        <p>5 Units + Lab • ML paradigms, preprocessing and evaluation, regression, classification and clustering. All 12 practicals run under scikit-learn.</p>
       </a>
       <a class="course ready" href="artificial-intelligence/index_artificial-intelligence.html">
         <span class="num">Course 13 A</span><span class="status">READY</span>
         <h4>Artificial Intelligence</h4>
-        <p>5 Units + Lab &bull; Intelligent agents, uninformed and informed search, CSPs, propositional and first-order logic, expert systems. 19 Prolog experiments, five running as real logic programs.</p>
+        <p>5 Units + Lab • Intelligent agents, uninformed and informed search, CSPs, propositional and first-order logic, expert systems. 19 experiments; the Prolog is marked not executed, and five of the Python halves run as real logic programs.</p>
       </a>
       <a class="course ready" href="big-data/index_big-data.html">
         <span class="num">Course 12 B</span><span class="status">READY</span>
         <h4>Big Data Technologies</h4>
-        <p>5 Units + Lab &bull; HDFS and YARN, MapReduce, Hive and Pig, ingestion and serialization, HBase, ZooKeeper and Spark. 14 of 17 practicals run, including real Apache Spark, Avro and Parquet.</p>
+        <p>5 Units + Lab • HDFS and YARN, MapReduce, Hive and Pig, ingestion and serialization, HBase, ZooKeeper and Spark. 14 of 17 practicals run, including real Apache Spark, Avro and Parquet.</p>
       </a>
       <a class="course ready" href="cloud-computing/index_cloud-computing.html">
         <span class="num">Course 13 B</span><span class="status">READY</span>
         <h4>Cloud Computing for Data Science</h4>
-        <p>5 Units + Lab &bull; Service and deployment models, virtualization, cloud storage and warehouses, managed ML, deployment and monitoring. IAM evaluation, a real ETL and a real endpoint, all run locally.</p>
+        <p>5 Units + Lab • Service and deployment models, virtualization, cloud storage and warehouses, managed ML, deployment and monitoring. IAM evaluation, a real ETL and a real endpoint, all run locally.</p>
       </a>
     </div>
     <p class="track-note">
@@ -213,39 +186,35 @@
     </p>
   </div>
 
-  <h2>Year III &mdash; Semester VI</h2>
+  <h2>Year III — Semester VI</h2>
   <div class="sem">
     <h3>The second half of your chosen track</h3>
     <div class="courses">
       <a class="course ready" href="deep-learning/index_deep-learning.html">
         <span class="num">Course 14 A</span><span class="status">READY</span>
         <h4>Neural Networks and Deep Learning</h4>
-        <p>5 Units + Lab &bull; Perceptrons and activations, backpropagation, CNNs, RNNs and LSTM, attention and transformers, transfer learning and AI ethics. Ten of twelve experiments run against real MNIST, Fashion-MNIST, IMDb and real ImageNet weights.</p>
+        <p>5 Units + Lab • Perceptrons and activations, backpropagation, CNNs, RNNs and LSTM, attention and transformers, transfer learning and AI ethics. Ten of twelve experiments run against real MNIST, Fashion-MNIST, IMDb and real ImageNet weights.</p>
       </a>
       <a class="course ready" href="nlp/index_nlp.html">
         <span class="num">Course 15 A</span><span class="status">READY</span>
         <h4>Natural Language Processing</h4>
-        <p>5 Units + Lab &bull; Ambiguity and regular expressions, tokenization, stemming and lemmatization, grammars and parsing, named entity recognition, embeddings, classification, RNNs and transformers. Eleven of fourteen experiments run against real NLTK corpora and real spaCy models.</p>
+        <p>5 Units + Lab • Ambiguity and regular expressions, tokenization, stemming and lemmatization, grammars and parsing, named entity recognition, embeddings, classification, RNNs and transformers. Eleven of fourteen experiments run against real NLTK corpora and real spaCy models.</p>
       </a>
       <a class="course ready" href="time-series/index_time-series.html">
         <span class="num">Course 14 B</span><span class="status">READY</span>
         <h4>Time Series Analysis and Forecasting</h4>
-        <p>5 Units + Lab &bull; Stationarity, ACF and PACF, ARMA, ARIMA and SARIMA, model selection, prediction intervals, VAR and Granger causality, Kalman filtering and spectral analysis. Every one of the 13 experiments runs.</p>
+        <p>5 Units + Lab • Stationarity, ACF and PACF, ARMA, ARIMA and SARIMA, model selection, prediction intervals, VAR and Granger causality, Kalman filtering and spectral analysis. Every one of the 13 experiments runs.</p>
       </a>
       <a class="course ready" href="mlops/index_mlops.html">
         <span class="num">Course 15 B</span><span class="status">READY</span>
         <h4>Data Engineering and MLOps</h4>
-        <p>5 Units + Lab &bull; The data engineering lifecycle, architecture and distributed systems, MLOps fundamentals, deployment and CI/CD, monitoring and governance. Eleven of sixteen experiments run against real MLflow, git, DVC and Flask.</p>
+        <p>5 Units + Lab • The data engineering lifecycle, architecture and distributed systems, MLOps fundamentals, deployment and CI/CD, monitoring and governance. Eleven of sixteen experiments run against real MLflow, git, DVC and Flask.</p>
       </a>
     </div>
   </div>
 
   <h2>Reference</h2>
   <div class="refs">
-    <a class="ref" href="syllabus-review.html">
-      <h4>Syllabus Review</h4>
-      <p>Thirty-three findings from checking the four official documents — including the three examined-but-missing topics.</p>
-    </a>
     <a class="ref" href="syllabus-map.html">
       <h4>Syllabus Map</h4>
       <p>Programme structure for Semesters I–VI, the two elective tracks, and unit-level topics.</p>
@@ -257,8 +226,6 @@
   </div>
 
   <footer>
-    Model Syllabus for 4-Year UG Honours in B.Sc. (Data Science) as Major,
-    w.e.f. AY&nbsp;2025-26 • Prepared by Adikavi Nannaya University, Rajahmundry<br>
     Prepared for B.Sc. (Data Science) students
   </footer>
 </div>

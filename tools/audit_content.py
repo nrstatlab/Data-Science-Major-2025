@@ -22,6 +22,7 @@ Two markup checks earn their place specifically:
 
 Run: python3 tools/audit_content.py
 """
+import html
 import pathlib
 import re
 import subprocess
@@ -113,13 +114,15 @@ def main():
     # whenever a finding is added. They had: the hub said thirteen further
     # findings and the README said twenty, against a real total of 33 with 3
     # of them highlighted on the hub.
+    # The README summarises three findings inline and points at the rest. The
+    # hub used to repeat that count in its warning box; the box has been
+    # removed, so this is a README-only claim now.
     WORDS = {13: "Thirteen", 20: "Twenty", 30: "Thirty", 33: "Thirty-three"}
-    highlighted = 3          # D1, D2 and D13 are called out in the hub's box
+    highlighted = 3          # D1, D2 and D13 are summarised in the README
     further = len(findings) - highlighted
     word = WORDS.get(further, str(further))
-    check(f"hub and README state {further} further findings",
-          f"{word} further findings" in index
-          and f"**{word} further findings**" in readme,
+    check(f"README states {further} further findings",
+          f"**{word} further findings**" in readme,
           f"expected the word {word!r}")
 
     # The pattern claim names the findings it counts, so the count and the
@@ -144,6 +147,50 @@ def main():
             problems_here.append(f"names findings that do not exist: {missing}")
         check(f"README's defect-pattern claim: {len(ids)} of {len(findings)}",
               not problems_here, "; ".join(problems_here))
+
+    # -- 3b ----------------------------------------------------------------
+    # The hub is hand-maintained while every other page is generated, so it is
+    # the one file that can drift away from the courses it advertises. A tile
+    # naming a course the generator does not build, or a course with no tile,
+    # is invisible until somebody clicks.
+    print("\n3b. THE HUB'S TILES MATCH THE COURSES THAT EXIST")
+    sys.path.insert(0, str(ROOT / "tools"))
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "_bs", ROOT / "tools" / "build_site.py")
+    bs = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(bs)
+
+    tiles = re.findall(
+        r'<a class="course[^"]*" href="([^"]+)">\s*'
+        r'<span class="num">([^<]+)</span>.*?<h4>(.*?)</h4>',
+        index, re.S)
+    def plain(t):
+        return html.unescape(re.sub(r"<[^>]+>", "", t)).replace("&", "and")
+
+    built = {c["slug"]: c for c in bs.COURSES}
+    linked, tile_problems = set(), []
+    for href, num, title in tiles:
+        slug = href.split("/")[0]
+        if slug not in built:
+            tile_problems.append(f"tile {num} points at unknown course {slug!r}")
+            continue
+        linked.add(slug)
+        expected = str(built[slug]["number"])
+        if not num.replace("Course", "").strip().startswith(expected):
+            tile_problems.append(f"tile for {slug} is labelled {num!r}, "
+                                 f"course number is {expected}")
+        shown, real = plain(title), built[slug]["title"].replace("&", "and")
+        if shown.lower() != real.lower():
+            tile_problems.append(f"tile for {slug} says {shown!r}, "
+                                 f"the course is {real!r}")
+    for slug in built:
+        if slug not in linked:
+            tile_problems.append(f"no tile for course {slug!r}")
+    check(f"{len(tiles)} course tiles, one per built course",
+          len(tiles) == len(built) and not tile_problems,
+          "; ".join(tile_problems[:4]) or
+          f"{len(tiles)} tiles against {len(built)} courses")
 
     # -- 4 -----------------------------------------------------------------
     print("\n4. NO ISSUING-BODY BRANDING")
