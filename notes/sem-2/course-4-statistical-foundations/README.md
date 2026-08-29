@@ -59,6 +59,10 @@ Units 3, 4 and 5 carry the difficulty. They also carry the marks.
 - [lab.md](lab.md) — all 15 experiments
 - `labs/course-4-stats/` — Excel walkthroughs
   and runnable Python
+- `data/course-4-stats/` — **practice datasets**, CSV: `before-after.csv`, `fertiliser-yield.csv`, `heights.csv`, `preference-survey.csv`, `study-hours-marks.csv`, `treatment-groups.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
 
 ## Textbooks
 

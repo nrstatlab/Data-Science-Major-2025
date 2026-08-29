@@ -106,6 +106,10 @@ are made and lost, and they are the most examinable arithmetic in the course.
 - [lab.md](lab.md) — all 15 experiments
 - `labs/course-13b-cloud/` — the code, and the runner that asserts every figure
   these notes quote
+- `data/course-13b-cloud/` — **practice datasets**, CSV: `iam-policies.csv`, `storage-costs.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
 
 ## Cross-course connections
 

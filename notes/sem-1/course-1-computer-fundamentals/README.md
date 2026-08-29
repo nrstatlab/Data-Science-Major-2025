@@ -62,6 +62,12 @@ Unit 5 (as a headline topic). Unit 5's treatment is the substantive one. See
   and asserted there, along with every number-system conversion in Unit 1 and
   every text-function result in Unit 4. Run it with
   `python3 tools/run_office_labs.py`; it needs nothing but Python itself.
+- `data/course-1-office/` — **practice datasets**, CSV: `budget.csv`, `class-results.csv`, `payroll.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  Also `sales-transactions.csv` in `data/shared/`, which several courses
+  analyse so their answers can be compared.
 
 For spreadsheet formulas in a statistical context, see
 `labs/course-4-stats/excel-walkthroughs.md`,

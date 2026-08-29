@@ -77,6 +77,10 @@ the repetition falls so you do not study it twice.
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 20 experiments
 - `labs/course-10-mongodb/` — code
+- `data/course-10-mongodb/` — **practice datasets**, CSV: `courses.csv`, `students.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
 
 > **On the lab code.** `mongod` cannot be installed here — the Debian
 > repositories are blocked by the egress policy — so each experiment has two

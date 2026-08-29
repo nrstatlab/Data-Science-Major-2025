@@ -92,6 +92,10 @@ and both are asked every year.
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 19 experiments
 - `labs/course-13a-ai/` — code
+- `data/course-13a-ai/` — **practice datasets**, CSV: `family-relations.csv`, `graph-edges.csv`, `map-colouring.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
 
 > **On the lab code.** SWI-Prolog cannot be installed here — the Debian
 > repositories that host it are blocked by the egress policy — so each

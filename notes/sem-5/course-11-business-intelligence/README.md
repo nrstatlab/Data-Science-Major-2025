@@ -87,6 +87,12 @@ wrong answer produces a dashboard that is confidently, silently incorrect.
 - [practice.md](practice.md) — exam questions with worked solutions
 - [lab.md](lab.md) — all 15 experiments
 - `labs/course-11-bi/` — code
+- `data/course-11-bi/` — **practice datasets**, CSV: `dim-date.csv`, `dim-product.csv`, `dim-store.csv`, `fact-sales.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  Also `sales-transactions.csv` in `data/shared/`, which several courses
+  analyse so their answers can be compared.
 
 > **On the lab code.** Power BI Desktop is Windows-only and Tableau Desktop is
 > proprietary; neither can be installed in the environment these notes are

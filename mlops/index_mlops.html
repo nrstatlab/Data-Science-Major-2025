@@ -247,8 +247,18 @@ makes two things checkable that otherwise could only be reported:</p>
 <ul>
 <li><a href="practice_mlops.html">practice.md</a> — exam questions with worked solutions</li>
 <li><a href="lab_mlops.html">lab.md</a> — all 16 practicals</li>
-<li><code>labs/course-15b-mlops/</code> — the code, and the runner that asserts every figure
-  these notes quote</li>
+<li>
+<p><code>labs/course-15b-mlops/</code> — the code, and the runner that asserts every figure
+  these notes quote</p>
+</li>
+<li>
+<p><code>data/course-15b-mlops/</code> — <strong>practice datasets</strong>, CSV: <code>loan-current.csv</code>, <code>loan-reference.csv</code>.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; <code>data/README.md</code> lists what each was built
+  from, and <code>tools/check_datasets.py</code> proves each truth is recoverable.
+  Also <code>sales-transactions.csv</code> in <code>data/shared/</code>, which several courses
+  analyse so their answers can be compared.</p>
+</li>
 </ul>
 <h2>The result that surprised the lab</h2>
 <p><a href="lab_mlops.html#experiment-14">Experiment 14</a> builds an automatic retraining loop:

@@ -121,6 +121,12 @@ and [practice.md](practice.md) — exam questions with worked solutions.
 - [lab.md](lab.md) — all 12 practicals
 - `labs/course-14a-deeplearning/` — the code, and the runner that asserts every figure
   these notes quote
+- `data/course-14a-deeplearning/` — **practice datasets**, CSV: `sensor-failures.csv`, `xor.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  Also `flowers.csv` in `data/shared/`, which several courses
+  analyse so their answers can be compared.
 
 ## How this course connects to the rest of the programme
 

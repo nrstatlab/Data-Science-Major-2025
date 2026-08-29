@@ -170,6 +170,7 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 | `run_timeseries_labs.py` | **All 13** Course 14 B experiments; no NOT EXECUTED file exists |
 | `run_nlp_labs.py` | Course 15 A on **real NLTK corpora and real spaCy models**, every result scored; 3 markers audited |
 | `run_mlops_labs.py` | Course 15 B against **real MLflow, git, DVC and Flask**; 5 markers audited |
+| `check_datasets.py` | **113 checks over 50 practice datasets** — the regression slope, the AR(2) coefficients, the cluster centres, the Granger direction and the drift score are all recovered from the CSV on disk |
 | `extract_syllabus.py` | Every page of every source document yields text |
 | `check_coverage.py` | **1,273 syllabus topics across 95 unit files** all map to a notes section |
 | `audit_content.py` | The documents' own **stated counts match the files on disk**; every course has its full note set; no malformed table; every link resolves |
@@ -227,6 +228,26 @@ read as one family.
 ```bash
 pip install -r tools/requirements.txt
 python3 tools/build_site.py
+```
+
+## Practice data
+
+`data/` holds **50 CSV files**, at least one per course, covering the methods
+the programme teaches — descriptive statistics and every hypothesis test,
+regression, Apriori, decision trees, k-Means and DBSCAN, SQL joins and
+normalisation, document modelling, a star schema, MapReduce, search and CSP,
+IAM evaluation, ARIMA, SARIMA and VAR, sentiment and NER, and drift detection.
+
+**Every file was generated from a known truth** — the regression file from a
+slope of 6.0, the AR(2) series from φ = (0.6, −0.3), the three clusters from
+centres the generator chose — so a student can *score* an answer rather than
+merely produce one. `data/README.md` says what each file was built from, and
+`tools/check_datasets.py` recovers every one of those truths from the CSV
+itself.
+
+```bash
+python3 tools/make_datasets.py    # regenerate; deterministic, seeded
+python3 tools/check_datasets.py   # 113 checks over 50 datasets
 ```
 
 Markdown stays the source of truth: edit `notes/**/*.md`, re-run the build, and

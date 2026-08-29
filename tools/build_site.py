@@ -929,6 +929,8 @@ TOP_PAGES = [
      "Programme structure for Semesters I–VI, elective tracks and unit topics."),
     ("STUDY-PLAN.md", "study-plan", "Study Plan",
      "Week-by-week schedule, revision cycles and a progress checklist."),
+    ("data/README.md", "practice-data", "Practice Data",
+     "Fifty CSV datasets, one per method, each generated from a known truth."),
 ]
 
 

@@ -66,6 +66,12 @@ it is worth learning for that alone.
 - [lab.md](lab.md) — all 18 practicals
 - `labs/course-6-r/` — R scripts, with runnable
   Python equivalents
+- `data/course-6-r/` — **practice datasets**, CSV: `car-mileage.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  Also `flowers.csv` in `data/shared/`, which several courses
+  analyse so their answers can be compared.
 
 > **On the lab code:** R could not be installed in the environment where this
 > material was verified (the package repositories are blocked), so the R scripts

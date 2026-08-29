@@ -121,6 +121,12 @@ blocks, replication and the NameNode's memory can derive most of Units 3–5.
 - [lab.md](lab.md) — all 17 experiments
 - `labs/course-12b-bigdata/` — the code, and the runner that asserts every figure
   these notes quote
+- `data/course-12b-bigdata/` — **practice datasets**, CSV: `web-logs.csv`, `wordcount-corpus.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  Also `sales-transactions.csv` in `data/shared/`, which several courses
+  analyse so their answers can be compared.
 
 ## Cross-course connections
 

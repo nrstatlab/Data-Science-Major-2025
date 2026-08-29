@@ -121,6 +121,10 @@ best?" depends on a metric you should have chosen first.
 - [lab.md](lab.md) — all 13 experiments
 - `labs/course-14b-timeseries/` — the code, and the runner that asserts every figure
   these notes quote
+- `data/course-14b-timeseries/` — **practice datasets**, CSV: `ar2-series.csv`, `macro-indicators.csv`, `seasonal-sales.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
 
 ## Cross-course connections
 

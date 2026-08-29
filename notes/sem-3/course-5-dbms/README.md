@@ -57,6 +57,10 @@ conceptually difficult; Unit 4 because SQL is what the lab exam tests.
 - [practice.md](practice.md) — exam-style questions with solutions
 - [lab.md](lab.md) — the three experiments plus PL/SQL
 - `labs/course-5-dbms/` — executable SQL
+- `data/course-5-dbms/` — **practice datasets**, CSV: `assignments.csv`, `departments.csv`, `employees.csv`, `projects.csv`, `unnormalised-orders.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
 
 ## Textbooks
 

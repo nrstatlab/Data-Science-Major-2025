@@ -69,6 +69,10 @@ weeks between them.
 - [lab.md](lab.md) — all 15 lab experiments, with the code and expected output
 - `labs/course-2-c/` — the programs as `.c` files,
   all compiled and run
+- `data/course-2-c/` — **practice datasets**, CSV: `employee-records.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
 
 ## Textbooks
 

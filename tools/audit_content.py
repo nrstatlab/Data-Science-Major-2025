@@ -109,6 +109,25 @@ def main():
     check("every course page carries objectives, reading, a lab pointer and "
           "study guidance", not thin, "; ".join(thin[:4]))
 
+    # A practice dataset nobody can find is a file, not a resource. Every
+    # course page must name its data directory, and every CSV under data/
+    # must be named on some page -- otherwise it exists only for the checker.
+    all_md = "\n".join(m.read_text() for m in mds)
+    orphans, unlinked = [], []
+    for d in note_dirs:
+        text = (d / "README.md").read_text()
+        if "data/" not in text:
+            unlinked.append(d.name)
+    for csv_path in sorted((ROOT / "data").rglob("*.csv")):
+        rel = csv_path.relative_to(ROOT / "data").as_posix()
+        if csv_path.name not in all_md:
+            orphans.append(rel)
+    check(f"{len(list((ROOT / 'data').rglob('*.csv')))} practice datasets, "
+          "each named on a page, each course pointing at its own",
+          not orphans and not unlinked,
+          f"unreferenced: {orphans[:3]}; courses not pointing at data: "
+          f"{unlinked[:3]}")
+
     # -- 2 -----------------------------------------------------------------
     print("\n2. REVIEW FINDINGS ARE NUMBERED CLEANLY")
     nums = [int(f[1:]) for f in findings]

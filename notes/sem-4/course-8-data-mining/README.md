@@ -65,6 +65,12 @@ revise in the last week.
 - [practice.md](practice.md) — exam questions with fully worked numeric solutions
 - [lab.md](lab.md) — all 15 experiments
 - `labs/course-8-datamining/` — code
+- `data/course-8-datamining/` — **practice datasets**, CSV: `cluster-points.csv`, `market-basket.csv`, `warehouse-facts.csv`.
+  Every one was generated from a known truth, so you can score your answer
+  rather than just produce one; `data/README.md` lists what each was built
+  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  Also `sales-transactions.csv`, `flowers.csv` in `data/shared/`, which several courses
+  analyse so their answers can be compared.
 
 > **On the lab code.** The syllabus prescribes **WEKA**, which cannot be
 > installed here — it needs a host the egress policy blocks. So every
