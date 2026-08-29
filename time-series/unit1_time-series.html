@@ -29,12 +29,26 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-what-makes-a-time-series-different">1.1 What makes a time series different</a></li>
+    <li><a href="#12-the-four-components">1.2 The four components</a></li>
+    <li><a href="#13-stationarity">1.3 Stationarity</a></li>
+    <li><a href="#14-autocovariance-and-autocorrelation">1.4 Autocovariance and autocorrelation</a></li>
+    <li><a href="#15-the-forecasting-process">1.5 The forecasting process</a></li>
+    <li><a href="#16-model-evaluation-metrics">1.6 Model evaluation metrics</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 6):</strong> Introduction to time series: types, components,
 forecasting process. Stationary processes: definitions, autocovariance,
 autocorrelation functions (ACF/PACF). Model evaluation metrics. ACF/PACF
 example analyses.</p>
 <hr />
-<h2>1.1 What makes a time series different</h2>
+<h2 id="11-what-makes-a-time-series-different">1.1 What makes a time series different</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The one sentence</h4>
@@ -72,7 +86,7 @@ you learned before this course assumed they were.</strong></p>
 </table>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The formal object</h4>
 <p>A time series is a sequence <strong>{y₁, y₂, …, y_T}</strong> indexed by time, where the
 spacing is (usually) regular and the index is meaningful.</p>
@@ -87,7 +101,7 @@ further out. <strong>The method was right; that one series was unusual</strong> 
 a single dataset you cannot tell those apart.</p>
 </div>
 <hr />
-<h2>1.2 The four components</h2>
+<h2 id="12-the-four-components">1.2 The four components</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -124,7 +138,7 @@ a single dataset you cannot tell those apart.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Seasonality and cycle are not the same thing</h3>
+<h3 id="seasonality-and-cycle-are-not-the-same-thing">⚠️ Seasonality and cycle are not the same thing</h3>
 <p><strong>Seasonality has a fixed, calendar-determined period.</strong> Retail sales peak
 every December — you know the period before you look.</p>
 <p><strong>A cycle has a variable period.</strong> A business cycle lasts somewhere between
@@ -133,7 +147,7 @@ three and ten years and nobody knows which in advance.</p>
 tell it m = 12. <strong>It cannot model a cycle</strong>, because there is no fixed m to
 give it. Confusing the two is why people fit SARIMA to economic data and are
 disappointed.</p>
-<h3>The two decomposition models</h3>
+<h3 id="the-two-decomposition-models">The two decomposition models</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -222,7 +236,7 @@ centred 12-month moving average cannot be computed there. <strong>STL covers the
 whole series</strong>, which is why it is the modern default — and worth naming.</p>
 </div>
 <hr />
-<h2>1.3 Stationarity</h2>
+<h2 id="13-stationarity">1.3 Stationarity</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The definition, and it is examined verbatim</h4>
@@ -245,7 +259,7 @@ the rule is the same in both.</strong></p>
 <p>Stationarity is exactly that assumption written formally. A model fitted to a
 series whose mean is drifting has learned a mean that no longer exists.</p>
 </div>
-<h3>What makes a series non-stationary</h3>
+<h3 id="what-makes-a-series-non-stationary">What makes a series non-stationary</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -276,7 +290,7 @@ series whose mean is drifting has learned a mean that no longer exists.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The distinction the exam wants</h3>
+<h3 id="the-distinction-the-exam-wants">⚠️ The distinction the exam wants</h3>
 <p><strong>A deterministic trend and a stochastic trend need different treatments</strong>,
 and they look identical on a plot.</p>
 <ul>
@@ -287,9 +301,9 @@ and they look identical on a plot.</p>
 unit-root series and it is still non-stationary. Unit 3 shows how the two
 tests together tell them apart.</p>
 <hr />
-<h2>1.4 Autocovariance and autocorrelation</h2>
+<h2 id="14-autocovariance-and-autocorrelation">1.4 Autocovariance and autocorrelation</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The definitions</h4>
 <p>$$\gamma(k) = \text{Cov}(y_t,\, y_{t+k}) \qquad
 \rho(k) = \frac{\gamma(k)}{\gamma(0)}$$</p>
@@ -297,7 +311,7 @@ tests together tell them apart.</p>
 series with different units. That is the only difference, and it is why the
 ACF and not the autocovariance is what you plot.</p>
 </div>
-<h3>The PACF, which is the harder one</h3>
+<h3 id="the-pacf-which-is-the-harder-one">The PACF, which is the harder one</h3>
 <p><strong>ρ(k) measures the total correlation between yₜ and yₜ₊ₖ — including
 everything transmitted through the points in between.</strong></p>
 <p><strong>The partial autocorrelation φ_kk measures the correlation that remains after
@@ -358,16 +372,16 @@ because yₜ and yₜ₋q₋₁ share no shocks at all.</p>
 <p>On an <strong>ARMA(1,1)</strong>: both tail off, neither cuts. <strong>That is the ARMA
 signature</strong>, and it is why ARMA orders are chosen by AIC rather than by eye.</p>
 </div>
-<h3>⚠️ The confidence band, and the mistake it causes</h3>
+<h3 id="the-confidence-band-and-the-mistake-it-causes">⚠️ The confidence band, and the mistake it causes</h3>
 <p>The band is <strong>±1.96/√n</strong>. On 400 observations that is <strong>±0.098</strong>.</p>
 <p><strong>Measured on white noise: 0 of 20 lags fell outside.</strong> You <em>expect</em> about one
 in twenty by chance. <strong>Reading structure into one stray spike is the commonest
 correlogram mistake</strong>, and it is why the Ljung-Box test (Unit 2) tests the
 lags <strong>jointly</strong>.</p>
 <hr />
-<h2>1.5 The forecasting process</h2>
+<h2 id="15-the-forecasting-process">1.5 The forecasting process</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The Box–Jenkins loop</h4>
 <pre><code>   1. PLOT the series          &lt;- never skip this
         │
@@ -401,7 +415,7 @@ looking at the plot. Four questions answer themselves in five seconds:</p>
 </ol>
 </div>
 <hr />
-<h2>1.6 Model evaluation metrics</h2>
+<h2 id="16-model-evaluation-metrics">1.6 Model evaluation metrics</h2>
 <p>Covered in depth in Unit 5, but the shapes belong here.</p>
 <table class="main-table">
 <thead>
@@ -467,7 +481,7 @@ looking at the plot. Four questions answer themselves in five seconds:</p>
 questions. <strong>Choose from the cost of being wrong</strong>, and choose <em>before</em> you
 see the results.</p>
 </div>
-<h3>⚠️ And the baseline you must beat</h3>
+<h3 id="and-the-baseline-you-must-beat">⚠️ And the baseline you must beat</h3>
 <p><strong>Naive:</strong> ŷₜ₊ₕ = yₜ. <strong>Seasonal naive:</strong> ŷₜ₊ₕ = yₜ₊ₕ₋ₘ.</p>
 <p><strong>Measured:</strong> seasonal naive scored <strong>RMSE 14.152</strong> on the lab's held-out year;
 the fitted SARIMA scored <strong>6.891</strong>, a <strong>51% improvement</strong>.</p>
@@ -478,7 +492,7 @@ Seasonal naive is this course's <code>DummyClassifier</code>, and a surprising n
 of published forecasting models fail to beat it.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. Is the daily closing price of a stock stationary? Is its daily return?</strong></p>
 <p><strong>The price: no.</strong> It is close to a random walk — a unit root, so shocks are
 permanent and the variance grows without bound. The lab's random walk gave
@@ -560,7 +574,7 @@ two parameters — and let a rolling-origin CV tell you whether anything larger
 earns its keep. In the lab it did not: the airline model had the <strong>best
 held-out RMSE of all four specifications tried</strong>.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define weak stationarity.</li>
@@ -598,7 +612,7 @@ held-out RMSE of all four specifications tried</strong>.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

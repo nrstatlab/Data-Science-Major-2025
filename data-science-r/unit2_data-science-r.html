@@ -31,6 +31,22 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-r-and-rstudio">2.1 R and RStudio</a></li>
+    <li><a href="#22-the-assignment-operator">2.2 The assignment operator</a></li>
+    <li><a href="#23-data-types">2.3 Data types</a></li>
+    <li><a href="#24-operators">2.4 Operators</a></li>
+    <li><a href="#25-control-structures">2.5 Control structures</a></li>
+    <li><a href="#26-functions">2.6 Functions</a></li>
+    <li><a href="#27-packages">2.7 Packages</a></li>
+    <li><a href="#28-data-input-and-output">2.8 Data input and output</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 1):</strong> Introduction to R and RStudio. Data types, variables,
 operators. Control structures (<code>if</code>, loops, <code>apply</code>). Functions and packages.
 Data input/output (CSV, Excel, XML, JSON).</p>
@@ -38,7 +54,7 @@ Data input/output (CSV, Excel, XML, JSON).</p>
 <p>You know Python from Course 3. This unit is mostly <strong>translation</strong> — the
 concepts transfer, the syntax does not. The notes flag every place R behaves
 differently, because those are exactly the places you will make mistakes.</p>
-<h2>2.1 R and RStudio</h2>
+<h2 id="21-r-and-rstudio">2.1 R and RStudio</h2>
 <p><strong>R</strong> is the language and the interpreter. <strong>RStudio</strong> is the IDE almost
 everyone uses with it.</p>
 <p>RStudio's four panes:</p>
@@ -73,7 +89,7 @@ every variable and its contents at all times, which makes debugging far more
 visual than Python's.</p>
 <p>Run the current line with <strong>Ctrl+Enter</strong>. Run the whole script with
 <strong>Ctrl+Shift+Enter</strong>.</p>
-<h2>2.2 The assignment operator</h2>
+<h2 id="22-the-assignment-operator">2.2 The assignment operator</h2>
 <pre><code class="language-r">x &lt;- 10          # the idiomatic R assignment
 x = 10           # works, but not conventional
 10 -&gt; x          # legal, right-assignment; rarely used
@@ -82,7 +98,7 @@ x &lt;&lt;- 10         # global assignment, inside a function
 <p><strong>Use <code>&lt;-</code>.</strong> <code>=</code> works for assignment but is reserved by convention for
 function arguments, and mixing them is how you write R that other people find
 odd. Alt+− in RStudio types <code>&lt;-</code> for you.</p>
-<h2>2.3 Data types</h2>
+<h2 id="23-data-types">2.3 Data types</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -131,7 +147,7 @@ summary of any object.</p>
 <p><strong>In R, <code>10</code> is a double, not an integer.</strong> Write <code>10L</code> for an integer.
 <code>class(10)</code> returns <code>"numeric"</code>, which surprises everyone once.</p>
 </div>
-<h3>The five data structures</h3>
+<h3 id="the-five-data-structures">The five data structures</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -195,7 +211,7 @@ c(1, 2, 3) + c(10, 20)         # warning: longer object length is not a
 <p>Recycling is powerful and is also a silent bug factory. If you see that warning,
 stop and check your lengths.</p>
 </div>
-<h3>Indexing from 1 — and negative indexing</h3>
+<h3 id="indexing-from-1-and-negative-indexing">Indexing from 1 — and negative indexing</h3>
 <pre><code class="language-r">v &lt;- c(10, 20, 30, 40, 50)
 v[1]        # 10   -- R starts at 1, NOT 0
 v[2:4]      # 20 30 40
@@ -208,7 +224,7 @@ v[c(TRUE, FALSE, TRUE, FALSE, TRUE)]   # 10 30 50
 <li><strong><code>v[-1]</code> removes the first element.</strong> In Python it returns the last one. In
    R there is no negative-from-the-end indexing; use <code>tail(v, 1)</code>.</li>
 </ol>
-<h3>Matrices, lists and data frames</h3>
+<h3 id="matrices-lists-and-data-frames">Matrices, lists and data frames</h3>
 <pre><code class="language-r">m &lt;- matrix(1:6, nrow = 2, ncol = 3)          # fills COLUMN-wise by default
 m &lt;- matrix(1:6, nrow = 2, byrow = TRUE)      # fill row-wise
 m[1, 2]        # row 1, column 2
@@ -235,7 +251,7 @@ nrow(df); ncol(df); str(df); head(df); summary(df)
 <p><strong>Note <code>matrix()</code> fills column-wise by default</strong> — the opposite of C's row-major
 layout from Course 2. <code>byrow = TRUE</code> changes it.</p>
 </div>
-<h3>Missing values</h3>
+<h3 id="missing-values">Missing values</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -272,7 +288,7 @@ sum(is.na(df$col))             # count missing
 yields an unknown result. Use <code>is.na(x)</code>. This is the same trap as SQL's
 <code>= NULL</code> from Course 5 — and for exactly the same reason.</p>
 </div>
-<h3>Factors — categorical data</h3>
+<h3 id="factors-categorical-data">Factors — categorical data</h3>
 <pre><code class="language-r">grades &lt;- factor(c(&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;C&quot;))
 levels(grades)                   # &quot;A&quot; &quot;B&quot; &quot;C&quot;
 table(grades)                    # frequency count
@@ -285,7 +301,7 @@ sizes &lt;- factor(c(&quot;small&quot;, &quot;large&quot;, &quot;medium&quot;),
 modelling — <code>lm()</code> automatically creates dummy variables from a factor.</p>
 <p><strong>The classic bug:</strong> <code>as.numeric(factor)</code> returns the internal <em>codes</em>, not the
 values. <code>as.numeric(as.character(f))</code> is the correct conversion.</p>
-<h2>2.4 Operators</h2>
+<h2 id="24-operators">2.4 Operators</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -329,7 +345,7 @@ R errors if you give <code>&amp;&amp;</code> a vector longer than one — which 
 7 %/% 3                            # 2  -- integer division
 2 ^ 3                              # 8  -- R uses ^, not **
 </code></pre>
-<h2>2.5 Control structures</h2>
+<h2 id="25-control-structures">2.5 Control structures</h2>
 <pre><code class="language-r">if (marks &gt;= 40) {
   print(&quot;Pass&quot;)
 } else if (marks &gt;= 30) {
@@ -351,7 +367,7 @@ repeat { i &lt;- i + 1; if (i &gt; 10) break }
 <p><strong><code>if</code> vs <code>ifelse</code></strong> — a reliable two-mark question. <code>if</code> takes a <strong>single</strong>
 condition and controls flow. <code>ifelse</code> is <strong>vectorised</strong> and returns a vector the
 same length as its input. Passing a vector to <code>if</code> is an error.</p>
-<h3>The <code>apply</code> family — R's alternative to loops</h3>
+<h3 id="the-apply-family-rs-alternative-to-loops">The <code>apply</code> family — R's alternative to loops</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -407,7 +423,7 @@ tapply(df$marks, df$section, mean)   # mean marks per section
 <p><strong>Remember <code>MARGIN</code>: 1 = rows, 2 = columns.</strong> The mnemonic is that a matrix is
 written <code>[rows, columns]</code>, so 1 is the first position.</p>
 </div>
-<h2>2.6 Functions</h2>
+<h2 id="26-functions">2.6 Functions</h2>
 <pre><code class="language-r">greet &lt;- function(name, greeting = &quot;Hello&quot;) {
   message &lt;- paste(greeting, name)
   return(message)
@@ -436,7 +452,7 @@ greet(greeting = &quot;Hi&quot;, name = &quot;A&quot;) # named arguments, any or
 <pre><code class="language-r">total &lt;- function(...) sum(...)
 total(1, 2, 3)      # 6
 </code></pre>
-<h2>2.7 Packages</h2>
+<h2 id="27-packages">2.7 Packages</h2>
 <pre><code class="language-r">install.packages(&quot;dplyr&quot;)     # once, downloads from CRAN
 library(dplyr)                # every session, loads it
 require(dplyr)                # same but returns FALSE instead of erroring
@@ -450,7 +466,7 @@ so after <code>library(dplyr)</code> a call to <code>filter()</code> may not be 
 <p><strong>Essential packages for this course:</strong> <code>dplyr</code>, <code>tidyr</code>, <code>ggplot2</code>, <code>readr</code>,
 <code>readxl</code>, <code>jsonlite</code>, <code>XML</code>, <code>forecast</code>, <code>plotly</code>, <code>shiny</code>. <code>install.packages("tidyverse")</code>
 gets most of them at once.</p>
-<h2>2.8 Data input and output</h2>
+<h2 id="28-data-input-and-output">2.8 Data input and output</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -510,7 +526,7 @@ write.csv(df, &quot;output.csv&quot;, row.names = FALSE)
 <p><code>readr::read_csv()</code> (with an underscore) is faster than base <code>read.csv()</code>,
 returns a tibble, and never converts strings to factors.</p>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Predict the output:</p>
@@ -582,7 +598,7 @@ students$grade &lt;- ifelse(students$marks &gt;= 90, &quot;A&quot;,
 readable.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is the difference between <code>&lt;-</code> and <code>=</code> in R?</li>
@@ -609,7 +625,7 @@ readable.</p>
 <p>Explain control structures and functions in R with examples.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

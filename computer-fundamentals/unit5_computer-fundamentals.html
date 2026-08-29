@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-conditional-formatting">5.1 Conditional formatting</a></li>
+    <li><a href="#52-pivot-tables">5.2 Pivot tables</a></li>
+    <li><a href="#53-slicers-making-a-dashboard-interactive">5.3 Slicers — making a dashboard interactive</a></li>
+    <li><a href="#54-data-validation">5.4 Data validation</a></li>
+    <li><a href="#55-what-if-analysis">5.5 What-if analysis</a></li>
+    <li><a href="#56-combo-charts-and-sparklines">5.6 Combo charts and sparklines</a></li>
+    <li><a href="#57-building-a-dashboard">5.7 Building a dashboard</a></li>
+    <li><a href="#58-productivity-features">5.8 Productivity features</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 4–5):</strong> Conditional formatting — custom rules, colour scales,
 icon sets, data bars. Data analysis tools — pivot tables and pivot charts, data
 validation (drop-downs, input messages, error alerts), what-if analysis (Goal
@@ -40,7 +55,7 @@ sparklines. Productivity tips — named ranges, freeze panes, split view.</p>
 <p>This unit is where the course stops being about a tool and starts being about
 <strong>analysis</strong>. Pivot tables are genuinely the most valuable thing here — they do
 in four drags what would otherwise take a page of formulas.</p>
-<h2>5.1 Conditional formatting</h2>
+<h2 id="51-conditional-formatting">5.1 Conditional formatting</h2>
 <p><em>(Also briefly in Unit 4 — this is the substantive treatment. Review finding
 </em><em>D9</em><em>.)</em></p>
 <p><strong>Home → Conditional Formatting.</strong></p>
@@ -85,7 +100,7 @@ in four drags what would otherwise take a page of formulas.</p>
 </tr>
 </tbody>
 </table>
-<h3>Custom rules with a formula</h3>
+<h3 id="custom-rules-with-a-formula">Custom rules with a formula</h3>
 <p>The powerful option. To highlight the <strong>entire row</strong> where column C is below 40:</p>
 <ol>
 <li>Select the whole data range, e.g. <code>A2:F50</code></li>
@@ -102,7 +117,7 @@ in four drags what would otherwise take a page of formulas.</p>
 in the row is tested against column C; the row number <code>2</code> is relative, so each
 row tests its own value. Write <code>$C$2</code> and every row is tested against one cell;
 write <code>C2</code> and each cell tests the column beside it.</p>
-<h3>Other useful formula rules</h3>
+<h3 id="other-useful-formula-rules">Other useful formula rules</h3>
 <pre><code class="language-excel">=COUNTIF($A$2:$A$50, A2)&gt;1        highlight duplicates
 =A2=MAX($A$2:$A$50)               highlight the maximum
 =WEEKDAY(A2,2)&gt;5                  highlight weekend dates
@@ -110,7 +125,7 @@ write <code>C2</code> and each cell tests the column beside it.</p>
 </code></pre>
 <p><strong>Managing rules:</strong> Conditional Formatting → Manage Rules. Rules apply in order,
 and <em>Stop If True</em> prevents later rules from overriding an earlier one.</p>
-<h2>5.2 Pivot tables</h2>
+<h2 id="52-pivot-tables">5.2 Pivot tables</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>What a pivot table is</h4>
@@ -118,7 +133,7 @@ and <em>Stop If True</em> prevents later rules from overriding an earlier one.</
 writing a single formula. Ten thousand sales rows become "total revenue by
 region by month" in four drags.</p>
 </div>
-<h3>The four areas</h3>
+<h3 id="the-four-areas">The four areas</h3>
 <pre><code>        ┌──────────────────────────────────────────┐
         │  FILTERS      (slice the whole table)    │
         ├──────────────┬───────────────────────────┤
@@ -161,7 +176,7 @@ region by month" in four drags.</p>
 </tr>
 </tbody>
 </table>
-<h3>Creating one</h3>
+<h3 id="creating-one">Creating one</h3>
 <ol>
 <li>Click any cell inside your data</li>
 <li><strong>Insert → PivotTable</strong></li>
@@ -170,7 +185,7 @@ region by month" in four drags.</p>
 </ol>
 <p><strong>Your source data must have a header row and no blank rows or columns.</strong> That
 is the commonest reason a pivot table refuses to build or produces odd results.</p>
-<h3>Value settings</h3>
+<h3 id="value-settings">Value settings</h3>
 <p>Click a field in Values → <strong>Value Field Settings</strong>:</p>
 <table class="main-table">
 <thead>
@@ -188,7 +203,7 @@ is the commonest reason a pivot table refuses to build or produces odd results.<
 </table>
 <p><strong>"Show Values As → % of Grand Total"</strong> is the feature most people never
 discover, and it turns raw numbers into shares instantly.</p>
-<h3>Grouping</h3>
+<h3 id="grouping">Grouping</h3>
 <p>Right-click a row label → <strong>Group</strong>:</p>
 <ul>
 <li><strong>Dates</strong> group into days, months, quarters, years</li>
@@ -196,15 +211,15 @@ discover, and it turns raw numbers into shares instantly.</p>
 </ul>
 <p>Grouping dates by month and year is how you turn a list of transactions into a
 monthly trend.</p>
-<h3>Refreshing</h3>
+<h3 id="refreshing">Refreshing</h3>
 <p>A pivot table is a <strong>snapshot</strong>. Changing the source data does not update it
 until you press <strong>Refresh</strong> (Alt+F5), or <strong>Refresh All</strong> (Ctrl+Alt+F5).</p>
 <p>Forgetting this is how people present stale numbers. If a pivot disagrees with
 the source, refresh before assuming anything is broken.</p>
-<h3>Pivot charts</h3>
+<h3 id="pivot-charts">Pivot charts</h3>
 <p><strong>Insert → PivotChart</strong>, or select the pivot and Insert → Chart. It stays linked
 to the pivot table, so filtering the pivot updates the chart.</p>
-<h2>5.3 Slicers — making a dashboard interactive</h2>
+<h2 id="53-slicers-making-a-dashboard-interactive">5.3 Slicers — making a dashboard interactive</h2>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>slicer</strong> is a set of clickable buttons that filters a pivot table.</p>
@@ -222,11 +237,11 @@ pivot it should drive.</p>
 <strong>dashboard</strong>: click "South" once and every chart on the page updates together.</p>
 <p><strong>Timeline slicers</strong> (Insert → Timeline) do the same for dates, with a
 drag-to-select range.</p>
-<h2>5.4 Data validation</h2>
+<h2 id="54-data-validation">5.4 Data validation</h2>
 <p><strong>Data → Data Validation</strong> restricts what may be entered into a cell. It is the
 difference between a spreadsheet that collects clean data and one that collects
 whatever people happen to type.</p>
-<h3>The three tabs</h3>
+<h3 id="the-three-tabs">The three tabs</h3>
 <p>Every validation rule has three parts, and the syllabus names all three:</p>
 <table class="main-table">
 <thead>
@@ -250,7 +265,7 @@ whatever people happen to type.</p>
 </tr>
 </tbody>
 </table>
-<h3>Validation criteria</h3>
+<h3 id="validation-criteria">Validation criteria</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -297,7 +312,7 @@ whatever people happen to type.</p>
 </tr>
 </tbody>
 </table>
-<h3>Creating a dropdown list</h3>
+<h3 id="creating-a-dropdown-list">Creating a dropdown list</h3>
 <ol>
 <li>Select the cells</li>
 <li><strong>Data → Data Validation → Settings</strong></li>
@@ -313,7 +328,7 @@ whatever people happen to type.</p>
 <p><strong>Putting the source list on another sheet</strong> keeps the form clean. Name the
 range (see §5.8) and use the name as the source — a named range works across
 sheets where a raw reference sometimes will not.</p>
-<h3>Error alert styles</h3>
+<h3 id="error-alert-styles">Error alert styles</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -338,7 +353,7 @@ sheets where a raw reference sometimes will not.</p>
 </table>
 <p><strong>Choose Stop for data that must be clean</strong> — a roll number, a course code.
 Choose Warning where an unusual value might still be legitimate.</p>
-<h3>Finding what slipped through</h3>
+<h3 id="finding-what-slipped-through">Finding what slipped through</h3>
 <p>Validation applies to what is typed <em>after</em> the rule is set. Values already in
 the cells, or pasted in, are not checked.</p>
 <p><strong>Data → Data Validation → Circle Invalid Data</strong> draws a red ring around every
@@ -347,9 +362,9 @@ cell that breaks its rule — the way to audit an existing sheet.</p>
 overwrites the rule along with the value. Protect the sheet if that matters.</p>
 <p>Lab experiment 12 requires a student registration form using dropdowns, input
 messages and error alerts together.</p>
-<h2>5.5 What-if analysis</h2>
+<h2 id="55-what-if-analysis">5.5 What-if analysis</h2>
 <p>Three tools that run the calculation <strong>backwards</strong> or across scenarios.</p>
-<h3>Goal Seek</h3>
+<h3 id="goal-seek">Goal Seek</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>"I know the answer I want. What input produces it?"</p>
@@ -385,7 +400,7 @@ income required.</p>
 <p><strong>Limitations:</strong> one input, one target, and the changing cell must contain a
 <strong>value</strong>, not a formula.</p>
 </div>
-<h3>Scenario Manager</h3>
+<h3 id="scenario-manager">Scenario Manager</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>"Compare several complete sets of assumptions."</p>
@@ -399,7 +414,7 @@ produce a side-by-side <strong>Summary</strong> report.</p>
 <p>Best case: sales +20%, costs −5%. Worst case: sales −15%, costs +10%.
 One click switches the whole model between them.</p>
 </div>
-<h3>Data tables</h3>
+<h3 id="data-tables">Data tables</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>"Show the result for many input values at once."</p>
@@ -415,7 +430,7 @@ One click switches the whole model between them.</p>
 </ol>
 <p><strong>Two-variable data table:</strong> inputs down a column <em>and</em> across a row, with the
 formula in the top-left corner of the block. Fill in both input cells.</p>
-<h3>Which tool?</h3>
+<h3 id="which-tool">Which tool?</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -442,8 +457,8 @@ formula in the top-left corner of the block. Fill in both input cells.</p>
 </tr>
 </tbody>
 </table>
-<h2>5.6 Combo charts and sparklines</h2>
-<h3>Combo charts</h3>
+<h2 id="56-combo-charts-and-sparklines">5.6 Combo charts and sparklines</h2>
+<h3 id="combo-charts">Combo charts</h3>
 <p>Two data series with <strong>different scales</strong> on one chart — revenue in rupees and
 growth in percent, say.</p>
 <ol>
@@ -453,7 +468,7 @@ growth in percent, say.</p>
 </ol>
 <p><strong>Without a secondary axis</strong> the percentage line lies flat against the rupee
 scale and is invisible. This is exactly what the secondary axis exists for.</p>
-<h3>Sparklines</h3>
+<h3 id="sparklines">Sparklines</h3>
 <p>A tiny chart <strong>inside a single cell</strong>, showing a trend beside the numbers.</p>
 <p><strong>Insert → Sparklines →</strong> Line, Column or Win/Loss.</p>
 <table class="main-table">
@@ -481,10 +496,10 @@ scale and is invisible. This is exactly what the secondary axis exists for.</p>
 <p>Highlight the high and low points via <strong>Sparkline → Show → High Point / Low
 Point</strong>. Sparklines are ideal in a dashboard summary table: one row per product,
 with a trend line beside the totals.</p>
-<h2>5.7 Building a dashboard</h2>
+<h2 id="57-building-a-dashboard">5.7 Building a dashboard</h2>
 <p>A <strong>dashboard</strong> presents the key numbers on one screen, updating as the viewer
 filters.</p>
-<h3>Structure</h3>
+<h3 id="structure">Structure</h3>
 <pre><code>┌────────────────────────────────────────────────────────┐
 │  TITLE                              [Slicer] [Slicer]  │
 ├──────────────┬──────────────┬──────────────┬───────────┤
@@ -497,7 +512,7 @@ filters.</p>
 │      Summary table with sparklines                     │
 └────────────────────────────────────────────────────────┘
 </code></pre>
-<h3>How to build one</h3>
+<h3 id="how-to-build-one">How to build one</h3>
 <ol>
 <li><strong>Keep raw data on its own sheet</strong> — never build on top of it</li>
 <li><strong>Build the pivot tables</strong> on a second, hidden sheet</li>
@@ -512,7 +527,7 @@ filters.</p>
 <p><strong>Protect the sheet</strong> so viewers can filter but not break it</p>
 </li>
 </ol>
-<h3>Design principles</h3>
+<h3 id="design-principles">Design principles</h3>
 <ol>
 <li><strong>The most important number, largest and top-left</strong> — that is where eyes go</li>
 <li><strong>Five to seven elements maximum</strong> — more becomes noise</li>
@@ -526,8 +541,8 @@ filters.</p>
 <p><strong>One screen</strong> — a dashboard that needs scrolling is a report</p>
 </li>
 </ol>
-<h2>5.8 Productivity features</h2>
-<h3>Named ranges</h3>
+<h2 id="58-productivity-features">5.8 Productivity features</h2>
+<h3 id="named-ranges">Named ranges</h3>
 <p>Give a range a name and use it in formulas.</p>
 <p><strong>Creating one:</strong> select the range → type a name in the Name Box → Enter. Or
 <strong>Formulas → Define Name</strong>.</p>
@@ -540,7 +555,7 @@ default, so no <code>$</code> needed; and the name works from any sheet in the w
 <p><strong>Rules:</strong> no spaces, cannot start with a digit, cannot look like a cell
 reference (<code>A1</code> is not allowed as a name).</p>
 <p><strong>Formulas → Name Manager</strong> edits and deletes them.</p>
-<h3>Freeze panes</h3>
+<h3 id="freeze-panes">Freeze panes</h3>
 <p>Keep headers visible while scrolling. <strong>View → Freeze Panes:</strong></p>
 <table class="main-table">
 <thead>
@@ -566,11 +581,11 @@ reference (<code>A1</code> is not allowed as a name).</p>
 </table>
 <p><strong>To freeze both row 1 and column A, select cell B2 first</strong>, then Freeze Panes.
 The rule is that everything above and to the left of the selection freezes.</p>
-<h3>Split view</h3>
+<h3 id="split-view">Split view</h3>
 <p><strong>View → Split</strong> divides the window into independently scrollable panes, so you
 can compare row 5 with row 5000 side by side. Unlike freeze panes, both panes
 scroll.</p>
-<h3>Other useful features</h3>
+<h3 id="other-useful-features">Other useful features</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -621,7 +636,7 @@ scroll.</p>
 automatically as you add rows, formulas use readable names like
 <code>Sales[Revenue]</code>, and any pivot table built on it expands with the data.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is a pivot table?</li>
@@ -649,7 +664,7 @@ automatically as you add rows, formulas use readable names like
    charts, slicers, sparklines and layout.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

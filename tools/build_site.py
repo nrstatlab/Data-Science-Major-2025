@@ -936,6 +936,130 @@ TOP_PAGES = [
 # Markdown -> HTML
 # --------------------------------------------------------------------------
 
+QUESTION_RE = re.compile(
+    r"^###\s+(?:(?:Q|Problem\s+)?\d+[.)]?|Q\d+)\b.*$|^###\s+.*\?\s*$")
+# the short-answer sections write questions as a wholly bold numbered
+# paragraph -- '**3. Define a primary key.**' -- rather than as a heading
+BOLD_QUESTION_RE = re.compile(r"^\*\*\d+\.\s.+\*\*\s*$")
+SOLUTION_RE = re.compile(r"^\*\*(Solution|Answer)\b[^*]*\*\*[.:]?\s*$", re.I)
+
+
+def collapse_practice_answers(md_text):
+    """On a practice page, hide each answer behind a 'Show answer' toggle.
+
+    A practice question whose answer sits directly beneath it is not practice
+    -- the eye reaches the answer before the student has tried anything. Three
+    of the nineteen courses wrote their solutions inside <details> by hand;
+    this gives the other sixteen the same behaviour without touching the
+    markdown, so the files stay readable on GitHub.
+
+    Two source shapes are handled:
+      * '### 3. Distinguish slice from dice.' followed straight by the answer
+      * '### Problem 1 — ...', the question, then '**Solution.**'
+    In the second, the question stays visible and only the solution folds.
+    """
+    # the three courses that wrote <details> by hand need the same attribute,
+    # or their answers render as raw markdown too
+    md_text = re.sub(r"<details(?![^>]*markdown=)", '<details markdown="1"',
+                     md_text)
+    lines = md_text.split("\n")
+    out, i = [], 0
+    while i < len(lines):
+        line = lines[i]
+        bold_q = BOLD_QUESTION_RE.match(line.strip())
+        if not (QUESTION_RE.match(line) or bold_q):
+            out.append(line)
+            i += 1
+            continue
+
+        out.append(line)
+        i += 1
+        block = []
+        while i < len(lines):
+            nxt = lines[i]
+            if nxt.startswith(("## ", "### ")):
+                break
+            if bold_q and BOLD_QUESTION_RE.match(nxt.strip()):
+                break
+            block.append(nxt)
+            i += 1
+
+        # already collapsed by hand, or nothing to collapse
+        if any("<details" in b for b in block) or not any(b.strip() for b in block):
+            out.extend(block)
+            continue
+
+        split = next((n for n, b in enumerate(block) if SOLUTION_RE.match(b.strip())),
+                     None)
+        if split is None:
+            question, answer = [], block
+        else:
+            question, answer = block[:split], block[split + 1:]
+
+        out.extend(question)
+        if question and question[-1].strip():
+            out.append("")
+        # markdown="1" is what makes the md_in_html extension render the
+        # markdown INSIDE the element. Without it the answer is emitted
+        # verbatim and the reader sees raw pipes and asterisks.
+        out.append('<details markdown="1">')
+        out.append("<summary>Show answer</summary>")
+        out.append("")
+        out.extend(answer)
+        out.append("")
+        out.append("</details>")
+        out.append("")
+    return "\n".join(out)
+
+
+def add_anchors_and_toc(body_html, min_sections=4):
+    """Give every h2/h3 an id, and prepend an 'On this page' contents list.
+
+    A unit page runs to two and a half thousand words with fifteen sections
+    and, until now, one id on the whole document. A student could not see the
+    shape of the page, could not jump to the part they were stuck on, and
+    could not link a classmate to it. Both problems are the same missing
+    attribute.
+
+    The contents list is a <details>, closed by default, so it costs one line
+    of vertical space on a phone and expands to the full map on a laptop.
+    """
+    used = {}
+
+    def slug(text):
+        base = re.sub(r"<[^>]+>", "", text)
+        base = html.unescape(base)
+        base = re.sub(r"[^\w\s-]", "", base).strip().lower()
+        base = re.sub(r"[\s_]+", "-", base) or "section"
+        used[base] = used.get(base, 0) + 1
+        return base if used[base] == 1 else f"{base}-{used[base]}"
+
+    sections = []
+
+    def tag(m):
+        level, attrs, text = m.group(1), m.group(2) or "", m.group(3)
+        if "id=" in attrs:
+            return m.group(0)
+        anchor = slug(text)
+        if level == "2":
+            sections.append((anchor, re.sub(r"<[^>]+>", "", text)))
+        return f'<h{level}{attrs} id="{anchor}">{text}</h{level}>'
+
+    body_html = re.sub(r"<h([23])([^>]*)>(.*?)</h\1>", tag, body_html,
+                       flags=re.S)
+
+    if len(sections) < min_sections:
+        return body_html
+
+    items = "\n".join(
+        f'    <li><a href="#{a}">{html.escape(t)}</a></li>' for a, t in sections)
+    toc = ('<details class="toc">\n'
+           '  <summary>On this page</summary>\n'
+           f'  <ol>\n{items}\n  </ol>\n'
+           '</details>\n')
+    return toc + body_html
+
+
 def render_markdown(text):
     """Convert Markdown to HTML with the extensions the notes rely on."""
     md = markdown.Markdown(extensions=[
@@ -1016,7 +1140,7 @@ HEADING = re.compile(r'^(#{2,6})\s')
 # marker headings, which is what makes this reliable rather than guesswork.
 SECTION_BOXES = [
     (re.compile(r'^###\s*🎯\s*(.*)$'),  "concept", "THE BIG IDEA"),
-    (re.compile(r'^###\s*📖\s*(.*)$'),  "tip",     "STORY"),
+    (re.compile(r'^###\s*📖\s*(.*)$'),  "tip",     "IN DEPTH"),
     (re.compile(r'^###\s*🔢\s*(.*)$'),  "formula", "FORMULA"),
     (re.compile(r'^###\s*💡\s*(.*)$'),  "tip",     "KEY INSIGHT"),
 ]
@@ -1219,8 +1343,13 @@ def promote_markdown_boxes(md_text):
                 block.append(re.sub(r'^>\s?', '', lines[i]))
                 i += 1
             text = "\n".join(block).strip()
-            if "⚠" in text or "examined but" in text.lower():
+            if "examined but" in text.lower():
                 cls, label = "warn", "EXAMINED BUT NOT IN THE SYLLABUS"
+            elif "⚠" in text:
+                # ⚠ marks a trap or a common mistake, which is almost never a
+                # syllabus gap -- labelling all of them as one told students
+                # that correct, examinable material was off-syllabus
+                cls, label = "warn", "WATCH OUT"
             elif _is_formula_quote(text):
                 cls, label = "formula", "FORMULA"
             else:
@@ -1345,7 +1474,8 @@ def build_course(course, link_map):
         unit_title, unit_desc = course["units"][idx - 1]
 
         body_md = rewrite_links(body_md, link_map, src, out_dir)
-        body = promote_boxes(render_markdown(promote_markdown_boxes(body_md)))
+        body = add_anchors_and_toc(
+            promote_boxes(render_markdown(promote_markdown_boxes(body_md))))
 
         nav = [("← Course home", f"index_{slug}.html")]
         if idx > 1:
@@ -1384,7 +1514,10 @@ def build_course(course, link_map):
         raw = md_path.read_text()
         heading, body_md = strip_first_heading(raw)
         body_md = rewrite_links(body_md, link_map, src, out_dir)
-        body = promote_boxes(render_markdown(promote_markdown_boxes(body_md)))
+        if fname == "practice.md":
+            body_md = collapse_practice_answers(body_md)
+        body = add_anchors_and_toc(
+            promote_boxes(render_markdown(promote_markdown_boxes(body_md))))
 
         out = out_dir / f"{out_slug}_{slug}.html"
         out.write_text(page(

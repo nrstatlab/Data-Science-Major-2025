@@ -32,12 +32,32 @@
     <span class="chip">Bayesian classifiers</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-what-classification-is">4.1 What classification is</a></li>
+    <li><a href="#42-decision-trees">4.2 Decision trees</a></li>
+    <li><a href="#43-tree-construction-and-the-best-split">4.3 Tree construction and the best split</a></li>
+    <li><a href="#44-splitting-indices">4.4 Splitting indices</a></li>
+    <li><a href="#45-id3">4.5 ID3</a></li>
+    <li><a href="#46-c45">4.6 C4.5</a></li>
+    <li><a href="#47-cart">4.7 CART</a></li>
+    <li><a href="#48-overfitting-and-pruning">4.8 Overfitting and pruning</a></li>
+    <li><a href="#49-comparing-classifiers">4.9 Comparing classifiers</a></li>
+    <li><a href="#410-rule-based-classifiers">4.10 Rule-based classifiers</a></li>
+    <li><a href="#411-nearest-neighbour-classifiers">4.11 Nearest neighbour classifiers</a></li>
+    <li><a href="#412-bayesian-classifiers">4.12 Bayesian classifiers</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 12):</strong> Definition, What is a Decision Tree?, Tree Construction
 Principle, Best Split, Splitting Indices, Splitting Criteria, Decision Tree
 Construction Algorithms: CART, ID3, C4.5, Method for Comparing Classifiers,
 Rule Based Classifiers, Nearest Neighbor Classifiers, Bayesian Classifiers.</p>
 <hr />
-<h2>4.1 What classification is</h2>
+<h2 id="41-what-classification-is">4.1 What classification is</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Classification learns a function from <strong>labelled examples</strong> that assigns new,
@@ -87,7 +107,7 @@ answer. That is the whole difference from clustering, where no answer exists.</p
 </tbody>
 </table>
 </div>
-<h3>The two phases</h3>
+<h3 id="the-two-phases">The two phases</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -106,12 +126,12 @@ answer. That is the whole difference from clustering, where no answer exists.</p
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Never measure accuracy on the training set</h3>
+<h3 id="never-measure-accuracy-on-the-training-set">⚠️ Never measure accuracy on the training set</h3>
 <p>A model that memorises its training data scores 100% on it and may be useless.
 Accuracy quoted on data the model has seen is meaningless — this is the single
 most common mistake in applied classification, and §4.9 explains how to
 measure honestly.</p>
-<h2>4.2 Decision trees</h2>
+<h2 id="42-decision-trees">4.2 Decision trees</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>A decision tree is a flowchart: each <strong>internal node</strong> tests one attribute,
@@ -165,8 +185,8 @@ high → <strong>No</strong>.</p>
 </tbody>
 </table>
 </div>
-<h2>4.3 Tree construction and the best split</h2>
-<h3>The generic algorithm — Hunt's algorithm</h3>
+<h2 id="43-tree-construction-and-the-best-split">4.3 Tree construction and the best split</h2>
+<h3 id="the-generic-algorithm-hunts-algorithm">The generic algorithm — Hunt's algorithm</h3>
 <pre><code>buildTree(D, attributes):
     if all records in D have the same class C:  return leaf(C)
     if attributes is empty or D is too small:   return leaf(majority class of D)
@@ -189,7 +209,7 @@ optimal tree is NP-complete, which is why greedy is used.</p>
 records share one class; a split is good in proportion to how much purity it
 buys. The three ways to quantify impurity are the three splitting indices.</p>
 </div>
-<h2>4.4 Splitting indices</h2>
+<h2 id="44-splitting-indices">4.4 Splitting indices</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Entropy</h4>
@@ -342,7 +362,7 @@ default; entropy is ID3's and C4.5's.</p>
 the two are not directly comparable in magnitude — only in which attribute
 they rank first.</p>
 </div>
-<h2>4.5 ID3</h2>
+<h2 id="45-id3">4.5 ID3</h2>
 <p><strong>Iterative Dichotomiser 3</strong>, Ross Quinlan, 1986.</p>
 <table class="main-table">
 <thead>
@@ -680,7 +700,7 @@ entropy 0.9710):</p>
 <strong>Note that Temperature never appears</strong> — ID3 found it uninformative and
 dropped it entirely, which is feature selection happening for free.</p>
 </div>
-<h3>⚠️ ID3's bias toward many-valued attributes</h3>
+<h3 id="id3s-bias-toward-many-valued-attributes">⚠️ ID3's bias toward many-valued attributes</h3>
 <p>Add a <code>Day</code> column with 14 distinct values. Splitting on it gives 14 branches
 of one record each, all pure, so:</p>
 <pre><code>Gain(Day) = 0.9403 − 0 = 0.9403
@@ -690,7 +710,7 @@ generalises to nothing. Information gain systematically favours attributes with
 many values, because more branches means smaller, purer subsets <em>by
 arithmetic</em>, not by informativeness.</p>
 <p>This flaw is exactly what C4.5 fixes.</p>
-<h2>4.6 C4.5</h2>
+<h2 id="46-c45">4.6 C4.5</h2>
 <p>Quinlan's 1993 successor to ID3, and the most influential decision-tree
 algorithm ever written.</p>
 <div class="formula">
@@ -761,7 +781,7 @@ pruning and on identifier columns being removed as part of preprocessing.</p>
 <p>Outlook still wins, but only just — Humidity's SplitInfo of exactly 1.0 (two
 equal branches of 7) barely penalises it.</p>
 </div>
-<h3>C4.5's other improvements over ID3</h3>
+<h3 id="c45s-other-improvements-over-id3">C4.5's other improvements over ID3</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -807,7 +827,7 @@ sent down <strong>all</strong> branches, weighted by each branch's proportion �
 "fractional instance". Its class contribution is split accordingly.</p>
 <p><strong>C5.0</strong> is the commercial successor: faster, less memory, boosting, and
 misclassification costs.</p>
-<h2>4.7 CART</h2>
+<h2 id="47-cart">4.7 CART</h2>
 <p><strong>Classification And Regression Trees</strong>, Breiman, Friedman, Olshen and Stone,
 1984 — developed independently of Quinlan's line and equally influential.</p>
 <table class="main-table">
@@ -952,8 +972,8 @@ usual outcome.</p>
 </tbody>
 </table>
 </div>
-<h2>4.8 Overfitting and pruning</h2>
-<h3>⚠️ Overfitting</h3>
+<h2 id="48-overfitting-and-pruning">4.8 Overfitting and pruning</h2>
+<h3 id="overfitting">⚠️ Overfitting</h3>
 <p>A tree grown until every leaf is pure has memorised its training data,
 including its noise. Training accuracy rises to 100% while <strong>test accuracy
 falls</strong> — the model has learned the sample, not the population.</p>
@@ -969,7 +989,7 @@ falls</strong> — the model has learned the sample, not the population.</p>
    best size — stop here
 </code></pre>
 <p>The gap between the curves <em>is</em> the overfitting.</p>
-<h3>Pre-pruning versus post-pruning</h3>
+<h3 id="pre-pruning-versus-post-pruning">Pre-pruning versus post-pruning</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1012,7 +1032,7 @@ falls</strong> — the model has learned the sample, not the population.</p>
 worthless on its own while enabling an excellent split at the next level. Stop
 early and you never find out.</p>
 </div>
-<h3>Post-pruning methods</h3>
+<h3 id="post-pruning-methods">Post-pruning methods</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1042,7 +1062,7 @@ early and you never find out.</p>
 <p>Cost-complexity pruning's <code>α</code> is the price charged per leaf: α = 0 keeps the
 full tree, and large α collapses it to the root. Cross-validation picks the α
 that generalises best.</p>
-<h2>4.9 Comparing classifiers</h2>
+<h2 id="49-comparing-classifiers">4.9 Comparing classifiers</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The confusion matrix</h4>
@@ -1086,7 +1106,7 @@ FPR         = FP / (FP + TN) = 1 − Specificity
 precision 1.0 with recall 0.0 gives an arithmetic mean of 0.5 but an F1 of
 <strong>0</strong>. The harmonic mean punishes imbalance, which is exactly what you want.</p>
 </div>
-<h3>⚠️ The accuracy paradox</h3>
+<h3 id="the-accuracy-paradox">⚠️ The accuracy paradox</h3>
 <p>99% of transactions are legitimate. A classifier that predicts "legitimate"
 for <strong>everything</strong> achieves <strong>99% accuracy</strong> and catches no fraud at all.</p>
 <pre><code>              Pred Fraud    Pred Legit
@@ -1193,7 +1213,7 @@ sent to the spam folder is a real email</strong>. For a spam filter, that FP rat
 the serious problem — losing a genuine email costs far more than seeing a spam.
 The threshold should be raised to favour precision.</p>
 </div>
-<h3>ROC and AUC</h3>
+<h3 id="roc-and-auc">ROC and AUC</h3>
 <p>The <strong>ROC curve</strong> plots TPR (recall) against FPR as the decision threshold
 sweeps from 1 to 0.</p>
 <pre><code>TPR
@@ -1245,7 +1265,7 @@ positive is ranked above a randomly chosen negative.</p>
 classifier <em>ranks</em>, separately from where you choose to cut. On heavily
 imbalanced data, the <strong>precision–recall curve</strong> is more informative than ROC,
 because a large TN count flatters the FPR.</p>
-<h3>Estimating accuracy honestly</h3>
+<h3 id="estimating-accuracy-honestly">Estimating accuracy honestly</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1290,7 +1310,7 @@ because a large TN count flatters the FPR.</p>
 <p>The bootstrap's 0.632 comes from the limit: the probability a given record is
 <em>never</em> chosen in n draws with replacement is (1 − 1/n)ⁿ → 1/e ≈ 0.368, so
 about 63.2% of records appear in each bootstrap sample.</p>
-<h3>Comparing two classifiers</h3>
+<h3 id="comparing-two-classifiers">Comparing two classifiers</h3>
 <p>Do not simply compare two accuracy numbers. Use <strong>paired k-fold
 cross-validation</strong> and a <strong>paired t-test</strong> (Course 4, Unit 5) on the per-fold
 differences, or McNemar's test on the disagreements. A 2% difference on one
@@ -1332,7 +1352,7 @@ One tree changes completely if a few records change; 500 trees voting do not.
 The cost is exactly what made trees attractive — you can no longer read the
 model.</p>
 </div>
-<h2>4.10 Rule-based classifiers</h2>
+<h2 id="410-rule-based-classifiers">4.10 Rule-based classifiers</h2>
 <p>A model as a set of <code>IF condition THEN class</code> rules.</p>
 <pre><code>R1: IF Outlook = Overcast                      THEN Play = Yes
 R2: IF Outlook = Sunny AND Humidity = Normal   THEN Play = Yes
@@ -1344,11 +1364,11 @@ R5: IF Outlook = Rain AND Wind = Strong        THEN Play = No
 Any decision tree converts to rules mechanically — which is what C4.5rules
 does, then simplifies each rule independently, often producing something
 smaller and clearer than the tree.</p>
-<h3>Rule quality</h3>
+<h3 id="rule-quality">Rule quality</h3>
 <pre><code>Coverage(R) = |records satisfying the antecedent| / |D|
 Accuracy(R) = |records satisfying antecedent AND consequent| / |records satisfying antecedent|
 </code></pre>
-<h3>⚠️ Mutually exclusive and exhaustive</h3>
+<h3 id="mutually-exclusive-and-exhaustive">⚠️ Mutually exclusive and exhaustive</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1375,7 +1395,7 @@ partition the space. Rules learned directly are usually neither, so:</p>
 <p><strong>Conflict resolution:</strong> <em>size ordering</em> (the most specific rule wins),
 <em>rule ordering</em> (a fixed priority list — a <strong>decision list</strong>), or <em>class-based
 ordering</em> (group by class).</p>
-<h3>Direct rule induction</h3>
+<h3 id="direct-rule-induction">Direct rule induction</h3>
 <p><strong>Sequential covering</strong> — RIPPER, CN2, PART:</p>
 <pre><code>rules = []
 for each class c (rarest first):
@@ -1430,7 +1450,7 @@ best leaf as a rule, discards the rest, and repeats — combining both approache
 <code>(A AND B) OR (C AND D)</code> forces a tree to duplicate the same subtree in several
 branches, while two rules express it directly.</p>
 </div>
-<h2>4.11 Nearest neighbour classifiers</h2>
+<h2 id="411-nearest-neighbour-classifiers">4.11 Nearest neighbour classifiers</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Do not build a model at all.</strong> Store the training data; to classify a new
@@ -1473,7 +1493,7 @@ record, find the k most similar stored records and take a majority vote.</p>
 </tbody>
 </table>
 </div>
-<h3>The algorithm</h3>
+<h3 id="the-algorithm">The algorithm</h3>
 <pre><code>1. Choose k and a distance measure.
 2. Compute the distance from the query to EVERY training record.
 3. Take the k nearest.
@@ -1548,7 +1568,7 @@ Large)</strong>.</p>
 P5, P2, P1 → Large 2, Small 3 → <strong>Small</strong>. <strong>The answer changes with k</strong>, which
 is why k must be chosen by cross-validation and not by guesswork.</p>
 </div>
-<h3>⚠️ Three things that break k-NN</h3>
+<h3 id="three-things-that-break-k-nn">⚠️ Three things that break k-NN</h3>
 <p><strong>1. Unscaled features.</strong> Height in cm (range ~20) and income in rupees (range
 ~100,000) — income dominates every distance completely and height contributes
 nothing. <strong>k-NN requires normalisation</strong>, unlike decision trees.</p>
@@ -1580,7 +1600,7 @@ an <strong>odd</strong> k for two classes to avoid ties.</p>
 <p><strong>3. The curse of dimensionality.</strong> In high dimensions all points become nearly
 equidistant, so "nearest" stops meaning anything (Unit 2, §2.7). k-NN degrades
 badly beyond a few dozen dimensions.</p>
-<h3>Variants</h3>
+<h3 id="variants">Variants</h3>
 <ul>
 <li>
 <p><strong>Distance-weighted voting</strong> — weight each neighbour by 1/d², so closer
@@ -1594,7 +1614,7 @@ badly beyond a few dozen dimensions.</p>
 <p><strong>Condensed nearest neighbour</strong> — keep only the records near the boundary.</p>
 </li>
 </ul>
-<h2>4.12 Bayesian classifiers</h2>
+<h2 id="412-bayesian-classifiers">4.12 Bayesian classifiers</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Bayes' theorem</h4>
@@ -1711,7 +1731,7 @@ P(No  | X) = 0.020571 / 0.025862 = 0.7954   (79.5%)
 P(Yes | X) = 0.005291 / 0.025862 = 0.2046   (20.5%)
 </code></pre>
 </div>
-<h3>⚠️ The zero-frequency problem, and Laplace smoothing</h3>
+<h3 id="the-zero-frequency-problem-and-laplace-smoothing">⚠️ The zero-frequency problem, and Laplace smoothing</h3>
 <p>If any single conditional probability is zero, the <strong>whole product is zero</strong>,
 regardless of how strongly every other attribute votes. One unseen value
 vetoes the entire class.</p>
@@ -1740,7 +1760,7 @@ to zero in floating point. Every real implementation sums logarithms instead:</p
 </code></pre>
 <p>The argmax is unchanged because log is monotonic, and the arithmetic is stable.</p>
 </div>
-<h3>Variants and the comparison</h3>
+<h3 id="variants-and-the-comparison">Variants and the comparison</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1805,7 +1825,7 @@ and to compute.</p>
 </tbody>
 </table>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>For this dataset, compute the entropy of the whole set and the information gain
@@ -2179,7 +2199,7 @@ overconfidence from small counts, and it is precisely what keeps a single
 zero-count value from vetoing a class entirely.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define classification.</li>
@@ -2224,7 +2244,7 @@ zero-count value from vetoing a class entirely.</p>
    principle, strengths, weaknesses and appropriate use.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

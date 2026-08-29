@@ -32,6 +32,24 @@
     <span class="chip">Exam questions from this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-a-note-on-the-overlap-with-course-8">5.1 A note on the overlap with Course 8</a></li>
+    <li><a href="#52-unsupervised-versus-supervised-learning">5.2 Unsupervised versus supervised learning</a></li>
+    <li><a href="#53-applications-of-unsupervised-learning">5.3 Applications of unsupervised learning</a></li>
+    <li><a href="#54-clustering-and-its-types">5.4 Clustering and its types</a></li>
+    <li><a href="#55-k-means-the-partitioning-method">5.5 K-Means — the partitioning method</a></li>
+    <li><a href="#56-k-medoids-pam">5.6 k-Medoids (PAM)</a></li>
+    <li><a href="#57-hierarchical-clustering">5.7 Hierarchical clustering</a></li>
+    <li><a href="#58-dbscan">5.8 DBSCAN</a></li>
+    <li><a href="#59-evaluating-a-clustering">5.9 Evaluating a clustering</a></li>
+    <li><a href="#510-case-studies">5.10 Case studies</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 9):</strong> Introduction of unsupervised learning; unsupervised vs
 supervised learning; application of unsupervised learning; clustering and its
 types; partitioning method — k-Means and k-Medoids; hierarchical clustering;
@@ -39,7 +57,7 @@ density-based methods — DBSCAN. Case studies of ML applications — image
 recognition, speech recognition, email spam filtering, online fraud detection
 and other.</p>
 <hr />
-<h2>5.1 A note on the overlap with Course 8</h2>
+<h2 id="51-a-note-on-the-overlap-with-course-8">5.1 A note on the overlap with Course 8</h2>
 <p><strong>Course 8 Unit 5 taught all four of these algorithms</strong>, and traced K-Means to
 convergence by hand.</p>
 <table class="main-table">
@@ -76,7 +94,7 @@ convergence by hand.</p>
 <p><strong>What is genuinely new is evaluation</strong> — how you judge a clustering when there
 is no correct answer. That is §5.7, and it is the hardest idea in the unit.</p>
 <hr />
-<h2>5.2 Unsupervised versus supervised learning</h2>
+<h2 id="52-unsupervised-versus-supervised-learning">5.2 Unsupervised versus supervised learning</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -118,7 +136,7 @@ is no correct answer. That is §5.7, and it is the hardest idea in the unit.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The defining difficulty</h3>
+<h3 id="the-defining-difficulty">⚠️ The defining difficulty</h3>
 <p><strong>A clustering algorithm always returns clusters.</strong> Ask K-Means for four groups
 in pure random noise and it will give you four, with centroids, sizes and a
 tidy plot. Nothing in the output says "there was no structure here."</p>
@@ -161,7 +179,7 @@ is the ten-mark question in this unit.</p>
 SVM, or simply "the small clusters and the noise points".</p>
 </div>
 <hr />
-<h2>5.3 Applications of unsupervised learning</h2>
+<h2 id="53-applications-of-unsupervised-learning">5.3 Applications of unsupervised learning</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -214,7 +232,7 @@ SVM, or simply "the small clusters and the noise points".</p>
 </tbody>
 </table>
 <hr />
-<h2>5.4 Clustering and its types</h2>
+<h2 id="54-clustering-and-its-types">5.4 Clustering and its types</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -279,7 +297,7 @@ SVM, or simply "the small clusters and the noise points".</p>
 </tbody>
 </table>
 <hr />
-<h2>5.5 K-Means — the partitioning method</h2>
+<h2 id="55-k-means-the-partitioning-method">5.5 K-Means — the partitioning method</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The algorithm</h4>
@@ -344,7 +362,7 @@ arithmetic check that the data really was standardised.</p>
 <p>The big drops are to k = 2 (−377.6) and k = 3 (−82.5); after that it flattens.
 <strong>The elbow is at k = 2 or 3.</strong></p>
 </div>
-<h3>⚠️ The most instructive result in this unit</h3>
+<h3 id="the-most-instructive-result-in-this-unit">⚠️ The most instructive result in this unit</h3>
 <p><strong>Silhouette says k = 2. The truth is k = 3.</strong></p>
 <p>Iris has three species. Silhouette peaks at <strong>k = 2 (0.5818)</strong> and <em>falls</em> at
 k = 3 (0.4599). The algorithm is not broken and the metric is not broken:
@@ -357,7 +375,7 @@ metric measures <em>geometric tidiness</em>, not <em>correctness</em>. It cannot
 the clusters are supposed to mean. <strong>Never choose k from silhouette alone —
 combine it with the elbow, with domain knowledge, and with whether the clusters
 are actually useful.</strong></p>
-<h3>⚠️ K-Means's weaknesses — Course 8 §5.2 listed five</h3>
+<h3 id="k-meanss-weaknesses-course-8-52-listed-five">⚠️ K-Means's weaknesses — Course 8 §5.2 listed five</h3>
 <ol>
 <li><strong>k must be chosen in advance.</strong></li>
 <li>
@@ -378,7 +396,7 @@ are actually useful.</strong></p>
 <p>Add a sixth worth knowing: <strong>it forces every point into a cluster.</strong> There is
 no "this point belongs to nothing", which is exactly what DBSCAN adds.</p>
 <hr />
-<h2>5.6 k-Medoids (PAM)</h2>
+<h2 id="56-k-medoids-pam">5.6 k-Medoids (PAM)</h2>
 <p><strong>The same idea, but each cluster centre is an actual data point — a medoid —
 rather than a computed mean.</strong></p>
 <table class="main-table">
@@ -430,7 +448,7 @@ rather than a computed mean.</strong></p>
 </ol>
 <p><strong>CLARA</strong> is PAM applied to samples, for large n.</p>
 <hr />
-<h2>5.7 Hierarchical clustering</h2>
+<h2 id="57-hierarchical-clustering">5.7 Hierarchical clustering</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Agglomerative and divisive</h4>
@@ -505,7 +523,7 @@ hierarchical clustering's main advantage.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ The same disagreement again, and it is worth noticing</h3>
+<h3 id="the-same-disagreement-again-and-it-is-worth-noticing">⚠️ The same disagreement again, and it is worth noticing</h3>
 <p><strong>Ward has the best agreement with the truth (ARI 0.6153) and the worst
 silhouette (0.4467). Single linkage is the reverse.</strong></p>
 <p>Once more: an internal metric rewards geometric tidiness, and geometric
@@ -514,7 +532,7 @@ linkage that optimises the same quantity as K-Means — and single linkage
 suffers from <strong>chaining</strong>, where a thread of intermediate points merges two
 genuinely distinct clusters.</p>
 <hr />
-<h2>5.8 DBSCAN</h2>
+<h2 id="58-dbscan">5.8 DBSCAN</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -661,7 +679,7 @@ dataset with both dense and sparse genuine clusters — it will merge the dense
 ones or call the sparse ones noise. <strong>OPTICS</strong> is the fix.</p>
 </div>
 <hr />
-<h2>5.9 Evaluating a clustering</h2>
+<h2 id="59-evaluating-a-clustering">5.9 Evaluating a clustering</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The hard part of unsupervised learning</h4>
@@ -747,7 +765,7 @@ in new data? can a domain expert name them? Say that, and give the two
 numerical examples as evidence — that is a full ten-mark answer.</p>
 </div>
 <hr />
-<h2>5.10 Case studies</h2>
+<h2 id="510-case-studies">5.10 Case studies</h2>
 <p>The syllabus names four, and each illustrates a different difficulty.</p>
 <table class="main-table">
 <thead>
@@ -791,7 +809,7 @@ because fraudsters adapt.</p>
 <p><strong>If you prepare one case study in depth, prepare this one.</strong></p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Distinguish supervised from unsupervised learning. Explain the types of
@@ -940,7 +958,7 @@ the clusters are <strong>actionable</strong>, <strong>stable in new data</strong
 domain expert</strong> — with the internal metrics as evidence, not verdicts.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What does WCSS measure?</li>
@@ -969,7 +987,7 @@ domain expert</strong> — with the internal metrics as evidence, not verdicts.<
    learning decisions it requires.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

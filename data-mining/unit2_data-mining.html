@@ -32,13 +32,34 @@
     <span class="chip">Issues and challenges</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-what-data-mining-is">2.1 What data mining is</a></li>
+    <li><a href="#22-kdd-versus-data-mining">2.2 KDD versus data mining</a></li>
+    <li><a href="#23-data-mining-tasks">2.3 Data mining tasks</a></li>
+    <li><a href="#24-data-preprocessing">2.4 Data preprocessing</a></li>
+    <li><a href="#25-data-cleaning-missing-data">2.5 Data cleaning: missing data</a></li>
+    <li><a href="#26-data-cleaning-noisy-data">2.6 Data cleaning: noisy data</a></li>
+    <li><a href="#27-dimensionality-reduction">2.7 Dimensionality reduction</a></li>
+    <li><a href="#28-feature-subset-selection">2.8 Feature subset selection</a></li>
+    <li><a href="#29-discretization-and-binarization">2.9 Discretization and binarization</a></li>
+    <li><a href="#210-data-transformation">2.10 Data transformation</a></li>
+    <li><a href="#211-measures-of-similarity-and-dissimilarity">2.11 Measures of similarity and dissimilarity</a></li>
+    <li><a href="#212-issues-and-challenges">2.12 Issues and challenges</a></li>
+    <li><a href="#213-applications">2.13 Applications</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 12):</strong> What is Data Mining? Definitions, KDD vs Data Mining,
 Data Mining Tasks, Data Preprocessing — Data Cleaning, Missing Data,
 Dimensionality Reduction, Feature Subset Selection, Discretization and
 Binarization, Data Transformation; Measures of Similarity and Dissimilarity —
 Basics. Issues and Challenges in DM, DM Applications — Case Studies.</p>
 <hr />
-<h2>2.1 What data mining is</h2>
+<h2 id="21-what-data-mining-is">2.1 What data mining is</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Data mining is the <strong>extraction of implicit, previously unknown and
@@ -71,7 +92,7 @@ potentially useful patterns from large volumes of data</strong>.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ What is <em>not</em> data mining</h3>
+<h3 id="what-is-not-data-mining">⚠️ What is <em>not</em> data mining</h3>
 <p>This distinction is examined and students lose marks on it constantly.</p>
 <table class="main-table">
 <thead>
@@ -114,7 +135,7 @@ for exactly that reason. "Data mining" won because it was catchier, and it now
 means both the whole process (in industry) and one step of it (in textbooks).
 Knowing that both usages exist prevents confusion in the exam.</p>
 </div>
-<h2>2.2 KDD versus data mining</h2>
+<h2 id="22-kdd-versus-data-mining">2.2 KDD versus data mining</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The KDD process</h4>
@@ -201,7 +222,7 @@ that mining is <strong>one step</strong>, near the end, and that the process <st
 </tbody>
 </table>
 </div>
-<h2>2.3 Data mining tasks</h2>
+<h2 id="23-data-mining-tasks">2.3 Data mining tasks</h2>
 <p>Two families, and the split is the most important vocabulary in the course.</p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -243,7 +264,7 @@ that mining is <strong>one step</strong>, near the end, and that the process <st
 </tbody>
 </table>
 </div>
-<h3>The tasks</h3>
+<h3 id="the-tasks">The tasks</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -298,7 +319,7 @@ that mining is <strong>one step</strong>, near the end, and that the process <st
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Classification versus clustering</h3>
+<h3 id="classification-versus-clustering">⚠️ Classification versus clustering</h3>
 <p>The exam asks this every year.</p>
 <table class="main-table">
 <thead>
@@ -343,13 +364,13 @@ that mining is <strong>one step</strong>, near the end, and that the process <st
 </table>
 <p><strong>One-sentence version:</strong> classification puts records into boxes you already
 have; clustering works out what the boxes should be.</p>
-<h3>⚠️ Classification versus regression</h3>
+<h3 id="classification-versus-regression">⚠️ Classification versus regression</h3>
 <p>Both are supervised. The difference is <strong>the type of the target</strong>:
 classification predicts a <strong>discrete label</strong> (pass/fail, three species);
 regression predicts a <strong>continuous number</strong> (marks, price, temperature).
 Predicting "the exam mark" is regression; predicting "pass or fail" is
 classification, even though it is the same underlying quantity.</p>
-<h2>2.4 Data preprocessing</h2>
+<h2 id="24-data-preprocessing">2.4 Data preprocessing</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Why it is 60% of the work</h4>
@@ -388,7 +409,7 @@ classification, even though it is the same underlying quantity.</p>
 was silently replaced by 0 will confidently split on that 0, and the model
 will be wrong in a way that no accuracy metric reveals.</p>
 </div>
-<h3>The four preprocessing tasks</h3>
+<h3 id="the-four-preprocessing-tasks">The four preprocessing tasks</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -415,7 +436,7 @@ will be wrong in a way that no accuracy metric reveals.</p>
 </tr>
 </tbody>
 </table>
-<h2>2.5 Data cleaning: missing data</h2>
+<h2 id="25-data-cleaning-missing-data">2.5 Data cleaning: missing data</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Why values are missing — and why it matters</h4>
@@ -451,7 +472,7 @@ biased <em>downwards</em>, and nothing in the data will tell you.</p>
 <p><strong>The fact of missingness is itself information.</strong> Add a <code>income_missing</code>
 boolean column before imputing; a decision tree will often find it predictive.</p>
 </div>
-<h3>The seven methods</h3>
+<h3 id="the-seven-methods">The seven methods</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -506,7 +527,7 @@ boolean column before imputing; a decision tree will often find it predictive.</
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Two traps in imputation</h3>
+<h3 id="two-traps-in-imputation">⚠️ Two traps in imputation</h3>
 <p><strong>Mean imputation shrinks the variance.</strong> Replace 30% of a column with its
 mean and the standard deviation falls, the correlations with other variables
 weaken, and every subsequent statistical test is over-confident. The values are
@@ -527,7 +548,7 @@ Median = sorted [25, 28, 30, 35, 40] → 30
 defensible. Add one value of 200 and the mean jumps to 59.7 while the median
 moves to 32.5 — which is why <strong>median is the safer default</strong>.</p>
 </div>
-<h2>2.6 Data cleaning: noisy data</h2>
+<h2 id="26-data-cleaning-noisy-data">2.6 Data cleaning: noisy data</h2>
 <p><strong>Noise</strong> is random error or variance in a measured value — distinct from an
 <strong>outlier</strong>, which is a genuine but extreme observation. A sensor glitch is
 noise; a genuinely enormous transaction is an outlier. Removing outliers
@@ -602,7 +623,7 @@ closer to 4 than to 15, so both become 4.</p>
 </tbody>
 </table>
 </div>
-<h3>The other noise-handling methods</h3>
+<h3 id="the-other-noise-handling-methods">The other noise-handling methods</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -625,7 +646,7 @@ closer to 4 than to 15, so both become 4.</p>
 </tr>
 </tbody>
 </table>
-<h2>2.7 Dimensionality reduction</h2>
+<h2 id="27-dimensionality-reduction">2.7 Dimensionality reduction</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The curse of dimensionality</h4>
@@ -715,12 +736,12 @@ dimensions. Three common stopping rules: a variance threshold (90% or 95%),
 <strong>Kaiser's criterion</strong> (keep λ &gt; 1 on standardised data — here, two
 components), and the <strong>scree plot elbow</strong>.</p>
 </div>
-<h3>⚠️ Standardise first, always</h3>
+<h3 id="standardise-first-always">⚠️ Standardise first, always</h3>
 <p>PCA maximises variance, and variance depends on units. Leave income in rupees
 (variance ~10⁸) alongside age in years (variance ~100) and PC1 will be income,
 almost exactly, regardless of the structure in the data. Standardising is not
 optional; it is part of the method.</p>
-<h3>⚠️ Feature <em>extraction</em> versus feature <em>selection</em></h3>
+<h3 id="feature-extraction-versus-feature-selection">⚠️ Feature <em>extraction</em> versus feature <em>selection</em></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -755,7 +776,7 @@ optional; it is part of the method.</p>
 <p>This is a two-mark question, and PCA's loss of interpretability is a real cost:
 a bank cannot tell a customer their loan was refused because of principal
 component 2.</p>
-<h2>2.8 Feature subset selection</h2>
+<h2 id="28-feature-subset-selection">2.8 Feature subset selection</h2>
 <p>Choose a subset of the original attributes, discarding those that are
 <strong>irrelevant</strong> (no information about the target) or <strong>redundant</strong> (duplicating
 another attribute — <code>date_of_birth</code> and <code>age</code>).</p>
@@ -852,8 +873,8 @@ The model scores 100% in testing and is useless in production. It is the most
 expensive mistake in applied machine learning and it is invisible to every
 accuracy metric.</p>
 </div>
-<h2>2.9 Discretization and binarization</h2>
-<h3>Discretization — continuous → categorical</h3>
+<h2 id="29-discretization-and-binarization">2.9 Discretization and binarization</h2>
+<h3 id="discretization-continuous-categorical">Discretization — continuous → categorical</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -908,7 +929,7 @@ gives even counts but boundaries that are hard to explain. Neither uses the
 class label, which is why entropy-based discretization usually wins in a
 supervised task.</p>
 </div>
-<h3>Binarization — anything → 0/1</h3>
+<h3 id="binarization-anything-01">Binarization — anything → 0/1</h3>
 <p><strong>Nominal, unordered → one-hot encoding.</strong> One binary column per value:</p>
 <table class="main-table">
 <thead>
@@ -947,7 +968,7 @@ supervised task.</p>
 <p><strong>Ordinal, ordered → integer or thermometer encoding.</strong> For
 <code>low &lt; medium &lt; high</code>, integers 1/2/3 preserve the order that one-hot
 destroys.</p>
-<h3>⚠️ Never integer-encode an unordered nominal attribute</h3>
+<h3 id="never-integer-encode-an-unordered-nominal-attribute">⚠️ Never integer-encode an unordered nominal attribute</h3>
 <p>Mapping <code>red=1, green=2, blue=3</code> tells every distance-based algorithm that
 green is <em>between</em> red and blue and that blue is <em>three times</em> red. K-Means,
 k-NN and every regression will act on that fiction. Use one-hot for unordered
@@ -955,7 +976,7 @@ values, integers only where the order is real.</p>
 <p>The <strong>dummy variable trap</strong>: with <em>k</em> categories, <em>k</em> one-hot columns are
 perfectly collinear (they sum to 1). Drop one — use <em>k − 1</em> columns — for
 linear and logistic regression. Tree methods do not care.</p>
-<h2>2.10 Data transformation</h2>
+<h2 id="210-data-transformation">2.10 Data transformation</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Normalisation</h4>
@@ -1010,12 +1031,12 @@ Bayes. Trees split one attribute at a time and only care about the <em>order</em
 values, which scaling does not change. Saying so shows you understand <em>why</em>
 scaling matters rather than applying it by rote.</p>
 </div>
-<h3>⚠️ Min–max and one outlier</h3>
+<h3 id="minmax-and-one-outlier">⚠️ Min–max and one outlier</h3>
 <p>Values <code>[10, 12, 11, 13, 1000]</code>. Min–max scaling gives
 <code>[0, 0.002, 0.001, 0.003, 1]</code> — the four sensible values are crushed into the
 bottom 0.3% of the range. <strong>One outlier destroys min–max scaling</strong>, which is
 why z-score or robust scaling is the safer default on real data.</p>
-<h3>Other transformations</h3>
+<h3 id="other-transformations">Other transformations</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1046,7 +1067,7 @@ why z-score or robust scaling is the safer default on real data.</p>
 </tr>
 </tbody>
 </table>
-<h2>2.11 Measures of similarity and dissimilarity</h2>
+<h2 id="211-measures-of-similarity-and-dissimilarity">2.11 Measures of similarity and dissimilarity</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Distance measures for numeric data</h4>
@@ -1093,7 +1114,7 @@ Chebyshev  = max(3, 4, 4)                     = 4
 <p>Note <code>Chebyshev ≤ Euclidean ≤ Manhattan</code> always — a useful check on your
 arithmetic.</p>
 </div>
-<h3>Properties of a metric</h3>
+<h3 id="properties-of-a-metric">Properties of a metric</h3>
 <p>A true <strong>distance metric</strong> satisfies four conditions:</p>
 <ol>
 <li><strong>Non-negativity</strong> — d(x, y) ≥ 0</li>
@@ -1104,7 +1125,7 @@ arithmetic.</p>
 <p>Squared Euclidean distance violates the triangle inequality, so it is <strong>not a
 metric</strong> — though K-Means uses it anyway, because minimising it is what makes
 the mean the optimal centroid.</p>
-<h3>Measures for binary data</h3>
+<h3 id="measures-for-binary-data">Measures for binary data</h3>
 <p>For two binary vectors, build the contingency counts:</p>
 <table class="main-table">
 <thead>
@@ -1164,7 +1185,7 @@ products that <em>neither</em> customer bought as evidence of similarity. For sp
 — joint absence is meaningless and Jaccard is correct. Use SMC only when 0 and
 1 are equally informative, as with gender coded 0/1.</p>
 </div>
-<h3>Cosine similarity</h3>
+<h3 id="cosine-similarity">Cosine similarity</h3>
 <p>For high-dimensional sparse vectors, especially documents:</p>
 <pre><code>cos(x, y) = (x · y) / (‖x‖ ‖y‖)
 </code></pre>
@@ -1182,7 +1203,7 @@ but nearly identical cosine similarity — which is exactly what you want when
 comparing texts. It also ignores 0-0 matches, like Jaccard, which is why it
 suits sparse term vectors.</p>
 </div>
-<h3>Other measures</h3>
+<h3 id="other-measures">Other measures</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1217,7 +1238,7 @@ suits sparse term vectors.</p>
 </tr>
 </tbody>
 </table>
-<h2>2.12 Issues and challenges</h2>
+<h2 id="212-issues-and-challenges">2.12 Issues and challenges</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1276,13 +1297,13 @@ suits sparse term vectors.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Spurious patterns</h3>
+<h3 id="spurious-patterns">⚠️ Spurious patterns</h3>
 <p>Test 1,000 random hypotheses at the 5% level and about <strong>50 will appear
 significant by chance alone</strong>. Data mining tests enormously more than 1,000,
 so <em>some</em> discovered patterns are guaranteed to be noise. The defences:
 hold-out validation, cross-validation, multiple-testing correction, and the
 oldest one — asking whether the pattern makes sense.</p>
-<h3>Ethics and privacy</h3>
+<h3 id="ethics-and-privacy">Ethics and privacy</h3>
 <p>Not a footnote, and increasingly examinable:</p>
 <ul>
 <li>
@@ -1303,7 +1324,7 @@ oldest one — asking whether the pattern makes sense.</p>
 <li><strong>Correlation is not causation</strong> — the single most abused finding in the
   field.</li>
 </ul>
-<h2>2.13 Applications</h2>
+<h2 id="213-applications">2.13 Applications</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1350,7 +1371,7 @@ oldest one — asking whether the pattern makes sense.</p>
 </tr>
 </tbody>
 </table>
-<h3>Case study — market basket analysis</h3>
+<h3 id="case-study-market-basket-analysis">Case study — market basket analysis</h3>
 <p>A supermarket's Apriori run finds <code>{bread, butter} → {jam}</code> with support 3%,
 confidence 68%, lift 2.4. <strong>Every one of those numbers is needed to act:</strong>
 support says it happens often enough to matter, confidence says the rule is
@@ -1359,7 +1380,7 @@ bread-and-butter buyers than in general. Unit 3 defines them precisely.</p>
 <p>Acting on it: place jam near bread, bundle them, or — counter-intuitively —
 place them <em>far apart</em> so customers walk past everything else. Retailers do
 all three, and A/B test which works.</p>
-<h3>Case study — the beer and nappies story</h3>
+<h3 id="case-study-the-beer-and-nappies-story">Case study — the beer and nappies story</h3>
 <p>The famous claim is that a US retailer found young fathers sent out for nappies
 on Friday evening also bought beer, and moved the two together.</p>
 <p><strong>Say in the exam that the story is probably apocryphal.</strong> It has been traced
@@ -1368,7 +1389,7 @@ survives because it perfectly illustrates the point — an unexpected,
 actionable, unqueryable pattern — and knowing it is illustrative rather than
 documented is exactly the critical judgement the subject requires.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Data: <code>12, 15, 18, 20, 22, 25, 28, 30, 35, 40, 45, 100</code></p>
@@ -1557,7 +1578,7 @@ selection</strong> — keeping five of the original twelve — is the right tool
 though it retains less variance.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define data mining.</li>
@@ -1599,7 +1620,7 @@ though it retains less variance.</p>
    them, with PCA worked through.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

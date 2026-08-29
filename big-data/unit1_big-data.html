@@ -29,11 +29,25 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-what-big-data-actually-means">1.1 What &quot;big data&quot; actually means</a></li>
+    <li><a href="#12-the-five-vs">1.2 The five Vs</a></li>
+    <li><a href="#13-big-data-against-a-traditional-database">1.3 Big data against a traditional database</a></li>
+    <li><a href="#14-the-hadoop-ecosystem">1.4 The Hadoop ecosystem</a></li>
+    <li><a href="#15-hadoop-architecture">1.5 Hadoop architecture</a></li>
+    <li><a href="#16-use-cases">1.6 Use cases</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 12):</strong> Introduction to Big Data: characteristics (volume,
 variety, velocity, veracity, value). Hadoop Ecosystem Overview: HDFS,
 MapReduce, YARN, Hadoop Common. Hadoop architecture and use cases.</p>
 <hr />
-<h2>1.1 What "big data" actually means</h2>
+<h2 id="11-what-big-data-actually-means">1.1 What "big data" actually means</h2>
 <p>Every <strong>introduction to big data</strong> starts with a definition, and most of them are wrong within five years. Here is one that is not.</p>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
@@ -50,7 +64,7 @@ true:</p>
 </ul>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The textbook definition, for the exam</h4>
 <p>Big data is data whose <strong>volume, velocity and variety</strong> demand new forms of
 processing to enable enhanced decision making, insight discovery and process
@@ -60,7 +74,7 @@ started Hadoop in 2006 — which is a useful thing to know when an examiner
 implies the tool created the problem.</p>
 </div>
 <hr />
-<h2>1.2 The five Vs</h2>
+<h2 id="12-the-five-vs">1.2 The five Vs</h2>
 <p>The syllabus lists all five, and they are not equally important. Learn them
 in this order of usefulness:</p>
 <table class="main-table">
@@ -99,7 +113,7 @@ in this order of usefulness:</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The two Vs students get wrong</h3>
+<h3 id="the-two-vs-students-get-wrong">⚠️ The two Vs students get wrong</h3>
 <p><strong>Veracity is not "data quality" in the tidy sense.</strong> It is the acceptance
 that at scale you <em>cannot</em> clean everything, so you build pipelines that
 tolerate bad records rather than pipelines that assume good ones. A Flume
@@ -147,7 +161,7 @@ it later" is how that happens.</p>
 software feature — is why distributed storage exists.</p>
 </div>
 <hr />
-<h2>1.3 Big data against a traditional database</h2>
+<h2 id="13-big-data-against-a-traditional-database">1.3 Big data against a traditional database</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -209,16 +223,16 @@ must be <strong>normal operation</strong> rather than an exception. Replication,
 speculative execution and re-running failed tasks all follow from treating
 failure as the expected case.</p>
 </div>
-<h3>⚠️ "Schema on read" is not "no schema"</h3>
+<h3 id="schema-on-read-is-not-no-schema">⚠️ "Schema on read" is not "no schema"</h3>
 <p>The schema still exists — it moves from the <em>writer</em> to the <em>reader</em>. That
 buys flexibility (you can land data before you know what it is) and costs
 correctness (nothing stops you writing garbage, and you find out at query
 time, months later). <strong>Course 5's constraints were doing real work</strong>; big data
 systems drop them deliberately, and that trade should be stated as a trade.</p>
 <hr />
-<h2>1.4 The Hadoop ecosystem</h2>
+<h2 id="14-the-hadoop-ecosystem">1.4 The Hadoop ecosystem</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The four core components</h4>
 <p>Hadoop proper is only four things. Everything else is an ecosystem project
 that sits on top.</p>
@@ -258,7 +272,7 @@ Java libraries, the filesystem abstraction (which is why <code>hadoop fs</code> 
 talks to S3), the configuration system and the RPC layer that all the others
 share.</p>
 </div>
-<h3>The ecosystem, by the job it does</h3>
+<h3 id="the-ecosystem-by-the-job-it-does">The ecosystem, by the job it does</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -319,8 +333,8 @@ say which ones this syllabus covers. That reads as understanding; a memorised
 list does not.</p>
 </div>
 <hr />
-<h2>1.5 Hadoop architecture</h2>
-<h3>The two-cluster view</h3>
+<h2 id="15-hadoop-architecture">1.5 Hadoop architecture</h2>
+<h3 id="the-two-cluster-view">The two-cluster view</h3>
 <p>Hadoop runs <strong>two independent master/worker systems on the same machines</strong>:</p>
 <pre><code>        STORAGE                          COMPUTE
   ┌──────────────────┐            ┌──────────────────────┐
@@ -353,7 +367,7 @@ where each block lives and <strong>sends the task there</strong>.</p>
 <p>This is also why the replica placement policy in Unit 2 puts one replica on
 the writer's rack: it creates <em>three</em> chances for a task to run locally.</p>
 </div>
-<h3>⚠️ Data locality is nearly gone in the cloud</h3>
+<h3 id="data-locality-is-nearly-gone-in-the-cloud">⚠️ Data locality is nearly gone in the cloud</h3>
 <p>On AWS EMR or Databricks the data lives in S3 and the compute is on separate
 EC2 instances, so <strong>every read is off-switch by definition</strong>. Cloud
 architectures accept that because networks got fast (25–100 Gbit/s) and
@@ -361,7 +375,7 @@ separating storage from compute lets you scale them independently.</p>
 <p>Saying this in an exam is worth more than reciting locality as gospel: the
 principle was correct in 2008 and the trade has since moved.</p>
 <hr />
-<h2>1.6 Use cases</h2>
+<h2 id="16-use-cases">1.6 Use cases</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -417,7 +431,7 @@ containing it. That is <a href="lab_big-data.html#experiment-8">experiment 8</a>
 billions of documents, and it is the honest origin story — MapReduce came from
 Google's need to rebuild its index, not from a general theory of computation.</p>
 </div>
-<h3>⚠️ When Hadoop is the wrong answer</h3>
+<h3 id="when-hadoop-is-the-wrong-answer">⚠️ When Hadoop is the wrong answer</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -463,7 +477,7 @@ Google's need to rebuild its index, not from a general theory of computation.</p
 under a terabyte the honest recommendation is usually a single server with a
 lot of RAM. Being able to say that is a sign of judgement, not of ignorance.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. A dataset is 400 GB and grows 10 GB a day. Is it big data?</strong></p>
 <p><strong>No, and say why.</strong> It fits comfortably on one machine's disk today and will
 for years. A single server with 512 GB of RAM would hold it <em>in memory</em>. The
@@ -516,7 +530,7 @@ should exist. Veracity influences everything but rarely determines the shape.</p
 <p><strong>Defending it matters more than the order.</strong> An answer that ranks them and
 gives reasons beats one that lists all five as equally important.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define big data in one sentence.</li>
@@ -549,7 +563,7 @@ gives reasons beats one that lists all five as equally important.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -32,13 +32,33 @@
     <span class="chip">Random number generation</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-the-ndarray">1.1 The ndarray</a></li>
+    <li><a href="#12-creating-ndarrays">1.2 Creating ndarrays</a></li>
+    <li><a href="#13-data-types">1.3 Data types</a></li>
+    <li><a href="#14-arithmetic-and-broadcasting">1.4 Arithmetic and broadcasting</a></li>
+    <li><a href="#15-why-vectorise">1.5 Why vectorise</a></li>
+    <li><a href="#16-indexing-and-slicing">1.6 Indexing and slicing</a></li>
+    <li><a href="#17-boolean-indexing">1.7 Boolean indexing</a></li>
+    <li><a href="#18-fancy-indexing">1.8 Fancy indexing</a></li>
+    <li><a href="#19-reshaping-transposing-and-swapping-axes">1.9 Reshaping, transposing and swapping axes</a></li>
+    <li><a href="#110-universal-functions">1.10 Universal functions</a></li>
+    <li><a href="#111-mathematical-and-statistical-functions">1.11 Mathematical and statistical functions</a></li>
+    <li><a href="#112-random-number-generation">1.12 Random number generation</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 16):</strong> NumPy ndarray — a multidimensional array object,
 creating ndarrays, data types for ndarrays, arithmetic with arrays, basic
 indexing and slicing, boolean indexing, fancy indexing, transposing arrays,
 swapping axes, universal functions — element-wise operations, basic
 mathematical and statistical functions, random number generation (basic use).</p>
 <hr />
-<h2>1.1 The ndarray</h2>
+<h2 id="11-the-ndarray">1.1 The ndarray</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>A Python list holds <strong>pointers to objects scattered across memory</strong>, each with
@@ -99,7 +119,7 @@ element-wise arithmetic, and multidimensional indexing.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ <code>+</code> and <code>*</code> mean different things</h3>
+<h3 id="and-mean-different-things">⚠️ <code>+</code> and <code>*</code> mean different things</h3>
 <pre><code class="language-python">[1, 2, 3] + [4, 5, 6]              # [1, 2, 3, 4, 5, 6]     — concatenation
 np.array([1,2,3]) + np.array([4,5,6])   # array([5, 7, 9])  — addition
 
@@ -108,7 +128,7 @@ np.array([1, 2, 3]) * 2            # array([2, 4, 6])       — scaling
 </code></pre>
 <p>This is the first thing to get right and the most common source of confusion
 for anyone arriving from Course 3.</p>
-<h3>The attributes</h3>
+<h3 id="the-attributes">The attributes</h3>
 <pre><code class="language-python">import numpy as np
 a = np.array([[1, 2, 3], [4, 5, 6]])
 
@@ -123,7 +143,7 @@ a.T           # transposed
 <p><strong><code>shape</code> is a tuple, always.</strong> A 1-D array of 3 elements has shape <code>(3,)</code> —
 note the trailing comma — not <code>(3, 1)</code> and not <code>3</code>. Confusing <code>(3,)</code> with
 <code>(3, 1)</code> causes broadcasting surprises, so learn to read it.</p>
-<h2>1.2 Creating ndarrays</h2>
+<h2 id="12-creating-ndarrays">1.2 Creating ndarrays</h2>
 <pre><code class="language-python">np.array([1, 2, 3])                    # from a list
 np.array([[1, 2], [3, 4]])             # 2-D from nested lists
 np.array([1, 2, 3], dtype=np.float64)  # with an explicit dtype
@@ -146,7 +166,7 @@ np.ones_like(a)
 rng = np.random.default_rng(42)        # the MODERN random API
 rng.random((2, 3))                     # uniform [0, 1)
 </code></pre>
-<h3>⚠️ <code>arange</code> versus <code>linspace</code></h3>
+<h3 id="arange-versus-linspace">⚠️ <code>arange</code> versus <code>linspace</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -183,7 +203,7 @@ accumulation means the number of elements is not always what the arithmetic
 suggests. <code>linspace</code> asks for a count and delivers it.</p>
 <p><code>np.empty</code> does <strong>not</strong> zero the memory — it hands you whatever was there. It
 is faster, and it is a bug waiting to happen if you forget to fill it.</p>
-<h2>1.3 Data types</h2>
+<h2 id="13-data-types">1.3 Data types</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -228,7 +248,7 @@ b = a.astype(np.float64)       # returns a NEW array — astype always COPIES
 np.array([1, 2, 3.5])          # float64 — UPCAST to hold them all
 np.array([1, 2, &quot;3&quot;])          # dtype '&lt;U21' — everything became a STRING
 </code></pre>
-<h3>⚠️ Two dtype traps</h3>
+<h3 id="two-dtype-traps">⚠️ Two dtype traps</h3>
 <p><strong>Integer overflow wraps silently.</strong></p>
 <pre><code class="language-python">np.array([127], dtype=np.int8) + 1      # array([-128])  — no warning
 </code></pre>
@@ -240,7 +260,7 @@ a // 2                # array([1, 1, 1])       — floor division stays int
 </code></pre>
 <p>Assigning a float into an int array truncates without complaint. If a column
 should hold fractions, make it <code>float64</code> at creation.</p>
-<h2>1.4 Arithmetic and broadcasting</h2>
+<h2 id="14-arithmetic-and-broadcasting">1.4 Arithmetic and broadcasting</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Vectorisation</h4>
@@ -287,7 +307,7 @@ a - a.mean(axis=1)[:, np.newaxis]  # the same thing, written differently
 <p><strong><code>keepdims=True</code> is the fix</strong>, and it is worth remembering because this exact
 error appears constantly.</p>
 </div>
-<h3>⚠️ <code>axis</code> is the axis that DISAPPEARS</h3>
+<h3 id="axis-is-the-axis-that-disappears">⚠️ <code>axis</code> is the axis that DISAPPEARS</h3>
 <p>This is the single most confusing thing in NumPy, and stating it this way makes
 it stick:</p>
 <pre><code class="language-python">a.shape            # (2, 3)
@@ -298,7 +318,7 @@ a.sum()               # a scalar — everything collapsed
 <p><code>axis=0</code> runs <strong>down</strong> the rows and gives one value <strong>per column</strong>. Students
 read "axis=0 means rows" and then expect a row total. It means "collapse the
 row axis", which produces column results.</p>
-<h2>1.5 Why vectorise</h2>
+<h2 id="15-why-vectorise">1.5 Why vectorise</h2>
 <pre><code class="language-python">import time
 n = 1_000_000
 lst = list(range(n))
@@ -324,7 +344,7 @@ measures it on your machine and asserts the speed-up is real.)</p>
 </ol>
 <p><strong>The practical rule: if you are writing <code>for i in range(len(arr))</code>, there is
 almost certainly an array operation that replaces it.</strong></p>
-<h2>1.6 Indexing and slicing</h2>
+<h2 id="16-indexing-and-slicing">1.6 Indexing and slicing</h2>
 <pre><code class="language-python">a = np.arange(10)             # [0 1 2 3 4 5 6 7 8 9]
 
 a[0]        # 0
@@ -346,7 +366,7 @@ m[:, 1]        # [2 5 8]     — a whole column
 m[0:2, 1:3]    # [[2 3], [5 6]]
 m[::2, ::2]    # [[1 3], [7 9]]
 </code></pre>
-<h3>⚠️ Slices are VIEWS, not copies</h3>
+<h3 id="slices-are-views-not-copies">⚠️ Slices are VIEWS, not copies</h3>
 <p><strong>This is the most important difference from Python lists and it causes real
 bugs.</strong></p>
 <pre><code class="language-python">lst = [1, 2, 3, 4, 5]
@@ -370,7 +390,7 @@ a[1:4].copy()          # an explicit copy, when you need one
 gigabyte. Views make slicing free. The cost is that you must know when you have
 one — and <code>.copy()</code> is how you say you do not want one.</p>
 </div>
-<h2>1.7 Boolean indexing</h2>
+<h2 id="17-boolean-indexing">1.7 Boolean indexing</h2>
 <p>Select by <strong>condition</strong> rather than position.</p>
 <pre><code class="language-python">marks = np.array([72, 45, 91, 66, 38, 88])
 
@@ -385,7 +405,7 @@ marks[~(marks &gt; 50)]                   # 45, 38
 marks[marks &lt; 50] = 50                 # assignment through a mask
 np.where(marks &gt;= 50, &quot;Pass&quot;, &quot;Fail&quot;)  # element-wise ternary
 </code></pre>
-<h3>⚠️ Use <code>&amp;</code>, <code>|</code>, <code>~</code> — never <code>and</code>, <code>or</code>, <code>not</code></h3>
+<h3 id="use-never-and-or-not">⚠️ Use <code>&amp;</code>, <code>|</code>, <code>~</code> — never <code>and</code>, <code>or</code>, <code>not</code></h3>
 <pre><code class="language-python">marks[(marks &gt; 50) and (marks &lt; 90)]
 # ValueError: The truth value of an array with more than one element is ambiguous
 </code></pre>
@@ -394,7 +414,7 @@ an array of six booleans has no single truth value. The bitwise operators
 <code>&amp;</code>, <code>|</code> and <code>~</code> work element-wise, which is what you want.</p>
 <p><strong>And the parentheses are mandatory:</strong> <code>&amp;</code> binds <em>tighter</em> than <code>&gt;</code>, so
 <code>marks &gt; 50 &amp; marks &lt; 90</code> parses as <code>marks &gt; (50 &amp; marks) &lt; 90</code> and fails.</p>
-<h3>Boolean helpers</h3>
+<h3 id="boolean-helpers">Boolean helpers</h3>
 <pre><code class="language-python">(marks &gt; 50).sum()         # 4      — True counts as 1
 (marks &gt; 50).any()         # True
 (marks &gt; 50).all()         # False
@@ -404,7 +424,7 @@ np.where(marks &gt; 50)       # (array([0, 2, 3, 5]),) — the INDICES
 </code></pre>
 <p><code>(condition).sum()</code> for a count and <code>(condition).mean()</code> for a proportion are
 idioms worth memorising.</p>
-<h2>1.8 Fancy indexing</h2>
+<h2 id="18-fancy-indexing">1.8 Fancy indexing</h2>
 <p>Index with an <strong>array of indices</strong>.</p>
 <pre><code class="language-python">a = np.array([10, 20, 30, 40, 50])
 
@@ -418,7 +438,7 @@ m[[0, 1, 2], [1, 2, 3]]  # elements (0,1), (1,2), (2,3) -&gt; array([1, 6, 11])
 m[[0, 2]][:, [1, 3]]     # rows 0,2 then columns 1,3
 m[np.ix_([0, 2], [1, 3])]  # the same submatrix, in one step
 </code></pre>
-<h3>⚠️ Fancy indexing always COPIES</h3>
+<h3 id="fancy-indexing-always-copies">⚠️ Fancy indexing always COPIES</h3>
 <pre><code class="language-python">a = np.array([1, 2, 3, 4, 5])
 f = a[[0, 2]]
 f[0] = 99
@@ -458,7 +478,7 @@ a            # CHANGED — basic slicing returns a VIEW
 <p>Note <code>m[[0,1,2], [1,2,3]]</code> gives <strong>three elements</strong>, not a 3×3 submatrix — the
 two index arrays are paired position by position. Use <code>np.ix_</code> for the
 submatrix.</p>
-<h2>1.9 Reshaping, transposing and swapping axes</h2>
+<h2 id="19-reshaping-transposing-and-swapping-axes">1.9 Reshaping, transposing and swapping axes</h2>
 <pre><code class="language-python">a = np.arange(12)
 
 a.reshape(3, 4)          # 3 rows, 4 columns
@@ -488,22 +508,22 @@ np.split(a, 3)  /  np.hsplit(m, 2)
 <p><strong><code>stack</code> versus <code>concatenate</code></strong> is a two-mark distinction: <code>concatenate</code> joins
 along an existing axis and the result has the same <code>ndim</code>; <code>stack</code> adds a
 dimension.</p>
-<h2>1.10 Universal functions</h2>
+<h2 id="110-universal-functions">1.10 Universal functions</h2>
 <p>A <strong>ufunc</strong> applies element-wise to a whole array, in compiled code.</p>
-<h3>Unary</h3>
+<h3 id="unary">Unary</h3>
 <pre><code class="language-python">np.sqrt(a)   np.exp(a)   np.log(a)   np.log2(a)   np.log10(a)
 np.abs(a)    np.sign(a)  np.square(a)
 np.floor(a)  np.ceil(a)  np.round(a, 2)  np.trunc(a)
 np.sin(a)    np.cos(a)   np.tan(a)       # RADIANS
 np.isnan(a)  np.isinf(a) np.isfinite(a)
 </code></pre>
-<h3>Binary</h3>
+<h3 id="binary">Binary</h3>
 <pre><code class="language-python">np.add(a, b)       np.subtract(a, b)   np.multiply(a, b)   np.divide(a, b)
 np.power(a, b)     np.mod(a, b)
 np.maximum(a, b)   np.minimum(a, b)    # ELEMENT-WISE pairwise
 np.greater(a, b)   np.equal(a, b)
 </code></pre>
-<h3>⚠️ <code>np.maximum</code> versus <code>np.max</code></h3>
+<h3 id="npmaximum-versus-npmax">⚠️ <code>np.maximum</code> versus <code>np.max</code></h3>
 <pre><code class="language-python">np.maximum([1, 5, 3], [4, 2, 6])   # array([4, 5, 6]) — element-wise PAIRING
 np.max([1, 5, 3])                  # 5               — the largest ONE value
 </code></pre>
@@ -511,7 +531,7 @@ np.max([1, 5, 3])                  # 5               — the largest ONE value
 <p><code>np.nan</code> propagates through everything: <code>np.array([1, np.nan, 3]).sum()</code> is
 <code>nan</code>. Use <code>np.nansum</code>, <code>np.nanmean</code>, <code>np.nanmax</code> to skip them — or Pandas,
 which skips them by default.</p>
-<h2>1.11 Mathematical and statistical functions</h2>
+<h2 id="111-mathematical-and-statistical-functions">1.11 Mathematical and statistical functions</h2>
 <pre><code class="language-python">a = np.array([[1, 2, 3],
               [4, 5, 6]])
 
@@ -535,7 +555,7 @@ np.sort(a)       # returns a sorted COPY
 a.sort()         # sorts IN PLACE
 np.argsort(a)    # the indices that would sort it
 </code></pre>
-<h3>⚠️ NumPy's <code>std</code> defaults to the POPULATION formula</h3>
+<h3 id="numpys-std-defaults-to-the-population-formula">⚠️ NumPy's <code>std</code> defaults to the POPULATION formula</h3>
 <p>This matters, and it connects directly to Course 4.</p>
 <pre><code class="language-python">x = np.array([2, 4, 4, 4, 5, 5, 7, 9])
 
@@ -550,7 +570,7 @@ is exactly the sort of silent discrepancy that ruins an analysis.</p>
 pd.Series(x).std()         # 2.1381   — sample
 </code></pre>
 <p><strong>Always pass <code>ddof</code> explicitly</strong> when it matters, and say which you mean.</p>
-<h2>1.12 Random number generation</h2>
+<h2 id="112-random-number-generation">1.12 Random number generation</h2>
 <pre><code class="language-python">rng = np.random.default_rng(42)        # the modern Generator API
 
 rng.random(5)                          # uniform [0, 1)
@@ -587,7 +607,7 @@ within about 0.01 of it — a direct check of Course 4 Unit 1's classical
 probability against the empirical definition.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Given <code>a = np.arange(1, 13).reshape(3, 4)</code>:</p>
@@ -717,7 +737,7 @@ rather than nested <code>np.where</code> calls, which is both clearer and what a
 is looking for.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Distinguish a Python list from a NumPy ndarray.</li>
@@ -761,7 +781,7 @@ is looking for.</p>
    loops.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -29,11 +29,25 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-why-hbase-exists">5.1 Why HBase exists</a></li>
+    <li><a href="#52-the-hbase-data-model">5.2 The HBase data model</a></li>
+    <li><a href="#53-row-key-design-the-whole-job">5.3 Row key design — the whole job</a></li>
+    <li><a href="#54-hbase-against-what-it-is-confused-with">5.4 HBase against what it is confused with</a></li>
+    <li><a href="#55-zookeeper">5.5 ZooKeeper</a></li>
+    <li><a href="#56-hadoop-integration-with-spark">5.6 Hadoop integration with Spark</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 13–14):</strong> Overview of NoSQL within the Hadoop ecosystem:
 HBase. Configuration and usage of ZooKeeper for coordination. Hadoop
 integration with Spark for data processing.</p>
 <hr />
-<h2>5.1 Why HBase exists</h2>
+<h2 id="51-why-hbase-exists">5.1 Why HBase exists</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The gap it fills</h4>
@@ -76,9 +90,9 @@ change.</p>
 </table>
 </div>
 <hr />
-<h2>5.2 The HBase data model</h2>
+<h2 id="52-the-hbase-data-model">5.2 The HBase data model</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The one sentence to memorise</h4>
 <p><strong>HBase is a sparse, distributed, persistent, multidimensional sorted map,
 indexed by (row key, column family, column qualifier, timestamp).</strong></p>
@@ -109,7 +123,7 @@ ts=19    20
 <p><strong>A <code>put</code> to an existing cell does not overwrite — it adds a version</strong>, and the
 old value is still readable.</p>
 </div>
-<h3>⚠️ A delete makes the table BIGGER</h3>
+<h3 id="a-delete-makes-the-table-bigger">⚠️ A delete makes the table BIGGER</h3>
 <pre><code>DELETE info:category
   readable? no
   cells:    38 -&gt; 39
@@ -117,14 +131,14 @@ old value is still readable.</p>
 <p><strong>A delete writes a tombstone marker.</strong> The data and the marker both disappear
 only at a <strong>major compaction</strong>. This is the answer to "I deleted a billion rows
 and disk usage went up".</p>
-<h3>⚠️ Column families are fixed; columns are free</h3>
+<h3 id="column-families-are-fixed-columns-are-free">⚠️ Column families are fixed; columns are free</h3>
 <p><code>CREATE</code> declares the <strong>families</strong>. Qualifiers inside a family need no
 declaration and cost nothing — which is what "schema-less" means in HBase, and
 it is only half true.</p>
 <p><strong>Keep families to two or three.</strong> Each family is a separate store file, and a
 memstore flush of one flushes all of them.</p>
 <hr />
-<h2>5.3 Row key design — the whole job</h2>
+<h2 id="53-row-key-design-the-whole-job">5.3 Row key design — the whole job</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The uniqueness trap, demonstrated</h4>
@@ -188,7 +202,7 @@ SCAN 'North' .. 'North~'  -&gt; 3 rows
 sequentially, from one or two regions</strong> — the fastest thing HBase does. It
 works <strong>only because <code>region</code> is the first component of the key</strong>.</p>
 </div>
-<h3>⚠️ HBase has no secondary index</h3>
+<h3 id="hbase-has-no-secondary-index">⚠️ HBase has no secondary index</h3>
 <p>Asking the same question the wrong way:</p>
 <pre><code>find category = 'Grocery' -&gt; 4 rows, after scanning all 9
 </code></pre>
@@ -204,7 +218,7 @@ bulk load runs single-threaded until the first split. <code>SPLITS =&gt; ['East'
 retrofit it later.</p>
 </div>
 <hr />
-<h2>5.4 HBase against what it is confused with</h2>
+<h2 id="54-hbase-against-what-it-is-confused-with">5.4 HBase against what it is confused with</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -271,7 +285,7 @@ index</strong>: MongoDB has them and HBase does not, which is why a MongoDB quer
 any field is reasonable and an HBase query on a non-key field is a full scan.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>CAP, and where HBase sits</h4>
 <table class="main-table">
 <thead>
@@ -305,7 +319,7 @@ failover. Cassandra's multiple replicas serve reads always, and the price is
 eventual consistency.</p>
 </div>
 <hr />
-<h2>5.5 ZooKeeper</h2>
+<h2 id="55-zookeeper">5.5 ZooKeeper</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>What ZooKeeper actually is</h4>
@@ -337,20 +351,20 @@ head of the queue.</p>
 <p><strong>That is how HDFS NameNode HA chooses its active node</strong> — the link straight
 back to Unit 2.</p>
 </div>
-<h3>⚠️ Watch the node BELOW you, not the leader</h3>
+<h3 id="watch-the-node-below-you-not-the-leader">⚠️ Watch the node BELOW you, not the leader</h3>
 <p>If every candidate watches the leader, <strong>every candidate is woken by one
 failure</strong> — the <strong>herd effect</strong>. Watching your immediate predecessor wakes
 exactly <strong>one</strong> client per failure.</p>
 <p><strong>The recipe is not arbitrary; it is a thundering-herd fix</strong>, and saying so is
 worth the mark.</p>
-<h3>A distributed lock is the same recipe</h3>
+<h3 id="a-distributed-lock-is-the-same-recipe">A distributed lock is the same recipe</h3>
 <pre><code>jobA and jobB both asked; jobA holds the lock
 jobA CRASHES -- lock passes to jobB automatically
 </code></pre>
 <p><strong>The lock is released by the session dying, not by the client remembering to
 release it.</strong> A lock in a normal database survives the crash of whoever held
 it and deadlocks the system; an ephemeral znode cannot.</p>
-<h3>Atomic create</h3>
+<h3 id="atomic-create">Atomic create</h3>
 <pre><code>create /config &quot;v1&quot;   -&gt; ok
 create /config &quot;v2&quot;   -&gt; FileExistsError
 </code></pre>
@@ -419,7 +433,7 @@ election algorithm in one line — and it works only because ZooKeeper
 fourth machine buys nothing and adds a write to every quorum. That is the
 whole reason ensembles are <strong>3, 5 or 7</strong>, and it is a two-line exam answer.</p>
 </div>
-<h3>⚠️ What ZooKeeper is not</h3>
+<h3 id="what-zookeeper-is-not">⚠️ What ZooKeeper is not</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -448,7 +462,7 @@ whole reason ensembles are <strong>3, 5 or 7</strong>, and it is a two-line exam
 </table>
 <p><strong>ZooKeeper stores coordination state</strong> — who is the leader, who holds the
 lock, what is the config — and it is small, consistent and slow on purpose.</p>
-<h3>Who depends on it in this course</h3>
+<h3 id="who-depends-on-it-in-this-course">Who depends on it in this course</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -478,9 +492,9 @@ lock, what is the config — and it is small, consistent and slow on purpose.</p
 <p><strong>Every HA story in the Hadoop ecosystem ends at ZooKeeper</strong>, which is why an
 experiment that looks like a detour is actually the keystone.</p>
 <hr />
-<h2>5.6 Hadoop integration with Spark</h2>
+<h2 id="56-hadoop-integration-with-spark">5.6 Hadoop integration with Spark</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The core abstraction</h4>
 <p>An <strong>RDD</strong> is an immutable, partitioned collection with a <strong>lineage</strong> — a
 record of how it was computed from its parents. That lineage is what makes
@@ -587,7 +601,7 @@ source.</strong> With it, only the first pays.</p>
 forget — <strong>because nothing fails without it. The job is merely twice as slow</strong>,
 which is far harder to notice than an error.</p>
 </div>
-<h3>Spark on the Hadoop stack</h3>
+<h3 id="spark-on-the-hadoop-stack">Spark on the Hadoop stack</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -637,7 +651,7 @@ which is far harder to notice than an error.</p>
 <p><strong>The last row matters:</strong> Spark did not replace Hadoop. It replaced
 <strong>MapReduce</strong>, and it runs on YARN over HDFS. "Hadoop is dead, use Spark" is a
 category error, and saying so is worth marks.</p>
-<h3>HBase and Spark together</h3>
+<h3 id="hbase-and-spark-together">HBase and Spark together</h3>
 <p><a href="../labs/course-12b-bigdata/17_spark_hbase.scala"><code>17_spark_hbase.scala</code></a>
 (NOT EXECUTED — the connector needs a live HBase) shows the integration, and
 two points from it are examinable:</p>
@@ -648,13 +662,13 @@ region rather than the table.</p>
 will overwhelm the RegionServers. Write <strong>HFiles</strong> and bulk-load them, which
 bypasses the write path entirely (no WAL, no memstore, no flush) and is one to
 two orders of magnitude faster.</p>
-<h3>⚠️ When not to put Spark over HBase</h3>
+<h3 id="when-not-to-put-spark-over-hbase">⚠️ When not to put Spark over HBase</h3>
 <p><strong>A full-table Spark scan of HBase is slower than the same data in Parquet</strong>,
 because HBase stores every cell with its row key, family, qualifier and
 timestamp. HBase is for random access; Parquet is for scans.</p>
 <p><strong>If every job you run is a full scan, the data is in the wrong store.</strong></p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. Design a row key for a table of sensor readings queried as "all readings
 from sensor X between two times".</strong></p>
 <p><strong><code>sensorId#reverseTimestamp</code></strong> or <code>sensorId#timestamp</code>.</p>
@@ -729,7 +743,7 @@ MongoDB with <code>_id</code>.</p>
 general superiority. If the workload were "500 billion rows, one access
 pattern, extreme write throughput", HBase would win on scale.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Give the one-sentence definition of the HBase data model.</li>
@@ -767,7 +781,7 @@ pattern, extreme write throughput", HBase would win on scale.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

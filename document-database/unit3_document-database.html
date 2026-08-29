@@ -32,13 +32,34 @@
     <span class="chip">Cursor methods</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-the-sample-data">3.1 The sample data</a></li>
+    <li><a href="#32-create">3.2 Create</a></li>
+    <li><a href="#33-read">3.3 Read</a></li>
+    <li><a href="#34-comparison-operators">3.4 Comparison operators</a></li>
+    <li><a href="#35-logical-operators">3.5 Logical operators</a></li>
+    <li><a href="#36-element-and-evaluation-operators">3.6 Element and evaluation operators</a></li>
+    <li><a href="#37-regular-expression-queries">3.7 Regular expression queries</a></li>
+    <li><a href="#38-array-queries">3.8 Array queries</a></li>
+    <li><a href="#39-update">3.9 Update</a></li>
+    <li><a href="#310-delete">3.10 Delete</a></li>
+    <li><a href="#311-bulk-operations">3.11 Bulk operations</a></li>
+    <li><a href="#312-cursor-methods">3.12 Cursor methods</a></li>
+    <li><a href="#313-projection">3.13 Projection</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 22):</strong> CRUD operations — insert documents (insertOne,
 insertMany), query documents (find, operators, conditions), update documents
 (updateOne, updateMany, replaceOne), delete documents (deleteOne, deleteMany).
 Query operators (<code>$gt</code>, <code>$lt</code>, <code>$in</code>, <code>$nin</code>, <code>$and</code>, <code>$or</code>, <code>$not</code>), regular
 expression queries, bulk operations, working with arrays.</p>
 <hr />
-<h2>3.1 The sample data</h2>
+<h2 id="31-the-sample-data">3.1 The sample data</h2>
 <p>Everything below runs against this collection.</p>
 <pre><code class="language-js">db.students.insertMany([
   { _id: 21, name: &quot;Asha&quot;,  dept: &quot;DS&quot;,    marks: { maths: 88, stats: 91 },
@@ -53,7 +74,7 @@ expression queries, bulk operations, working with arrays.</p>
     subjects: [&quot;Stats&quot;],                 age: 21, active: true }
 ])
 </code></pre>
-<h2>3.2 Create</h2>
+<h2 id="32-create">3.2 Create</h2>
 <pre><code class="language-js">db.students.insertOne({ _id: 26, name: &quot;Devi&quot;, dept: &quot;Stats&quot; })
 db.students.insertMany([ { name: &quot;A&quot; }, { name: &quot;B&quot; } ])
 db.students.insertMany(docs, { ordered: false })     // keep going after an error
@@ -76,7 +97,7 @@ db.students.insertMany(docs, { ordered: false })     // keep going after an erro
 </tr>
 </tbody>
 </table>
-<h3>⚠️ <code>ordered: true</code> is the default, and it stops on the first error</h3>
+<h3 id="ordered-true-is-the-default-and-it-stops-on-the-first-error">⚠️ <code>ordered: true</code> is the default, and it stops on the first error</h3>
 <pre><code class="language-js">db.students.insertMany([
   { _id: 30, name: &quot;X&quot; },
   { _id: 21, name: &quot;DUPLICATE&quot; },     // _id 21 already exists -&gt; error
@@ -89,7 +110,7 @@ db.students.insertMany(docs, { ordered: false })     // keep going after an erro
 bulk load — at the cost of losing insertion order. This exact behaviour is a
 guaranteed exam question.</p>
 <p><code>insert()</code> (without One/Many) is <strong>deprecated</strong>; use the explicit forms.</p>
-<h2>3.3 Read</h2>
+<h2 id="33-read">3.3 Read</h2>
 <pre><code class="language-js">db.students.find()                                    // everything
 db.students.find({ dept: &quot;DS&quot; })                      // equality
 db.students.find({ dept: &quot;DS&quot;, age: 20 })             // implicit AND
@@ -99,19 +120,19 @@ db.students.find().pretty()
 db.students.countDocuments({ dept: &quot;DS&quot; })
 db.students.distinct(&quot;dept&quot;)                          // [&quot;DS&quot;, &quot;Stats&quot;]
 </code></pre>
-<h3>⚠️ <code>find</code> returns a cursor; <code>findOne</code> returns a document</h3>
+<h3 id="find-returns-a-cursor-findone-returns-a-document">⚠️ <code>find</code> returns a cursor; <code>findOne</code> returns a document</h3>
 <p><code>find()</code> gives a <strong>cursor</strong> — lazy, batched, and iterable. <code>findOne()</code> gives
 the document itself, or <code>null</code>. So <code>db.c.find({_id:1}).name</code> is <code>undefined</code>
 while <code>db.c.findOne({_id:1}).name</code> works. In <code>mongosh</code> the cursor prints its
 first 20 documents, which hides the distinction until it bites.</p>
-<h3>Dot notation</h3>
+<h3 id="dot-notation">Dot notation</h3>
 <pre><code class="language-js">db.students.find({ &quot;marks.maths&quot;: { $gte: 90 } })     // into a sub-document
 db.students.find({ &quot;subjects.0&quot;: &quot;DS&quot; })              // the FIRST array element
 db.students.find({ subjects: &quot;DS&quot; })                  // ANY element equals &quot;DS&quot;
 </code></pre>
 <p><strong>Quote the key when it contains a dot.</strong> <code>{ marks.maths: ... }</code> is a
 JavaScript syntax error; <code>{ "marks.maths": ... }</code> is correct.</p>
-<h2>3.4 Comparison operators</h2>
+<h2 id="34-comparison-operators">3.4 Comparison operators</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -156,13 +177,13 @@ db.students.find({ &quot;marks.maths&quot;: { $ne: 88 } })
 shows. Writing <code>{ age: { $gte: 20 }, age: { $lte: 21 } }</code> is a JavaScript
 object with a duplicate key — <strong>the first is silently discarded</strong> and you get
 everything under 21. That is a real and invisible bug.</p>
-<h3>⚠️ <code>$ne</code> and <code>$nin</code> also match missing fields</h3>
+<h3 id="ne-and-nin-also-match-missing-fields">⚠️ <code>$ne</code> and <code>$nin</code> also match missing fields</h3>
 <pre><code class="language-js">db.students.find({ dept: { $ne: &quot;DS&quot; } })
 </code></pre>
 <p>This returns Stats students <strong>and any document with no <code>dept</code> field at all</strong> —
 because "not equal to DS" is true of a field that does not exist. Combine with
 <code>$exists: true</code> when that matters.</p>
-<h2>3.5 Logical operators</h2>
+<h2 id="35-logical-operators">3.5 Logical operators</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -208,7 +229,7 @@ db.students.find({
   $or: [ { &quot;marks.maths&quot;: { $gt: 80 } }, { &quot;marks.stats&quot;: { $gt: 80 } } ]
 })
 </code></pre>
-<h3>⚠️ <code>$not</code> cannot take a plain value</h3>
+<h3 id="not-cannot-take-a-plain-value">⚠️ <code>$not</code> cannot take a plain value</h3>
 <pre><code class="language-js">db.students.find({ age: { $not: 21 } })              // ERROR
 db.students.find({ age: { $not: { $eq: 21 } } })     // correct
 db.students.find({ age: { $ne: 21 } })               // simpler
@@ -223,7 +244,7 @@ matches documents where the field is <strong>missing</strong>.</p>
 field. <code>$nor: [A, B]</code> is <code>NOT (A OR B)</code>, which is <code>(NOT A) AND (NOT B)</code> — De
 Morgan's law, from Course 1.</p>
 </div>
-<h2>3.6 Element and evaluation operators</h2>
+<h2 id="36-element-and-evaluation-operators">3.6 Element and evaluation operators</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -274,7 +295,7 @@ db.students.find({ $expr: { $gt: [&quot;$marks.maths&quot;, &quot;$marks.stats&q
 answer to "find students who scored higher in maths than in statistics".</p>
 <p><strong>Avoid <code>$where</code>.</strong> It runs JavaScript per document, cannot use indexes, and is
 an injection risk. Almost anything it can do, <code>$expr</code> does faster and safely.</p>
-<h2>3.7 Regular expression queries</h2>
+<h2 id="37-regular-expression-queries">3.7 Regular expression queries</h2>
 <pre><code class="language-js">db.students.find({ name: /^A/ })                       // starts with A
 db.students.find({ name: { $regex: &quot;^A&quot; } })           // the same
 db.students.find({ name: { $regex: &quot;asha&quot;, $options: &quot;i&quot; } })   // case-insensitive
@@ -308,7 +329,7 @@ db.students.find({ subjects: { $regex: &quot;^P&quot; } })       // matches ANY 
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Only an anchored, case-sensitive regex can use an index</h3>
+<h3 id="only-an-anchored-case-sensitive-regex-can-use-an-index">⚠️ Only an anchored, case-sensitive regex can use an index</h3>
 <pre><code class="language-js">db.students.find({ name: /^Asha/ })       // CAN use an index on name
 db.students.find({ name: /Asha/ })        // full COLLECTION SCAN
 db.students.find({ name: /^Asha/i })      // full scan -- 'i' defeats the index
@@ -317,7 +338,7 @@ db.students.find({ name: /^Asha/i })      // full scan -- 'i' defeats the index
 scan. A pattern that can match anywhere, or that ignores case, has no range to
 scan and every document must be examined. <strong>For case-insensitive search at
 scale, use a text index or a collation, not <code>$options: "i"</code>.</strong></p>
-<h2>3.8 Array queries</h2>
+<h2 id="38-array-queries">3.8 Array queries</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The operators</h4>
@@ -362,7 +383,7 @@ db.students.find({ subjects: { $size: 3 } })            // exactly 3 subjects
 db.students.find({ &quot;subjects.0&quot;: &quot;DS&quot; })                // FIRST subject is DS
 </code></pre>
 </div>
-<h3>⚠️ <code>$elemMatch</code> — the array query that catches everyone</h3>
+<h3 id="elemmatch-the-array-query-that-catches-everyone">⚠️ <code>$elemMatch</code> — the array query that catches everyone</h3>
 <p>Consider an array of sub-documents:</p>
 <pre><code class="language-js">{ name: &quot;Asha&quot;, scores: [ { subject: &quot;maths&quot;, mark: 45 },
                           { subject: &quot;stats&quot;, mark: 91 } ] }
@@ -380,7 +401,7 @@ db.c.find({ scores: { $elemMatch: { subject: &quot;maths&quot;, mark: { $gt: 80 
 every condition, which is what the question meant.</p>
 <p><strong>This is the most examinable array behaviour in the unit</strong>, and the mistake is
 invisible without test data that exposes it.</p>
-<h3>Array update operators</h3>
+<h3 id="array-update-operators">Array update operators</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -459,7 +480,7 @@ list.</p>
 <p><strong><code>$slice: -5</code> after <code>$each</code></strong> is how you keep "the most recent five" — it caps
 the array from the end, and it is the practical answer to the unbounded-array
 problem of Unit 2 §2.6.</p>
-<h2>3.9 Update</h2>
+<h2 id="39-update">3.9 Update</h2>
 <pre><code class="language-js">db.students.updateOne({ _id: 21 }, { $set: { age: 21 } })
 db.students.updateMany({ dept: &quot;DS&quot; }, { $inc: { &quot;marks.maths&quot;: 5 } })
 db.students.replaceOne({ _id: 21 }, { name: &quot;Asha&quot;, dept: &quot;DS&quot; })
@@ -522,7 +543,7 @@ db.students.findOneAndUpdate({ _id: 21 }, { $set: { age: 22 } },
 </code></pre>
 <p><code>$unset</code>'s value is ignored entirely — <code>""</code> is the convention.</p>
 </div>
-<h3>⚠️ <code>updateOne</code> versus <code>replaceOne</code></h3>
+<h3 id="updateone-versus-replaceone">⚠️ <code>updateOne</code> versus <code>replaceOne</code></h3>
 <pre><code class="language-js">db.students.updateOne({ _id: 21 }, { $set: { name: &quot;Asha K&quot; } })
 // every other field SURVIVES
 
@@ -532,7 +553,7 @@ db.students.replaceOne({ _id: 21 }, { name: &quot;Asha K&quot; })
 <p><strong><code>replaceOne</code> replaces the whole document</strong>, keeping only <code>_id</code>. Passing a
 bare document to <code>updateOne</code> without an operator is an error in modern
 MongoDB — which is a mercy, because in very old versions it silently replaced.</p>
-<h3>⚠️ <code>updateOne</code> updates <strong>one</strong> document, even if many match</h3>
+<h3 id="updateone-updates-one-document-even-if-many-match">⚠️ <code>updateOne</code> updates <strong>one</strong> document, even if many match</h3>
 <pre><code class="language-js">db.students.updateOne({ dept: &quot;DS&quot; }, { $set: { active: false } })
 // exactly ONE DS student changes -- and which one is not guaranteed
 db.students.updateMany({ dept: &quot;DS&quot; }, { $set: { active: false } })
@@ -540,7 +561,7 @@ db.students.updateMany({ dept: &quot;DS&quot; }, { $set: { active: false } })
 </code></pre>
 <p>Using <code>updateOne</code> where <code>updateMany</code> was meant is a silent partial update, and
 it is the commonest CRUD mistake.</p>
-<h3>Upsert</h3>
+<h3 id="upsert">Upsert</h3>
 <pre><code class="language-js">db.counters.updateOne(
   { _id: &quot;visits&quot; },
   { $inc: { count: 1 }, $setOnInsert: { created: new Date() } },
@@ -550,7 +571,7 @@ it is the commonest CRUD mistake.</p>
 <p>Update if it exists, insert if it does not — <strong>atomically</strong>, which is what
 makes it the right way to implement a counter. <code>$setOnInsert</code> applies only on
 the insert branch, so <code>created</code> is not overwritten on later increments.</p>
-<h2>3.10 Delete</h2>
+<h2 id="310-delete">3.10 Delete</h2>
 <pre><code class="language-js">db.students.deleteOne({ _id: 21 })
 db.students.deleteMany({ dept: &quot;DS&quot; })
 db.students.deleteMany({})                       // EVERY document -- kept collection
@@ -584,7 +605,7 @@ transaction you could roll back; here it does not.</p>
 <p><code>drop()</code> is far faster for emptying a large collection, because it does not
 process documents one at a time — but it also discards the indexes and the
 validator, which then have to be recreated.</p>
-<h2>3.11 Bulk operations</h2>
+<h2 id="311-bulk-operations">3.11 Bulk operations</h2>
 <pre><code class="language-js">db.students.bulkWrite([
   { insertOne: { document: { _id: 30, name: &quot;New&quot;, dept: &quot;DS&quot; } } },
   { updateOne: { filter: { _id: 21 }, update: { $inc: { age: 1 } } } },
@@ -598,7 +619,7 @@ between minutes and seconds, because network latency dominates when each
 operation is a separate request.</p>
 <p>As with <code>insertMany</code>, <code>ordered: true</code> (the default) stops at the first error;
 <code>ordered: false</code> continues and may execute in parallel.</p>
-<h2>3.12 Cursor methods</h2>
+<h2 id="312-cursor-methods">3.12 Cursor methods</h2>
 <pre><code class="language-js">db.students.find().sort({ &quot;marks.maths&quot;: -1 })       // -1 descending, 1 ascending
 db.students.find().sort({ dept: 1, &quot;marks.maths&quot;: -1 })
 db.students.find().limit(3)
@@ -612,7 +633,7 @@ db.students.find().explain(&quot;executionStats&quot;)         // Unit 5
 applies <strong>sort, then skip, then limit</strong>. So <code>.limit(3).sort(...)</code> sorts the
 whole result and then takes three — it does <strong>not</strong> sort three arbitrary
 documents.</p>
-<h3>⚠️ <code>skip</code> does not scale</h3>
+<h3 id="skip-does-not-scale">⚠️ <code>skip</code> does not scale</h3>
 <p><code>skip(100000)</code> makes the server walk and discard 100,000 documents. Deep
 pagination gets linearly slower, and page 500 of a listing is genuinely slow.</p>
 <p><strong>Range-based pagination</strong> is the fix:</p>
@@ -623,7 +644,7 @@ db.students.find({ _id: { $gt: lastSeenId } }).sort({ _id: 1 }).limit(20)
 </code></pre>
 <p>This uses the index to jump straight to the position, so page 500 costs the
 same as page 2.</p>
-<h2>3.13 Projection</h2>
+<h2 id="313-projection">3.13 Projection</h2>
 <pre><code class="language-js">db.students.find({}, { name: 1, dept: 1 })            // these fields + _id
 db.students.find({}, { name: 1, _id: 0 })             // exclude _id
 db.students.find({}, { marks: 0, subjects: 0 })       // everything EXCEPT these
@@ -632,7 +653,7 @@ db.students.find({}, { subjects: { $slice: 2 } })     // first 2 array elements
 db.students.find({ subjects: &quot;DS&quot; },
                  { &quot;subjects.$&quot;: 1 })                 // the MATCHING element
 </code></pre>
-<h3>⚠️ You cannot mix inclusion and exclusion</h3>
+<h3 id="you-cannot-mix-inclusion-and-exclusion">⚠️ You cannot mix inclusion and exclusion</h3>
 <pre><code class="language-js">db.students.find({}, { name: 1, dept: 0 })       // ERROR
 db.students.find({}, { name: 1, _id: 0 })        // ALLOWED -- _id is the exception
 </code></pre>
@@ -643,7 +664,7 @@ may be excluded alongside inclusions.</p>
 sent over the network, and a query whose projection is fully covered by an
 index need not touch the documents at all (Unit 5's covered query).</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Using the sample collection, write queries for:</p>
@@ -809,7 +830,7 @@ meant. Very old versions silently replaced, which destroyed a great deal of
 data over the years.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Distinguish <code>insertOne</code> from <code>insertMany</code>.</li>
@@ -847,7 +868,7 @@ data over the years.</p>
 <li>Explain array handling in MongoDB — querying, <code>$elemMatch</code>, the positional
    operators and array updates.</li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

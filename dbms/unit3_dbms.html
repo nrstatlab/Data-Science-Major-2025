@@ -29,6 +29,19 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-the-relational-data-model">3.1 The relational data model</a></li>
+    <li><a href="#32-codds-12-rules">3.2 Codd&#x27;s 12 rules</a></li>
+    <li><a href="#33-relational-integrity-constraints">3.3 Relational integrity constraints</a></li>
+    <li><a href="#34-relational-algebra">3.4 Relational algebra</a></li>
+    <li><a href="#35-functional-dependencies">3.5 Functional dependencies</a></li>
+    <li><a href="#36-normalization">3.6 Normalization</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 25):</strong> Introduction, CODD rules, relational data model,
 concept of key, relational integrity, relational algebra, relational algebra
 operations, advantages of relational algebra, limitations of relational
@@ -36,7 +49,7 @@ algebra, functional dependencies and normal forms.</p>
 <hr />
 <p>This is the hardest unit in the course, and normalization is the hardest part
 of it. It is also the part most reliably asked as a ten-mark question.</p>
-<h2>3.1 The relational data model</h2>
+<h2 id="31-the-relational-data-model">3.1 The relational data model</h2>
 <p>Proposed by <strong>E. F. Codd</strong> in 1970. Data is stored in <strong>relations</strong> — tables of
 rows and columns.</p>
 <table class="main-table">
@@ -83,7 +96,7 @@ rows and columns.</p>
 </table>
 <p><strong>Degree and cardinality are frequently swapped in exams.</strong> Degree counts
 columns; cardinality counts rows.</p>
-<h3>Properties of a relation</h3>
+<h3 id="properties-of-a-relation">Properties of a relation</h3>
 <ol>
 <li>Each cell holds <strong>one atomic value</strong> — no lists, no repeating groups</li>
 <li>Every attribute has a distinct name</li>
@@ -94,7 +107,7 @@ columns; cardinality counts rows.</p>
 </ol>
 <p>Property 4 is why <code>SELECT</code> results have no guaranteed order unless you write
 <code>ORDER BY</code>. A common source of confusion.</p>
-<h2>3.2 Codd's 12 rules</h2>
+<h2 id="32-codds-12-rules">3.2 Codd's 12 rules</h2>
 <p>Codd published 12 rules (numbered 0 to 12, so thirteen in all) defining what
 makes a DBMS genuinely relational. Know the concept and be able to name several;
 few real systems satisfy all of them.</p>
@@ -174,7 +187,7 @@ few real systems satisfy all of them.</p>
 </tr>
 </tbody>
 </table>
-<h2>3.3 Relational integrity constraints</h2>
+<h2 id="33-relational-integrity-constraints">3.3 Relational integrity constraints</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -207,7 +220,7 @@ anything.</p>
 99 when no such department exists — as demonstrated in
 <a href="../labs/course-5-dbms/03_employee.sql"><code>03_employee.sql</code></a>, where that
 exact update is tested and correctly rejected.</p>
-<h3>Referential actions</h3>
+<h3 id="referential-actions">Referential actions</h3>
 <p>What happens when a referenced row is deleted or updated:</p>
 <table class="main-table">
 <thead>
@@ -235,10 +248,10 @@ exact update is tested and correctly rejected.</p>
 </tr>
 </tbody>
 </table>
-<h2>3.4 Relational algebra</h2>
+<h2 id="34-relational-algebra">3.4 Relational algebra</h2>
 <p>A <strong>procedural</strong> query language: it specifies <em>how</em> to compute the result. It is
 the theoretical foundation of SQL, and query optimisers work in terms of it.</p>
-<h3>Basic operations</h3>
+<h3 id="basic-operations">Basic operations</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -286,7 +299,7 @@ error, largely because SQL's <code>SELECT</code> keyword actually does the <em>p
 π_{name, salary}(EMPLOYEE)            →  SELECT name, salary FROM Employee
 π_{name}(σ_{dept_id = 2}(EMPLOYEE))   →  SELECT name FROM Employee WHERE dept_id = 2
 </code></pre>
-<h3>Derived operations</h3>
+<h3 id="derived-operations">Derived operations</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -331,7 +344,7 @@ error, largely because SQL's <code>SELECT</code> keyword actually does the <em>p
 <p><strong>Union compatibility:</strong> ∪, ∩ and − require both relations to have the same
 number of attributes with matching domains. Without it the operation is
 undefined.</p>
-<h3>Advantages of relational algebra</h3>
+<h3 id="advantages-of-relational-algebra">Advantages of relational algebra</h3>
 <ol>
 <li><strong>A formal mathematical foundation</strong> for query languages</li>
 <li>
@@ -346,7 +359,7 @@ undefined.</p>
 <p><strong>Procedural clarity</strong> — the order of operations is explicit</p>
 </li>
 </ol>
-<h3>Limitations of relational algebra</h3>
+<h3 id="limitations-of-relational-algebra">Limitations of relational algebra</h3>
 <ol>
 <li><strong>No aggregate functions</strong> — no <code>COUNT</code>, <code>SUM</code>, <code>AVG</code> in the basic algebra</li>
 <li><strong>No grouping</strong></li>
@@ -363,7 +376,7 @@ undefined.</p>
 </ol>
 <p><strong>Extended relational algebra</strong> adds aggregation and grouping, which is how SQL
 manages <code>GROUP BY</code>. Mentioning that distinction earns marks.</p>
-<h2>3.5 Functional dependencies</h2>
+<h2 id="35-functional-dependencies">3.5 Functional dependencies</h2>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>X → Y</strong> ("X determines Y") means: whenever two tuples agree on X, they must
@@ -372,7 +385,7 @@ agree on Y.</p>
 <p><code>roll_no → name</code> — the roll number determines the name. Given a roll number,
 the name is fixed.</p>
 <p><code>name → roll_no</code> is <strong>false</strong> — two students may share a name.</p>
-<h3>Types of functional dependency</h3>
+<h3 id="types-of-functional-dependency">Types of functional dependency</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -407,7 +420,7 @@ the name is fixed.</p>
 <p><strong>Partial dependency is what 2NF removes. Transitive dependency is what 3NF
 removes.</strong> Fixing those two definitions in your mind makes normalization
 mechanical.</p>
-<h3>Armstrong's axioms</h3>
+<h3 id="armstrongs-axioms">Armstrong's axioms</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -431,7 +444,7 @@ mechanical.</p>
 </tbody>
 </table>
 <p>Derived rules: union, decomposition, pseudo-transitivity.</p>
-<h2>3.6 Normalization</h2>
+<h2 id="36-normalization">3.6 Normalization</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Why normalize</h4>
@@ -500,7 +513,7 @@ mechanical.</p>
 </table>
 <p>Normalization is the systematic removal of these.</p>
 </div>
-<h3>First Normal Form (1NF)</h3>
+<h3 id="first-normal-form-1nf">First Normal Form (1NF)</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>Every attribute holds a <strong>single atomic value</strong>. No repeating groups, no
@@ -546,7 +559,7 @@ multivalued attributes.</p>
 </tbody>
 </table>
 <p>Or better, a separate <code>STUDENT_PHONE</code> table.</p>
-<h3>Second Normal Form (2NF)</h3>
+<h3 id="second-normal-form-2nf">Second Normal Form (2NF)</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>In 1NF, <strong>and</strong> every non-key attribute is <strong>fully</strong> functionally dependent on
@@ -580,7 +593,7 @@ dependency.</p>
 <pre><code>STUDENT(roll PK, student_name)
 ENROLMENT(roll FK, course_id FK, marks, PRIMARY KEY(roll, course_id))
 </code></pre>
-<h3>Third Normal Form (3NF)</h3>
+<h3 id="third-normal-form-3nf">Third Normal Form (3NF)</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>In 2NF, <strong>and</strong> no non-key attribute transitively depends on the primary key.
@@ -614,7 +627,7 @@ DEPARTMENT(dept_id PK, dept_name)
 </code></pre>
 <p>That is exactly the structure of the Employee lab schema — the lab tables are
 already in 3NF, which is why they need no decomposition.</p>
-<h3>Boyce-Codd Normal Form (BCNF)</h3>
+<h3 id="boyce-codd-normal-form-bcnf">Boyce-Codd Normal Form (BCNF)</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>For every non-trivial dependency X → Y, <strong>X must be a super key</strong>.</p>
@@ -639,7 +652,7 @@ already in 3NF, which is why they need no decomposition.</p>
 </table>
 <p>with <code>{student, subject} → teacher</code> and <code>teacher → subject</code>. The second
 dependency has a non-super-key on the left, so it is in 3NF but not BCNF.</p>
-<h3>The memory aid</h3>
+<h3 id="the-memory-aid">The memory aid</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>"The key, the whole key, and nothing but the key, so help me Codd."</strong></p>
@@ -649,7 +662,7 @@ dependency has a non-super-key on the left, so it is in 3NF but not BCNF.</p>
 <li><strong>The whole key</strong> → 2NF (no partial dependency)</li>
 <li><strong>Nothing but the key</strong> → 3NF (no transitive dependency)</li>
 </ul>
-<h3>Higher normal forms, briefly</h3>
+<h3 id="higher-normal-forms-briefly">Higher normal forms, briefly</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -672,7 +685,7 @@ dependency has a non-super-key on the left, so it is in 3NF but not BCNF.</p>
 </tr>
 </tbody>
 </table>
-<h3>Denormalization</h3>
+<h3 id="denormalization">Denormalization</h3>
 <p>Normalizing to 3NF means more tables and therefore more joins, which can be
 slower. <strong>Denormalization</strong> deliberately reintroduces redundancy for read
 performance — common in data warehouses and reporting systems, which you meet
@@ -735,7 +748,7 @@ without an order, a product without a sale, and a customer's city is stored
 exactly once.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define degree and cardinality of a relation.</li>
@@ -764,7 +777,7 @@ exactly once.</p>
    normal forms.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

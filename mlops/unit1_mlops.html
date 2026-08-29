@@ -27,12 +27,24 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-what-data-engineering-is">1.1 What data engineering is</a></li>
+    <li><a href="#12-the-data-lifecycle-against-the-data-engineering-lifecycle">1.2 The data lifecycle against the data engineering lifecycle</a></li>
+    <li><a href="#13-the-evolution-of-the-role">1.3 The evolution of the role</a></li>
+    <li><a href="#14-the-roles-and-responsibilities-and-how-they-split">1.4 The roles and responsibilities, and how they split</a></li>
+    <li><a href="#15-data-engineering-and-data-science">1.5 Data engineering and data science</a></li>
+    <li><a href="#16-the-skills">1.6 The skills</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 14):</strong> Data engineering: definition, lifecycle, skills,
 activities. Evolution and roles of data engineers: technical vs business
 responsibilities, internal vs external roles. Relationship between data
 engineering and data science. Data lifecycle vs data engineering lifecycle.</p>
 <hr />
-<h2>1.1 What data engineering is</h2>
+<h2 id="11-what-data-engineering-is">1.1 What data engineering is</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The definition to memorise</h4>
@@ -45,7 +57,7 @@ pipeline that produces it correctly every morning at 06:00, with alerts when
 it does not, is.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The activities</h4>
 <table class="main-table">
 <thead>
@@ -82,7 +94,7 @@ it does not, is.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ The last row is the one this course exists for</h3>
+<h3 id="the-last-row-is-the-one-this-course-exists-for">⚠️ The last row is the one this course exists for</h3>
 <p><strong>A pipeline that crashes is a nuisance. A pipeline that quietly reports the
 wrong number is a disaster</strong>, and only a cross-check catches it.</p>
 <p><a href="lab_mlops.html#experiment-3">Experiment 3</a> demonstrates this exactly: three defects
@@ -90,7 +102,7 @@ in the source data — a lowercase region, a price with a currency prefix, a
 duplicated order — produce a revenue total that is <strong>wrong by 1%</strong> and raises
 no error at all.</p>
 <hr />
-<h2>1.2 The data lifecycle against the data engineering lifecycle</h2>
+<h2 id="12-the-data-lifecycle-against-the-data-engineering-lifecycle">1.2 The data lifecycle against the data engineering lifecycle</h2>
 <p><strong>This distinction is examined and is routinely confused.</strong></p>
 <table class="main-table">
 <thead>
@@ -124,7 +136,7 @@ no error at all.</p>
 </tbody>
 </table>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The five stages, and what happens in each</h4>
 <table class="main-table">
 <thead>
@@ -196,7 +208,7 @@ Security is. Orchestration is. That is why they are drawn underneath rather
 than in the chain.</p>
 </div>
 <hr />
-<h2>1.3 The evolution of the role</h2>
+<h2 id="13-the-evolution-of-the-role">1.3 The evolution of the role</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -224,7 +236,7 @@ than in the chain.</p>
 </tbody>
 </table>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>ETL against ELT, which the shift to cloud caused</h4>
 <table class="main-table">
 <thead>
@@ -271,7 +283,7 @@ pandas, load the clean rows — because it is easier to see the steps that
 way. The same job as ELT would load the messy rows and clean them in SQL.</p>
 </div>
 <hr />
-<h2>1.4 The roles and responsibilities, and how they split</h2>
+<h2 id="14-the-roles-and-responsibilities-and-how-they-split">1.4 The roles and responsibilities, and how they split</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -298,7 +310,7 @@ way. The same job as ELT would load the messy rows and clean them in SQL.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The second failure mode is the expensive one</h3>
+<h3 id="the-second-failure-mode-is-the-expensive-one">⚠️ The second failure mode is the expensive one</h3>
 <p>A pipeline that computes "revenue" correctly according to a definition nobody
 agreed is worse than one that crashes, because <strong>it is trusted</strong>. Getting the
 definition written down — <em>is revenue net of returns? which date does it use?</em>
@@ -335,7 +347,7 @@ definition written down — <em>is revenue net of returns? which date does it us
 </tbody>
 </table>
 <hr />
-<h2>1.5 Data engineering and data science</h2>
+<h2 id="15-data-engineering-and-data-science">1.5 Data engineering and data science</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The one-line relationship</h4>
@@ -378,13 +390,13 @@ definition written down — <em>is revenue net of returns? which date does it us
 </table>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The hierarchy-of-needs argument</h4>
 <p>The much-cited version: <strong>you cannot do machine learning until the data is
 collected, cleaned, stored, and reliably available.</strong> Most organisations that
 believe they need a data scientist need a data engineer.</p>
 </div>
-<h3>⚠️ And the honest counterweight</h3>
+<h3 id="and-the-honest-counterweight">⚠️ And the honest counterweight</h3>
 <p>Data engineering built to no purpose is also waste. <strong>A warehouse nobody
 queries</strong> is as much a failure as a model with no data. The right sequence is
 <em>a question, then the pipeline that answers it</em> — not a platform in the hope
@@ -392,7 +404,7 @@ that questions arrive.</p>
 <p><strong>The role this course prepares you for sits in between</strong>, and that is why the
 syllabus pairs data engineering with MLOps in one course rather than two.</p>
 <hr />
-<h2>1.6 The skills</h2>
+<h2 id="16-the-skills">1.6 The skills</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -437,14 +449,14 @@ syllabus pairs data engineering with MLOps in one course rather than two.</p>
 </table>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
-<h3>💡 The skill students underrate</h3>
+<h3 id="the-skill-students-underrate">💡 The skill students underrate</h3>
 <p><strong>SQL.</strong> Not writing a <code>SELECT</code>, but understanding the execution plan, why a
 join is slow, what a window function does, and why <code>SELECT *</code> into a
 dashboard is a maintenance problem. <strong>Most data engineering is SQL</strong>, and
 the fashionable parts are a smaller share of the job than they appear.</p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Define data engineering, with <strong>systems</strong> and <strong>maintenance</strong> in the definition</li>
 <li>[ ] <strong>Distinguish the data lifecycle from the data engineering lifecycle</strong></li>

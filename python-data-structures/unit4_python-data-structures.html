@@ -32,6 +32,29 @@
     <span class="chip">Assertions</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#a1-opening-and-closing">A.1 Opening and closing</a></li>
+    <li><a href="#a2-file-modes">A.2 File modes</a></li>
+    <li><a href="#a3-reading-and-writing">A.3 Reading and writing</a></li>
+    <li><a href="#a4-file-positions">A.4 File positions</a></li>
+    <li><a href="#a5-csv-files">A.5 CSV files</a></li>
+    <li><a href="#a6-os-and-pathlib">A.6 os and pathlib</a></li>
+    <li><a href="#b1-syntax-errors-vs-exceptions">B.1 Syntax errors vs exceptions</a></li>
+    <li><a href="#b2-common-built-in-exceptions">B.2 Common built-in exceptions</a></li>
+    <li><a href="#b3-try-except-else-finally">B.3 try / except / else / finally</a></li>
+    <li><a href="#b4-raise">B.4 raise</a></li>
+    <li><a href="#b5-user-defined-exceptions">B.5 User-defined exceptions</a></li>
+    <li><a href="#b6-assertions">B.6 Assertions</a></li>
+    <li><a href="#c1-classes-and-objects">C.1 Classes and objects</a></li>
+    <li><a href="#c2-constructor-and-destructor">C.2 Constructor and destructor</a></li>
+    <li><a href="#c3-encapsulation">C.3 Encapsulation</a></li>
+    <li><a href="#c4-inheritance">C.4 Inheritance</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 15):</strong> File handling — types, paths, basic operations
 (open/close, read/write), CSV files, <code>os</code>/<code>pathlib</code>. Error and exception
 handling — syntax errors, built-in exceptions, catching and handling exceptions
@@ -52,7 +75,7 @@ files and exceptions are solid.</p>
 </div>
 <hr />
 <h1>Part A — File Handling</h1>
-<h2>A.1 Opening and closing</h2>
+<h2 id="a1-opening-and-closing">A.1 Opening and closing</h2>
 <pre><code class="language-python">fh = open(&quot;data.txt&quot;, &quot;r&quot;)
 content = fh.read()
 fh.close()                      # easy to forget, and skipped entirely if an
@@ -65,7 +88,7 @@ fh.close()                      # easy to forget, and skipped entirely if an
 </code></pre>
 <p><code>with</code> is a context manager. It is the correct answer to any exam question
 about safe file handling.</p>
-<h2>A.2 File modes</h2>
+<h2 id="a2-file-modes">A.2 File modes</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -123,7 +146,7 @@ about safe file handling.</p>
 <p>Add <code>"b"</code> for binary (<code>"rb"</code>, <code>"wb"</code>) or <code>"t"</code> for text (the default).</p>
 <p><strong><code>"w"</code> destroys the file's contents the moment you open it</strong> — before you have
 written anything. Use <code>"a"</code> when you mean to add to a file.</p>
-<h2>A.3 Reading and writing</h2>
+<h2 id="a3-reading-and-writing">A.3 Reading and writing</h2>
 <pre><code class="language-python">with open(&quot;data.txt&quot;) as fh:
     everything = fh.read()          # the whole file as one string
     one_line  = fh.readline()       # a single line, including '\n'
@@ -139,12 +162,12 @@ with open(&quot;out.txt&quot;, &quot;w&quot;) as fh:
 </code></pre>
 <p><code>read()</code> loads the entire file into memory. For a large file, iterate over the
 file object instead — it reads lazily.</p>
-<h2>A.4 File positions</h2>
+<h2 id="a4-file-positions">A.4 File positions</h2>
 <pre><code class="language-python">fh.tell()            # current byte position
 fh.seek(0)           # back to the start
 fh.seek(10)          # 10 bytes in
 </code></pre>
-<h2>A.5 CSV files</h2>
+<h2 id="a5-csv-files">A.5 CSV files</h2>
 <pre><code class="language-python">import csv
 
 # Writing
@@ -167,7 +190,7 @@ with open(&quot;marks.csv&quot;, newline=&quot;&quot;) as fh:
 it, Windows writes blank lines between rows), and remember that <strong>every value
 read from a CSV is a string</strong> — convert numbers explicitly.</p>
 <p>Worked example: <a href="../labs/course-3-python/11_csv_marks.py"><code>11_csv_marks.py</code></a>.</p>
-<h2>A.6 <code>os</code> and <code>pathlib</code></h2>
+<h2 id="a6-os-and-pathlib">A.6 <code>os</code> and <code>pathlib</code></h2>
 <pre><code class="language-python">import os
 
 os.getcwd()                       # current directory
@@ -190,7 +213,7 @@ p.stem                            # 'marks'
 your code works on Windows too.</p>
 <hr />
 <h1>Part B — Exception Handling</h1>
-<h2>B.1 Syntax errors vs exceptions</h2>
+<h2 id="b1-syntax-errors-vs-exceptions">B.1 Syntax errors vs exceptions</h2>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>syntax error</strong> is caught before the program runs — the code is not valid
@@ -202,7 +225,7 @@ Python and nothing executes:</p>
 <pre><code class="language-python">10 / 0            # ZeroDivisionError
 </code></pre>
 <p>Only exceptions can be caught and handled.</p>
-<h2>B.2 Common built-in exceptions</h2>
+<h2 id="b2-common-built-in-exceptions">B.2 Common built-in exceptions</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -261,7 +284,7 @@ Python and nothing executes:</p>
 </tr>
 </tbody>
 </table>
-<h2>B.3 <code>try</code> / <code>except</code> / <code>else</code> / <code>finally</code></h2>
+<h2 id="b3-try-except-else-finally">B.3 <code>try</code> / <code>except</code> / <code>else</code> / <code>finally</code></h2>
 <pre><code class="language-python">try:
     number = int(input(&quot;Enter a number: &quot;))
     result = 100 / number
@@ -310,7 +333,7 @@ the specific handlers must come before the general one.</p>
 <p><strong>Never write a bare <code>except:</code>.</strong> It catches <code>KeyboardInterrupt</code> and
 <code>SystemExit</code> too, so your program cannot be stopped with Ctrl-C. Use
 <code>except Exception:</code> if you really need a catch-all.</p>
-<h2>B.4 <code>raise</code></h2>
+<h2 id="b4-raise">B.4 <code>raise</code></h2>
 <pre><code class="language-python">def set_age(age):
     if age &lt; 0:
         raise ValueError(&quot;Age cannot be negative&quot;)
@@ -328,7 +351,7 @@ except Exception:
     log_it()
     raise               # a bare raise re-raises the current exception
 </code></pre>
-<h2>B.5 User-defined exceptions</h2>
+<h2 id="b5-user-defined-exceptions">B.5 User-defined exceptions</h2>
 <pre><code class="language-python">class InsufficientBalanceError(Exception):
     &quot;&quot;&quot;Raised when a withdrawal exceeds the available balance.&quot;&quot;&quot;
 
@@ -346,7 +369,7 @@ def withdraw(balance, amount):
 </code></pre>
 <p>Custom exceptions inherit from <code>Exception</code> (not from <code>BaseException</code>). Naming
 them <code>...Error</code> is the convention.</p>
-<h2>B.6 Assertions</h2>
+<h2 id="b6-assertions">B.6 Assertions</h2>
 <pre><code class="language-python">assert len(scores) &gt; 0, &quot;scores must not be empty&quot;
 </code></pre>
 <p>Raises <code>AssertionError</code> with the message when the condition is false.</p>
@@ -357,7 +380,7 @@ assertion for anything security- or correctness-critical at runtime.</p>
 <a href="../labs/course-3-python/12_exception_handling.py"><code>12_exception_handling.py</code></a>.</p>
 <hr />
 <h1>Part C — Object-Oriented Programming</h1>
-<h2>C.1 Classes and objects</h2>
+<h2 id="c1-classes-and-objects">C.1 Classes and objects</h2>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>class</strong> is a blueprint; an <strong>object</strong> is an instance built from it. One
@@ -381,14 +404,14 @@ assertion for anything security- or correctness-critical at runtime.</p>
 s1 = Student(24001, &quot;Ananya&quot;, [85, 78, 92])     # creating an object
 s1.display()
 </code></pre>
-<h3><code>self</code></h3>
+<h3 id="self"><code>self</code></h3>
 <p><code>self</code> refers to the object the method was called on. It is <strong>the first
 parameter of every instance method</strong>, supplied automatically by Python:
 <code>s1.display()</code> really means <code>Student.display(s1)</code>.</p>
 <p>The name <code>self</code> is a convention, not a keyword — but never rename it.</p>
 <p><strong>Forgetting <code>self</code> is the most common OOP error in exams.</strong> Both in the
 parameter list and when accessing attributes: <code>self.name</code>, not <code>name</code>.</p>
-<h3>Class vs instance attributes</h3>
+<h3 id="class-vs-instance-attributes">Class vs instance attributes</h3>
 <pre><code class="language-python">class Student:
     count = 0                          # class attribute -- one, shared
 
@@ -399,7 +422,7 @@ parameter list and when accessing attributes: <code>self.name</code>, not <code>
 <p>Changing a class attribute through the class affects every object. Assigning to
 it through an instance (<code>s1.count = 5</code>) quietly creates a <em>new instance
 attribute</em> that shadows the class one — a classic trap.</p>
-<h2>C.2 Constructor and destructor</h2>
+<h2 id="c2-constructor-and-destructor">C.2 Constructor and destructor</h2>
 <pre><code class="language-python">class Student:
     def __init__(self, name):          # CONSTRUCTOR -- runs on creation
         self.name = name
@@ -412,7 +435,7 @@ attribute</em> that shadows the class one — a classic trap.</p>
 necessarily</strong> when you call <code>del</code>. Python uses reference counting: the object
 is destroyed when the last reference to it disappears. Do not rely on <code>__del__</code>
 for important cleanup — use <code>with</code> and context managers.</p>
-<h3>Other dunder methods worth knowing</h3>
+<h3 id="other-dunder-methods-worth-knowing">Other dunder methods worth knowing</h3>
 <pre><code class="language-python">def __str__(self):                     # what print() shows -- for humans
     return f&quot;Student({self.name})&quot;
 
@@ -425,7 +448,7 @@ def __len__(self):                     # enables len(obj)
 def __eq__(self, other):               # enables obj1 == obj2
     return self.roll == other.roll
 </code></pre>
-<h2>C.3 Encapsulation</h2>
+<h2 id="c3-encapsulation">C.3 Encapsulation</h2>
 <p>Bundling data with the methods that operate on it, and controlling access to
 that data.</p>
 <table class="main-table">
@@ -480,9 +503,9 @@ an exam: "Python enforces encapsulation by convention, not by the compiler."</p>
 <p>The point of the getter/setter pair is not secrecy but <strong>validation</strong>: the
 <code>deposit</code> method can reject a negative amount, where direct attribute
 assignment could not.</p>
-<h2>C.4 Inheritance</h2>
+<h2 id="c4-inheritance">C.4 Inheritance</h2>
 <p>A child class acquires the attributes and methods of a parent.</p>
-<h3>Single inheritance</h3>
+<h3 id="single-inheritance">Single inheritance</h3>
 <pre><code class="language-python">class Person:
     def __init__(self, name, age):
         self.name = name
@@ -503,12 +526,12 @@ class Student(Person):                       # Student inherits from Person
 </code></pre>
 <p><code>super()</code> gives access to the parent class. Calling <code>super().__init__()</code> is
 essential — without it the parent's attributes are never set.</p>
-<h3>Multilevel inheritance — a chain</h3>
+<h3 id="multilevel-inheritance-a-chain">Multilevel inheritance — a chain</h3>
 <pre><code class="language-python">class Person: ...
 class Student(Person): ...
 class ResearchScholar(Student): ...      # Person -&gt; Student -&gt; ResearchScholar
 </code></pre>
-<h3>Multiple inheritance — two parents</h3>
+<h3 id="multiple-inheritance-two-parents">Multiple inheritance — two parents</h3>
 <pre><code class="language-python">class Student: ...
 class Teacher: ...
 class TeachingAssistant(Student, Teacher): ...
@@ -520,7 +543,7 @@ computed by the C3 linearisation algorithm:</p>
 </code></pre>
 <p>Methods are looked up left to right along that order. C++ has the "diamond
 problem" here; Python's MRO is its answer to it.</p>
-<h3>Types of inheritance — all five</h3>
+<h3 id="types-of-inheritance-all-five">Types of inheritance — all five</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -552,7 +575,7 @@ problem" here; Python's MRO is its answer to it.</p>
 </tbody>
 </table>
 <p>The syllabus names the first three; know all five.</p>
-<h3>Method overriding vs overloading</h3>
+<h3 id="method-overriding-vs-overloading">Method overriding vs overloading</h3>
 <p><strong>Overriding</strong> — a child redefines a method it inherited. Fully supported.</p>
 <p><strong>Overloading</strong> — several methods with the same name and different signatures.
 <strong>Python does not support this.</strong> A later definition simply replaces the
@@ -562,7 +585,7 @@ earlier one. Simulate it with default arguments or <code>*args</code>:</p>
 </code></pre>
 <p>This is a favourite exam question: <em>"Does Python support method overloading?"</em>
 The answer is no, followed by the workaround.</p>
-<h3>Polymorphism</h3>
+<h3 id="polymorphism">Polymorphism</h3>
 <p>The same call, different behaviour depending on the object's class:</p>
 <pre><code class="language-python">for obj in (Person(&quot;A&quot;, 40), Student(&quot;B&quot;, 19, 24001)):
     obj.display()          # calls whichever version belongs to that class
@@ -574,7 +597,7 @@ quacks like a duck, treat it as a duck."</p>
 <a href="../labs/course-3-python/13_student_class.py"><code>13_student_class.py</code></a> and
 <a href="../labs/course-3-python/14_inheritance.py"><code>14_inheritance.py</code></a>.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is the difference between <code>"w"</code> and <code>"a"</code> file modes?</li>
@@ -604,7 +627,7 @@ quacks like a duck, treat it as a duck."</p>
 <li>Explain classes, objects, constructors, destructors and encapsulation with a
    complete program.</li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -16,10 +16,24 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#every-experiment-in-this-course-runs">🎯 Every experiment in this course runs</a></li>
+    <li><a href="#experiments-1-and-2-import-visualize-decompose">Experiments 1 and 2 — Import, visualize, decompose</a></li>
+    <li><a href="#experiments-3-and-4-acf-pacf-and-stationarity">Experiments 3 and 4 — ACF, PACF and stationarity</a></li>
+    <li><a href="#experiments-5-and-6-arma-arima-and-sarima">Experiments 5 and 6 — ARMA, ARIMA and SARIMA</a></li>
+    <li><a href="#experiments-7-and-8-selection-and-forecasting">Experiments 7 and 8 — Selection and forecasting</a></li>
+    <li><a href="#experiments-9-10-and-11-var-state-space-spectral">Experiments 9, 10 and 11 — VAR, state-space, spectral</a></li>
+    <li><a href="#experiments-12-and-13-comparison-and-evaluation">Experiments 12 and 13 — Comparison and evaluation</a></li>
+    <li><a href="#what-the-runner-asserts">What the runner asserts</a></li>
+    <li><a href="#lab-examination">Lab examination</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 9):</strong> 13 experiments, 1 credit, 2 hrs/week.
 <em>"Using R/Python statsmodels, pandas, forecast, or equivalent."</em></p>
 <p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-14b-timeseries"><code>labs/course-14b-timeseries/</code></a>.</p>
-<h2>🎯 Every experiment in this course runs</h2>
+<h2 id="every-experiment-in-this-course-runs">🎯 Every experiment in this course runs</h2>
 <p><strong>There is no <code>NOT EXECUTED</code> file anywhere in Course 14 B.</strong> It is one of only
 two such courses in the whole programme — the other is Course 12 A.</p>
 <p>statsmodels implements everything the syllabus names, so decomposition, STL,
@@ -71,10 +85,10 @@ a coefficient estimate 2.5 standard errors from the truth, and could then
 prove the estimator was fine and the draw unusual.</p>
 </div>
 <hr />
-<h2>Experiments 1 and 2 — Import, visualize, decompose</h2>
+<h2 id="experiments-1-and-2-import-visualize-decompose">Experiments 1 and 2 — Import, visualize, decompose</h2>
 <p><a href="../labs/course-14b-timeseries/01_explore_decompose.py"><code>01_explore_decompose.py</code></a></p>
 <p><strong>120 monthly observations</strong>, 2016-01 to 2025-12, mean 145.24.</p>
-<h3>The four questions to ask before any model</h3>
+<h3 id="the-four-questions-to-ask-before-any-model">The four questions to ask before any model</h3>
 <ol>
 <li>Is there a <strong>trend</strong>?</li>
 <li>Is there <strong>seasonality</strong>, and at what period?</li>
@@ -167,7 +181,7 @@ shape evolve, and has a robust option for outliers.</p>
 <p><strong>STL is the modern default.</strong> Name it.</p>
 </div>
 <hr />
-<h2>Experiments 3 and 4 — ACF, PACF and stationarity</h2>
+<h2 id="experiments-3-and-4-acf-pacf-and-stationarity">Experiments 3 and 4 — ACF, PACF and stationarity</h2>
 <p><a href="../labs/course-14b-timeseries/03_acf_stationarity.py"><code>03_acf_stationarity.py</code></a></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -242,7 +256,7 @@ reason Ljung-Box tests lags <strong>jointly</strong>.</p>
 </table>
 <p><strong>That is where the d in ARIMA(p,d,q) comes from.</strong></p>
 </div>
-<h3>⚠️ Over-differencing, measured</h3>
+<h3 id="over-differencing-measured">⚠️ Over-differencing, measured</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -314,9 +328,9 @@ difference</strong>.</p>
 genuine unit root.</p>
 </div>
 <hr />
-<h2>Experiments 5 and 6 — ARMA, ARIMA and SARIMA</h2>
+<h2 id="experiments-5-and-6-arma-arima-and-sarima">Experiments 5 and 6 — ARMA, ARIMA and SARIMA</h2>
 <p><a href="../labs/course-14b-timeseries/05_arma_arima_sarima.py"><code>05_arma_arima_sarima.py</code></a></p>
-<h3>⚠️ The estimate that missed, and what it taught</h3>
+<h3 id="the-estimate-that-missed-and-what-it-taught">⚠️ The estimate that missed, and what it taught</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -486,7 +500,7 @@ can be the best of a bad set.</p>
 <p><strong>The seasonal models win by a wide margin.</strong> A non-seasonal ARIMA has no
 mechanism to represent an annual cycle — it can only average it away.</p>
 </div>
-<h3>⚠️ And an honest tension</h3>
+<h3 id="and-an-honest-tension">⚠️ And an honest tension</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -513,7 +527,7 @@ over-differencing signal. <strong>Yet the airline model, which uses both, foreca
 best.</strong></p>
 <p><strong>Report both.</strong> The variance rule is a guide; the held-out error is the
 arbiter.</p>
-<h3>The airline model</h3>
+<h3 id="the-airline-model">The airline model</h3>
 <p><strong>SARIMA(0,1,1)(0,1,1)₁₂</strong>, two parameters:</p>
 <table class="main-table">
 <thead>
@@ -538,7 +552,7 @@ arbiter.</p>
 </table>
 <p><strong>It is the right first model for seasonal monthly data.</strong> Start there.</p>
 <hr />
-<h2>Experiments 7 and 8 — Selection and forecasting</h2>
+<h2 id="experiments-7-and-8-selection-and-forecasting">Experiments 7 and 8 — Selection and forecasting</h2>
 <p><a href="../labs/course-14b-timeseries/07_selection_forecast.py"><code>07_selection_forecast.py</code></a></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -650,7 +664,7 @@ invalid</strong> — it puts future observations in the training set.</p>
 </table>
 <p><strong>RMSE 6.891, MAE 5.101, coverage 9/12 = 75%.</strong></p>
 </div>
-<h3>⚠️ Report the coverage, do not round it up</h3>
+<h3 id="report-the-coverage-do-not-round-it-up">⚠️ Report the coverage, do not round it up</h3>
 <p><strong>Nominal 95%, empirical 75%.</strong> Two things are going on:</p>
 <ol>
 <li>
@@ -736,7 +750,7 @@ alone — <strong>an RMSE of 6.89 means nothing until you know repeating last ye
 scores 14.15.</strong></p>
 </div>
 <hr />
-<h2>Experiments 9, 10 and 11 — VAR, state-space, spectral</h2>
+<h2 id="experiments-9-10-and-11-var-state-space-spectral">Experiments 9, 10 and 11 — VAR, state-space, spectral</h2>
 <p><a href="../labs/course-14b-timeseries/09_var_statespace_spectral.py"><code>09_var_statespace_spectral.py</code></a></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -818,7 +832,7 @@ ever finds effects is not a test.</em></p>
 <p><strong>"Granger causes" means "helps predict", nothing more.</strong> Ice cream sales
 Granger-cause drownings.</p>
 </div>
-<h3>⚠️ And the VAR lost on one series</h3>
+<h3 id="and-the-var-lost-on-one-series">⚠️ And the VAR lost on one series</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -940,7 +954,7 @@ annual cycle, recovered rather than assumed.</p>
 length, which is the trend.</strong> Detrend first.</p>
 </div>
 <hr />
-<h2>Experiments 12 and 13 — Comparison and evaluation</h2>
+<h2 id="experiments-12-and-13-comparison-and-evaluation">Experiments 12 and 13 — Comparison and evaluation</h2>
 <p><a href="../labs/course-14b-timeseries/12_compare_evaluate.py"><code>12_compare_evaluate.py</code></a></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -1006,7 +1020,7 @@ and 96 training rows is not many.</p>
 <p><strong>The M4 and M5 competitions put the crossover at hundreds of series or
 thousands of observations.</strong></p>
 </div>
-<h3>⚠️ The textbook claim that did not hold here</h3>
+<h3 id="the-textbook-claim-that-did-not-hold-here">⚠️ The textbook claim that did not hold here</h3>
 <p><strong>Mean absolute error over the first three months: 15.142. Over the last
 three: 6.384 — it FELL.</strong></p>
 <p>The expectation is that recursive forecasting compounds error. <strong>It did not on
@@ -1082,7 +1096,7 @@ all.</strong></p>
 </table>
 <p><strong>Choose from the cost of being wrong, before you look at the results.</strong></p>
 </div>
-<h3>⚠️ MAPE, on a uniform error of 1.0</h3>
+<h3 id="mape-on-a-uniform-error-of-10">⚠️ MAPE, on a uniform error of 1.0</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1147,12 +1161,12 @@ than 100% too low. <strong>So MAPE prefers models that under-forecast.</strong><
 <p><strong>Seasonal naive above 1 is not a contradiction</strong> — MASE's denominator is the
 <strong>one-step in-sample naive</strong> error. Say which denominator you used.</p>
 </div>
-<h3>And the bias check</h3>
+<h3 id="and-the-bias-check">And the bias check</h3>
 <p><strong>Mean forecast error +2.2898 (t = 1.604, p = 0.1370) — no evidence of bias.</strong></p>
 <p><strong>A forecast can have a small RMSE and still be biased, and a business feels
 bias first.</strong></p>
 <hr />
-<h2>What the runner asserts</h2>
+<h2 id="what-the-runner-asserts">What the runner asserts</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1196,7 +1210,7 @@ bias first.</strong></p>
 </table>
 <p><strong>6 programs, 13 experiments, 0 marked NOT EXECUTED.</strong></p>
 <hr />
-<h2>Lab examination</h2>
+<h2 id="lab-examination">Lab examination</h2>
 <p>Two hours in Python or R, one experiment number, then a viva.</p>
 <p><strong>What costs marks:</strong></p>
 <ul>

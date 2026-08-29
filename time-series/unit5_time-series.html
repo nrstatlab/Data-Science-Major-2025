@@ -27,10 +27,22 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-the-frequency-domain">5.1 The frequency domain</a></li>
+    <li><a href="#52-forecast-accuracy-measures">5.2 Forecast accuracy measures</a></li>
+    <li><a href="#53-comparing-methods">5.3 Comparing methods</a></li>
+    <li><a href="#54-monitoring-a-forecast-in-production">5.4 Monitoring a forecast in production</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 7):</strong> Spectral analysis: frequency-domain representation,
 spectral density. Forecast performance: measures, monitoring, choosing models.</p>
 <hr />
-<h2>5.1 The frequency domain</h2>
+<h2 id="51-the-frequency-domain">5.1 The frequency domain</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The change of question</h4>
@@ -40,7 +52,7 @@ spectral density. Forecast performance: measures, monitoring, choosing models.</
 overlapping cycles the second is far easier to answer by eye.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The spectral density</h4>
 <p>Any stationary series can be written as a sum of sines and cosines at
 different frequencies. The <strong>spectral density f(ω)</strong> says how much of the
@@ -143,7 +155,7 @@ SARIMA(p,d,q)(P,D,Q)ₘ when you do not already know.</strong></p>
 <p>Guessing m is the commonest seasonal-model error, and this is how you stop
 guessing.</p>
 </div>
-<h3>⚠️ Two warnings that belong with any periodogram</h3>
+<h3 id="two-warnings-that-belong-with-any-periodogram">⚠️ Two warnings that belong with any periodogram</h3>
 <p><strong>1. Detrend first.</strong> A trend is a very low frequency, and it dominates the
 spectrum and hides everything else. <strong>Undetrended, the lab's strongest period
 was 120 months — the whole series length, which is the trend.</strong></p>
@@ -151,7 +163,7 @@ was 120 months — the whole series length, which is the trend.</strong></p>
 drifts smears across several frequencies and may not show a clean peak at all
 — which is exactly why a <em>business cycle</em> (Unit 1) is hard to find this way.</p>
 <hr />
-<h2>5.2 Forecast accuracy measures</h2>
+<h2 id="52-forecast-accuracy-measures">5.2 Forecast accuracy measures</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -226,7 +238,7 @@ catastrophic, use RMSE. If the cost is proportional to the error, use MAE.
 <strong>Deciding after seeing the results is how a comparison becomes a
 justification.</strong></p>
 </div>
-<h3>⚠️ MAPE's two failures, both measured</h3>
+<h3 id="mapes-two-failures-both-measured">⚠️ MAPE's two failures, both measured</h3>
 <p>Every forecast below is off by <strong>exactly 1.0</strong>:</p>
 <table class="main-table">
 <thead>
@@ -321,7 +333,7 @@ beats naive, above 1 does not.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ And why seasonal naive scores above 1</h3>
+<h3 id="and-why-seasonal-naive-scores-above-1">⚠️ And why seasonal naive scores above 1</h3>
 <p><strong>That is not a contradiction.</strong> MASE's denominator is the <strong>one-step
 in-sample naive</strong> error, not the seasonal one — so on a strongly seasonal
 series the seasonal-naive forecast is expected to sit above 1.</p>
@@ -332,7 +344,7 @@ to anyone else's.</p>
 when comparing across series of different magnitudes, which MAE and RMSE
 simply cannot do.</p>
 <hr />
-<h2>5.3 Comparing methods</h2>
+<h2 id="53-comparing-methods">5.3 Comparing methods</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Five methods, one held-out year</h4>
@@ -406,7 +418,7 @@ or thousands of observations.</strong> Below that, statistical models are hard t
 beat, and <em>"we used machine learning"</em> is not an argument.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Exponential smoothing, since it won</h4>
 <table class="main-table">
 <thead>
@@ -441,7 +453,7 @@ fades.</p>
 smoothing <em>is</em> the steady-state Kalman filter for a local-level model, with
 α equal to the Kalman gain.</p>
 </div>
-<h3>⚠️ The structural limit of a tree-based model</h3>
+<h3 id="the-structural-limit-of-a-tree-based-model">⚠️ The structural limit of a tree-based model</h3>
 <p>A strictly <strong>increasing</strong> series, 80 points, +2 per step:</p>
 <table class="main-table">
 <thead>
@@ -510,7 +522,7 @@ horizon. Twelve models, no dependence on your own predictions, twelve times
 the fitting. <strong>SARIMA needs neither</strong> — it has a closed-form h-step forecast.</p>
 </div>
 <hr />
-<h2>5.4 Monitoring a forecast in production</h2>
+<h2 id="54-monitoring-a-forecast-in-production">5.4 Monitoring a forecast in production</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Rolling-origin cross-validation</h4>
@@ -521,7 +533,7 @@ past.</p>
 observations in the training set, so the model interpolates a gap it has seen
 both sides of — which is not forecasting, and scores far too well.</p>
 </div>
-<h3>What to monitor once it is deployed</h3>
+<h3 id="what-to-monitor-once-it-is-deployed">What to monitor once it is deployed</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -567,7 +579,7 @@ bias.</strong></p>
 low, say — <strong>and a business will feel the bias long before it feels the
 variance.</strong> Test the mean error, not only its magnitude.</p>
 </div>
-<h3>⚠️ And the thing that ends every forecasting model</h3>
+<h3 id="and-the-thing-that-ends-every-forecasting-model">⚠️ And the thing that ends every forecasting model</h3>
 <p><strong>A structural break.</strong> A model fitted before a pandemic, a policy change or a
 new competitor is fitted to a world that no longer exists, and no amount of
 retraining on a window that spans the break will help.</p>
@@ -575,7 +587,7 @@ retraining on a window that spans the break will help.</p>
 decide</strong> whether to refit on post-break data only — which means throwing away
 history you may not be able to spare.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. A periodogram of daily sales shows a strong peak at frequency 0.1429 and
 a smaller one at 0.0027. What are they?</strong></p>
 <p><strong>1/0.1429 = 7.0 → a weekly cycle.</strong> Expected on daily retail data — weekends
@@ -693,7 +705,7 @@ candidates, so 30 fits for one table.</p>
 </li>
 </ol>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What does a spectral density measure?</li>
@@ -726,7 +738,7 @@ candidates, so 30 fits for one table.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

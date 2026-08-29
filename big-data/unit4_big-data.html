@@ -28,11 +28,24 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-unit-where-the-syllabus-has-aged-and-it-matters">The unit where the syllabus has aged, and it matters</a></li>
+    <li><a href="#41-data-ingestion-part-one-sqoop-and-the-batch-leg">4.1 Data ingestion, part one: Sqoop and the batch leg</a></li>
+    <li><a href="#42-flume-the-streaming-leg">4.2 Flume — the streaming leg</a></li>
+    <li><a href="#43-serialization-formats">4.3 Serialization formats</a></li>
+    <li><a href="#44-batch-and-streaming-together">4.4 Batch and streaming together</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 13):</strong> Data ingestion pipelines: Sqoop (for RDBMS), Flume
 (streaming). Data formats and serialization: Avro, Parquet, SequenceFile.
 Practical ingestion workflows — batch and streaming.</p>
 <hr />
-<h2>The unit where the syllabus has aged, and it matters</h2>
+<h2 id="the-unit-where-the-syllabus-has-aged-and-it-matters">The unit where the syllabus has aged, and it matters</h2>
 <p><strong>Sqoop and Flume were both retired to the Apache Attic in 2021.</strong> Kafka,
 Debezium and NiFi replaced them, and every serious pipeline built after about
 2018 uses one of those.</p>
@@ -45,7 +58,7 @@ the problems are visible.</p>
 <p><strong>Avro and Parquet, by contrast, are entirely current</strong> and are what this
 repository actually runs.</p>
 <hr />
-<h2>4.1 Data ingestion, part one: Sqoop and the batch leg</h2>
+<h2 id="41-data-ingestion-part-one-sqoop-and-the-batch-leg">4.1 Data ingestion, part one: Sqoop and the batch leg</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Sqoop's whole trick, in two lines of SQL</h4>
@@ -97,7 +110,7 @@ you wrote yourself.</p>
 </table>
 <p>Near-perfect balance, because <code>order_id</code> is a dense integer key.</p>
 </div>
-<h3>⚠️ Now split by a column that is not uniform</h3>
+<h3 id="now-split-by-a-column-that-is-not-uniform">⚠️ Now split by a column that is not uniform</h3>
 <p>Splitting the same 90 rows by <code>qty</code> instead:</p>
 <table class="main-table">
 <thead>
@@ -135,7 +148,7 @@ column is <strong>uniformly distributed between its min and max</strong>, and <c
 The job's wall clock is the slowest mapper, so a bad <code>--split-by</code> wastes three
 quarters of your parallelism.</p>
 <p><strong>Split on the primary key unless you have measured otherwise.</strong></p>
-<h3>⚠️ <code>--split-by</code> on a text column</h3>
+<h3 id="--split-by-on-a-text-column">⚠️ <code>--split-by</code> on a text column</h3>
 <p>Sqoop needs an <strong>ordered, numeric</strong> column to compute ranges. On text it either
 refuses or requires
 <code>-Dorg.apache.sqoop.splitter.allow_text_splitter=true</code>, which splits on string
@@ -143,7 +156,7 @@ ordering and skews horribly.</p>
 <p><strong>A table with a UUID or composite primary key has no natural split column,
 and the honest answer is <code>-m 1</code></strong> — one mapper, no parallelism, correct
 results.</p>
-<h3>Incremental imports</h3>
+<h3 id="incremental-imports">Incremental imports</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -177,7 +190,7 @@ a periodic full re-import.</p>
 it — and it is exactly the problem <strong>change data capture</strong> (Debezium, reading
 the database's own write-ahead log) was invented to solve.</p>
 </div>
-<h3>⚠️ The other three that bite</h3>
+<h3 id="the-other-three-that-bite">⚠️ The other three that bite</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -204,16 +217,16 @@ the database's own write-ahead log) was invented to solve.</p>
 </tr>
 </tbody>
 </table>
-<h3>Verifying an import</h3>
+<h3 id="verifying-an-import">Verifying an import</h3>
 <p><strong>Check the row count <em>and</em> the sum of a money column.</strong> Counting rows alone
 would not catch a truncated numeric type — an Oracle <code>NUMBER(38)</code> silently
 becoming a Java <code>double</code> is the classic Sqoop data-corruption bug.</p>
 <p>In the lab, 90 rows carrying <strong>₹128,800</strong> go in and 90 rows carrying
 <strong>₹128,800</strong> come out, which is exactly ten times Course 11's ₹12,880.</p>
 <hr />
-<h2>4.2 Flume — the streaming leg</h2>
+<h2 id="42-flume-the-streaming-leg">4.2 Flume — the streaming leg</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The agent, in three parts</h4>
 <pre><code>   SOURCE  ──►  CHANNEL  ──►  SINK
   (tail a       (a bounded    (write to
@@ -277,7 +290,7 @@ nothing once the sink is permanently slower than the source.</strong> Buffers sm
 <em>bursts</em>; they cannot fix a throughput deficit. That sentence answers most
 Flume tuning questions.</p>
 </div>
-<h3>Channel types — the choice that is actually being made</h3>
+<h3 id="channel-types-the-choice-that-is-actually-being-made">Channel types — the choice that is actually being made</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -308,11 +321,11 @@ Flume tuning questions.</p>
 is the most common Flume misconfiguration. Choose the channel from the
 durability requirement, then size the cluster for whatever throughput that
 leaves.</p>
-<h3>⚠️ The source everyone gets wrong</h3>
+<h3 id="the-source-everyone-gets-wrong">⚠️ The source everyone gets wrong</h3>
 <p>Use <strong><code>TAILDIR</code></strong>, not <code>exec tail -F</code>. An <code>exec</code> source has <strong>no position
 file</strong>, so on a restart it loses everything it had not yet delivered. This is
 the single most common Flume data-loss bug.</p>
-<h3>⚠️ The defaults manufacture the small-files problem</h3>
+<h3 id="the-defaults-manufacture-the-small-files-problem">⚠️ The defaults manufacture the small-files problem</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -346,9 +359,9 @@ continuously at a rate of two per minute.</p>
 <p><strong>Always override:</strong> <code>rollCount = 0</code>, <code>rollSize</code> = one HDFS block,
 <code>rollInterval</code> = 10 minutes.</p>
 <hr />
-<h2>4.3 Serialization formats</h2>
+<h2 id="43-serialization-formats">4.3 Serialization formats</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The one distinction that matters</h4>
 <p><strong>Row format</strong> stores record 1 in full, then record 2 in full. <strong>Column
 format</strong> stores every value of column 1, then every value of column 2.</p>
@@ -395,7 +408,7 @@ format</strong> stores every value of column 1, then every value of column 2.</p
 </tbody>
 </table>
 </div>
-<h3>Avro — measured, and really written</h3>
+<h3 id="avro-measured-and-really-written">Avro — measured, and really written</h3>
 <p><a href="../labs/course-12b-bigdata/13_avro_parquet.py"><code>13_avro_parquet.py</code></a>
 uses <code>fastavro</code>, so the files are byte-for-byte readable by Hadoop, Hive and
 Spark. <strong>Nothing here is simulated.</strong></p>
@@ -417,7 +430,7 @@ the reader's, field by field, and fills in defaults for anything missing.</p>
 <p><strong>A field added WITHOUT a default breaks exactly this</strong>, and that is the one
 rule to remember about evolving an Avro schema.</p>
 </div>
-<h3>Parquet — column projection, measured</h3>
+<h3 id="parquet-column-projection-measured">Parquet — column projection, measured</h3>
 <p>Bytes stored <strong>per column</strong> inside the nine-row Parquet file:</p>
 <table class="main-table">
 <thead>
@@ -477,7 +490,7 @@ to read every row in full and discard seven fields.</p>
 a byte</strong>. On a partitioned Parquet dataset this is often a bigger win than the
 compression.</p>
 </div>
-<h3>⚠️ The compression claim, told honestly</h3>
+<h3 id="the-compression-claim-told-honestly">⚠️ The compression claim, told honestly</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -533,7 +546,7 @@ compression.</p>
 how repetitive your data is.</strong> Quoting a ratio from a benchmark on duplicated
 rows says nothing at all, and this is precisely how people get caught in a
 viva.</p>
-<h3>SequenceFile</h3>
+<h3 id="sequencefile">SequenceFile</h3>
 <p>A flat binary file of key/value <code>Writable</code> pairs, with three compression
 modes: none, <strong>record</strong> (compress each value) and <strong>block</strong> (compress groups —
 better ratio, splittable).</p>
@@ -574,7 +587,7 @@ for the query layer. That is the answer worth full marks on "compare Avro and
 Parquet".</p>
 </div>
 <hr />
-<h2>4.4 Batch and streaming together</h2>
+<h2 id="44-batch-and-streaming-together">4.4 Batch and streaming together</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The fan trap, in a data pipeline</h4>
@@ -645,7 +658,7 @@ it appears wherever two fact tables are joined directly.</p>
 prevents most wrong numbers in a data warehouse, and it is worth stating in
 exactly those words.</p>
 </div>
-<h3>The two legs are not interchangeable</h3>
+<h3 id="the-two-legs-are-not-interchangeable">The two legs are not interchangeable</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -726,7 +739,7 @@ replayable, which is why <strong>Kafka replaced Flume</strong> in most of these 
 after about 2016. Saying that places the whole syllabus in time.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. A 500 GB MySQL table with an auto-increment primary key must land in
 HDFS nightly as Parquet. Write the plan, and name three things that could go
 wrong.</strong></p>
@@ -816,7 +829,7 @@ format for each, and which join?</strong></p>
 to the current version, or join on <code>(customer_id, valid_from ≤ event_time &lt;
 valid_to)</code>.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What SQL does Sqoop run before launching mappers?</li>
@@ -855,7 +868,7 @@ valid_to)</code>.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

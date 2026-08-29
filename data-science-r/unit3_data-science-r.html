@@ -29,6 +29,20 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-the-pipe">3.1 The pipe</a></li>
+    <li><a href="#32-the-five-dplyr-verbs">3.2 The five dplyr verbs</a></li>
+    <li><a href="#33-tidyr-reshaping">3.3 tidyr — reshaping</a></li>
+    <li><a href="#34-handling-missing-data">3.4 Handling missing data</a></li>
+    <li><a href="#35-dates-and-times">3.5 Dates and times</a></li>
+    <li><a href="#36-ggplot2-and-the-grammar-of-graphics">3.6 ggplot2 and the grammar of graphics</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 1–2):</strong> Data frames, lists, matrices. Data wrangling with
 <code>dplyr</code> and <code>tidyr</code>. Handling missing data. Working with date/time in R.
 Visualization with <code>ggplot2</code> — grammar of graphics, aesthetics, geometries,
@@ -38,7 +52,7 @@ data. Customizing and exporting plots.</p>
 <p>This is the unit that makes R worth learning. <code>dplyr</code> and <code>ggplot2</code> are the two
 best-designed libraries in either language, and this is the material you will
 still be using in five years.</p>
-<h2>3.1 The pipe</h2>
+<h2 id="31-the-pipe">3.1 The pipe</h2>
 <p>Before anything else, learn the pipe. It is what makes <code>dplyr</code> readable.</p>
 <pre><code class="language-r"># Without the pipe -- read inside-out, which is backwards
 arrange(summarise(group_by(filter(df, marks &gt; 40), section), avg = mean(marks)), desc(avg))
@@ -55,7 +69,7 @@ right. Read <code>%&gt;%</code> aloud as <strong>"and then"</strong>.</p>
 <p>R 4.1 added a native pipe <code>|&gt;</code> with the same meaning. <code>%&gt;%</code> (from <code>magrittr</code>,
 re-exported by <code>dplyr</code>) remains more common and slightly more flexible.
 <strong>Ctrl+Shift+M</strong> types it in RStudio.</p>
-<h2>3.2 The five <code>dplyr</code> verbs</h2>
+<h2 id="32-the-five-dplyr-verbs">3.2 The five <code>dplyr</code> verbs</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Almost every data-manipulation task is a combination of five operations. <code>dplyr</code>
@@ -118,11 +132,11 @@ students %&gt;%
   arrange(desc(marks))
 </code></pre>
 </div>
-<h3><code>case_when</code> — the readable nested ifelse</h3>
+<h3 id="case-when-the-readable-nested-ifelse"><code>case_when</code> — the readable nested ifelse</h3>
 <p><code>case_when</code> replaces the four-deep <code>ifelse</code> stack from Unit 2. Conditions are
 tested top to bottom; <code>TRUE ~ value</code> is the catch-all. This is <code>dplyr</code>'s
 equivalent of SQL's <code>CASE</code>.</p>
-<h3>Grouped summaries</h3>
+<h3 id="grouped-summaries">Grouped summaries</h3>
 <pre><code class="language-r">students %&gt;%
   group_by(section) %&gt;%
   summarise(
@@ -138,14 +152,14 @@ and FALSE as 0. <code>mean(marks &gt;= 40) * 100</code> is the pass percentage i
 expression — an idiom worth remembering.</p>
 <p><strong>Always <code>ungroup()</code></strong> after a <code>group_by()</code> if the result feeds further
 operations; a lingering grouping causes surprising results downstream.</p>
-<h3>Useful extras</h3>
+<h3 id="useful-extras">Useful extras</h3>
 <pre><code class="language-r">distinct(df, section)              # unique rows -- SQL's DISTINCT
 slice_max(df, marks, n = 3)        # top 3 rows by marks
 count(df, section)                 # shorthand for group_by + summarise(n())
 rename(df, score = marks)          # rename a column
 relocate(df, marks, .before = name)  # reorder columns
 </code></pre>
-<h3>Joins — the same seven from Course 5</h3>
+<h3 id="joins-the-same-seven-from-course-5">Joins — the same seven from Course 5</h3>
 <pre><code class="language-r">inner_join(students, sections, by = &quot;section_id&quot;)
 left_join (students, sections, by = &quot;section_id&quot;)
 right_join(students, sections, by = &quot;section_id&quot;)
@@ -155,13 +169,13 @@ anti_join (students, sections, by = &quot;section_id&quot;)   # rows in x with N
 </code></pre>
 <p><code>anti_join</code> has no direct SQL keyword and is genuinely useful: "which students
 have no matching section record?" is a data-quality question you will ask often.</p>
-<h2>3.3 <code>tidyr</code> — reshaping</h2>
+<h2 id="33-tidyr-reshaping">3.3 <code>tidyr</code> — reshaping</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Tidy data</strong> has one variable per column, one observation per row, one value
 per cell. Most real data does not arrive that way, and <code>tidyr</code> reshapes it.</p>
 </div>
-<h3>Wide vs long</h3>
+<h3 id="wide-vs-long">Wide vs long</h3>
 <p><strong>Wide</strong> — one row per student, one column per subject:</p>
 <table class="main-table">
 <thead>
@@ -239,21 +253,21 @@ not spread across three. Almost every "why won't my plot work" question is
 really "your data is wide and should be long".</p>
 <p><em>(Older code uses <code>gather()</code> and <code>spread()</code>. They still work but are retired —
 <code>pivot_longer</code>/<code>pivot_wider</code> replaced them and are clearer.)</em></p>
-<h3>Other <code>tidyr</code> verbs</h3>
+<h3 id="other-tidyr-verbs">Other <code>tidyr</code> verbs</h3>
 <pre><code class="language-r">separate(df, full_name, into = c(&quot;first&quot;, &quot;last&quot;), sep = &quot; &quot;)
 unite(df, full_name, first, last, sep = &quot; &quot;)
 drop_na(df)                       # rows with any NA
 replace_na(df, list(marks = 0))   # fill NAs per column
 fill(df, section)                 # carry the last value forward
 </code></pre>
-<h2>3.4 Handling missing data</h2>
-<h3>Finding it</h3>
+<h2 id="34-handling-missing-data">3.4 Handling missing data</h2>
+<h3 id="finding-it">Finding it</h3>
 <pre><code class="language-r">sum(is.na(df))                        # total NAs
 colSums(is.na(df))                    # per column -- the useful one
 mean(is.na(df$marks)) * 100           # percentage missing in a column
 complete.cases(df)                    # rows with no NA at all
 </code></pre>
-<h3>Dealing with it</h3>
+<h3 id="dealing-with-it">Dealing with it</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -333,7 +347,7 @@ same direction. The missingness carried information, and deletion threw it away.
 </table>
 <p>The income example is <strong>MNAR</strong>, the difficult case.</p>
 </div>
-<h2>3.5 Dates and times</h2>
+<h2 id="35-dates-and-times">3.5 Dates and times</h2>
 <pre><code class="language-r">as.Date(&quot;2026-08-26&quot;)                       # ISO -- the safe default
 as.Date(&quot;26/08/2026&quot;, format = &quot;%d/%m/%Y&quot;)
 Sys.Date(); Sys.time()
@@ -387,14 +401,14 @@ alphabetically — <code>"10/01/2026"</code> before <code>"02/01/2026"</code> �
 subtracted. This is the same discipline as Course 5's date columns.</p>
 <p><code>%m+%</code> adds months safely: 31 January <code>%m+% months(1)</code> gives 28 February rather
 than an invalid date.</p>
-<h2>3.6 <code>ggplot2</code> and the grammar of graphics</h2>
+<h2 id="36-ggplot2-and-the-grammar-of-graphics">3.6 <code>ggplot2</code> and the grammar of graphics</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Every statistical graphic is built from the same handful of components. Name the
 data, say which variables map to which visual properties, choose a shape to draw
 — and the plot follows. That is the <strong>grammar of graphics</strong>.</p>
 </div>
-<h3>The seven components</h3>
+<h3 id="the-seven-components">The seven components</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -458,7 +472,7 @@ ggplot(data = students, aes(x = hours, y = marks, colour = section)) +
 </code></pre>
 <p><strong>Layers combine with <code>+</code>, not <code>%&gt;%</code>.</strong> Mixing the two is the single most common
 <code>ggplot2</code> error: the pipe passes data along a chain, <code>+</code> adds layers to a plot.</p>
-<h3>Choosing a geometry</h3>
+<h3 id="choosing-a-geometry">Choosing a geometry</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -524,14 +538,14 @@ ggplot(data = students, aes(x = hours, y = marks, colour = section)) +
 counts rows for you (its default stat is <code>"count"</code>). <code>geom_col()</code> uses a value
 you supply as the height (<code>stat = "identity"</code>). Wanting a bar of a value you
 already have and reaching for <code>geom_bar()</code> is why people get a bar of height 1.</p>
-<h3>Faceting — small multiples</h3>
+<h3 id="faceting-small-multiples">Faceting — small multiples</h3>
 <pre><code class="language-r">p + facet_wrap(~ section)                  # one panel per section, wrapped
 p + facet_grid(gender ~ section)           # a grid: rows × columns
 p + facet_wrap(~ section, scales = &quot;free_y&quot;)   # independent y axes
 </code></pre>
 <p>Faceting is often better than colouring by group: with six or more groups,
 colours become indistinguishable while six small panels stay readable.</p>
-<h3>Scales, labels and themes</h3>
+<h3 id="scales-labels-and-themes">Scales, labels and themes</h3>
 <pre><code class="language-r">+ scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 20))
 + scale_y_log10()
 + scale_colour_brewer(palette = &quot;Set2&quot;)
@@ -541,7 +555,7 @@ colours become indistinguishable while six small panels stay readable.</p>
 + theme(legend.position = &quot;bottom&quot;,
         axis.text.x = element_text(angle = 45, hjust = 1))
 </code></pre>
-<h3>Exporting</h3>
+<h3 id="exporting">Exporting</h3>
 <pre><code class="language-r">ggsave(&quot;plot.png&quot;, plot = p, width = 8, height = 5, dpi = 300)
 ggsave(&quot;plot.pdf&quot;, plot = p, width = 8, height = 5)    # vector -- scales cleanly
 </code></pre>
@@ -549,7 +563,7 @@ ggsave(&quot;plot.pdf&quot;, plot = p, width = 8, height = 5)    # vector -- sca
 it explicitly in scripts, or you will save the wrong figure. Use PDF or SVG for
 anything going into a printed report.</p>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Write a <code>dplyr</code> chain that, from a data frame <code>sales(region, product, month, revenue)</code>,
@@ -613,7 +627,7 @@ x-axis already labels the sections, making the legend redundant. Removing
 redundant ink is a real design principle, not a nicety.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What does the <code>%&gt;%</code> operator do?</li>
@@ -640,7 +654,7 @@ redundant ink is a real design principle, not a nicety.</p>
    faceting, themes and exporting.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

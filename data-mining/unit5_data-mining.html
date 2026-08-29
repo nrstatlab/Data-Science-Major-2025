@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-clustering-paradigms">5.1 Clustering paradigms</a></li>
+    <li><a href="#52-k-means">5.2 K-Means</a></li>
+    <li><a href="#53-k-medoids">5.3 K-Medoids</a></li>
+    <li><a href="#54-hierarchical-clustering">5.4 Hierarchical clustering</a></li>
+    <li><a href="#55-dbscan">5.5 DBSCAN</a></li>
+    <li><a href="#56-birch">5.6 BIRCH</a></li>
+    <li><a href="#57-categorical-clustering">5.7 Categorical clustering</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 12):</strong> Clustering Paradigms, Partitioning Algorithms
 (K-Means), k-Medoid Algorithms, Hierarchical Clustering: DBSCAN, BIRCH,
 Categorical Clustering Algorithms: STIRR, ROCK, CACTUS.</p>
@@ -41,7 +56,7 @@ phase. The correct taxonomy is in §5.1, and the misclassification is recorded
 in <a href="../syllabus-review.html">SYLLABUS-REVIEW.md</a>.</p>
 </div>
 <hr />
-<h2>5.1 Clustering paradigms</h2>
+<h2 id="51-clustering-paradigms">5.1 Clustering paradigms</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Clustering groups records so that records within a group are similar to each
@@ -144,7 +159,7 @@ comparing it across values of k is the standard way to choose k.</p>
 of within-cluster scatter to between-cluster separation. <strong>Lower is better</strong>,
 which is the opposite of silhouette and a frequent source of confusion.</p>
 </div>
-<h3>The paradigms</h3>
+<h3 id="the-paradigms">The paradigms</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -186,7 +201,7 @@ which is the opposite of silhouette and a frequent source of confusion.</p>
 </tr>
 </tbody>
 </table>
-<h3>Other distinctions</h3>
+<h3 id="other-distinctions">Other distinctions</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -209,7 +224,7 @@ which is the opposite of silhouette and a frequent source of confusion.</p>
 </tr>
 </tbody>
 </table>
-<h2>5.2 K-Means</h2>
+<h2 id="52-k-means">5.2 K-Means</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The algorithm</h4>
@@ -457,7 +472,7 @@ a uniform random dataset would give.</p>
 <p><strong>No method is definitive.</strong> The elbow is often ambiguous, and the honest
 answer includes domain knowledge: if marketing can run four campaigns, k = 4.</p>
 </div>
-<h3>⚠️ K-Means's five weaknesses</h3>
+<h3 id="k-meanss-five-weaknesses">⚠️ K-Means's five weaknesses</h3>
 <p>Each is examined, and each has a standard remedy.</p>
 <p><strong>1. k must be chosen in advance.</strong> → Elbow, silhouette, or domain knowledge.</p>
 <p><strong>2. Sensitive to initialisation.</strong> Different random starts give different
@@ -480,7 +495,7 @@ categories, and unscaled features let the largest-range attribute dominate.
 iterations — <strong>linear in n</strong>, which is why it scales to enormous datasets and
 remains the most used clustering algorithm in the world despite all five
 weaknesses.</p>
-<h2>5.3 K-Medoids</h2>
+<h2 id="53-k-medoids">5.3 K-Medoids</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -556,7 +571,7 @@ each requiring a cost recomputation — <strong>quadratic in n</strong>, against
 linear. <strong>CLARA</strong> applies PAM to samples, and <strong>CLARANS</strong> searches the swap
 space randomly, both to recover scalability.</p>
 </div>
-<h2>5.4 Hierarchical clustering</h2>
+<h2 id="54-hierarchical-clustering">5.4 Hierarchical clustering</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -770,7 +785,7 @@ d({A,B},C) = max(6,5) = 6, and so on. The merge <em>order</em> happens to be the
 here, but the merge <em>heights</em> are larger — a general property, since complete
 linkage always reports the farthest pair.</p>
 </div>
-<h3>⚠️ Hierarchical clustering's limitations</h3>
+<h3 id="hierarchical-clusterings-limitations">⚠️ Hierarchical clustering's limitations</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -800,7 +815,7 @@ linkage always reports the farthest pair.</p>
 <p>The O(n²) memory is the hard limit in practice: 100,000 points needs a
 distance matrix of 10¹⁰ entries. <strong>That is exactly what BIRCH was built to
 solve.</strong></p>
-<h2>5.5 DBSCAN</h2>
+<h2 id="55-dbscan">5.5 DBSCAN</h2>
 <p><strong>Density-Based Spatial Clustering of Applications with Noise</strong> (Ester et al.,
 1996) — and, contrary to the syllabus's grouping, it is <strong>not hierarchical</strong>.</p>
 <div class="concept">
@@ -861,7 +876,7 @@ shape.</p>
     ○ ○ ○ ○              but not dense enough itself)
 </code></pre>
 </div>
-<h3>Reachability</h3>
+<h3 id="reachability">Reachability</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -890,7 +905,7 @@ shape.</p>
 density-reachability is <strong>not symmetric</strong> — a border point does not reach a
 core point — which is why the definition uses density-<em>connectedness</em>.</p>
 </div>
-<h3>The algorithm</h3>
+<h3 id="the-algorithm">The algorithm</h3>
 <pre><code>for each unvisited point p:
     mark p visited
     N = points within eps of p
@@ -1040,7 +1055,7 @@ ordering across a range of ε rather than one clustering.</p>
 distance from each point to its MinPts-th nearest neighbour (the <strong>k-distance
 graph</strong>) and take ε at the knee.</p>
 </div>
-<h2>5.6 BIRCH</h2>
+<h2 id="56-birch">5.6 BIRCH</h2>
 <p><strong>Balanced Iterative Reducing and Clustering using Hierarchies</strong> (Zhang et al.,
 1996).</p>
 <div class="concept">
@@ -1093,7 +1108,7 @@ centroid = 5
 radius   = √(120/4 − 25) = √5 = 2.236
 </code></pre>
 </div>
-<h3>The CF-tree</h3>
+<h3 id="the-cf-tree">The CF-tree</h3>
 <p>A height-balanced tree, like a B+-tree, with two parameters:</p>
 <table class="main-table">
 <thead>
@@ -1125,7 +1140,7 @@ splitting nodes upward if they exceed B.</p>
 <p><strong>If memory runs out</strong>, BIRCH <strong>increases T</strong> and rebuilds a smaller tree from
 the existing leaf CFs — no rescan of the data required. That is the mechanism
 behind the single-pass claim.</p>
-<h3>The four phases</h3>
+<h3 id="the-four-phases">The four phases</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1154,7 +1169,7 @@ behind the single-pass claim.</p>
 </table>
 <p>Phase 3 is where the syllabus's "hierarchical" label comes from — but it is
 hierarchical clustering applied to a <em>compressed summary</em>, not to the data.</p>
-<h3>⚠️ BIRCH's limitations</h3>
+<h3 id="birchs-limitations">⚠️ BIRCH's limitations</h3>
 <ul>
 <li><strong>Numeric data only</strong> — LS and SS require arithmetic on the values.</li>
 <li><strong>Order-dependent</strong> — a different insertion order gives a different tree.</li>
@@ -1203,8 +1218,8 @@ hierarchical clustering applied to a <em>compressed summary</em>, not to the dat
 </tr>
 </tbody>
 </table>
-<h2>5.7 Categorical clustering</h2>
-<h3>⚠️ Why numeric algorithms fail on categories</h3>
+<h2 id="57-categorical-clustering">5.7 Categorical clustering</h2>
+<h3 id="why-numeric-algorithms-fail-on-categories">⚠️ Why numeric algorithms fail on categories</h3>
 <p>K-Means needs a <strong>mean</strong>. What is the mean of {red, green, blue}? There is
 none. And Unit 2 §2.9's warning applies with full force: encoding
 <code>red=1, green=2, blue=3</code> makes green the average of red and blue, which is
@@ -1393,7 +1408,7 @@ that phase 3 must discard, and the α threshold is another parameter to guess.</
 </table>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Apply K-Means with k = 2 to the two-dimensional points
@@ -1783,7 +1798,7 @@ outlier. <strong>DBSCAN's ability to say "this point belongs to nothing" is the
 practical difference between the two algorithms.</strong></p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define clustering, and distinguish it from classification.</li>
@@ -1829,7 +1844,7 @@ practical difference between the two algorithms.</strong></p>
 <p>Explain categorical clustering and compare STIRR, ROCK and CACTUS.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -31,19 +31,35 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-bivariate-data-and-scatter-plots">4.1 Bivariate data and scatter plots</a></li>
+    <li><a href="#42-covariance">4.2 Covariance</a></li>
+    <li><a href="#43-pearsons-correlation-coefficient">4.3 Pearson&#x27;s correlation coefficient</a></li>
+    <li><a href="#44-spearmans-rank-correlation">4.4 Spearman&#x27;s rank correlation</a></li>
+    <li><a href="#45-simple-linear-regression">4.5 Simple linear regression</a></li>
+    <li><a href="#46-residuals-and-goodness-of-fit">4.6 Residuals and goodness of fit</a></li>
+    <li><a href="#47-multiple-linear-regression-conceptual">4.7 Multiple linear regression (conceptual)</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#correlation-vs-regression-a-standard-comparison">Correlation vs regression — a standard comparison</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 21):</strong> Bivariate data and scatter plots. Correlation — Pearson
 and Spearman coefficients, interpretation. Simple linear regression — model,
 estimation, properties and analysis of variance. Multiple linear regression
 basics (conceptual understanding). Residuals and goodness of fit.</p>
 <hr />
-<h2>4.1 Bivariate data and scatter plots</h2>
+<h2 id="41-bivariate-data-and-scatter-plots">4.1 Bivariate data and scatter plots</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Until now you studied one variable at a time. Bivariate analysis asks whether
 <strong>two</strong> variables move together — and if so, whether one can predict the other.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>A teacher suspects students who study more score higher. She records, for each
 student, hours studied and exam score. Each student is now a <strong>pair</strong> of
 numbers, and plotting those pairs as points gives a <strong>scatter plot</strong>. If the
@@ -89,7 +105,7 @@ variable (the cause, or the thing you control) goes on the x-axis; the
 <p>That last row matters: <strong>always plot before computing r.</strong> A perfect parabola
 can have r = 0, and reporting "no relationship" would be badly wrong.</p>
 </div>
-<h2>4.2 Covariance</h2>
+<h2 id="42-covariance">4.2 Covariance</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>Cov(X,Y) = Σ(xᵢ − x̄)(yᵢ − ȳ) / (n − 1)</strong></p>
@@ -106,7 +122,7 @@ means the variables move together.</p>
 centimetres instead of metres and the covariance multiplies by 100, though
 nothing about the relationship changed. So the <strong>sign is meaningful, the size
 is not</strong>.</p>
-<h2>4.3 Pearson's correlation coefficient</h2>
+<h2 id="43-pearsons-correlation-coefficient">4.3 Pearson's correlation coefficient</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>r = Σ(xᵢ − x̄)(yᵢ − ȳ) / √[Σ(xᵢ − x̄)² · Σ(yᵢ − ȳ)²]</strong></p>
@@ -114,7 +130,7 @@ is not</strong>.</p>
 <p>Dividing by both standard deviations cancels the units, so r is <strong>always
 between −1 and +1</strong>.</p>
 </div>
-<h3>Interpreting r</h3>
+<h3 id="interpreting-r">Interpreting r</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -211,7 +227,7 @@ cause drowning — <strong>summer</strong> causes both. That third variable is a
 question.</strong> It is a reliable mark, and it is the single most important idea in
 the unit.</p>
 </div>
-<h2>4.4 Spearman's rank correlation</h2>
+<h2 id="44-spearmans-rank-correlation">4.4 Spearman's rank correlation</h2>
 <p>Pearson measures <em>linear</em> association. <strong>Spearman</strong> replaces the values with
 their <strong>ranks</strong>, so it measures any <strong>monotonic</strong> relationship — consistently
 increasing or decreasing, whether or not it is a straight line.</p>
@@ -252,7 +268,7 @@ destroys the extremity: a value of 500 among values near 50 becomes simply
 "rank 10", no more influential than 60 would be.</p>
 <p><strong>Ties</strong> get the average of the ranks they would have occupied. Use Excel's
 <code>RANK.AVG</code>, not <code>RANK</code>.</p>
-<h2>4.5 Simple linear regression</h2>
+<h2 id="45-simple-linear-regression">4.5 Simple linear regression</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Correlation says <em>whether</em> two variables move together. Regression fits the
@@ -268,7 +284,7 @@ actual <strong>line</strong>, so you can predict.</p>
 <li>ε = the <strong>error term</strong> — everything the line does not capture</li>
 </ul>
 </div>
-<h3>Estimation by least squares</h3>
+<h3 id="estimation-by-least-squares">Estimation by least squares</h3>
 <p>The best line is the one minimising the sum of the <strong>squared vertical
 distances</strong> from the points to the line. Squaring stops positive and negative
 errors from cancelling, and penalises large misses heavily.</p>
@@ -297,13 +313,13 @@ errors from cancelling, and penalises large misses heavily.</p>
 </ul>
 <p>Note the wording "<strong>is associated with</strong>", not "causes". Regression fits a
 line; it does not establish causation.</p>
-<h3>Prediction</h3>
+<h3 id="prediction">Prediction</h3>
 <p>For x = 7.5 hours: ŷ = 43.03 + 4.30(7.5) = <strong>75.30 marks</strong></p>
 <p><strong>Never extrapolate.</strong> Predicting for x = 50 hours gives 258 marks, which is
 impossible. The model is only valid within the range of the data you fitted it
 to.</p>
-<h2>4.6 Residuals and goodness of fit</h2>
-<h3>Residuals</h3>
+<h2 id="46-residuals-and-goodness-of-fit">4.6 Residuals and goodness of fit</h2>
+<h3 id="residuals">Residuals</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>eᵢ = yᵢ − ŷᵢ</strong>   (observed minus fitted)</p>
@@ -337,7 +353,7 @@ always passes through the point (x̄, ȳ).</p>
 </tr>
 </tbody>
 </table>
-<h3>Coefficient of determination R²</h3>
+<h3 id="coefficient-of-determination-r²">Coefficient of determination R²</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>R² = SS_regression / SS_total = 1 − (SS_residual / SS_total)</strong></p>
@@ -350,7 +366,7 @@ SS_regression = 1527.58.</p>
 <p><strong>For simple linear regression, R² = r².</strong> Check: 0.9979² = 0.9958 ✓ — a free
 arithmetic check on your own work. (This does <strong>not</strong> hold for multiple
 regression.)</p>
-<h3>Analysis of variance for regression</h3>
+<h3 id="analysis-of-variance-for-regression">Analysis of variance for regression</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -393,7 +409,7 @@ regression.)</p>
 </ul>
 <p>F is enormous, so the model explains far more variation than chance would.
 The p-value is 8.4 × 10⁻¹¹ — reject the hypothesis that the slope is zero.</p>
-<h3>Testing the slope</h3>
+<h3 id="testing-the-slope">Testing the slope</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>H₀: β₁ = 0</strong> (x has no linear effect on y) <strong>vs H₁: β₁ ≠ 0</strong></p>
@@ -407,7 +423,7 @@ The p-value is 8.4 × 10⁻¹¹ — reject the hypothesis that the slope is zero
 <p><strong>For simple regression, t² = F</strong>: 43.61² = 1902.26 ✓ — another built-in check.</p>
 <p>All of these figures are computed in
 <a href="../labs/course-4-stats/python/04_correlation_regression.py"><code>04_correlation_regression.py</code></a>.</p>
-<h2>4.7 Multiple linear regression (conceptual)</h2>
+<h2 id="47-multiple-linear-regression-conceptual">4.7 Multiple linear regression (conceptual)</h2>
 <p>The syllabus asks for conceptual understanding only.</p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -419,7 +435,7 @@ studied <strong>and</strong> attendance <strong>and</strong> previous CGPA.</p>
 <strong>holding all the other predictors constant</strong>. That phrase is the whole
 difference between simple and multiple regression, and it is what makes the
 technique useful: it isolates one variable's contribution.</p>
-<h3>Adjusted R²</h3>
+<h3 id="adjusted-r²">Adjusted R²</h3>
 <p>Adding <em>any</em> predictor — even a column of random numbers — never decreases R².
 So R² alone will always favour the bigger model.</p>
 <div class="formula">
@@ -428,14 +444,14 @@ So R² alone will always favour the bigger model.</p>
 </div>
 <p>This penalises extra predictors, and <em>can</em> decrease when a useless one is
 added. <strong>Compare models by adjusted R², not R².</strong></p>
-<h3>Multicollinearity</h3>
+<h3 id="multicollinearity">Multicollinearity</h3>
 <p>When two predictors are themselves strongly correlated — height in centimetres
 and height in inches, say — the model cannot separate their individual effects.
 The coefficients become unstable and their signs may flip. This is
 <strong>multicollinearity</strong>, and it is why you check the correlations among your
 predictors before fitting.</p>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>For the data below, compute Pearson's r and interpret it.</p>
@@ -695,7 +711,7 @@ agreement.</p>
 <p><em>(Check: d should always sum to zero. It does.)</em></p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is the range of the correlation coefficient?</li>
@@ -723,7 +739,7 @@ agreement.</p>
    goodness of fit, and the distinction between association and causation.</p>
 </li>
 </ol>
-<h2>Correlation vs regression — a standard comparison</h2>
+<h2 id="correlation-vs-regression-a-standard-comparison">Correlation vs regression — a standard comparison</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -760,7 +776,7 @@ agreement.</p>
 </tr>
 </tbody>
 </table>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -29,6 +29,20 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-images-and-pixels">3.1 Images and pixels</a></li>
+    <li><a href="#32-why-a-dense-layer-is-the-wrong-tool-for-an-image">3.2 Why a dense layer is the wrong tool for an image</a></li>
+    <li><a href="#33-convolution-precisely">3.3 Convolution, precisely</a></li>
+    <li><a href="#34-padding">3.4 Padding</a></li>
+    <li><a href="#35-pooling">3.5 Pooling</a></li>
+    <li><a href="#36-what-the-filters-actually-learn">3.6 What the filters actually learn</a></li>
+    <li><a href="#37-the-classical-architectures">3.7 The classical architectures</a></li>
+    <li><a href="#38-applications">3.8 Applications</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 2):</strong> Introduction to images and pixels. Filters/kernels,
 padding, and pooling. CNN architecture and layers (Conv, Pooling, Fully
 Connected, Softmax). Classical CNN architectures: LeNet-5 (digit recognition —
@@ -36,7 +50,7 @@ first CNN model), AlexNet (ImageNet breakthrough — deeper CNN), VGG (concept o
 depth, simplicity). Applications in image classification, object detection,
 facial recognition.</p>
 <hr />
-<h2>3.1 Images and pixels</h2>
+<h2 id="31-images-and-pixels">3.1 Images and pixels</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -64,8 +78,8 @@ facial recognition.</p>
 </tbody>
 </table>
 <div class="warn">
-<p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
-<h3>⚠️ The channel-order trap</h3>
+<p><span class="label">WATCH OUT</span></p>
+<h3 id="the-channel-order-trap">⚠️ The channel-order trap</h3>
 <p><strong>Keras is channels-last <code>(N, H, W, C)</code>; PyTorch is channels-first
 <code>(N, C, H, W)</code>.</strong> Mixing them produces a shape error if you are lucky and a
 silently wrong model if you are not. The lab hits this explicitly — the
@@ -76,12 +90,12 @@ channel axis before any torch convolution will accept it.</p>
 layer's gradients 255× larger than they should be, and training becomes
 needlessly sensitive to the learning rate.</p>
 <hr />
-<h2>3.2 Why a dense layer is the wrong tool for an image</h2>
+<h2 id="32-why-a-dense-layer-is-the-wrong-tool-for-an-image">3.2 Why a dense layer is the wrong tool for an image</h2>
 <p>Flattening a 28×28 image into 784 numbers throws away the fact that pixel
 (5,5) is next to pixel (5,6). A dense layer must <strong>learn that adjacency from
 data</strong>, separately for every position.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The three properties a convolution has and a dense layer does not</h4>
 <table class="main-table">
 <thead>
@@ -178,20 +192,20 @@ a 28-pixel image is a large perturbation, and neither model was trained with
 augmentation. But <strong>the MLP loses half again as much</strong>, because it learned a
 weight for every <em>absolute</em> pixel position. Pooling gives the CNN partial
 invariance to where the object sits.</p>
-<h3>💡 The practical lesson</h3>
+<h3 id="the-practical-lesson">💡 The practical lesson</h3>
 <p>If you need real shift invariance, <strong>do not rely on the architecture — train
 with data augmentation.</strong> The architecture gives you a head start; it does
 not give you the property.</p>
 </div>
 <hr />
-<h2>3.3 Convolution, precisely</h2>
+<h2 id="33-convolution-precisely">3.3 Convolution, precisely</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The output-size formula — memorise this</h4>
 <p>$$\text{out} = \left\lfloor\frac{\text{in} + 2p - k}{s}\right\rfloor + 1$$</p>
 <p>where <code>p</code> = padding, <code>k</code> = kernel size, <code>s</code> = stride.</p>
 </div>
-<h3>The lab's LeNet-shaped network, layer by layer</h3>
+<h3 id="the-labs-lenet-shaped-network-layer-by-layer">The lab's LeNet-shaped network, layer by layer</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -278,7 +292,7 @@ the parameters and usually improves generalisation.</p>
 <p>Check: conv2 is <code>(5×5×8 + 1) × 16 = 201 × 16 = 3,216</code>. ✓</p>
 </div>
 <hr />
-<h2>3.4 Padding</h2>
+<h2 id="34-padding">3.4 Padding</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -305,7 +319,7 @@ by arithmetic rather than by what you want. <code>same</code> is the default in 
 every modern architecture for exactly this reason, and it also stops the
 border pixels from being under-sampled.</p>
 <hr />
-<h2>3.5 Pooling</h2>
+<h2 id="35-pooling">3.5 Pooling</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -333,7 +347,7 @@ border pixels from being under-sampled.</p>
 </tbody>
 </table>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What pooling buys and what it costs</h4>
 <table class="main-table">
 <thead>
@@ -361,8 +375,8 @@ border pixels from being under-sampled.</p>
 nothing to the parameter count and nothing to the gradient except routing.</p>
 </div>
 <hr />
-<h2>3.6 What the filters actually learn</h2>
-<h3>⚠️ The claim, and the measurement</h3>
+<h2 id="36-what-the-filters-actually-learn">3.6 What the filters actually learn</h2>
+<h3 id="the-claim-and-the-measurement">⚠️ The claim, and the measurement</h3>
 <p>Every textbook says the first convolutional layer learns edge detectors. The
 lab measures it, by computing each kernel's gradient along both axes and
 calling a kernel <strong>oriented</strong> when one axis exceeds the other by 1.6×:</p>
@@ -405,7 +419,7 @@ calling a kernel <strong>oriented</strong> when one axis exceeds the other by 1.
 <p><strong>0 of 8 kernels are clearly oriented.</strong></p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
-<h3>💡 Reporting 0 rather than 8 is the honest version of "CNNs learn edge detectors"</h3>
+<h3 id="reporting-0-rather-than-8-is-the-honest-version-of-cnns-learn-edge-detectors">💡 Reporting 0 rather than 8 is the honest version of "CNNs learn edge detectors"</h3>
 <p>The claim comes from AlexNet's first layer — <strong>96 filters at 11×11 on
 224×224 colour photographs.</strong> With that much capacity and that much data,
 some filters specialise into clean oriented edges and Gabor patches, and
@@ -462,7 +476,7 @@ that claims otherwise has not looked.</p>
 </table>
 <p><strong>Sparsity grows with depth</strong> — 16.9% at conv1, 41.5% at conv2 — because
 deeper filters are more specific and so stay silent more often.</p>
-<h3>⚠️ But look at the first step, which goes the wrong way</h3>
+<h3 id="but-look-at-the-first-step-which-goes-the-wrong-way">⚠️ But look at the first step, which goes the wrong way</h3>
 <p>The <strong>input</strong> is 41.6% zero and conv1's output is only 16.9% zero. <strong>The
 first convolution made the representation <em>less</em> sparse.</strong></p>
 <p>That is not a bug. Each filter has a <strong>bias</strong>, so a filter with a positive
@@ -474,7 +488,7 @@ specific enough to be genuinely silent.</p>
 and false of its first layer here.</strong> Measure it rather than assuming it.</p>
 </div>
 <hr />
-<h2>3.7 The classical architectures</h2>
+<h2 id="37-the-classical-architectures">3.7 The classical architectures</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -539,7 +553,7 @@ convolution, but use fewer parameters and add an extra non-linearity.</strong></
 stacked deep</strong> — that is the whole VGG argument, and it is why 3×3 is now the
 near-universal default.</p>
 </div>
-<h3>⚠️ And the honest footnote on VGG</h3>
+<h3 id="and-the-honest-footnote-on-vgg">⚠️ And the honest footnote on VGG</h3>
 <p>VGG-16 is 138 M parameters, most of them in its dense layers, and it is
 <strong>slow</strong>. The lab measures it directly in
 <a href="lab_deep-learning.html#experiment-8">experiment 8</a>: as a frozen feature extractor on 500
@@ -552,7 +566,7 @@ a small model you trained yourself. Most people never run that baseline and
 so never find out.</p>
 </div>
 <hr />
-<h2>3.8 Applications</h2>
+<h2 id="38-applications">3.8 Applications</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -597,7 +611,7 @@ measure whether the nearest neighbour shares the label — <strong>0.8150 agains
 0.7150 for raw pixel distance, with nothing trained.</strong></p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Give the channel order for Keras and for PyTorch</li>
 <li>[ ] Apply <code>out = floor((in + 2p − k)/s) + 1</code> to any layer stack</li>

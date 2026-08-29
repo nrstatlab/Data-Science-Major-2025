@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-the-hierarchy">2.1 The hierarchy</a></li>
+    <li><a href="#22-advantages-of-mongodb-over-rdbms">2.2 Advantages of MongoDB over RDBMS</a></li>
+    <li><a href="#23-mongodb-data-types">2.3 MongoDB data types</a></li>
+    <li><a href="#24-database-and-collection-management">2.4 Database and collection management</a></li>
+    <li><a href="#25-schema-design-strategies">2.5 Schema design strategies</a></li>
+    <li><a href="#26-embedded-versus-referenced">2.6 Embedded versus referenced</a></li>
+    <li><a href="#27-schema-validation">2.7 Schema validation</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 22):</strong> MongoDB architecture — database, collection, document
 concepts; BSON format; advantages of MongoDB over RDBMS; MongoDB datatypes
 (String, Number, Date, Boolean, Array, ObjectId, Embedded Documents, Null).
@@ -37,7 +52,7 @@ Data modeling in MongoDB — schema design strategies, embedded vs referenced
 documents. Database and collection management — create and drop database,
 create and drop collection.</p>
 <hr />
-<h2>2.1 The hierarchy</h2>
+<h2 id="21-the-hierarchy">2.1 The hierarchy</h2>
 <pre><code>mongod (the server process)
 └── Database          collegeDB
     └── Collection    students          ← like a TABLE, but schema-free
@@ -75,7 +90,7 @@ create and drop collection.</p>
 </tr>
 </tbody>
 </table>
-<h3>Limits worth knowing</h3>
+<h3 id="limits-worth-knowing">Limits worth knowing</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -161,7 +176,7 @@ stored as a signed 32-bit integer, and 16 MB is the size the designers capped
 it at so a single document stays cheap to hold in memory and move over the
 network.</p>
 </div>
-<h2>2.2 Advantages of MongoDB over RDBMS</h2>
+<h2 id="22-advantages-of-mongodb-over-rdbms">2.2 Advantages of MongoDB over RDBMS</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -204,7 +219,7 @@ network.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ State the disadvantages too</h3>
+<h3 id="state-the-disadvantages-too">⚠️ State the disadvantages too</h3>
 <p>A ten-mark answer that lists only advantages is an incomplete answer.</p>
 <table class="main-table">
 <thead>
@@ -244,7 +259,7 @@ network.</p>
 </tr>
 </tbody>
 </table>
-<h2>2.3 MongoDB data types</h2>
+<h2 id="23-mongodb-data-types">2.3 MongoDB data types</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -331,7 +346,7 @@ network.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Three type traps</h3>
+<h3 id="three-type-traps">⚠️ Three type traps</h3>
 <p><strong>1. The shell stores whole numbers as Double.</strong></p>
 <pre><code class="language-js">db.c.insertOne({ n: 5 })                  // stored as a DOUBLE
 db.c.insertOne({ n: NumberInt(5) })       // an int32
@@ -357,7 +372,7 @@ db.c.find({ phone: { $type: &quot;null&quot; } })    // matches ONLY _id 2
 <p><strong><code>{ field: null }</code> matches missing fields as well as null ones</strong>, which is
 almost never what a beginner intends. This is a guaranteed exam question and a
 real source of wrong query results.</p>
-<h3>Dates</h3>
+<h3 id="dates">Dates</h3>
 <pre><code class="language-js">db.students.insertOne({ name: &quot;Asha&quot;, dob: ISODate(&quot;2005-04-03&quot;) })
 db.students.find({ dob: { $lt: ISODate(&quot;2006-01-01&quot;) } })      // works
 db.students.insertOne({ name: &quot;Ravi&quot;, dob: &quot;2005-04-03&quot; })     // a STRING
@@ -366,7 +381,7 @@ db.students.insertOne({ name: &quot;Ravi&quot;, dob: &quot;2005-04-03&quot; })  
 ordering only coincides with date ordering in ISO <code>YYYY-MM-DD</code> form, and breaks
 for any other format. Store dates as dates. MongoDB stores them as <strong>UTC</strong>;
 timezone handling is the application's job.</p>
-<h2>2.4 Database and collection management</h2>
+<h2 id="24-database-and-collection-management">2.4 Database and collection management</h2>
 <pre><code class="language-js">// --- databases -------------------------------------------------------------
 use collegeDB               // switch to it; CREATES NOTHING yet
 db                          // the current database
@@ -388,7 +403,7 @@ db.students.countDocuments()                      // an ACCURATE count
 db.students.estimatedDocumentCount()              // fast, from metadata
 db.students.stats()
 </code></pre>
-<h3>⚠️ Lazy creation, again</h3>
+<h3 id="lazy-creation-again">⚠️ Lazy creation, again</h3>
 <pre><code class="language-js">use brandNewDB
 show dbs                     // brandNewDB is ABSENT
 db.things.insertOne({ x: 1 })
@@ -398,17 +413,17 @@ show dbs                     // now it exists
 a collection: <code>db.anything.insertOne({})</code> creates <code>anything</code>. <code>createCollection</code>
 is only needed when you want <em>options</em> — validation, capping, a custom
 collation.</p>
-<h3>⚠️ <code>count()</code> versus <code>countDocuments()</code></h3>
+<h3 id="count-versus-countdocuments">⚠️ <code>count()</code> versus <code>countDocuments()</code></h3>
 <p><code>db.c.count()</code> is <strong>deprecated</strong> and could be inaccurate on a sharded cluster
 or after an unclean shutdown, because it read cached metadata.
 <strong><code>countDocuments()</code></strong> actually counts and is correct;
 <strong><code>estimatedDocumentCount()</code></strong> is the fast, approximate one, and its name says
 so honestly.</p>
-<h3>Capped collections</h3>
+<h3 id="capped-collections">Capped collections</h3>
 <p>A fixed-size collection that <strong>overwrites its oldest documents</strong> when full,
 preserving insertion order. Useful for logs and caches. You cannot delete from
 one, and you cannot grow a document beyond its original size.</p>
-<h2>2.5 Schema design strategies</h2>
+<h2 id="25-schema-design-strategies">2.5 Schema design strategies</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The central shift</h4>
@@ -418,7 +433,7 @@ one, and you cannot grow a document beyond its original size.</p>
 <strong>"what will I read, and how often?"</strong> — and the answer changes the model.</p>
 <p><strong>The design rule: data that is accessed together should be stored together.</strong></p>
 </div>
-<h3>The steps</h3>
+<h3 id="the-steps">The steps</h3>
 <ol>
 <li><strong>List the queries</strong> the application will run, and how often.</li>
 <li>Identify the <strong>entities</strong> and their relationships.</li>
@@ -436,7 +451,7 @@ one, and you cannot grow a document beyond its original size.</p>
 <p><strong>Step 1 is the one people skip, and it is the one that determines the answer.</strong>
 You cannot design a MongoDB schema without knowing the queries; there is no
 "neutral" normalised form to fall back on.</p>
-<h2>2.6 Embedded versus referenced</h2>
+<h2 id="26-embedded-versus-referenced">2.6 Embedded versus referenced</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The two models</h4>
@@ -523,7 +538,7 @@ You cannot design a MongoDB schema without knowing the queries; there is no
 <p><strong>Embed when the child is small, bounded, and always read with the parent.
 Reference when it is large, unbounded, shared, or changes independently.</strong></p>
 </div>
-<h3>⚠️ The unbounded-array trap</h3>
+<h3 id="the-unbounded-array-trap">⚠️ The unbounded-array trap</h3>
 <p>This is the classic MongoDB design failure and it is worth a mark to name.</p>
 <pre><code class="language-js">// WRONG -- comments grow without limit
 { _id: 1, title: &quot;Post&quot;, comments: [ /* ...50,000 of them... */ ] }
@@ -650,7 +665,7 @@ warehouse denormalises data that is <em>loaded and never updated</em>, while a
 MongoDB application denormalises data that <em>is</em> updated, and must then keep the
 copies in step. That is the real cost.</p>
 </div>
-<h2>2.7 Schema validation</h2>
+<h2 id="27-schema-validation">2.7 Schema validation</h2>
 <p>Flexible does not have to mean unconstrained.</p>
 <pre><code class="language-js">db.createCollection(&quot;students&quot;, {
   validator: {
@@ -720,7 +735,7 @@ the <code>colour</code>/<code>color</code>/<code>Colour</code> drift, the mark o
 field. Course 5's database enforced these for free; here you have to ask.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Design a MongoDB schema for a <strong>student–course enrolment</strong> system. Students have
@@ -989,7 +1004,7 @@ have. Setting it <code>false</code> would reject any unexpected field — occasi
 you want, and a significant loss of the model's main advantage.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Give the MongoDB terms for database, table, row and column.</li>
@@ -1028,7 +1043,7 @@ you want, and a significant loss of the model's main advantage.</p>
    same system in both.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

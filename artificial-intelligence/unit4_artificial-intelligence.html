@@ -29,6 +29,20 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-knowledge-based-agents">4.1 Knowledge-based agents</a></li>
+    <li><a href="#42-knowledge-representation-issues-and-approaches">4.2 Knowledge representation — issues and approaches</a></li>
+    <li><a href="#43-propositional-logic">4.3 Propositional logic</a></li>
+    <li><a href="#44-first-order-logic">4.4 First Order Logic</a></li>
+    <li><a href="#45-forward-and-backward-chaining">4.5 Forward and backward chaining</a></li>
+    <li><a href="#46-resolution">4.6 Resolution</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> Knowledge representation — issues, approaches.
 Propositional logic — syntax, semantics, truth tables, inference rules. First
 Order Logic (FOL) — syntax, semantics, quantifiers, substitution, unification.
@@ -40,7 +54,7 @@ Knowledge-based agents.</p>
 hardest procedure in the course and the most reliably examined.</p>
 </div>
 <hr />
-<h2>4.1 Knowledge-based agents</h2>
+<h2 id="41-knowledge-based-agents">4.1 Knowledge-based agents</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The shift from Units 2 and 3</h4>
@@ -115,7 +129,7 @@ it. That is the defining property, and it is why adding a new rule requires no
 change to the reasoning engine.</p>
 </div>
 <hr />
-<h2>4.2 Knowledge representation — issues and approaches</h2>
+<h2 id="42-knowledge-representation-issues-and-approaches">4.2 Knowledge representation — issues and approaches</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The issues the syllabus asks for</h4>
@@ -213,7 +227,7 @@ they express can be expressed in FOL. Saying that is worth a mark, and it
 explains why the field converged on logic.</p>
 </div>
 <hr />
-<h2>4.3 Propositional logic</h2>
+<h2 id="43-propositional-logic">4.3 Propositional logic</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Syntax</h4>
@@ -295,7 +309,7 @@ explains why the field converged on logic.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Implication is the row that confuses everyone</h3>
+<h3 id="implication-is-the-row-that-confuses-everyone">⚠️ Implication is the row that confuses everyone</h3>
 <p><strong>P ⇒ Q is TRUE whenever P is false</strong>, regardless of Q. "If the moon is made of
 cheese then 2 + 2 = 5" is <strong>true</strong>.</p>
 <div class="tip">
@@ -414,7 +428,7 @@ complete, meaning it will derive the empty clause from any unsatisfiable set.
 That is why it is the procedure worth learning.</p>
 </div>
 <hr />
-<h2>4.4 First Order Logic</h2>
+<h2 id="44-first-order-logic">4.4 First Order Logic</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Why propositional logic is not enough</h4>
@@ -601,7 +615,7 @@ little as possible. <code>UNIFY(Knows(Ram,x), Knows(y,z))</code> gives <code>{y/
 <code>{y/Ram, x/Ravi, z/Ravi}</code>.</p>
 </div>
 <hr />
-<h2>4.5 Forward and backward chaining</h2>
+<h2 id="45-forward-and-backward-chaining">4.5 Forward and backward chaining</h2>
 <p>Both apply to <strong>definite clauses</strong> — a disjunction with <strong>exactly one positive
 literal</strong>, equivalently <code>A ∧ B ∧ … ⇒ C</code>. Most practical rule bases are of this
 form, and inference over them is efficient.</p>
@@ -707,7 +721,7 @@ not in logic.</p>
 </ul>
 </div>
 <hr />
-<h2>4.6 Resolution</h2>
+<h2 id="46-resolution">4.6 Resolution</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -769,7 +783,7 @@ a disjunction of literals.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Skolemisation, and the rule people get wrong</h3>
+<h3 id="skolemisation-and-the-rule-people-get-wrong">⚠️ Skolemisation, and the rule people get wrong</h3>
 <ul>
 <li>
 <p><strong>∃ not inside any ∀</strong> → replace with a new <strong>constant</strong>.
@@ -845,7 +859,7 @@ so <strong>KB ⊨ Mortal(Socrates)</strong>. ∎</p>
 some disjunct is true. With none, it is <strong>false in every model</strong> — a
 contradiction. Since the only new assumption was ¬Goal, the goal must follow.</p>
 </div>
-<h3>⚠️ Resolution's limits, worth stating</h3>
+<h3 id="resolutions-limits-worth-stating">⚠️ Resolution's limits, worth stating</h3>
 <ul>
 <li>
 <p><strong>Refutation complete, not complete</strong> — it proves entailment by
@@ -862,7 +876,7 @@ contradiction. Since the only new assumption was ¬Goal, the goal must follow.</
 </li>
 </ul>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Convert to CNF and prove <code>Mortal(Socrates)</code> by resolution. <em>(10 marks)</em></p>
@@ -981,7 +995,7 @@ all x — there is <strong>one person</strong> everybody loves. <strong>Order ch
 with a <strong>constant</strong>, because it does not.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What are TELL and ASK?</li>
@@ -1009,7 +1023,7 @@ with a <strong>constant</strong>, because it does not.</p>
 <li>Explain knowledge-based agents and the approaches to representation.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

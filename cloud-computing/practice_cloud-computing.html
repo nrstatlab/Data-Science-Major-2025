@@ -16,141 +16,287 @@
     <p>Exam-style questions with fully worked solutions.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#section-a-two-mark-questions">Section A — Two-mark questions</a></li>
+    <li><a href="#section-b-five-mark-questions">Section B — Five-mark questions</a></li>
+    <li><a href="#section-c-ten-mark-questions">Section C — Ten-mark questions</a></li>
+    <li><a href="#the-six-things-most-likely-to-be-examined">The six things most likely to be examined</a></li>
+  </ol>
+</details>
 <p>Every figure quoted here is produced by
 <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-13b-cloud"><code>labs/course-13b-cloud/</code></a> and checked by
 <a href="../tools/run_cloud_labs.py"><code>tools/run_cloud_labs.py</code></a>.</p>
 <hr />
-<h2>Section A — Two-mark questions</h2>
-<p><strong>1. State the NIST definition of cloud computing.</strong>
-On-demand network access to a shared pool of configurable computing resources
+<h2 id="section-a-two-mark-questions">Section A — Two-mark questions</h2>
+<p><strong>1. State the NIST definition of cloud computing.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>On-demand network access to a shared pool of configurable computing resources
 that can be <strong>rapidly provisioned and released</strong> with minimal management
 effort.</p>
-<p><strong>2. Name the five essential characteristics.</strong>
-On-demand self-service, broad network access, resource pooling, rapid
+</details>
+<p><strong>2. Name the five essential characteristics.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>On-demand self-service, broad network access, resource pooling, rapid
 elasticity, measured service.</p>
-<p><strong>3. Distinguish elasticity from scalability.</strong>
-Scalability is <em>can it get bigger</em>. <strong>Elasticity is can it get bigger and then
+</details>
+<p><strong>3. Distinguish elasticity from scalability.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Scalability is <em>can it get bigger</em>. <strong>Elasticity is can it get bigger and then
 smaller again, automatically.</strong> The test: what does it cost when nobody is
 using it?</p>
-<p><strong>4. What is utility computing?</strong>
-Compute billed as a metered utility, like electricity. <strong>The cloud is utility
+</details>
+<p><strong>4. What is utility computing?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Compute billed as a metered utility, like electricity. <strong>The cloud is utility
 computing that finally worked</strong>, because virtualization made the meter
 fine-grained.</p>
-<p><strong>5. Give one difference between grid and cloud computing.</strong>
-<strong>A grid shares work; a cloud sells capacity.</strong></p>
-<p><strong>6. Expand IaaS, PaaS, SaaS, and give the boundary.</strong>
-Infrastructure, Platform, Software as a Service. <strong>The boundary is where "you
+</details>
+<p><strong>5. Give one difference between grid and cloud computing.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>A grid shares work; a cloud sells capacity.</strong></p>
+</details>
+<p><strong>6. Expand IaaS, PaaS, SaaS, and give the boundary.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Infrastructure, Platform, Software as a Service. <strong>The boundary is where "you
 manage it" stops</strong> — IaaS at the OS, PaaS at the runtime, SaaS at the
 application.</p>
-<p><strong>7. Which service model has the worst lock-in?</strong>
-<strong>PaaS.</strong> Your code targets their runtime, build system and scaling
+</details>
+<p><strong>7. Which service model has the worst lock-in?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>PaaS.</strong> Your code targets their runtime, build system and scaling
 semantics. Moving a VM is a disk image; moving a PaaS app is a rewrite.</p>
-<p><strong>8. Distinguish type 1 from type 2 hypervisors.</strong>
-Type 1 runs <strong>on the hardware</strong> (ESXi, KVM, Nitro — the cloud). Type 2 runs
+</details>
+<p><strong>8. Distinguish type 1 from type 2 hypervisors.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Type 1 runs <strong>on the hardware</strong> (ESXi, KVM, Nitro — the cloud). Type 2 runs
 <strong>on a host OS</strong> (VirtualBox, VMware Workstation).</p>
-<p><strong>9. Give one difference between a VM and a container.</strong>
-A VM virtualizes <strong>hardware</strong> and has its own kernel; a container virtualizes
+</details>
+<p><strong>9. Give one difference between a VM and a container.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A VM virtualizes <strong>hardware</strong> and has its own kernel; a container virtualizes
 <strong>the OS</strong> and shares the host kernel.</p>
-<p><strong>10. Why can CPU be overcommitted more safely than memory?</strong>
-CPU is <strong>time-sliced</strong> and degrades gracefully; a memory page is either
+</details>
+<p><strong>10. Why can CPU be overcommitted more safely than memory?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>CPU is <strong>time-sliced</strong> and degrades gracefully; a memory page is either
 resident or on disk, so memory overcommit <strong>fails as a cliff</strong>.</p>
-<p><strong>11. Name the six types of virtualization.</strong>
-Server, storage, network, desktop, application, data.</p>
-<p><strong>12. What is a VPC, in virtualization terms?</strong>
-<strong>Network virtualization</strong> — a private network over shared physical switches.
+</details>
+<p><strong>11. Name the six types of virtualization.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Server, storage, network, desktop, application, data.</p>
+</details>
+<p><strong>12. What is a VPC, in virtualization terms?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Network virtualization</strong> — a private network over shared physical switches.
 It is what makes multi-tenancy safe.</p>
-<p><strong>13. Name the four deployment models.</strong>
-Public, private, community, hybrid.</p>
-<p><strong>14. Does "private cloud" mean on-premises?</strong>
-<strong>No.</strong> It means <strong>single-tenant</strong>. AWS Outposts and dedicated hosts are
+</details>
+<p><strong>13. Name the four deployment models.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Public, private, community, hybrid.</p>
+</details>
+<p><strong>14. Does "private cloud" mean on-premises?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>No.</strong> It means <strong>single-tenant</strong>. AWS Outposts and dedicated hosts are
 private clouds in someone else's building.</p>
-<p><strong>15. Name the three cloud storage types.</strong>
-Block (EBS), file (EFS), object (S3).</p>
-<p><strong>16. Which has no directories?</strong>
-<strong>Object storage.</strong> <code>raw/2026/sales.csv</code> is one key with two slashes; the
+</details>
+<p><strong>15. Name the three cloud storage types.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Block (EBS), file (EFS), object (S3).</p>
+</details>
+<p><strong>16. Which has no directories?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Object storage.</strong> <code>raw/2026/sales.csv</code> is one key with two slashes; the
 folder tree is <strong>common prefixes computed at list time</strong>.</p>
-<p><strong>17. Why is there no rename in an object store?</strong>
-<strong>The key is the identity.</strong> A rename is a <strong>copy plus a delete</strong> — a full
+</details>
+<p><strong>17. Why is there no rename in an object store?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>The key is the identity.</strong> A rename is a <strong>copy plus a delete</strong> — a full
 read and a full write.</p>
-<p><strong>18. What is the minimum billing duration for Glacier Deep Archive?</strong>
-<strong>180 days.</strong> Delete after 10 and you are billed for 180.</p>
-<p><strong>19. Is ingress or egress charged?</strong>
-<strong>Egress.</strong> Ingress is free.</p>
-<p><strong>20. How much does 1 TB of egress cost, relative to storing it?</strong>
-<strong>$92.16 — as much as storing that terabyte for 3.9 months.</strong></p>
-<p><strong>21. What does a delete do to a versioned S3 object?</strong>
-Writes a <strong>delete marker</strong>. The data is still there and <strong>still billed</strong>.</p>
-<p><strong>22. State RPO and RTO.</strong>
-<strong>RPO</strong> — how much data you can afford to lose. <strong>RTO</strong> — how long you can
+</details>
+<p><strong>18. What is the minimum billing duration for Glacier Deep Archive?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>180 days.</strong> Delete after 10 and you are billed for 180.</p>
+</details>
+<p><strong>19. Is ingress or egress charged?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Egress.</strong> Ingress is free.</p>
+</details>
+<p><strong>20. How much does 1 TB of egress cost, relative to storing it?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>$92.16 — as much as storing that terabyte for 3.9 months.</strong></p>
+</details>
+<p><strong>21. What does a delete do to a versioned S3 object?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Writes a <strong>delete marker</strong>. The data is still there and <strong>still billed</strong>.</p>
+</details>
+<p><strong>22. State RPO and RTO.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>RPO</strong> — how much data you can afford to lose. <strong>RTO</strong> — how long you can
 afford to be down.</p>
-<p><strong>23. Name one limitation of a key-value database.</strong>
-<strong>No query by value</strong> without a secondary index — any query not beginning with
+</details>
+<p><strong>23. Name one limitation of a key-value database.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>No query by value</strong> without a secondary index — any query not beginning with
 the partition key is a full scan.</p>
-<p><strong>24. Give one difference between a cloud data warehouse and an RDBMS.</strong>
-<strong>Columnar, indexless, and billed on bytes scanned</strong> rather than on the box.</p>
-<p><strong>25. What is BigQuery billed on?</strong>
-<strong>Bytes scanned</strong> — $6.25 per TB on demand.</p>
-<p><strong>26. Does <code>LIMIT 10</code> make a BigQuery query cheap?</strong>
-<strong>No.</strong> It limits rows <em>returned</em>, not bytes <em>scanned</em>.</p>
-<p><strong>27. Why did ELT replace ETL?</strong>
-<strong>Warehouse compute got cheap and elastic.</strong> Landing raw data means a bug is
+</details>
+<p><strong>24. Give one difference between a cloud data warehouse and an RDBMS.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Columnar, indexless, and billed on bytes scanned</strong> rather than on the box.</p>
+</details>
+<p><strong>25. What is BigQuery billed on?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Bytes scanned</strong> — $6.25 per TB on demand.</p>
+</details>
+<p><strong>26. Does <code>LIMIT 10</code> make a BigQuery query cheap?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>No.</strong> It limits rows <em>returned</em>, not bytes <em>scanned</em>.</p>
+</details>
+<p><strong>27. Why did ELT replace ETL?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Warehouse compute got cheap and elastic.</strong> Landing raw data means a bug is
 fixed by re-running SQL, not by re-extracting from a source that may have
 changed.</p>
+</details>
 <p><strong>28. State IAM's three evaluation rules.</strong></p>
+<details>
+<summary>Show answer</summary>
 <ol>
 <li>An <strong>explicit deny</strong> anywhere wins. 2. Otherwise an <strong>allow</strong> grants.</li>
 <li>Otherwise <strong>implicit deny</strong>.</li>
 </ol>
-<p><strong>29. Does adding an <code>s3:*</code> allow policy defeat an existing deny?</strong>
-<strong>No.</strong> Verified: still denied. There is <strong>no "more specific allow wins"
+</details>
+<p><strong>29. Does adding an <code>s3:*</code> allow policy defeat an existing deny?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>No.</strong> Verified: still denied. There is <strong>no "more specific allow wins"
 rule</strong>.</p>
-<p><strong>30. Does IAM policy order matter?</strong>
-<strong>No.</strong> Unlike a firewall list, it is not first-match — every statement is
+</details>
+<p><strong>30. Does IAM policy order matter?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>No.</strong> Unlike a firewall list, it is not first-match — every statement is
 evaluated, then the three rules decide.</p>
-<p><strong>31. Give one difference between an IAM user and a role.</strong>
-A user has <strong>long-lived credentials</strong>; a role provides <strong>temporary,
+</details>
+<p><strong>31. Give one difference between an IAM user and a role.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A user has <strong>long-lived credentials</strong>; a role provides <strong>temporary,
 auto-rotated</strong> ones and is assumed by a service.</p>
-<p><strong>32. Why does a SageMaker notebook not need an access key?</strong>
-It has an <strong>execution role attached</strong>, so no credential is ever written to
+</details>
+<p><strong>32. Why does a SageMaker notebook not need an access key?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>It has an <strong>execution role attached</strong>, so no credential is ever written to
 disk.</p>
-<p><strong>33. What do AIaaS and GPUaaS actually mean?</strong>
-<strong>SaaS for a model</strong> and <strong>IaaS for a GPU</strong>. They are not new service models.</p>
-<p><strong>34. What is a feature store for?</strong>
-<strong>One definition of a feature, served to training and serving</strong> — it prevents
+</details>
+<p><strong>33. What do AIaaS and GPUaaS actually mean?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>SaaS for a model</strong> and <strong>IaaS for a GPU</strong>. They are not new service models.</p>
+</details>
+<p><strong>34. What is a feature store for?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>One definition of a feature, served to training and serving</strong> — it prevents
 training/serving skew.</p>
-<p><strong>35. What does AutoML actually do?</strong>
-Fits many models, cross-validates each, and <strong>ranks them</strong>. It is a search.</p>
-<p><strong>36. Name two things AutoML cannot do.</strong>
-Notice that your target leaks; choose a threshold fitting the business cost of
+</details>
+<p><strong>35. What does AutoML actually do?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Fits many models, cross-validates each, and <strong>ranks them</strong>. It is a search.</p>
+</details>
+<p><strong>36. Name two things AutoML cannot do.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Notice that your target leaks; choose a threshold fitting the business cost of
 an error. (Also: decide the target, explain a prediction, notice unfairness.)</p>
-<p><strong>37. Distinguish scale-up from scale-out.</strong>
-<strong>Up</strong> = a bigger machine, no code changes, near-perfect efficiency.
+</details>
+<p><strong>37. Distinguish scale-up from scale-out.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Up</strong> = a bigger machine, no code changes, near-perfect efficiency.
 <strong>Out</strong> = more machines, distributed code, sub-linear returns.</p>
-<p><strong>38. What must <code>/ping</code> not do?</strong>
-<strong>Run the model.</strong> A health check doing real inference kills healthy
+</details>
+<p><strong>38. What must <code>/ping</code> not do?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Run the model.</strong> A health check doing real inference kills healthy
 containers whenever the model is merely slow.</p>
-<p><strong>39. Why alarm on p99 rather than the mean?</strong>
-Measured: twenty latencies with one 900 ms outlier gave a <strong>mean of 85 ms and
+</details>
+<p><strong>39. Why alarm on p99 rather than the mean?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Measured: twenty latencies with one 900 ms outlier gave a <strong>mean of 85 ms and
 a p99 of 737.5 ms</strong>. The mean never fires.</p>
-<p><strong>40. Name the metric that catches a dead endpoint.</strong>
-<strong><code>Invocations == 0</code></strong> for an hour. Every performance metric looks perfect and
+</details>
+<p><strong>40. Name the metric that catches a dead endpoint.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong><code>Invocations == 0</code></strong> for an hour. Every performance metric looks perfect and
 it still bills.</p>
-<p><strong>41. Distinguish data drift from concept drift.</strong>
-<strong>Data drift</strong> — the input distribution changed. <strong>Concept drift</strong> — the
+</details>
+<p><strong>41. Distinguish data drift from concept drift.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Data drift</strong> — the input distribution changed. <strong>Concept drift</strong> — the
 relationship between input and output changed.</p>
-<p><strong>42. Name the three deployment shapes and their idle cost.</strong>
-Real-time (<strong>the full instance</strong>), serverless (<strong>zero</strong>), batch (<strong>zero</strong>).</p>
-<p><strong>43. What does an <code>ml.m5.large</code> endpoint cost when nothing calls it?</strong>
-About <strong>$70/month</strong>.</p>
-<p><strong>44. Why is a 4xx not a 5xx?</strong>
-<strong>5xx means your service is broken and should page someone.</strong> Returning 500
+</details>
+<p><strong>42. Name the three deployment shapes and their idle cost.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Real-time (<strong>the full instance</strong>), serverless (<strong>zero</strong>), batch (<strong>zero</strong>).</p>
+</details>
+<p><strong>43. What does an <code>ml.m5.large</code> endpoint cost when nothing calls it?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>About <strong>$70/month</strong>.</p>
+</details>
+<p><strong>44. Why is a 4xx not a 5xx?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>5xx means your service is broken and should page someone.</strong> Returning 500
 for malformed input poisons your error alarm.</p>
-<p><strong>45. Give the measured cost of calling an endpoint per row.</strong>
-<strong>37×</strong> — 181.85 ms for 100 single-row requests against 4.90 ms for one
+</details>
+<p><strong>45. Give the measured cost of calling an endpoint per row.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>37×</strong> — 181.85 ms for 100 single-row requests against 4.90 ms for one
 batched request.</p>
 <hr />
-<h2>Section B — Five-mark questions</h2>
-<h3>1. Explain the five essential characteristics, with a failure mode for each</h3>
+</details>
+<h2 id="section-b-five-mark-questions">Section B — Five-mark questions</h2>
+<h3 id="1-explain-the-five-essential-characteristics-with-a-failure-mode-for-each">1. Explain the five essential characteristics, with a failure mode for each</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -188,7 +334,10 @@ it a private cloud is marketing.</strong></p>
 <p><strong>And elasticity is the one most often misread:</strong> it includes scaling <em>in</em>. A
 system that scales out and never back in has scalability without elasticity,
 and it costs you the peak at 3 a.m.</p>
-<h3>2. Compare IaaS, PaaS and SaaS by what the customer manages</h3>
+</details>
+<h3 id="2-compare-iaas-paas-and-saas-by-what-the-customer-manages">2. Compare IaaS, PaaS and SaaS by what the customer manages</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -243,7 +392,10 @@ patch it; PaaS gives a runtime and you deploy code; SaaS gives an application.</
 option — because your code targets their runtime, their build and their
 scaling model. <strong>Moving a VM is a disk image; moving a PaaS application is a
 rewrite.</strong></p>
-<h3>3. Explain overcommitment and the CPU/memory asymmetry</h3>
+</details>
+<h3 id="3-explain-overcommitment-and-the-cpumemory-asymmetry">3. Explain overcommitment and the CPU/memory asymmetry</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Overcommit</strong> is allocating more virtual resource than the host physically
 has, betting that guests will not all use their allocation at once.</p>
 <p><strong>Measured, on a 32 GB / 8 vCPU host with four guests:</strong></p>
@@ -260,7 +412,10 @@ or on disk, and a swapped page costs roughly 100,000× a resident one — <stron
 cliff</strong>.</p>
 <p><strong>That is the "noisy neighbour" problem</strong>, and it is why cloud instance types
 quote <strong>dedicated memory</strong> and only <strong>burstable CPU</strong>.</p>
-<h3>4. Explain the three storage types and how to choose</h3>
+</details>
+<h3 id="4-explain-the-three-storage-types-and-how-to-choose">4. Explain the three storage types and how to choose</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -308,7 +463,10 @@ volume you asked for.</p>
 <p><strong>Choose by access pattern, not price:</strong> block for a database or boot disk,
 file for shared POSIX, object for everything a pipeline reads.</p>
 </div>
-<h3>5. Explain S3 storage classes and the trap in the cheap tiers</h3>
+</details>
+<h3 id="5-explain-s3-storage-classes-and-the-trap-in-the-cheap-tiers">5. Explain S3 storage classes and the trap in the cheap tiers</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>1 TB for a year, retrieved once:</strong></p>
 <table class="main-table">
 <thead>
@@ -368,7 +526,10 @@ how a bill goes up.</em></p>
 <p><strong>Plus the minimum durations</strong>: delete a Deep Archive object after 10 days and
 you are billed for 180. <strong>A storage class is a bet on your access pattern, and
 the penalties are what make it a bet.</strong></p>
-<h3>6. Explain IAM's evaluation algorithm</h3>
+</details>
+<h3 id="6-explain-iams-evaluation-algorithm">6. Explain IAM's evaluation algorithm</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Three rules, in order:</strong></p>
 <ol>
 <li><strong>An explicit <code>Deny</code> anywhere wins.</strong> Always, unconditionally.</li>
@@ -416,7 +577,10 @@ immutable.</strong></p>
 specific allow wins" rule</strong>; to lift a Deny you must remove it.</p>
 <p><strong>Policy order is irrelevant</strong> — reversed, the answer is identical. IAM is not
 first-match.</p>
-<h3>7. Explain batch against streaming for an ML pipeline</h3>
+</details>
+<h3 id="7-explain-batch-against-streaming-for-an-ml-pipeline">7. Explain batch against streaming for an ML pipeline</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -459,7 +623,10 @@ drifting.</strong></p>
 streaming produces <strong>training/serving skew</strong> — the model sees a feature
 distribution it never trained on, and every metric stays green. <strong>A feature
 store exists for exactly this.</strong></p>
-<h3>8. Explain why autoscaling can cost more than fixed capacity</h3>
+</details>
+<h3 id="8-explain-why-autoscaling-can-cost-more-than-fixed-capacity">8. Explain why autoscaling can cost more than fixed capacity</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Measured</strong>, over a day with peak 1,000 req/s and instances serving 150:</p>
 <table class="main-table">
 <thead>
@@ -501,8 +668,11 @@ observation behind.</strong></p>
 is a higher scale-out threshold, a longer scale-in cooldown, a capped
 maximum — and measuring, because the curve is specific to your traffic.</p>
 <hr />
-<h2>Section C — Ten-mark questions</h2>
-<h3>1. Explain cloud storage in full, with worked arithmetic</h3>
+</details>
+<h2 id="section-c-ten-mark-questions">Section C — Ten-mark questions</h2>
+<h3 id="1-explain-cloud-storage-in-full-with-worked-arithmetic">1. Explain cloud storage in full, with worked arithmetic</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>The three types, by access unit:</strong></p>
 <table class="main-table">
 <thead>
@@ -601,7 +771,10 @@ move — and it is why "move the compute to the data" survived into the cloud.</
 Glacier; archive → Deep Archive; DR → cross-region replication with a tested
 restore; content delivery → CDN, where <strong>cheaper egress, not latency, is the
 real saving</strong>.</p>
-<h3>2. Explain the full lifecycle of training and deploying a model on the cloud</h3>
+</details>
+<h3 id="2-explain-the-full-lifecycle-of-training-and-deploying-a-model-on-the-cloud">2. Explain the full lifecycle of training and deploying a model on the cloud</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>The six steps, and what goes wrong at each.</strong></p>
 <p><strong>1. Identify the data.</strong> Find where it already lives — moving data is the
 expensive part. Check freshness, access (an <strong>IAM role, not keys</strong>), and
@@ -700,7 +873,10 @@ perfect and bills the same.</p>
 <p><strong>Then retrain</strong>, triggered by schedule, drift or performance — as a
 <strong>pipeline, not a person</strong>, promoted through a champion/challenger gate and a
 canary.</p>
-<h3>3. Compare a cloud data warehouse with an RDBMS, and work out the break-even</h3>
+</details>
+<h3 id="3-compare-a-cloud-data-warehouse-with-an-rdbms-and-work-out-the-break-even">3. Compare a cloud data warehouse with an RDBMS, and work out the break-even</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -791,7 +967,10 @@ during quiet weeks on serverless and the full rate every hour on a cluster.</p>
 transformation bug is then fixed by re-running SQL on raw data rather than
 re-extracting from a source that may no longer hold the old rows, <strong>exactly
 the <code>DELETE</code> problem Course 12 B found in Sqoop.</strong></p>
-<h3>4. Design a secure, cost-controlled cloud setup for a student data-science team</h3>
+</details>
+<h3 id="4-design-a-secure-cost-controlled-cloud-setup-for-a-student-data-science-team">4. Design a secure, cost-controlled cloud setup for a student data-science team</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Identity, first.</strong></p>
 <ol>
 <li>
@@ -867,7 +1046,10 @@ the <code>DELETE</code> problem Course 12 B found in Sqoop.</strong></p>
 </ul>
 <p><strong>And the operational rule that matters most:</strong> <strong>nothing you forget to
 switch off will switch itself off.</strong></p>
-<h3>5. Explain virtualization and the four deployment models, with a recommendation</h3>
+</details>
+<h3 id="5-explain-virtualization-and-the-four-deployment-models-with-a-recommendation">5. Explain virtualization and the four deployment models, with a recommendation</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Virtualization is what makes the cloud possible</strong>, because you cannot hand
 back half a physical server. A hypervisor gives three properties:</p>
 <ul>
@@ -948,7 +1130,8 @@ from 20% to 95% active — <strong>slowing every guest, not just the greedy one<
 </li>
 </ul>
 <hr />
-<h2>The six things most likely to be examined</h2>
+</details>
+<h2 id="the-six-things-most-likely-to-be-examined">The six things most likely to be examined</h2>
 <ol>
 <li>
 <p><strong>IAM's three rules</strong>, and the demonstration that adding <code>s3:*</code> does not

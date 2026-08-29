@@ -28,13 +28,26 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-the-terminology">2.1 The terminology</a></li>
+    <li><a href="#22-tokenization">2.2 Tokenization</a></li>
+    <li><a href="#23-stopword-removal">2.3 Stopword removal</a></li>
+    <li><a href="#24-stemming-and-lemmatization">2.4 Stemming and lemmatization</a></li>
+    <li><a href="#25-grammar-and-context-free-grammar">2.5 Grammar and context-free grammar</a></li>
+    <li><a href="#26-parsing">2.6 Parsing</a></li>
+    <li><a href="#27-semantic-analysis">2.7 Semantic analysis</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 10):</strong> Key NLP terminologies: morphology, lexicon,
 orthographic rules. Finite state transducers. Text preprocessing techniques:
 tokenization, stopword removal, stemming, lemmatization. Grammar and
 context-free grammar. Parsing techniques: top-down, bottom-up, CYK algorithm.
 Semantic analysis: elements, meaning representation.</p>
 <hr />
-<h2>2.1 The terminology</h2>
+<h2 id="21-the-terminology">2.1 The terminology</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -77,7 +90,7 @@ Semantic analysis: elements, meaning representation.</p>
 </tbody>
 </table>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The two kinds of morphology</h4>
 <table class="main-table">
 <thead>
@@ -114,7 +127,7 @@ Semantic analysis: elements, meaning representation.</p>
 <em>happiness</em>, not to <em>happy</em>, and that is correct — they are different words.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Finite state transducers</h4>
 <p>An FST is a finite automaton whose transitions carry <strong>input:output</strong> pairs,
 so it maps one string to another.</p>
@@ -132,8 +145,8 @@ built before statistical methods. NLTK does not ship one; a stemmer is the
 crude approximation you get instead.</p>
 </div>
 <hr />
-<h2>2.2 Tokenization</h2>
-<h3>⚠️ Sentence tokenization is not splitting on "."</h3>
+<h2 id="22-tokenization">2.2 Tokenization</h2>
+<h3 id="sentence-tokenization-is-not-splitting-on">⚠️ Sentence tokenization is not splitting on "."</h3>
 <p><a href="../labs/course-15a-nlp/03_ambiguity_tokenize.py"><code>03_ambiguity_tokenize.py</code></a>
 runs three methods on one hard sentence containing <em>Dr.</em>, <em>U.S.A.</em>, <em>Rs.</em> and
 an email address:</p>
@@ -161,13 +174,13 @@ an email address:</p>
 </table>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
-<h3>🎯 Neither trained tokeniser is "correct" in the abstract</h3>
+<h3 id="neither-trained-tokeniser-is-correct-in-the-abstract">🎯 Neither trained tokeniser is "correct" in the abstract</h3>
 <p>They were trained on <strong>different annotation guidelines</strong>, and abbreviations
 are exactly where guidelines differ. <strong>Report which tokeniser you used.</strong>
 Two results produced with different tokenisers are not directly comparable,
 and this is why.</p>
 </div>
-<h3>Word tokenization, and the contraction problem</h3>
+<h3 id="word-tokenization-and-the-contraction-problem">Word tokenization, and the contraction problem</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -198,7 +211,7 @@ and this is why.</p>
 degrades on the other, which is a real and commonly-missed source of
 production bugs.</p>
 <hr />
-<h2>2.3 Stopword removal</h2>
+<h2 id="23-stopword-removal">2.3 Stopword removal</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>What it costs and what it buys</h4>
@@ -231,7 +244,7 @@ production bugs.</p>
 count hugely and the vocabulary barely at all. For a bag-of-words model that
 is close to free.</p>
 </div>
-<h3>⚠️ And the sentences it destroys</h3>
+<h3 id="and-the-sentences-it-destroys">⚠️ And the sentences it destroys</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -294,7 +307,7 @@ it</strong>, which turns out to matter: the difference it makes on movie reviews
 smaller than the variation between cross-validation folds.</p>
 </div>
 <hr />
-<h2>2.4 Stemming and lemmatization</h2>
+<h2 id="24-stemming-and-lemmatization">2.4 Stemming and lemmatization</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The comparison table, measured</h4>
@@ -361,7 +374,7 @@ smaller than the variation between cross-validation folds.</p>
 </tbody>
 </table>
 </div>
-<h3>Read four rows closely</h3>
+<h3 id="read-four-rows-closely">Read four rows closely</h3>
 <ol>
 <li>
 <p><strong>"ran" → Porter leaves it alone.</strong> A stemmer chops suffixes and <em>ran</em> has
@@ -381,12 +394,12 @@ smaller than the variation between cross-validation folds.</p>
 </li>
 </ol>
 <div class="warn">
-<p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
-<h3>⚠️ So the usual claim needs qualifying</h3>
+<p><span class="label">WATCH OUT</span></p>
+<h3 id="so-the-usual-claim-needs-qualifying">⚠️ So the usual claim needs qualifying</h3>
 <p>"Lemmatization always returns a real word" is <strong>only true when the tag is
 right</strong>. Tagged as a verb, <em>was</em> gives <em>be</em>, which is correct.</p>
 </div>
-<h3>⚠️ The most common silent mistake in NLP coursework</h3>
+<h3 id="the-most-common-silent-mistake-in-nlp-coursework">⚠️ The most common silent mistake in NLP coursework</h3>
 <p><strong><code>WordNetLemmatizer.lemmatize(w)</code> defaults to POS = noun.</strong> Every tutorial
 that calls it without a tag is asking "what is the singular of this noun",
 which does nothing at all to a verb.</p>
@@ -463,9 +476,9 @@ which does nothing at all to a verb.</p>
 </table>
 </div>
 <hr />
-<h2>2.5 Grammar and context-free grammar</h2>
+<h2 id="25-grammar-and-context-free-grammar">2.5 Grammar and context-free grammar</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>A CFG is four things</h4>
 <p><strong>G = (N, Σ, R, S)</strong> — non-terminals, terminals, rules, start symbol. Every
 rule has the form <strong>A → β</strong>: <em>a single</em> non-terminal on the left. That
@@ -478,7 +491,7 @@ PP  -&gt; P NP
 </code></pre>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Chomsky hierarchy, in one table</h4>
 <table class="main-table">
 <thead>
@@ -521,9 +534,9 @@ a finite automaton has no memory to count with. That is the standard exam
 justification for CFGs.</p>
 </div>
 <hr />
-<h2>2.6 Parsing</h2>
+<h2 id="26-parsing">2.6 Parsing</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The three strategies</h4>
 <table class="main-table">
 <thead>
@@ -584,7 +597,7 @@ commits to a reduction and never revises. Chart parsing stores every partial
 result, so it gets all of them without the exponential re-work — <strong>the same
 memoisation idea as Course 2</strong>.</p>
 </div>
-<h3>⚠️ The rule that kills a top-down parser</h3>
+<h3 id="the-rule-that-kills-a-top-down-parser">⚠️ The rule that kills a top-down parser</h3>
 <pre><code>NP -&gt; NP PP        &lt;-- LEFT RECURSIVE
 </code></pre>
 <p>To parse an NP, recursive descent must first parse an NP, which requires
@@ -640,16 +653,16 @@ accept if S in table[0][n]
 <p><strong>The three nested loops over <code>i</code>, <code>length</code> and <code>k</code> are where the n³ comes
 from</strong> — that is the answer to "derive CYK's complexity".</p>
 </div>
-<h3>⚠️ And why nobody hand-writes a CFG for real text</h3>
+<h3 id="and-why-nobody-hand-writes-a-cfg-for-real-text">⚠️ And why nobody hand-writes a CFG for real text</h3>
 <p>A real Penn Treebank sentence has dozens of leaves and a height in double
 figures, and there are 3,914 of them in NLTK's sample. <strong>A hand-written CFG
 does not scale</strong>: real sentences need thousands of rules and still fail.</p>
 <p><strong>Every production parser is statistical</strong> — it learns rule probabilities from
 a treebank and returns the most probable tree instead of all of them.</p>
 <hr />
-<h2>2.7 Semantic analysis</h2>
+<h2 id="27-semantic-analysis">2.7 Semantic analysis</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The elements</h4>
 <table class="main-table">
 <thead>
@@ -679,7 +692,7 @@ a treebank and returns the most probable tree instead of all of them.</p>
 </table>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Meaning representation</h4>
 <table class="main-table">
 <thead>
@@ -721,7 +734,7 @@ with the most overlap.</p>
 baseline every WSD paper reports.</p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Define morpheme, lexicon, lemma, and distinguish inflectional from derivational morphology</li>
 <li>[ ] <strong>Explain what an FST is and why bidirectionality matters</strong></li>

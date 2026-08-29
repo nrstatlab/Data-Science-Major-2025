@@ -29,13 +29,27 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-random-variables">2.1 Random variables</a></li>
+    <li><a href="#22-pmf-pdf-and-cdf">2.2 PMF, PDF and CDF</a></li>
+    <li><a href="#23-mathematical-expectation">2.3 Mathematical expectation</a></li>
+    <li><a href="#24-variance-and-standard-deviation">2.4 Variance and standard deviation</a></li>
+    <li><a href="#25-moments">2.5 Moments</a></li>
+    <li><a href="#26-moment-generating-function-mgf">2.6 Moment-generating function (MGF)</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 21):</strong> Random variables — definition, types (discrete and
 continuous), and properties. Probability mass function (PMF) and probability
 density function (PDF). Cumulative distribution function (CDF). Mathematical
 expectation (mean), variance and standard deviation. Moments and
 moment-generating functions.</p>
 <hr />
-<h2>2.1 Random variables</h2>
+<h2 id="21-random-variables">2.1 Random variables</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>A random variable is a rule that attaches a <strong>number</strong> to each outcome of a
@@ -43,7 +57,7 @@ random experiment. It turns "heads, heads, tails" into "2 heads", so you can do
 arithmetic with chance.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>You toss a coin three times. The outcomes are things like HHT and THH — not
 numbers, so you cannot average them. But if you count the heads, every outcome
 becomes a number: 0, 1, 2 or 3. Now you can ask "on average, how many heads?"
@@ -107,7 +121,7 @@ computable.</p>
 <p>That table is the <strong>probability distribution</strong> of X. Notice the probabilities
 sum to 1 — always check this first; if they do not, something is wrong.</p>
 </div>
-<h3>Discrete vs continuous</h3>
+<h3 id="discrete-vs-continuous">Discrete vs continuous</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -155,14 +169,14 @@ question.</p>
 <p>A useful consequence: for continuous variables <strong>P(X ≤ a) = P(X &lt; a)</strong>, because
 the endpoint contributes nothing. For discrete variables they differ, and
 mixing them up is a common error.</p>
-<h2>2.2 PMF, PDF and CDF</h2>
-<h3>Probability mass function (PMF) — discrete</h3>
+<h2 id="22-pmf-pdf-and-cdf">2.2 PMF, PDF and CDF</h2>
+<h3 id="probability-mass-function-pmf-discrete">Probability mass function (PMF) — discrete</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>p(x) = P(X = x)</strong></p>
 </div>
 <p>Properties: p(x) ≥ 0 for all x, and Σ p(x) = 1.</p>
-<h3>Probability density function (PDF) — continuous</h3>
+<h3 id="probability-density-function-pdf-continuous">Probability density function (PDF) — continuous</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>P(a ≤ X ≤ b) = ∫ₐᵇ f(x) dx</strong></p>
@@ -171,7 +185,7 @@ mixing them up is a common error.</p>
 <p><strong>f(x) is not a probability.</strong> It is a <em>density</em> — probability per unit of x —
 and it can exceed 1. Probability is the <strong>area under</strong> the curve, not the
 height of it. This is worth stating explicitly in an exam answer.</p>
-<h3>Cumulative distribution function (CDF)</h3>
+<h3 id="cumulative-distribution-function-cdf">Cumulative distribution function (CDF)</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>F(x) = P(X ≤ x)</strong></p>
@@ -220,14 +234,14 @@ height of it. This is worth stating explicitly in an exam answer.</p>
 </table>
 <p>So P(X ≤ 2) = 7/8, and P(1 &lt; X ≤ 3) = F(3) − F(1) = 1 − 4/8 = <strong>4/8</strong>.</p>
 </div>
-<h2>2.3 Mathematical expectation</h2>
+<h2 id="23-mathematical-expectation">2.3 Mathematical expectation</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>The expected value is the long-run average — what you would get per trial if
 you repeated the experiment an enormous number of times.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>A carnival game costs ₹10 to play. You roll a die and win ₹60 if you get a six,
 nothing otherwise. Is it worth playing?</p>
 <p>Your expected winnings are 60 × (1/6) = ₹10. The game costs ₹10. So on average
@@ -288,7 +302,7 @@ outcome at all — it is the <strong>balance point</strong> of the distribution,
 where the probability weights would sit level on a see-saw. "Expected" is a
 technical term, not a prediction of what will happen.</p>
 </div>
-<h3>Properties of expectation</h3>
+<h3 id="properties-of-expectation">Properties of expectation</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -321,7 +335,7 @@ technical term, not a prediction of what will happen.</p>
 </table>
 <p>Linearity holding regardless of independence is genuinely useful and often
 tested.</p>
-<h2>2.4 Variance and standard deviation</h2>
+<h2 id="24-variance-and-standard-deviation">2.4 Variance and standard deviation</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>Var(X) = E[(X − μ)²]</strong></p>
@@ -385,7 +399,7 @@ tested.</p>
 </ul>
 <p><em>Check against the binomial formula</em> (Unit 3): np(1−p) = 3 × 0.5 × 0.5 = 0.75 ✓</p>
 </div>
-<h3>Properties of variance</h3>
+<h3 id="properties-of-variance">Properties of variance</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -427,14 +441,14 @@ tested.</p>
   variance quadruples, because variance is in <em>squared</em> units.</p>
 </li>
 </ul>
-<h2>2.5 Moments</h2>
+<h2 id="25-moments">2.5 Moments</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Moments are a family of numbers that describe a distribution's shape —
 successively capturing where it sits, how wide it is, how lopsided, and how
 heavy-tailed.</p>
 </div>
-<h3>The rth moment</h3>
+<h3 id="the-rth-moment">The rth moment</h3>
 <p><strong>About the origin:</strong>  μ′ᵣ = E(Xʳ)
 <strong>About the mean (central):</strong>  μᵣ = E[(X − μ)ʳ]</p>
 <table class="main-table">
@@ -474,7 +488,7 @@ heavy-tailed.</p>
 <li>β₁ = μ₃² / μ₂³ — skewness coefficient</li>
 <li>β₂ = μ₄ / μ₂² — kurtosis coefficient</li>
 </ul>
-<h3>Interpreting skewness and kurtosis</h3>
+<h3 id="interpreting-skewness-and-kurtosis">Interpreting skewness and kurtosis</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -525,7 +539,7 @@ heavy-tailed.</p>
 </table>
 <p>A memory aid: <strong>lepto</strong>kurtic <em>leaps</em> up (tall and peaked); <strong>platy</strong>kurtic is
 <em>plateau</em>-like (flat).</p>
-<h2>2.6 Moment-generating function (MGF)</h2>
+<h2 id="26-moment-generating-function-mgf">2.6 Moment-generating function (MGF)</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>Mₓ(t) = E(e^tX)</strong></p>
@@ -550,7 +564,7 @@ moment.</p>
 </ul>
 <p>That is the binomial mean, obtained without summing an infinite series.</p>
 </div>
-<h3>Why the MGF matters</h3>
+<h3 id="why-the-mgf-matters">Why the MGF matters</h3>
 <ol>
 <li><strong>It generates all moments</strong> by differentiation — no messy summation</li>
 <li>
@@ -566,7 +580,7 @@ moment.</p>
 <p>The MGF does not always exist (the Cauchy distribution has none), which is why
 the characteristic function E(e^{itX}) is used in more advanced work.</p>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A random variable X has the distribution:</p>
@@ -684,7 +698,7 @@ Verify it is a valid PDF, then find E(X) and P(X ≤ 0.5).</p>
 far more weight near 1 than near 0.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define a random variable and state its two types.</li>
@@ -711,7 +725,7 @@ far more weight near 1 than near 0.</p>
    the mean and variance of the binomial distribution.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

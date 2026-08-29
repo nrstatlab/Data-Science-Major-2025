@@ -26,11 +26,22 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-unit-that-is-two-units">The unit that is two units</a></li>
+    <li><a href="#41-vector-autoregression">4.1 Vector autoregression</a></li>
+    <li><a href="#42-state-space-models">4.2 State-space models</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 7):</strong> Multivariate time series: Vector ARMA models (VARMA),
 estimation, forecasting. State-space representation: formulation, Kalman
 filter basics, forecasting in state-space models.</p>
 <hr />
-<h2>The unit that is two units</h2>
+<h2 id="the-unit-that-is-two-units">The unit that is two units</h2>
 <p><strong>These are two genuinely different frameworks that happen to share a page.</strong></p>
 <ul>
 <li><strong>Multivariate</strong> asks: <em>what if several series influence each other?</em></li>
@@ -40,15 +51,15 @@ filter basics, forecasting in state-space models.</p>
 <p>They meet at one point — a VAR can be written in state-space form — but learn
 them separately.</p>
 <hr />
-<h2>4.1 Vector autoregression</h2>
+<h2 id="41-vector-autoregression">4.1 Vector autoregression</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The model</h4>
 <p>A <strong>VAR(p)</strong> puts every lag of every variable into every equation:</p>
 <p>$$\mathbf{y}<em t-1="t-1">t = \mathbf{c} + \mathbf{A}_1\mathbf{y}</em>} + \dots + \mathbf{A<em t-p="t-p">p\mathbf{y}</em>_t$$} + \boldsymbol{\varepsilon</p>
 <p>where <strong>yₜ is a k-vector</strong> and each <strong>Aᵢ is a k×k matrix</strong>.</p>
 </div>
-<h3>⚠️ Count the parameters before you fit one</h3>
+<h3 id="count-the-parameters-before-you-fit-one">⚠️ Count the parameters before you fit one</h3>
 <p><strong>k²p + k</strong>, plus <strong>k(k+1)/2</strong> in the covariance matrix.</p>
 <table class="main-table">
 <thead>
@@ -180,7 +191,7 @@ decide, which is its strength and the reason it needs so much data.</p>
 <p><strong>All four match, including both non-causal directions.</strong> That is the harder
 half — <em>a test that only ever finds effects is not a test.</em></p>
 </div>
-<h3>⚠️ The warning that belongs with every Granger result</h3>
+<h3 id="the-warning-that-belongs-with-every-granger-result">⚠️ The warning that belongs with every Granger result</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>"Granger causes" means "helps predict", and nothing more.</strong></p>
@@ -232,7 +243,7 @@ information the univariate model cannot see.</p>
 <p><strong>A VAR helps only where cross-series information exists.</strong> Fitting one to
 unrelated series buys you k²p parameters and nothing else.</p>
 </div>
-<h3>VARMA, and why nobody uses it</h3>
+<h3 id="varma-and-why-nobody-uses-it">VARMA, and why nobody uses it</h3>
 <p>The syllabus says <strong>VARMA</strong>. It exists — add a moving-average matrix
 polynomial — and it is <strong>almost never used</strong>, for one good reason:
 <strong>identification</strong>. Different VARMA parameterisations can produce identical
@@ -240,7 +251,7 @@ dynamics, so the estimates are not unique without extra restrictions.</p>
 <p><strong>A VAR with enough lags approximates any VARMA</strong>, and it is identified. Say
 that if asked why practice is all VAR.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>And two things a VAR needs that a univariate model does not</h4>
 <p><strong>Cointegration.</strong> If two series are individually non-stationary but a linear
 combination of them is stationary, differencing them separately <strong>throws away
@@ -252,7 +263,7 @@ moves first — a <strong>Cholesky ordering</strong>, and it is an assumption yo
 one the data supplies.</p>
 </div>
 <hr />
-<h2>4.2 State-space models</h2>
+<h2 id="42-state-space-models">4.2 State-space models</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The framework, in two equations</h4>
@@ -276,7 +287,7 @@ filter to evaluate its likelihood.</strong> So the framework is not new machiner
 bolted on at the end — it is what has been underneath all along.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The Kalman filter, as a loop</h4>
 <pre><code>   for each t:
      PREDICT:  x̂ₜ|ₜ₋₁ = T x̂ₜ₋₁       (where do I think the state is?)
@@ -402,7 +413,7 @@ precision and nothing else</strong>.</p>
 filling it with the mean, which is the usual reflex, injects a fake
 observation the model then trusts.</strong></p>
 </div>
-<h3>What state-space does that ARIMA cannot</h3>
+<h3 id="what-state-space-does-that-arima-cannot">What state-space does that ARIMA cannot</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -448,7 +459,7 @@ which is why Kalman filters run in navigation systems, on satellites, and in
 anything that must track a state live.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. You have 8 quarterly macro series and 25 years of data. Can you fit a
 VAR(4)?</strong></p>
 <p><strong>No.</strong> Count first:</p>
@@ -575,7 +586,7 @@ you want a forecast and nothing else. <strong>Which is most of the time</strong>
 "use the simpler model that answers the question" is a defensible exam
 position, provided you can name what you would gain by not doing so.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Write the VAR(p) equation.</li>
@@ -608,7 +619,7 @@ position, provided you can name what you would gain by not doing so.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

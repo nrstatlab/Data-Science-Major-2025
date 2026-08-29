@@ -16,144 +16,302 @@
     <p>Exam-style questions with fully worked solutions.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#section-a-two-mark-questions">Section A — Two-mark questions</a></li>
+    <li><a href="#section-b-five-mark-questions">Section B — Five-mark questions</a></li>
+    <li><a href="#section-c-ten-mark-questions">Section C — Ten-mark questions</a></li>
+    <li><a href="#the-six-things-most-likely-to-be-examined">The six things most likely to be examined</a></li>
+  </ol>
+</details>
 <p>Every figure quoted here is produced by
 <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-14b-timeseries"><code>labs/course-14b-timeseries/</code></a> and
 checked by
 <a href="../tools/run_timeseries_labs.py"><code>tools/run_timeseries_labs.py</code></a>.</p>
 <hr />
-<h2>Section A — Two-mark questions</h2>
-<p><strong>1. Define weak stationarity.</strong>
-Constant mean, constant variance, and an autocovariance that depends <strong>only on
+<h2 id="section-a-two-mark-questions">Section A — Two-mark questions</h2>
+<p><strong>1. Define weak stationarity.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Constant mean, constant variance, and an autocovariance that depends <strong>only on
 the gap k</strong>, not on t.</p>
-<p><strong>2. Name the four components of a time series.</strong>
-Trend, seasonality, cyclical, irregular.</p>
-<p><strong>3. Give one difference between seasonality and a cycle.</strong>
-<strong>Seasonality has a fixed, calendar-determined period; a cycle's period
+</details>
+<p><strong>2. Name the four components of a time series.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Trend, seasonality, cyclical, irregular.</p>
+</details>
+<p><strong>3. Give one difference between seasonality and a cycle.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Seasonality has a fixed, calendar-determined period; a cycle's period
 varies.</strong> That is why SARIMA can model the first and not the second.</p>
-<p><strong>4. When do you use a multiplicative decomposition?</strong>
-When the <strong>seasonal swing grows with the level</strong>. Fix it with a <strong>log
+</details>
+<p><strong>4. When do you use a multiplicative decomposition?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>When the <strong>seasonal swing grows with the level</strong>. Fix it with a <strong>log
 transform</strong>, which turns a multiplicative series into an additive one.</p>
-<p><strong>5. Why does classical decomposition lose observations?</strong>
-A centred 12-month moving average cannot be computed at the ends —
+</details>
+<p><strong>5. Why does classical decomposition lose observations?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A centred 12-month moving average cannot be computed at the ends —
 <strong>12 of 120 points</strong>, six at each end. STL loses none.</p>
-<p><strong>6. Write the relation between γ(k) and ρ(k).</strong>
-ρ(k) = γ(k)/γ(0). The ACF is the autocovariance scaled so ρ(0) = 1.</p>
-<p><strong>7. What does the PACF measure that the ACF does not?</strong>
-The correlation at lag k <strong>with the effect of lags 1 … k−1 removed</strong>.</p>
-<p><strong>8. State the two identification rules.</strong>
-<strong>ACF cuts off at q → MA(q). PACF cuts off at p → AR(p).</strong> Both tail off →
+</details>
+<p><strong>6. Write the relation between γ(k) and ρ(k).</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>ρ(k) = γ(k)/γ(0). The ACF is the autocovariance scaled so ρ(0) = 1.</p>
+</details>
+<p><strong>7. What does the PACF measure that the ACF does not?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The correlation at lag k <strong>with the effect of lags 1 … k−1 removed</strong>.</p>
+</details>
+<p><strong>8. State the two identification rules.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>ACF cuts off at q → MA(q). PACF cuts off at p → AR(p).</strong> Both tail off →
 ARMA.</p>
-<p><strong>9. What is the ACF confidence band?</strong>
-<strong>±1.96/√n</strong> — on 400 observations, ±0.098.</p>
-<p><strong>10. How many lags do you expect outside a 95% band by chance?</strong>
-About <strong>1 in 20</strong>. The lab measured 0 of 20 on white noise.</p>
-<p><strong>11. Write the AR(p) equation.</strong>
-yₜ = c + φ₁yₜ₋₁ + … + φₚyₜ₋ₚ + εₜ</p>
-<p><strong>12. State the stationarity condition for AR(1).</strong>
-<strong>|φ| &lt; 1.</strong> φ = 1 is the random walk — a unit root.</p>
-<p><strong>13. Which model needs invertibility, and why?</strong>
-<strong>MA.</strong> So it can be rewritten as an infinite AR, which makes its parameters
+</details>
+<p><strong>9. What is the ACF confidence band?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>±1.96/√n</strong> — on 400 observations, ±0.098.</p>
+</details>
+<p><strong>10. How many lags do you expect outside a 95% band by chance?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>About <strong>1 in 20</strong>. The lab measured 0 of 20 on white noise.</p>
+</details>
+<p><strong>11. Write the AR(p) equation.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>yₜ = c + φ₁yₜ₋₁ + … + φₚyₜ₋ₚ + εₜ</p>
+</details>
+<p><strong>12. State the stationarity condition for AR(1).</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>|φ| &lt; 1.</strong> φ = 1 is the random walk — a unit root.</p>
+</details>
+<p><strong>13. Which model needs invertibility, and why?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>MA.</strong> So it can be rewritten as an infinite AR, which makes its parameters
 identifiable — otherwise θ and 1/θ give the same ACF.</p>
-<p><strong>14. What is the maximum possible ρ(1) for an MA(1)?</strong>
-<strong>0.5.</strong> ρ(1) = θ/(1+θ²), maximised at θ = 1.</p>
-<p><strong>15. An ACF has a lag-1 spike of 0.8. Can it be an MA(1)?</strong>
-<strong>No</strong> — 0.8 exceeds the 0.5 maximum.</p>
-<p><strong>16. State the Ljung-Box null hypothesis.</strong>
-The first h autocorrelations are <strong>jointly zero</strong>. You want a <strong>large</strong>
+</details>
+<p><strong>14. What is the maximum possible ρ(1) for an MA(1)?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>0.5.</strong> ρ(1) = θ/(1+θ²), maximised at θ = 1.</p>
+</details>
+<p><strong>15. An ACF has a lag-1 spike of 0.8. Can it be an MA(1)?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>No</strong> — 0.8 exceeds the 0.5 maximum.</p>
+</details>
+<p><strong>16. State the Ljung-Box null hypothesis.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The first h autocorrelations are <strong>jointly zero</strong>. You want a <strong>large</strong>
 p-value.</p>
-<p><strong>17. Why does Ljung-Box test lags jointly?</strong>
-Because testing each against its own 95% band would flag one in twenty by
+</details>
+<p><strong>17. Why does Ljung-Box test lags jointly?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Because testing each against its own 95% band would flag one in twenty by
 chance.</p>
-<p><strong>18. Give the AIC and BIC formulas.</strong>
-AIC = −2 log L + 2k. BIC = −2 log L + k log n.</p>
-<p><strong>19. Which of AIC and BIC picks smaller models, and why?</strong>
-<strong>BIC.</strong> With n = 108, log(n) = 4.68, so it charges more than twice AIC's rate
+</details>
+<p><strong>18. Give the AIC and BIC formulas.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>AIC = −2 log L + 2k. BIC = −2 log L + k log n.</p>
+</details>
+<p><strong>19. Which of AIC and BIC picks smaller models, and why?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>BIC.</strong> With n = 108, log(n) = 4.68, so it charges more than twice AIC's rate
 per parameter.</p>
-<p><strong>20. Which suits forecasting?</strong>
-<strong>AIC</strong> — it is <em>efficient</em>, picking the best predictor. BIC is <em>consistent</em>,
+</details>
+<p><strong>20. Which suits forecasting?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>AIC</strong> — it is <em>efficient</em>, picking the best predictor. BIC is <em>consistent</em>,
 picking the true model if it is in the set.</p>
-<p><strong>21. State the ADF null hypothesis.</strong>
-<strong>There IS a unit root</strong> (non-stationary). A <strong>small</strong> p-value means
+</details>
+<p><strong>21. State the ADF null hypothesis.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>There IS a unit root</strong> (non-stationary). A <strong>small</strong> p-value means
 stationary.</p>
-<p><strong>22. State the KPSS null hypothesis.</strong>
-<strong>The series IS stationary.</strong> A small p-value means non-stationary — the
+</details>
+<p><strong>22. State the KPSS null hypothesis.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>The series IS stationary.</strong> A small p-value means non-stationary — the
 reverse of ADF.</p>
-<p><strong>23. What does <code>regression="ct"</code> do in the ADF test?</strong>
-Allows a <strong>constant and a trend</strong>, so it can detect <strong>trend-stationarity</strong>.</p>
-<p><strong>24. How do you detect over-differencing?</strong>
-<strong>The variance goes up.</strong> Measured: 16.896 → 47.923 on the second difference.</p>
-<p><strong>25. Write the backshift form of a seasonal difference.</strong>
-(1 − Bᵐ)yₜ = yₜ − yₜ₋ₘ</p>
-<p><strong>26. Expand SARIMA(p,d,q)(P,D,Q)ₘ.</strong>
-Non-seasonal AR, differencing, MA; <strong>seasonal</strong> AR, differencing, MA; and m,
+</details>
+<p><strong>23. What does <code>regression="ct"</code> do in the ADF test?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Allows a <strong>constant and a trend</strong>, so it can detect <strong>trend-stationarity</strong>.</p>
+</details>
+<p><strong>24. How do you detect over-differencing?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>The variance goes up.</strong> Measured: 16.896 → 47.923 on the second difference.</p>
+</details>
+<p><strong>25. Write the backshift form of a seasonal difference.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>(1 − Bᵐ)yₜ = yₜ − yₜ₋ₘ</p>
+</details>
+<p><strong>26. Expand SARIMA(p,d,q)(P,D,Q)ₘ.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Non-seasonal AR, differencing, MA; <strong>seasonal</strong> AR, differencing, MA; and m,
 <strong>the number of observations in one cycle</strong>.</p>
-<p><strong>27. What is m for quarterly data with an annual cycle?</strong>
-<strong>4.</strong> m is the length of one cycle, not the number of cycles.</p>
-<p><strong>28. How many observations does D = 1 cost?</strong>
-<strong>m.</strong> For monthly data with an annual cycle, twelve.</p>
-<p><strong>29. Name the airline model.</strong>
-<strong>SARIMA(0,1,1)(0,1,1)₁₂</strong> — two parameters, and the right first model for
+</details>
+<p><strong>27. What is m for quarterly data with an annual cycle?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>4.</strong> m is the length of one cycle, not the number of cycles.</p>
+</details>
+<p><strong>28. How many observations does D = 1 cost?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>m.</strong> For monthly data with an annual cycle, twelve.</p>
+</details>
+<p><strong>29. Name the airline model.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>SARIMA(0,1,1)(0,1,1)₁₂</strong> — two parameters, and the right first model for
 seasonal monthly data.</p>
-<p><strong>30. Why does SARIMA(1,0,0)(1,0,0)₁₂ have a lag-13 term?</strong>
-The polynomials <strong>multiply</strong>: (1−φB)(1−ΦB¹²) produces +φΦB¹³.</p>
-<p><strong>31. Write the VAR(p) equation.</strong>
-yₜ = c + A₁yₜ₋₁ + … + Aₚyₜ₋ₚ + εₜ, with yₜ a k-vector and each Aᵢ a k×k
+</details>
+<p><strong>30. Why does SARIMA(1,0,0)(1,0,0)₁₂ have a lag-13 term?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The polynomials <strong>multiply</strong>: (1−φB)(1−ΦB¹²) produces +φΦB¹³.</p>
+</details>
+<p><strong>31. Write the VAR(p) equation.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>yₜ = c + A₁yₜ₋₁ + … + Aₚyₜ₋ₚ + εₜ, with yₜ a k-vector and each Aᵢ a k×k
 matrix.</p>
-<p><strong>32. How many coefficients has a VAR(2) with 4 variables?</strong>
-k²p + k = 16 × 2 + 4 = <strong>36</strong>, plus 10 in the covariance matrix.</p>
-<p><strong>33. State the Granger causality null.</strong>
-Past values of X <strong>do not help predict</strong> Y, given Y's own past.</p>
-<p><strong>34. What does "Granger causes" actually mean?</strong>
-<strong>"Helps predict", nothing more.</strong> Ice cream sales Granger-cause drownings.</p>
-<p><strong>35. Why is VARMA rarely used?</strong>
-<strong>Identification</strong> — different parameterisations give identical dynamics. A
+</details>
+<p><strong>32. How many coefficients has a VAR(2) with 4 variables?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>k²p + k = 16 × 2 + 4 = <strong>36</strong>, plus 10 in the covariance matrix.</p>
+</details>
+<p><strong>33. State the Granger causality null.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Past values of X <strong>do not help predict</strong> Y, given Y's own past.</p>
+</details>
+<p><strong>34. What does "Granger causes" actually mean?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>"Helps predict", nothing more.</strong> Ice cream sales Granger-cause drownings.</p>
+</details>
+<p><strong>35. Why is VARMA rarely used?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Identification</strong> — different parameterisations give identical dynamics. A
 VAR with enough lags approximates any VARMA and is identified.</p>
-<p><strong>36. What is cointegration, and what do you do about it?</strong>
-Two non-stationary series whose linear combination is stationary. Differencing
+</details>
+<p><strong>36. What is cointegration, and what do you do about it?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Two non-stationary series whose linear combination is stationary. Differencing
 them separately <strong>destroys the long-run relationship</strong> — use a <strong>VECM</strong>.</p>
-<p><strong>37. Write the two state-space equations.</strong>
-State: xₜ = Txₜ₋₁ + Rηₜ. Observation: yₜ = Zxₜ + εₜ.</p>
-<p><strong>38. What is the Kalman gain?</strong>
-The weight given to a <strong>new observation</strong> against the model's prediction.
+</details>
+<p><strong>37. Write the two state-space equations.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>State: xₜ = Txₜ₋₁ + Rηₜ. Observation: yₜ = Zxₜ + εₜ.</p>
+</details>
+<p><strong>38. What is the Kalman gain?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The weight given to a <strong>new observation</strong> against the model's prediction.
 Small measurement noise → large gain → follow the data.</p>
-<p><strong>39. Give one difference between the Kalman filter and smoother.</strong>
-The <strong>filter</strong> uses data up to t (causal, real-time); the <strong>smoother</strong> uses
+</details>
+<p><strong>39. Give one difference between the Kalman filter and smoother.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The <strong>filter</strong> uses data up to t (causal, real-time); the <strong>smoother</strong> uses
 all the data (retrospective, more accurate).</p>
-<p><strong>40. How does a state-space model handle missing data?</strong>
-<strong>It skips the update and keeps predicting the state forward.</strong> No imputation
+</details>
+<p><strong>40. How does a state-space model handle missing data?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>It skips the update and keeps predicting the state forward.</strong> No imputation
 is needed — the lab's six-point gap cost RMSE 8.745 against a series SD of
 31.08.</p>
 <p><strong>41. What does a zero variance estimate mean in an unobserved-components
 model?</strong>
 That the component is <strong>deterministic</strong> — it does not vary. It is a result,
 not a convergence failure.</p>
-<p><strong>42. What does a spectral density measure?</strong>
-How much of the series' <strong>variance</strong> sits at each frequency.</p>
-<p><strong>43. Convert a frequency of 0.25 to a period.</strong>
-Period = 1/0.25 = <strong>4</strong>.</p>
-<p><strong>44. Why must you detrend before a periodogram?</strong>
-A trend is a <strong>very low frequency</strong> and dominates the spectrum. Undetrended,
+</details>
+<p><strong>42. What does a spectral density measure?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>How much of the series' <strong>variance</strong> sits at each frequency.</p>
+</details>
+<p><strong>43. Convert a frequency of 0.25 to a period.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Period = 1/0.25 = <strong>4</strong>.</p>
+</details>
+<p><strong>44. Why must you detrend before a periodogram?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A trend is a <strong>very low frequency</strong> and dominates the spectrum. Undetrended,
 the lab's strongest "period" was 120 months — the series length.</p>
-<p><strong>45. What is spectral leakage?</strong>
-A cycle whose period does not divide the record length exactly <strong>spreads
+</details>
+<p><strong>45. What is spectral leakage?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A cycle whose period does not divide the record length exactly <strong>spreads
 across neighbouring frequencies</strong> — the 12.19 and 11.64 sidelobes around 12.</p>
-<p><strong>46. Give the MASE formula.</strong>
-MAE of your forecast ÷ MAE of the <strong>in-sample one-step naive</strong> forecast.</p>
-<p><strong>47. Name two failures of MAPE.</strong>
-<strong>Undefined/explosive near zero</strong>, and <strong>asymmetric</strong> — capped at 100% for
+</details>
+<p><strong>46. Give the MASE formula.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>MAE of your forecast ÷ MAE of the <strong>in-sample one-step naive</strong> forecast.</p>
+</details>
+<p><strong>47. Name two failures of MAPE.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Undefined/explosive near zero</strong>, and <strong>asymmetric</strong> — capped at 100% for
 under-forecasts, unbounded for over-forecasts.</p>
-<p><strong>48. Why is k-fold CV invalid on a time series?</strong>
-It puts <strong>future observations in the training set</strong>, so the model interpolates
+</details>
+<p><strong>48. Why is k-fold CV invalid on a time series?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>It puts <strong>future observations in the training set</strong>, so the model interpolates
 rather than forecasts.</p>
-<p><strong>49. What replaces it?</strong>
-<strong>Rolling-origin cross-validation</strong> — train on [0,t), forecast h ahead, score,
+</details>
+<p><strong>49. What replaces it?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Rolling-origin cross-validation</strong> — train on [0,t), forecast h ahead, score,
 move t forward.</p>
-<p><strong>50. Why can a decision tree not extrapolate a trend?</strong>
-It predicts the <strong>mean of a leaf</strong>, and no average can exceed the largest
+</details>
+<p><strong>50. Why can a decision tree not extrapolate a trend?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>It predicts the <strong>mean of a leaf</strong>, and no average can exceed the largest
 value it averaged. The lab's tree flat-lined at exactly its training maximum.</p>
 <hr />
-<h2>Section B — Five-mark questions</h2>
-<h3>1. Explain stationarity and why every model here needs it</h3>
+</details>
+<h2 id="section-b-five-mark-questions">Section B — Five-mark questions</h2>
+<h3 id="1-explain-stationarity-and-why-every-model-here-needs-it">1. Explain stationarity and why every model here needs it</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Weak stationarity:</strong> constant mean, constant variance, and an autocovariance
 γ(k) that depends only on the gap k.</p>
 <div class="tip">
@@ -198,7 +356,10 @@ trend look identical on a plot and need opposite treatments. <strong>ADF with
 <code>regression="ct"</code> tells them apart</strong> — the lab's trend-stationary series went
 from p = 0.9086 under <code>"c"</code> to p = 0.0000 under <code>"ct"</code>, while the random walk
 did not flip (0.5576).</p>
-<h3>2. Explain the ACF and PACF and how they identify a model</h3>
+</details>
+<h3 id="2-explain-the-acf-and-pacf-and-how-they-identify-a-model">2. Explain the ACF and PACF and how they identify a model</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>ρ(k)</strong> is the total correlation between yₜ and yₜ₊ₖ, <strong>including everything
 transmitted through the points in between</strong>. <strong>φ_kk</strong> is what remains after
 removing lags 1 … k−1.</p>
@@ -233,7 +394,10 @@ chance spike. An MA(1) with θ = 0.7 gave <strong>ρ(1) = 0.4879 against a theor
 0.4698</strong>.</p>
 <p><strong>And the band is ±1.96/√n</strong>, so about one lag in twenty falls outside by
 chance. <strong>Reading structure into a stray spike is the commonest mistake here.</strong></p>
-<h3>3. Explain the residual diagnostic checks</h3>
+</details>
+<h3 id="3-explain-the-residual-diagnostic-checks">3. Explain the residual diagnostic checks</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -283,7 +447,10 @@ bad set.</strong> AIC is relative; Ljung-Box is absolute.</p>
 </div>
 <p><strong>And on seasonal data, test at least 2m lags</strong> — Ljung-Box at 10 lags on
 monthly data never looks at lag 12.</p>
-<h3>4. Explain over-differencing and how to detect it</h3>
+</details>
+<h3 id="4-explain-over-differencing-and-how-to-detect-it">4. Explain over-differencing and how to detect it</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Each unnecessary difference injects noise and adds a spurious negative MA
 term.</strong></p>
 <table class="main-table">
@@ -321,7 +488,10 @@ problem is a variance issue needing a log, or a structural break.</p>
 of D = 1 raised the standard deviation from 5.729 to 6.133 — yet the airline
 model, which uses both, forecast best. <strong>The variance rule is a guide; the
 held-out error is the arbiter.</strong></p>
-<h3>5. Explain multiplicative seasonality and derive the lag-13 term</h3>
+</details>
+<h3 id="5-explain-multiplicative-seasonality-and-derive-the-lag-13-term">5. Explain multiplicative seasonality and derive the lag-13 term</h3>
+<details>
+<summary>Show answer</summary>
 <p>$$\phi_p(B)\,\Phi_P(B^m)\,(1-B)^d(1-B^m)^D y_t = \theta_q(B)\,\Theta_Q(B^m)\,\varepsilon_t$$</p>
 <p><strong>The seasonal polynomials are in Bᵐ and they multiply the non-seasonal
 ones.</strong> For SARIMA(1,0,0)(1,0,0)₁₂:</p>
@@ -335,7 +505,10 @@ since the coefficient is the product of two it already has.</p>
 <p><strong>That is the argument for multiplicative seasonality:</strong> the additive
 alternative needs a third free parameter to say the same thing, and is free to
 say something inconsistent.</p>
-<h3>6. Explain Granger causality and its limitations</h3>
+</details>
+<h3 id="6-explain-granger-causality-and-its-limitations">6. Explain Granger causality and its limitations</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>H₀: past X does not help predict Y, given Y's own past.</strong> Fit Y on its own
 lags, then on its own lags plus X's, and test whether the second fits
 significantly better.</p>
@@ -380,7 +553,10 @@ the harder half.</p>
 </ol>
 <p><strong>And on non-stationary data it produces spurious significance.</strong> Difference
 first, or use a VECM if the series are cointegrated.</p>
-<h3>7. Explain the Kalman filter's predict–update cycle</h3>
+</details>
+<h3 id="7-explain-the-kalman-filters-predictupdate-cycle">7. Explain the Kalman filter's predict–update cycle</h3>
+<details>
+<summary>Show answer</summary>
 <pre><code>PREDICT: x̂ₜ|ₜ₋₁ = T x̂ₜ₋₁         where do I think the state is?
          Pₜ|ₜ₋₁ = T Pₜ₋₁ Tᵀ + Q    how sure am I?
 
@@ -409,7 +585,10 @@ model.</p>
 </ul>
 <p><strong>And you have been using one since Unit 2:</strong> statsmodels writes every ARIMA
 in state-space form and runs the filter to evaluate the likelihood.</p>
-<h3>8. Compare RMSE, MAE, MAPE and MASE</h3>
+</details>
+<h3 id="8-compare-rmse-mae-mape-and-mase">8. Compare RMSE, MAE, MAPE and MASE</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -472,8 +651,11 @@ under-forecast</strong>.</p>
 <p><strong>MASE fixes both:</strong> scale-free, defined at zero, symmetric, and it reads
 directly — below 1 beats naive.</p>
 <hr />
-<h2>Section C — Ten-mark questions</h2>
-<h3>1. Explain the Box–Jenkins methodology in full</h3>
+</details>
+<h2 id="section-c-ten-mark-questions">Section C — Ten-mark questions</h2>
+<h3 id="1-explain-the-boxjenkins-methodology-in-full">1. Explain the Box–Jenkins methodology in full</h3>
+<details>
+<summary>Show answer</summary>
 <pre><code>1. PLOT        &lt;- never skip; four questions answer themselves
 2. TRANSFORM   log if the variance grows with the level
 3. DIFFERENCE  ADF and KPSS decide d and D
@@ -505,7 +687,10 @@ re-identified. The under-specified AR(1) gave p = 0.0000 and AIC 54.8 higher.</p
 empirical 75% here.</p>
 <p><strong>Step 8:</strong> against <strong>seasonal naive</strong>, which scored RMSE 14.152 where the
 model scored 6.891 — <strong>51% better</strong>. <em>An RMSE means nothing without it.</em></p>
-<h3>2. Explain SARIMA completely, with identification and a comparison</h3>
+</details>
+<h3 id="2-explain-sarima-completely-with-identification-and-a-comparison">2. Explain SARIMA completely, with identification and a comparison</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>The specification:</strong> SARIMA(p,d,q)(P,D,Q)ₘ, where the seasonal polynomials
 are in Bᵐ and <strong>multiply</strong> the non-seasonal ones:</p>
 <p>$$\phi_p(B)\,\Phi_P(B^m)\,(1-B)^d(1-B^m)^D y_t = \theta_q(B)\,\Theta_Q(B^m)\,\varepsilon_t$$</p>
@@ -587,7 +772,10 @@ business series untuned. <strong>Start there.</strong></p>
 <p><strong>Its limitation:</strong> SARIMA holds <strong>one</strong> m. Daily data with both weekly and
 annual cycles needs <strong>Fourier terms in a regression with ARIMA errors</strong>, or
 TBATS, or Prophet.</p>
-<h3>3. Compare classical and machine-learning forecasting, and evaluate</h3>
+</details>
+<h3 id="3-compare-classical-and-machine-learning-forecasting-and-evaluate">3. Compare classical and machine-learning forecasting, and evaluate</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Five methods, one held-out year of a 120-month series:</strong></p>
 <table class="main-table">
 <thead>
@@ -685,7 +873,10 @@ and <em>"we used machine learning"</em> is not an argument.</p>
 <p><strong>Reporting the interval coverage honestly</strong> — nominal 95%, empirical 75%.</p>
 </li>
 </ul>
-<h3>4. A retailer gives you 5 years of monthly sales and wants a 12-month forecast</h3>
+</details>
+<h3 id="4-a-retailer-gives-you-5-years-of-monthly-sales-and-wants-a-12-month-forecast">4. A retailer gives you 5 years of monthly sales and wants a 12-month forecast</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Step 1 — Plot it and answer four questions.</strong> Trend? Seasonality, at what
 period? Constant variance? Outliers or level shifts? <strong>60 observations is 5
 years, which is thin for anything seasonal</strong> — you have five annual cycles,
@@ -730,7 +921,10 @@ than the raw RMSE.</p>
   moves.</p>
 </li>
 </ul>
-<h3>5. Explain everything that changes when observations are not independent</h3>
+</details>
+<h3 id="5-explain-everything-that-changes-when-observations-are-not-independent">5. Explain everything that changes when observations are not independent</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Five things you learned earlier stop working, and each has a replacement.</strong></p>
 <p><strong>1. The train/test split.</strong> A random 80/20 split lets the model see the
 future. <strong>Replace with a held-out tail</strong> — the last h observations — and
@@ -756,7 +950,8 @@ observations are dependent, <strong>the past predicts the future at all.</strong
 dependence that breaks your tools is the same dependence that makes
 forecasting work — which is the sentence to end on.</p>
 <hr />
-<h2>The six things most likely to be examined</h2>
+</details>
+<h2 id="the-six-things-most-likely-to-be-examined">The six things most likely to be examined</h2>
 <ol>
 <li>
 <p><strong>The ADF's reversed null</strong>, and the <code>"ct"</code> flip that separates a

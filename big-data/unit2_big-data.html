@@ -31,19 +31,35 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-unit-that-carries-the-course">The unit that carries the course</a></li>
+    <li><a href="#21-hdfs-architecture">2.1 HDFS architecture</a></li>
+    <li><a href="#22-blocks">2.2 Blocks</a></li>
+    <li><a href="#23-replication-and-rack-awareness">2.3 Replication and rack awareness</a></li>
+    <li><a href="#24-hdfs-file-operations-the-read-and-write-paths">2.4 HDFS file operations — the read and write paths</a></li>
+    <li><a href="#25-fault-tolerance">2.5 Fault tolerance</a></li>
+    <li><a href="#26-yarn-architecture">2.6 YARN architecture</a></li>
+    <li><a href="#27-the-three-schedulers">2.7 The three schedulers</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 12–13):</strong> Deep dive into HDFS architecture: blocks,
 NameNode, DataNodes, HDFS file operations, fault tolerance, replication. YARN
 architecture: ResourceManager, NodeManager, application scheduling.</p>
 <hr />
-<h2>The unit that carries the course</h2>
+<h2 id="the-unit-that-carries-the-course">The unit that carries the course</h2>
 <p><strong>Almost everything else in this course is a consequence of HDFS's design.</strong>
 Why Hive partitions by directory, why Flume's defaults are dangerous, why
 HBase exists at all, why Spark caches — all of it traces back to decisions
 made here. Spend the time.</p>
 <hr />
-<h2>2.1 HDFS architecture</h2>
+<h2 id="21-hdfs-architecture">2.1 HDFS architecture</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The shape</h4>
 <p><strong>One NameNode holds the namespace. Many DataNodes hold the blocks. They are
 different kinds of thing, and conflating them is the commonest error.</strong></p>
@@ -99,7 +115,7 @@ bottleneck of the entire cluster.</p>
 "why can HDFS scale to thousands of nodes with one master?"</p>
 </div>
 <hr />
-<h2>2.2 Blocks</h2>
+<h2 id="22-blocks">2.2 Blocks</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The arithmetic, which is examined constantly</h4>
@@ -148,7 +164,7 @@ still say 64).</p>
 </table>
 <p><em>(Every row computed in <a href="../labs/course-12b-bigdata/04_blocks_replication.py"><code>04_blocks_replication.py</code></a>.)</em></p>
 </div>
-<h3>⚠️ An HDFS block is a maximum, not an allocation</h3>
+<h3 id="an-hdfs-block-is-a-maximum-not-an-allocation">⚠️ An HDFS block is a maximum, not an allocation</h3>
 <p><strong>260 MB is 128 + 128 + 4, not three 128 MB blocks.</strong> The last block occupies
 only what it needs, on the DataNode's ordinary local filesystem. <strong>HDFS wastes
 no space on block padding</strong> — the opposite of what "block" suggests from
@@ -175,7 +191,7 @@ seek and 100 MB/s transfer, 100 MB takes 1 s to read and 10 ms to find: the
 disk spends its life transferring, not seeking. That derivation is worth full
 marks when asked "why is the block size so large?"</p>
 </div>
-<h3>⚠️ The small-files problem</h3>
+<h3 id="the-small-files-problem">⚠️ The small-files problem</h3>
 <p>The NameNode holds the whole namespace in RAM, roughly <strong>150 bytes per file,
 directory and block object</strong>:</p>
 <table class="main-table">
@@ -215,9 +231,9 @@ this table is the whole reason.</p>
 (experiment 12), Hive's advice not to over-partition (experiment 10), and the
 existence of HAR archives and SequenceFiles.</p>
 <hr />
-<h2>2.3 Replication and rack awareness</h2>
+<h2 id="23-replication-and-rack-awareness">2.3 Replication and rack awareness</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The default policy, replication factor 3</h4>
 <table class="main-table">
 <thead>
@@ -351,9 +367,9 @@ overhead, and costs expensive <strong>reconstruction reads</strong> when a block
 replication for hot. That trade is a good five-mark answer.</p>
 </div>
 <hr />
-<h2>2.4 HDFS file operations — the read and write paths</h2>
+<h2 id="24-hdfs-file-operations-the-read-and-write-paths">2.4 HDFS file operations — the read and write paths</h2>
 <p>Two paths, and the design decision in each is the examinable part.</p>
-<h3>The write path</h3>
+<h3 id="the-write-path">The write path</h3>
 <pre><code>1. Client → NameNode:  create /user/x/f.dat
 2. NameNode: checks permissions, checks it does not exist,
              records it in the edit log, returns the DataNode PIPELINE
@@ -373,7 +389,7 @@ transfer, not three.</strong></p>
 continues with the survivors, and the NameNode re-replicates later. <strong>The
 client sees no error.</strong></p>
 </div>
-<h3>The read path</h3>
+<h3 id="the-read-path">The read path</h3>
 <pre><code>1. Client → NameNode:  open /user/x/f.dat
 2. NameNode returns, for EACH block, the DataNodes holding it,
    SORTED BY NETWORK DISTANCE from the client
@@ -383,14 +399,14 @@ client sees no error.</strong></p>
 </code></pre>
 <p><strong>The sorting in step 2 is data locality doing its work</strong> — the client
 transparently reads from the closest copy.</p>
-<h3>⚠️ HDFS is write-once, append-only</h3>
+<h3 id="hdfs-is-write-once-append-only">⚠️ HDFS is write-once, append-only</h3>
 <p>There is <strong>no random write and no <code>cd</code></strong>. To change one byte you rewrite the
 file. That constraint is what lets HDFS drop file locking and distributed
 write coordination entirely — and it is why <strong>HBase exists</strong> (Unit 5), because
 some workloads genuinely need to update a row.</p>
 <hr />
-<h2>2.5 Fault tolerance</h2>
-<h3>DataNode failure</h3>
+<h2 id="25-fault-tolerance">2.5 Fault tolerance</h2>
+<h3 id="datanode-failure">DataNode failure</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -425,7 +441,7 @@ storm. HDFS trades a longer window of reduced redundancy for far less needless
 network traffic — and on a large cluster the copy storm is genuinely worse
 than the risk.</p>
 </div>
-<h3>NameNode failure — a different kind of problem</h3>
+<h3 id="namenode-failure-a-different-kind-of-problem">NameNode failure — a different kind of problem</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -455,7 +471,7 @@ than the risk.</p>
 <p><strong>The block map is never persisted.</strong> It is rebuilt from DataNode block
 reports at startup, which is why a large NameNode takes minutes to leave
 <strong>safe mode</strong>. The namespace survives; the <em>locations</em> are reconstructed.</p>
-<h3>⚠️ The Secondary NameNode is not a backup</h3>
+<h3 id="the-secondary-namenode-is-not-a-backup">⚠️ The Secondary NameNode is not a backup</h3>
 <p><strong>The worst-named component in Hadoop.</strong> It periodically merges <code>fsimage</code> with
 <code>edits</code> so that restarts stay fast — and <strong>it cannot take over</strong>. A student who
 says "the Secondary NameNode takes over" has lost the mark.</p>
@@ -489,9 +505,9 @@ says "the Secondary NameNode takes over" has lost the mark.</p>
 <strong>ZooKeeper</strong> for failover — which is why experiment 16 exists and why Unit 5
 matters.</p>
 <hr />
-<h2>2.6 YARN architecture</h2>
+<h2 id="26-yarn-architecture">2.6 YARN architecture</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The four pieces</h4>
 <table class="main-table">
 <thead>
@@ -541,7 +557,7 @@ the <strong>single point of failure</strong>, and it could only run MapReduce.</
 MapReduce. If a question asks "what is the difference between Hadoop 1 and
 Hadoop 2", this is the answer.</p>
 </div>
-<h3>Application scheduling — the submission sequence</h3>
+<h3 id="application-scheduling-the-submission-sequence">Application scheduling — the submission sequence</h3>
 <pre><code>1. Client → RM:              submit application
 2. RM → a NodeManager:       launch the ApplicationMaster container
 3. AM  → RM:                 register, then request N containers
@@ -554,7 +570,7 @@ Hadoop 2", this is the answer.</p>
 <p><strong>Step 3 is where data locality enters</strong>: the AM asks for containers <em>on the
 nodes holding its blocks</em>, and the RM honours the preference when it can.</p>
 <hr />
-<h2>2.7 The three schedulers</h2>
+<h2 id="27-the-three-schedulers">2.7 The three schedulers</h2>
 <p>Measured on one workload — an 8-container cluster, four jobs, <code>big_etl</code>
 needing the whole cluster for 10 s
 (<a href="../labs/course-12b-bigdata/06_yarn_scheduling.py"><code>06_yarn_scheduling.py</code></a>):</p>
@@ -608,7 +624,7 @@ the small jobs to the big one.</p>
 idle in a queue. Scheduling cannot create throughput, but idle-while-queued is
 real waste.</p>
 </div>
-<h3>The three, compared</h3>
+<h3 id="the-three-compared">The three, compared</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -664,7 +680,7 @@ empty — unless <code>maximum-capacity</code> is raised above <code>capacity</c
 <strong>elasticity</strong>, which is precisely the difference between "capacity" and
 "fair".</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. A 700 MB file is stored with the default block size and replication 3.
 How many blocks, how much disk, and how many block objects in NameNode RAM?</strong></p>
 <ul>
@@ -746,7 +762,7 @@ look, and why?</strong></p>
 phase tells you nothing about the total. Skew, not volume, is what usually
 kills a MapReduce job.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is the default HDFS block size?</li>
@@ -778,7 +794,7 @@ kills a MapReduce job.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -31,12 +31,28 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-a-note-on-the-overlap-with-course-8">4.1 A note on the overlap with Course 8</a></li>
+    <li><a href="#42-introduction-of-supervised-learning">4.2 Introduction of supervised learning</a></li>
+    <li><a href="#43-the-classification-model-and-its-learning-steps">4.3 The classification model and its learning steps</a></li>
+    <li><a href="#44-naive-bayes">4.4 Naive Bayes</a></li>
+    <li><a href="#45-k-nearest-neighbours">4.5 k-Nearest Neighbours</a></li>
+    <li><a href="#46-support-vector-machines">4.6 Support Vector Machines</a></li>
+    <li><a href="#47-random-forest">4.7 Random forest</a></li>
+    <li><a href="#48-choosing-a-classifier">4.8 Choosing a classifier</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 9):</strong> Introduction of supervised learning; classification
 model and learning steps; classification algorithms — Naïve Bayes classifier,
 k-Nearest Neighbour (kNN), decision tree, support vector machines, random
 forest.</p>
 <hr />
-<h2>4.1 A note on the overlap with Course 8</h2>
+<h2 id="41-a-note-on-the-overlap-with-course-8">4.1 A note on the overlap with Course 8</h2>
 <p><strong>Three of the five algorithms here were taught in Course 8</strong>, and that unit
 traced them by hand.</p>
 <table class="main-table">
@@ -81,7 +97,7 @@ would you know?</em> Both are examined, in different words.</p>
 <p>If you took Course 8, spend your time on <strong>SVM and random forest</strong>, and on the
 evaluation habits from Unit 2.</p>
 <hr />
-<h2>4.2 Introduction of supervised learning</h2>
+<h2 id="42-introduction-of-supervised-learning">4.2 Introduction of supervised learning</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>What makes learning "supervised"</h4>
@@ -210,7 +226,7 @@ on every problem</strong>, because being better on one class of problems means h
 an assumption that is wrong on another. That is why Unit 2 insists on
 measuring rather than believing, and it is a legitimate five-mark answer.</p>
 </div>
-<h2>4.3 The classification model and its learning steps</h2>
+<h2 id="43-the-classification-model-and-its-learning-steps">4.3 The classification model and its learning steps</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The steps</h4>
@@ -259,7 +275,7 @@ measuring rather than believing, and it is a legitimate five-mark answer.</p>
 independent binary classifiers), not just a different metric.</p>
 </div>
 <hr />
-<h2>4.4 Naive Bayes</h2>
+<h2 id="44-naive-bayes">4.4 Naive Bayes</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Bayes' theorem, applied</h4>
@@ -303,7 +319,7 @@ plainly not independent. Naive Bayes works well anyway, because for
 the probabilities to be right. It is a famously biased and famously useful
 estimator.</p>
 </div>
-<h3>⚠️ The zero-frequency problem, and Laplace smoothing</h3>
+<h3 id="the-zero-frequency-problem-and-laplace-smoothing">⚠️ The zero-frequency problem, and Laplace smoothing</h3>
 <p>If a feature value never occurs with a class in training, its conditional
 probability is 0 — and since the likelihood is a <strong>product</strong>, one zero makes
 the entire posterior zero, whatever the other features say.</p>
@@ -359,7 +375,7 @@ data, trains in one pass, and updates incrementally as new mail is labelled.
 The independence assumption is wrong and does not stop it working.</p>
 </div>
 <hr />
-<h2>4.5 k-Nearest Neighbours</h2>
+<h2 id="45-k-nearest-neighbours">4.5 k-Nearest Neighbours</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -440,7 +456,7 @@ time — which is why it is called a <strong>lazy</strong> learner, and an
 </tbody>
 </table>
 </div>
-<h3>⚠️ Scaling is not optional for k-NN — measured</h3>
+<h3 id="scaling-is-not-optional-for-k-nn-measured">⚠️ Scaling is not optional for k-NN — measured</h3>
 <p>A dataset of <strong>age in years</strong> and <strong>income in rupees</strong>, where the true rule
 depends on <strong>age only</strong>:</p>
 <table class="main-table">
@@ -510,7 +526,7 @@ binary problems to avoid ties. A common heuristic is k ≈ √n, but validate it
 anything.</p>
 </div>
 <hr />
-<h2>4.6 Support Vector Machines</h2>
+<h2 id="46-support-vector-machines">4.6 Support Vector Machines</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -635,7 +651,7 @@ Small γ = smoother.</p>
 </table>
 </div>
 <hr />
-<h2>4.7 Random forest</h2>
+<h2 id="47-random-forest">4.7 Random forest</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -681,7 +697,7 @@ sample, and 36.8% are out of bag.</p>
 more places to split. <strong>Permutation importance is more trustworthy</strong>, and Unit
 2 §2.4 says so too.</p>
 </div>
-<h3>⚠️ A measured caution: the fancy model does not always win</h3>
+<h3 id="a-measured-caution-the-fancy-model-does-not-always-win">⚠️ A measured caution: the fancy model does not always win</h3>
 <p>On iris, with a 45-row test set:</p>
 <table class="main-table">
 <thead>
@@ -734,7 +750,7 @@ more places to split. <strong>Permutation importance is more trustworthy</strong
 </ol>
 <p><strong>Saying that is a better answer than naming a winner.</strong></p>
 <hr />
-<h2>4.8 Choosing a classifier</h2>
+<h2 id="48-choosing-a-classifier">4.8 Choosing a classifier</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -816,7 +832,7 @@ more places to split. <strong>Permutation importance is more trustworthy</strong
 anything, and the answer is often that it did not.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Explain the Naive Bayes classifier. What does "naive" mean, and what is the
@@ -921,7 +937,7 @@ honest conclusion is that these models are not meaningfully different on this
 data</strong> — not that one won.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What assumption makes Naive Bayes "naive"?</li>
@@ -949,7 +965,7 @@ data</strong> — not that one won.</p>
 <li>Explain random forest, its two sources of randomness, and out-of-bag error.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

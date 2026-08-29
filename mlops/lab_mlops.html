@@ -16,12 +16,31 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#what-ran-and-what-did-not">What ran, and what did not</a></li>
+    <li><a href="#experiment-1-the-environment">Experiment 1 — the environment</a></li>
+    <li><a href="#experiment-2-the-data-lifecycle">Experiment 2 — the data lifecycle</a></li>
+    <li><a href="#experiment-3-etl-into-a-warehouse">Experiment 3 — ETL into a warehouse</a></li>
+    <li><a href="#experiment-4-batch-against-event-driven">Experiment 4 — batch against event-driven</a></li>
+    <li><a href="#experiment-6-monolith-against-microservices">Experiment 6 — monolith against microservices</a></li>
+    <li><a href="#experiment-7-mlflow">Experiment 7 — MLflow</a></li>
+    <li><a href="#experiment-8-reproducibility">Experiment 8 — reproducibility</a></li>
+    <li><a href="#experiment-9-dvc">Experiment 9 — DVC</a></li>
+    <li><a href="#experiment-12-the-rest-api">Experiment 12 — the REST API</a></li>
+    <li><a href="#experiment-13-drift-detection-scored">Experiment 13 — drift detection, scored</a></li>
+    <li><a href="#experiment-14-the-retraining-loop">Experiment 14 — the retraining loop</a></li>
+    <li><a href="#experiment-16-the-gdpr-and-fairness-audit">Experiment 16 — the GDPR and fairness audit</a></li>
+    <li><a href="#running-it-yourself">Running it yourself</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> sixteen practicals, 1 credit, 2 hrs/week.</p>
 <p>Every number on this page was <strong>printed by code in this repository</strong>:</p>
 <pre><code class="language-bash">python3 tools/run_mlops_labs.py
 </code></pre>
 <hr />
-<h2>What ran, and what did not</h2>
+<h2 id="what-ran-and-what-did-not">What ran, and what did not</h2>
 <p><strong>Eleven of the sixteen experiments run against the real tools.</strong></p>
 <table class="main-table">
 <thead>
@@ -136,7 +155,7 @@
 in-process queue. <code>tools/run_mlops_labs.py</code> asserts all five
 <code>*** NOT EXECUTED ***</code> markers survive.</p>
 <hr />
-<h2>Experiment 1 — the environment</h2>
+<h2 id="experiment-1-the-environment">Experiment 1 — the environment</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -192,7 +211,7 @@ in-process queue. <code>tools/run_mlops_labs.py</code> asserts all five
 reproducible, and "it worked on my machine" is the failure this course exists
 to prevent.</p>
 <hr />
-<h2>Experiment 2 — the data lifecycle</h2>
+<h2 id="experiment-2-the-data-lifecycle">Experiment 2 — the data lifecycle</h2>
 <p>4,000 loan applications, profiled column by column: dtype, nulls, distinct
 count, mean, standard deviation.</p>
 <p><strong>Base rate: 0.4462 approved.</strong> Recorded before anything is fitted, because it
@@ -218,7 +237,7 @@ is the majority-class baseline every accuracy figure is read against.</p>
 <p>With five <strong>undercurrents</strong> running underneath every stage: security, data
 management, DataOps, architecture, orchestration.</p>
 <hr />
-<h2>Experiment 3 — ETL into a warehouse</h2>
+<h2 id="experiment-3-etl-into-a-warehouse">Experiment 3 — ETL into a warehouse</h2>
 <p>Sources: a CSV and a JSON file, <strong>deliberately messy</strong>:</p>
 <ul>
 <li><code>south</code> in lowercase where the rest say <code>South</code></li>
@@ -266,7 +285,7 @@ management, DataOps, architecture, orchestration.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The naive total, with no cleaning: ₹10,500</h3>
+<h3 id="the-naive-total-with-no-cleaning-10500">⚠️ The naive total, with no cleaning: ₹10,500</h3>
 <p><strong>Wrong by ₹140 — about one percent — and nothing raised an error.</strong></p>
 <p>Three defects worth <strong>−₹1,680, −₹700 and +₹2,520 nearly cancelled.</strong></p>
 <div class="tip">
@@ -275,7 +294,7 @@ management, DataOps, architecture, orchestration.</p>
 a figure that is 1% wrong gets reported to the board. The errors cancelled
 by luck, and next month they will not.</p>
 </div>
-<h3>The constraints are not decoration</h3>
+<h3 id="the-constraints-are-not-decoration">The constraints are not decoration</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -310,7 +329,7 @@ independent engines agree</strong> — which is worth more than any one of them 
 carefully written.</p>
 </div>
 <hr />
-<h2>Experiment 4 — batch against event-driven</h2>
+<h2 id="experiment-4-batch-against-event-driven">Experiment 4 — batch against event-driven</h2>
 <p>300 records, 2 ms of work each, arriving every 3 ms; batch interval 250 ms.</p>
 <table class="main-table">
 <thead>
@@ -353,7 +372,7 @@ dishonest.</p>
 and delivery semantics — is in
 <code>04_kafka_rabbitmq.md</code>.</p>
 <hr />
-<h2>Experiment 6 — monolith against microservices</h2>
+<h2 id="experiment-6-monolith-against-microservices">Experiment 6 — monolith against microservices</h2>
 <p>Same three units of work, 40 applications:</p>
 <table class="main-table">
 <thead>
@@ -399,7 +418,7 @@ deployment and independent scaling:</p>
 <p><strong>And the row that surprises people:</strong> one database per service, so <strong>a join
 you used to write in SQL becomes an API call and an in-memory merge.</strong></p>
 <hr />
-<h2>Experiment 7 — MLflow</h2>
+<h2 id="experiment-7-mlflow">Experiment 7 — MLflow</h2>
 <p>Six runs logged to a <strong>SQLite</strong> backend (MLflow 3 refuses the old file store)
 and queried back, ordered by AUC.</p>
 <table class="main-table">
@@ -454,7 +473,7 @@ and queried back, ordered by AUC.</p>
 column is the only thing in the table that says <em>why</em> a model underperformed,
 and it costs one extra <code>log_metric</code> call.</p>
 <hr />
-<h2>Experiment 8 — reproducibility</h2>
+<h2 id="experiment-8-reproducibility">Experiment 8 — reproducibility</h2>
 <p>The pinned pipeline, run <strong>twice</strong>:</p>
 <table class="main-table">
 <thead>
@@ -478,7 +497,7 @@ and it costs one extra <code>log_metric</code> call.</p>
 </tr>
 </tbody>
 </table>
-<h3>The fitted coefficients against the <strong>known</strong> truth</h3>
+<h3 id="the-fitted-coefficients-against-the-known-truth">The fitted coefficients against the <strong>known</strong> truth</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -511,13 +530,13 @@ and it costs one extra <code>log_metric</code> call.</p>
 </table>
 <p><strong>A model that converges has proved nothing. A model that recovers the
 parameters which produced the data has.</strong></p>
-<h3>⚠️ And the failure, demonstrated</h3>
+<h3 id="and-the-failure-demonstrated">⚠️ And the failure, demonstrated</h3>
 <p>The same code with <strong>only the split's <code>random_state</code> removed</strong>, run three
 times: <strong>three different AUCs.</strong></p>
 <p>The model was still seeded. That is enough to make every number in a report
 unrepeatable, and it is <strong>the most common reproducibility bug in student
 projects.</strong></p>
-<h3>The four things that must be pinned</h3>
+<h3 id="the-four-things-that-must-be-pinned">The four things that must be pinned</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -550,7 +569,7 @@ projects.</strong></p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 9 — DVC</h2>
+<h2 id="experiment-9-dvc">Experiment 9 — DVC</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -605,7 +624,7 @@ projects.</strong></p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 12 — the REST API</h2>
+<h2 id="experiment-12-the-rest-api">Experiment 12 — the REST API</h2>
 <p>A <strong>real Flask server on a real socket</strong>, called over HTTP:</p>
 <table class="main-table">
 <thead>
@@ -641,7 +660,7 @@ projects.</strong></p>
 <p><strong>The two error cases are the experiment.</strong> Returning 400 with a reason —
 rather than a 500 or a confidently wrong prediction — is what separates a demo
 from a service.</p>
-<h3><code>/metrics</code>, in Prometheus exposition format</h3>
+<h3 id="metrics-in-prometheus-exposition-format"><code>/metrics</code>, in Prometheus exposition format</h3>
 <pre><code>model_requests_total 3
 model_errors_total 2
 model_latency_seconds 0.160414
@@ -649,7 +668,7 @@ model_latency_seconds 0.160414
 <p><strong>Parsed back and verified: 3 metrics.</strong> This is experiment 15's runnable
 half.</p>
 <hr />
-<h2>Experiment 13 — drift detection, scored</h2>
+<h2 id="experiment-13-drift-detection-scored">Experiment 13 — drift detection, scored</h2>
 <p>Ten daily batches of 500. Batches 0–4 clean; income shifts from batch 5,
 ramping to 1.5 sd.</p>
 <table class="main-table">
@@ -717,7 +736,7 @@ industry uses PSI with a magnitude threshold.</p>
 <p><strong>Accuracy on clean batches 0.7060, on drifted 0.7172</strong> — the drifted batches
 scored <em>higher</em>, which experiment 14 explains.</p>
 <hr />
-<h2>Experiment 14 — the retraining loop</h2>
+<h2 id="experiment-14-the-retraining-loop">Experiment 14 — the retraining loop</h2>
 <p>Retrained at batches <strong>6, 7, 8, 9</strong>.</p>
 <table class="main-table">
 <thead>
@@ -742,8 +761,8 @@ scored <em>higher</em>, which experiment 14 explains.</p>
 </tbody>
 </table>
 <div class="warn">
-<p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
-<h3>⚠️ Retraining barely helped, and that is the result</h3>
+<p><span class="label">WATCH OUT</span></p>
+<h3 id="retraining-barely-helped-and-that-is-the-result">⚠️ Retraining barely helped, and that is the result</h3>
 <p>The drift shifted <strong>P(X)</strong> — incomes moved. <strong>P(y|X)</strong> did not, because the
 generating coefficients are unchanged. <strong>A model that learned the true
 relationship is still correct on shifted inputs.</strong></p>
@@ -751,7 +770,7 @@ relationship is still correct on shifted inputs.</strong></p>
 the relationship moved.</strong></p>
 </div>
 <hr />
-<h2>Experiment 16 — the GDPR and fairness audit</h2>
+<h2 id="experiment-16-the-gdpr-and-fairness-audit">Experiment 16 — the GDPR and fairness audit</h2>
 <p>Region is <strong>not</strong> a model input, and the approval rates still differ:</p>
 <table class="main-table">
 <thead>
@@ -806,7 +825,7 @@ same table would not tell you either.</strong></p>
 one that breaks ML systems, and the facial-recognition case analysed in five
 rows.</p>
 <hr />
-<h2>Running it yourself</h2>
+<h2 id="running-it-yourself">Running it yourself</h2>
 <pre><code class="language-bash">pip install -r tools/requirements.txt
 python3 tools/run_mlops_labs.py
 </code></pre>

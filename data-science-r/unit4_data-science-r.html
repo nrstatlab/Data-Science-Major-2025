@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-simple-linear-regression-in-r">4.1 Simple linear regression in R</a></li>
+    <li><a href="#42-multiple-regression">4.2 Multiple regression</a></li>
+    <li><a href="#43-model-evaluation">4.3 Model evaluation</a></li>
+    <li><a href="#44-k-means-clustering">4.4 K-Means clustering</a></li>
+    <li><a href="#45-text-mining-and-word-clouds">4.5 Text mining and word clouds</a></li>
+    <li><a href="#46-recommender-systems">4.6 Recommender systems</a></li>
+    <li><a href="#47-ethical-issues-in-data-science">4.7 Ethical issues in data science</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 2):</strong> Simple linear regression. Multiple regression. Model
 evaluation method — accuracy, confusion matrix, ROC. K-Means clustering. Text
 mining and word clouds. Recommender systems basics. Ethical issues in data
@@ -39,14 +54,14 @@ science.</p>
 you already know — Unit 4 of Statistical Foundations. What is new is
 <strong>evaluating</strong> a model honestly, which is the part that separates a useful
 result from a misleading one.</p>
-<h2>4.1 Simple linear regression in R</h2>
+<h2 id="41-simple-linear-regression-in-r">4.1 Simple linear regression in R</h2>
 <p>You derived this in Course 4. Here is how R does it in one line.</p>
 <pre><code class="language-r">model &lt;- lm(marks ~ hours, data = students)
 summary(model)
 </code></pre>
 <p><code>marks ~ hours</code> is a <strong>formula</strong>: read <code>~</code> as "is modelled by". The response
 goes on the left, the predictors on the right.</p>
-<h3>Reading <code>summary()</code> output</h3>
+<h3 id="reading-summary-output">Reading <code>summary()</code> output</h3>
 <pre><code>Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)
 (Intercept)  43.0303     1.0847  39.671  1.8e-10 ***
@@ -114,7 +129,7 @@ confint(model)               # confidence intervals for coefficients
 <p><code>plot(model)</code> gives the residual diagnostics from Course 4 §4.6 — residuals vs
 fitted (look for curvature), Q-Q (look for non-normality), scale-location, and
 leverage.</p>
-<h2>4.2 Multiple regression</h2>
+<h2 id="42-multiple-regression">4.2 Multiple regression</h2>
 <pre><code class="language-r">model &lt;- lm(marks ~ hours + attendance + prev_cgpa, data = students)
 summary(model)
 
@@ -122,27 +137,27 @@ lm(marks ~ ., data = students)          # . means &quot;all other columns&quot;
 lm(marks ~ hours + I(hours^2))          # polynomial term
 lm(marks ~ hours * section)             # main effects AND interaction
 </code></pre>
-<h3>Interpretation changes</h3>
+<h3 id="interpretation-changes">Interpretation changes</h3>
 <p>β₁ is now the effect of <code>hours</code> <strong>holding attendance and prev_cgpa constant</strong>.
 That phrase is the whole difference from simple regression, and exams expect it
 verbatim.</p>
 <p><strong>Use adjusted R², not R²</strong>, to compare models with different numbers of
 predictors. R² never decreases when you add a variable — even a column of random
 numbers. Adjusted R² penalises the extra parameter and can fall.</p>
-<h3>Factors become dummy variables automatically</h3>
+<h3 id="factors-become-dummy-variables-automatically">Factors become dummy variables automatically</h3>
 <pre><code class="language-r">lm(marks ~ section, data = students)     # section is a factor with 3 levels
 # R creates sectionB and sectionC; sectionA is the reference level
 </code></pre>
 <p>The omitted level is the <strong>baseline</strong>, and every coefficient is a difference
 from it. <code>relevel(students$section, ref = "C")</code> changes which.</p>
-<h3>Multicollinearity</h3>
+<h3 id="multicollinearity">Multicollinearity</h3>
 <pre><code class="language-r">car::vif(model)      # variance inflation factor
 </code></pre>
 <p><strong>VIF &gt; 5 (or 10) signals a problem.</strong> When predictors are strongly correlated
 with each other the model cannot separate their effects; coefficients become
 unstable and their signs may flip. Course 4 §4.7 introduced this — here is how
 you detect it.</p>
-<h2>4.3 Model evaluation</h2>
+<h2 id="43-model-evaluation">4.3 Model evaluation</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>A model's accuracy on the data it was trained on tells you almost nothing. What
@@ -150,7 +165,7 @@ matters is performance on data it has never seen — and even then, accuracy alo
 can be badly misleading.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>A hospital builds a model to detect a rare disease affecting 1% of patients. It
 reports <strong>99% accuracy</strong> and everyone celebrates.</p>
 <p>Then someone checks what it actually predicts. It says "healthy" to every single
@@ -158,7 +173,7 @@ patient. It is right 99% of the time — and it has never once detected the
 disease it was built to find.</p>
 <p><strong>This is the accuracy paradox</strong>, and it is why the confusion matrix exists.</p>
 </div>
-<h3>Train/test split</h3>
+<h3 id="traintest-split">Train/test split</h3>
 <pre><code class="language-r">set.seed(42)                                   # reproducibility
 idx &lt;- sample(seq_len(nrow(df)), size = 0.8 * nrow(df))
 train &lt;- df[idx, ]
@@ -166,7 +181,7 @@ test  &lt;- df[-idx, ]                            # note: negative index EXCLUDE
 </code></pre>
 <p><strong><code>set.seed()</code> matters.</strong> Without it, every run gives a different split and your
 results are not reproducible — which in an exam or a report is a real fault.</p>
-<h3>The confusion matrix</h3>
+<h3 id="the-confusion-matrix">The confusion matrix</h3>
 <p>For a binary classifier:</p>
 <table class="main-table">
 <thead>
@@ -233,7 +248,7 @@ not 0.5.</p>
 <pre><code class="language-r">library(caret)
 confusionMatrix(factor(predicted), factor(actual), positive = &quot;1&quot;)
 </code></pre>
-<h3>ROC and AUC</h3>
+<h3 id="roc-and-auc">ROC and AUC</h3>
 <p>A classifier usually outputs a <strong>probability</strong>, and you choose a threshold to
 turn it into a decision. The ROC curve shows what happens across <em>every</em> possible
 threshold.</p>
@@ -282,13 +297,13 @@ why AUC is threshold-independent, which is its main advantage over accuracy.</p>
 r &lt;- roc(test$actual, predicted_probabilities)
 auc(r); plot(r)
 </code></pre>
-<h2>4.4 K-Means clustering</h2>
+<h2 id="44-k-means-clustering">4.4 K-Means clustering</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>K-Means splits data into k groups by repeatedly assigning each point to its
 nearest group centre, then moving each centre to the middle of its points.</p>
 </div>
-<h3>The algorithm — examinable step by step</h3>
+<h3 id="the-algorithm-examinable-step-by-step">The algorithm — examinable step by step</h3>
 <ol>
 <li>Choose <strong>k</strong> and place k centroids (randomly, or with k-means++)</li>
 <li><strong>Assign</strong> each point to the nearest centroid (usually Euclidean distance)</li>
@@ -306,7 +321,7 @@ produces meaningless clusters.</p>
 <p><strong><code>nstart = 25</code></strong> runs the algorithm 25 times from different random starts and
 keeps the best. K-Means converges to a <em>local</em> optimum that depends on
 initialisation, so a single run can be poor.</p>
-<h3>Choosing k — the elbow method</h3>
+<h3 id="choosing-k-the-elbow-method">Choosing k — the elbow method</h3>
 <p>Plot total within-cluster sum of squares against k and look for the "elbow"
 where the improvement flattens.</p>
 <pre><code class="language-r">wss &lt;- sapply(1:10, function(k) kmeans(scaled, k, nstart = 10)$tot.withinss)
@@ -315,7 +330,7 @@ plot(1:10, wss, type = &quot;b&quot;, xlab = &quot;k&quot;, ylab = &quot;Within-
 <p>WSS always falls as k rises — at k = n every point is its own cluster with WSS 0.
 The elbow is where extra clusters stop buying much. The <strong>silhouette score</strong> is
 a less subjective alternative.</p>
-<h3>Limitations, which exams ask for</h3>
+<h3 id="limitations-which-exams-ask-for">Limitations, which exams ask for</h3>
 <ol>
 <li><strong>k must be chosen in advance</strong></li>
 <li>Sensitive to <strong>initial centroids</strong> — hence <code>nstart</code></li>
@@ -324,7 +339,7 @@ a less subjective alternative.</p>
 <li>Struggles with <strong>non-convex</strong> shapes — DBSCAN handles those (Course 8)</li>
 <li>Requires <strong>scaled</strong> numeric data</li>
 </ol>
-<h2>4.5 Text mining and word clouds</h2>
+<h2 id="45-text-mining-and-word-clouds">4.5 Text mining and word clouds</h2>
 <pre><code class="language-r">library(tm); library(wordcloud)
 
 corpus &lt;- Corpus(VectorSource(reviews)) %&gt;%
@@ -339,7 +354,7 @@ dtm  &lt;- TermDocumentMatrix(corpus)
 freq &lt;- sort(rowSums(as.matrix(dtm)), decreasing = TRUE)
 wordcloud(names(freq), freq, max.words = 100, colors = brewer.pal(8, &quot;Dark2&quot;))
 </code></pre>
-<h3>The preprocessing pipeline — every step earns marks</h3>
+<h3 id="the-preprocessing-pipeline-every-step-earns-marks">The preprocessing pipeline — every step earns marks</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -399,7 +414,7 @@ counts. <strong>TF-IDF</strong> weights each term by how distinctive it is:</p>
 <p>A word appearing in every document has DF = N, so log(N/N) = 0 and it is
 weighted out entirely. That is TF-IDF's whole trick, and it is why it beats raw
 counts.</p>
-<h2>4.6 Recommender systems</h2>
+<h2 id="46-recommender-systems">4.6 Recommender systems</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -440,7 +455,7 @@ counts.</p>
 r &lt;- Recommender(train_matrix, method = &quot;UBCF&quot;)     # user-based CF
 predict(r, test_matrix, n = 5)
 </code></pre>
-<h3>The two problems every recommender has</h3>
+<h3 id="the-two-problems-every-recommender-has">The two problems every recommender has</h3>
 <p><strong>Cold start</strong> — a new user has no history and a new item has no ratings, so
 collaborative filtering has nothing to work with. Content-based methods handle
 new <em>items</em> better; new <em>users</em> usually get popular-item defaults until they
@@ -451,9 +466,9 @@ almost entirely empty. Matrix factorisation (SVD) is the standard response.</p>
 Cosine is the most common because it ignores magnitude — a user who rates
 everything highly and one who rates everything low can still be recognised as
 having the same <em>taste</em>.</p>
-<h2>4.7 Ethical issues in data science</h2>
+<h2 id="47-ethical-issues-in-data-science">4.7 Ethical issues in data science</h2>
 <p>The syllabus lists this last; treat it as examinable rather than decorative.</p>
-<h3>The six issues to know</h3>
+<h3 id="the-six-issues-to-know">The six issues to know</h3>
 <p><strong>1. Bias and fairness.</strong> A model trained on historical hiring data learns
 historical discrimination. Amazon scrapped a recruiting tool that penalised CVs
 containing the word "women's". The model was working correctly — it faithfully
@@ -469,7 +484,7 @@ Cambridge Analytica being the standard example.</p>
 <p><strong>5. Accountability.</strong> When an autonomous system causes harm, who is
 responsible — the developer, the deployer, the data provider?</p>
 <p><strong>6. Environmental cost.</strong> Training large models consumes substantial energy.</p>
-<h3>Regulation worth naming</h3>
+<h3 id="regulation-worth-naming">Regulation worth naming</h3>
 <ul>
 <li><strong>GDPR</strong> (EU) — consent, the right to erasure, the right to an explanation</li>
 <li><strong>DPDP Act 2023</strong> (India) — the Digital Personal Data Protection Act</li>
@@ -488,7 +503,7 @@ worse on dark-skinned ones. That is not a bug in the algorithm; it is a bug in
 the dataset, and no amount of tuning fixes it.</p>
 </div>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A classifier tested on 1000 patients gives: TP = 80, FP = 20, FN = 40, TN = 860.
@@ -576,7 +591,7 @@ and produces optimistic results that collapse in production.</p>
 matrix, per-class recall, AUC and a subgroup fairness analysis first.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is the accuracy paradox?</li>
@@ -605,7 +620,7 @@ matrix, per-class recall, AUC and a subgroup fairness analysis first.</p>
    output and diagnostics.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

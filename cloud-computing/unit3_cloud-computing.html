@@ -32,19 +32,36 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-unit-where-the-money-is">The unit where the money is</a></li>
+    <li><a href="#31-the-three-storage-types-block-based-file-based-object-based">3.1 The three storage types — block-based, file-based, object-based</a></li>
+    <li><a href="#32-object-storage-in-detail">3.2 Object storage, in detail</a></li>
+    <li><a href="#33-storage-classes-and-the-arithmetic-that-decides">3.3 Storage classes, and the arithmetic that decides</a></li>
+    <li><a href="#34-egress-and-data-gravity">3.4 Egress, and data gravity</a></li>
+    <li><a href="#35-use-cases">3.5 Use cases</a></li>
+    <li><a href="#36-key-value-databases">3.6 Key-value databases</a></li>
+    <li><a href="#37-batch-against-streaming-for-ml-pipelines">3.7 Batch against streaming for ML pipelines</a></li>
+    <li><a href="#38-cloud-data-warehouses">3.8 Cloud data warehouses</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 22):</strong> Cloud storage: introduction, benefits, use cases
 (backup, archiving, disaster recovery, content delivery). Cloud storage
 systems: block-based, file-based, object-based. Key-value databases: features
 and limitations. Batch against streaming data for ML pipelines. Cloud data
 warehouses: AWS Redshift, Google BigQuery.</p>
 <hr />
-<h2>The unit where the money is</h2>
+<h2 id="the-unit-where-the-money-is">The unit where the money is</h2>
 <p><strong>Storage decisions are where cloud bills are made and lost</strong>, and they are
 the most examinable arithmetic in the course. Every figure below is computed
 in <a href="../labs/course-13b-cloud/04_storage.py"><code>04_storage.py</code></a> and
 <a href="../labs/course-13b-cloud/09_etl_warehouse.py"><code>09_etl_warehouse.py</code></a>.</p>
 <hr />
-<h2>3.1 The three storage types — block-based, file-based, object-based</h2>
+<h2 id="31-the-three-storage-types-block-based-file-based-object-based">3.1 The three storage types — block-based, file-based, object-based</h2>
 <p>The <strong>benefits</strong> of cloud storage are durability you do not engineer, capacity you do not provision, and access from anywhere. What you choose between is the <em>shape</em>.</p>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
@@ -176,8 +193,8 @@ make it 1 TB to be safe" is an expensive habit</strong>, and it is invisible on 
 dashboard that reports utilisation rather than spend.</p>
 </div>
 <hr />
-<h2>3.2 Object storage, in detail</h2>
-<h3>⚠️ There are no directories. None.</h3>
+<h2 id="32-object-storage-in-detail">3.2 Object storage, in detail</h2>
+<h3 id="there-are-no-directories-none">⚠️ There are no directories. None.</h3>
 <pre><code>LIST prefix 'raw/' with delimiter '/':
   objects at this level : (none)
   common prefixes       : ['raw/2026/']
@@ -193,14 +210,14 @@ every object under a "folder" and the folder is gone, because it never
 existed.</p>
 <p><strong>And a prefix scan is the only query an object store supports.</strong> No <code>WHERE</code>,
 no index, no search by content.</p>
-<h3>⚠️ There is no rename</h3>
+<h3 id="there-is-no-rename">⚠️ There is no rename</h3>
 <pre><code>'rename' README.md -&gt; docs/README.md
   bytes read 1,024, bytes written 1,024, API calls 2
 </code></pre>
 <p><strong>It is a copy plus a delete.</strong> Renaming a 5 TB dataset "to tidy up the
 folders" moves 10 TB and is billed for it — and on a filesystem it would have
 been a metadata edit.</p>
-<h3>⚠️ Versioning bills for every version</h3>
+<h3 id="versioning-bills-for-every-version">⚠️ Versioning bills for every version</h3>
 <pre><code>versioning ON, then overwrite and delete:
   older versions kept : 2
   current object      : DeleteMarker
@@ -210,7 +227,7 @@ and still billed.</strong> That is the feature (you can undelete) and the bill (
 pay for every version until a lifecycle rule removes them).</p>
 <p><strong>Set the lifecycle rule when you enable versioning, not later.</strong></p>
 <hr />
-<h2>3.3 Storage classes, and the arithmetic that decides</h2>
+<h2 id="33-storage-classes-and-the-arithmetic-that-decides">3.3 Storage classes, and the arithmetic that decides</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>1 TB stored for a year, retrieved once</h4>
@@ -281,7 +298,7 @@ year and the all-in saving falls to <strong>8.7×</strong>, because the retrieva
 takes up to 12 hours: delete an object after 10 days and you are billed for
 180.</p>
 </div>
-<h3>⚠️ And the reversal that catches people</h3>
+<h3 id="and-the-reversal-that-catches-people">⚠️ And the reversal that catches people</h3>
 <p>The same 1 TB, retrieved <strong>twice a month</strong>:</p>
 <table class="main-table">
 <thead>
@@ -323,7 +340,7 @@ everything the storage discount saved.</p>
 <p><strong>Storage class is a bet on your access pattern</strong>, and the minimum durations
 and retrieval fees are what make the bet real.</p>
 <hr />
-<h2>3.4 Egress, and data gravity</h2>
+<h2 id="34-egress-and-data-gravity">3.4 Egress, and data gravity</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -362,7 +379,7 @@ the cloud era.</strong> Run the job in the region holding the bucket and the tra
 is free.</p>
 </div>
 <hr />
-<h2>3.5 Use cases</h2>
+<h2 id="35-use-cases">3.5 Use cases</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -407,7 +424,7 @@ S3's, and cached responses do not touch S3 at all</strong> — so for a popular 
 a CDN pays for itself on transfer alone, and the latency improvement is
 almost a side effect.</p>
 </div>
-<h3>⚠️ The DR distinction that is examined</h3>
+<h3 id="the-dr-distinction-that-is-examined">⚠️ The DR distinction that is examined</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -433,9 +450,9 @@ up nightly" is an RPO of 24 hours whether or not anyone said so.</p>
 <p><strong>And a backup you have never restored is not a backup.</strong> It is an untested
 hypothesis.</p>
 <hr />
-<h2>3.6 Key-value databases</h2>
+<h2 id="36-key-value-databases">3.6 Key-value databases</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The model</h4>
 <p><strong>A hash map with durability.</strong> <code>get(key)</code>, <code>put(key, value)</code>, <code>delete(key)</code> —
 and, in the better ones, a <strong>sort key</strong> allowing range queries within a
@@ -486,7 +503,7 @@ same trade-off applies: <strong>an evenly distributed key avoids hotspots and
 destroys range queries; a meaningful key enables range queries and risks
 hotspots.</strong></p>
 </div>
-<h3>⚠️ The limitations that decide against it</h3>
+<h3 id="the-limitations-that-decide-against-it">⚠️ The limitations that decide against it</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -520,7 +537,7 @@ hotspots.</strong></p>
 <p><strong>Design the access patterns first, then the key.</strong> In a relational database
 you design the schema and the queries follow; in a key-value store the queries
 come first, and getting that backwards is the most common failure.</p>
-<h3>The comparison across the programme</h3>
+<h3 id="the-comparison-across-the-programme">The comparison across the programme</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -564,7 +581,7 @@ come first, and getting that backwards is the most common failure.</p>
 </tbody>
 </table>
 <hr />
-<h2>3.7 Batch against streaming for ML pipelines</h2>
+<h2 id="37-batch-against-streaming-for-ml-pipelines">3.7 Batch against streaming for ML pipelines</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -628,7 +645,7 @@ making the stream replayable from a durable log.</p>
 <p><strong>Lambda's real cost is not machines: it is the same business rule living in
 two codebases and drifting.</strong></p>
 </div>
-<h3>⚠️ And the failure that has no error message</h3>
+<h3 id="and-the-failure-that-has-no-error-message">⚠️ And the failure that has no error message</h3>
 <p><strong>Training on batch and serving on streaming is how training/serving skew
 happens.</strong> The batch job computes a feature over a complete day; the streaming
 path computes it over whatever arrived. The model then sees, at serving time,
@@ -636,9 +653,9 @@ a feature distribution it never trained on — and every metric stays green.</p>
 <p><strong>A feature store exists to solve exactly this</strong>: one definition of a feature,
 computed once, served to both.</p>
 <hr />
-<h2>3.8 Cloud data warehouses</h2>
+<h2 id="38-cloud-data-warehouses">3.8 Cloud data warehouses</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What makes one different from Course 5's RDBMS</h4>
 <table class="main-table">
 <thead>
@@ -764,7 +781,7 @@ merely rude on a server you already own.</p>
 <p><strong>That is the whole provisioned-against-serverless decision, and it is a
 calculation rather than a preference.</strong></p>
 </div>
-<h3>ETL against ELT</h3>
+<h3 id="etl-against-elt">ETL against ELT</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -845,7 +862,7 @@ DAX, Course 12 B's Hive, Course 12 B's Spark and this. <strong>Four engines, one
 of nine facts</strong>, and the suite fails if any of them drifts.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. A 50 TB dataset is written once and read about twice a year. Which
 storage class, and what would you check first?</strong></p>
 <p><strong>Glacier Flexible or Deep Archive</strong>, and the thing to check first is the
@@ -966,7 +983,7 @@ the margin.</p>
 otherwise — serverless costs nothing during the quiet weeks, and a cluster
 costs the same every hour.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Name the three cloud storage types.</li>
@@ -998,7 +1015,7 @@ costs the same every hour.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

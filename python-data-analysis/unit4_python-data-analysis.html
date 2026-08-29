@@ -28,11 +28,24 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-the-str-accessor">4.1 The .str accessor</a></li>
+    <li><a href="#42-regular-expressions-in-pandas">4.2 Regular expressions in Pandas</a></li>
+    <li><a href="#43-feature-engineering">4.3 Feature engineering</a></li>
+    <li><a href="#44-dummy-and-indicator-variables">4.4 Dummy and indicator variables</a></li>
+    <li><a href="#45-permutation-and-random-sampling">4.5 Permutation and random sampling</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> String methods in Pandas, basic regular expressions,
 vectorized string functions, creating dummy/indicator variables, permutation
 and random sampling.</p>
 <hr />
-<h2>4.1 The <code>.str</code> accessor</h2>
+<h2 id="41-the-str-accessor">4.1 The <code>.str</code> accessor</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Python's string methods work on one string. Pandas' <strong><code>.str</code> accessor</strong> applies
@@ -47,7 +60,7 @@ s.str.title()                # Asha Kumari
 s.str.len()                  # 14.0, 9.0, 10.0, NaN   ← note float, because NaN
 </code></pre>
 </div>
-<h3>⚠️ Why not just use <code>apply</code>?</h3>
+<h3 id="why-not-just-use-apply">⚠️ Why not just use <code>apply</code>?</h3>
 <pre><code class="language-python">s.apply(str.lower)      # AttributeError on the None
 s.str.lower()           # NaN stays NaN — no crash
 </code></pre>
@@ -55,7 +68,7 @@ s.str.lower()           # NaN stays NaN — no crash
 it, and it is faster besides.</p>
 <p>Note that <code>.str.len()</code> returns <strong>float64</strong> when the column contains NaN,
 because there is no NaN in int64 — the same upcast as Unit 3 §3.3.</p>
-<h3>The methods</h3>
+<h3 id="the-methods">The methods</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -144,7 +157,7 @@ names.str.replace(&quot; &quot;, &quot;_&quot;)
 <p><strong><code>expand=True</code> is the one to remember</strong>: it turns a split into real columns,
 which is what you almost always want. Without it you get a column of Python
 lists, which cannot be computed with.</p>
-<h2>4.2 Regular expressions in Pandas</h2>
+<h2 id="42-regular-expressions-in-pandas">4.2 Regular expressions in Pandas</h2>
 <p>Course 7 Unit 3 covered regex syntax; here is how Pandas uses it.</p>
 <pre><code class="language-python">s = pd.Series([&quot;Asha 23 DS&quot;, &quot;Ravi 24 Stats&quot;, &quot;Meena 25 DS&quot;])
 
@@ -204,7 +217,7 @@ parts = rolls.str.extract(r&quot;(?P&lt;year&gt;\d{2})(?P&lt;branch&gt;[A-Z]{3})
 <code>0145</code> keeps its leading zero, which is right for a roll number and wrong for
 arithmetic. Convert explicitly with <code>.astype(int)</code> when you need a number.</p>
 </div>
-<h3>⚠️ Three regex traps in Pandas</h3>
+<h3 id="three-regex-traps-in-pandas">⚠️ Three regex traps in Pandas</h3>
 <p><strong><code>contains</code> may return NaN for missing values rather than False — and
 whether it does depends on the column's dtype.</strong></p>
 <pre><code class="language-python"># Pandas 3's new default str dtype: NaN becomes False, masking works
@@ -227,7 +240,7 @@ Say which you mean.</p>
 <p><strong>Special characters must be escaped.</strong> <code>s.str.replace(".", "")</code> with
 <code>regex=True</code> deletes <em>every character</em>, because <code>.</code> matches anything. Use
 <code>regex=False</code>, or <code>re.escape</code>.</p>
-<h2>4.3 Feature engineering</h2>
+<h2 id="43-feature-engineering">4.3 Feature engineering</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>What it is</h4>
@@ -236,7 +249,7 @@ see.</strong> It is usually worth more than the choice of algorithm — Course 8
 material is largely about which model to pick, and in practice a well-chosen
 feature beats a better model on the same features.</p>
 </div>
-<h3>From dates</h3>
+<h3 id="from-dates">From dates</h3>
 <pre><code class="language-python">df[&quot;dob&quot;] = pd.to_datetime(df.dob)
 
 df[&quot;year&quot;]      = df.dob.dt.year
@@ -252,7 +265,7 @@ df[&quot;age&quot;] = ((pd.Timestamp(&quot;2026-08-26&quot;) - df.dob).dt.days /
 <p><strong>A raw date is nearly useless to a model</strong>; the <em>year</em>, the <em>day of week</em>, the
 <em>age it implies</em> are what carry signal. This is the clearest example of why
 feature engineering matters.</p>
-<h3>From numbers</h3>
+<h3 id="from-numbers">From numbers</h3>
 <pre><code class="language-python">df[&quot;total&quot;]   = df.maths + df.stats
 df[&quot;average&quot;] = df[[&quot;maths&quot;, &quot;stats&quot;]].mean(axis=1)
 df[&quot;diff&quot;]    = df.maths - df.stats
@@ -265,7 +278,7 @@ df[&quot;grade&quot;] = pd.cut(df.marks, [0, 40, 60, 75, 100],
 </code></pre>
 <p><code>np.log1p(x)</code> computes log(1 + x), which is defined at 0 — the standard way to
 log-transform a count or an income that can legitimately be zero.</p>
-<h3>From categories</h3>
+<h3 id="from-categories">From categories</h3>
 <pre><code class="language-python">df[&quot;dept_size&quot;] = df.groupby(&quot;dept&quot;).dept.transform(&quot;size&quot;)
 df[&quot;dept_mean&quot;] = df.groupby(&quot;dept&quot;).marks.transform(&quot;mean&quot;)
 df[&quot;above_dept_mean&quot;] = df.marks &gt; df.dept_mean
@@ -274,7 +287,7 @@ df[&quot;is_topper&quot;] = df.marks == df.groupby(&quot;dept&quot;).marks.trans
 <p><strong><code>transform</code> is the key tool</strong> here: it returns one value per <em>original row</em>
 rather than one per group, so the group statistic can be attached as a column
 and compared against each row.</p>
-<h3>⚠️ Leakage, again</h3>
+<h3 id="leakage-again">⚠️ Leakage, again</h3>
 <p>The rule from Course 8 §2.8 applies with full force:</p>
 <ul>
 <li>
@@ -291,7 +304,7 @@ and compared against each row.</p>
   whole dataset encodes the test set's mean into the training features.</p>
 </li>
 </ul>
-<h2>4.4 Dummy and indicator variables</h2>
+<h2 id="44-dummy-and-indicator-variables">4.4 Dummy and indicator variables</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>One-hot encoding</h4>
@@ -308,7 +321,7 @@ pd.get_dummies(df.dept, dtype=int)               # 0/1 instead of True/False
 2    DS            True       False
 </code></pre>
 </div>
-<h3>⚠️ The dummy variable trap</h3>
+<h3 id="the-dummy-variable-trap">⚠️ The dummy variable trap</h3>
 <p>With <em>k</em> categories, <em>k</em> dummy columns are <strong>perfectly collinear</strong> — they sum
 to 1 in every row, so any one is a linear function of the others. That makes
 the design matrix singular, and a linear or logistic regression cannot solve
@@ -335,7 +348,7 @@ dropping one hides that category from every split. So:</p>
 </tr>
 </tbody>
 </table>
-<h3>Other encodings</h3>
+<h3 id="other-encodings">Other encodings</h3>
 <pre><code class="language-python"># Ordinal — when the order is REAL
 df[&quot;size_code&quot;] = df[&quot;size&quot;].map({&quot;S&quot;: 1, &quot;M&quot;: 2, &quot;L&quot;: 3, &quot;XL&quot;: 4})
 
@@ -361,7 +374,7 @@ the rest as <code>"Other"</code>; frequency-encode; or target-encode (replace ea
 category by the mean target for that category) — with the strong caveat that
 target encoding <strong>leaks</strong> unless it is fitted inside a cross-validation fold.</p>
 </div>
-<h2>4.5 Permutation and random sampling</h2>
+<h2 id="45-permutation-and-random-sampling">4.5 Permutation and random sampling</h2>
 <pre><code class="language-python">rng = np.random.default_rng(42)
 
 df.sample(n=3, random_state=42)               # 3 random rows
@@ -398,7 +411,7 @@ train, test = train_test_split(df, test_size=0.3, random_state=42,
 minority class can be absent from a small test set entirely, and the accuracy
 you measure means nothing.</p>
 </div>
-<h3>⚠️ Always set <code>random_state</code></h3>
+<h3 id="always-set-random-state">⚠️ Always set <code>random_state</code></h3>
 <pre><code class="language-python">df.sample(n=3)                     # different every run
 df.sample(n=3, random_state=42)    # reproducible
 </code></pre>
@@ -415,7 +428,7 @@ where the <code>.632</code> in the .632 bootstrap comes from, and it is the mech
 behind bagging and Random Forest.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A <code>students</code> DataFrame has a <code>full_name</code> column like <code>"  KUMARI, Asha  "</code> and a
@@ -557,7 +570,7 @@ department as an outer level, and the explicit column list is needed because
 without it, <code>dept</code> is missing from the result.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Why use <code>.str.lower()</code> rather than <code>.apply(str.lower)</code>?</li>
@@ -603,7 +616,7 @@ without it, <code>dept</code> is missing from the result.</p>
    reproducibility matters.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

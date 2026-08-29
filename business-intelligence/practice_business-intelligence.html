@@ -16,6 +16,15 @@
     <p>Exam-style questions with fully worked solutions.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#section-a-two-mark-questions">Section A — Two-mark questions</a></li>
+    <li><a href="#section-b-five-mark-questions">Section B — Five-mark questions</a></li>
+    <li><a href="#section-c-ten-mark-questions">Section C — Ten-mark questions</a></li>
+    <li><a href="#the-five-things-most-likely-to-be-examined">The five things most likely to be examined</a></li>
+  </ol>
+</details>
 <p>Exam-style questions across all five units, with solutions written the way an
 answer script should be written — a definition, a table or diagram, a worked
 example, and the point that earns the last two marks.</p>
@@ -23,70 +32,129 @@ example, and the point that earns the last two marks.</p>
 <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-11-bi"><code>labs/course-11-bi/</code></a> and is checked by
 <a href="../tools/run_bi_labs.py"><code>tools/run_bi_labs.py</code></a>.</p>
 <hr />
-<h2>Section A — Two-mark questions</h2>
-<p><strong>1. Define Business Intelligence.</strong>
-The set of technologies, processes and practices that collect, integrate,
+<h2 id="section-a-two-mark-questions">Section A — Two-mark questions</h2>
+<p><strong>1. Define Business Intelligence.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The set of technologies, processes and practices that collect, integrate,
 analyse and present an organisation's data in order to support <strong>better and
 faster business decisions</strong>.</p>
-<p><strong>2. Who coined the modern term "Business Intelligence", and when?</strong>
-<strong>Howard Dresner of Gartner, in 1989.</strong></p>
-<p><strong>3. What kind of decision does a DSS support?</strong>
-<strong>Semi-structured</strong> — where the rules are partly known, so the system does the
+</details>
+<p><strong>2. Who coined the modern term "Business Intelligence", and when?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Howard Dresner of Gartner, in 1989.</strong></p>
+</details>
+<p><strong>3. What kind of decision does a DSS support?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Semi-structured</strong> — where the rules are partly known, so the system does the
 arithmetic and the human keeps the judgement.</p>
-<p><strong>4. Name the four components of a DSS.</strong>
-Data management, model management (MBMS), user interface (dialogue management),
+</details>
+<p><strong>4. Name the four components of a DSS.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Data management, model management (MBMS), user interface (dialogue management),
 and the optional knowledge management component.</p>
-<p><strong>5. Which operating systems does Power BI Desktop run on?</strong>
-<strong>Windows only.</strong> There is no macOS build.</p>
-<p><strong>6. Give the difference between <code>COUNT</code> and <code>COUNTROWS</code>.</strong>
-<code>COUNT(column)</code> counts <strong>non-blank values</strong>; <code>COUNTROWS(table)</code> counts <strong>rows</strong>,
+</details>
+<p><strong>5. Which operating systems does Power BI Desktop run on?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Windows only.</strong> There is no macOS build.</p>
+</details>
+<p><strong>6. Give the difference between <code>COUNT</code> and <code>COUNTROWS</code>.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><code>COUNT(column)</code> counts <strong>non-blank values</strong>; <code>COUNTROWS(table)</code> counts <strong>rows</strong>,
 blanks included. On a complete column they agree, which is why the difference
 surprises people.</p>
-<p><strong>7. What does <code>.pbix</code> contain?</strong>
-The queries, the data model, the measures, and — in Import mode — a compressed
+</details>
+<p><strong>7. What does <code>.pbix</code> contain?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The queries, the data model, the measures, and — in Import mode — a compressed
 copy of the data.</p>
-<p><strong>8. Give the difference between <code>.twb</code> and <code>.twbx</code>.</strong>
-<code>.twb</code> holds only the instructions and needs its data source. <strong><code>.twbx</code> is
+</details>
+<p><strong>8. Give the difference between <code>.twb</code> and <code>.twbx</code>.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><code>.twb</code> holds only the instructions and needs its data source. <strong><code>.twbx</code> is
 packaged</strong> — instructions plus the data extract. <strong>Submit <code>.twbx</code>.</strong></p>
-<p><strong>9. What does VizQL do?</strong>
-Translates a drag-and-drop action into <strong>a database query and a visual encoding
+</details>
+<p><strong>9. What does VizQL do?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Translates a drag-and-drop action into <strong>a database query and a visual encoding
 in one step</strong>. It is the patented idea Tableau was founded on.</p>
-<p><strong>10. What do blue and green fields mean in Tableau?</strong>
-<strong>Blue = discrete = headers. Green = continuous = axes.</strong> It is not fixed by
+</details>
+<p><strong>10. What do blue and green fields mean in Tableau?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Blue = discrete = headers. Green = continuous = axes.</strong> It is not fixed by
 field type — a date can be either.</p>
-<p><strong>11. Name the three LOD keywords.</strong>
-<code>FIXED</code>, <code>INCLUDE</code>, <code>EXCLUDE</code>.</p>
-<p><strong>12. What is the grain of a fact table?</strong>
-<strong>What one row represents.</strong> The sample model's grain is one row per product,
+</details>
+<p><strong>11. Name the three LOD keywords.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><code>FIXED</code>, <code>INCLUDE</code>, <code>EXCLUDE</code>.</p>
+</details>
+<p><strong>12. What is the grain of a fact table?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>What one row represents.</strong> The sample model's grain is one row per product,
 per store, per day.</p>
 <p><strong>13. Give one example each of an additive, semi-additive and non-additive
 measure.</strong>
 Additive: sales quantity. Semi-additive: stock on hand (does not sum over
 time). Non-additive: margin %.</p>
-<p><strong>14. What does cardinality 1:* mean?</strong>
-One row on the dimension side matches <strong>many</strong> rows on the fact side. The "one"
+</details>
+<p><strong>14. What does cardinality 1:* mean?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>One row on the dimension side matches <strong>many</strong> rows on the fact side. The "one"
 side's key must be unique.</p>
-<p><strong>15. What is a surrogate key?</strong>
-A meaningless integer key generated for a dimension row, used instead of a
+</details>
+<p><strong>15. What is a surrogate key?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A meaningless integer key generated for a dimension row, used instead of a
 natural business key. Compresses better and joins faster.</p>
-<p><strong>16. Name the six dimensions of data quality.</strong>
-Accuracy, completeness, consistency, timeliness, validity, uniqueness.</p>
-<p><strong>17. Give the difference between a slicer and a filter.</strong>
-<strong>A slicer is a filter the user can see.</strong> Both restrict rows; a slicer sits on
+</details>
+<p><strong>16. Name the six dimensions of data quality.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Accuracy, completeness, consistency, timeliness, validity, uniqueness.</p>
+</details>
+<p><strong>17. Give the difference between a slicer and a filter.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>A slicer is a filter the user can see.</strong> Both restrict rows; a slicer sits on
 the canvas, a filter lives in the pane and may be hidden.</p>
-<p><strong>18. What is drill-through?</strong>
-Jumping to a <strong>different page</strong> filtered to the selection you right-clicked —
+</details>
+<p><strong>18. What is drill-through?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Jumping to a <strong>different page</strong> filtered to the selection you right-clicked —
 as opposed to drilling <em>down</em>, which changes level in place.</p>
-<p><strong>19. Why must a bar chart's axis start at zero?</strong>
-Because bar <strong>length</strong> encodes the value. A truncated axis exaggerates
+</details>
+<p><strong>19. Why must a bar chart's axis start at zero?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Because bar <strong>length</strong> encodes the value. A truncated axis exaggerates
 differences and misleads.</p>
-<p><strong>20. Name two accessibility requirements for a dashboard.</strong>
-Never encode by <strong>colour alone</strong> (add shape, label or position), and keep text
+</details>
+<p><strong>20. Name two accessibility requirements for a dashboard.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Never encode by <strong>colour alone</strong> (add shape, label or position), and keep text
 contrast at <strong>4.5:1</strong> or better. <em>(Also acceptable: alt text, tab order,
 minimum 10–12 pt text.)</em></p>
 <hr />
-<h2>Section B — Five-mark questions</h2>
-<h3>1. Explain the evolution of Business Intelligence</h3>
+</details>
+<h2 id="section-b-five-mark-questions">Section B — Five-mark questions</h2>
+<h3 id="1-explain-the-evolution-of-business-intelligence">1. Explain the evolution of Business Intelligence</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> Five stages, each solving the previous stage's failure:</p>
 <table class="main-table">
 <thead>
@@ -127,7 +195,10 @@ minimum 10–12 pt text.)</em></p>
 <p><strong>The one-sentence summary:</strong> reporting moved steadily away from IT and towards
 the person with the question. Self-service BI is the end point — and the
 governance problems of Unit 4 §4.6 are its direct cost.</p>
-<h3>2. Explain the components of a Decision Support System</h3>
+</details>
+<h3 id="2-explain-the-components-of-a-decision-support-system">2. Explain the components of a Decision Support System</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> Draw the four boxes:</p>
 <pre><code>                    ┌─────────────────────┐
                     │   User Interface    │  ← the manager
@@ -158,8 +229,10 @@ governance problems of Unit 4 §4.6 are its direct cost.</p>
 </ul>
 <p><strong>Do not drop the user interface</strong> — it is the component people forget, and it
 is a quarter of the marks.</p>
-<h3>3. Compare Import and DirectQuery</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="3-compare-import-and-directquery">3. Compare Import and DirectQuery</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -203,7 +276,10 @@ is a quarter of the marks.</p>
 </table>
 <p><strong>Import is the default and the right answer unless told otherwise.</strong> Choose
 DirectQuery only when the data is too large to copy or must be to-the-second.</p>
-<h3>4. Explain the Tableau filter order of operations and why it matters</h3>
+</details>
+<h3 id="4-explain-the-tableau-filter-order-of-operations-and-why-it-matters">4. Explain the Tableau filter order of operations and why it matters</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> Filters do not apply simultaneously:</p>
 <pre><code>1. Extract filters            (what enters the .hyper at all)
 2. Data source filters        (applied to every worksheet)
@@ -239,7 +315,10 @@ DirectQuery only when the data is too large to copy or must be to-the-second.</p
 <p>Also note <strong><code>FIXED</code> LOD expressions are evaluated before dimension filters</strong>,
 which is why filtering a region does not change a <code>{FIXED [Region] : …}</code>
 result — and why a context filter is the fix there too.</p>
-<h3>5. Why does every model need a dedicated Date dimension?</h3>
+</details>
+<h3 id="5-why-does-every-model-need-a-dedicated-date-dimension">5. Why does every model need a dedicated Date dimension?</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> Three reasons, and give all three:</p>
 <ol>
 <li>
@@ -260,8 +339,10 @@ result — and why a context filter is the fix there too.</p>
 </ol>
 <p>Then: <strong>Modeling → Mark as Date Table</strong>, which is what unlocks the time
 intelligence functions.</p>
-<h3>6. Distinguish a dashboard, a report and a scorecard</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="6-distinguish-a-dashboard-a-report-and-a-scorecard">6. Distinguish a dashboard, a report and a scorecard</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -310,9 +391,11 @@ process, learning and growth) if the question mentions strategy.</p>
 <p><strong>The test that applies to all three:</strong> <em>when this number moves, who does
 what?</em> If nobody can answer, do not build it.</p>
 <hr />
-<h2>Section C — Ten-mark questions</h2>
-<h3>1. Distinguish BI, Data Analytics and Data Science, with an example</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h2 id="section-c-ten-mark-questions">Section C — Ten-mark questions</h2>
+<h3 id="1-distinguish-bi-data-analytics-and-data-science-with-an-example">1. Distinguish BI, Data Analytics and Data Science, with an example</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>The one-line distinction first:</strong> BI reports <em>what happened</em>, analytics
 explains <em>why</em>, data science predicts <em>what happens next</em>.</p>
 <table class="main-table">
@@ -391,8 +474,10 @@ retail sales table, three jobs:</p>
 over the same warehouse. BI is usually the prerequisite: a data science team
 with no agreed definition of "revenue" will model a number nobody trusts. The
 semantic layer BI builds is what makes the other two trustworthy.</p>
-<h3>2. Compare star and snowflake schemas. Which for retail sales, and why?</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="2-compare-star-and-snowflake-schemas-which-for-retail-sales-and-why">2. Compare star and snowflake schemas. Which for retail sales, and why?</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Definitions and diagrams.</strong></p>
 <pre><code>STAR                              SNOWFLAKE
    dim_date   dim_store            dim_supplier -- dim_product -- fact_sales
@@ -485,8 +570,10 @@ snowflake a dimension when it is genuinely huge, or when an attribute is
 </table>
 <p><strong>Reason 4 is the decisive one.</strong> <em>"Which products sold nothing last month?"</em> is
 unanswerable from a flat table and trivial from a star. Lead with it.</p>
-<h3>3. Distinguish joining from blending in Tableau, illustrating the fan trap</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="3-distinguish-joining-from-blending-in-tableau-illustrating-the-fan-trap">3. Distinguish joining from blending in Tableau, illustrating the fan trap</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -578,8 +665,10 @@ unanswerable from a flat table and trivial from a star. Lead with it.</p>
 <p><strong>Close with the sentence that explains blending:</strong> it is a <strong>left join
 performed after aggregation</strong>. That is why it cannot duplicate, and equally why
 it cannot give you row-level detail from the secondary source.</p>
-<h3>4. Distinguish calculated columns from measures, with a worked example</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="4-distinguish-calculated-columns-from-measures-with-a-worked-example">4. Distinguish calculated columns from measures, with a worked example</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -654,8 +743,10 @@ which is what "margin" means. The correct answer is exactly the
 ratio in BI obeys it: margin, conversion rate, average order value, cost per
 acquisition. Add that the column also costs memory in every query while the
 measure stores nothing.</p>
-<h3>5. Explain LOD expressions with a worked example</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="5-explain-lod-expressions-with-a-worked-example">5. Explain LOD expressions with a worked example</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Definition:</strong> a Level Of Detail expression computes an aggregate at a level
 of detail <strong>different from the view's</strong>, breaking the normal rule that
 granularity is set by the dimensions on the shelves.</p>
@@ -738,8 +829,10 @@ Averaging salary by department gives ₹554,000 for Sales, but
 <code>{INCLUDE [Role]}</code> gives <strong>₹687,500</strong>, because it averages the four Execs and
 the one Manager as <em>two</em> numbers. That is the average-of-averages trap in LOD
 form — the syntax is easy, the reason must be deliberate.</p>
-<h3>6. Design a data model for an HR analytics dashboard</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="6-design-a-data-model-for-an-hr-analytics-dashboard">6. Design a data model for an HR analytics dashboard</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Two fact tables, because there are two grains</strong> — say this first:</p>
 <ul>
 <li><code>fact_headcount</code> — <strong>one row per employee per month</strong> (a periodic snapshot)</li>
@@ -779,8 +872,10 @@ Gap vs Company = [Attrition Rate] - CALCULATE([Attrition Rate], ALL(dim_departme
 <p><strong>A finding worth quoting:</strong> on the worked data every leaver had <strong>≤1.5 years'
 tenure</strong> — mean 1.0 against 5.0 for stayers. Two measures, one clear
 recommendation: the problem is the first eighteen months.</p>
-<h3>7. Design a dashboard for sales forecasting and budgeting</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="7-design-a-dashboard-for-sales-forecasting-and-budgeting">7. Design a dashboard for sales forecasting and budgeting</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Start with the decision, not the charts.</strong> How much stock to buy and what
 quota to set per region next quarter; decided quarterly by the sales director.</p>
 <p><strong>The layout</strong> (Unit 5 §5.5), designed for the F-pattern:</p>
@@ -821,7 +916,8 @@ report.</strong> At −5%, 0%, +5% and +10% the projected revenue is ₹12,236 /
 parameter changes the calculation, not the data. That closes the loop back to
 Unit 1's DSS model component, and it is a good way to end the answer.</p>
 <hr />
-<h2>The five things most likely to be examined</h2>
+</details>
+<h2 id="the-five-things-most-likely-to-be-examined">The five things most likely to be examined</h2>
 <ol>
 <li>
 <p><strong>BI vs Data Analytics vs Data Science</strong> — Outcome 1, Activity 1, and nearly

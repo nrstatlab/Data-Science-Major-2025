@@ -32,6 +32,23 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-what-tableau-is-and-its-characteristics">3.1 What Tableau is, and its characteristics</a></li>
+    <li><a href="#32-architecture-and-components">3.2 Architecture and components</a></li>
+    <li><a href="#33-the-interface-shelves-marks-card-views">3.3 The interface — shelves, marks card, views</a></li>
+    <li><a href="#34-data-connection-and-preparation">3.4 Data connection and preparation</a></li>
+    <li><a href="#35-calculated-fields-and-lod-expressions">3.5 Calculated fields and LOD expressions</a></li>
+    <li><a href="#36-joins-and-blending-and-the-trap-between-them">3.6 Joins and blending — and the trap between them</a></li>
+    <li><a href="#37-basic-visualizations">3.7 Basic visualizations</a></li>
+    <li><a href="#38-storytelling-and-creating-a-tableau-story">3.8 Storytelling and creating a Tableau story</a></li>
+    <li><a href="#39-case-study-hr-analytics">3.9 Case study — HR analytics</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 2):</strong> Introduction to Tableau; characteristics of Tableau;
 Tableau architecture and components — Tableau Public, Desktop, Reader, Online,
 Server; the Tableau interface — shelves, marks card, views; Tableau extensions;
@@ -46,7 +63,7 @@ scatter plots; storytelling with Tableau; creating a Tableau story. Case study
 the lab scripts.</p>
 </div>
 <hr />
-<h2>3.1 What Tableau is, and its characteristics</h2>
+<h2 id="31-what-tableau-is-and-its-characteristics">3.1 What Tableau is, and its characteristics</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Tableau optimises for the speed of the next question.</strong></p>
@@ -57,7 +74,7 @@ differ in what they make effortless.</p>
 <p>That difference is the honest answer to "compare Power BI and Tableau", and it
 is more useful than a feature list.</p>
 </div>
-<h3>Characteristics the syllabus wants named</h3>
+<h3 id="characteristics-the-syllabus-wants-named">Characteristics the syllabus wants named</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -147,7 +164,7 @@ is more useful than a feature list.</p>
 trade-off, different vendor's words — and saying so earns the comparison mark.</p>
 </div>
 <hr />
-<h2>3.2 Architecture and components</h2>
+<h2 id="32-architecture-and-components">3.2 Architecture and components</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The five products the syllabus names</h4>
@@ -200,7 +217,7 @@ trade-off, different vendor's words — and saying so earns the comparison mark.
 </tbody>
 </table>
 </div>
-<h3>⚠️ Tableau Public makes everything public</h3>
+<h3 id="tableau-public-makes-everything-public">⚠️ Tableau Public makes everything public</h3>
 <p><strong>Anything you save to Tableau Public is visible to the entire internet, and
 downloadable.</strong> It cannot save locally in the usual way — the workbook lives on
 their servers.</p>
@@ -208,7 +225,7 @@ their servers.</p>
 <strong>Never put real student, employee or customer data in it.</strong> This is the single
 most important warning in the unit, and it is a genuine, repeated real-world
 data breach.</p>
-<h3>File types — a two-mark question</h3>
+<h3 id="file-types-a-two-mark-question">File types — a two-mark question</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -237,7 +254,7 @@ data breach.</p>
 </table>
 <p><strong>Hand in <code>.twbx</code>.</strong> A <code>.twb</code> on the examiner's machine opens with no data, and
 it is the commonest way to lose lab marks.</p>
-<h3>The architecture, for the diagram question</h3>
+<h3 id="the-architecture-for-the-diagram-question">The architecture, for the diagram question</h3>
 <pre><code>        Data sources (files, databases, cloud)
                         |
                   Data Connection
@@ -262,7 +279,7 @@ Server, Backgrounder, Repository — are worth naming if the question says
 and <strong>Repository is the PostgreSQL database holding metadata</strong>; those two are
 the ones asked about.</p>
 <hr />
-<h2>3.3 The interface — shelves, marks card, views</h2>
+<h2 id="33-the-interface-shelves-marks-card-views">3.3 The interface — shelves, marks card, views</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The vocabulary you must have exactly right</h4>
@@ -309,7 +326,7 @@ the ones asked about.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Blue vs green is the concept, not a colour scheme</h3>
+<h3 id="blue-vs-green-is-the-concept-not-a-colour-scheme">⚠️ Blue vs green is the concept, not a colour scheme</h3>
 <p>This is the distinction that confuses everyone, and it is examined.</p>
 <table class="main-table">
 <thead>
@@ -346,7 +363,7 @@ the ones asked about.</p>
 one header per year, continuous for a real time axis. Converting between them
 changes the chart entirely, and "why did my line chart become bars?" is nearly
 always this.</p>
-<h3>Tableau extensions</h3>
+<h3 id="tableau-extensions">Tableau extensions</h3>
 <p><strong>Dashboard extensions</strong> are web applications embedded in a dashboard zone that
 can read and write the dashboard's data — write-back forms, custom filters,
 third-party visuals from the Extension Gallery. <strong>Analytics extensions</strong>
@@ -356,7 +373,7 @@ connect Tableau to an external engine — Python via <strong>TabPy</strong> or R
 through TabPy, and a Tableau calculated field can score rows live. Worth naming
 in the viva; rarely needed at this level.</p>
 <hr />
-<h2>3.4 Data connection and preparation</h2>
+<h2 id="34-data-connection-and-preparation">3.4 Data connection and preparation</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -413,7 +430,7 @@ in the viva; rarely needed at this level.</p>
 </tr>
 </tbody>
 </table>
-<h3>Cleaning, specifically</h3>
+<h3 id="cleaning-specifically">Cleaning, specifically</h3>
 <p>The syllabus names <strong>cleaning, pivoting and filtering</strong> as three things, so
 answer them as three. Cleaning in Tableau happens on the Data Source tab, and
 these are the tools:</p>
@@ -468,7 +485,7 @@ these are the tools:</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ An alias is not a fix</h3>
+<h3 id="an-alias-is-not-a-fix">⚠️ An alias is not a fix</h3>
 <p><strong>Aliases change what is displayed; the underlying value is untouched.</strong> So an
 alias cannot repair a join key, cannot fix a duplicate caused by casing, and
 does not travel to another workbook.</p>
@@ -476,7 +493,7 @@ does not travel to another workbook.</p>
 field, or fix it upstream — asserted in
 <a href="../labs/course-11-bi/10_tableau_prep.py"><code>10_tableau_prep.py</code></a>, which
 shows the displayed values changing while the stored ones stay <code>S</code> and <code>N</code>.</p>
-<h3>⚠️ Tableau's "Pivot" means Power Query's "Unpivot"</h3>
+<h3 id="tableaus-pivot-means-power-querys-unpivot">⚠️ Tableau's "Pivot" means Power Query's "Unpivot"</h3>
 <p>Same operation, opposite name. Tableau's Pivot turns a column per month into
 one row per month — which Power Query calls <strong>Unpivot</strong> and pandas calls
 <strong><code>melt</code></strong>. Getting the vocabulary right per tool is worth a mark, and mixing
@@ -498,8 +515,8 @@ top 10 overall, not the top 10 in that region. Promoting the region filter to a
 scenario is the exam question.</p>
 </div>
 <hr />
-<h2>3.5 Calculated fields and LOD expressions</h2>
-<h3>Calculated fields — the three kinds</h3>
+<h2 id="35-calculated-fields-and-lod-expressions">3.5 Calculated fields and LOD expressions</h2>
+<h3 id="calculated-fields-the-three-kinds">Calculated fields — the three kinds</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -526,7 +543,7 @@ scenario is the exam question.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The same trap as Unit 2, in Tableau's words</h3>
+<h3 id="the-same-trap-as-unit-2-in-tableaus-words">⚠️ The same trap as Unit 2, in Tableau's words</h3>
 <pre><code>WRONG:  AVG([Profit] / [Revenue])     -- row-level divide, then average
 RIGHT:  SUM([Profit]) / SUM([Revenue])
 </code></pre>
@@ -647,15 +664,15 @@ The LOD ignored the store dimension on Rows and aggregated at region level.</p>
 visual's — and both make it the hardest thing in the tool.</strong> Saying this shows
 you understand the concept rather than one vendor's syntax.</p>
 </div>
-<h3>⚠️ FIXED ignores dimension filters — the classic surprise</h3>
+<h3 id="fixed-ignores-dimension-filters-the-classic-surprise">⚠️ FIXED ignores dimension filters — the classic surprise</h3>
 <p><code>FIXED</code> is computed <strong>before</strong> dimension filters are applied, so filtering to
 one region does <em>not</em> change a <code>FIXED [Region]</code> result. To make a filter apply,
 promote it to a <strong>context filter</strong> — context filters run before LOD
 expressions. This is the same order-of-operations table as §3.4, and it is why
 that table is worth learning.</p>
 <hr />
-<h2>3.6 Joins and blending — and the trap between them</h2>
-<h3>Joins</h3>
+<h2 id="36-joins-and-blending-and-the-trap-between-them">3.6 Joins and blending — and the trap between them</h2>
+<h3 id="joins">Joins</h3>
 <p>Tableau's joins are SQL joins, done at the data source. Course 5's diagrams
 apply unchanged.</p>
 <table class="main-table">
@@ -684,7 +701,7 @@ apply unchanged.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The fan trap — the most valuable numeric example in this course</h3>
+<h3 id="the-fan-trap-the-most-valuable-numeric-example-in-this-course">⚠️ The fan trap — the most valuable numeric example in this course</h3>
 <p><strong>Join two tables that both have many rows per key, and your totals inflate.</strong>
 Nothing warns you; the numbers simply become wrong.</p>
 <p>Take the nine sales rows and a targets table with <strong>two rows per store</strong> (one
@@ -720,7 +737,7 @@ per quarter). Join them <strong>on store alone</strong>:</p>
 store's sales rows (Vijayawada has 4, Guntur 2, Hyderabad 3).</p>
 <p>All four figures are asserted in
 <a href="../labs/course-11-bi/14_joins_blending.py"><code>14_joins_blending.py</code></a>.</p>
-<h3>The three fixes</h3>
+<h3 id="the-three-fixes">The three fixes</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -796,7 +813,7 @@ primary; blending keeps all its rows and matches from the secondary. Swap them
 and the result changes — which surprises people who think of it as symmetric.</p>
 </div>
 <hr />
-<h2>3.7 Basic visualizations</h2>
+<h2 id="37-basic-visualizations">3.7 Basic visualizations</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -852,13 +869,13 @@ places do not plot, it is nearly always because the role is unset or a name is
 ambiguous — the <strong>Edit Locations</strong> dialog fixes it, and knowing that is worth a
 lab mark.</p>
 </div>
-<h3>⚠️ Scatter plots need a dimension on Detail</h3>
+<h3 id="scatter-plots-need-a-dimension-on-detail">⚠️ Scatter plots need a dimension on Detail</h3>
 <p>Drop two measures on the shelves and Tableau aggregates everything to <strong>one
 mark</strong>. You must put the identifying dimension (product, store, employee) on
 <strong>Detail</strong> to get one mark per thing. "My scatter plot has a single dot" is
 always this.</p>
 <hr />
-<h2>3.8 Storytelling and creating a Tableau story</h2>
+<h2 id="38-storytelling-and-creating-a-tableau-story">3.8 Storytelling and creating a Tableau story</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>A dashboard answers "what is happening?" A story answers "what happened, why,
@@ -890,7 +907,7 @@ Tableau a <strong>dashboard</strong> is authored in Desktop and combines workshe
 Power BI a dashboard is assembled in the Service from pinned tiles. The words
 are swapped between the tools.</p>
 </div>
-<h3>Building a story</h3>
+<h3 id="building-a-story">Building a story</h3>
 <ol>
 <li><strong>New Story</strong>, then drag a sheet or dashboard onto the first story point.</li>
 <li>
@@ -919,7 +936,7 @@ seven-point story where every point shows the same dashboard with a different
 filter and no argument.</p>
 </div>
 <hr />
-<h2>3.9 Case study — HR analytics</h2>
+<h2 id="39-case-study-hr-analytics">3.9 Case study — HR analytics</h2>
 <p>Lab experiment 9, and the HR domain from Unit 1 §1.4.</p>
 <p><strong>The question:</strong> why do employees leave, and which groups are most at risk?</p>
 <p><strong>The data.</strong> One row per employee: <code>emp_id</code>, <code>department</code>, <code>role</code>, <code>tenure_years</code>,
@@ -955,7 +972,7 @@ filter and no argument.</p>
 computes over the whole table, giving the company-wide rate. Subtract it and
 each department shows its gap from the company average — the single most useful
 number on an HR attrition dashboard, and impossible without an LOD.</p>
-<h3>⚠️ The analytical trap in HR analytics</h3>
+<h3 id="the-analytical-trap-in-hr-analytics">⚠️ The analytical trap in HR analytics</h3>
 <p><strong>Attrition rate on small departments is unstable and will mislead.</strong> A team of
 4 with one leaver shows 25%; a team of 200 with 40 leavers shows 20%. The small
 team looks worse and is not — one person's decision moved it 25 points.</p>
@@ -963,7 +980,7 @@ team looks worse and is not — one person's decision moved it 25 points.</p>
 denominator.</strong> That is a Unit 5 dashboard-design point arriving early, and it is
 also Course 4's sampling variability. Say so and you connect two courses.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Distinguish joining from blending in Tableau. Illustrate the fan trap
@@ -1074,7 +1091,7 @@ never hold real student or employee data.</p>
 <code>.twb</code> carries no data and opens empty on the examiner's machine.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What does VizQL do?</li>
@@ -1107,7 +1124,7 @@ never hold real student or employee data.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

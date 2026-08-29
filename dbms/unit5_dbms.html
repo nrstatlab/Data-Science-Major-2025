@@ -31,13 +31,30 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#triggers-are-examined-but-are-not-in-this-units-syllabus">⚠ Triggers are examined but are not in this unit&#x27;s syllabus</a></li>
+    <li><a href="#51-shortcomings-of-sql">5.1 Shortcomings of SQL</a></li>
+    <li><a href="#52-structure-of-a-plsql-block">5.2 Structure of a PL/SQL block</a></li>
+    <li><a href="#53-language-elements">5.3 Language elements</a></li>
+    <li><a href="#54-control-structures">5.4 Control structures</a></li>
+    <li><a href="#55-cursors">5.5 Cursors</a></li>
+    <li><a href="#56-exception-handling">5.6 Exception handling</a></li>
+    <li><a href="#57-procedures-and-functions">5.7 Procedures and functions</a></li>
+    <li><a href="#58-triggers-off-syllabus-but-examined">5.8 Triggers — off-syllabus but examined</a></li>
+    <li><a href="#59-steps-to-create-and-run-a-plsql-program">5.9 Steps to create and run a PL/SQL program</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 25):</strong> Introduction, shortcomings of SQL, structure of PL/SQL,
 PL/SQL language elements, data types, operator precedence, control structures,
 steps to create a PL/SQL program, iterative control, procedures, functions.</p>
 <hr />
 <div class="warn">
 <p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
-<h2>⚠ Triggers are examined but are not in this unit's syllabus</h2>
+<h2 id="triggers-are-examined-but-are-not-in-this-units-syllabus">⚠ Triggers are examined but are not in this unit's syllabus</h2>
 <p>The unit list above — copied verbatim from page 25 — ends at "procedures,
 functions". <strong>Triggers are not mentioned.</strong> Neither are they in Course Outcome 5.</p>
 <p>But they <em>are</em> required in three separate places:</p>
@@ -52,7 +69,7 @@ functions". <strong>Triggers are not mentioned.</strong> Neither are they in Cou
 <a href="../syllabus-review.html"><code>SYLLABUS-REVIEW.md</code></a> finding <span class="finding">D2</span>.</p>
 </div>
 <hr />
-<h2>5.1 Shortcomings of SQL</h2>
+<h2 id="51-shortcomings-of-sql">5.1 Shortcomings of SQL</h2>
 <p>SQL is a <strong>declarative</strong> language: you state what you want and the DBMS decides
 how to get it. That is its strength, and also its limit.</p>
 <table class="main-table">
@@ -92,7 +109,7 @@ how to get it. That is its strength, and also its limit.</p>
 <p><strong>PL/SQL</strong> — Procedural Language extensions to SQL — adds all of this. Its
 decisive advantage is that a whole block is sent to the server <strong>once</strong> and
 executes there, so ten statements cost one round trip rather than ten.</p>
-<h2>5.2 Structure of a PL/SQL block</h2>
+<h2 id="52-structure-of-a-plsql-block">5.2 Structure of a PL/SQL block</h2>
 <p>PL/SQL is a <strong>block-structured</strong> language. Every program is a block with up to
 four parts:</p>
 <pre><code class="language-sql">DECLARE                       -- optional: variables, cursors, exceptions
@@ -145,7 +162,7 @@ means nothing happens — the tool waits for more input.</p>
 no visible output at all. This is the single most common reason a student's
 PL/SQL "does not work" in a lab exam, and it is not an error — the code runs
 correctly and the output is simply discarded.</p>
-<h3>Types of block</h3>
+<h3 id="types-of-block">Types of block</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -168,8 +185,8 @@ correctly and the output is simply discarded.</p>
 </tr>
 </tbody>
 </table>
-<h2>5.3 Language elements</h2>
-<h3>Variables and constants</h3>
+<h2 id="53-language-elements">5.3 Language elements</h2>
+<h3 id="variables-and-constants">Variables and constants</h3>
 <pre><code class="language-sql">DECLARE
     v_count     NUMBER := 0;                    -- initialised
     v_name      VARCHAR2(50);
@@ -185,11 +202,11 @@ variable inherit a column's data type, so if the column changes from
 <code>NUMBER(8,2)</code> to <code>NUMBER(12,2)</code> your code still compiles. <code>%ROWTYPE</code> declares a
 record matching an entire row, so <code>v_emp_row.first_name</code> works without
 declaring each field.</p>
-<h3>Naming conventions</h3>
+<h3 id="naming-conventions">Naming conventions</h3>
 <p><code>v_</code> for variables, <code>c_</code> for constants, <code>p_</code> for parameters, <code>cur_</code> for cursors.
 Not enforced, but expected — and it prevents the classic bug where a parameter
 named <code>emp_id</code> collides with the column <code>emp_id</code> in a <code>WHERE</code> clause.</p>
-<h3>Data types</h3>
+<h3 id="data-types">Data types</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -226,7 +243,7 @@ named <code>emp_id</code> collides with the column <code>emp_id</code> in a <cod
 </table>
 <p><code>BOOLEAN</code> is PL/SQL-only. You cannot create a table column of type <code>BOOLEAN</code> in
 Oracle — use <code>NUMBER(1)</code> or <code>CHAR(1)</code>. That asymmetry is a common exam question.</p>
-<h3>Operator precedence</h3>
+<h3 id="operator-precedence">Operator precedence</h3>
 <p>Highest to lowest:</p>
 <pre><code>**                              exponentiation
 +, -                            unary identity and negation
@@ -239,8 +256,8 @@ AND
 OR
 </code></pre>
 <p><code>||</code> is the <strong>concatenation</strong> operator — Oracle uses it, not <code>+</code>.</p>
-<h2>5.4 Control structures</h2>
-<h3>Conditional</h3>
+<h2 id="54-control-structures">5.4 Control structures</h2>
+<h3 id="conditional">Conditional</h3>
 <pre><code class="language-sql">IF salary &gt; 100000 THEN
     grade := 'A';
 ELSIF salary &gt; 50000 THEN            -- ELSIF, not ELSEIF or ELSE IF
@@ -263,7 +280,7 @@ END CASE;
 </code></pre>
 <p><strong><code>ELSIF</code></strong> is spelled with no second E. <strong><code>END IF</code></strong> is two words. Both are
 routine syntax-error marks.</p>
-<h3>Iterative control</h3>
+<h3 id="iterative-control">Iterative control</h3>
 <pre><code class="language-sql">-- Basic loop -- needs an explicit EXIT or it never ends
 LOOP
     v_counter := v_counter + 1;
@@ -292,12 +309,12 @@ END LOOP;
 <p><strong>In a numeric <code>FOR</code> loop the counter is declared automatically</strong> and is
 read-only inside the loop — you cannot assign to <code>i</code>. Even with <code>REVERSE</code>, the
 range is written low..high.</p>
-<h2>5.5 Cursors</h2>
+<h2 id="55-cursors">5.5 Cursors</h2>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>cursor</strong> is a pointer to the result set of a query.</p>
 </div>
-<h3>Implicit cursors</h3>
+<h3 id="implicit-cursors">Implicit cursors</h3>
 <p>Created automatically for every SQL statement. Their attributes are useful:</p>
 <table class="main-table">
 <thead>
@@ -327,7 +344,7 @@ range is written low..high.</p>
 </table>
 <p><code>SQL%ROWCOUNT</code> after an <code>UPDATE</code> is how you report "5 employees received a
 bonus" — used in the <code>GiveBonus</code> procedure in the lab.</p>
-<h3>Explicit cursors</h3>
+<h3 id="explicit-cursors">Explicit cursors</h3>
 <pre><code class="language-sql">DECLARE
     CURSOR cur_emp IS SELECT emp_id, first_name, salary FROM Employees;
     v_emp cur_emp%ROWTYPE;
@@ -346,7 +363,7 @@ END;
 processed twice.</p>
 <p>A <strong>cursor FOR loop</strong> does all four steps for you and cannot leak an open
 cursor — prefer it unless you need fine control.</p>
-<h2>5.6 Exception handling</h2>
+<h2 id="56-exception-handling">5.6 Exception handling</h2>
 <pre><code class="language-sql">BEGIN
     SELECT salary INTO v_salary FROM Employees WHERE emp_id = p_id;
 EXCEPTION
@@ -358,7 +375,7 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
 </code></pre>
-<h3>Predefined exceptions</h3>
+<h3 id="predefined-exceptions">Predefined exceptions</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -404,7 +421,7 @@ END;
 <p><strong><code>SELECT INTO</code> raises <code>NO_DATA_FOUND</code> when it finds nothing</strong> — it does not
 return NULL. Every <code>SELECT INTO</code> should have a handler.</p>
 <p><code>SQLCODE</code> gives the error number and <code>SQLERRM</code> the message.</p>
-<h3>User-defined exceptions</h3>
+<h3 id="user-defined-exceptions">User-defined exceptions</h3>
 <pre><code class="language-sql">DECLARE
     e_negative_salary EXCEPTION;
 BEGIN
@@ -419,8 +436,8 @@ END;
 <p><code>RAISE_APPLICATION_ERROR(-20001, 'message')</code> raises an error that reaches the
 <strong>calling application</strong>, not just the block. The error number must be between
 −20000 and −20999. This is what triggers use to reject a bad row.</p>
-<h2>5.7 Procedures and functions</h2>
-<h3>Procedure</h3>
+<h2 id="57-procedures-and-functions">5.7 Procedures and functions</h2>
+<h3 id="procedure">Procedure</h3>
 <pre><code class="language-sql">CREATE OR REPLACE PROCEDURE GetEmpInfo (p_emp_id IN NUMBER)
 IS
     v_name   VARCHAR2(101);
@@ -439,7 +456,7 @@ END;
 
 EXEC GetEmpInfo(101);
 </code></pre>
-<h3>Function</h3>
+<h3 id="function">Function</h3>
 <pre><code class="language-sql">CREATE OR REPLACE FUNCTION get_annual_salary (p_emp_id IN NUMBER)
 RETURN NUMBER
 IS
@@ -454,7 +471,7 @@ END;
 
 SELECT first_name, get_annual_salary(emp_id) AS annual FROM Employees;
 </code></pre>
-<h3>Procedure vs function — a guaranteed exam question</h3>
+<h3 id="procedure-vs-function-a-guaranteed-exam-question">Procedure vs function — a guaranteed exam question</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -491,7 +508,7 @@ SELECT first_name, get_annual_salary(emp_id) AS annual FROM Employees;
 </tr>
 </tbody>
 </table>
-<h3>Parameter modes</h3>
+<h3 id="parameter-modes">Parameter modes</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -528,13 +545,13 @@ END;
 /
 </code></pre>
 <p><code>IN</code> parameters cannot be assigned to inside the procedure.</p>
-<h2>5.8 Triggers — off-syllabus but examined</h2>
+<h2 id="58-triggers-off-syllabus-but-examined">5.8 Triggers — off-syllabus but examined</h2>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>Not in the Unit 5 topic list, but required by Course Objective 5, the
 prescribed activities, and two of the six PL/SQL lab questions. Finding <strong>D2</strong>.</p>
 </div>
-<h3>What a trigger is</h3>
+<h3 id="what-a-trigger-is">What a trigger is</h3>
 <p>A <strong>stored block that fires automatically</strong> in response to an event — you never
 call it. The database calls it for you, and it cannot be bypassed.</p>
 <pre><code class="language-sql">CREATE OR REPLACE TRIGGER trigger_name
@@ -548,7 +565,7 @@ BEGIN
 END;
 /
 </code></pre>
-<h3>Classification</h3>
+<h3 id="classification">Classification</h3>
 <p><strong>By timing:</strong></p>
 <table class="main-table">
 <thead>
@@ -601,7 +618,7 @@ END;
 <p>An <code>UPDATE</code> touching 100 rows fires a row-level trigger 100 times and a
 statement-level trigger once. Choosing the wrong level is the standard exam
 trap.</p>
-<h3><code>:NEW</code> and <code>:OLD</code></h3>
+<h3 id="new-and-old"><code>:NEW</code> and <code>:OLD</code></h3>
 <p>Available only in <strong>row-level</strong> triggers:</p>
 <table class="main-table">
 <thead>
@@ -630,7 +647,7 @@ trap.</p>
 <p><code>:NEW</code> values may be <strong>assigned</strong> in a <code>BEFORE</code> trigger — that is how you
 default or normalise a column. In an <code>AFTER</code> trigger the row is already written,
 so assignment is not allowed.</p>
-<h3>Lab question 5 — reject a salary below 30,000</h3>
+<h3 id="lab-question-5-reject-a-salary-below-30000">Lab question 5 — reject a salary below 30,000</h3>
 <pre><code class="language-sql">CREATE OR REPLACE TRIGGER trg_min_salary
 BEFORE INSERT OR UPDATE OF salary ON Employees
 FOR EACH ROW
@@ -646,7 +663,7 @@ END;
 <p><strong><code>BEFORE</code></strong> because the row must be rejected before it is written.
 <strong><code>FOR EACH ROW</code></strong> because the rule is about individual rows.
 <strong><code>RAISE_APPLICATION_ERROR</code></strong> aborts the statement and rolls it back.</p>
-<h3>Lab question 6 — block weekend changes</h3>
+<h3 id="lab-question-6-block-weekend-changes">Lab question 6 — block weekend changes</h3>
 <pre><code class="language-sql">CREATE OR REPLACE TRIGGER trg_no_weekend_changes
 BEFORE INSERT OR UPDATE OR DELETE ON Employees
 DECLARE
@@ -667,7 +684,7 @@ would work but fire needlessly for every row.</p>
 <p>Note the explicit <code>NLS_DATE_LANGUAGE</code>. Without it, <code>TO_CHAR(SYSDATE,'DY')</code>
 returns the day name in the session's language, so comparing against
 <code>'SAT'</code>/<code>'SUN'</code> silently fails on a differently-configured session.</p>
-<h3>Advantages and disadvantages</h3>
+<h3 id="advantages-and-disadvantages">Advantages and disadvantages</h3>
 <p><strong>Advantages:</strong> enforce complex business rules that constraints cannot express;
 maintain an audit trail; derive values automatically; cannot be bypassed by any
 application.</p>
@@ -675,19 +692,19 @@ application.</p>
 discover a trigger is firing; cascading triggers are hard to reason about; they
 add overhead to every affected statement; and excessive use scatters business
 logic across the database.</p>
-<h3>The mutating table error</h3>
+<h3 id="the-mutating-table-error">The mutating table error</h3>
 <p>A row-level trigger <strong>cannot query or modify the table it is defined on</strong>.
 Attempting it raises <code>ORA-04091: table is mutating</code>. The usual workaround is a
 compound trigger or a statement-level trigger. Worth mentioning in a long
 answer.</p>
-<h3>Managing triggers</h3>
+<h3 id="managing-triggers">Managing triggers</h3>
 <pre><code class="language-sql">ALTER TRIGGER trg_min_salary DISABLE;
 ALTER TRIGGER trg_min_salary ENABLE;
 DROP TRIGGER trg_min_salary;
 SELECT trigger_name, status FROM user_triggers;
 </code></pre>
 <hr />
-<h2>5.9 Steps to create and run a PL/SQL program</h2>
+<h2 id="59-steps-to-create-and-run-a-plsql-program">5.9 Steps to create and run a PL/SQL program</h2>
 <ol>
 <li><code>SET SERVEROUTPUT ON</code> — otherwise no output appears</li>
 <li>Write the block, with <code>DECLARE</code> / <code>BEGIN</code> / <code>EXCEPTION</code> / <code>END;</code></li>
@@ -698,7 +715,7 @@ SELECT trigger_name, status FROM user_triggers;
 <li>Call it with <code>EXEC procedure_name(args)</code> or inside a <code>SELECT</code> for a function</li>
 </ol>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>State any three shortcomings of SQL that PL/SQL addresses.</li>
@@ -731,7 +748,7 @@ SELECT trigger_name, status FROM user_triggers;
    disadvantages, and the mutating table problem.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

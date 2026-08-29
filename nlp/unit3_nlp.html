@@ -26,15 +26,26 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-named-entity-recognition">3.1 Named Entity Recognition</a></li>
+    <li><a href="#32-bag-of-words-and-n-grams">3.2 Bag of Words and N-grams</a></li>
+    <li><a href="#33-word-embeddings">3.3 Word embeddings</a></li>
+    <li><a href="#34-the-text-classification-pipeline">3.4 The text classification pipeline</a></li>
+    <li><a href="#35-ethical-considerations">3.5 Ethical considerations</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 11):</strong> Named Entity Recognition (NER): concepts, examples,
 using spaCy and NLTK. Word embeddings: Word2Vec (Skip-Gram, CBOW),
 comparison, implementations. Bag of Words and N-grams. Text classification
 pipeline. Sentiment analysis applications. Ethical considerations in
 preprocessing and classification.</p>
 <hr />
-<h2>3.1 Named Entity Recognition</h2>
+<h2 id="31-named-entity-recognition">3.1 Named Entity Recognition</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What it is</h4>
 <p>Find the spans of text that name a thing, and say what kind of thing.</p>
 <table class="main-table">
@@ -75,7 +86,7 @@ preprocessing and classification.</p>
 <em>Karnataka</em> is a GPE, <em>the Western Ghats</em> is a LOC.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The tagging scheme</h4>
 <p>NER is a <strong>sequence labelling</strong> problem, and the standard encoding is <strong>BIO</strong>:</p>
 <table class="main-table">
@@ -158,14 +169,14 @@ runs spaCy's <code>en_core_web_sm</code> on a paragraph of Indian business news 
 </tbody>
 </table>
 </div>
-<h3>⚠️ Read which two failed</h3>
+<h3 id="read-which-two-failed">⚠️ Read which two failed</h3>
 <p><strong>Both are states, and both cities were correct.</strong> <code>en_core_web_sm</code> was
 trained on OntoNotes — mostly American news — where Indian state names are
 rare. The model falls back on surface cues, and <em>Tamil Nadu</em> has the shape of
 a two-token personal name.</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
-<h3>🎯 This is domain shift, and it is the single most important thing to</h3>
+<h3 id="this-is-domain-shift-and-it-is-the-single-most-important-thing-to">🎯 This is domain shift, and it is the single most important thing to</h3>
 <p>know before using a pre-trained NLP model on Indian text</p>
 <p>The model is not broken. <strong>It is being used outside its training
 distribution, and the errors are systematic rather than random</strong> — which
@@ -202,7 +213,7 @@ of inference.</strong> A gazetteer is unglamorous and very often correct. The
 alternative — annotating a few hundred sentences of your own domain and
 fine-tuning — is the right answer when the list is open.</p>
 </div>
-<h3>⚠️ And a lesson about your own gold standard</h3>
+<h3 id="and-a-lesson-about-your-own-gold-standard">⚠️ And a lesson about your own gold standard</h3>
 <p>spaCy also found <code>2,400</code> (CARDINAL) and <code>three years</code> (DATE), which were <strong>not
 in the hand-built truth list</strong>. Both are correct — <strong>the gold list was
 incomplete.</strong></p>
@@ -214,9 +225,9 @@ then punished for finding it. <strong>Annotate exhaustively, or state explicitly
 which categories you covered.</strong></p>
 </div>
 <hr />
-<h2>3.2 Bag of Words and N-grams</h2>
+<h2 id="32-bag-of-words-and-n-grams">3.2 Bag of Words and N-grams</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Bag of words</h4>
 <p>Count each word; discard order. A document becomes a vector as long as the
 vocabulary.</p>
@@ -296,7 +307,7 @@ removing stopwords before TF-IDF changes less than students expect</strong>.</p>
 space grows enormously and most bigrams appear once, so <strong>you gain word order
 and lose statistical strength.</strong></p>
 </div>
-<h3>⚠️ The measurement that motivates the rest of the course</h3>
+<h3 id="the-measurement-that-motivates-the-rest-of-the-course">⚠️ The measurement that motivates the rest of the course</h3>
 <p>Four documents with a known answer — 0 and 1 are near-duplicates, <strong>2 is a
 paraphrase of 0 in different words</strong>, 3 is about the monsoon:</p>
 <table class="main-table">
@@ -335,7 +346,7 @@ are different strings and nothing in the counts says otherwise.</p>
 <p><strong>This is exactly the failure word embeddings were invented for.</strong></p>
 </div>
 <hr />
-<h2>3.3 Word embeddings</h2>
+<h2 id="33-word-embeddings">3.3 Word embeddings</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The distributional hypothesis</h4>
@@ -345,7 +356,7 @@ similar contexts get similar vectors, and <strong>that is the only supervision
 there is.</strong></p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Word2Vec — the two architectures</h4>
 <table class="main-table">
 <thead>
@@ -392,7 +403,7 @@ there is.</strong></p>
 skip-gram fans a word <em>out</em> into its context.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>How it is trained, and why negative sampling exists</h4>
 <p>The naive objective requires a softmax over the whole vocabulary at every
 step — <strong>hundreds of thousands of exponentials per training example</strong>.</p>
@@ -403,7 +414,7 @@ The cost drops from |V| to <code>k + 1</code>, typically <strong>5–20 instead 
 computationally impossible.</strong> That is the answer.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>GloVe, and how it differs</h4>
 <p>Word2Vec is <strong>predictive</strong> and works locally, one window at a time. GloVe is
 <strong>count-based</strong>: build the global word–word co-occurrence matrix, then
@@ -419,16 +430,16 @@ prediction</em> against <em>global co-occurrence factorisation</em>.</p>
 <p><strong>Vector arithmetic captures analogies</strong> because the offset between <em>man</em> and
 <em>woman</em> is roughly the offset between <em>king</em> and <em>queen</em>.</p>
 </div>
-<h3>⚠️ And the limitation that ends this line of work</h3>
+<h3 id="and-the-limitation-that-ends-this-line-of-work">⚠️ And the limitation that ends this line of work</h3>
 <p><strong>One vector per word, for ever.</strong> <em>Bank</em> gets a single vector that must serve
 the river and the money — and WordNet lists <strong>18 senses</strong> for it.</p>
 <p><strong>Contextual embeddings (<a href="unit5_nlp.html">Unit 5</a>) exist for precisely this</strong>, and
 <a href="lab_nlp.html#experiment-12">experiment 12</a> trains a small bidirectional model to
 show the mechanism.</p>
 <hr />
-<h2>3.4 The text classification pipeline</h2>
+<h2 id="34-the-text-classification-pipeline">3.4 The text classification pipeline</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The steps, in order</h4>
 <pre><code>raw text
   → tokenize
@@ -438,14 +449,14 @@ show the mechanism.</p>
   → evaluate AGAINST A BASELINE
 </code></pre>
 </div>
-<h3>⚠️ The order matters, and this is examined</h3>
+<h3 id="the-order-matters-and-this-is-examined">⚠️ The order matters, and this is examined</h3>
 <p><strong>Fit the vectoriser on the training set only, then <code>transform</code> the test
 set.</strong> Fitting on everything leaks test-set vocabulary and IDF statistics into
 training and inflates your score.</p>
 <p><code>sklearn</code>'s <code>Pipeline</code> exists to make this mistake hard to commit — which is
 why the lab uses <code>make_pipeline</code> throughout rather than vectorising by hand.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Sentiment analysis as an application of the pipeline</h4>
 <p><strong>Sentiment analysis</strong> is the pipeline above with a polarity label, and it is
 the one application where the preprocessing advice from
@@ -528,7 +539,7 @@ label.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Re-read the first table with that in mind</h3>
+<h3 id="re-read-the-first-table-with-that-in-mind">⚠️ Re-read the first table with that in mind</h3>
 <p><strong>Every difference between the real models is smaller than the variation
 between folds.</strong> Naive Bayes "beating" logistic regression, and stopword
 removal "helping", are both inside the noise.</p>
@@ -551,7 +562,7 @@ ten most negative features.</strong></p>
 <em>build a dataset with a known answer</em> to get the same check.</p>
 </div>
 <hr />
-<h2>3.5 Ethical considerations</h2>
+<h2 id="35-ethical-considerations">3.5 Ethical considerations</h2>
 <p>The syllabus lists this under preprocessing and classification, and each item
 has a concrete mechanism rather than a slogan.</p>
 <table class="main-table">
@@ -584,7 +595,7 @@ has a concrete mechanism rather than a slogan.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The one specific to this unit</h3>
+<h3 id="the-one-specific-to-this-unit">⚠️ The one specific to this unit</h3>
 <p><strong>Stopword removal deletes negation.</strong> "The film was not good" becomes "film
 good". Applied to a complaints corpus or a medical note, <strong>that is not a
 performance issue; it inverts the meaning of the record.</strong></p>
@@ -595,7 +606,7 @@ and you must be able to say <em>what</em> it discards and <em>for whom</em> that
 "It is standard practice" is not an answer.</p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] List the main NER labels and distinguish <code>GPE</code> from <code>LOC</code></li>
 <li>[ ] Explain the BIO scheme and why <code>B</code> and <code>I</code> are both needed</li>

@@ -27,13 +27,25 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-input-and-output-devices">2.1 Input and output devices</a></li>
+    <li><a href="#22-memory-and-storage">2.2 Memory and storage</a></li>
+    <li><a href="#23-types-of-computers">2.3 Types of computers</a></li>
+    <li><a href="#24-networking-fundamentals">2.4 Networking fundamentals</a></li>
+    <li><a href="#25-internet-basics">2.5 Internet basics</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 4):</strong> Computer organization — functional components,
 input/output devices, storage types, memory hierarchy. Types of computers —
 micro, mini, mainframe, and supercomputers. Networking fundamentals —
 definition, need for networks, types (LAN, WAN, MAN), topology (star, ring,
 bus). Internet basics — IP address, domain name, web browser, email, WWW.</p>
 <hr />
-<h2>2.1 Input and output devices</h2>
+<h2 id="21-input-and-output-devices">2.1 Input and output devices</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -78,8 +90,8 @@ are graded. <strong>OCR</strong> (Optical Character Recognition) reads printed t
 cheque.</p>
 <p>A <strong>touch screen is both an input and an output device</strong>. So is a network
 interface card, and a modem. Exams like this question.</p>
-<h2>2.2 Memory and storage</h2>
-<h3>The memory hierarchy</h3>
+<h2 id="22-memory-and-storage">2.2 Memory and storage</h2>
+<h3 id="the-memory-hierarchy">The memory hierarchy</h3>
 <pre><code>              ▲  faster, smaller, more expensive per byte
               │
      ┌────────────────────┐
@@ -104,7 +116,7 @@ you can afford only a little; cheap memory is slow, so you cannot work directly
 from it. The compromise keeps frequently used data in the fast levels — which
 works because programs exhibit <strong>locality of reference</strong>: they tend to reuse the
 same data and instructions repeatedly.</p>
-<h3>Primary vs secondary memory</h3>
+<h3 id="primary-vs-secondary-memory">Primary vs secondary memory</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -146,7 +158,7 @@ same data and instructions repeatedly.</p>
 </tr>
 </tbody>
 </table>
-<h3>RAM vs ROM</h3>
+<h3 id="ram-vs-rom">RAM vs ROM</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -192,7 +204,7 @@ thousands of times a second — slower and cheaper, and used for main memory.</p
 <li><strong>EPROM</strong> — erasable with ultraviolet light</li>
 <li><strong>EEPROM</strong> — erasable electrically; Flash memory is a form of this</li>
 </ul>
-<h3>Units of storage</h3>
+<h3 id="units-of-storage">Units of storage</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -234,7 +246,7 @@ thousands of times a second — slower and cheaper, and used for main memory.</p
 <p>Storage manufacturers use powers of 10 (1 GB = 1,000,000,000 bytes), which is
 why a "500 GB" drive shows as about 465 GB in the operating system. The
 unambiguous binary units are <strong>KiB, MiB, GiB</strong>.</p>
-<h2>2.3 Types of computers</h2>
+<h2 id="23-types-of-computers">2.3 Types of computers</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -289,8 +301,8 @@ enormous number of <strong>transactions</strong> simultaneously — reliability 
 matter most. A supercomputer performs an enormous number of <strong>calculations</strong> on
 one problem — raw floating-point speed matters most. A bank needs a mainframe;
 a weather forecast needs a supercomputer.</p>
-<h2>2.4 Networking fundamentals</h2>
-<h3>What a network is, and why</h3>
+<h2 id="24-networking-fundamentals">2.4 Networking fundamentals</h2>
+<h3 id="what-a-network-is-and-why">What a network is, and why</h3>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>computer network</strong> is two or more computers connected to share resources
@@ -309,7 +321,7 @@ and communicate.</p>
 <li><strong>Scalability</strong> — add machines without redesigning</li>
 <li><strong>Centralised administration</strong> — manage many machines from one place</li>
 </ol>
-<h3>Types by geographical area</h3>
+<h3 id="types-by-geographical-area">Types by geographical area</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -358,7 +370,7 @@ and communicate.</p>
 </table>
 <p><strong>The Internet is the largest WAN.</strong> LANs are fast and privately owned; WANs are
 slower per link and usually rely on leased telecommunications infrastructure.</p>
-<h3>Network topologies</h3>
+<h3 id="network-topologies">Network topologies</h3>
 <p><strong>Topology</strong> is the arrangement of the connections.</p>
 <table class="main-table">
 <thead>
@@ -426,7 +438,7 @@ thoroughly, and be able to draw them.</p>
 is physically a star.</p>
 <p><strong>The mesh cable count</strong> is a common numerical question: a full mesh of n nodes
 needs <strong>n(n−1)/2</strong> links. For 6 nodes that is 15.</p>
-<h3>Network devices</h3>
+<h3 id="network-devices">Network devices</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -476,7 +488,7 @@ needs <strong>n(n−1)/2</strong> links. For 6 nodes that is 15.</p>
 <p><strong>Hub vs switch</strong> is examined constantly: a hub sends every frame to every port,
 wasting bandwidth and creating collisions; a switch learns which device is on
 which port and sends the frame only there.</p>
-<h3>Transmission modes</h3>
+<h3 id="transmission-modes">Transmission modes</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -503,14 +515,14 @@ which port and sends the frame only there.</p>
 </tr>
 </tbody>
 </table>
-<h2>2.5 Internet basics</h2>
-<h3>What the Internet is</h3>
+<h2 id="25-internet-basics">2.5 Internet basics</h2>
+<h3 id="what-the-internet-is">What the Internet is</h3>
 <p>A global <strong>network of networks</strong> using the <strong>TCP/IP</strong> protocol suite. It began
 as <strong>ARPANET</strong> in 1969 (US Department of Defense) and reached India in 1995.</p>
 <p><strong>The Internet is not the Web.</strong> The Internet is the infrastructure; the World
 Wide Web is one service running on it, alongside email, FTP and many others.
 That distinction is a reliable two-mark question.</p>
-<h3>IP address</h3>
+<h3 id="ip-address">IP address</h3>
 <p>A unique numeric identifier for a device on a network.</p>
 <table class="main-table">
 <thead>
@@ -585,7 +597,7 @@ That distinction is a reliable two-mark question.</p>
 <p><code>127.0.0.1</code> is <strong>localhost</strong> — the machine itself. Private ranges
 (<code>10.x.x.x</code>, <code>172.16–31.x.x</code>, <code>192.168.x.x</code>) are not routable on the public
 Internet, which is why your home router hands out <code>192.168.1.x</code>.</p>
-<h3>Domain names and DNS</h3>
+<h3 id="domain-names-and-dns">Domain names and DNS</h3>
 <p>Humans remember <code>google.com</code>; machines need <code>142.250.183.14</code>. The <strong>Domain Name
 System</strong> translates between them — effectively the Internet's phone book.</p>
 <pre><code>www  .  example  .  com
@@ -598,12 +610,12 @@ System</strong> translates between them — effectively the Internet's phone boo
 (education), <code>.gov</code> (government), <code>.net</code> (network), plus country codes such as
 <code>.in</code>, <code>.uk</code>, <code>.us</code>. India also has <code>.ac.in</code> for academic institutions and
 <code>.gov.in</code> for government.</p>
-<h3>URL structure</h3>
+<h3 id="url-structure">URL structure</h3>
 <pre><code>https://www.example.com:443/folder/page.html?id=42#section
   │           │          │        │            │      │
 protocol   domain      port     path        query  fragment
 </code></pre>
-<h3>World Wide Web</h3>
+<h3 id="world-wide-web">World Wide Web</h3>
 <p>Invented by <strong>Tim Berners-Lee at CERN in 1989</strong>. Its three foundations:</p>
 <ol>
 <li><strong>HTML</strong> — the markup language for pages</li>
@@ -612,11 +624,11 @@ protocol   domain      port     path        query  fragment
 </ol>
 <p><strong>HTTP vs HTTPS:</strong> HTTPS adds TLS encryption. Anything involving a password or
 payment must use HTTPS; the padlock in the address bar indicates it.</p>
-<h3>Web browser</h3>
+<h3 id="web-browser">Web browser</h3>
 <p>Software that requests, interprets and displays web pages: Chrome, Firefox,
 Safari, Edge. Its core components are the rendering engine (which draws HTML and
 CSS), the JavaScript engine, and the network layer.</p>
-<h3>Email</h3>
+<h3 id="email">Email</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -651,7 +663,7 @@ the domain.</p>
 <p><strong>Cc vs Bcc:</strong> every recipient sees the Cc list; nobody sees the Bcc list. Using
 Cc where Bcc was needed exposes everyone's address to everyone else — a real
 privacy failure, and a good exam point.</p>
-<h3>Common protocols</h3>
+<h3 id="common-protocols">Common protocols</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -699,7 +711,7 @@ for web pages, email and file transfer. UDP does neither, and is used where
 speed matters more than perfection: live video, voice calls, online games. A
 dropped frame in a video call is better than a stalled one.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Differentiate RAM and ROM.</li>
@@ -728,7 +740,7 @@ dropped frame in a video call is better than a stalled one.</p>
    and devices — with diagrams.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

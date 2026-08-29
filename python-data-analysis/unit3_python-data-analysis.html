@@ -31,14 +31,30 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-reading-and-writing-text-data">3.1 Reading and writing text data</a></li>
+    <li><a href="#32-working-with-json">3.2 Working with JSON</a></li>
+    <li><a href="#33-handling-missing-data">3.3 Handling missing data</a></li>
+    <li><a href="#34-replacing-values">3.4 Replacing values</a></li>
+    <li><a href="#35-renaming-axis-indexes">3.5 Renaming axis indexes</a></li>
+    <li><a href="#36-removing-duplicates">3.6 Removing duplicates</a></li>
+    <li><a href="#37-filtering-outliers">3.7 Filtering outliers</a></li>
+    <li><a href="#38-transforming-with-mapping-and-functions">3.8 Transforming with mapping and functions</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> Reading and writing data in text format (CSV, TXT),
 working with JSON, reading Microsoft Excel files, handling missing data,
 dropping and filling missing values, replacing values, renaming axis indexes,
 removing duplicates, filtering outliers, transforming data using mapping or
 functions.</p>
 <hr />
-<h2>3.1 Reading and writing text data</h2>
-<h3>The readers</h3>
+<h2 id="31-reading-and-writing-text-data">3.1 Reading and writing text data</h2>
+<h3 id="the-readers">The readers</h3>
 <pre><code class="language-python">pd.read_csv(&quot;marks.csv&quot;)
 pd.read_csv(&quot;data.txt&quot;, sep=&quot;\t&quot;)            # or read_table
 pd.read_csv(&quot;data.txt&quot;, sep=r&quot;\s+&quot;)          # any run of whitespace
@@ -49,7 +65,7 @@ pd.read_html(&quot;https://example.com/table&quot;)     # every &lt;table&gt; on
 pd.read_parquet(&quot;big.parquet&quot;)
 pd.read_clipboard()
 </code></pre>
-<h3>The parameters that matter</h3>
+<h3 id="the-parameters-that-matter">The parameters that matter</h3>
 <pre><code class="language-python">pd.read_csv(
     &quot;marks.csv&quot;,
     sep=&quot;,&quot;,                    # delimiter
@@ -68,7 +84,7 @@ pd.read_clipboard()
     comment=&quot;#&quot;,
 )
 </code></pre>
-<h3>⚠️ Four things that go wrong on real files</h3>
+<h3 id="four-things-that-go-wrong-on-real-files">⚠️ Four things that go wrong on real files</h3>
 <p><strong>1. Leading zeros disappear.</strong> A roll number <code>007</code> is read as the integer 7.
 <code>dtype={"roll": str}</code> prevents it. Once lost, the zeros cannot be recovered
 without knowing the intended width.</p>
@@ -86,7 +102,7 @@ usually why</strong> — Pandas 3 shows that as dtype <code>str</code>, older ve
 <pre><code class="language-python">df.dtypes                     # ALWAYS check after reading
 df.info()
 </code></pre>
-<h3>Writing</h3>
+<h3 id="writing">Writing</h3>
 <pre><code class="language-python">df.to_csv(&quot;out.csv&quot;, index=False)        # index=False almost always
 df.to_csv(&quot;out.csv&quot;, sep=&quot;\t&quot;, na_rep=&quot;NA&quot;, float_format=&quot;%.2f&quot;)
 df.to_excel(&quot;out.xlsx&quot;, sheet_name=&quot;Results&quot;, index=False)
@@ -106,7 +122,7 @@ columnar, compressed and far faster — and every Pandas installation can read
 it. Use CSV for interchange with humans and spreadsheets; use Parquet for
 anything you will read back yourself.</p>
 </div>
-<h2>3.2 Working with JSON</h2>
+<h2 id="32-working-with-json">3.2 Working with JSON</h2>
 <pre><code class="language-python">import json
 
 df = pd.read_json(&quot;students.json&quot;)
@@ -171,7 +187,7 @@ would leave <code>marks</code> as a column of dicts, which you cannot compute wi
 <p>Course 10's MongoDB documents have exactly this shape, so this function is the
 bridge from that course to this one.</p>
 </div>
-<h2>3.3 Handling missing data</h2>
+<h2 id="33-handling-missing-data">3.3 Handling missing data</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>What counts as missing</h4>
@@ -211,7 +227,7 @@ df.isna().any(axis=1).sum()        # rows with any missing value
 you can see at a glance that a column is 3% missing versus 70% missing — a
 difference that changes what you should do about it.</p>
 </div>
-<h3>⚠️ <code>NaN != NaN</code></h3>
+<h3 id="nan-nan">⚠️ <code>NaN != NaN</code></h3>
 <pre><code class="language-python">np.nan == np.nan          # False
 df[df.maths == np.nan]    # ALWAYS EMPTY — never do this
 df[df.maths.isna()]       # correct
@@ -219,7 +235,7 @@ df[df.maths.isna()]       # correct
 <p>NaN is defined by IEEE 754 to compare unequal to everything, itself included.
 Every language behaves this way, and <code>isna()</code> exists precisely because <code>==</code>
 cannot work.</p>
-<h3>⚠️ NaN forces a column to float</h3>
+<h3 id="nan-forces-a-column-to-float">⚠️ NaN forces a column to float</h3>
 <pre><code class="language-python">pd.Series([1, 2, 3]).dtype              # int64
 pd.Series([1, 2, np.nan]).dtype         # float64  — the ints were upcast
 pd.Series([1, 2, pd.NA], dtype=&quot;Int64&quot;).dtype    # Int64 — a NULLABLE integer
@@ -228,7 +244,7 @@ pd.Series([1, 2, pd.NA], dtype=&quot;Int64&quot;).dtype    # Int64 — a NULLABL
 column to float. <strong>Nullable dtypes</strong> — capital-I <code>Int64</code>, <code>Float64</code>,
 <code>boolean</code>, <code>string</code> — keep the type and use <code>pd.NA</code>. Use them when a column is
 conceptually an integer.</p>
-<h3>Dropping</h3>
+<h3 id="dropping">Dropping</h3>
 <pre><code class="language-python">df.dropna()                          # any missing value in the row
 df.dropna(how=&quot;all&quot;)                 # only entirely empty rows
 df.dropna(subset=[&quot;maths&quot;, &quot;stats&quot;]) # only these columns matter
@@ -238,7 +254,7 @@ df.dropna(thresh=3)                  # keep rows with &gt;= 3 non-null values
 <p><strong><code>dropna()</code> with no arguments is aggressive</strong>: one missing value anywhere in a
 row removes the whole row. On a wide table with scattered gaps it can delete
 most of the data. Check <code>len(df.dropna())</code> against <code>len(df)</code> before committing.</p>
-<h3>Filling</h3>
+<h3 id="filling">Filling</h3>
 <pre><code class="language-python">df.fillna(0)
 df.fillna({&quot;maths&quot;: 0, &quot;name&quot;: &quot;Unknown&quot;})        # per column
 df.fillna(df.mean(numeric_only=True))             # column means
@@ -299,7 +315,7 @@ unrelated customers).</p>
 <p>And the two warnings that carry marks: <strong>mean imputation shrinks the variance</strong>,
 and <strong>imputation must be fitted after the train/test split</strong>, never before.</p>
 </div>
-<h2>3.4 Replacing values</h2>
+<h2 id="34-replacing-values">3.4 Replacing values</h2>
 <pre><code class="language-python">df.replace(-999, np.nan)                        # a sentinel for missing
 df.replace([-999, -1000], np.nan)
 df.replace({-999: np.nan, &quot;N/A&quot;: np.nan})
@@ -312,7 +328,7 @@ df[&quot;phone&quot;].replace(r&quot;\D&quot;, &quot;&quot;, regex=True)        
 <code>mean()</code> silently includes them and your average age becomes negative.
 <strong>Convert sentinels to NaN as the first cleaning step</strong>, before computing
 anything.</p>
-<h2>3.5 Renaming axis indexes</h2>
+<h2 id="35-renaming-axis-indexes">3.5 Renaming axis indexes</h2>
 <pre><code class="language-python">df.rename(columns={&quot;maths&quot;: &quot;mathematics&quot;, &quot;stats&quot;: &quot;statistics&quot;})
 df.rename(index={0: &quot;first&quot;})
 df.rename(columns=str.lower)                     # a function
@@ -328,7 +344,7 @@ df.add_prefix(&quot;q1_&quot;)   /   df.add_suffix(&quot;_2026&quot;)
 as the standard column-cleanup line. Real spreadsheets arrive with
 <code>" Total  Marks "</code> — leading spaces, inconsistent case, embedded spaces — and
 every one of those breaks <code>df.Total_Marks</code> and confuses <code>merge</code>.</p>
-<h2>3.6 Removing duplicates</h2>
+<h2 id="36-removing-duplicates">3.6 Removing duplicates</h2>
 <pre><code class="language-python">df.duplicated()                             # fully duplicated rows
 df.duplicated(subset=[&quot;roll&quot;])              # duplicated on the key
 df.duplicated(keep=False)                   # mark EVERY copy
@@ -363,13 +379,13 @@ df.drop_duplicates(subset=[&quot;name&quot;], ignore_index=True)
 <p><strong>Use <code>keep=False</code> when investigating.</strong> <code>df[df.duplicated(subset=["roll"], keep=False)]</code>
 shows you <em>both</em> rows of each clash so you can see which to keep; the default
 shows only one of them, which is useless for deciding.</p>
-<h3>⚠️ "Duplicate" usually means duplicate on a key</h3>
+<h3 id="duplicate-usually-means-duplicate-on-a-key">⚠️ "Duplicate" usually means duplicate on a key</h3>
 <p>Two records for the same student, differing in one typo'd field, are <strong>not</strong>
 fully duplicated rows — so <code>drop_duplicates()</code> will not touch them. Specify the
 <code>subset</code> that defines identity:</p>
 <pre><code class="language-python">df.drop_duplicates(subset=[&quot;roll&quot;])          # one row per student
 </code></pre>
-<h2>3.7 Filtering outliers</h2>
+<h2 id="37-filtering-outliers">3.7 Filtering outliers</h2>
 <pre><code class="language-python"># 1. Domain rules first, always
 df = df[(df.age &gt;= 0) &amp; (df.age &lt;= 120)]
 df = df[df.marks.between(0, 100)]
@@ -387,7 +403,7 @@ outliers = df[(df.marks &lt; lo) | (df.marks &gt; hi)]
 # 4. Capping (winsorising) instead of deleting
 df[&quot;marks&quot;] = df.marks.clip(lower=lo, upper=hi)
 </code></pre>
-<h3>⚠️ The z-score rule is broken by the outliers it looks for</h3>
+<h3 id="the-z-score-rule-is-broken-by-the-outliers-it-looks-for">⚠️ The z-score rule is broken by the outliers it looks for</h3>
 <p><strong>This is the point of the section.</strong> The mean and standard deviation are both
 computed <em>from data containing the outliers</em>, so a large outlier inflates the
 standard deviation, which widens the ±3σ band, which can hide the outlier —
@@ -409,8 +425,8 @@ both. (The lab asserts this exact result.)</p>
 may be a data-entry error (delete it), a genuine extreme (keep it), or the
 fraud you were hired to find (definitely keep it). Course 8 Unit 2 §2.6 makes
 the same point: noise and outliers are not the same thing.</p>
-<h2>3.8 Transforming with mapping and functions</h2>
-<h3>The four tools</h3>
+<h2 id="38-transforming-with-mapping-and-functions">3.8 Transforming with mapping and functions</h2>
+<h3 id="the-four-tools">The four tools</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -451,7 +467,7 @@ df.apply(lambda r: r.maths * 0.6 + r.stats * 0.4, axis=1)
 
 df[[&quot;maths&quot;, &quot;stats&quot;]].map(lambda x: x + 5)   # element-wise (was applymap)
 </code></pre>
-<h3>⚠️ <code>map</code> on a Series versus <code>apply</code> on a DataFrame</h3>
+<h3 id="map-on-a-series-versus-apply-on-a-dataframe">⚠️ <code>map</code> on a Series versus <code>apply</code> on a DataFrame</h3>
 <pre><code class="language-python">df.dept.map({&quot;DS&quot;: &quot;Data Science&quot;})     # 'Stats' becomes NaN — UNMAPPED KEYS
                                         #   are silently dropped
 df.dept.map({&quot;DS&quot;: &quot;Data Science&quot;}).fillna(df.dept)   # keep the originals
@@ -471,7 +487,7 @@ Unit 1 §1.5 told you to avoid. <strong>Before writing it, ask whether the opera
 can be expressed on whole columns</strong> — it usually can. Reach for <code>apply</code> only
 when the logic genuinely cannot be vectorised.</p>
 </div>
-<h3>Binning</h3>
+<h3 id="binning">Binning</h3>
 <pre><code class="language-python">pd.cut(df.marks, bins=[0, 40, 60, 75, 100],
        labels=[&quot;Fail&quot;, &quot;Pass&quot;, &quot;First&quot;, &quot;Distinction&quot;])
 pd.cut(df.marks, bins=4)                    # 4 EQUAL-WIDTH bins
@@ -485,7 +501,7 @@ is how you apply a grading scheme; <code>qcut</code> is how you make quartiles.<
 check which convention your grading scheme actually uses, because the boundary
 students are the ones who complain.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A CSV has: roll numbers with leading zeros, dates as <code>DD-MM-YYYY</code>, missing
@@ -646,7 +662,7 @@ measures roughly 2,900× on 200,000 rows. Use these tools when the logic
 genuinely cannot be expressed on whole columns, not as a first resort.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Name three parameters of <code>read_csv</code> and what they do.</li>
@@ -684,7 +700,7 @@ genuinely cannot be expressed on whole columns, not as a first resort.</p>
 <p>Explain data transformation with mapping, functions and binning.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

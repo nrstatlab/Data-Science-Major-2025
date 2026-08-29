@@ -32,6 +32,23 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-what-nosql-is">1.1 What NoSQL is</a></li>
+    <li><a href="#12-the-cap-theorem">1.2 The CAP theorem</a></li>
+    <li><a href="#13-the-four-types-of-nosql-database">1.3 The four types of NoSQL database</a></li>
+    <li><a href="#14-popular-systems-compared">1.4 Popular systems compared</a></li>
+    <li><a href="#15-rdbms-versus-nosql">1.5 RDBMS versus NoSQL</a></li>
+    <li><a href="#16-when-to-use-nosql-and-when-not">1.6 When to use NoSQL — and when not</a></li>
+    <li><a href="#17-real-world-use-cases">1.7 Real-world use cases</a></li>
+    <li><a href="#18-json-and-bson">1.8 JSON and BSON</a></li>
+    <li><a href="#19-installation-and-connecting">1.9 Installation and connecting</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 21–22):</strong> What is NoSQL DB? History and evolution of NoSQL,
 features of NoSQL databases, CAP theorem and BASE properties, types of NoSQL
 (key-value, document, column, graph), difference between RDBMS and NoSQL, why
@@ -46,7 +63,7 @@ connecting via Mongo shell or GUI" — text has been lost mid-sentence, and a
 stray <code>)</code> remains. Recorded in <a href="../syllabus-review.html">SYLLABUS-REVIEW.md</a>.</p>
 </div>
 <hr />
-<h2>1.1 What NoSQL is</h2>
+<h2 id="11-what-nosql-is">1.1 What NoSQL is</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>NoSQL means "Not Only SQL"</strong>, not "no SQL". It is a family of databases that
@@ -55,7 +72,7 @@ relax one or more relational guarantees in exchange for <strong>horizontal scale
 <p>The name is unhelpful — it says what these databases are <em>not</em>. What unites
 them is that each one <strong>gave something up on purpose</strong>.</p>
 </div>
-<h3>History</h3>
+<h3 id="history">History</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -103,7 +120,7 @@ data that would not fit on one machine and traffic one machine could not
 serve. Sharding a relational database across hundreds of nodes while
 preserving joins and ACID is extremely hard; the NoSQL answer was to stop
 requiring it.</p>
-<h3>Features of NoSQL databases</h3>
+<h3 id="features-of-nosql-databases">Features of NoSQL databases</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -146,7 +163,7 @@ requiring it.</p>
 </tr>
 </tbody>
 </table>
-<h2>1.2 The CAP theorem</h2>
+<h2 id="12-the-cap-theorem">1.2 The CAP theorem</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The statement</h4>
@@ -183,7 +200,7 @@ requiring it.</p>
                     AP
 </code></pre>
 </div>
-<h3>⚠️ You do not actually get to choose all three pairs</h3>
+<h3 id="you-do-not-actually-get-to-choose-all-three-pairs">⚠️ You do not actually get to choose all three pairs</h3>
 <p>This is the part that is usually taught badly, and stating it correctly earns
 marks.</p>
 <p><strong>Network partitions are not optional.</strong> Cables fail, switches reboot, packets
@@ -278,7 +295,7 @@ and it does mean a read can return a value that has since been overwritten.</p>
 transactions</strong>, and a single-document write has always been atomic. Saying
 "NoSQL means BASE, not ACID" is a common exam answer and it is out of date.</p>
 </div>
-<h2>1.3 The four types of NoSQL database</h2>
+<h2 id="13-the-four-types-of-nosql-database">1.3 The four types of NoSQL database</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The comparison</h4>
@@ -324,7 +341,7 @@ transactions</strong>, and a single-document write has always been atomic. Sayin
 </tbody>
 </table>
 </div>
-<h3>Key-value</h3>
+<h3 id="key-value">Key-value</h3>
 <pre><code>&quot;session:8842&quot;  →  &lt;opaque bytes&gt;
 &quot;cart:21&quot;       →  &lt;opaque bytes&gt;
 </code></pre>
@@ -332,7 +349,7 @@ transactions</strong>, and a single-document write has always been atomic. Sayin
 contains, so <strong>you cannot query by its contents</strong> — only by key. Redis holds
 everything in memory, which makes it superb for caching and unsuitable as a
 system of record without care.</p>
-<h3>Document</h3>
+<h3 id="document">Document</h3>
 <pre><code class="language-json">{ &quot;_id&quot;: 21, &quot;name&quot;: &quot;Asha&quot;, &quot;dept&quot;: &quot;DS&quot;,
   &quot;marks&quot;: { &quot;maths&quot;: 88, &quot;stats&quot;: 91 },
   &quot;subjects&quot;: [&quot;DS&quot;, &quot;Stats&quot;] }
@@ -341,12 +358,12 @@ system of record without care.</p>
 can index <code>dept</code>, filter on <code>marks.maths</code>, and reach inside the <code>subjects</code>
 array. That is the whole difference, and it is why document stores are the most
 generally useful of the four.</p>
-<h3>Column-family</h3>
+<h3 id="column-family">Column-family</h3>
 <p>Not "a column store" in the analytics sense, despite the name. Data is stored
 by <strong>row key</strong>, with columns grouped into families, and <strong>each row may have
 different columns</strong>. Optimised for enormous write throughput and for reading
 ranges of rows.</p>
-<h3>Graph</h3>
+<h3 id="graph">Graph</h3>
 <p>Stores <strong>relationships as first-class objects</strong>. "Friends of friends who like
 jazz" is a three-hop traversal in Neo4j and a three-way self-join with a
 recursive CTE in SQL — the graph database is dramatically faster because the
@@ -361,7 +378,7 @@ edges are pointers, not values to be matched.</p>
 <li>The <em>relationships</em> are the thing you query → <strong>graph</strong></li>
 </ul>
 </div>
-<h2>1.4 Popular systems compared</h2>
+<h2 id="14-popular-systems-compared">1.4 Popular systems compared</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -453,7 +470,7 @@ is equal and accepts writes, so there is no primary to fail over — that is wha
 makes it AP and what makes it linearly scalable for writes. The price is that
 you must know your queries <strong>before</strong> designing the tables, because there is no
 flexible ad-hoc querying.</p>
-<h2>1.5 RDBMS versus NoSQL</h2>
+<h2 id="15-rdbms-versus-nosql">1.5 RDBMS versus NoSQL</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The comparison</h4>
@@ -524,7 +541,7 @@ flexible ad-hoc querying.</p>
 </tbody>
 </table>
 </div>
-<h3>The vocabulary map — learn this table</h3>
+<h3 id="the-vocabulary-map-learn-this-table">The vocabulary map — learn this table</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -583,8 +600,8 @@ flexible ad-hoc querying.</p>
 will happily store an <code>ObjectId</code> pointing at a document that does not exist and
 will not stop you deleting the target. In Course 5 the database guaranteed
 referential integrity; here <strong>your application must</strong>.</p>
-<h2>1.6 When to use NoSQL — and when not</h2>
-<h3>✅ Use a document database when</h3>
+<h2 id="16-when-to-use-nosql-and-when-not">1.6 When to use NoSQL — and when not</h2>
+<h3 id="use-a-document-database-when">✅ Use a document database when</h3>
 <ul>
 <li>
 <p>You read and write <strong>one whole entity at a time</strong> — a user profile, a product
@@ -606,7 +623,7 @@ referential integrity; here <strong>your application must</strong>.</p>
 </li>
 <li>You are prototyping and the schema is not settled</li>
 </ul>
-<h3>❌ Do <strong>not</strong> use one when</h3>
+<h3 id="do-not-use-one-when">❌ Do <strong>not</strong> use one when</h3>
 <ul>
 <li>
 <p>The data is <strong>highly relational</strong> and queried from many directions —
@@ -626,7 +643,7 @@ referential integrity; here <strong>your application must</strong>.</p>
 <li><strong>You are choosing it because it is fashionable</strong> — the honest and commonest
   wrong reason</li>
 </ul>
-<h3>⚠️ The misconceptions</h3>
+<h3 id="the-misconceptions">⚠️ The misconceptions</h3>
 <p>The syllabus names this topic explicitly, and each of these is a
 frequently-marked answer.</p>
 <table class="main-table">
@@ -672,7 +689,7 @@ earned by a <strong>default setting</strong>, <code>w: 0</code>, which acknowled
 was stored. The default is now <code>w: 1</code> (and <code>w: "majority"</code> for replica sets).
 Being able to say <em>what</em> the criticism was and <em>that it was fixed</em> is a better
 answer than either defending or repeating it.</p>
-<h2>1.7 Real-world use cases</h2>
+<h2 id="17-real-world-use-cases">1.7 Real-world use cases</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -722,7 +739,7 @@ answer than either defending or repeating it.</p>
 <p><strong>MongoDB's own headline users</strong> — Forbes, Toyota, Adobe, eBay — mostly use it
 for exactly this: catalogue and content data, read one entity at a time, where
 the schema varies by category.</p>
-<h2>1.8 JSON and BSON</h2>
+<h2 id="18-json-and-bson">1.8 JSON and BSON</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>BSON</h4>
@@ -799,7 +816,7 @@ what you use for money. A <code>double</code> cannot represent 0.1 exactly — C
 §1.3 and Course 2 met the same problem — so financial amounts stored as doubles
 accumulate error.</p>
 </div>
-<h3>The <code>_id</code> field</h3>
+<h3 id="the-id-field">The <code>_id</code> field</h3>
 <p>Every document has one, and it is the primary key.</p>
 <pre><code class="language-js">{ &quot;_id&quot;: ObjectId(&quot;66cd12f4a1b2c3d4e5f60718&quot;), &quot;name&quot;: &quot;Asha&quot; }
 </code></pre>
@@ -824,13 +841,13 @@ accumulate error.</p>
 <p>You may use your own value instead — a roll number, an email — and it will be
 enforced unique. That is often better than an ObjectId when a natural key
 exists.</p>
-<h2>1.9 Installation and connecting</h2>
+<h2 id="19-installation-and-connecting">1.9 Installation and connecting</h2>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>The syllabus text for this topic is damaged (see the note at the top). This
 section covers what it evidently intended.</p>
 </div>
-<h3>Installing</h3>
+<h3 id="installing">Installing</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -860,7 +877,7 @@ local install does not.</p>
 Debian repositories that host <code>mongodb-org</code> are blocked by the egress policy.
 That is why the labs pair each <code>mongosh</code> script with a mongomock equivalent —
 see <a href="lab_document-database.html">lab.md</a>.)</em></p>
-<h3>Connecting</h3>
+<h3 id="connecting">Connecting</h3>
 <pre><code class="language-bash">mongosh                                        # localhost:27017
 mongosh &quot;mongodb://localhost:27017&quot;
 mongosh &quot;mongodb+srv://user:pass@cluster.mongodb.net/mydb&quot;   # Atlas
@@ -902,7 +919,7 @@ for (let i = 1; i &lt;= 5; i++) {      // real JavaScript, in the shell
   db.counters.insertOne({ n: i, square: i * i })
 }
 </code></pre>
-<h3>⚠️ Databases and collections are created lazily</h3>
+<h3 id="databases-and-collections-are-created-lazily">⚠️ Databases and collections are created lazily</h3>
 <pre><code class="language-js">use brandNewDB          // switches, but creates NOTHING
 show dbs                // brandNewDB is ABSENT
 db.things.insertOne({ x: 1 })
@@ -911,11 +928,11 @@ show dbs                // now it appears
 <p><strong>A database or collection does not exist until the first document is written
 to it.</strong> <code>show dbs</code> omitting the database you just "created" is not a bug, and
 it surprises everyone once.</p>
-<h3>The default port</h3>
+<h3 id="the-default-port">The default port</h3>
 <p><strong>27017</strong>. Worth knowing for the viva; 27018 and 27019 are the conventional
 ports for shard members and config servers.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Explain the CAP theorem, and state which two properties MongoDB and Cassandra
@@ -1075,7 +1092,7 @@ is exactly what a document store is fast at.</p>
 </ul>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What does NoSQL stand for?</li>
@@ -1111,7 +1128,7 @@ is exactly what a document store is fast at.</p>
 <li>Given a business scenario, choose a database type and justify the choice
    fully, including what you would still be careful about.</li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

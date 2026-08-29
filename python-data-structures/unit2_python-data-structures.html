@@ -26,6 +26,17 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-conditional-statements">2.1 Conditional statements</a></li>
+    <li><a href="#22-loops">2.2 Loops</a></li>
+    <li><a href="#23-functions">2.3 Functions</a></li>
+    <li><a href="#24-modules">2.4 Modules</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 15):</strong> Control flow — <code>if</code>, <code>if-else</code>, <code>if-elif-else</code>.
 Iterative statements — <code>while</code>, <code>for</code>, nested loops. Loop control statements —
 <code>break</code>, <code>continue</code>, <code>pass</code>; <code>else</code> with loops. Need for functions, defining and
@@ -35,7 +46,7 @@ positional, default, variable-length), <code>main()</code> function, documentati
 recursive functions, anonymous functions (lambda), library functions. Modules —
 <code>import</code>, <code>from..import</code>, creating and using modules, namespaces.</p>
 <hr />
-<h2>2.1 Conditional statements</h2>
+<h2 id="21-conditional-statements">2.1 Conditional statements</h2>
 <pre><code class="language-python">if condition:
     ...
 elif another_condition:
@@ -46,12 +57,12 @@ else:
 <p>Note: <strong><code>elif</code></strong>, not <code>else if</code>. The colon is mandatory. There is no <code>switch</code>
 statement in Python before 3.10 (which added <code>match</code>, outside this syllabus) —
 use a dictionary or an <code>if-elif</code> ladder instead.</p>
-<h3>The conditional expression (ternary)</h3>
+<h3 id="the-conditional-expression-ternary">The conditional expression (ternary)</h3>
 <pre><code class="language-python">status = &quot;Pass&quot; if marks &gt;= 40 else &quot;Fail&quot;
 </code></pre>
 <p>Equivalent to C's <code>marks &gt;= 40 ? "Pass" : "Fail"</code>, but ordered
 value-first.</p>
-<h3>Dictionary dispatch — the Pythonic replacement for <code>switch</code></h3>
+<h3 id="dictionary-dispatch-the-pythonic-replacement-for-switch">Dictionary dispatch — the Pythonic replacement for <code>switch</code></h3>
 <pre><code class="language-python">operations = {
     &quot;add&quot;: lambda a, b: a + b,
     &quot;sub&quot;: lambda a, b: a - b,
@@ -59,8 +70,8 @@ value-first.</p>
 result = operations[&quot;add&quot;](5, 3)          # 8
 result = operations.get(op, lambda a, b: None)(5, 3)   # safe default
 </code></pre>
-<h2>2.2 Loops</h2>
-<h3><code>for</code> — iterates over a sequence</h3>
+<h2 id="22-loops">2.2 Loops</h2>
+<h3 id="for-iterates-over-a-sequence"><code>for</code> — iterates over a sequence</h3>
 <p>Python's <code>for</code> is a <strong>for-each</strong> loop. It does not count; it walks a collection.</p>
 <pre><code class="language-python">for item in [10, 20, 30]:
     print(item)
@@ -79,7 +90,7 @@ for i in range(10, 0, -2):    # 10 8 6 4 2
 </code></pre>
 <p><code>range(start, stop, step)</code> — <strong><code>stop</code> is excluded</strong>. <code>range(1, 5)</code> gives
 1, 2, 3, 4.</p>
-<h3>Useful iteration helpers</h3>
+<h3 id="useful-iteration-helpers">Useful iteration helpers</h3>
 <pre><code class="language-python">for index, value in enumerate([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]):
     print(index, value)       # 0 a / 1 b / 2 c
 
@@ -92,13 +103,13 @@ for key, value in student.items():
 <p><code>enumerate</code> is the right answer when you need both the index and the value.
 Writing <code>for i in range(len(lst))</code> and then <code>lst[i]</code> works but is un-Pythonic
 and examiners notice.</p>
-<h3><code>while</code></h3>
+<h3 id="while"><code>while</code></h3>
 <pre><code class="language-python">count = 0
 while count &lt; 5:
     print(count)
     count += 1                # forget this and it never ends
 </code></pre>
-<h3><code>else</code> with a loop — unique to Python</h3>
+<h3 id="else-with-a-loop-unique-to-python"><code>else</code> with a loop — unique to Python</h3>
 <p>The <code>else</code> block runs <strong>only if the loop finished without hitting <code>break</code></strong>.</p>
 <pre><code class="language-python">for n in range(2, number):
     if number % n == 0:
@@ -109,7 +120,7 @@ else:
 </code></pre>
 <p>Read <code>for...else</code> as "for...<strong>nothing found</strong>". It removes the need for a
 <code>found = False</code> flag, and it is examined precisely because it surprises people.</p>
-<h3><code>break</code>, <code>continue</code>, <code>pass</code></h3>
+<h3 id="break-continue-pass"><code>break</code>, <code>continue</code>, <code>pass</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -137,7 +148,7 @@ else:
 </code></pre>
 <p><code>pass</code> is <em>not</em> a loop control statement in the way the other two are — it is a
 null statement. The syllabus groups them together, so know all three.</p>
-<h3>Nested loops</h3>
+<h3 id="nested-loops">Nested loops</h3>
 <p>A loop inside another loop. The <strong>inner loop runs completely for every single
 iteration of the outer loop</strong>, so the body executes <em>outer × inner</em> times.</p>
 <pre><code class="language-python">for i in range(1, 4):            # outer: 3 iterations
@@ -167,7 +178,7 @@ formatting:</p>
         print(f&quot;{i * j:4}&quot;, end=&quot;&quot;)
     print()
 </code></pre>
-<h3>⚠️ <code>break</code> leaves only the <em>innermost</em> loop</h3>
+<h3 id="break-leaves-only-the-innermost-loop">⚠️ <code>break</code> leaves only the <em>innermost</em> loop</h3>
 <pre><code class="language-python">for i in range(3):
     for j in range(3):
         if j == 1:
@@ -202,7 +213,7 @@ b_set = set(b)
 common = [x for x in a if x in b_set]
 </code></pre>
 </div>
-<h2>2.3 Functions</h2>
+<h2 id="23-functions">2.3 Functions</h2>
 <pre><code class="language-python">def greet(name):
     &quot;&quot;&quot;Return a greeting for name.&quot;&quot;&quot;     # docstring
     return f&quot;Hello, {name}!&quot;
@@ -210,7 +221,7 @@ common = [x for x in a if x in b_set]
 message = greet(&quot;Ananya&quot;)
 </code></pre>
 <p>A function with no <code>return</code> returns <strong><code>None</code></strong>.</p>
-<h3>The four argument types</h3>
+<h3 id="the-four-argument-types">The four argument types</h3>
 <pre><code class="language-python">def student(name, course, year=1, *subjects, **details):
     ...
 </code></pre>
@@ -262,7 +273,7 @@ def profile(**details):
 
 profile(name=&quot;A&quot;, roll=1)        # {'name': 'A', 'roll': 1}
 </code></pre>
-<h3>The mutable default argument trap</h3>
+<h3 id="the-mutable-default-argument-trap">The mutable default argument trap</h3>
 <pre><code class="language-python">def add_item(item, basket=[]):       # DANGEROUS
     basket.append(item)
     return basket
@@ -279,7 +290,7 @@ call. The fix:</p>
     return basket
 </code></pre>
 <p>A favourite interview and exam question.</p>
-<h3>Scope — the LEGB rule</h3>
+<h3 id="scope-the-legb-rule">Scope — the LEGB rule</h3>
 <p>Python looks names up in this order:</p>
 <ol>
 <li><strong>L</strong>ocal — inside the current function</li>
@@ -300,7 +311,7 @@ def outer():
 outer()
 print(x)                 # global
 </code></pre>
-<h3><code>global</code> and <code>nonlocal</code></h3>
+<h3 id="global-and-nonlocal"><code>global</code> and <code>nonlocal</code></h3>
 <pre><code class="language-python">count = 0
 
 def increment():
@@ -322,7 +333,7 @@ that name local for the whole function — including <em>before</em> the assignm
 <code>count += 1</code> tries to read a local <code>count</code> that does not yet exist. <code>global</code>
 says "no, I mean the module-level one".</p>
 </div>
-<h3>Recursion</h3>
+<h3 id="recursion">Recursion</h3>
 <pre><code class="language-python">def factorial(n):
     if n in (0, 1):              # base case
         return 1
@@ -331,7 +342,7 @@ says "no, I mean the module-level one".</p>
 <p>Python's default recursion limit is <strong>1000</strong> — <code>sys.setrecursionlimit()</code> can
 raise it, but deep recursion is a sign that a loop would be better. Python has
 no tail-call optimisation.</p>
-<h3>Lambda — anonymous functions</h3>
+<h3 id="lambda-anonymous-functions">Lambda — anonymous functions</h3>
 <pre><code class="language-python">square = lambda x: x ** 2            # equivalent to def square(x): return x**2
 
 sorted(students, key=lambda s: s[&quot;marks&quot;])
@@ -341,7 +352,7 @@ list(map(lambda x: x * 2, numbers))
 <p><strong>Restrictions:</strong> a lambda holds a <strong>single expression</strong> — no statements, no
 assignments, no loops, no <code>return</code> keyword (the expression's value is returned
 implicitly). Use it for short throwaway functions, mainly as a <code>key=</code> argument.</p>
-<h3><code>main()</code> and <code>__name__</code></h3>
+<h3 id="main-and-name-"><code>main()</code> and <code>__name__</code></h3>
 <pre><code class="language-python">def main():
     print(&quot;Running the program&quot;)
 
@@ -352,7 +363,7 @@ if __name__ == &quot;__main__&quot;:
 <code>__name__</code> is the module's name. The guard therefore means: <strong>run this only if
 the file is executed directly, not when it is imported</strong>. Without it, importing
 your module would execute its test code.</p>
-<h2>2.4 Modules</h2>
+<h2 id="24-modules">2.4 Modules</h2>
 <p>A module is simply a <code>.py</code> file.</p>
 <pre><code class="language-python">import math                    # whole module
 math.sqrt(16)
@@ -367,7 +378,7 @@ from math import *             # everything -- AVOID: pollutes the namespace
 </code></pre>
 <p><code>from module import *</code> is discouraged because it can silently overwrite names
 you already have.</p>
-<h3>Creating your own module</h3>
+<h3 id="creating-your-own-module">Creating your own module</h3>
 <pre><code class="language-python"># mymath.py
 PI = 3.14159
 
@@ -378,7 +389,7 @@ def area(r):
 import mymath
 print(mymath.area(5))
 </code></pre>
-<h3>Namespaces</h3>
+<h3 id="namespaces">Namespaces</h3>
 <p>A namespace maps names to objects. Three levels:</p>
 <ul>
 <li><strong>Built-in</strong> — created when the interpreter starts, holds <code>print</code>, <code>len</code>, …</li>
@@ -387,7 +398,7 @@ print(mymath.area(5))
 </ul>
 <p><code>dir(module)</code> lists a module's names; <code>globals()</code> and <code>locals()</code> return the
 current namespaces as dictionaries.</p>
-<h3>Standard library modules worth knowing</h3>
+<h3 id="standard-library-modules-worth-knowing">Standard library modules worth knowing</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -426,7 +437,7 @@ current namespaces as dictionaries.</p>
 <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-4-stats/python"><code>labs/course-4-stats/python/</code></a>, where it
 is used to cross-check hand-computed answers.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is the difference between <code>break</code> and <code>continue</code>?</li>
@@ -453,7 +464,7 @@ is used to cross-check hand-computed answers.</p>
    namespaces.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

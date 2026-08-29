@@ -26,7 +26,7 @@ display.</p>
 python3 labs/course-3-python/05_list_operations.py
 </code></pre>
 <hr />
-<h2>The experiments</h2>
+<h2 id="the-experiments">The experiments</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -172,28 +172,28 @@ python3 labs/course-3-python/05_list_operations.py
 </tbody>
 </table>
 <hr />
-<h2>Notes on the harder ones</h2>
-<h3>Experiment 2b — Prime check</h3>
+<h2 id="notes-on-the-harder-ones">Notes on the harder ones</h2>
+<h3 id="experiment-2b-prime-check">Experiment 2b — Prime check</h3>
 <p>Test divisors only up to √n. If n had a factor larger than its square root, the
 matching co-factor would be smaller than the square root and you would have
 found it already. Write the loop as <code>while divisor * divisor &lt;= n</code> rather than
 computing a square root — it avoids floating-point comparison entirely.</p>
 <p>Remember that 0, 1 and negative numbers are <strong>not</strong> prime, and 2 is the only
 even prime.</p>
-<h3>Experiment 3b — Function arguments</h3>
+<h3 id="experiment-3b-function-arguments">Experiment 3b — Function arguments</h3>
 <p>Demonstrate all five: required, default, keyword, <code>*args</code> and <code>**kwargs</code>. Show
 that <code>*args</code> arrives as a <strong>tuple</strong> and <code>**kwargs</code> as a <strong>dict</strong> — printing
 <code>type()</code> for each makes the point clearly.</p>
-<h3>Experiment 11 — CSV processing</h3>
+<h3 id="experiment-11-csv-processing">Experiment 11 — CSV processing</h3>
 <p>Use <code>csv.DictReader</code>, which keys each row by the header. Two things to
 remember: pass <code>newline=""</code> when opening, and convert every value — CSV data is
 always strings.</p>
-<h3>Experiment 13 — Student class</h3>
+<h3 id="experiment-13-student-class">Experiment 13 — Student class</h3>
 <p>Include the constructor <code>__init__</code>, at least one private attribute with a
 getter, <code>__str__</code>, and <code>__del__</code>. That covers the whole of the syllabus's
 "classes, objects, attributes, methods, constructor and destructors" in one
 program.</p>
-<h3>Experiment 15 — Stack and queue</h3>
+<h3 id="experiment-15-stack-and-queue">Experiment 15 — Stack and queue</h3>
 <p>The syllabus asks for <strong>both</strong> the list and the linked-list implementations.
 The linked-list versions are the more instructive: a linked stack pushes and
 pops at the head, both O(1); a linked queue keeps both a front and a rear
@@ -201,11 +201,11 @@ pointer so that both operations are O(1), where the list version's
 <code>pop(0)</code> is O(n).</p>
 <p>Add the balanced-bracket checker as an application — it appears in exams
 regularly.</p>
-<h3>Experiment 16 — Singly linked list</h3>
+<h3 id="experiment-16-singly-linked-list">Experiment 16 — Singly linked list</h3>
 <p>The two operations that carry the marks are <strong>deleting the head</strong> (you must
 move <code>self.head</code>, not <code>previous.next</code>) and <strong>reversing the list</strong> (save
 <code>current.next</code> before overwriting it, or the rest of the chain is lost).</p>
-<h3>Experiments 17–18 — Tkinter</h3>
+<h3 id="experiments-1718-tkinter">Experiments 17–18 — Tkinter</h3>
 <p>Both need a display, so they cannot run over SSH or in a container without X
 forwarding. On Debian/Ubuntu install <code>python3-tk</code> first.</p>
 <p>For the calculator, note the security comment in the file: <code>eval()</code> is used on
@@ -213,7 +213,7 @@ a validated character set with empty builtins. <code>eval()</code> on unfiltered
 input is a genuine vulnerability — say so if asked, because it demonstrates
 judgement beyond the syllabus.</p>
 <hr />
-<h2>Lab exam tips</h2>
+<h2 id="lab-exam-tips">Lab exam tips</h2>
 <ol>
 <li>
 <p><strong>Watch your indentation.</strong> It is the most common cause of a program that

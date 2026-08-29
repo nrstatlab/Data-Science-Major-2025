@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-introduction-and-features">1.1 Introduction and features</a></li>
+    <li><a href="#12-programming-modes">1.2 Programming modes</a></li>
+    <li><a href="#13-identifiers-and-naming-conventions">1.3 Identifiers and naming conventions</a></li>
+    <li><a href="#14-data-types-and-literals">1.4 Data types and literals</a></li>
+    <li><a href="#15-variables">1.5 Variables</a></li>
+    <li><a href="#16-operators">1.6 Operators</a></li>
+    <li><a href="#17-input-and-output">1.7 Input and output</a></li>
+    <li><a href="#18-syntax-lines-comments-and-indentation">1.8 Syntax: lines, comments and indentation</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 14):</strong> Introduction to Python, features of Python, programming
 modes (interactive and script), identifiers, naming conventions, keywords,
 built-in data types, literals (integer, float, complex, boolean, string),
@@ -39,7 +54,7 @@ operands, classification of operators (arithmetic, relational, logical,
 bitwise, assignment, augmented assignment, identity), expressions and
 precedence rules.</p>
 <hr />
-<h2>1.1 Introduction and features</h2>
+<h2 id="11-introduction-and-features">1.1 Introduction and features</h2>
 <p>Python was created by <strong>Guido van Rossum</strong> and released in <strong>1991</strong>. The name
 comes from <em>Monty Python's Flying Circus</em>, not the snake.</p>
 <p><strong>Features — a standard five-mark question:</strong></p>
@@ -55,7 +70,7 @@ comes from <em>Monty Python's Flying Circus</em>, not the snake.</p>
 <li><strong>Supports multiple paradigms</strong> — procedural, object oriented, functional</li>
 <li><strong>Automatic memory management</strong> — garbage collection; no <code>malloc</code>/<code>free</code></li>
 </ol>
-<h3>Python vs C — a comparison worth knowing</h3>
+<h3 id="python-vs-c-a-comparison-worth-knowing">Python vs C — a comparison worth knowing</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -102,7 +117,7 @@ comes from <em>Monty Python's Flying Circus</em>, not the snake.</p>
 </tr>
 </tbody>
 </table>
-<h2>1.2 Programming modes</h2>
+<h2 id="12-programming-modes">1.2 Programming modes</h2>
 <p><strong>Interactive mode</strong> — the <code>&gt;&gt;&gt;</code> prompt. Type a statement, see the result
 immediately. Ideal for experimenting; nothing is saved.</p>
 <pre><code>&gt;&gt;&gt; 2 + 3
@@ -114,7 +129,7 @@ Hello
 Reusable, and how real programs are written.</p>
 <p>One difference that catches people out: in interactive mode an expression's
 value is displayed automatically; in script mode you must <code>print()</code> it.</p>
-<h2>1.3 Identifiers and naming conventions</h2>
+<h2 id="13-identifiers-and-naming-conventions">1.3 Identifiers and naming conventions</h2>
 <p><strong>Rules</strong> (enforced by the interpreter):</p>
 <ul>
 <li>Start with a letter or underscore — <strong>never a digit</strong></li>
@@ -166,7 +181,7 @@ value is displayed automatically; in script mode you must <code>print()</code> i
 </tr>
 </tbody>
 </table>
-<h3>Keywords</h3>
+<h3 id="keywords">Keywords</h3>
 <p>Python 3 has <strong>35</strong> keywords:</p>
 <pre><code>False   None    True    and     as      assert  async   await
 break   class   continue def    del     elif    else    except
@@ -175,7 +190,7 @@ lambda  nonlocal not     or      pass    raise   return  try
 while   with    yield
 </code></pre>
 <p>Check at any time with <code>import keyword; print(keyword.kwlist)</code>.</p>
-<h2>1.4 Data types and literals</h2>
+<h2 id="14-data-types-and-literals">1.4 Data types and literals</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -227,30 +242,30 @@ point.</p>
 <p><strong><code>bool</code> is a subclass of <code>int</code></strong>: <code>True == 1</code> and <code>False == 0</code> are both true,
 and <code>True + True</code> is <code>2</code>. Odd, but occasionally useful:
 <code>sum(x &gt; 50 for x in marks)</code> counts how many exceed 50.</p>
-<h3>Number bases</h3>
+<h3 id="number-bases">Number bases</h3>
 <pre><code class="language-python">0b1010    # binary      -&gt; 10
 0o17      # octal       -&gt; 15
 0xFF      # hexadecimal -&gt; 255
 1_000_000 # underscores for readability -&gt; 1000000
 </code></pre>
-<h3>Checking types</h3>
+<h3 id="checking-types">Checking types</h3>
 <pre><code class="language-python">type(42)              # &lt;class 'int'&gt;
 isinstance(42, int)   # True -- preferred, because it honours inheritance
 </code></pre>
-<h2>1.5 Variables</h2>
+<h2 id="15-variables">1.5 Variables</h2>
 <p>Python variables are <strong>references to objects</strong>, not boxes holding values.</p>
 <pre><code class="language-python">x = 10        # the name x now refers to an int object with value 10
 x = &quot;hello&quot;   # x now refers to a str object -- perfectly legal
 </code></pre>
 <p>No declaration and no fixed type. This is <strong>dynamic typing</strong>.</p>
-<h3>Multiple assignment</h3>
+<h3 id="multiple-assignment">Multiple assignment</h3>
 <pre><code class="language-python">a, b, c = 1, 2, 3        # unpacking
 x = y = z = 0            # chained -- all three refer to the same object
 a, b = b, a              # swap, with no temporary variable
 </code></pre>
 <p>That last one is worth remembering: Python swaps in one line where C needs
 three.</p>
-<h3>Mutable and immutable — the idea that explains everything</h3>
+<h3 id="mutable-and-immutable-the-idea-that-explains-everything">Mutable and immutable — the idea that explains everything</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -286,8 +301,8 @@ lst[0] = 99             # fine -- lists are mutable
 </code></pre>
 <p>This distinction governs function argument behaviour, dictionary keys, default
 arguments and copying. It is examined constantly. Learn it now.</p>
-<h2>1.6 Operators</h2>
-<h3>Arithmetic</h3>
+<h2 id="16-operators">1.6 Operators</h2>
+<h3 id="arithmetic">Arithmetic</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -348,12 +363,12 @@ not <code>2</code>. This differs from C, where <code>7/3</code> is <code>2</code
 <p>Floor division rounds <strong>towards negative infinity</strong>, not towards zero:
 <code>-7 // 2</code> is <code>-4</code>, not <code>-3</code>. Similarly <code>-7 % 2</code> is <code>1</code>, because Python's
 modulus takes the sign of the divisor. C would give <code>-1</code>.</p>
-<h3>Relational</h3>
+<h3 id="relational">Relational</h3>
 <p><code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> — all return <code>True</code> or <code>False</code>.</p>
 <p><strong>Chained comparison</strong> is a Python feature C lacks:</p>
 <pre><code class="language-python">if 0 &lt; x &lt; 100:          # reads naturally, and means 0 &lt; x and x &lt; 100
 </code></pre>
-<h3>Logical</h3>
+<h3 id="logical">Logical</h3>
 <p><code>and</code>, <code>or</code>, <code>not</code> — words, not <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>.</p>
 <p>They <strong>short-circuit</strong>: <code>and</code> stops at the first falsy operand, <code>or</code> at the
 first truthy one. So <code>if x != 0 and 10 / x &gt; 2</code> is safe — the division is never
@@ -364,7 +379,7 @@ attempted when <code>x</code> is 0.</p>
 </code></pre>
 <p><strong>Falsy values:</strong> <code>False</code>, <code>None</code>, <code>0</code>, <code>0.0</code>, <code>""</code>, <code>[]</code>, <code>()</code>, <code>{}</code>,
 <code>set()</code>. Everything else is truthy.</p>
-<h3>Bitwise</h3>
+<h3 id="bitwise">Bitwise</h3>
 <p><code>&amp;</code> AND · <code>|</code> OR · <code>^</code> XOR · <code>~</code> NOT · <code>&lt;&lt;</code> left shift · <code>&gt;&gt;</code> right shift</p>
 <pre><code class="language-python">12 &amp; 5     # 1100 &amp; 0101 = 0100 = 4
 12 | 5     # 1101 = 13
@@ -372,11 +387,11 @@ attempted when <code>x</code> is 0.</p>
 12 &lt;&lt; 1    # 24  -- shifting left by 1 doubles
 12 &gt;&gt; 1    # 6   -- shifting right by 1 halves
 </code></pre>
-<h3>Assignment and augmented assignment</h3>
+<h3 id="assignment-and-augmented-assignment">Assignment and augmented assignment</h3>
 <p><code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>//=</code> <code>%=</code> <code>**=</code> <code>&amp;=</code> <code>|=</code> <code>^=</code> <code>&gt;&gt;=</code> <code>&lt;&lt;=</code></p>
 <p><code>x += 5</code> is shorthand for <code>x = x + 5</code> — though for mutable objects the two are
 not identical (<code>+=</code> on a list modifies in place; <code>= x +</code> builds a new one).</p>
-<h3>Identity vs equality — a heavily examined distinction</h3>
+<h3 id="identity-vs-equality-a-heavily-examined-distinction">Identity vs equality — a heavily examined distinction</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -409,13 +424,13 @@ a is c     # True  -- c is another name for the same object
 <p><strong>Use <code>is</code> only with <code>None</code>, <code>True</code> and <code>False</code>.</strong> <code>if x is None</code> is correct
 style; <code>if x is 5</code> may work by accident (small integers are cached) and fail
 for larger values.</p>
-<h3>Membership</h3>
+<h3 id="membership">Membership</h3>
 <p><code>in</code> and <code>not in</code>:</p>
 <pre><code class="language-python">&quot;a&quot; in &quot;cat&quot;           # True
 3 in [1, 2, 3]         # True
 &quot;key&quot; in {&quot;key&quot;: 1}    # True -- checks KEYS, not values
 </code></pre>
-<h3>Precedence — highest to lowest</h3>
+<h3 id="precedence-highest-to-lowest">Precedence — highest to lowest</h3>
 <pre><code>**
 ~  +x  -x                    (unary)
 *  /  //  %
@@ -432,7 +447,7 @@ or
 <p>Two consequences worth remembering: <code>**</code> binds tighter than unary minus, so
 <code>-2 ** 2</code> is <code>-4</code>; and <code>**</code> is <strong>right associative</strong>, so <code>2 ** 3 ** 2</code> is
 <code>2 ** 9</code> = <code>512</code>, not <code>64</code>.</p>
-<h2>1.7 Input and output</h2>
+<h2 id="17-input-and-output">1.7 Input and output</h2>
 <pre><code class="language-python">name = input(&quot;Enter your name: &quot;)          # ALWAYS returns a string
 age  = int(input(&quot;Enter your age: &quot;))      # convert explicitly
 cgpa = float(input(&quot;Enter your CGPA: &quot;))
@@ -440,7 +455,7 @@ cgpa = float(input(&quot;Enter your CGPA: &quot;))
 <p><strong><code>input()</code> always returns a string.</strong> Forgetting to convert is the single most
 common beginner error: <code>input() + 1</code> raises <code>TypeError</code>, and
 <code>if input() == 5</code> is never true because <code>"5" != 5</code>.</p>
-<h3>Output formatting</h3>
+<h3 id="output-formatting">Output formatting</h3>
 <pre><code class="language-python">name, marks = &quot;Ananya&quot;, 87.5
 
 print(f&quot;{name} scored {marks}&quot;)               # f-string -- modern, preferred
@@ -456,8 +471,8 @@ print(f&quot;{name:^10}&quot;)      # centred
 <pre><code class="language-python">print(&quot;a&quot;, &quot;b&quot;, sep=&quot;-&quot;)      # a-b        -- separator between items
 print(&quot;a&quot;, end=&quot;&quot;)            # no newline at the end
 </code></pre>
-<h2>1.8 Syntax: lines, comments and indentation</h2>
-<h3>Indentation defines blocks</h3>
+<h2 id="18-syntax-lines-comments-and-indentation">1.8 Syntax: lines, comments and indentation</h2>
+<h3 id="indentation-defines-blocks">Indentation defines blocks</h3>
 <p>This is Python's most distinctive feature. Where C uses <code>{}</code>, Python uses
 <strong>indentation</strong>, and it is not optional:</p>
 <pre><code class="language-python">if x &gt; 0:
@@ -467,7 +482,7 @@ print(&quot;always runs&quot;)         # unindented -- outside the block
 </code></pre>
 <p><strong>Use 4 spaces per level.</strong> Never mix tabs and spaces — Python 3 rejects it
 with a <code>TabError</code>. Configure your editor to insert spaces when Tab is pressed.</p>
-<h3>Comments</h3>
+<h3 id="comments">Comments</h3>
 <pre><code class="language-python"># a single-line comment
 
 &quot;&quot;&quot;
@@ -482,7 +497,7 @@ def area(r):
 
 print(area.__doc__)      # docstrings are retrievable at runtime
 </code></pre>
-<h3>Statements and line continuation</h3>
+<h3 id="statements-and-line-continuation">Statements and line continuation</h3>
 <p>One statement per line, no semicolon needed. To break a long line:</p>
 <pre><code class="language-python">total = (first_value +
          second_value +
@@ -493,7 +508,7 @@ total = first_value + \
 </code></pre>
 <p>Brackets are preferred; a stray space after a backslash breaks it silently.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>List any five features of Python.</li>
@@ -514,7 +529,7 @@ total = first_value + \
 <li>Explain the features of Python and compare it with C.</li>
 <li>Explain all operator categories in Python with examples and a precedence table.</li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

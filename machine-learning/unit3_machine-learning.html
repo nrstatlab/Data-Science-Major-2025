@@ -31,11 +31,27 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-a-note-on-the-overlap-with-course-4">3.1 A note on the overlap with Course 4</a></li>
+    <li><a href="#32-what-regression-is">3.2 What regression is</a></li>
+    <li><a href="#33-simple-linear-regression">3.3 Simple linear regression</a></li>
+    <li><a href="#34-multiple-linear-regression">3.4 Multiple linear regression</a></li>
+    <li><a href="#35-polynomial-regression">3.5 Polynomial regression</a></li>
+    <li><a href="#36-logistic-regression">3.6 Logistic regression</a></li>
+    <li><a href="#37-maximum-likelihood-estimation">3.7 Maximum likelihood estimation</a></li>
+    <li><a href="#38-regularisation-ridge-and-lasso">3.8 Regularisation — Ridge and Lasso</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 9):</strong> Regression — introduction to regression; regression
 algorithms: simple linear regression, multiple linear regression, polynomial
 regression model, logistic regression, maximum likelihood estimation.</p>
 <hr />
-<h2>3.1 A note on the overlap with Course 4</h2>
+<h2 id="31-a-note-on-the-overlap-with-course-4">3.1 A note on the overlap with Course 4</h2>
 <p><strong>If you took Course 4, you have already derived most of this unit.</strong> Course 4
 Unit 4 covered correlation, simple and multiple linear regression, least
 squares, residuals, R² and ANOVA — with the arithmetic done by hand.</p>
@@ -141,7 +157,7 @@ slope, intercept and R² to four decimal places. If they ever disagree, one of
 the two courses is wrong, and the test says so.</p>
 </div>
 <hr />
-<h2>3.2 What regression is</h2>
+<h2 id="32-what-regression-is">3.2 What regression is</h2>
 <p><strong>Regression predicts a continuous numeric target from one or more features.</strong></p>
 <table class="main-table">
 <thead>
@@ -173,7 +189,7 @@ the two courses is wrong, and the test says so.</p>
 unit because it is a <em>linear model</em> fitted like a regression — and the naming
 trips up a large number of exam answers every year. §3.6.</p>
 <hr />
-<h2>3.3 Simple linear regression</h2>
+<h2 id="33-simple-linear-regression">3.3 Simple linear regression</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The model</h4>
@@ -254,7 +270,7 @@ model = LinearRegression().fit(X, y)
 </li>
 </ul>
 </div>
-<h3>⚠️ Never extrapolate</h3>
+<h3 id="never-extrapolate">⚠️ Never extrapolate</h3>
 <p>Predicting at x = 50 gives <strong>258.18 marks</strong>, which is impossible. The model is
 only valid within the range it was fitted on, and nothing in the code will warn
 you. The lab asserts this number precisely so the failure is concrete.</p>
@@ -316,7 +332,7 @@ you. The lab asserts this number precisely so the failure is concrete.</p>
 non-constant variance.</p>
 </div>
 <hr />
-<h2>3.4 Multiple linear regression</h2>
+<h2 id="34-multiple-linear-regression">3.4 Multiple linear regression</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>ŷ = β₀ + β₁x₁ + β₂x₂ + … + βₚxₚ</strong></p>
@@ -324,7 +340,7 @@ non-constant variance.</p>
 <p>Each coefficient is the effect of <strong>that</strong> predictor <strong>holding the others
 constant</strong> — and that phrase is what makes multiple regression different from
 running p separate simple regressions.</p>
-<h3>⚠️ Multicollinearity</h3>
+<h3 id="multicollinearity">⚠️ Multicollinearity</h3>
 <p>When predictors are strongly correlated with each other:</p>
 <ul>
 <li>Coefficients become <strong>unstable</strong> — they swing wildly with small data changes.</li>
@@ -341,7 +357,7 @@ running p separate simple regressions.</p>
 <p><strong>Detect it with the variance inflation factor:</strong> VIF &gt; 5 is a concern, VIF &gt;
 10 is serious. <strong>Fix it</strong> by dropping one of the pair, combining them, or using
 <strong>Ridge</strong> (§3.8), which is designed for it.</p>
-<h3>⚠️ Use adjusted R², not R², to compare models</h3>
+<h3 id="use-adjusted-r²-not-r²-to-compare-models">⚠️ Use adjusted R², not R², to compare models</h3>
 <p><strong>R² never decreases when you add a predictor</strong> — not even a column of random
 noise. Adjusted R² penalises the extra parameter and can fall.</p>
 <div class="formula">
@@ -349,7 +365,7 @@ noise. Adjusted R² penalises the extra parameter and can fall.</p>
 <p><strong>R²_adj = 1 − (1 − R²) · (n − 1)/(n − p − 1)</strong></p>
 </div>
 <hr />
-<h2>3.5 Polynomial regression</h2>
+<h2 id="35-polynomial-regression">3.5 Polynomial regression</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>ŷ = β₀ + β₁x + β₂x² + … + β_d x^d</strong></p>
@@ -401,7 +417,7 @@ predict nonsense anywhere else.</p>
 <p><strong>This is overfitting made visible</strong>, and it is the clearest illustration in
 the course: R² of exactly 1.0000 on training data.</p>
 </div>
-<h3>⚠️ A real numerical trap worth knowing</h3>
+<h3 id="a-real-numerical-trap-worth-knowing">⚠️ A real numerical trap worth knowing</h3>
 <p>Fitting degree 9 <strong>without standardising first</strong> gives R² = <strong>0.981546</strong> —
 <em>worse</em> than a straight line. The powers of x span such different magnitudes
 that the design matrix becomes ill-conditioned:</p>
@@ -431,8 +447,8 @@ that the design matrix becomes ill-conditioned:</p>
 before generating polynomial features</strong> — the same rule as PCA, for the same
 reason, and both numbers are asserted in the lab.</p>
 <hr />
-<h2>3.6 Logistic regression</h2>
-<h3>⚠️ Logistic regression is a CLASSIFIER</h3>
+<h2 id="36-logistic-regression">3.6 Logistic regression</h2>
+<h3 id="logistic-regression-is-a-classifier">⚠️ Logistic regression is a CLASSIFIER</h3>
 <p>It is in the regression unit because it is a <strong>linear model fitted like a
 regression</strong>, but it predicts a <strong>class</strong>. Saying "logistic regression predicts
 a continuous value" is a guaranteed lost mark.</p>
@@ -524,7 +540,7 @@ cheaper than resampling and easier to explain.</p>
 <p>Softmax is generally preferred and is scikit-learn's default for multi-class.</p>
 </div>
 <hr />
-<h2>3.7 Maximum likelihood estimation</h2>
+<h2 id="37-maximum-likelihood-estimation">3.7 Maximum likelihood estimation</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Choose the parameters that make the data you actually observed as likely as
@@ -602,7 +618,7 @@ squares is not an arbitrary choice — it falls out of an assumption about the
 noise.</p>
 </div>
 <hr />
-<h2>3.8 Regularisation — Ridge and Lasso</h2>
+<h2 id="38-regularisation-ridge-and-lasso">3.8 Regularisation — Ridge and Lasso</h2>
 <p><strong>Regularisation adds a penalty on coefficient size to the loss</strong>, trading a
 little bias for a large reduction in variance.</p>
 <table class="main-table">
@@ -647,14 +663,14 @@ little bias for a large reduction in variance.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Regularisation requires scaling</h3>
+<h3 id="regularisation-requires-scaling">⚠️ Regularisation requires scaling</h3>
 <p>The penalty is on coefficient <strong>magnitude</strong>, and magnitude depends on units. A
 feature in rupees gets a tiny coefficient and is barely penalised; the same
 feature in lakhs gets a large one and is crushed. <strong>Standardise first</strong>, always.</p>
 <p><strong>λ (<code>alpha</code> in scikit-learn) is a hyperparameter</strong> — tune it on validation
 folds. λ = 0 gives ordinary least squares; λ → ∞ shrinks everything to zero.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Explain simple linear regression. Fit it to the data below, interpret the
@@ -747,7 +763,7 @@ thing under that assumption, which is why least squares is not an arbitrary
 choice.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Write the least-squares formulas for slope and intercept.</li>
@@ -775,7 +791,7 @@ choice.</p>
 <li>Explain regularisation and its role in the bias–variance trade-off.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

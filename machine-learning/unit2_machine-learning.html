@@ -32,6 +32,24 @@
     <span class="chip">Exam questions from this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-data-pre-processing-the-order-matters">2.1 Data pre-processing — the order matters</a></li>
+    <li><a href="#22-model-selection-and-training">2.2 Model selection and training</a></li>
+    <li><a href="#23-the-biasvariance-trade-off">2.3 The bias–variance trade-off</a></li>
+    <li><a href="#24-model-representation-and-interpretability">2.4 Model representation and interpretability</a></li>
+    <li><a href="#25-evaluating-models-and-why-accuracy-usually-lies">2.5 Evaluating models — and why accuracy usually lies</a></li>
+    <li><a href="#26-performance-enhancement">2.6 Performance enhancement</a></li>
+    <li><a href="#27-feature-engineering">2.7 Feature engineering</a></li>
+    <li><a href="#28-feature-transformation">2.8 Feature transformation</a></li>
+    <li><a href="#29-feature-subset-selection">2.9 Feature subset selection</a></li>
+    <li><a href="#210-principal-component-analysis">2.10 Principal Component Analysis</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 8):</strong> Data pre-processing; model selection and training (for
 supervised learning); model representation and interpretability; evaluating
 machine learning algorithms and performance enhancement of models. What is
@@ -47,7 +65,7 @@ scikit-learn. This unit is what makes any of them mean something.</p>
 seed, so you can reproduce all of it.</p>
 </div>
 <hr />
-<h2>2.1 Data pre-processing — the order matters</h2>
+<h2 id="21-data-pre-processing-the-order-matters">2.1 Data pre-processing — the order matters</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Preprocessing is a pipeline with a fixed order, and getting the order wrong
@@ -60,7 +78,7 @@ silently corrupts your evaluation.</strong></p>
  6. Balance classes (training set only)
 </code></pre>
 </div>
-<h3>⚠️ Step 1 is first, and this is the single most consequential rule in the unit</h3>
+<h3 id="step-1-is-first-and-this-is-the-single-most-consequential-rule-in-the-unit">⚠️ Step 1 is first, and this is the single most consequential rule in the unit</h3>
 <p><strong>Split before you preprocess.</strong> If you impute means, scale, or select features
 using the whole dataset, information from the test set leaks into training, and
 your test score is no longer an estimate of anything.</p>
@@ -257,7 +275,7 @@ regularised models do not care. Course 9 Unit 4 made the same point.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Which algorithms need scaling — a favourite two-mark question</h3>
+<h3 id="which-algorithms-need-scaling-a-favourite-two-mark-question">⚠️ Which algorithms need scaling — a favourite two-mark question</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -298,7 +316,7 @@ unstandardised PCA would report "the first component is income" — a fact about
 your units, not your data.</p>
 </div>
 <hr />
-<h2>2.2 Model selection and training</h2>
+<h2 id="22-model-selection-and-training">2.2 Model selection and training</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The three-way split</h4>
@@ -335,7 +353,7 @@ your units, not your data.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Why the test set is touched once</h3>
+<h3 id="why-the-test-set-is-touched-once">⚠️ Why the test set is touched once</h3>
 <p><strong>Every time you look at the test score and change something, you fit yourself
 to the test set.</strong> Try twenty models, pick the one with the best test score, and
 that score is now the maximum of twenty noisy numbers — biased upward, and no
@@ -396,7 +414,7 @@ mean 0.9425      standard deviation 0.0269
 That range is why one split is not evidence, and why you quote <strong>mean ± sd</strong>
 rather than a single number.</p>
 </div>
-<h3>⚠️ Never shuffle time series</h3>
+<h3 id="never-shuffle-time-series">⚠️ Never shuffle time series</h3>
 <p>With time-ordered data, a random split lets the model train on the future and
 predict the past. The score will be excellent and completely meaningless. Use
 <code>TimeSeriesSplit</code>, which only ever validates on data <em>after</em> the training fold.</p>
@@ -438,7 +456,7 @@ grid.best_params_        # chosen on VALIDATION folds, not on test
 </code></pre>
 </div>
 <hr />
-<h2>2.3 The bias–variance trade-off</h2>
+<h2 id="23-the-biasvariance-trade-off">2.3 The bias–variance trade-off</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The one picture that explains the whole unit</h4>
@@ -594,7 +612,7 @@ answer.</p>
 is a bug.</p>
 </div>
 <hr />
-<h2>2.4 Model representation and interpretability</h2>
+<h2 id="24-model-representation-and-interpretability">2.4 Model representation and interpretability</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The trade-off</h4>
@@ -685,8 +703,8 @@ boosted ensemble at 0.94.</p>
 </table>
 </div>
 <hr />
-<h2>2.5 Evaluating models — and why accuracy usually lies</h2>
-<h3>⚠️ Start here: the base rate</h3>
+<h2 id="25-evaluating-models-and-why-accuracy-usually-lies">2.5 Evaluating models — and why accuracy usually lies</h2>
+<h3 id="start-here-the-base-rate">⚠️ Start here: the base rate</h3>
 <p><strong>Accuracy alone is nearly meaningless without the base rate.</strong></p>
 <p>The churn dataset is 15% positive. Fitting a <code>DummyClassifier</code> that always
 predicts the majority class:</p>
@@ -952,7 +970,7 @@ why adjusted R² exists, and why R² alone cannot compare models of different
 sizes. Course 4 §4.6 made the same point.</p>
 </div>
 <hr />
-<h2>2.6 Performance enhancement</h2>
+<h2 id="26-performance-enhancement">2.6 Performance enhancement</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1061,7 +1079,7 @@ sizes. Course 4 §4.6 made the same point.</p>
 <p><strong>Bagging averages away variance; boosting chips away at bias.</strong> That one line
 answers the five-mark question.</p>
 </div>
-<h3>⚠️ Handling imbalance — and where to apply it</h3>
+<h3 id="handling-imbalance-and-where-to-apply-it">⚠️ Handling imbalance — and where to apply it</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1097,7 +1115,7 @@ keep the real class distribution, or your metrics describe a world that does
 not exist. Inside cross-validation, that means resampling <em>within</em> each fold —
 which is another reason to use a <code>Pipeline</code>.</p>
 <hr />
-<h2>2.7 Feature engineering</h2>
+<h2 id="27-feature-engineering">2.7 Feature engineering</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Better features beat better algorithms.</strong></p>
@@ -1150,7 +1168,7 @@ than any amount of tuning.</p>
 <code>sin(2πh/24)</code> and <code>cos(2πh/24)</code> puts them next to each other on a circle, which
 is what the model needs to see.</p>
 </div>
-<h3>⚠️ Target leakage — the most damaging mistake in this course</h3>
+<h3 id="target-leakage-the-most-damaging-mistake-in-this-course">⚠️ Target leakage — the most damaging mistake in this course</h3>
 <p><strong>A feature that would not be available at prediction time, or that encodes the
 answer.</strong></p>
 <table class="main-table">
@@ -1185,7 +1203,7 @@ always there.</p>
 <p><strong>The test:</strong> <em>would I know this value at the moment I need the prediction?</em> If
 not, drop it.</p>
 <hr />
-<h2>2.8 Feature transformation</h2>
+<h2 id="28-feature-transformation">2.8 Feature transformation</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Transformation and selection are different operations</h4>
@@ -1297,13 +1315,13 @@ the tail; fitted to <code>log(income)</code> it is not.</p>
 <p>⚠️ Use <strong><code>log1p</code></strong> (log of 1+x), not <code>log</code>, whenever zeros are possible.
 <code>log(0)</code> is −∞ and will silently poison the column.</p>
 </div>
-<h3>⚠️ Transformations are fitted, so they leak</h3>
+<h3 id="transformations-are-fitted-so-they-leak">⚠️ Transformations are fitted, so they leak</h3>
 <p>A log is a fixed function and is safe anywhere. <strong>Anything that learns a
 parameter from the data — the mean and standard deviation for standardising,
 the min and max for min–max, the Box–Cox λ, the PCA components — must be fitted
 on the training set only.</strong> That is §2.1's rule, and it is why every one of
 them belongs inside a <code>Pipeline</code>.</p>
-<h2>2.9 Feature subset selection</h2>
+<h2 id="29-feature-subset-selection">2.9 Feature subset selection</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Why fewer features can be better</h4>
@@ -1385,17 +1403,17 @@ necessary rather than merely tidy.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Filter methods miss interactions</h3>
+<h3 id="filter-methods-miss-interactions">⚠️ Filter methods miss interactions</h3>
 <p>Two features individually uncorrelated with the target can be strongly
 predictive together — the classic case being XOR, where each feature alone
 carries zero information. A filter drops both. <strong>A wrapper or an embedded
 method finds them</strong>, and knowing this distinction is the five-mark answer.</p>
-<h3>⚠️ Selection must happen inside cross-validation</h3>
+<h3 id="selection-must-happen-inside-cross-validation">⚠️ Selection must happen inside cross-validation</h3>
 <p>Selecting features on the whole dataset and <em>then</em> cross-validating is leakage,
 and it produces optimistic scores that will not survive contact with new data.
 Put the selector in a <code>Pipeline</code> so it is refitted inside every fold.</p>
 <hr />
-<h2>2.10 Principal Component Analysis</h2>
+<h2 id="210-principal-component-analysis">2.10 Principal Component Analysis</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>PCA finds new axes — linear combinations of the original features — ordered
@@ -1512,7 +1530,7 @@ that is normal. Kaiser is known to under-select on small p. Quote the rule you
 used and say why; the honest answer is that k is a hyperparameter and should be
 validated.</p>
 </div>
-<h3>⚠️ PCA's four limitations</h3>
+<h3 id="pcas-four-limitations">⚠️ PCA's four limitations</h3>
 <ol>
 <li>
 <p><strong>Components are not interpretable.</strong> PC1 is 0.52×sepal length − 0.26×sepal
@@ -1573,7 +1591,7 @@ If the goal is to stop measuring something expensive, you need <em>selection</em
 PCA.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Why is accuracy an inadequate metric? Explain the confusion matrix and derive
@@ -1813,7 +1831,7 @@ this at the moment I need the prediction?</em></p>
 leak, not a triumph.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Why must the test set be split off before preprocessing?</li>
@@ -1846,7 +1864,7 @@ leak, not a triumph.</p>
 <li>Explain feature engineering and feature selection, with examples of each.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

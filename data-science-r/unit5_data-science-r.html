@@ -32,6 +32,29 @@
     <span class="chip">Reactivity</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#this-unit-contains-three-separate-subjects">⚠ This unit contains three separate subjects</a></li>
+    <li><a href="#a1-what-makes-a-time-series-different">A.1 What makes a time series different</a></li>
+    <li><a href="#a2-time-series-objects-in-r">A.2 Time series objects in R</a></li>
+    <li><a href="#a3-stationarity">A.3 Stationarity</a></li>
+    <li><a href="#a4-acf-and-pacf">A.4 ACF and PACF</a></li>
+    <li><a href="#a5-ar-ma-and-arima">A.5 AR, MA and ARIMA</a></li>
+    <li><a href="#b1-from-ggplot2-to-interactive-in-one-line">B.1 From ggplot2 to interactive, in one line</a></li>
+    <li><a href="#b2-native-plotly">B.2 Native plotly</a></li>
+    <li><a href="#b3-animations-and-sliders">B.3 Animations and sliders</a></li>
+    <li><a href="#b4-when-interactivity-helps-and-when-it-does-not">B.4 When interactivity helps and when it does not</a></li>
+    <li><a href="#c1-what-shiny-is">C.1 What Shiny is</a></li>
+    <li><a href="#c2-the-two-halves-of-every-shiny-app">C.2 The two halves of every Shiny app</a></li>
+    <li><a href="#c3-reactivity-the-concept-the-whole-framework-rests-on">C.3 Reactivity — the concept the whole framework rests on</a></li>
+    <li><a href="#c4-widgets">C.4 Widgets</a></li>
+    <li><a href="#c5-layout-and-deployment">C.5 Layout and deployment</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 2):</strong> Introduction to Time Series Analysis in R (ARIMA basics)
 — concept of time series (trend, seasonality, noise), time series objects in R
 (<code>ts</code>, <code>zoo</code>, <code>xts</code>), plotting and decomposing time series, stationarity and
@@ -44,8 +67,8 @@ reactive expressions and reactivity, input and output widgets, layouts and
 dashboard design.</p>
 <hr />
 <div class="warn">
-<p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
-<h2>⚠ This unit contains three separate subjects</h2>
+<p><span class="label">WATCH OUT</span></p>
+<h2 id="this-unit-contains-three-separate-subjects">⚠ This unit contains three separate subjects</h2>
 <p><strong>Time series analysis</strong>, <strong>interactive visualisation</strong> and <strong>web application
 development</strong> share nothing beyond being done in R. Any one of them is
 normally a course. Compare Unit 2, which covers variables and loops.</p>
@@ -58,7 +81,7 @@ are applied skills you can learn from documentation later.</p>
 <p>This file is split into three independent parts. Study them separately.</p>
 <hr />
 <h1>Part A — Time Series Analysis</h1>
-<h2>A.1 What makes a time series different</h2>
+<h2 id="a1-what-makes-a-time-series-different">A.1 What makes a time series different</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>In a time series the <strong>order of the observations is the information</strong>. Shuffle
@@ -66,14 +89,14 @@ a normal dataset and nothing is lost; shuffle a time series and you have
 destroyed it.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>You have monthly sales for three years. A standard regression treats each month
 as an independent observation — but December's sales are not independent of
 November's, and last December tells you far more about this December than last
 July does. The dependence between neighbouring observations is exactly what a
 time series model exploits and what ordinary regression throws away.</p>
 </div>
-<h3>The four components</h3>
+<h3 id="the-four-components">The four components</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -107,7 +130,7 @@ time series model exploits and what ordinary regression throws away.</p>
 </table>
 <p><strong>Seasonality vs cyclic</strong> is a favourite two-mark question: seasonality has a
 <strong>fixed, known</strong> period (12 months, 7 days); cycles do not.</p>
-<h3>Decomposition models</h3>
+<h3 id="decomposition-models">Decomposition models</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>Additive:  Y = T + S + I</strong> — use when the seasonal swing is roughly
@@ -123,7 +146,7 @@ plot(AirPassengers)                          # classic multiplicative example
 decompose(AirPassengers, type = &quot;multiplicative&quot;)
 stl(log(AirPassengers), s.window = &quot;periodic&quot;)   # more robust
 </code></pre>
-<h2>A.2 Time series objects in R</h2>
+<h2 id="a2-time-series-objects-in-r">A.2 Time series objects in R</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -160,7 +183,7 @@ window(sales, start = c(2024, 3), end = c(2024, 5))
 4 = quarterly, 7 = daily-with-weekly-seasonality, 1 = annual. Getting this wrong
 silently disables all seasonal modelling — the commonest error in this part of
 the course.</p>
-<h2>A.3 Stationarity</h2>
+<h2 id="a3-stationarity">A.3 Stationarity</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>A <strong>stationary</strong> series has statistical properties that do not change over time
@@ -168,14 +191,14 @@ the course.</p>
 lag between two points, not on where they sit.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Why it matters</h4>
 <p>ARIMA models assume stationarity. A series with a trend has a mean that keeps
 moving, so "the mean" is not a fixed quantity to estimate — and a model fitted to
 it will forecast badly. Almost every real series is non-stationary, so making it
 stationary is the first modelling step, not an optional check.</p>
 </div>
-<h3>Testing for it</h3>
+<h3 id="testing-for-it">Testing for it</h3>
 <pre><code class="language-r">library(tseries)
 adf.test(series)      # Augmented Dickey-Fuller
 kpss.test(series)     # KPSS
@@ -190,7 +213,7 @@ kpss.test(series)     # KPSS
 <p><strong>The two tests have opposite null hypotheses.</strong> Reading ADF's p-value as though
 it were KPSS's gives exactly the wrong conclusion, and it is a standard exam
 trap. Write the null down before interpreting either.</p>
-<h3>Differencing</h3>
+<h3 id="differencing">Differencing</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>First difference:  Y′ₜ = Yₜ − Yₜ₋₁</strong> — removes a linear trend</p>
@@ -205,7 +228,7 @@ ndiffs(series); nsdiffs(series) # how many are needed
 <p><strong>Rarely difference more than twice.</strong> Over-differencing adds artificial
 negative autocorrelation and makes the model worse, not better. If <code>ndiffs()</code>
 says 1, use 1.</p>
-<h2>A.4 ACF and PACF</h2>
+<h2 id="a4-acf-and-pacf">A.4 ACF and PACF</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -226,7 +249,7 @@ says 1, use 1.</p>
 </table>
 <pre><code class="language-r">acf(series); pacf(series)
 </code></pre>
-<h3>Reading them to identify the model</h3>
+<h3 id="reading-them-to-identify-the-model">Reading them to identify the model</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -260,7 +283,7 @@ says 1, use 1.</p>
 </table>
 <p><strong>The mnemonic:</strong> <em>PACF for AR, ACF for MA.</em> PACF gives <strong>p</strong>, ACF gives <strong>q</strong>.
 Both alphabetically inverted, which is oddly the easiest way to remember it.</p>
-<h2>A.5 AR, MA and ARIMA</h2>
+<h2 id="a5-ar-ma-and-arima">A.5 AR, MA and ARIMA</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>AR(p) — Autoregressive:</strong> Yₜ = c + φ₁Yₜ₋₁ + … + φₚYₜ₋ₚ + εₜ
@@ -297,7 +320,7 @@ Both alphabetically inverted, which is oddly the easiest way to remember it.</p>
 </table>
 <p><strong>SARIMA(p,d,q)(P,D,Q)[s]</strong> adds the seasonal counterparts, where s is the
 period.</p>
-<h3>Special cases worth naming</h3>
+<h3 id="special-cases-worth-naming">Special cases worth naming</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -332,7 +355,7 @@ period.</p>
 </tr>
 </tbody>
 </table>
-<h3>Fitting and forecasting</h3>
+<h3 id="fitting-and-forecasting">Fitting and forecasting</h3>
 <pre><code class="language-r">library(forecast)
 
 fit &lt;- auto.arima(series)          # searches (p,d,q) by AIC
@@ -354,7 +377,7 @@ different model, not a bigger forecast horizon.</p>
 distributed. A <strong>large</strong> p-value is what you want here — the opposite of most
 tests you have met, and worth stating carefully in an exam.</p>
 </div>
-<h3>Accuracy measures</h3>
+<h3 id="accuracy-measures">Accuracy measures</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -388,7 +411,7 @@ tests you have met, and worth stating carefully in an exam.</p>
 </table>
 <hr />
 <h1>Part B — Interactive Visualisation with plotly</h1>
-<h2>B.1 From ggplot2 to interactive, in one line</h2>
+<h2 id="b1-from-ggplot2-to-interactive-in-one-line">B.1 From ggplot2 to interactive, in one line</h2>
 <pre><code class="language-r">library(plotly)
 
 p &lt;- ggplot(students, aes(x = hours, y = marks, colour = section)) +
@@ -398,7 +421,7 @@ ggplotly(p)                # done -- hover, zoom, pan all work
 </code></pre>
 <p><strong><code>ggplotly()</code> is the whole trick for most purposes.</strong> Any <code>ggplot2</code> plot from
 Unit 3 becomes interactive without rewriting it.</p>
-<h2>B.2 Native plotly</h2>
+<h2 id="b2-native-plotly">B.2 Native plotly</h2>
 <pre><code class="language-r">plot_ly(students, x = ~hours, y = ~marks, color = ~section,
         type = &quot;scatter&quot;, mode = &quot;markers&quot;,
         text = ~paste(&quot;Name:&quot;, name, &quot;&lt;br&gt;Marks:&quot;, marks),
@@ -414,7 +437,7 @@ without it looks for a variable called <code>hours</code> in your environment an
 </div>
 <p><strong>Layers chain with <code>%&gt;%</code>, not <code>+</code></strong> — the reverse of <code>ggplot2</code>. Mixing the two
 is the most common plotly error.</p>
-<h2>B.3 Animations and sliders</h2>
+<h2 id="b3-animations-and-sliders">B.3 Animations and sliders</h2>
 <pre><code class="language-r">plot_ly(gapminder, x = ~gdpPercap, y = ~lifeExp,
         size = ~pop, color = ~continent,
         frame = ~year,                       # &lt;- this creates the animation
@@ -427,7 +450,7 @@ slider automatically. This reproduces the famous Hans Rosling Gapminder chart in
 about six lines.</p>
 <p>For a manual slider, use <code>layout(sliders = list(...))</code> or <code>rangeslider()</code> for
 time series.</p>
-<h2>B.4 When interactivity helps and when it does not</h2>
+<h2 id="b4-when-interactivity-helps-and-when-it-does-not">B.4 When interactivity helps and when it does not</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -454,11 +477,11 @@ time series.</p>
 often communicates more than an interactive one the reader must explore.</p>
 <hr />
 <h1>Part C — R Shiny</h1>
-<h2>C.1 What Shiny is</h2>
+<h2 id="c1-what-shiny-is">C.1 What Shiny is</h2>
 <p>Shiny turns an R script into a <strong>web application</strong> — with no HTML, CSS or
 JavaScript required. You will meet those properly in Course 7; Shiny lets you
 skip them.</p>
-<h2>C.2 The two halves of every Shiny app</h2>
+<h2 id="c2-the-two-halves-of-every-shiny-app">C.2 The two halves of every Shiny app</h2>
 <pre><code class="language-r">library(shiny)
 
 ui &lt;- fluidPage(
@@ -512,13 +535,13 @@ shinyApp(ui = ui, server = server)
 </tr>
 </tbody>
 </table>
-<h2>C.3 Reactivity — the concept the whole framework rests on</h2>
+<h2 id="c3-reactivity-the-concept-the-whole-framework-rests-on">C.3 Reactivity — the concept the whole framework rests on</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>You never write "when the dropdown changes, redraw the plot". You declare that
 the plot <strong>depends on</strong> the dropdown, and Shiny works out what to update.</p>
 </div>
-<h3>The three reactive constructs</h3>
+<h3 id="the-three-reactive-constructs">The three reactive constructs</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -567,7 +590,7 @@ genuinely slow on real data.</p>
 <p><strong>Factor shared computation into a <code>reactive()</code>.</strong> That is the single most
 useful Shiny habit.</p>
 </div>
-<h2>C.4 Widgets</h2>
+<h2 id="c4-widgets">C.4 Widgets</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -647,7 +670,7 @@ useful Shiny habit.</p>
 <p><strong>Every output ID must match:</strong> <code>plotOutput("marksPlot")</code> in the UI pairs with
 <code>output$marksPlot</code> in the server. A typo produces a blank panel and no error
 message — check the spelling first when something does not appear.</p>
-<h2>C.5 Layout and deployment</h2>
+<h2 id="c5-layout-and-deployment">C.5 Layout and deployment</h2>
 <pre><code class="language-r">fluidPage()  sidebarLayout()  fluidRow() / column(width = 6)
 tabsetPanel(tabPanel(&quot;Plot&quot;, ...), tabPanel(&quot;Data&quot;, ...))
 navbarPage()
@@ -656,7 +679,7 @@ navbarPage()
 12 columns wide, so <code>column(6)</code> is half the page.</p>
 <p><strong>Deployment:</strong> shinyapps.io (free tier), Shiny Server, or Posit Connect.</p>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A monthly sales series shows a rising trend and a December peak that grows
@@ -738,7 +761,7 @@ input actually changes.</p>
 its current value. Omitting them is the most common Shiny error there is.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Distinguish seasonality from a cycle.</li>
@@ -767,7 +790,7 @@ its current value. Omitting them is the most common Shiny error there is.</p>
    expressions and multiple outputs.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

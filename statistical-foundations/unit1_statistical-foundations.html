@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-probability-the-big-idea">1.1 Probability — the big idea</a></li>
+    <li><a href="#12-conditional-probability">1.2 Conditional probability</a></li>
+    <li><a href="#13-measures-of-central-tendency">1.3 Measures of central tendency</a></li>
+    <li><a href="#14-measures-of-dispersion">1.4 Measures of dispersion</a></li>
+    <li><a href="#15-correlation-and-covariance-introduction">1.5 Correlation and covariance (introduction)</a></li>
+    <li><a href="#16-bayes-theorem-examined-but-not-in-the-syllabus">1.6 Bayes&#x27; theorem — examined but not in the syllabus</a></li>
+    <li><a href="#17-data-representation">1.7 Data representation</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 20–21):</strong> Probability — concept of uncertainty, axioms and
 rules of probability, conditional probability. Measures of central tendency —
 mean, median, mode. Measures of dispersion — range, interquartile range,
@@ -42,7 +57,7 @@ list — see <a href="#16-bayes-theorem--examined-but-not-in-the-syllabus">§1.6
 review finding <span class="finding">D1</span>.</p>
 </div>
 <hr />
-<h2>1.1 Probability — the big idea</h2>
+<h2 id="11-probability-the-big-idea">1.1 Probability — the big idea</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Probability is a number between 0 and 1 that measures how likely something is.
@@ -50,7 +65,7 @@ review finding <span class="finding">D1</span>.</p>
 likely as not.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>You are waiting for a bus. You cannot know whether it will arrive in the next
 five minutes — but you are not <em>completely</em> ignorant either. You have taken
 this bus a hundred times. It came within five minutes on about seventy of
@@ -101,14 +116,14 @@ total = 6, so P(even) = 3/6 = 0.5.</p>
 </tbody>
 </table>
 </div>
-<h3>The three axioms (Kolmogorov)</h3>
+<h3 id="the-three-axioms-kolmogorov">The three axioms (Kolmogorov)</h3>
 <ol>
 <li><strong>P(A) ≥ 0</strong> — a probability is never negative</li>
 <li><strong>P(S) = 1</strong> — something in the sample space must happen</li>
 <li>If A and B are mutually exclusive, <strong>P(A ∪ B) = P(A) + P(B)</strong></li>
 </ol>
 <p>Everything else is derived from these three.</p>
-<h3>The rules</h3>
+<h3 id="the-rules">The rules</h3>
 <p><strong>Complement rule</strong></p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -137,14 +152,14 @@ and if A and B are independent, <strong>P(A ∩ B) = P(A) × P(B)</strong></p>
 one ace is already gone — the events are not independent.</p>
 <p><strong>With replacement</strong> they would be independent: (4/52) × (4/52) ≈ 0.0059.</p>
 </div>
-<h2>1.2 Conditional probability</h2>
+<h2 id="12-conditional-probability">1.2 Conditional probability</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Conditional probability is the probability of A <strong>given that you already know</strong>
 B happened. New information changes the odds.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>A friend rolls a die behind a screen and tells you the result is even. Before
 that, P(6) was 1/6. Now you know the outcome is one of {2, 4, 6}, so P(6) has
 risen to 1/3. Nothing about the die changed — only what you know did.</p>
@@ -166,7 +181,7 @@ A student studies R. What is the probability they also study Python?</p>
 <p>Compare with the unconditional P(Python) = 0.40. Knowing they study R raised
 it from 0.40 to 0.67.</p>
 </div>
-<h3>Independence</h3>
+<h3 id="independence">Independence</h3>
 <p>A and B are <strong>independent</strong> when knowing one tells you nothing about the other:</p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -178,20 +193,20 @@ independent — students who take R are more likely to take Python.</p>
 events cannot both occur, so knowing one happened tells you the other did
 <em>not</em> — which is a very strong dependence. Two mutually exclusive events with
 non-zero probability are never independent.</p>
-<h2>1.3 Measures of central tendency</h2>
+<h2 id="13-measures-of-central-tendency">1.3 Measures of central tendency</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>One number that stands in for a whole set of numbers — where the data
 "centres".</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>Someone asks how your class did in the statistics test. You could read out all
 sixty marks. Instead you say "about 72". That single number is a measure of
 central tendency, and it communicates more in one word than the full list does
 in sixty.</p>
 </div>
-<h3>Mean</h3>
+<h3 id="mean">Mean</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>x̄ = Σxᵢ / n</strong></p>
@@ -206,12 +221,12 @@ in sixty.</p>
 <li>Step 3: divide → 50 / 5 = <strong>10</strong></li>
 </ul>
 </div>
-<h3>Median</h3>
+<h3 id="median">Median</h3>
 <p>Sort the data; take the middle value. With an even count, average the two
 middle values.</p>
 <p><strong>Same data:</strong> 5, 8, <strong>10</strong>, 12, 15 → median = <strong>10</strong></p>
 <p><strong>With an even count:</strong> 5, 8, <strong>10, 12</strong>, 15, 18 → (10 + 12)/2 = <strong>11</strong></p>
-<h3>Mode</h3>
+<h3 id="mode">Mode</h3>
 <p>The most frequent value. There may be none, one, or several.</p>
 <p>3, 7, <strong>7</strong>, 9, 12 → mode = <strong>7</strong></p>
 <div class="tip">
@@ -246,7 +261,7 @@ actually earns. When a question asks "which measure is appropriate and why",
 this is the answer: use the median when the data is skewed or contains
 outliers.</p>
 </div>
-<h3>Choosing between them</h3>
+<h3 id="choosing-between-them">Choosing between them</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -274,14 +289,14 @@ outliers.</p>
 <p><span class="label">NOTE</span></p>
 <p><strong>Mode ≈ 3 × Median − 2 × Mean</strong></p>
 </div>
-<h2>1.4 Measures of dispersion</h2>
+<h2 id="14-measures-of-dispersion">1.4 Measures of dispersion</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>The centre is only half the story. Dispersion says how <em>spread out</em> the values
 are around it.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>Two students both average 60 across five tests.</p>
 <ul>
 <li>Ravi: 58, 60, 61, 59, 62 — reliable, always around 60</li>
@@ -291,14 +306,14 @@ are around it.</p>
 you would want to know the spread, not just the average. <strong>The mean without a
 measure of spread is close to useless.</strong></p>
 </div>
-<h3>Range</h3>
+<h3 id="range">Range</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>Range = maximum − minimum</strong></p>
 </div>
 <p>Ravi: 62 − 58 = 4. Priya: 100 − 20 = 80.</p>
 <p>Simple, but it uses only two values — one outlier defines it entirely.</p>
-<h3>Interquartile range (IQR)</h3>
+<h3 id="interquartile-range-iqr">Interquartile range (IQR)</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>IQR = Q₃ − Q₁</strong></p>
@@ -306,7 +321,7 @@ measure of spread is close to useless.</strong></p>
 <p>Q₁ is the 25th percentile, Q₃ the 75th. The IQR is the spread of the middle
 50%, so outliers cannot inflate it.</p>
 <p><strong>Outlier rule:</strong> anything below Q₁ − 1.5×IQR or above Q₃ + 1.5×IQR.</p>
-<h3>Variance and standard deviation</h3>
+<h3 id="variance-and-standard-deviation">Variance and standard deviation</h3>
 <p>The sequence matters — never skip a step:</p>
 <ol>
 <li>Find the mean</li>
@@ -393,7 +408,7 @@ for that bias.</p>
 frequent arithmetic error in this course. If the question says "sample", use
 n−1.</p>
 </div>
-<h3>Coefficient of variation</h3>
+<h3 id="coefficient-of-variation">Coefficient of variation</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>CV = (s / x̄) × 100%</strong></p>
@@ -401,7 +416,7 @@ n−1.</p>
 <p>A unit-free measure, so it compares spread across different scales. Comparing
 the variability of heights (cm) with weights (kg) requires CV; standard
 deviation alone cannot do it.</p>
-<h2>1.5 Correlation and covariance (introduction)</h2>
+<h2 id="15-correlation-and-covariance-introduction">1.5 Correlation and covariance (introduction)</h2>
 <p><em>Full treatment in <a href="unit4_statistical-foundations.html">Unit 4</a>; this is the introduction the syllabus
 places here.</em></p>
 <p><strong>Covariance</strong> measures whether two variables move together:</p>
@@ -420,7 +435,7 @@ by 100.</p>
 </div>
 <p>r is unit-free and always between <strong>−1 and +1</strong>, which is why it is the number
 you report.</p>
-<h2>1.6 Bayes' theorem — examined but not in the syllabus</h2>
+<h2 id="16-bayes-theorem-examined-but-not-in-the-syllabus">1.6 Bayes' theorem — examined but not in the syllabus</h2>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>Unit 1 lists only "conditional probability". Bayes' theorem appears in the
@@ -436,7 +451,7 @@ disease given a positive test — which is what you actually want to know.</p>
 <p>This one trips up medical doctors, let alone students. Take it slowly.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>A disease affects 1 in 100 people. A test is very good: it catches 99% of
 people who have it, and correctly clears 95% of those who do not. You test
 positive.</p>
@@ -516,7 +531,7 @@ the single most examined idea in this part of the course. Draw the
 10,000-person table every time — it makes the answer obvious and it earns
 marks.</p>
 </div>
-<h2>1.7 Data representation</h2>
+<h2 id="17-data-representation">1.7 Data representation</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -555,7 +570,7 @@ marks.</p>
 </table>
 <p><strong>Bar chart vs histogram is a guaranteed two-mark question.</strong> Bar chart:
 categories, gaps between bars. Histogram: continuous intervals, no gaps.</p>
-<h3>Reading the shape of a histogram</h3>
+<h3 id="reading-the-shape-of-a-histogram">Reading the shape of a histogram</h3>
 <ul>
 <li><strong>Symmetric</strong> — mean ≈ median ≈ mode</li>
 <li><strong>Positively (right) skewed</strong> — a tail to the right; mean &gt; median</li>
@@ -566,7 +581,7 @@ categories, gaps between bars. Histogram: continuous intervals, no gaps.</p>
 <p><strong>Pearson's skewness = 3(mean − median) / standard deviation</strong></p>
 </div>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A bag contains 5 red, 3 blue and 2 green balls. One ball is drawn at random.
@@ -691,7 +706,7 @@ only 40% of the output, because its defect rate is more than twice A's.</p>
 <p><em>Check:</em> P(A|D) = 0.012/0.032 = 0.375, and 0.625 + 0.375 = 1 ✓</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>State the axioms of probability.</li>
@@ -718,7 +733,7 @@ only 40% of the output, because its defect rate is more than twice A's.</p>
 <li>Explain all measures of central tendency and dispersion with a fully worked
    dataset.</li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

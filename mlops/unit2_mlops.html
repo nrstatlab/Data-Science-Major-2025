@@ -28,13 +28,26 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-the-definitions">2.1 The definitions</a></li>
+    <li><a href="#22-the-principles-of-good-data-architecture">2.2 The principles of good data architecture</a></li>
+    <li><a href="#23-designing-for-failure">2.3 Designing for failure</a></li>
+    <li><a href="#24-tiers-and-the-monolith-question">2.4 Tiers, and the monolith question</a></li>
+    <li><a href="#25-event-driven-architecture">2.5 Event-driven architecture</a></li>
+    <li><a href="#26-cloud-shapes">2.6 Cloud shapes</a></li>
+    <li><a href="#27-technology-selection">2.7 Technology selection</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 14–15):</strong> Enterprise and data architecture definitions.
 Principles of good data architecture. Scalability, failure design, tiers,
 microservices, monolith vs modular. Event-driven architecture, hybrid cloud,
 multicloud, edge computing. Technology selection criteria: team size,
 interoperability, cost, TCO.</p>
 <hr />
-<h2>2.1 The definitions</h2>
+<h2 id="21-the-definitions">2.1 The definitions</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -60,7 +73,7 @@ interoperability, cost, TCO.</p>
 <p><strong>Data architecture is a subset of enterprise architecture</strong>, and the exam
 answer distinguishes them by <em>scope</em>, not by subject matter.</p>
 <hr />
-<h2>2.2 The principles of good data architecture</h2>
+<h2 id="22-the-principles-of-good-data-architecture">2.2 The principles of good data architecture</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -116,7 +129,7 @@ proportion to how hard the decision is to undo, and stop agonising over the
 reversible ones.</p>
 </div>
 <hr />
-<h2>2.3 Designing for failure</h2>
+<h2 id="23-designing-for-failure">2.3 Designing for failure</h2>
 <p><strong>Failure is the normal condition of a distributed system.</strong> Four terms, and
 the difference between them is examined:</p>
 <table class="main-table">
@@ -188,9 +201,9 @@ loses an hour of transactions has an excellent RTO and an unacceptable RPO.
 They are set independently and both belong in an SLA.</p>
 </div>
 <hr />
-<h2>2.4 Tiers, and the monolith question</h2>
+<h2 id="24-tiers-and-the-monolith-question">2.4 Tiers, and the monolith question</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Tiered architecture</h4>
 <table class="main-table">
 <thead>
@@ -244,7 +257,7 @@ both ways and times them:</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Microservices are SLOWER for the same work</h3>
+<h3 id="microservices-are-slower-for-the-same-work">⚠️ Microservices are SLOWER for the same work</h3>
 <p>Any honest comparison starts there. Each boundary you draw adds
 serialisation, a network hop, and a new failure mode.</p>
 <p><strong>So what do you get?</strong> Not speed. <strong>Independent deployment and independent
@@ -335,7 +348,7 @@ deployed unit — is the right answer far more often than its reputation
 suggests.</p>
 </div>
 <hr />
-<h2>2.5 Event-driven architecture</h2>
+<h2 id="25-event-driven-architecture">2.5 Event-driven architecture</h2>
 <p>Components communicate by <strong>publishing events</strong> rather than calling each
 other.</p>
 <table class="main-table">
@@ -438,7 +451,7 @@ falls further while latency rises linearly.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ The failure row decides real architectures</h3>
+<h3 id="the-failure-row-decides-real-architectures">⚠️ The failure row decides real architectures</h3>
 <p><strong>A batch job that fails at record 9,000 of 10,000 usually re-runs the whole
 batch</strong>, which requires every step to be <strong>idempotent</strong> — and making an ETL
 job idempotent is most of the work in writing one.</p>
@@ -446,7 +459,7 @@ job idempotent is most of the work in writing one.</p>
 fails for ever: that is what a <strong>dead-letter queue</strong> is for, and it is the
 first thing missing from a student project.</p>
 <hr />
-<h2>2.6 Cloud shapes</h2>
+<h2 id="26-cloud-shapes">2.6 Cloud shapes</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -483,7 +496,7 @@ first thing missing from a student project.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Multicloud costs more than it saves, usually</h3>
+<h3 id="multicloud-costs-more-than-it-saves-usually">⚠️ Multicloud costs more than it saves, usually</h3>
 <p><strong>The lowest common denominator problem:</strong> to stay portable you can use only
 what every provider offers, which means giving up the managed services that
 made the cloud worth using. <strong>And egress between clouds is charged</strong>, often
@@ -495,7 +508,7 @@ one provider has a service you genuinely need is a good reason. Be honest
 about which one you have.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Edge computing, and the one number that justifies it</h4>
 <p><strong>Bandwidth.</strong> A camera producing 4 Mbit/s, sent to a datacentre continuously,
 costs far more than a device that runs the model locally and uploads only the
@@ -503,7 +516,7 @@ detections. <strong>Latency is the other reason</strong> — a vehicle cannot wa
 a round trip.</p>
 </div>
 <hr />
-<h2>2.7 Technology selection</h2>
+<h2 id="27-technology-selection">2.7 Technology selection</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -591,7 +604,7 @@ data lake will spend all its time on operations and none on data. <strong>Choose
 boring, managed option until you can name what it is costing you.</strong></p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Distinguish enterprise, data and solution architecture</li>
 <li>[ ] Name five principles of good data architecture and explain <strong>reversibility</strong></li>

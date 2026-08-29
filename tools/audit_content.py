@@ -177,6 +177,22 @@ def main():
             md_links.append(f"{p.relative_to(ROOT)} -> {mo.group(1)}")
     check("no page links to a .md file", not md_links, str(md_links[:5]))
 
+    # a contents entry pointing at a heading that is not on the page is worse
+    # than no contents at all -- the click does nothing and the reader assumes
+    # the section is missing
+    toc_bad, toc_n = [], 0
+    for p in pages:
+        h = p.read_text(errors="replace")
+        if 'class="toc"' not in h:
+            continue
+        ids = set(re.findall(r'<h[23][^>]*id="([^"]+)"', h))
+        for a in re.findall(r'<li><a href="#([^"]+)"', h):
+            toc_n += 1
+            if a not in ids:
+                toc_bad.append(f"{p.relative_to(ROOT)} #{a}")
+    check(f"{toc_n} on-page contents anchors resolve", not toc_bad,
+          str(toc_bad[:5]))
+
     md_broken = []
     for name in ("README.md", "SYLLABUS-MAP.md", "SYLLABUS-REVIEW.md",
                  "STUDY-PLAN.md"):

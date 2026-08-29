@@ -26,6 +26,16 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-decision-making">2.1 Decision making</a></li>
+    <li><a href="#22-loops">2.2 Loops</a></li>
+    <li><a href="#23-jump-statements">2.3 Jump statements</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 9):</strong> Decision-making statements — <code>if</code>, <code>if-else</code>, <code>else-if</code>
 ladder, <code>switch</code>. Loop control statements — <code>while</code>, <code>for</code>, <code>do-while</code>. Jump
 control statements — <code>break</code>, <code>continue</code>, <code>goto</code>.</p>
@@ -33,18 +43,18 @@ control statements — <code>break</code>, <code>continue</code>, <code>goto</co
 <p>This is the shortest unit and the easiest to score on. Almost every question is
 either "write a program to…" or "what is the output of…". Both reward practice
 rather than memorisation.</p>
-<h2>2.1 Decision making</h2>
-<h3><code>if</code></h3>
+<h2 id="21-decision-making">2.1 Decision making</h2>
+<h3 id="if"><code>if</code></h3>
 <pre><code class="language-c">if (marks &gt;= 40)
     printf(&quot;Pass\n&quot;);
 </code></pre>
-<h3><code>if-else</code></h3>
+<h3 id="if-else"><code>if-else</code></h3>
 <pre><code class="language-c">if (marks &gt;= 40)
     printf(&quot;Pass\n&quot;);
 else
     printf(&quot;Fail\n&quot;);
 </code></pre>
-<h3><code>else-if</code> ladder</h3>
+<h3 id="else-if-ladder"><code>else-if</code> ladder</h3>
 <p>Conditions are tested top to bottom; the <strong>first</strong> true one runs and the rest
 are skipped.</p>
 <pre><code class="language-c">if (marks &gt;= 90)       grade = 'A';
@@ -55,7 +65,7 @@ else                   grade = 'F';
 </code></pre>
 <p>Order matters. Reverse this ladder — testing <code>&gt;= 40</code> first — and every passing
 student gets a D, because the first condition is true for all of them.</p>
-<h3>Nested <code>if</code></h3>
+<h3 id="nested-if">Nested <code>if</code></h3>
 <pre><code class="language-c">if (age &gt;= 18) {
     if (has_id)
         printf(&quot;Allowed\n&quot;);
@@ -73,7 +83,7 @@ else                             /* binds to the INNER if, despite indentation *
 </code></pre>
 <p>Always use braces on nested <code>if</code>s. This is a favourite "find the error"
 question.</p>
-<h3><code>switch</code></h3>
+<h3 id="switch"><code>switch</code></h3>
 <pre><code class="language-c">switch (choice) {
 case 1:
     printf(&quot;Addition\n&quot;);
@@ -114,7 +124,7 @@ case 'F':
     printf(&quot;Fail\n&quot;);
 }
 </code></pre>
-<h3><code>if-else</code> ladder vs <code>switch</code></h3>
+<h3 id="if-else-ladder-vs-switch"><code>if-else</code> ladder vs <code>switch</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -147,8 +157,8 @@ case 'F':
 </tbody>
 </table>
 <p>Use <code>switch</code> for a menu; use a ladder for <code>marks &gt;= 90</code>-style ranges.</p>
-<h2>2.2 Loops</h2>
-<h3><code>while</code> — entry-controlled</h3>
+<h2 id="22-loops">2.2 Loops</h2>
+<h3 id="while-entry-controlled"><code>while</code> — entry-controlled</h3>
 <pre><code class="language-c">int i = 1;              /* initialise */
 while (i &lt;= 5) {        /* test BEFORE the body */
     printf(&quot;%d &quot;, i);
@@ -156,13 +166,13 @@ while (i &lt;= 5) {        /* test BEFORE the body */
 }
 </code></pre>
 <p>If the condition is false at the start, the body runs <strong>zero</strong> times.</p>
-<h3><code>for</code> — entry-controlled, all three parts in one line</h3>
+<h3 id="for-entry-controlled-all-three-parts-in-one-line"><code>for</code> — entry-controlled, all three parts in one line</h3>
 <pre><code class="language-c">for (int i = 1; i &lt;= 5; i++)
     printf(&quot;%d &quot;, i);
 </code></pre>
 <p><code>for (initialise; condition; update)</code>. Any part may be left empty;
 <code>for (;;)</code> is an infinite loop.</p>
-<h3><code>do-while</code> — exit-controlled</h3>
+<h3 id="do-while-exit-controlled"><code>do-while</code> — exit-controlled</h3>
 <pre><code class="language-c">int i = 1;
 do {
     printf(&quot;%d &quot;, i);
@@ -175,7 +185,7 @@ whole difference, and it is asked constantly.</p>
 while (i &lt; 5)   { printf(&quot;while\n&quot;);    i++; }   /* prints nothing   */
 do              { printf(&quot;do-while\n&quot;); i++; } while (i &lt; 5);  /* prints once */
 </code></pre>
-<h3>Comparison</h3>
+<h3 id="comparison">Comparison</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -212,7 +222,7 @@ do              { printf(&quot;do-while\n&quot;); i++; } while (i &lt; 5);  /* p
 </tr>
 </tbody>
 </table>
-<h3>Nested loops</h3>
+<h3 id="nested-loops">Nested loops</h3>
 <pre><code class="language-c">for (int i = 1; i &lt;= 4; i++) {
     for (int j = 1; j &lt;= i; j++)
         printf(&quot;* &quot;);
@@ -228,8 +238,8 @@ do              { printf(&quot;do-while\n&quot;); i++; } while (i &lt; 5);  /* p
 <p>Pattern-printing questions appear in nearly every paper. The trick is always
 the same: the outer loop controls <strong>rows</strong>, the inner loop controls <strong>columns</strong>,
 and the inner loop's bound usually depends on the outer variable.</p>
-<h2>2.3 Jump statements</h2>
-<h3><code>break</code></h3>
+<h2 id="23-jump-statements">2.3 Jump statements</h2>
+<h3 id="break"><code>break</code></h3>
 <p>Leaves the <strong>innermost</strong> loop or <code>switch</code> immediately.</p>
 <pre><code class="language-c">for (int i = 1; i &lt;= 10; i++) {
     if (i == 5) break;
@@ -237,7 +247,7 @@ and the inner loop's bound usually depends on the outer variable.</p>
 }
 </code></pre>
 <p>In nested loops, <code>break</code> escapes only one level.</p>
-<h3><code>continue</code></h3>
+<h3 id="continue"><code>continue</code></h3>
 <p>Skips the rest of this iteration and jumps to the next one.</p>
 <pre><code class="language-c">for (int i = 1; i &lt;= 10; i++) {
     if (i % 2 == 0) continue;
@@ -256,7 +266,7 @@ while (i &lt; 10) {
     i++;
 }
 </code></pre>
-<h3><code>goto</code></h3>
+<h3 id="goto"><code>goto</code></h3>
 <pre><code class="language-c">    if (error) goto cleanup;
     /* ... */
 cleanup:
@@ -269,7 +279,7 @@ why it is discouraged — the accepted answer cites Dijkstra's 1968 letter <em>"
 To Statement Considered Harmful"</em> and the resulting "spaghetti code".</p>
 <p>The one defensible use is jumping to a single cleanup block from deep inside
 nested error handling, which is common in the Linux kernel.</p>
-<h3><code>break</code> vs <code>continue</code></h3>
+<h3 id="break-vs-continue"><code>break</code> vs <code>continue</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -377,7 +387,7 @@ for (i = 1; i &lt;= 3; i++) {
 row 3 checks <code>j == 1</code> first and only then breaks.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Differentiate <code>while</code> and <code>do-while</code>.</li>
@@ -406,7 +416,7 @@ row 3 checks <code>j == 1</code> first and only then breaks.</p>
 <p>Explain loop control statements in C, comparing all three loops.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

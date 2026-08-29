@@ -26,15 +26,26 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-attention-which-is-the-core-of-the-unit">5.1 Attention, which is the core of the unit</a></li>
+    <li><a href="#52-bert-and-gpt">5.2 BERT and GPT</a></li>
+    <li><a href="#53-transfer-learning-and-fine-tuning">5.3 Transfer learning and fine-tuning</a></li>
+    <li><a href="#54-generative-models">5.4 Generative models</a></li>
+    <li><a href="#55-ai-ethics">5.5 AI ethics</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 2):</strong> Generative models: GANs (Generator &amp; Discriminator
 intuition), VAEs (introduction only). Transformers: attention mechanism
 (intuitive), BERT, GPT family (overview). Transfer learning &amp; fine-tuning
 pre-trained models (vision &amp; NLP). AI ethics: Bias, fairness, privacy, safety,
 explainability.</p>
 <hr />
-<h2>5.1 Attention, which is the core of the unit</h2>
+<h2 id="51-attention-which-is-the-core-of-the-unit">5.1 Attention, which is the core of the unit</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The one equation</h4>
 <p>$$\text{Attention}(Q, K, V) = \text{softmax}!\left(\frac{QK^{T}}{\sqrt{d_k}}\right)V$$</p>
 <table class="main-table">
@@ -103,7 +114,7 @@ V = [[10, 0], [0, 10], [5, 5]]
 </table>
 <p><strong>The query matched key 0 exactly, key 2 partly, key 1 not at all — and the
 weights rank them in exactly that order.</strong></p>
-<h3>🎯 The one sentence</h3>
+<h3 id="the-one-sentence">🎯 The one sentence</h3>
 <p><strong>Attention is a soft, learned lookup table.</strong> The output is a weighted
 average of the values, weighted by how well each key matched the query.
 Everything else in a transformer is plumbing around that.</p>
@@ -162,7 +173,7 @@ the third column shows it working. That is the entire reason for the scaling
 factor, and it is the detail most people cannot explain in a viva.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Multi-head attention</h4>
 <p>Run <code>h</code> attention operations in parallel on <code>d_model/h</code>-dimensional
 projections, concatenate, and project back.</p>
@@ -172,7 +183,7 @@ at once</strong> — one tracking syntax, another coreference, another position 
 the concatenation lets the next layer use all of them.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The transformer encoder block</h4>
 <pre><code>x → multi-head self-attention → add &amp; layer-norm
   → feed-forward (d_model → 4·d_model → d_model) → add &amp; layer-norm
@@ -204,7 +215,7 @@ the concatenation lets the next layer use all of them.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Positional encoding, and an honest null result</h3>
+<h3 id="positional-encoding-and-an-honest-null-result">⚠️ Positional encoding, and an honest null result</h3>
 <p><strong>Attention is permutation-equivariant</strong>: shuffle the input and the outputs
 shuffle with it. It has <em>no</em> notion of order, which is why position must be
 added to the input explicitly — either as fixed sinusoids or as learned
@@ -325,7 +336,7 @@ sparse attention, sliding windows, FlashAttention, linear attention — exists
 to attack this one line.</p>
 </div>
 <hr />
-<h2>5.2 BERT and GPT</h2>
+<h2 id="52-bert-and-gpt">5.2 BERT and GPT</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -371,9 +382,9 @@ right-hand context</strong>, because its attention is causally masked. The maski
 the entire architectural difference; both are stacks of the same block.</p>
 </div>
 <hr />
-<h2>5.3 Transfer learning and fine-tuning</h2>
+<h2 id="53-transfer-learning-and-fine-tuning">5.3 Transfer learning and fine-tuning</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The idea</h4>
 <p>A network trained on a large dataset has learned features that are <strong>generic</strong>
 in its early layers. Keep those, replace the task-specific head, and train on
@@ -424,7 +435,7 @@ saw a shoe on a black background, and they transferred anyway — because the
 early layers of any vision model learn edges, corners and textures, and those
 are the same features whatever the pictures are of.</p>
 </div>
-<h3>⚠️ Two results that contradict the usual story</h3>
+<h3 id="two-results-that-contradict-the-usual-story">⚠️ Two results that contradict the usual story</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>1. VGG16 lost to a small CNN trained from scratch</strong> — 0.7660 against
@@ -483,9 +494,9 @@ head is useless for this task — which is exactly why transfer learning keeps
 the convolutions and discards the head.</p>
 </div>
 <hr />
-<h2>5.4 Generative models</h2>
+<h2 id="54-generative-models">5.4 Generative models</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>GANs — the two-player game</h4>
 <table class="main-table">
 <thead>
@@ -511,7 +522,7 @@ the convolutions and discards the head.</p>
 <p>They train <strong>against each other</strong>. At the ideal equilibrium <code>G</code>'s output
 distribution matches the data and <code>D</code> is reduced to guessing — 50%.</p>
 </div>
-<h3>⚠️ Why GANs are famously hard to train</h3>
+<h3 id="why-gans-are-famously-hard-to-train">⚠️ Why GANs are famously hard to train</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -538,7 +549,7 @@ distribution matches the data and <code>D</code> is reduced to guessing — 50%.
 the generator improved <em>or</em> that the discriminator got worse — which is why
 GAN papers show samples rather than curves.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>VAEs — introduction only</h4>
 <p>An autoencoder compresses input to a latent code and reconstructs it. A
 <strong>variational</strong> autoencoder makes the latent a <strong>distribution</strong> — the encoder
@@ -580,10 +591,10 @@ latent space has holes.</p>
 </table>
 </div>
 <hr />
-<h2>5.5 AI ethics</h2>
+<h2 id="55-ai-ethics">5.5 AI ethics</h2>
 <p>This is examinable, and it is not a soft topic — each item below has a
 concrete mechanism.</p>
-<h3>⚠️ Bias</h3>
+<h3 id="bias">⚠️ Bias</h3>
 <p><strong>The model learns the statistics of its training data, including the ones you
 did not want.</strong></p>
 <table class="main-table">
@@ -616,7 +627,7 @@ collapses. <strong>The model learned the background.</strong> That five-minute e
 the same failure behind a string of real medical-imaging papers that turned
 out to be detecting which hospital took the scan.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Fairness — and why the definitions conflict</h4>
 <table class="main-table">
 <thead>
@@ -647,7 +658,7 @@ optimisation</strong> — and that sentence is what an exam question on fairness
 looking for.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Privacy</h4>
 <table class="main-table">
 <thead>
@@ -673,7 +684,7 @@ looking for.</p>
 </table>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Safety and explainability</h4>
 <table class="main-table">
 <thead>
@@ -697,7 +708,7 @@ looking for.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ And the caveat this course has already measured</h3>
+<h3 id="and-the-caveat-this-course-has-already-measured">⚠️ And the caveat this course has already measured</h3>
 <p><strong>Attention maps are not explanations.</strong> The lab scored them against a known
 ground truth and got <strong>92.5%</strong> — high, but not an explanation, and the
 remaining 7.5% are cases where the model was right while attending
@@ -706,7 +717,7 @@ problem: it produces a plausible story, and plausibility is not
 correctness.</strong></p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Write the attention equation and say what Q, K and V each mean</li>
 <li>[ ] Work through a small attention example by hand</li>

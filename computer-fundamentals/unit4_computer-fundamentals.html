@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-spreadsheet-structure">4.1 Spreadsheet structure</a></li>
+    <li><a href="#42-cell-referencing-the-concept-everything-depends-on">4.2 Cell referencing — the concept everything depends on</a></li>
+    <li><a href="#43-basic-functions">4.3 Basic functions</a></li>
+    <li><a href="#44-logical-functions">4.4 Logical functions</a></li>
+    <li><a href="#45-text-functions">4.5 Text functions</a></li>
+    <li><a href="#46-lookup-functions">4.6 Lookup functions</a></li>
+    <li><a href="#47-charts">4.7 Charts</a></li>
+    <li><a href="#48-data-handling">4.8 Data handling</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 4):</strong> Spreadsheet concepts — understanding rows, columns,
 cells in tools like MS Excel/Google Sheets, cell referencing. Functions and
 formulae — SUM, AVERAGE, IF, COUNT. Charts and graphs — creating visual
@@ -43,7 +58,7 @@ tables are, by a wide margin, the most used data-analysis skills in the world.</
 <p>These same functions applied to statistical data appear in
 <code>labs/course-4-stats/excel-walkthroughs.md</code>
 — worth reading alongside this unit.</p>
-<h2>4.1 Spreadsheet structure</h2>
+<h2 id="41-spreadsheet-structure">4.1 Spreadsheet structure</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -93,7 +108,7 @@ tables are, by a wide margin, the most used data-analysis skills in the world.</
 <p><strong>A cell displays a result but contains a formula.</strong> Press <strong>Ctrl + `</strong> (grave
 accent) to show all formulas at once — useful for checking, and examiners
 sometimes ask for it.</p>
-<h2>4.2 Cell referencing — the concept everything depends on</h2>
+<h2 id="42-cell-referencing-the-concept-everything-depends-on">4.2 Cell referencing — the concept everything depends on</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -126,7 +141,7 @@ sometimes ask for it.</p>
 </tbody>
 </table>
 <p><strong>Press F4</strong> while editing a reference to cycle <code>A1</code> → <code>$A$1</code> → <code>A$1</code> → <code>$A1</code>.</p>
-<h3>Why it matters</h3>
+<h3 id="why-it-matters">Why it matters</h3>
 <p>Suppose B1 holds a tax rate and you compute tax in C2:C10.</p>
 <pre><code>=B2*B1     copied down becomes =B3*B2, =B4*B3 …   WRONG — the rate moved
 =B2*$B$1   copied down becomes =B3*$B$1, =B4*$B$1  correct — the rate is anchored
@@ -134,18 +149,18 @@ sometimes ask for it.</p>
 <p><strong>Forgetting the <code>$</code> is the single most common spreadsheet error.</strong> If a
 formula works in the first row and produces nonsense below, this is almost
 always why.</p>
-<h3>The multiplication table — the classic mixed-reference exercise</h3>
+<h3 id="the-multiplication-table-the-classic-mixed-reference-exercise">The multiplication table — the classic mixed-reference exercise</h3>
 <p>To build a 10×10 table with a single formula copied everywhere:</p>
 <pre><code>=$A2*B$1
 </code></pre>
 <p>The column of <code>$A2</code> is locked but the row moves; the row of <code>B$1</code> is locked but
 the column moves. One formula, filled across and down, produces the whole table.</p>
-<h3>References across sheets and files</h3>
+<h3 id="references-across-sheets-and-files">References across sheets and files</h3>
 <pre><code>=Sheet2!A1                  another sheet
 ='My Sheet'!A1              sheet name with a space -- needs quotes
 =[Book2.xlsx]Sheet1!A1      another workbook
 </code></pre>
-<h2>4.3 Basic functions</h2>
+<h2 id="43-basic-functions">4.3 Basic functions</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -204,7 +219,7 @@ the column moves. One formula, filled across and down, produces the whole table.
 </table>
 <p><strong><code>COUNT</code> vs <code>COUNTA</code> is a favourite two-mark question.</strong> <code>COUNT</code> counts only
 numbers; <code>COUNTA</code> counts anything non-empty, including text.</p>
-<h3>Conditional aggregates</h3>
+<h3 id="conditional-aggregates">Conditional aggregates</h3>
 <pre><code class="language-excel">=COUNTIF(B2:B20, &quot;&gt;50&quot;)                        how many exceed 50
 =COUNTIFS(A2:A20,&quot;IT&quot;, B2:B20,&quot;&gt;50000&quot;)        multiple criteria
 =SUMIF(A2:A20, &quot;IT&quot;, C2:C20)                   sum C where A is &quot;IT&quot;
@@ -217,8 +232,8 @@ numbers; <code>COUNTA</code> counts anything non-empty, including text.</p>
 the criteria range first; <code>SUMIFS(sum_range, range1, criteria1, …)</code> puts the sum
 range first. This inconsistency in Excel's own design catches everyone.</p>
 </div>
-<h2>4.4 Logical functions</h2>
-<h3>IF</h3>
+<h2 id="44-logical-functions">4.4 Logical functions</h2>
+<h3 id="if">IF</h3>
 <pre><code class="language-excel">=IF(condition, value_if_true, value_if_false)
 =IF(B2&gt;=40, &quot;Pass&quot;, &quot;Fail&quot;)
 </code></pre>
@@ -230,19 +245,19 @@ first true condition wins.</p>
 <p><code>IFS</code> (Excel 2019+) is cleaner:</p>
 <pre><code class="language-excel">=IFS(B2&gt;=90,&quot;A&quot;, B2&gt;=75,&quot;B&quot;, B2&gt;=60,&quot;C&quot;, B2&gt;=40,&quot;D&quot;, TRUE,&quot;F&quot;)
 </code></pre>
-<h3>AND, OR, NOT</h3>
+<h3 id="and-or-not">AND, OR, NOT</h3>
 <pre><code class="language-excel">=AND(B2&gt;=40, C2&gt;=40)                    both must be true
 =OR(B2&gt;=90, C2&gt;=90)                     at least one
 =NOT(B2&gt;=40)
 =IF(AND(B2&gt;=40, C2&gt;=40), &quot;Pass&quot;, &quot;Fail&quot;)
 </code></pre>
-<h3>IFERROR</h3>
+<h3 id="iferror">IFERROR</h3>
 <pre><code class="language-excel">=IFERROR(A1/B1, &quot;Cannot divide by zero&quot;)
 =IFERROR(VLOOKUP(...), &quot;Not found&quot;)
 </code></pre>
 <p>Replaces an error with something readable. Essential when a lookup may legitimately
 find nothing — lab experiment 9 requires it explicitly.</p>
-<h3>Error values worth recognising</h3>
+<h3 id="error-values-worth-recognising">Error values worth recognising</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -285,7 +300,7 @@ find nothing — lab experiment 9 requires it explicitly.</p>
 </tr>
 </tbody>
 </table>
-<h2>4.5 Text functions</h2>
+<h2 id="45-text-functions">4.5 Text functions</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -379,9 +394,9 @@ fails — an invisible trailing space in the lookup value is a very common cause
 <pre><code class="language-excel">First name:  =LEFT(A2, FIND(&quot; &quot;,A2)-1)
 Last name:   =RIGHT(A2, LEN(A2)-FIND(&quot; &quot;,A2))
 </code></pre>
-<h2>4.6 Lookup functions</h2>
+<h2 id="46-lookup-functions">4.6 Lookup functions</h2>
 <p><strong>The most important section in this unit.</strong></p>
-<h3>VLOOKUP — vertical lookup</h3>
+<h3 id="vlookup-vertical-lookup">VLOOKUP — vertical lookup</h3>
 <pre><code class="language-excel">=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
 =VLOOKUP(E2, $A$2:$D$100, 4, FALSE)
 </code></pre>
@@ -430,13 +445,13 @@ Last name:   =RIGHT(A2, LEN(A2)-FIND(&quot; &quot;,A2))
    table out from under it.</p>
 </li>
 </ol>
-<h3>HLOOKUP — horizontal lookup</h3>
+<h3 id="hlookup-horizontal-lookup">HLOOKUP — horizontal lookup</h3>
 <p>The same thing across a row instead of down a column:</p>
 <pre><code class="language-excel">=HLOOKUP(lookup_value, table_array, row_index_num, FALSE)
 </code></pre>
 <p>Used when your data is laid out with categories across the top — lab experiment
 10 uses it to extract department heads by role.</p>
-<h3>XLOOKUP — the modern replacement</h3>
+<h3 id="xlookup-the-modern-replacement">XLOOKUP — the modern replacement</h3>
 <pre><code class="language-excel">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])
 =XLOOKUP(E2, $A$2:$A$100, $D$2:$D$100, &quot;Not found&quot;)
 </code></pre>
@@ -453,7 +468,7 @@ Last name:   =RIGHT(A2, LEN(A2)-FIND(&quot; &quot;,A2))
 </ol>
 <p>Available in Excel 2021 and Microsoft 365, and in Google Sheets. Older versions
 need INDEX+MATCH.</p>
-<h3>INDEX + MATCH — the classic combination</h3>
+<h3 id="index-match-the-classic-combination">INDEX + MATCH — the classic combination</h3>
 <pre><code class="language-excel">=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))
 =INDEX($D$2:$D$100, MATCH(E2, $A$2:$A$100, 0))
 </code></pre>
@@ -467,7 +482,7 @@ equivalent of VLOOKUP's <code>FALSE</code>.</p>
 <p><strong>Know all three approaches.</strong> Exams ask you to compare them, and lab experiment
 10 requires VLOOKUP, HLOOKUP, XLOOKUP <strong>and</strong> INDEX+MATCH on the same data
 precisely so you can see the differences.</p>
-<h3>Comparison</h3>
+<h3 id="comparison">Comparison</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -516,7 +531,7 @@ precisely so you can see the differences.</p>
 </tr>
 </tbody>
 </table>
-<h2>4.7 Charts</h2>
+<h2 id="47-charts">4.7 Charts</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -566,19 +581,19 @@ where useful, and sensible gridlines.</p>
 <p><strong>Choosing badly is a real error.</strong> A pie chart with fifteen slices is
 unreadable; a line chart of unordered categories implies a trend that does not
 exist; a scatter plot with the points joined up is simply wrong.</p>
-<h2>4.8 Data handling</h2>
-<h3>Sorting</h3>
+<h2 id="48-data-handling">4.8 Data handling</h2>
+<h3 id="sorting">Sorting</h3>
 <p><strong>Data → Sort.</strong> Sort by several levels — department, then salary descending.</p>
 <p><strong>Always select the whole data range first</strong>, or Excel sorts one column and
 leaves the others in place, silently destroying every row's integrity. Excel
 usually warns you; do not dismiss the warning.</p>
-<h3>Filtering</h3>
+<h3 id="filtering">Filtering</h3>
 <p><strong>Data → Filter</strong> adds dropdown arrows to the headers. Filter by value, by
 condition (greater than, contains, between), or by colour.</p>
 <p><strong>Advanced Filter</strong> supports complex criteria and can copy results elsewhere.</p>
 <p>Filtering <strong>hides</strong> rows rather than deleting them; the row numbers turn blue
 and skip, which is how you can tell a filter is active.</p>
-<h3>Conditional formatting</h3>
+<h3 id="conditional-formatting">Conditional formatting</h3>
 <p><em>(Also listed in Unit 5, where the treatment is fuller — see review finding
 </em><em>D9</em><em>.)</em></p>
 <p><strong>Home → Conditional Formatting.</strong> Formatting that reacts to the value:</p>
@@ -596,7 +611,7 @@ where column C is below 40:</p>
 </code></pre>
 <p>Note the mixed reference: <code>$C</code> locks the column so every cell in the row is
 tested against column C, while <code>2</code> moves so each row tests its own value.</p>
-<h3>Data validation</h3>
+<h3 id="data-validation">Data validation</h3>
 <p><strong>Data → Data Validation</strong> — restricts what may be entered:</p>
 <table class="main-table">
 <thead>
@@ -638,7 +653,7 @@ tested against column C, while <code>2</code> moves so each row tests its own va
 </table>
 <p>Lab experiment 12 requires all of these on a student registration form.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Differentiate relative and absolute referencing.</li>
@@ -666,7 +681,7 @@ tested against column C, while <code>2</code> moves so each row tests its own va
    table built from one formula.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

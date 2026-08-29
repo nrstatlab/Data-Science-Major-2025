@@ -30,13 +30,28 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-types-of-human-learning">1.1 Types of human learning</a></li>
+    <li><a href="#12-what-is-machine-learning">1.2 What is machine learning?</a></li>
+    <li><a href="#13-the-four-types-of-machine-learning">1.3 The four types of machine learning</a></li>
+    <li><a href="#14-machine-learning-activities-the-pipeline">1.4 Machine learning activities — the pipeline</a></li>
+    <li><a href="#15-applications-of-machine-learning">1.5 Applications of machine learning</a></li>
+    <li><a href="#16-types-of-data-in-machine-learning">1.6 Types of data in machine learning</a></li>
+    <li><a href="#17-structure-of-data">1.7 Structure of data</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 8):</strong> Introduction to machine learning — types of human
 learning; what is machine learning?; types of machine learning — supervised,
 unsupervised, semi-supervised and reinforcement learning; machine learning
 activities; applications of machine learning. Types of data in machine
 learning; structure of data.</p>
 <hr />
-<h2>1.1 Types of human learning</h2>
+<h2 id="11-types-of-human-learning">1.1 Types of human learning</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Why the syllabus starts here</h4>
@@ -79,7 +94,7 @@ A child who sorts a box of buttons into piles nobody named is not.</strong> That
 the whole distinction, and it is worth stating in exactly those terms.</p>
 </div>
 <hr />
-<h2>1.2 What is machine learning?</h2>
+<h2 id="12-what-is-machine-learning">1.2 What is machine learning?</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The definition to write</h4>
@@ -195,7 +210,7 @@ problem.</strong> That is a genuinely useful test, not just an exam formula.</p>
 </ul>
 </div>
 <hr />
-<h2>1.3 The four types of machine learning</h2>
+<h2 id="13-the-four-types-of-machine-learning">1.3 The four types of machine learning</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The comparison table</h4>
@@ -330,7 +345,7 @@ action, or try something that might be better?</p>
 agents and environments again in its Unit 1.</p>
 </div>
 <hr />
-<h2>1.4 Machine learning activities — the pipeline</h2>
+<h2 id="14-machine-learning-activities-the-pipeline">1.4 Machine learning activities — the pipeline</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>A machine learning project is a pipeline, and the modelling step is the
@@ -390,7 +405,7 @@ smallest part of it.</strong></p>
 <p><strong>Steps 3 and 4 are Unit 2</strong>, and they are where the time goes. That is not a
 complaint about the field; it is the field.</p>
 </div>
-<h3>⚠️ Step 7 is the one that is always forgotten</h3>
+<h3 id="step-7-is-the-one-that-is-always-forgotten">⚠️ Step 7 is the one that is always forgotten</h3>
 <p>A deployed model <strong>decays</strong>. Customer behaviour changes, a competitor launches,
 a pandemic happens — and the relationship the model learned no longer holds.
 This is <strong>concept drift</strong>, and the only defence is to keep measuring
@@ -398,7 +413,7 @@ performance in production and retrain.</p>
 <p><strong>A model is not a deliverable; it is a running system.</strong> Saying this earns a
 mark and is the thing most students never mention.</p>
 <hr />
-<h2>1.5 Applications of machine learning</h2>
+<h2 id="15-applications-of-machine-learning">1.5 Applications of machine learning</h2>
 <p>Learn a handful properly rather than listing twenty. The syllabus names four in
 Unit 5's case studies, so know those in detail.</p>
 <table class="main-table">
@@ -472,7 +487,7 @@ fraud" is <strong>99.9% accurate and completely useless</strong>. Know that exam
 the cleanest argument for why accuracy is the wrong metric.</p>
 </div>
 <hr />
-<h2>1.6 Types of data in machine learning</h2>
+<h2 id="16-types-of-data-in-machine-learning">1.6 Types of data in machine learning</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>By measurement scale — Course 4's scales, reused</h4>
@@ -518,7 +533,7 @@ the cleanest argument for why accuracy is the wrong metric.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ The encoding mistake that this table prevents</h3>
+<h3 id="the-encoding-mistake-that-this-table-prevents">⚠️ The encoding mistake that this table prevents</h3>
 <p><strong>Label-encoding a nominal feature invents an order that is not there.</strong></p>
 <p>Encoding <code>{Red: 0, Green: 1, Blue: 2}</code> tells a distance-based model that Red is
 closer to Green than to Blue, and that Green is the <em>average</em> of Red and Blue.
@@ -589,7 +604,7 @@ machine learning needs it turned into a feature matrix first. Experiment 15 of
 Course 8 did exactly that with TF-IDF.</p>
 </div>
 <hr />
-<h2>1.7 Structure of data</h2>
+<h2 id="17-structure-of-data">1.7 Structure of data</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The feature matrix — the shape everything assumes</h4>
@@ -638,7 +653,7 @@ row n [   xn1        xn2      ...    xnp     ]  [    yn    ]
 </tbody>
 </table>
 </div>
-<h3>⚠️ scikit-learn's shape rule, which causes half of all first-time errors</h3>
+<h3 id="scikit-learns-shape-rule-which-causes-half-of-all-first-time-errors">⚠️ scikit-learn's shape rule, which causes half of all first-time errors</h3>
 <p><strong><code>X</code> must be 2-D and <code>y</code> must be 1-D.</strong> With a single feature you must still
 give <code>X</code> two dimensions:</p>
 <pre><code class="language-python">X = df[[&quot;hours&quot;]]          # 2-D -- CORRECT, note the double brackets
@@ -699,7 +714,7 @@ the reason dimensionality reduction is in Unit 2 rather than being an optional
 extra.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Define machine learning. Distinguish it from traditional programming, and
@@ -802,7 +817,7 @@ feature matrix before any of this course's algorithms can touch it.</p>
 a single feature still needs double brackets.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>State Mitchell's definition of machine learning.</li>
@@ -835,7 +850,7 @@ a single feature still needs double brackets.</p>
 <li>Explain the machine learning pipeline and where most of the effort goes.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

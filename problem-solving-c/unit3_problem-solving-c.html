@@ -25,12 +25,22 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-one-dimensional-arrays">3.1 One-dimensional arrays</a></li>
+    <li><a href="#32-two-dimensional-arrays">3.2 Two-dimensional arrays</a></li>
+    <li><a href="#33-strings">3.3 Strings</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 10):</strong> Arrays — one-dimensional: declaration, initialization
 and memory representation; two-dimensional: declaration, initialization and
 memory representation. Strings — declaring and initializing string variables;
 string handling functions; character handling functions.</p>
 <hr />
-<h2>3.1 One-dimensional arrays</h2>
+<h2 id="31-one-dimensional-arrays">3.1 One-dimensional arrays</h2>
 <p>An array is a collection of elements <strong>of the same type</strong>, stored in
 <strong>contiguous memory</strong>, accessed by an index.</p>
 <pre><code class="language-c">int marks[5];                          /* declaration -- 5 ints, uninitialised */
@@ -41,7 +51,7 @@ int marks[5] = {0};                    /* all five set to 0                    *
 </code></pre>
 <p><strong>Indices start at 0.</strong> An array of size 5 has valid indices 0 to 4. <code>marks[5]</code>
 is out of bounds.</p>
-<h3>Memory representation</h3>
+<h3 id="memory-representation">Memory representation</h3>
 <p>For <code>int marks[5]</code> starting at address 1000, with a 4-byte <code>int</code>:</p>
 <table class="main-table">
 <thead>
@@ -80,7 +90,7 @@ is out of bounds.</p>
 address and a type and ask for a particular element's address — apply the
 formula directly.</p>
 <p><strong>Total memory</strong> = number of elements × size of each = 5 × 4 = 20 bytes.</p>
-<h3>C does not check bounds</h3>
+<h3 id="c-does-not-check-bounds">C does not check bounds</h3>
 <pre><code class="language-c">int a[5] = {1, 2, 3, 4, 5};
 printf(&quot;%d&quot;, a[10]);     /* compiles, runs, prints garbage or crashes */
 </code></pre>
@@ -88,7 +98,7 @@ printf(&quot;%d&quot;, a[10]);     /* compiles, runs, prints garbage or crashes 
 to be in that memory; writing out of bounds corrupts it. This is the single
 biggest source of bugs in C, and the reason languages like Python check every
 index.</p>
-<h3>Traversing</h3>
+<h3 id="traversing">Traversing</h3>
 <pre><code class="language-c">int marks[5] = {85, 72, 90, 64, 78};
 int i, sum = 0;
 
@@ -99,7 +109,7 @@ printf(&quot;Sum = %d, Average = %.2f\n&quot;, sum, sum / 5.0);
 </code></pre>
 <p>Writing <code>i &lt;= 5</code> reads one element past the end. It is the most common array
 bug there is.</p>
-<h2>3.2 Two-dimensional arrays</h2>
+<h2 id="32-two-dimensional-arrays">3.2 Two-dimensional arrays</h2>
 <pre><code class="language-c">int matrix[3][4];                    /* 3 rows, 4 columns */
 
 int m[2][3] = { {1, 2, 3}, {4, 5, 6} };     /* clearest form */
@@ -108,7 +118,7 @@ int m[][3]  = { {1, 2, 3}, {4, 5, 6} };     /* rows inferred; columns REQUIRED *
 </code></pre>
 <p>The number of <strong>columns can never be omitted</strong> — the compiler needs it to
 compute addresses.</p>
-<h3>Memory representation — row-major order</h3>
+<h3 id="memory-representation-row-major-order">Memory representation — row-major order</h3>
 <p>C stores 2-D arrays <strong>row by row</strong> (row-major). For <code>int m[2][3]</code> at address
 2000 with 4-byte ints:</p>
 <table class="main-table">
@@ -147,7 +157,7 @@ together. That is a real performance effect you will meet again in NumPy.</p>
 </div>
 <p>(FORTRAN uses column-major, which is why NumPy has an <code>order='F'</code> option. Not
 examinable, but it explains the flag.)</p>
-<h3>Matrix operations</h3>
+<h3 id="matrix-operations">Matrix operations</h3>
 <pre><code class="language-c">/* Addition -- element by element, same dimensions required */
 for (i = 0; i &lt; rows; i++)
     for (j = 0; j &lt; cols; j++)
@@ -169,7 +179,7 @@ for (i = 0; i &lt; rows; i++)
 <p>For multiplication, A(m×n) × B(n×p) = C(m×p): the <strong>columns of A must equal the
 rows of B</strong>. Forgetting to reset <code>c[i][j] = 0</code> before the <code>k</code> loop leaves
 garbage in the accumulator — a classic bug.</p>
-<h2>3.3 Strings</h2>
+<h2 id="33-strings">3.3 Strings</h2>
 <p>A string in C is a <strong>character array terminated by the null character <code>'\0'</code></strong>.
 There is no string type.</p>
 <pre><code class="language-c">char name[10] = &quot;Ravi&quot;;
@@ -181,7 +191,7 @@ for <code>'\0'</code>, so every string function will read past the end looking f
 <pre><code> R    a    v    i   '\0'
 [0]  [1]  [2]  [3]  [4]     &lt;- length 4, but 5 bytes of storage
 </code></pre>
-<h3>Reading strings</h3>
+<h3 id="reading-strings">Reading strings</h3>
 <pre><code class="language-c">char name[50];
 
 scanf(&quot;%s&quot;, name);              /* stops at the first whitespace: &quot;Ravi Kumar&quot;
@@ -196,7 +206,7 @@ gets(name);                     /* NEVER. Removed from the C standard. */
 </code></pre>
 <p><code>gets()</code> cannot know the size of its buffer, so any long input overwrites
 memory past the array. Use <code>fgets</code>.</p>
-<h3>String handling functions — <code>&lt;string.h&gt;</code></h3>
+<h3 id="string-handling-functions-stringh">String handling functions — <code>&lt;string.h&gt;</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -279,7 +289,7 @@ if (a == b)                 /* WRONG: compares addresses, not contents */
 strlen(s)     /* 4  -- characters up to '\0'      */
 sizeof(s)     /* 50 -- bytes allocated to the array */
 </code></pre>
-<h3>Character handling functions — <code>&lt;ctype.h&gt;</code></h3>
+<h3 id="character-handling-functions-ctypeh">Character handling functions — <code>&lt;ctype.h&gt;</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -323,7 +333,7 @@ place:</p>
 <pre><code class="language-c">c = toupper(c);       /* correct  */
 toupper(c);           /* does nothing useful */
 </code></pre>
-<h3>Implementing them yourself</h3>
+<h3 id="implementing-them-yourself">Implementing them yourself</h3>
 <p>Exams frequently ask you to write <code>strlen</code> or <code>strcpy</code> without the library.</p>
 <pre><code class="language-c">int my_strlen(const char *s)
 {
@@ -354,7 +364,7 @@ int my_strcmp(const char *a, const char *b)
 <p>Working versions of all of these are in
 <a href="../labs/course-2-c/06_string_operations.c"><code>labs/course-2-c/06_string_operations.c</code></a>.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>How is a string terminated in C?</li>
@@ -384,7 +394,7 @@ int my_strcmp(const char *a, const char *b)
 <p>Write a program to multiply two matrices and explain the logic.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

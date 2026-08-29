@@ -31,6 +31,22 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-what-a-data-warehouse-is">1.1 What a data warehouse is</a></li>
+    <li><a href="#12-database-systems-versus-data-warehouses">1.2 Database systems versus data warehouses</a></li>
+    <li><a href="#13-architecture-and-components">1.3 Architecture and components</a></li>
+    <li><a href="#14-data-modeling-the-multidimensional-model">1.4 Data modeling: the multidimensional model</a></li>
+    <li><a href="#15-fact-tables-and-dimension-tables">1.5 Fact tables and dimension tables</a></li>
+    <li><a href="#16-star-snowflake-and-fact-constellation">1.6 Star, snowflake and fact constellation</a></li>
+    <li><a href="#17-the-olap-cube">1.7 The OLAP cube</a></li>
+    <li><a href="#18-olap-operations">1.8 OLAP operations</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 11–12):</strong> Introduction to Data Warehouse, differences between
 database systems and data warehouse, data warehouse characteristics, data
 warehouse architecture and its components, data modeling, schema design, star
@@ -43,7 +59,7 @@ in the programme writes <code>Unit 1.</code> — one of the inconsistencies reco
 <a href="../syllabus-review.html">SYLLABUS-REVIEW.md</a>.</p>
 </div>
 <hr />
-<h2>1.1 What a data warehouse is</h2>
+<h2 id="11-what-a-data-warehouse-is">1.1 What a data warehouse is</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>An operational database is built to <strong>record</strong> what is happening right now, as
@@ -94,7 +110,7 @@ never changes — new data is loaded on a schedule. It means users do not
 customer moves; a warehouse keeps both, with dates, because "where did our
 customers live in 2024?" is a question someone will ask.</p>
 </div>
-<h2>1.2 Database systems versus data warehouses</h2>
+<h2 id="12-database-systems-versus-data-warehouses">1.2 Database systems versus data warehouses</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>OLTP versus OLAP</h4>
@@ -188,7 +204,7 @@ OLAP: fifty million rows, runs once, and nobody minds if it takes a minute.</p>
 first. <strong>That is the real reason warehouses exist</strong> — not storage, but
 isolation of workloads.</p>
 </div>
-<h2>1.3 Architecture and components</h2>
+<h2 id="13-architecture-and-components">1.3 Architecture and components</h2>
 <pre><code>   SOURCES              STAGING              WAREHOUSE            ACCESS
 ┌────────────┐      ┌─────────────┐      ┌──────────────┐    ┌────────────┐
 │ OLTP DBs   │      │             │      │              │    │ Reporting  │
@@ -245,7 +261,7 @@ isolation of workloads.</p>
 </tr>
 </tbody>
 </table>
-<h3>ETL</h3>
+<h3 id="etl">ETL</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -273,13 +289,13 @@ isolation of workloads.</p>
 another as <code>YYYY-MM-DD</code>; three definitions of "active customer". Integration
 means resolving all of that <em>before</em> the data lands, because after it lands
 every report inherits the mess.</p>
-<h3>⚠️ ETL versus ELT</h3>
+<h3 id="etl-versus-elt">⚠️ ETL versus ELT</h3>
 <p>Modern cloud warehouses often invert the last two steps: <strong>ELT</strong> loads raw
 data first and transforms inside the warehouse, using its own compute. The
 syllabus teaches ETL, which is correct and still ubiquitous; knowing that ELT
 exists and <em>why</em> — cheap elastic compute makes it viable — is the kind of
 remark that lifts an answer.</p>
-<h3>Three-tier architecture</h3>
+<h3 id="three-tier-architecture">Three-tier architecture</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -378,7 +394,7 @@ lake: you dump the data now and decide what it means later. That is flexible
 and it is also how a lake becomes a <em>swamp</em> — undocumented, untrusted, unused.
 Warehouses are more work up front and more trustworthy afterwards.</p>
 </div>
-<h2>1.4 Data modeling: the multidimensional model</h2>
+<h2 id="14-data-modeling-the-multidimensional-model">1.4 Data modeling: the multidimensional model</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Analysts do not think in tables, they think in <strong>measures sliced by
@@ -432,14 +448,14 @@ thought.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Decide the grain first</h3>
+<h3 id="decide-the-grain-first">⚠️ Decide the grain first</h3>
 <p><strong>"What does one row of the fact table mean?"</strong> must be answered before
 anything else is designed, in one sentence, and it must be the <em>finest</em> grain
 you can afford. Store daily totals and you can always aggregate to monthly;
 store monthly and the daily question is unanswerable forever.</p>
 <p>Getting this wrong is the most expensive mistake in warehouse design, because
 correcting it means reloading everything.</p>
-<h2>1.5 Fact tables and dimension tables</h2>
+<h2 id="15-fact-tables-and-dimension-tables">1.5 Fact tables and dimension tables</h2>
 <pre><code class="language-sql">-- Dimension: wide, descriptive, relatively few rows
 CREATE TABLE DimProduct (
   product_key   INT PRIMARY KEY,     -- SURROGATE key, not the source's SKU
@@ -537,7 +553,7 @@ gives a meaningless number — you want the <em>last</em> value, not the total. 
 averaging a column of percentages is almost always wrong: to get the overall
 margin you sum the profits and sum the revenues, then divide.</p>
 </div>
-<h3>Types of fact table</h3>
+<h3 id="types-of-fact-table">Types of fact table</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -588,7 +604,7 @@ than reusing the source system's identifier. Four reasons:</p>
    Type 2 SCD, and it is impossible if the key is the customer's own ID.</li>
 </ol>
 </div>
-<h2>1.6 Star, snowflake and fact constellation</h2>
+<h2 id="16-star-snowflake-and-fact-constellation">1.6 Star, snowflake and fact constellation</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Star schema</h4>
@@ -607,7 +623,7 @@ JOIN   DimStore   s ON s.store_key   = f.store_key
 GROUP  BY p.category, s.city;
 </code></pre>
 </div>
-<h3>Snowflake schema</h3>
+<h3 id="snowflake-schema">Snowflake schema</h3>
 <p>The dimensions are <strong>normalised</strong> into sub-dimensions, so hierarchies become
 separate tables.</p>
 <pre><code>                        DimDate
@@ -622,7 +638,7 @@ JOIN   DimStore    s  ON s.store_key    = f.store_key
 JOIN   DimCity     ci ON ci.city_key    = s.city_key       -- extra join
 GROUP  BY c.category_name, ci.city_name;
 </code></pre>
-<h3>Fact constellation (galaxy schema)</h3>
+<h3 id="fact-constellation-galaxy-schema">Fact constellation (galaxy schema)</h3>
 <p><strong>Multiple fact tables sharing dimensions.</strong> The shared dimensions are called
 <strong>conformed dimensions</strong>, and they are what make cross-process analysis
 possible.</p>
@@ -705,7 +721,7 @@ marts cannot be compared at all, and you have two truths in one company.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ This unit contradicts Course 5, deliberately</h3>
+<h3 id="this-unit-contradicts-course-5-deliberately">⚠️ This unit contradicts Course 5, deliberately</h3>
 <p>Course 5 taught you to normalise: eliminate redundancy, avoid update
 anomalies, reach 3NF. Star schemas throw that away — <code>DimProduct</code> repeats the
 category name on every row of the same category, exactly the redundancy 2NF
@@ -719,7 +735,7 @@ with nine.</p>
 never update. The load process rewrites the dimension, all rows at once.</p>
 <p><strong>Storage is cheap; analyst time is not.</strong> That single sentence is the whole
 justification.</p>
-<h2>1.7 The OLAP cube</h2>
+<h2 id="17-the-olap-cube">1.7 The OLAP cube</h2>
 <p>A <strong>cube</strong> arranges measures along dimensions. Three dimensions make a literal
 cube; more than three is a <strong>hypercube</strong>, and the name persists anyway.</p>
 <pre><code>                 Product
@@ -740,7 +756,7 @@ has ten billion possible cells, but most products do not sell in most stores on
 most days. Real cubes are often over 95% empty, which is exactly why MOLAP's
 dense array storage struggles and ROLAP — which stores only the rows that
 exist — scales better.</p>
-<h3>Lattice of cuboids</h3>
+<h3 id="lattice-of-cuboids">Lattice of cuboids</h3>
 <p>For <em>n</em> dimensions there are <strong>2ⁿ cuboids</strong>, from the finest (the base cuboid,
 all dimensions) to the coarsest (the apex cuboid, a single grand total).</p>
 <p>With Product, Store and Time — n = 3, so 2³ = <strong>8 cuboids</strong>:</p>
@@ -756,7 +772,7 @@ all dimensions) to the coarsest (the apex cuboid, a single grand total).</p>
 impossible — with 10 dimensions that is 1,024 cuboids, and with hierarchies
 far more. Choosing <strong>which</strong> to materialise is the central engineering problem
 of cube design.</p>
-<h2>1.8 OLAP operations</h2>
+<h2 id="18-olap-operations">1.8 OLAP operations</h2>
 <p>Five operations. Each is a guaranteed exam question, and each is easiest to
 learn with a concrete before-and-after.</p>
 <div class="formula">
@@ -819,7 +835,7 @@ becomes <em>products down, months across</em>. No aggregation, no filtering — 
 same numbers, rearranged. It is what a spreadsheet PivotTable does, hence the
 name.</p>
 </div>
-<h3>⚠️ Slice versus dice</h3>
+<h3 id="slice-versus-dice">⚠️ Slice versus dice</h3>
 <p>The distinction is examined constantly and is exactly this:</p>
 <table class="main-table">
 <thead>
@@ -853,7 +869,7 @@ name.</p>
 </tbody>
 </table>
 <p>Slice reduces the dimensionality; dice reduces the size but keeps the shape.</p>
-<h3>Other operations</h3>
+<h3 id="other-operations">Other operations</h3>
 <ul>
 <li>
 <p><strong>Drill-across</strong> — query two fact tables through their conformed dimensions
@@ -863,7 +879,7 @@ name.</p>
 <p><strong>Drill-through</strong> — go past the cube to the underlying detail rows.</p>
 </li>
 </ul>
-<h3>SQL's cube extensions</h3>
+<h3 id="sqls-cube-extensions">SQL's cube extensions</h3>
 <pre><code class="language-sql">SELECT category, city, SUM(amount)
 FROM   sales
 GROUP  BY ROLLUP (category, city);      -- subtotals per category + grand total
@@ -876,7 +892,7 @@ GROUP  BY CUBE (category, city);        -- ALL 2^2 = 4 combinations
 <code>CUBE(a, b)</code> gives all four: <code>(a,b)</code>, <code>(a)</code>, <code>(b)</code>, <code>()</code>. For <em>n</em> columns,
 <code>ROLLUP</code> produces <em>n + 1</em> groupings and <code>CUBE</code> produces 2ⁿ.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A university wants to analyse examination results. Design a star schema. State
@@ -1037,7 +1053,7 @@ that are queried often or that many others can be derived from, and compute the
 rest on demand.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define a data warehouse (Inmon's definition).</li>
@@ -1076,7 +1092,7 @@ rest on demand.</p>
    worked cube.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

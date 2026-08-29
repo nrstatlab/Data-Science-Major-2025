@@ -22,132 +22,209 @@ file works those traces end to end.</p>
 <p><strong>Every number here has been machine-checked</strong> against
 <a href="../tools/run_data_labs.py"><code>tools/run_data_labs.py</code></a>.</p>
 <hr />
-<h2>Section A — Two-mark questions</h2>
-<h3>1. Define a data warehouse.</h3>
+<h2 id="section-a-two-mark-questions">Section A — Two-mark questions</h2>
+<h3 id="1-define-a-data-warehouse">1. Define a data warehouse.</h3>
+<details>
+<summary>Show answer</summary>
 <p>Inmon: <em>a subject-oriented, integrated, time-variant, non-volatile collection
 of data in support of management's decision-making process.</em> Subject-oriented
 means organised around business subjects rather than applications; integrated
 means reconciled into one format from many sources; time-variant means history
 is kept with a time dimension; non-volatile means users read but do not update.</p>
-<h3>2. Distinguish OLTP from OLAP.</h3>
+</details>
+<h3 id="2-distinguish-oltp-from-olap">2. Distinguish OLTP from OLAP.</h3>
+<details>
+<summary>Show answer</summary>
 <p>OLTP runs the business: many small read/write transactions on current,
 normalised, detailed data, optimised for throughput. OLAP analyses the
 business: few enormous read-only aggregate queries over historical,
 denormalised data, optimised for response time. Running an OLAP query on an
 OLTP database would lock tables and stall the operational workload — isolating
 those workloads is why warehouses exist.</p>
-<h3>3. Distinguish slice from dice.</h3>
+</details>
+<h3 id="3-distinguish-slice-from-dice">3. Distinguish slice from dice.</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Slice</strong> fixes <strong>one</strong> dimension to a <strong>single</strong> value, reducing an
 n-dimensional cube to n − 1 dimensions. <strong>Dice</strong> restricts <strong>two or more</strong>
 dimensions to <strong>ranges or sets</strong>, producing a smaller sub-cube of the <strong>same</strong>
 dimensionality.</p>
-<h3>4. What is a factless fact table?</h3>
+</details>
+<h3 id="4-what-is-a-factless-fact-table">4. What is a factless fact table?</h3>
+<details>
+<summary>Show answer</summary>
 <p>A fact table with foreign keys but <strong>no measures</strong> — student attended class,
 promotion was in effect. Counting the rows <em>is</em> the measurement.</p>
-<h3>5. Distinguish additive, semi-additive and non-additive measures.</h3>
+</details>
+<h3 id="5-distinguish-additive-semi-additive-and-non-additive-measures">5. Distinguish additive, semi-additive and non-additive measures.</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Additive</strong> can be summed across every dimension (sales amount).
 <strong>Semi-additive</strong> can be summed across some but <strong>not time</strong> (account balance —
 summing Monday's and Tuesday's closing balance is meaningless). <strong>Non-additive</strong>
 cannot be summed at all (ratios, percentages, unit price).</p>
-<h3>6. Distinguish KDD from data mining.</h3>
+</details>
+<h3 id="6-distinguish-kdd-from-data-mining">6. Distinguish KDD from data mining.</h3>
+<details>
+<summary>Show answer</summary>
 <p>KDD is the whole discovery process — selection, preprocessing, transformation,
 mining, evaluation. Data mining is <strong>one step</strong>, near the end. Preprocessing
 and transformation take about 80% of the effort; mining about 10%.</p>
-<h3>7. Distinguish classification from clustering.</h3>
+</details>
+<h3 id="7-distinguish-classification-from-clustering">7. Distinguish classification from clustering.</h3>
+<details>
+<summary>Show answer</summary>
 <p>Classification is <strong>supervised</strong>: classes are known, training data is labelled,
 and the model maps features to a known label. Clustering is <strong>unsupervised</strong>:
 no labels exist and the groups are discovered. Classification puts records into
 boxes you already have; clustering works out what the boxes should be.</p>
-<h3>8. What is the curse of dimensionality?</h3>
+</details>
+<h3 id="8-what-is-the-curse-of-dimensionality">8. What is the curse of dimensionality?</h3>
+<details>
+<summary>Show answer</summary>
 <p>As dimensions grow, data becomes sparse, all pairwise distances converge toward
 equality — so "nearest neighbour" loses meaning — and both computation and
 overfitting risk grow. It breaks k-NN, K-Means and DBSCAN alike.</p>
-<h3>9. Distinguish feature selection from feature extraction.</h3>
+</details>
+<h3 id="9-distinguish-feature-selection-from-feature-extraction">9. Distinguish feature selection from feature extraction.</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Selection</strong> keeps a <strong>subset of the original</strong> attributes, so results stay
 interpretable. <strong>Extraction</strong> (PCA) creates <strong>new</strong> attributes that are
 combinations of the originals — more variance retained, no interpretability.</p>
-<h3>10. Distinguish SMC from the Jaccard coefficient.</h3>
+</details>
+<h3 id="10-distinguish-smc-from-the-jaccard-coefficient">10. Distinguish SMC from the Jaccard coefficient.</h3>
+<details>
+<summary>Show answer</summary>
 <p>SMC = (a + d)/(a + b + c + d) counts <strong>joint absences (d)</strong> as evidence of
 similarity. Jaccard = a/(a + b + c) <strong>ignores them</strong>. For sparse asymmetric
 data — market baskets, term vectors — joint absence is meaningless, so Jaccard
 is correct. Use SMC only when 0 and 1 are equally informative.</p>
-<h3>11. Define support, confidence and lift.</h3>
+</details>
+<h3 id="11-define-support-confidence-and-lift">11. Define support, confidence and lift.</h3>
+<details>
+<summary>Show answer</summary>
 <pre><code>support(X → Y)    = σ(X ∪ Y) / N
 confidence(X → Y) = σ(X ∪ Y) / σ(X)
 lift(X → Y)       = confidence(X → Y) / support(Y)
 </code></pre>
 <p>Support is frequency, confidence is reliability, lift is <strong>interest</strong>: &gt; 1
 positive association, = 1 independent, &lt; 1 negative.</p>
-<h3>12. State the Apriori principle.</h3>
+</details>
+<h3 id="12-state-the-apriori-principle">12. State the Apriori principle.</h3>
+<details>
+<summary>Show answer</summary>
 <p>If an itemset is frequent, all its subsets are frequent. Contrapositively — and
 this is the useful form — <strong>if an itemset is infrequent, every superset is
 infrequent</strong>, so supersets need not be counted at all. This is the anti-monotone
 property of support.</p>
-<h3>13. Why is confidence alone misleading?</h3>
+</details>
+<h3 id="13-why-is-confidence-alone-misleading">13. Why is confidence alone misleading?</h3>
+<details>
+<summary>Show answer</summary>
 <p>Confidence is high whenever the <strong>consequent is common</strong>, regardless of any
 real association. If 90% of all students study data science, then
 <code>{cricket} → {data science}</code> has 90% confidence and a lift of exactly 1.00 —
 the antecedent tells you nothing. Lift corrects for the consequent's base rate.</p>
-<h3>14. Distinguish a maximal from a closed frequent itemset.</h3>
+</details>
+<h3 id="14-distinguish-a-maximal-from-a-closed-frequent-itemset">14. Distinguish a maximal from a closed frequent itemset.</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Maximal</strong>: no <strong>frequent</strong> superset. <strong>Closed</strong>: no superset with the <strong>same
 support</strong>. The maximal set tells you <em>which</em> itemsets are frequent but loses
 their supports; the closed set is <strong>lossless</strong>. Every maximal itemset is
 closed, not conversely.</p>
-<h3>15. Why does ID3 favour attributes with many values?</h3>
+</details>
+<h3 id="15-why-does-id3-favour-attributes-with-many-values">15. Why does ID3 favour attributes with many values?</h3>
+<details>
+<summary>Show answer</summary>
 <p>More branches means smaller, purer subsets <strong>by arithmetic</strong>, not by
 informativeness. A unique identifier column splits into n pure singletons and
 scores the maximum possible gain, while generalising to nothing. C4.5's gain
 ratio divides by SplitInfo — the entropy of the partition sizes — to penalise
 exactly that.</p>
-<h3>16. Distinguish precision from recall.</h3>
+</details>
+<h3 id="16-distinguish-precision-from-recall">16. Distinguish precision from recall.</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Precision</strong> = TP/(TP + FP): of everything <strong>predicted</strong> positive, how much
 was. <strong>Recall</strong> = TP/(TP + FN): of everything <strong>actually</strong> positive, how much
 was found. Precision is about the predictions; recall is about the truth.</p>
-<h3>17. What is the accuracy paradox?</h3>
+</details>
+<h3 id="17-what-is-the-accuracy-paradox">17. What is the accuracy paradox?</h3>
+<details>
+<summary>Show answer</summary>
 <p>On imbalanced data, a classifier that always predicts the majority class scores
 high accuracy while being useless. With 1% fraud, always predicting
 "legitimate" gives 99% accuracy and 0% recall. Report precision, recall and F1.</p>
-<h3>18. Why is F1 the harmonic mean?</h3>
+</details>
+<h3 id="18-why-is-f1-the-harmonic-mean">18. Why is F1 the harmonic mean?</h3>
+<details>
+<summary>Show answer</summary>
 <p>Because it punishes imbalance. Precision 1.0 with recall 0.0 gives an
 arithmetic mean of 0.5 — flattering — but an F1 of <strong>0</strong>, which is the honest
 answer. F1 is high only when <em>both</em> are high.</p>
-<h3>19. Distinguish eager from lazy learning.</h3>
+</details>
+<h3 id="19-distinguish-eager-from-lazy-learning">19. Distinguish eager from lazy learning.</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Eager</strong> learners (trees, Bayes, rules) build a model at training time: slow to
 train, fast to predict. <strong>Lazy</strong> learners (k-NN) merely store the data: instant
 "training", slow prediction, and a decision boundary formed locally per query.</p>
-<h3>20. What is the zero-frequency problem, and how is it fixed?</h3>
+</details>
+<h3 id="20-what-is-the-zero-frequency-problem-and-how-is-it-fixed">20. What is the zero-frequency problem, and how is it fixed?</h3>
+<details>
+<summary>Show answer</summary>
 <p>If any conditional probability in a Naïve Bayes product is zero, the <strong>whole
 product is zero</strong> — one unseen attribute value vetoes the class regardless of
 all other evidence. <strong>Laplace (add-one) smoothing</strong> fixes it:
 <code>P(xᵢ|C) = (count + 1)/(count(C) + k)</code> where k is the number of distinct values
 of that attribute.</p>
-<h3>21. Why can K-Means not cluster categorical data?</h3>
+</details>
+<h3 id="21-why-can-k-means-not-cluster-categorical-data">21. Why can K-Means not cluster categorical data?</h3>
+<details>
+<summary>Show answer</summary>
 <p>It needs a <strong>mean</strong>, and the mean of {red, green, blue} does not exist.
 Integer-encoding the categories makes green the average of red and blue, which
 K-Means will act on as if it were true. Use <strong>k-Modes</strong>, or ROCK/CACTUS.</p>
-<h3>22. Define core, border and noise points.</h3>
+</details>
+<h3 id="22-define-core-border-and-noise-points">22. Define core, border and noise points.</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Core</strong>: at least MinPts points within ε, counting itself. <strong>Border</strong>: fewer
 than MinPts within ε, but within ε of a core point. <strong>Noise</strong>: neither —
 assigned to no cluster.</p>
-<h3>23. Name one failure case each for K-Means and DBSCAN.</h3>
+</details>
+<h3 id="23-name-one-failure-case-each-for-k-means-and-dbscan">23. Name one failure case each for K-Means and DBSCAN.</h3>
+<details>
+<summary>Show answer</summary>
 <p>K-Means fails on <strong>non-spherical clusters</strong> — two concentric rings, since every
 boundary it draws is a hyperplane. DBSCAN fails on <strong>clusters of varying
 density</strong> — a single ε suited to a dense cluster fragments a sparse one into
 noise. OPTICS addresses the second.</p>
-<h3>24. What is a Clustering Feature in BIRCH?</h3>
+</details>
+<h3 id="24-what-is-a-clustering-feature-in-birch">24. What is a Clustering Feature in BIRCH?</h3>
+<details>
+<summary>Show answer</summary>
 <p>The triple <strong>CF = (N, LS, SS)</strong> — count, linear sum, square sum. Centroid and
 radius follow from those three numbers alone, so the points need not be kept,
 and CFs <strong>add</strong>: <code>CF₁ + CF₂ = (N₁+N₂, LS₁+LS₂, SS₁+SS₂)</code>. That additivity is
 what makes BIRCH single-pass.</p>
-<h3>25. What is a "link" in ROCK?</h3>
+</details>
+<h3 id="25-what-is-a-link-in-rock">25. What is a "link" in ROCK?</h3>
+<details>
+<summary>Show answer</summary>
 <p>The <strong>number of common neighbours</strong> of two points, where two points are
 neighbours if their similarity exceeds θ. Two baskets sharing only one item
 have low pairwise similarity, but if many other baskets neighbour both, the
 link count is high. Links capture global evidence that pairwise similarity
 cannot see.</p>
 <hr />
-<h2>Section B — Five-mark questions</h2>
-<h3>1. Explain the five OLAP operations with examples.</h3>
+</details>
+<h2 id="section-b-five-mark-questions">Section B — Five-mark questions</h2>
+<h3 id="1-explain-the-five-olap-operations-with-examples">1. Explain the five OLAP operations with examples.</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -189,7 +266,10 @@ Slice reduces dimensionality by one; dice keeps the dimensionality and shrinks
 the cube. Pivot changes neither — it is presentation only.</p>
 <p>Two more exist: <strong>drill-across</strong> queries two fact tables through conformed
 dimensions, and <strong>drill-through</strong> goes past the cube to the underlying detail.</p>
-<h3>2. Compare star and snowflake schemas.</h3>
+</details>
+<h3 id="2-compare-star-and-snowflake-schemas">2. Compare star and snowflake schemas.</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -239,7 +319,10 @@ denormalised design trades cheap storage for fewer joins, and a query with
 three joins beats one with nine.</p>
 <p>A <strong>fact constellation</strong> has multiple fact tables sharing <strong>conformed
 dimensions</strong>, which is what makes cross-process analysis possible.</p>
-<h3>3. Explain the methods of handling missing data.</h3>
+</details>
+<h3 id="3-explain-the-methods-of-handling-missing-data">3. Explain the methods of handling missing data.</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -292,7 +375,10 @@ dropping them biases the mean downward and nothing in the data reveals it.
 <strong>Mean imputation shrinks the variance</strong>, weakening every correlation and
 making subsequent tests overconfident. And <strong>impute after splitting</strong>, never
 before, or the training set encodes test information.</p>
-<h3>4. Explain PCA and how many components to retain.</h3>
+</details>
+<h3 id="4-explain-pca-and-how-many-components-to-retain">4. Explain PCA and how many components to retain.</h3>
+<details>
+<summary>Show answer</summary>
 <p>PCA finds new orthogonal axes — principal components — that are linear
 combinations of the originals, ordered by variance captured.</p>
 <ol>
@@ -313,7 +399,10 @@ almost exactly, whatever the real structure.</p>
 <p>The cost is <strong>interpretability</strong>: the components are combinations of every
 original attribute, so no component is "age" any more. Where explanation
 matters, use feature <em>selection</em> instead.</p>
-<h3>5. Explain the Apriori algorithm with an example.</h3>
+</details>
+<h3 id="5-explain-the-apriori-algorithm-with-an-example">5. Explain the Apriori algorithm with an example.</h3>
+<details>
+<summary>Show answer</summary>
 <p>Two steps: find all frequent itemsets (expensive), then generate strong rules
 from them (cheap). With d items there are 2ᵈ − 1 possible itemsets, so brute
 force is impossible; the <strong>Apriori principle</strong> makes it feasible.</p>
@@ -333,7 +422,10 @@ L₃ = {B,C,E}:3
 </code></pre>
 <p>At k=3 the candidate {A,C,E} arises from the join but <strong>{A,E} ∉ L₂</strong>, so it is
 eliminated <strong>without a single count</strong>. That is the principle earning its keep.</p>
-<h3>6. Compare Apriori and FP-Growth.</h3>
+</details>
+<h3 id="6-compare-apriori-and-fp-growth">6. Compare Apriori and FP-Growth.</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -395,7 +487,10 @@ database.</p>
 <p><strong>FP-Growth's weakness is memory</strong> — the tree must fit in RAM, and on sparse
 data with little prefix sharing it barely compresses. <strong>Both algorithms always
 produce the same frequent itemsets</strong>; they differ only in how they get there.</p>
-<h3>7. Explain how C4.5 improves on ID3.</h3>
+</details>
+<h3 id="7-explain-how-c45-improves-on-id3">7. Explain how C4.5 improves on ID3.</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -445,7 +540,10 @@ in preprocessing.</p>
 between adjacent values of differing class, take the best <code>A ≤ t</code>.</p>
 <p><strong>Missing values</strong> send the record down <strong>all</strong> branches, weighted by each
 branch's proportion — a "fractional instance".</p>
-<h3>8. Explain overfitting and pruning.</h3>
+</details>
+<h3 id="8-explain-overfitting-and-pruning">8. Explain overfitting and pruning.</h3>
+<details>
+<summary>Show answer</summary>
 <p>A tree grown until every leaf is pure has memorised its training data including
 its noise: training accuracy reaches 100% while <strong>test accuracy falls</strong>. The
 gap between the two curves <em>is</em> the overfitting.</p>
@@ -490,7 +588,10 @@ and you never find out — which is why post-pruning is generally preferred.</p>
 validation accuracy does not fall), <strong>cost-complexity</strong> (CART: minimise
 <code>R(T) + α·|leaves|</code>, choosing α by cross-validation), <strong>pessimistic error</strong>
 (C4.5, needs no validation set), and <strong>MDL</strong>.</p>
-<h3>9. Explain k-NN with a worked example.</h3>
+</details>
+<h3 id="9-explain-k-nn-with-a-worked-example">9. Explain k-NN with a worked example.</h3>
+<details>
+<summary>Show answer</summary>
 <p>Lazy learning: store the training data, and classify a query by majority vote
 of its k nearest neighbours.</p>
 <p>Training points by (height, weight): P1(158,58) Small, P2(160,59) Small,
@@ -509,7 +610,10 @@ classes, and start around √n.</p>
 </div>
 <p><strong>k-NN requires normalisation</strong> — unscaled features let the largest-range
 attribute dominate every distance — and it degrades badly in high dimensions.</p>
-<h3>10. Explain DBSCAN with a worked example.</h3>
+</details>
+<h3 id="10-explain-dbscan-with-a-worked-example">10. Explain DBSCAN with a worked example.</h3>
+<details>
+<summary>Show answer</summary>
 <p>Density-based: clusters are dense regions, and sparse points are <strong>noise</strong>. Two
 parameters — <strong>ε</strong> (neighbourhood radius) and <strong>MinPts</strong> — and three point
 types: core (≥ MinPts within ε, counting itself), border (fewer, but within ε
@@ -554,8 +658,11 @@ put 25 somewhere, dragging a centroid away from every real point.</p>
 fragments a sparse one into noise. OPTICS solves this by producing an ordering
 across a range of ε.</p>
 <hr />
-<h2>Section C — Ten-mark questions</h2>
-<h3>1. Full Apriori trace with rules</h3>
+</details>
+<h2 id="section-c-ten-mark-questions">Section C — Ten-mark questions</h2>
+<h3 id="1-full-apriori-trace-with-rules">1. Full Apriori trace with rules</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Question.</strong> minsup count = 2, minconf = 70%. Find all frequent itemsets and
 all strong rules with support, confidence and lift.</p>
 <table class="main-table">
@@ -832,7 +939,10 @@ frequent itemsets. Mining the whole lattice also yields three strong rules from
 <strong>2-itemsets</strong> — <code>{D} → {B}</code> (confidence 1.00, lift 1.286), <code>{E} → {A}</code> (1.00,
 1.500) and <code>{E} → {B}</code> (1.00, 1.286). A real Apriori run reports these too, so
 say "from the 3-itemsets" when your answer is scoped that way.</p>
-<h3>2. Full ID3 trace</h3>
+</details>
+<h3 id="2-full-id3-trace">2. Full ID3 trace</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Question.</strong> Build a decision tree with ID3 for the weather data of Unit 4,
 showing every entropy and gain.</p>
 <p><strong>Solution.</strong> 9 Yes, 5 No, N = 14.</p>
@@ -965,11 +1075,13 @@ R5: IF Outlook = Rain AND Wind = Strong      THEN No
 </code></pre>
 <p>These five rules are exactly the five root-to-leaf paths, and are automatically
 mutually exclusive and exhaustive because tree paths partition the space.</p>
-<h3>3. Naïve Bayes with Laplace smoothing</h3>
+</details>
+<h3 id="3-naïve-bayes-with-laplace-smoothing">3. Naïve Bayes with Laplace smoothing</h3>
 <p><strong>Question.</strong> Using the same weather data, classify
 X = (Sunny, Cool, High, Strong). Then explain what happens for
 (Overcast, Hot, High, Strong) and fix it.</p>
-<p><strong>Solution.</strong></p>
+<details>
+<summary>Show answer</summary>
 <p>Priors: P(Yes) = 9/14 = 0.6429, P(No) = 5/14 = 0.3571.</p>
 <table class="main-table">
 <thead>
@@ -1032,10 +1144,12 @@ rather than multiplying probabilities, because a product of fifty values around
 unchanged. And the independence assumption is <strong>almost always false</strong>, yet
 Naïve Bayes works well anyway — because classification needs only the
 <strong>ranking</strong> of the posteriors to be right, not their values.</p>
-<h3>4. Comparing four classifiers</h3>
+</details>
+<h3 id="4-comparing-four-classifiers">4. Comparing four classifiers</h3>
 <p><strong>Question.</strong> Compare decision trees, rule-based classifiers, k-NN and Naïve
 Bayes on principle, strengths, weaknesses and appropriate use.</p>
-<p><strong>Solution.</strong></p>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -1155,6 +1269,7 @@ choice when predictions must be updated incrementally.</p>
 the best-performing model — gradient-boosted trees are. These four are taught
 because each embodies a distinct and comprehensible principle, and because
 understanding them is what lets you diagnose the ones that follow.</p>
+</details>
 
   <div class="page-nav">
     <a href="index_data-mining.html">← Course home</a>

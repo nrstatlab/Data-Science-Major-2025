@@ -29,13 +29,27 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-the-three-models-in-one-place">2.1 The three models, in one place</a></li>
+    <li><a href="#22-identification">2.2 Identification</a></li>
+    <li><a href="#23-estimation">2.3 Estimation</a></li>
+    <li><a href="#24-diagnostic-checking">2.4 Diagnostic checking</a></li>
+    <li><a href="#25-model-selection-by-information-criterion">2.5 Model selection by information criterion</a></li>
+    <li><a href="#26-forecasting">2.6 Forecasting</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 6):</strong> ARMA(p,q) models: definition, estimation, forecasting
 approaches. Model identification: AIC, PACF/ACF, diagnostic checks. Practical
 examples of fitting ARMA and generating forecasts.</p>
 <hr />
-<h2>2.1 The three models, in one place</h2>
+<h2 id="21-the-three-models-in-one-place">2.1 The three models, in one place</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>AR(p) — regress the series on its own past</h4>
 <p>$$y_t = c + \phi_1 y_{t-1} + \dots + \phi_p y_{t-p} + \varepsilon_t$$</p>
 <p><strong>"Today is a weighted sum of recent days, plus a shock."</strong> A shock enters and
@@ -46,7 +60,7 @@ lie outside the unit circle. For AR(1) that reduces to <strong>|φ| &lt; 1</stro
 <strong>φ = 1 is exactly the random walk</strong> — the unit root of Unit 1.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>MA(q) — regress on past <em>shocks</em></h4>
 <p>$$y_t = \mu + \varepsilon_t + \theta_1\varepsilon_{t-1} + \dots + \theta_q\varepsilon_{t-q}$$</p>
 <p><strong>"Today is this period's shock plus an echo of the last q shocks."</strong> A shock
@@ -62,7 +76,7 @@ rewritten as an infinite AR, which is what makes its parameters identifiable.</p
 <p>That is why the ACF of an MA(q) is <strong>exactly zero</strong> beyond lag q, and the ACF
 of an AR decays but never quite reaches zero.</p>
 </div>
-<h3>ARMA(p,q) — both</h3>
+<h3 id="armapq-both">ARMA(p,q) — both</h3>
 <p>$$y_t = c + \sum_{i=1}^{p}\phi_i y_{t-i} + \varepsilon_t + \sum_{j=1}^{q}\theta_j\varepsilon_{t-j}$$</p>
 <div class="tip">
 <p><span class="label">WHY IT MATTERS</span></p>
@@ -70,8 +84,8 @@ of an AR decays but never quite reaches zero.</p>
 ARMA(1,1) — two parameters instead of eight, estimated from the same data.</p>
 </div>
 <hr />
-<h2>2.2 Identification</h2>
-<h3>The rules again, because they are the whole unit</h3>
+<h2 id="22-identification">2.2 Identification</h2>
+<h3 id="the-rules-again-because-they-are-the-whole-unit">The rules again, because they are the whole unit</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -105,14 +119,14 @@ observations.</p>
 <strong>ρ(1) for an MA(1) can never exceed 0.5</strong>, so an ACF with a lag-1 spike of
 0.8 is not an MA(1) whatever else it is.</p>
 </div>
-<h3>⚠️ Why ARMA orders cannot be read off the plot</h3>
+<h3 id="why-arma-orders-cannot-be-read-off-the-plot">⚠️ Why ARMA orders cannot be read off the plot</h3>
 <p>When both functions tail off, <strong>the correlogram tells you it is ARMA and not
 which one.</strong> That is not a limitation of your eye — the information genuinely
 is not there. Hence AIC.</p>
 <hr />
-<h2>2.3 Estimation</h2>
+<h2 id="23-estimation">2.3 Estimation</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Maximum likelihood, via the Kalman filter</h4>
 <p>statsmodels writes the ARMA in <strong>state-space form</strong> and runs the <strong>Kalman
 filter</strong> to evaluate the likelihood, then maximises it numerically.</p>
@@ -238,9 +252,9 @@ two-decimal uncertainty.</strong> Time series are data-poor by nature — you ca
 collect more of the past.</p>
 </div>
 <hr />
-<h2>2.4 Diagnostic checking</h2>
+<h2 id="24-diagnostic-checking">2.4 Diagnostic checking</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The four checks, in order of importance</h4>
 <table class="main-table">
 <thead>
@@ -321,7 +335,7 @@ in twenty by chance; testing them together does not.</p>
 bad set.</strong> The AIC comparison is <em>relative</em>; Ljung-Box is <em>absolute</em>.</p>
 </div>
 <hr />
-<h2>2.5 Model selection by information criterion</h2>
+<h2 id="25-model-selection-by-information-criterion">2.5 Model selection by information criterion</h2>
 <p>$$\text{AIC} = -2\log L + 2k \qquad\qquad \text{BIC} = -2\log L + k\log n$$</p>
 <p><strong>Both are (badness of fit) + (penalty for complexity).</strong> Lower is better, and
 <strong>the absolute value is meaningless</strong> — only differences between models fitted
@@ -413,7 +427,7 @@ only bites when two models fit almost equally well.</p>
 estimates out-of-sample error from a formula and an assumption; CV measures
 it.</strong> When you can afford the refits, measure.</p>
 </div>
-<h3>⚠️ AIC and held-out error can disagree</h3>
+<h3 id="aic-and-held-out-error-can-disagree">⚠️ AIC and held-out error can disagree</h3>
 <p>On the experiment 6 grid, <strong>lowest AIC was SARIMA(1,1,1)(1,1,1)₁₂</strong> and
 <strong>lowest test RMSE was SARIMA(0,1,1)(0,1,1)₁₂</strong> — the smaller model.</p>
 <p><strong>They ask different questions.</strong> AIC measures in-sample fit with a penalty;
@@ -422,9 +436,9 @@ the held-out error answers "will this forecast well?"</strong></p>
 <p>That is <strong>Course 12 A's bias–variance trade-off</strong> arriving in a new costume:
 the larger model fits the training data better and generalises worse.</p>
 <hr />
-<h2>2.6 Forecasting</h2>
+<h2 id="26-forecasting">2.6 Forecasting</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>How an ARMA forecast is computed</h4>
 <p><strong>Recursively, replacing what you do not know with its expectation:</strong></p>
 <ul>
@@ -524,7 +538,7 @@ variance linearly.</p>
 is the difference between a series you can forecast far ahead and one you
 cannot.</strong></p>
 </div>
-<h3>⚠️ And the coverage, reported honestly</h3>
+<h3 id="and-the-coverage-reported-honestly">⚠️ And the coverage, reported honestly</h3>
 <p><strong>Nominal 95%, empirical 9/12 = 75%.</strong> Two things are going on:</p>
 <ol>
 <li>
@@ -541,7 +555,7 @@ cannot.</strong></p>
 <p><strong>If the interval matters for a decision, widen it — or get it by bootstrap or
 backtesting rather than from the formula.</strong></p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. An ACF has a single spike of 0.45 at lag 1 and nothing after. The PACF
 decays with alternating signs. Identify the model and estimate its parameter.</strong></p>
 <p><strong>MA(1)</strong> — ACF cuts off at lag 1, PACF tails off.</p>
@@ -616,7 +630,7 @@ lag to "tidy up" — dropping φ₁ while keeping φ₂ gives a model whose
 interpretation and stationarity conditions are much less standard. Reduce the
 order, do not punch holes in it.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Write the AR(p) equation.</li>
@@ -649,7 +663,7 @@ order, do not punch holes in it.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

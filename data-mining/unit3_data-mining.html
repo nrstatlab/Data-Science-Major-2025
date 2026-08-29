@@ -32,13 +32,31 @@
     <span class="chip">Exam questions from this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-what-an-association-rule-is">3.1 What an association rule is</a></li>
+    <li><a href="#32-support-confidence-and-lift">3.2 Support, confidence and lift</a></li>
+    <li><a href="#33-the-problem-and-why-it-is-hard">3.3 The problem, and why it is hard</a></li>
+    <li><a href="#34-the-apriori-algorithm">3.4 The Apriori algorithm</a></li>
+    <li><a href="#35-the-partition-algorithm">3.5 The Partition algorithm</a></li>
+    <li><a href="#36-the-pincer-search-algorithm">3.6 The Pincer-Search algorithm</a></li>
+    <li><a href="#37-dynamic-itemset-counting-dic">3.7 Dynamic Itemset Counting (DIC)</a></li>
+    <li><a href="#38-the-fp-growth-algorithm">3.8 The FP-Growth algorithm</a></li>
+    <li><a href="#39-generalized-association-rules">3.9 Generalized association rules</a></li>
+    <li><a href="#310-association-rules-with-item-constraints">3.10 Association rules with item constraints</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 12):</strong> Association Rules — What is an Association Rule?,
 Methods to Discover Association Rules, A Priori Algorithm, Partition Algorithm,
 Pincer-Search Algorithm, Dynamic Itemset Counting Algorithm, FP-Tree Growth
 Algorithm, Generalized Association Rule, Association Rules with Item
 Constraints.</p>
 <hr />
-<h2>3.1 What an association rule is</h2>
+<h2 id="31-what-an-association-rule-is">3.1 What an association rule is</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>An association rule says <strong>"transactions containing X tend also to contain Y"</strong>
@@ -78,7 +96,7 @@ customer's shopping trip, and each item is a product.</p>
 </tbody>
 </table>
 </div>
-<h3>Vocabulary</h3>
+<h3 id="vocabulary">Vocabulary</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -125,10 +143,10 @@ customer's shopping trip, and each item is a product.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ X and Y must be disjoint</h3>
+<h3 id="x-and-y-must-be-disjoint">⚠️ X and Y must be disjoint</h3>
 <p><code>{bread, milk} → {milk}</code> is not a valid rule. The consequent must contain no
 item from the antecedent, or the "rule" is trivially true and says nothing.</p>
-<h2>3.2 Support, confidence and lift</h2>
+<h2 id="32-support-confidence-and-lift">3.2 Support, confidence and lift</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The three formulas</h4>
@@ -188,7 +206,7 @@ lift       = 0.667 / (3/5) = 0.667 / 0.6 = 1.111
 are both bought, beer follows two-thirds of the time; and that is 1.11× the
 rate at which beer is bought generally. Positive, but weakly so.</p>
 </div>
-<h3>⚠️ Confidence alone is misleading</h3>
+<h3 id="confidence-alone-is-misleading">⚠️ Confidence alone is misleading</h3>
 <p>This is the most important idea in the unit, and it is a guaranteed exam
 question.</p>
 <p>Suppose 800 of 1,000 students play cricket and 900 study data science, with 720
@@ -205,7 +223,7 @@ you nothing. Confidence is high only because the consequent is common.</p>
 <p><strong>Lift corrects for this</strong>, and it is why every serious analysis reports it.
 Make the numbers slightly worse — 700 of the 800 cricketers — and lift falls to
 0.875/0.9 = 0.972, a <em>negative</em> association hiding behind 87.5% confidence.</p>
-<h3>Other interest measures</h3>
+<h3 id="other-interest-measures">Other interest measures</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -245,7 +263,7 @@ Make the numbers slightly worse — 700 of the 800 cricketers — and lift falls
 <p><strong>Support and lift are symmetric; confidence and conviction are not.</strong> So
 <code>X → Y</code> and <code>Y → X</code> always share a support and a lift but generally differ in
 confidence — which is how you tell the direction of a rule.</p>
-<h2>3.3 The problem, and why it is hard</h2>
+<h2 id="33-the-problem-and-why-it-is-hard">3.3 The problem, and why it is hard</h2>
 <p>Finding rules is a two-step process:</p>
 <ol>
 <li>
@@ -291,11 +309,11 @@ confidence — which is how you tell the direction of a rule.</p>
 not slow — it is <strong>physically impossible</strong>. Every algorithm in this unit is a
 strategy for avoiding that enumeration.</p>
 </div>
-<h3>Total possible rules</h3>
+<h3 id="total-possible-rules">Total possible rules</h3>
 <p>From <em>d</em> items the number of possible rules is <strong>3ᵈ − 2^(d+1) + 1</strong>. For
 d = 6 that is 729 − 128 + 1 = <strong>602</strong> rules. The exponential in the base 3
 comes from each item being in the antecedent, the consequent, or neither.</p>
-<h2>3.4 The Apriori algorithm</h2>
+<h2 id="34-the-apriori-algorithm">3.4 The Apriori algorithm</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The Apriori principle</h4>
@@ -320,7 +338,7 @@ makes association mining feasible.</p>
    {A,B,C} {A,B,D} …       ╳╳╳╳╳╳╳╳╳╳╳╳     ← ...so ALL its supersets pruned
 </code></pre>
 </div>
-<h3>The algorithm</h3>
+<h3 id="the-algorithm">The algorithm</h3>
 <pre><code>L₁ = {frequent 1-itemsets}                    (one pass over the data)
 k = 2
 while L(k-1) is not empty:
@@ -564,7 +582,7 @@ if <code>{B,C} → {E}</code> fails, every rule whose consequent is a superset o
 from this itemset fails. This lets rule generation prune too, level by level on
 the consequent size.</p>
 </div>
-<h3>Complexity and weaknesses</h3>
+<h3 id="complexity-and-weaknesses">Complexity and weaknesses</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -600,7 +618,7 @@ the consequent size.</p>
 </li>
 </ol>
 <p>Every remaining algorithm in this unit attacks one of those two problems.</p>
-<h2>3.5 The Partition algorithm</h2>
+<h2 id="35-the-partition-algorithm">3.5 The Partition algorithm</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -663,7 +681,7 @@ arrive sorted by date and seasonal items cluster — the union of local frequent
 itemsets becomes enormous, and scan 2 counts a huge candidate set. Random
 partitioning mitigates this.</p>
 </div>
-<h2>3.6 The Pincer-Search algorithm</h2>
+<h2 id="36-the-pincer-search-algorithm">3.6 The Pincer-Search algorithm</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -715,7 +733,7 @@ case it does strictly more work than Apriori.</p>
 <p>That conditional answer — "it depends on whether the frequent itemsets are long"
 — is what a five-mark question is looking for.</p>
 </div>
-<h3>⚠️ Maximal versus closed itemsets</h3>
+<h3 id="maximal-versus-closed-itemsets">⚠️ Maximal versus closed itemsets</h3>
 <p>Another guaranteed two-mark question.</p>
 <table class="main-table">
 <thead>
@@ -761,7 +779,7 @@ case it does strictly more work than Apriori.</p>
 <p>So from the maximal set alone you know {A,B} is frequent but not that its
 support is 3. The closed set preserves that.</p>
 </div>
-<h2>3.7 Dynamic Itemset Counting (DIC)</h2>
+<h2 id="37-dynamic-itemset-counting-dic">3.7 Dynamic Itemset Counting (DIC)</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -806,7 +824,7 @@ Start counting  1-sets
 database, <strong>wrapping around</strong> to the beginning, until it has seen all N
 transactions. That is what makes its final count correct.</p>
 </div>
-<h3>The trade-off</h3>
+<h3 id="the-trade-off">The trade-off</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -838,7 +856,7 @@ from a prefix of the data. If the data is sorted — by date, by store, by
 category — that prefix is unrepresentative, DIC starts counting the wrong
 itemsets, and it can perform worse than Apriori. <strong>Shuffling the data first is
 not optional.</strong></p>
-<h2>3.8 The FP-Growth algorithm</h2>
+<h2 id="38-the-fp-growth-algorithm">3.8 The FP-Growth algorithm</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -846,7 +864,7 @@ not optional.</strong></p>
 mine the tree recursively. Two database scans, and no candidate generation
 anywhere.</p>
 </div>
-<h3>Step 1 — Build the FP-tree</h3>
+<h3 id="step-1-build-the-fp-tree">Step 1 — Build the FP-tree</h3>
 <p><strong>Scan 1:</strong> count each item's support, discard infrequent items, and sort the
 rest by descending frequency (the <strong>F-list</strong>).</p>
 <p><strong>Scan 2:</strong> for each transaction, drop infrequent items, sort the rest into
@@ -978,7 +996,7 @@ near the root, which is what makes the tree small. Sorting ascending would
 produce a tree close to the size of the original database and defeat the
 purpose.</p>
 </div>
-<h3>Step 2 — Mine the tree, from the least frequent item upwards</h3>
+<h3 id="step-2-mine-the-tree-from-the-least-frequent-item-upwards">Step 2 — Mine the tree, from the least frequent item upwards</h3>
 <p>For each item, find its <strong>conditional pattern base</strong> (the prefix paths ending
 at that item, with counts), build a <strong>conditional FP-tree</strong>, and recurse.</p>
 <p><strong>Item A</strong> (count 3, the last in the F-list):</p>
@@ -1080,7 +1098,7 @@ with little prefix sharing, the tree can approach the size of the database
 itself and the advantage disappears. Apriori's memory need is bounded by the
 candidate set, not the data.</p>
 </div>
-<h2>3.9 Generalized association rules</h2>
+<h2 id="39-generalized-association-rules">3.9 Generalized association rules</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -1107,7 +1125,7 @@ milk counts twice at the leaf level and once at <code>Milk</code>.</p>
 <p>That gives the pruning rule: <strong>if an ancestor is infrequent, every descendant
 is infrequent</strong>, so whole subtrees can be discarded.</p>
 </div>
-<h3>The three strategies</h3>
+<h3 id="the-three-strategies">The three strategies</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1139,14 +1157,14 @@ control the number of <code>Dairy → Bakery</code>-level rules and no individua
 passes; set it low enough for products and the upper levels produce an
 unmanageable flood. Reduced support exists precisely because one threshold
 cannot serve both.</p>
-<h3>⚠️ Redundant ancestor rules</h3>
+<h3 id="redundant-ancestor-rules">⚠️ Redundant ancestor rules</h3>
 <p>If <code>Milk → Bread</code> has confidence 80%, and <code>Amul Milk</code> is 25% of all milk, then
 <code>Amul Milk → Bread</code> at confidence ≈ 80% tells you <strong>nothing new</strong> — it is the
 <em>expected</em> consequence of the ancestor rule.</p>
 <p>A descendant rule is <strong>redundant</strong> if its support and confidence are close to
 what the ancestor rule predicts. Only report a descendant rule when it
 <em>deviates</em> — if <code>Amul Milk → Bread</code> had confidence 95%, that is a real finding.</p>
-<h2>3.10 Association rules with item constraints</h2>
+<h2 id="310-association-rules-with-item-constraints">3.10 Association rules with item constraints</h2>
 <p>Unconstrained mining produces far too many rules, most of them uninteresting.
 <strong>Constraints</strong> let the user say what they are looking for — and, crucially,
 good constraints can be <strong>pushed into</strong> the mining algorithm rather than
@@ -1245,7 +1263,7 @@ reading time. A constraint pushed <em>into</em> mining saves the computer's time
 often by orders of magnitude. The classification tells you which is possible.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Transactions, minsup count = 2, minconf = 70%:</p>
@@ -1750,7 +1768,7 @@ meaning.</p>
 agreeing with lift.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define support, confidence and lift.</li>
@@ -1790,7 +1808,7 @@ agreeing with lift.</p>
    on the same data.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -26,6 +26,17 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-dynamic-memory-management">5.1 Dynamic memory management</a></li>
+    <li><a href="#52-structures">5.2 Structures</a></li>
+    <li><a href="#53-unions">5.3 Unions</a></li>
+    <li><a href="#54-file-handling">5.4 File handling</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 10):</strong> Dynamic Memory Management — introduction, functions
 <code>malloc</code>, <code>calloc</code>, <code>realloc</code>, <code>free</code>. Structures — basics, structure members,
 accessing members, nested structures, array of structures, structures and
@@ -33,14 +44,14 @@ functions, structures and pointers. Unions — definition, difference between
 structures and unions. Working with text files — modes, opening, reading,
 writing and closing.</p>
 <hr />
-<h2>5.1 Dynamic memory management</h2>
-<h3>Why it exists</h3>
+<h2 id="51-dynamic-memory-management">5.1 Dynamic memory management</h2>
+<h3 id="why-it-exists">Why it exists</h3>
 <pre><code class="language-c">int marks[100];        /* fixed at compile time */
 </code></pre>
 <p>What if you need 50? You waste half. What if you need 500? You crash. <strong>Dynamic
 allocation</strong> lets you ask for exactly what you need, when you know how much
 that is.</p>
-<h3>The four functions — <code>&lt;stdlib.h&gt;</code></h3>
+<h3 id="the-four-functions-stdlibh">The four functions — <code>&lt;stdlib.h&gt;</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -72,7 +83,7 @@ that is.</p>
 </tr>
 </tbody>
 </table>
-<h3><code>malloc</code></h3>
+<h3 id="malloc"><code>malloc</code></h3>
 <pre><code class="language-c">int *p = (int *) malloc(5 * sizeof(int));   /* room for 5 ints */
 
 if (p == NULL) {                            /* ALWAYS check */
@@ -90,7 +101,7 @@ p = NULL;                                   /* avoid a dangling pointer */
 required in C++ and optional in C; textbooks include it, so write it.</p>
 <p>Use <code>sizeof(int)</code> rather than the literal <code>4</code> — it keeps the code correct on
 machines with a different <code>int</code> size.</p>
-<h3><code>calloc</code></h3>
+<h3 id="calloc"><code>calloc</code></h3>
 <pre><code class="language-c">int *p = (int *) calloc(5, sizeof(int));    /* 5 ints, ALL SET TO ZERO */
 </code></pre>
 <table class="main-table">
@@ -121,7 +132,7 @@ machines with a different <code>int</code> size.</p>
 </table>
 <p><code>malloc(5 * sizeof(int))</code> and <code>calloc(5, sizeof(int))</code> allocate the same amount;
 only the initialisation differs.</p>
-<h3><code>realloc</code></h3>
+<h3 id="realloc"><code>realloc</code></h3>
 <pre><code class="language-c">p = (int *) realloc(p, 10 * sizeof(int));   /* grow from 5 to 10 */
 </code></pre>
 <p>Existing contents are preserved; any new space is uninitialised. <code>realloc</code> may
@@ -135,7 +146,7 @@ if (temp != NULL)
 else
     /* p is still valid; handle the failure */;
 </code></pre>
-<h3><code>free</code> and the three classic errors</h3>
+<h3 id="free-and-the-three-classic-errors"><code>free</code> and the three classic errors</h3>
 <pre><code class="language-c">free(p);
 </code></pre>
 <ol>
@@ -153,7 +164,7 @@ else
    <code>free(NULL)</code> is safely defined as doing nothing.</p>
 </li>
 </ol>
-<h3>Stack vs heap</h3>
+<h3 id="stack-vs-heap">Stack vs heap</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -195,7 +206,7 @@ else
 </tr>
 </tbody>
 </table>
-<h2>5.2 Structures</h2>
+<h2 id="52-structures">5.2 Structures</h2>
 <p>A <strong>structure</strong> groups variables of <strong>different types</strong> under one name.</p>
 <pre><code class="language-c">struct Student {
     int   roll;
@@ -207,7 +218,7 @@ struct Student s1 = {24001, &quot;Ananya&quot;, 8.75};
 
 printf(&quot;%d %s %.2f&quot;, s1.roll, s1.name, s1.cgpa);
 </code></pre>
-<h3>Accessing members</h3>
+<h3 id="accessing-members">Accessing members</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -236,7 +247,7 @@ printf(&quot;%d&quot;, (*ptr).roll);      /* identical, but clumsy */
 <p>The brackets in <code>(*ptr).roll</code> are essential — <code>.</code> binds tighter than <code>*</code>, so
 <code>*ptr.roll</code> would be parsed as <code>*(ptr.roll)</code> and fail to compile. <code>-&gt;</code> exists
 precisely to avoid this.</p>
-<h3>Array of structures</h3>
+<h3 id="array-of-structures">Array of structures</h3>
 <pre><code class="language-c">struct Student class[50];
 
 class[0].roll = 24001;
@@ -247,7 +258,7 @@ for (int i = 0; i &lt; n; i++)
 </code></pre>
 <p>This is the standard shape of a record-keeping program, and of lab experiments
 12 and 15.</p>
-<h3>Nested structures</h3>
+<h3 id="nested-structures">Nested structures</h3>
 <pre><code class="language-c">struct Date {
     int day, month, year;
 };
@@ -262,7 +273,7 @@ struct Employee e;
 e.joining.day = 15;           /* chain the dots */
 </code></pre>
 <p>The inner structure must be defined <strong>before</strong> it is used.</p>
-<h3>Structures and functions</h3>
+<h3 id="structures-and-functions">Structures and functions</h3>
 <pre><code class="language-c">/* By value -- the whole structure is copied */
 void display(struct Student s) { printf(&quot;%d&quot;, s.roll); }
 
@@ -281,14 +292,14 @@ struct Student create(int roll, const char *name)
 <p>Passing a large structure by value copies every byte. Pass a pointer instead —
 faster, and it lets the function modify the original. Use <code>const struct Student *</code>
 when it should read but not write.</p>
-<h3>Assignment works; comparison does not</h3>
+<h3 id="assignment-works-comparison-does-not">Assignment works; comparison does not</h3>
 <pre><code class="language-c">struct Student a = {1, &quot;X&quot;, 8.0}, b;
 b = a;                  /* legal -- copies every member */
 if (a == b)             /* ILLEGAL -- will not compile */
 </code></pre>
 <p>To compare, test the members individually. (<code>memcmp</code> may disagree with your
 intent because of padding bytes between members.)</p>
-<h3><code>typedef</code></h3>
+<h3 id="typedef"><code>typedef</code></h3>
 <pre><code class="language-c">typedef struct {
     int roll;
     char name[50];
@@ -296,7 +307,7 @@ intent because of padding bytes between members.)</p>
 
 Student s1;             /* instead of struct Student s1; */
 </code></pre>
-<h2>5.3 Unions</h2>
+<h2 id="53-unions">5.3 Unions</h2>
 <p>A <strong>union</strong> looks like a structure but all members <strong>share the same memory</strong>.
 Its size is that of its largest member, and only one member holds a valid value
 at a time.</p>
@@ -312,7 +323,7 @@ printf(&quot;%d&quot;, d.i);      /* 10 -- fine */
 d.f = 22.5;             /* this OVERWRITES the memory holding i */
 printf(&quot;%d&quot;, d.i);      /* garbage -- i is no longer meaningful */
 </code></pre>
-<h3>Structure vs union — the guaranteed exam question</h3>
+<h3 id="structure-vs-union-the-guaranteed-exam-question">Structure vs union — the guaranteed exam question</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -355,9 +366,9 @@ union  U { int i; float f; char c; };   /* 4 bytes -- the largest member */
 <p><strong>When a union is the right tool:</strong> a value that could be one of several types,
 paired with a tag saying which — a shape that is either a circle (radius) or a
 rectangle (width and height), never both.</p>
-<h2>5.4 File handling</h2>
+<h2 id="54-file-handling">5.4 File handling</h2>
 <p>Variables vanish when the program ends. Files persist.</p>
-<h3>Opening and closing</h3>
+<h3 id="opening-and-closing">Opening and closing</h3>
 <pre><code class="language-c">FILE *fp;
 fp = fopen(&quot;data.txt&quot;, &quot;r&quot;);
 
@@ -373,7 +384,7 @@ fclose(fp);                          /* ALWAYS close */
 <p><code>FILE</code> is a structure defined in <code>stdio.h</code>; you always use a <code>FILE *</code>.</p>
 <p>Failing to <code>fclose</code> risks losing buffered output — data sits in memory waiting
 to be written and is discarded if the program ends without flushing.</p>
-<h3>File modes</h3>
+<h3 id="file-modes">File modes</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -427,7 +438,7 @@ translates line endings.</p>
 <p><strong><code>"w"</code> destroys the file's contents the instant you open it.</strong> Opening a
 valuable file with <code>"w"</code> by mistake loses the data before you have written
 anything. Use <code>"a"</code> when you mean to add.</p>
-<h3>Reading and writing</h3>
+<h3 id="reading-and-writing">Reading and writing</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -476,7 +487,7 @@ while ((ch = fgetc(fp)) != EOF)
 <p><strong><code>fgetc</code> returns <code>int</code>, not <code>char</code>.</strong> <code>EOF</code> is <code>-1</code>, and if you store the
 result in a <code>char</code> you cannot reliably tell <code>EOF</code> from the byte <code>0xFF</code>. Declare
 the variable <code>int</code>.</p>
-<h3>Random access</h3>
+<h3 id="random-access">Random access</h3>
 <pre><code class="language-c">fseek(fp, 0, SEEK_END);        /* jump to the end */
 long size = ftell(fp);         /* current position = file size in bytes */
 rewind(fp);                    /* back to the start */
@@ -489,7 +500,7 @@ fseek(fp, -5, SEEK_CUR);       /* 5 bytes back from here      */
 a file backwards, and in
 <a href="../labs/course-2-c/15_book_file_crud.c"><code>15_book_file_crud.c</code></a> to
 overwrite a record in place.</p>
-<h3>Deleting a record from a file</h3>
+<h3 id="deleting-a-record-from-a-file">Deleting a record from a file</h3>
 <p>You cannot remove bytes from the middle of a file. The standard technique:</p>
 <ol>
 <li>Open the original for reading and a temporary file for writing</li>
@@ -499,7 +510,7 @@ overwrite a record in place.</p>
 <p>Implemented in
 <a href="../labs/course-2-c/15_book_file_crud.c"><code>15_book_file_crud.c</code></a>.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Differentiate <code>malloc()</code> and <code>calloc()</code>.</li>
@@ -535,7 +546,7 @@ overwrite a record in place.</p>
    search, update and delete operations.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

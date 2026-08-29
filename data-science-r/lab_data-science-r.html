@@ -16,8 +16,17 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#two-versions-of-every-experiment">Two versions of every experiment</a></li>
+    <li><a href="#the-experiments">The experiments</a></li>
+    <li><a href="#notes-on-the-harder-ones">Notes on the harder ones</a></li>
+    <li><a href="#lab-exam-tips">Lab exam tips</a></li>
+  </ol>
+</details>
 <p><strong>1 credit · 2 hrs/week · 18 practicals</strong> (syllabus page 5)</p>
-<h2>Two versions of every experiment</h2>
+<h2 id="two-versions-of-every-experiment">Two versions of every experiment</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -54,7 +63,7 @@ same data was worked by hand.</p>
 <p>That runs all 14 Python equivalents and structurally checks all 18 R scripts
 (balanced delimiters, and that the "not executed" header is still present).</p>
 <hr />
-<h2>The experiments</h2>
+<h2 id="the-experiments">The experiments</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -198,8 +207,8 @@ same data was worked by hand.</p>
 <em>syntax</em>, ggplot2's <em>grammar</em>, plotly's R <em>interface</em> and the Shiny <em>framework</em>.
 A translation would teach nothing.</p>
 <hr />
-<h2>Notes on the harder ones</h2>
-<h3>2 — The d/p/q/r naming convention</h3>
+<h2 id="notes-on-the-harder-ones">Notes on the harder ones</h2>
+<h3 id="2-the-dpqr-naming-convention">2 — The d/p/q/r naming convention</h3>
 <p>Worth memorising once, because it applies to every distribution in R:</p>
 <table class="main-table">
 <thead>
@@ -232,35 +241,35 @@ A translation would teach nothing.</p>
 </tr>
 </tbody>
 </table>
-<h3>3 — <code>var.equal</code> changes the test</h3>
+<h3 id="3-varequal-changes-the-test">3 — <code>var.equal</code> changes the test</h3>
 <p><code>t.test(a, b, var.equal = TRUE)</code> is the <strong>pooled</strong> t-test from Course 4 Unit 5.
 Omit it and R runs <strong>Welch's</strong> test, which does not assume equal variances and
 reports fractional degrees of freedom. Both are defensible; know which you ran.
 Check the assumption first with <code>var.test()</code> — on the lab data it gives
 F = 1.8618, p = 0.3682, so equal variances are reasonable.</p>
-<h3>6 — R and Python scale differently</h3>
+<h3 id="6-r-and-python-scale-differently">6 — R and Python scale differently</h3>
 <p><code>scale()</code> uses <code>sd()</code>, which divides by <strong>n−1</strong>. scikit-learn's
 <code>StandardScaler</code> divides by <strong>n</strong>. The standardised values therefore differ
 slightly between the R script and its Python equivalent. Harmless for modelling,
 but do not expect identical numbers, and say so if asked.</p>
-<h3>10 — Masking, which the lab actually demonstrates</h3>
+<h3 id="10-masking-which-the-lab-actually-demonstrates">10 — Masking, which the lab actually demonstrates</h3>
 <p>Both the IQR and z-score rules catch a single outlier of 250. Add a second at
 260 and the standard deviation inflates from 46.40 to 61.97 — enough that the
 z-score rule flags <strong>nothing</strong>, while the IQR rule still catches both.</p>
 <p>That is <strong>masking</strong>, and it is why the IQR rule is preferred when outliers may
 cluster. The Python equivalent asserts this, so the claim is tested rather than
 asserted.</p>
-<h3>13 — Scaling is the whole experiment</h3>
+<h3 id="13-scaling-is-the-whole-experiment">13 — Scaling is the whole experiment</h3>
 <p>The lab data has an income:age variance ratio of about <strong>4 billion to 1</strong>.
 Without <code>scale()</code>, K-Means clusters on income alone and age contributes nothing
 measurable. Run it both ways and compare <code>table(km$cluster, km_raw$cluster)</code> —
 seeing the two solutions disagree is more convincing than being told they will.</p>
-<h3>16 — Difference before you read the ACF</h3>
+<h3 id="16-difference-before-you-read-the-acf">16 — Difference before you read the ACF</h3>
 <p>On the raw airline series the ACF decays smoothly and shows <strong>no seasonality at
 all</strong> — the trend dominates completely. Only after differencing does the
 oscillation appear, peaking at lag 12. Reading ACF/PACF on a trending series
 tells you nothing except "there is a trend".</p>
-<h3>18 — The three Shiny rules</h3>
+<h3 id="18-the-three-shiny-rules">18 — The three Shiny rules</h3>
 <ol>
 <li><strong>Call a reactive with parentheses</strong> — <code>data()</code>, never <code>data</code>.</li>
 <li>
@@ -275,7 +284,7 @@ tells you nothing except "there is a trend".</p>
 <p><code>req(input$file)</code> is the idiomatic way to wait for an upload — it silently
 pauses the reactive rather than erroring on <code>NULL</code>.</p>
 <hr />
-<h2>Lab exam tips</h2>
+<h2 id="lab-exam-tips">Lab exam tips</h2>
 <ol>
 <li><strong>Install R and RStudio at home.</strong> You cannot revise R from notes alone.</li>
 <li>

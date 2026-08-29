@@ -32,11 +32,28 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-series">2.1 Series</a></li>
+    <li><a href="#22-dataframe">2.2 DataFrame</a></li>
+    <li><a href="#23-index-objects">2.3 Index objects</a></li>
+    <li><a href="#24-indexing-and-selection">2.4 Indexing and selection</a></li>
+    <li><a href="#25-filtering-and-boolean-indexing">2.5 Filtering and boolean indexing</a></li>
+    <li><a href="#26-arithmetic-and-data-alignment">2.6 Arithmetic and data alignment</a></li>
+    <li><a href="#27-sorting-and-ranking">2.7 Sorting and ranking</a></li>
+    <li><a href="#28-dropping-entries">2.8 Dropping entries</a></li>
+    <li><a href="#29-duplicate-indexes">2.9 Duplicate indexes</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> Series, DataFrame, Index objects, indexing and
 selection, filtering and boolean indexing, arithmetic and data alignment,
 sorting and ranking, dropping entries, handling duplicate indexes.</p>
 <hr />
-<h2>2.1 Series</h2>
+<h2 id="21-series">2.1 Series</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>A <strong>Series</strong> is a one-dimensional array <strong>with labels</strong>. It is a NumPy array
@@ -90,14 +107,14 @@ Name: marks, dtype: int64
 </tbody>
 </table>
 </div>
-<h3>Creating</h3>
+<h3 id="creating">Creating</h3>
 <pre><code class="language-python">pd.Series([1, 2, 3])                       # default RangeIndex 0,1,2
 pd.Series([1, 2, 3], index=[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
 pd.Series({&quot;a&quot;: 1, &quot;b&quot;: 2})                # from a dict — keys become the index
 pd.Series(5, index=[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])        # a scalar is BROADCAST
 pd.Series(np.arange(5))
 </code></pre>
-<h3>Access</h3>
+<h3 id="access">Access</h3>
 <pre><code class="language-python">s[&quot;Asha&quot;]              # 72   — by label
 s.iloc[0]              # 72   — by POSITION
 s[[&quot;Asha&quot;, &quot;Meena&quot;]]   # a sub-Series
@@ -105,14 +122,14 @@ s[s &gt; 60]              # boolean masking, as in NumPy
 &quot;Asha&quot; in s            # True — checks the INDEX, like a dict
 s.to_dict()
 </code></pre>
-<h3>⚠️ Do not index a Series with <code>[]</code> and a bare integer</h3>
+<h3 id="do-not-index-a-series-with-and-a-bare-integer">⚠️ Do not index a Series with <code>[]</code> and a bare integer</h3>
 <pre><code class="language-python">t = pd.Series([10, 20, 30], index=[2, 0, 1])
 t[0]     # AMBIGUOUS: label 0 or position 0?
 </code></pre>
 <p>Pandas resolves it as the <strong>label</strong>, giving 20 rather than 10 — and in Pandas
 2+ positional <code>[]</code> on an integer index is deprecated outright. <strong>Always say
 which you mean:</strong> <code>t.loc[0]</code> for the label, <code>t.iloc[0]</code> for the position.</p>
-<h2>2.2 DataFrame</h2>
+<h2 id="22-dataframe">2.2 DataFrame</h2>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>DataFrame</strong> is a two-dimensional table: an ordered collection of Series
@@ -171,7 +188,7 @@ columns — with the crucial addition that the <em>rows</em> are labelled too.</
 </tr>
 </tbody>
 </table>
-<h3>Creating</h3>
+<h3 id="creating-2">Creating</h3>
 <pre><code class="language-python">pd.DataFrame({&quot;a&quot;: [1, 2], &quot;b&quot;: [3, 4]})          # dict of columns
 pd.DataFrame([[1, 3], [2, 4]], columns=[&quot;a&quot;, &quot;b&quot;])  # list of ROWS
 pd.DataFrame([{&quot;a&quot;: 1, &quot;b&quot;: 3}, {&quot;a&quot;: 2, &quot;b&quot;: 4}])  # list of dicts
@@ -180,7 +197,7 @@ pd.DataFrame(np.arange(6).reshape(2, 3), columns=list(&quot;xyz&quot;))
 <p><strong>A dict gives columns; a list of lists gives rows.</strong> Getting these the wrong
 way round produces a transposed table, and it is the commonest construction
 error.</p>
-<h3>First look at any dataset</h3>
+<h3 id="first-look-at-any-dataset">First look at any dataset</h3>
 <pre><code class="language-python">df.head()          df.tail(3)        df.sample(5)
 df.info()          # dtypes, non-null counts, memory — ALWAYS run this first
 df.describe()      # count, mean, std, min, quartiles, max — numeric columns
@@ -191,7 +208,7 @@ df.nunique()       df.isna().sum()
 <p><strong><code>df.info()</code> is the first thing to run on any new data</strong>, because it shows the
 dtypes and the non-null counts together — which reveals both "this numeric
 column loaded as <code>object</code>" and "this column is 40% missing" in one glance.</p>
-<h2>2.3 Index objects</h2>
+<h2 id="23-index-objects">2.3 Index objects</h2>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>The <strong>Index</strong> is what makes Pandas more than NumPy: it carries the labels and
@@ -235,14 +252,14 @@ df.rename(columns={&quot;maths&quot;: &quot;mathematics&quot;})
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The Index is immutable</h3>
+<h3 id="the-index-is-immutable">⚠️ The Index is immutable</h3>
 <pre><code class="language-python">df.index[0] = &quot;x&quot;      # TypeError: Index does not support mutable operations
 df.index = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]     # replacing the WHOLE index is fine
 </code></pre>
 <p>Immutability is what allows an index to be shared safely between objects
 without defensive copying.</p>
 <p><strong>Indexes need not be unique</strong> — see §2.9, where that becomes a problem.</p>
-<h2>2.4 Indexing and selection</h2>
+<h2 id="24-indexing-and-selection">2.4 Indexing and selection</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The three accessors</h4>
@@ -292,7 +309,7 @@ df.at[0, &quot;maths&quot;]            # a single cell, fast
 df.iat[0, 2]                 # a single cell by position, fast
 </code></pre>
 </div>
-<h3>⚠️ <code>.loc</code> is inclusive, <code>.iloc</code> is exclusive</h3>
+<h3 id="loc-is-inclusive-iloc-is-exclusive">⚠️ <code>.loc</code> is inclusive, <code>.iloc</code> is exclusive</h3>
 <pre><code class="language-python">df.loc[0:2]     # THREE rows — 0, 1 and 2
 df.iloc[0:2]    # TWO rows — 0 and 1
 </code></pre>
@@ -302,7 +319,7 @@ unusable — <code>df.loc[:, "name":"maths"]</code> has to include <code>maths</
 With <strong>positions</strong>, exclusivity matches Python slicing everywhere else.</p>
 <p><strong>Learn the rule as: labels inclusive, positions exclusive.</strong> It is a
 guaranteed two-mark question.</p>
-<h3>⚠️ <code>df.maths</code> versus <code>df["maths"]</code></h3>
+<h3 id="dfmaths-versus-dfmaths">⚠️ <code>df.maths</code> versus <code>df["maths"]</code></h3>
 <p>Attribute access fails silently or confusingly when the column name</p>
 <ul>
 <li>contains a space or punctuation — <code>df.total marks</code> is a syntax error;</li>
@@ -312,7 +329,7 @@ guaranteed two-mark question.</p>
 <p><strong>And you cannot create a column with it:</strong> <code>df.newcol = 0</code> sets an <em>attribute</em>
 on the DataFrame, not a column, and Pandas warns you. <strong>Always use
 <code>df["newcol"] = 0</code>.</strong></p>
-<h2>2.5 Filtering and boolean indexing</h2>
+<h2 id="25-filtering-and-boolean-indexing">2.5 Filtering and boolean indexing</h2>
 <pre><code class="language-python">df[df.maths &gt; 70]
 df[(df.maths &gt; 70) &amp; (df.dept == &quot;DS&quot;)]        # &amp; | ~, with parentheses
 df[df.dept.isin([&quot;DS&quot;, &quot;Stats&quot;])]
@@ -328,12 +345,12 @@ each comparison.</p>
 <p><code>df.query()</code> is worth knowing: it takes a string, so <code>and</code>/<code>or</code> work normally
 and long conditions read better. It is slightly slower and cannot handle
 column names with spaces without backticks.</p>
-<h3>Selecting rows and columns together</h3>
+<h3 id="selecting-rows-and-columns-together">Selecting rows and columns together</h3>
 <pre><code class="language-python">df.loc[df.maths &gt; 70, &quot;name&quot;]                  # a Series of names
 df.loc[df.maths &gt; 70, [&quot;name&quot;, &quot;maths&quot;]]       # a DataFrame
 df.loc[df.dept == &quot;DS&quot;, &quot;maths&quot;] = 0           # assignment through .loc
 </code></pre>
-<h3>⚠️ <code>SettingWithCopyWarning</code></h3>
+<h3 id="settingwithcopywarning">⚠️ <code>SettingWithCopyWarning</code></h3>
 <pre><code class="language-python">subset = df[df.dept == &quot;DS&quot;]
 subset[&quot;maths&quot;] = 100          # SettingWithCopyWarning
 </code></pre>
@@ -350,7 +367,7 @@ subset[&quot;maths&quot;] = 100
 than sometimes working — and, since Pandas 3 also dropped the warning, it does
 nothing <em>silently</em>. Verified on Pandas 3.0.5: the assignment above leaves <code>df</code>
 untouched and prints no warning.</p>
-<h2>2.6 Arithmetic and data alignment</h2>
+<h2 id="26-arithmetic-and-data-alignment">2.6 Arithmetic and data alignment</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Pandas aligns on the index before computing.</strong> This is the feature that most
@@ -371,7 +388,7 @@ at different positions.</p>
 <p><strong>With NumPy this would have added position by position and given a plausible,
 wrong answer.</strong> Alignment turns a silent bug into a visible NaN.</p>
 </div>
-<h3>Filling instead of NaN</h3>
+<h3 id="filling-instead-of-nan">Filling instead of NaN</h3>
 <pre><code class="language-python">a.add(b, fill_value=0)      # treat missing labels as 0
 a.sub(b, fill_value=0)
 a.mul(b, fill_value=1)
@@ -416,7 +433,7 @@ a.div(b, fill_value=1)
 </tbody>
 </table>
 <p>The methods exist precisely so you can pass <code>fill_value</code> and <code>axis</code>.</p>
-<h3>DataFrame and Series arithmetic</h3>
+<h3 id="dataframe-and-series-arithmetic">DataFrame and Series arithmetic</h3>
 <pre><code class="language-python">df[[&quot;maths&quot;, &quot;stats&quot;]] * 2                     # element-wise
 df[&quot;total&quot;] = df.maths + df.stats              # a new column
 df[&quot;avg&quot;] = df[[&quot;maths&quot;, &quot;stats&quot;]].mean(axis=1)
@@ -428,7 +445,7 @@ nums.sub(nums.mean(axis=1), axis=0)            # ...and across the ROWS
 <p><strong>By default a DataFrame–Series operation matches the Series' index against the
 DataFrame's <em>columns</em></strong> and broadcasts down the rows. To match against the
 <em>index</em> instead, pass <code>axis=0</code> (or <code>axis="index"</code>).</p>
-<h2>2.7 Sorting and ranking</h2>
+<h2 id="27-sorting-and-ranking">2.7 Sorting and ranking</h2>
 <pre><code class="language-python">df.sort_values(&quot;maths&quot;)                          # ascending
 df.sort_values(&quot;maths&quot;, ascending=False)
 df.sort_values([&quot;dept&quot;, &quot;maths&quot;], ascending=[True, False])
@@ -492,7 +509,7 @@ method decides what to report:</p>
 <p><code>min</code> versus <code>dense</code> is the distinction to remember: <code>min</code> leaves a gap after
 ties (1, 2, 2, 4), <code>dense</code> does not (1, 2, 2, 3).</p>
 </div>
-<h2>2.8 Dropping entries</h2>
+<h2 id="28-dropping-entries">2.8 Dropping entries</h2>
 <pre><code class="language-python">df.drop(0)                          # drop the row with label 0
 df.drop([0, 2])
 df.drop(&quot;maths&quot;, axis=1)            # drop a column
@@ -506,14 +523,14 @@ df.dropna(subset=[&quot;maths&quot;])         # only where maths is missing
 df.dropna(axis=1)                   # drop COLUMNS with missing values
 df.dropna(thresh=3)                 # keep rows with &gt;= 3 non-null values
 </code></pre>
-<h3>⚠️ <code>drop</code> returns a copy; it does not modify in place</h3>
+<h3 id="drop-returns-a-copy-it-does-not-modify-in-place">⚠️ <code>drop</code> returns a copy; it does not modify in place</h3>
 <pre><code class="language-python">df.drop(&quot;maths&quot;, axis=1)      # returns a new DataFrame — df is UNCHANGED
 df = df.drop(&quot;maths&quot;, axis=1) # correct: reassign
 </code></pre>
 <p><strong><code>inplace=True</code> is being deprecated across Pandas</strong> — it never actually saved
 memory, it broke method chaining, and it made code harder to reason about.
 Reassign instead.</p>
-<h2>2.9 Duplicate indexes</h2>
+<h2 id="29-duplicate-indexes">2.9 Duplicate indexes</h2>
 <p>An index is <strong>not required to be unique</strong>, and duplicates change behaviour in
 ways that surprise people.</p>
 <pre><code class="language-python">s = pd.Series([1, 2, 3, 4], index=[&quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
@@ -531,7 +548,7 @@ df[~df.index.duplicated(keep=&quot;first&quot;)]   # keep the first of each
 df.reset_index(drop=True)         # abandon the labels entirely
 df.loc[df.index.drop_duplicates()]
 </code></pre>
-<h3>Duplicate ROWS, which is a different question</h3>
+<h3 id="duplicate-rows-which-is-a-different-question">Duplicate ROWS, which is a different question</h3>
 <pre><code class="language-python">df.duplicated()                          # fully duplicated rows
 df.duplicated(subset=[&quot;name&quot;, &quot;dept&quot;])   # duplicated on those columns only
 df.duplicated(keep=False)                # mark ALL copies, not just the later ones
@@ -541,7 +558,7 @@ df.drop_duplicates(subset=[&quot;name&quot;], keep=&quot;last&quot;)
 <p><code>keep="first"</code> (the default) marks later copies; <code>keep="last"</code> marks earlier
 ones; <strong><code>keep=False</code> marks every member of every duplicate group</strong>, which is
 what you want when you are investigating rather than cleaning.</p>
-<h3>⚠️ Duplicates break joins</h3>
+<h3 id="duplicates-break-joins">⚠️ Duplicates break joins</h3>
 <p>If both sides of a merge have duplicate keys, the result is the <strong>Cartesian
 product</strong> of the matching rows: 3 × 4 duplicates become 12 rows. A join that
 mysteriously multiplies your row count is almost always this.</p>
@@ -550,7 +567,7 @@ mysteriously multiplies your row count is almost always this.</p>
 <p><strong><code>validate=</code> is the defence</strong>, and it is worth using every time — it turns a
 silent row explosion into an immediate error.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <pre><code class="language-python">a = pd.Series([10, 20, 30], index=[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;])
@@ -651,7 +668,7 @@ ds[&quot;maths&quot;] += 5              # df is untouched, and that is intended
 right.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Distinguish a Series from a DataFrame.</li>
@@ -690,7 +707,7 @@ right.</p>
 <p>Explain data alignment and arithmetic between Series and DataFrames.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

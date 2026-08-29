@@ -29,12 +29,26 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-population-sample-parameter-statistic">5.1 Population, sample, parameter, statistic</a></li>
+    <li><a href="#52-sampling-distributions">5.2 Sampling distributions</a></li>
+    <li><a href="#53-estimation">5.3 Estimation</a></li>
+    <li><a href="#54-hypothesis-testing-the-procedure">5.4 Hypothesis testing — the procedure</a></li>
+    <li><a href="#55-the-four-tests">5.5 The four tests</a></li>
+    <li><a href="#56-type-i-and-type-ii-errors">5.6 Type I and Type II errors</a></li>
+    <li><a href="#practice-problems">📝 Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 21):</strong> Population and sample, parameters and statistics.
 Sampling distributions. Point and interval estimation (confidence intervals).
 Tests of significance — z-test, t-test, chi-square test and F-test. p-values
 and errors (Type I and II). Power of a statistical test.</p>
 <hr />
-<h2>5.1 Population, sample, parameter, statistic</h2>
+<h2 id="51-population-sample-parameter-statistic">5.1 Population, sample, parameter, statistic</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>You almost never measure everyone. You measure a few and reason about the rest.
@@ -42,14 +56,14 @@ Statistical inference is the discipline of doing that reasoning honestly, with
 a stated degree of uncertainty.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <p>A company claims its packets contain 500 g of rice. You cannot open every
 packet in the country. So you weigh 40 of them, find an average of 496 g, and
 ask: is the company lying, or is 496 just the sort of thing that happens when
 you weigh only 40 packets? That question — and the machinery for answering it —
 is this entire unit.</p>
 </div>
-<h3>The four terms</h3>
+<h3 id="the-four-terms">The four terms</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -84,7 +98,7 @@ is this entire unit.</p>
 <p><strong>Greek letters for parameters, Roman letters for statistics.</strong> The parameter
 is fixed but unknown; the statistic is known but varies from sample to sample.
 Inference uses the second to estimate the first.</p>
-<h2>5.2 Sampling distributions</h2>
+<h2 id="52-sampling-distributions">5.2 Sampling distributions</h2>
 <p>If you take many samples of the same size and compute the mean of each, those
 means form their own distribution — the <strong>sampling distribution of the mean</strong>.</p>
 <p>From the Central Limit Theorem (Unit 3):</p>
@@ -124,8 +138,8 @@ means form their own distribution — the <strong>sampling distribution of the m
 <p>Confusing them is one of the most common errors in this unit. The standard
 error is always the smaller of the two (for n &gt; 1), and it is what appears in
 every confidence interval and test statistic below.</p>
-<h2>5.3 Estimation</h2>
-<h3>Point estimation</h3>
+<h2 id="53-estimation">5.3 Estimation</h2>
+<h3 id="point-estimation">Point estimation</h3>
 <p>A <strong>single number</strong> as the best guess for a parameter: x̄ estimates μ, s
 estimates σ, p̂ estimates P.</p>
 <p>Properties of a good estimator:</p>
@@ -159,7 +173,7 @@ estimates σ, p̂ estimates P.</p>
 See Unit 1.)</em></p>
 <p>The flaw of a point estimate is that it is almost certainly not exactly right,
 and it says nothing about how far off it might be.</p>
-<h3>Interval estimation — confidence intervals</h3>
+<h3 id="interval-estimation-confidence-intervals">Interval estimation — confidence intervals</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>Estimate ± (critical value × standard error)</strong></p>
@@ -234,7 +248,7 @@ either in this interval or it is not. What is random is the interval, not μ.</p
 </li>
 </ul>
 </div>
-<h2>5.4 Hypothesis testing — the procedure</h2>
+<h2 id="54-hypothesis-testing-the-procedure">5.4 Hypothesis testing — the procedure</h2>
 <p>Follow these six steps every single time. Marks are given for each.</p>
 <ol>
 <li><strong>State H₀ and H₁</strong> — in symbols and in words</li>
@@ -244,7 +258,7 @@ either in this interval or it is not. What is random is the interval, not μ.</p
 <li><strong>Decide</strong> — p &lt; α means reject H₀</li>
 <li><strong>Conclude in the words of the original problem</strong></li>
 </ol>
-<h3>The two hypotheses</h3>
+<h3 id="the-two-hypotheses">The two hypotheses</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -275,7 +289,7 @@ either in this interval or it is not. What is random is the interval, not μ.</p
 either find enough evidence to reject it or you do not. <strong>"Fail to reject H₀"
 is not "accept H₀"</strong> — a jury returns "not guilty", never "innocent". Writing
 "accept H₀" is a standard mark deduction.</p>
-<h3>One-tailed vs two-tailed</h3>
+<h3 id="one-tailed-vs-two-tailed">One-tailed vs two-tailed</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -309,7 +323,7 @@ is not "accept H₀"</strong> — a jury returns "not guilty", never "innocent".
 </table>
 <p>Decide the direction <strong>before</strong> seeing the data. Choosing a one-tailed test
 after looking at which way the result went is a form of cheating.</p>
-<h3>The p-value</h3>
+<h3 id="the-p-value">The p-value</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>The p-value is the probability of observing a result at least as extreme as
@@ -346,8 +360,8 @@ doubtful.</p>
 <p><strong>What a p-value is not:</strong> it is <em>not</em> the probability that H₀ is true, and
 <em>not</em> the probability that your result happened by chance. Those
 misinterpretations are examined precisely because they are so common.</p>
-<h2>5.5 The four tests</h2>
-<h3>The decision tree</h3>
+<h2 id="55-the-four-tests">5.5 The four tests</h2>
+<h3 id="the-decision-tree">The decision tree</h3>
 <ol>
 <li>Comparing one mean to a known value, σ known or n &gt; 30 → <strong>z-test</strong></li>
 <li>Comparing one mean to a known value, σ unknown and n small → <strong>one-sample t-test</strong></li>
@@ -357,7 +371,7 @@ misinterpretations are examined precisely because they are so common.</p>
 <li>Comparing two variances → <strong>F-test</strong></li>
 <li>Comparing three or more means → <strong>ANOVA</strong> <em>(uses F; beyond this syllabus)</em></li>
 </ol>
-<h3>z-test</h3>
+<h3 id="z-test">z-test</h3>
 <p><strong>Use when:</strong> σ is known, or n &gt; 30.</p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -376,7 +390,7 @@ of 40 averages 71.2 g. Test at α = 0.05.</p>
 <li>Step 6: <strong>Conclusion:</strong> the mean fill weight differs significantly from 70 g.</li>
 </ul>
 </div>
-<h3>t-test</h3>
+<h3 id="t-test">t-test</h3>
 <p><strong>Use when:</strong> σ is unknown (the normal situation).</p>
 <p><strong>One-sample:</strong></p>
 <div class="formula">
@@ -418,7 +432,7 @@ extra uncertainty in estimating σ from the sample. As n grows, t approaches z �
 by df = 30 they are nearly identical, which is where the "n &gt; 30" rule of thumb
 comes from.</p>
 </div>
-<h3>Chi-square test</h3>
+<h3 id="chi-square-test">Chi-square test</h3>
 <p>Two uses. Both compare <strong>observed</strong> counts with <strong>expected</strong> counts.</p>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
@@ -491,7 +505,7 @@ you checked it — here the smallest expected value is 33.33, so it holds.</p>
 <p>Chi-square is always <strong>right-tailed</strong>: a large χ² means observed and expected
 differ a lot, which is the evidence against H₀.</p>
 </div>
-<h3>F-test</h3>
+<h3 id="f-test">F-test</h3>
 <p><strong>Use when:</strong> comparing two variances — often to check the equal-variance
 assumption of the pooled t-test.</p>
 <div class="formula">
@@ -514,7 +528,7 @@ right-tail tables.</p>
 <p><em>(All of these worked figures are computed in
 <a href="../labs/course-4-stats/python/05_inference_hypothesis_tests.py"><code>05_inference_hypothesis_tests.py</code></a>.)</em></p>
 </div>
-<h2>5.6 Type I and Type II errors</h2>
+<h2 id="56-type-i-and-type-ii-errors">5.6 Type I and Type II errors</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -545,7 +559,7 @@ right-tail tables.</p>
 rejecting a true H₀.</p>
 <p><strong>β follows from the design</strong> — the sample size, the effect size and α
 together determine it.</p>
-<h3>The trade-off</h3>
+<h3 id="the-trade-off">The trade-off</h3>
 <p>Lower α → fewer Type I errors, but <strong>more</strong> Type II errors. Tighten the
 standard of proof and more guilty people go free.</p>
 <p><strong>The only way to reduce both at once is to increase n.</strong></p>
@@ -560,7 +574,7 @@ standard of proof and more guilty people go free.</p>
   built to avoid</p>
 </li>
 </ul>
-<h3>Power</h3>
+<h3 id="power">Power</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>Power = 1 − β = P(rejecting H₀ when it is genuinely false)</strong></p>
@@ -602,7 +616,7 @@ need. Running an underpowered study wastes everyone's time: it will probably
 fail to detect a real effect, and you will not know whether the effect was
 absent or merely invisible.</p>
 <hr />
-<h2>📝 Practice problems</h2>
+<h2 id="practice-problems">📝 Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>A sample of 36 students has mean height 168 cm with sample standard deviation
@@ -756,7 +770,7 @@ Test at α = 0.05 whether preference is independent of gender.</p>
 </ul>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Distinguish a parameter from a statistic.</li>
@@ -786,7 +800,7 @@ Test at α = 0.05 whether preference is independent of gender.</p>
    conditions, formulas and examples.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

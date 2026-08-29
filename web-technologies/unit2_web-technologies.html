@@ -32,12 +32,43 @@
     <span class="chip">float</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-what-css-is-and-why-it-exists">2.1 What CSS is and why it exists</a></li>
+    <li><a href="#22-syntax">2.2 Syntax</a></li>
+    <li><a href="#23-selectors">2.3 Selectors</a></li>
+    <li><a href="#24-specificity-and-the-cascade">2.4 Specificity and the cascade</a></li>
+    <li><a href="#25-colours">2.5 Colours</a></li>
+    <li><a href="#26-the-box-model">2.6 The box model</a></li>
+    <li><a href="#27-borders">2.7 Borders</a></li>
+    <li><a href="#28-background">2.8 Background</a></li>
+    <li><a href="#29-text-and-fonts">2.9 Text and fonts</a></li>
+    <li><a href="#210-height-width-and-overflow">2.10 height, width and overflow</a></li>
+    <li><a href="#211-positioning">2.11 Positioning</a></li>
+    <li><a href="#212-float">2.12 float</a></li>
+    <li><a href="#213-pseudo-classes">2.13 Pseudo-classes</a></li>
+    <li><a href="#214-pseudo-elements">2.14 Pseudo-elements</a></li>
+    <li><a href="#215-styling-tables">2.15 Styling tables</a></li>
+    <li><a href="#216-styling-lists">2.16 Styling lists</a></li>
+    <li><a href="#217-opacity">2.17 Opacity</a></li>
+    <li><a href="#218-tooltips">2.18 Tooltips</a></li>
+    <li><a href="#219-image-gallery">2.19 Image gallery</a></li>
+    <li><a href="#220-css-forms">2.20 CSS forms</a></li>
+    <li><a href="#221-css-counters">2.21 CSS counters</a></li>
+    <li><a href="#222-responsive-design-and-media-queries">2.22 Responsive design and media queries</a></li>
+    <li><a href="#223-transitions-and-simple-animation">2.23 Transitions and simple animation</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 7):</strong> CSS home, introduction, syntax, CSS combinators, colors,
 background, borders, margins, padding, height/width, text, fonts, tables, lists,
 position, overflow, float, pseudo class, pseudo elements, opacity, tool tips,
 image gallery, CSS forms, CSS counters.</p>
 <hr />
-<h2>2.1 What CSS is and why it exists</h2>
+<h2 id="21-what-css-is-and-why-it-exists">2.1 What CSS is and why it exists</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>HTML says <em>what</em> something is. CSS says <em>what it should look like</em>. Separating
@@ -47,7 +78,7 @@ the two means one stylesheet can restyle a thousand pages.</p>
 every page. <strong>CSS</strong> (Cascading Style Sheets, 1996) moved presentation into its
 own file, and the <code>&lt;font&gt;</code> tag is now obsolete.</p>
 </div>
-<h3>The three ways to attach CSS</h3>
+<h3 id="the-three-ways-to-attach-css">The three ways to attach CSS</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -98,7 +129,7 @@ than fighting. Understanding that order is the single most useful CSS skill —
 it is the difference between fixing a style and adding <code>!important</code> until
 something moves.</p>
 </div>
-<h2>2.2 Syntax</h2>
+<h2 id="22-syntax">2.2 Syntax</h2>
 <pre><code class="language-css">selector {
   property: value;
   property: value;
@@ -123,7 +154,7 @@ something moves.</p>
   breaks the rest of the rule in some parsers.</p>
 </li>
 </ul>
-<h2>2.3 Selectors</h2>
+<h2 id="23-selectors">2.3 Selectors</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -262,7 +293,7 @@ question is almost always "distinguish them".</p>
 <p>This is the standard "lede paragraph" pattern, and it needs no extra class in
 the HTML at all.</p>
 </div>
-<h2>2.4 Specificity and the cascade</h2>
+<h2 id="24-specificity-and-the-cascade">2.4 Specificity and the cascade</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p>When two rules set the same property on the same element, the winner is decided
@@ -337,11 +368,11 @@ p.lead     { color: red;   }   /* (0,1,1) */
 <p><strong>Solution.</strong> Green. <code>#intro</code> is (1,0,0); nothing else has an ID, and <code>a</code> is
 compared first.</p>
 </div>
-<h3>⚠️ On <code>!important</code></h3>
+<h3 id="on-important">⚠️ On <code>!important</code></h3>
 <p>It exists, and using it is almost always a mistake. It wins, so the next
 developer must write <code>!important</code> too, and then you have two rules that both
 win and no way to resolve them but source order. Fix specificity instead.</p>
-<h2>2.5 Colours</h2>
+<h2 id="25-colours">2.5 Colours</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -395,7 +426,7 @@ hex requires arithmetic.</p>
 .btn:hover   { background: hsl(210, 70%, 35%); }  /* just darker */
 .btn:disabled{ background: hsl(210, 10%, 60%); }  /* just greyer */
 </code></pre>
-<h2>2.6 The box model</h2>
+<h2 id="26-the-box-model">2.6 The box model</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p>Every element is a rectangle made of four nested layers: content, padding,
@@ -469,7 +500,7 @@ Horizontal space occupied including margins = 10 + 350 + 10 = <strong>370px</str
 eats into it. Content becomes 300 − 20 − 20 − 5 − 5 = <strong>250px</strong>. Set it once
 and stop doing arithmetic.</p>
 </div>
-<h3>Shorthand order</h3>
+<h3 id="shorthand-order">Shorthand order</h3>
 <p><code>margin</code> and <code>padding</code> take one to four values, clockwise from the top:</p>
 <table class="main-table">
 <thead>
@@ -498,14 +529,14 @@ and stop doing arithmetic.</p>
 </tbody>
 </table>
 <p>Remember <strong>TRouBLe</strong> — Top, Right, Bottom, Left.</p>
-<h3>⚠️ Margin collapse</h3>
+<h3 id="margin-collapse">⚠️ Margin collapse</h3>
 <p>Adjacent <strong>vertical</strong> margins collapse to the larger of the two, not their sum.</p>
 <pre><code class="language-css">h2 { margin-bottom: 30px; }
 p  { margin-top: 20px; }
 </code></pre>
 <p>The gap between them is <strong>30px</strong>, not 50px. Horizontal margins never collapse.
 Padding never collapses. This is asked in exams and it catches everyone once.</p>
-<h2>2.7 Borders</h2>
+<h2 id="27-borders">2.7 Borders</h2>
 <pre><code class="language-css">border: 2px solid #333;              /* width style colour */
 border-width: 1px 2px;
 border-style: dashed;
@@ -517,7 +548,7 @@ border-radius: 50%;                  /* a circle, if width == height */
 <code>ridge</code>, <code>inset</code>, <code>outset</code>, <code>hidden</code>.</p>
 <p><strong><code>border-style</code> is required.</strong> <code>border: 2px red</code> renders nothing, because the
 default style is <code>none</code>. That is the single most common CSS beginner bug.</p>
-<h2>2.8 Background</h2>
+<h2 id="28-background">2.8 Background</h2>
 <pre><code class="language-css">.hero {
   background-color: #eef;
   background-image: url(&quot;banner.jpg&quot;);
@@ -561,7 +592,7 @@ load, the text must still be readable.</p>
 <p>Gradients count as images:</p>
 <pre><code class="language-css">.card { background: linear-gradient(to bottom, #fff, #e8eef6); }
 </code></pre>
-<h2>2.9 Text and fonts</h2>
+<h2 id="29-text-and-fonts">2.9 Text and fonts</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -642,7 +673,7 @@ load, the text must still be readable.</p>
 </tr>
 </tbody>
 </table>
-<h3>Font stacks</h3>
+<h3 id="font-stacks">Font stacks</h3>
 <pre><code class="language-css">body { font-family: &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; }
 </code></pre>
 <p>The browser tries each in turn. <strong>Always end with a generic family</strong> —
@@ -694,7 +725,7 @@ scale with its own text.</p>
 <p><strong>Worked example.</strong> With <code>html { font-size: 16px; }</code>, what is <code>1.5rem</code>?
 <strong>Solution.</strong> 1.5 × 16 = <strong>24px</strong>, regardless of nesting depth.</p>
 </div>
-<h2>2.10 height, width and overflow</h2>
+<h2 id="210-height-width-and-overflow">2.10 height, width and overflow</h2>
 <pre><code class="language-css">.box {
   width: 60%;
   max-width: 800px;      /* never wider than this */
@@ -705,7 +736,7 @@ scale with its own text.</p>
 </code></pre>
 <p><strong><code>max-width</code> is the responsive design workhorse.</strong> <code>width: 800px</code> breaks on a
 phone; <code>width: 100%; max-width: 800px</code> does not.</p>
-<h3>overflow</h3>
+<h3 id="overflow">overflow</h3>
 <p>What happens when content is bigger than its box:</p>
 <table class="main-table">
 <thead>
@@ -735,7 +766,7 @@ phone; <code>width: 100%; max-width: 800px</code> does not.</p>
 </table>
 <p><code>overflow-x</code> and <code>overflow-y</code> set the axes separately. A wide table inside
 <code>overflow-x: auto</code> scrolls itself instead of forcing the whole page sideways.</p>
-<h2>2.11 Positioning</h2>
+<h2 id="211-positioning">2.11 Positioning</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The five position values</h4>
@@ -788,7 +819,7 @@ question is this.</p>
 compares elements within the same <strong>stacking context</strong>, which is why a
 <code>z-index: 9999</code> sometimes still loses.</p>
 </div>
-<h2>2.12 float</h2>
+<h2 id="212-float">2.12 float</h2>
 <p><code>float</code> pulls an element to one side and lets text wrap around it. It was
 invented for images in text and then abused for page layout for fifteen years.</p>
 <pre><code class="language-css">img.left { float: left; margin: 0 15px 10px 0; }
@@ -800,7 +831,7 @@ its parent computes a height of zero. Three fixes, in order of modernity:</p>
 .parent::after { content: &quot;&quot;; display: block; clear: both; }  /* clearfix */
 </code></pre>
 <p><code>clear: left | right | both</code> on a later element pushes it below the floats.</p>
-<h3>⚠️ Do not use float for layout</h3>
+<h3 id="do-not-use-float-for-layout">⚠️ Do not use float for layout</h3>
 <p>Use <strong>Flexbox</strong> for one dimension and <strong>Grid</strong> for two. The syllabus does not
 name them, but the practical activity on page 8 explicitly says
 "Flexbox/Grid", and lab experiment 8 requires them.</p>
@@ -815,7 +846,7 @@ name them, but the practical activity on page 8 explicitly says
 <p>That second rule is worth memorising: <code>auto-fit</code> + <code>minmax</code> fits as many
 columns as will hold 240px and stretches them to fill. It is a complete
 responsive grid in three lines.</p>
-<h2>2.13 Pseudo-classes</h2>
+<h2 id="213-pseudo-classes">2.13 Pseudo-classes</h2>
 <p>A <strong>pseudo-class</strong> selects an element in a particular <strong>state</strong>. One colon.</p>
 <table class="main-table">
 <thead>
@@ -883,7 +914,7 @@ responsive grid in three lines.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ LVHA — link pseudo-class order</h3>
+<h3 id="lvha-link-pseudo-class-order">⚠️ LVHA — link pseudo-class order</h3>
 <p><code>:link</code>, <code>:visited</code>, <code>:hover</code>, <code>:active</code> must be written <strong>in that order</strong>.
 They have equal specificity, so a <code>:hover</code> rule written before <code>:visited</code> will
 be overridden on visited links and the hover will appear broken. Mnemonic:
@@ -905,7 +936,7 @@ unusable by keyboard. Replace the ring, do not delete it:</p>
 <pre><code class="language-css">:focus-visible { outline: 3px solid #2b8a3e; outline-offset: 2px; }
 </code></pre>
 </div>
-<h2>2.14 Pseudo-elements</h2>
+<h2 id="214-pseudo-elements">2.14 Pseudo-elements</h2>
 <p>A <strong>pseudo-element</strong> styles a <em>part</em> of an element, or inserts content. Two
 colons in CSS3 (<code>::before</code>), though one still works for the original four.</p>
 <table class="main-table">
@@ -996,7 +1027,7 @@ copied. Never put meaningful text in it.</p>
 </tbody>
 </table>
 </div>
-<h2>2.15 Styling tables</h2>
+<h2 id="215-styling-tables">2.15 Styling tables</h2>
 <pre><code class="language-css">table { border-collapse: collapse; width: 100%; }
 th, td { border: 1px solid #d6dbe4; padding: 8px 10px; text-align: left; }
 th { background: #eef2f7; font-weight: 600; }
@@ -1024,7 +1055,7 @@ caption { caption-side: bottom; font-size: .9em; color: #666; }
 </table>
 <p>With <code>separate</code>, <code>border-spacing: 4px</code> controls the gap. With <code>collapse</code>,
 <code>border-spacing</code> is ignored.</p>
-<h2>2.16 Styling lists</h2>
+<h2 id="216-styling-lists">2.16 Styling lists</h2>
 <pre><code class="language-css">ul { list-style-type: square; }
 ol { list-style-type: upper-roman; }
 ul.plain { list-style: none; padding-left: 0; }
@@ -1060,11 +1091,11 @@ ul.icons li::before { content: &quot;✔ &quot;; color: #2b8a3e; }
 </table>
 <p>Removing bullets with <code>list-style: none</code> leaves the indent behind — you almost
 always want <code>padding-left: 0</code> too.</p>
-<h2>2.17 Opacity</h2>
+<h2 id="217-opacity">2.17 Opacity</h2>
 <pre><code class="language-css">.faded  { opacity: 0.5; }                    /* the whole element, children too */
 .bg     { background: rgba(0, 0, 0, 0.5); }  /* only the background */
 </code></pre>
-<h3>⚠️ <code>opacity</code> vs <code>rgba()</code></h3>
+<h3 id="opacity-vs-rgba">⚠️ <code>opacity</code> vs <code>rgba()</code></h3>
 <p><code>opacity</code> fades the element <strong>and everything inside it</strong>, text included, and it
 cannot be undone by a child. <code>rgba()</code> (or <code>hsla()</code>) fades only the colour it is
 applied to. For a translucent overlay with crisp white text, <code>rgba()</code> is the
@@ -1077,7 +1108,7 @@ only correct choice.</p>
 <p><code>opacity: 0</code> also keeps the element clickable and in the layout, unlike
 <code>visibility: hidden</code> (unclickable, still occupies space) and <code>display: none</code>
 (gone entirely).</p>
-<h2>2.18 Tooltips</h2>
+<h2 id="218-tooltips">2.18 Tooltips</h2>
 <p>A pure-CSS tooltip, which the syllabus names explicitly, is the
 relative/absolute pattern plus a <code>:hover</code> and a pseudo-element.</p>
 <pre><code class="language-html">&lt;span class=&quot;tip&quot; data-tip=&quot;Coefficient of determination&quot;&gt;R²&lt;/span&gt;
@@ -1102,7 +1133,7 @@ relative/absolute pattern plus a <code>:hover</code> and a pseudo-element.</p>
 <code>transform: translateX(-50%)</code> centres the box on its anchor whatever its width;
 and <code>visibility</code> toggles alongside <code>opacity</code> so the hidden tooltip cannot be
 clicked.</p>
-<h2>2.19 Image gallery</h2>
+<h2 id="219-image-gallery">2.19 Image gallery</h2>
 <pre><code class="language-html">&lt;div class=&quot;gallery&quot;&gt;
   &lt;figure&gt;&lt;img src=&quot;1.jpg&quot; alt=&quot;Sunrise&quot;&gt;&lt;figcaption&gt;Sunrise&lt;/figcaption&gt;&lt;/figure&gt;
   &lt;figure&gt;&lt;img src=&quot;2.jpg&quot; alt=&quot;Harbour&quot;&gt;&lt;figcaption&gt;Harbour&lt;/figcaption&gt;&lt;/figure&gt;
@@ -1121,7 +1152,7 @@ clicked.</p>
 ratios fill an identical box by cropping, instead of stretching. <code>display:
 block</code> on the image removes the mysterious few pixels of space underneath it
 (inline elements sit on the text baseline, which leaves room for descenders).</p>
-<h2>2.20 CSS forms</h2>
+<h2 id="220-css-forms">2.20 CSS forms</h2>
 <pre><code class="language-css">input[type=&quot;text&quot;], input[type=&quot;email&quot;], input[type=&quot;password&quot;], select, textarea {
   width: 100%;
   padding: 10px 12px;
@@ -1148,7 +1179,7 @@ the operating system's font unless you say otherwise, so an unstyled input
 looks alien next to your text. And <strong><code>:not(:placeholder-shown)</code></strong> — without it,
 <code>:invalid</code> fires on an empty required field the instant the page loads, and the
 form is red before the user has typed anything.</p>
-<h2>2.21 CSS counters</h2>
+<h2 id="221-css-counters">2.21 CSS counters</h2>
 <p>Counters let CSS number things automatically — sections, figures, nested lists
 — without touching the HTML.</p>
 <pre><code class="language-css">body    { counter-reset: section; }         /* create and zero it */
@@ -1194,7 +1225,7 @@ ol.outline li::before {
 <p><code>counter-reset</code> on the wrong element is the usual bug: reset on the <strong>common
 ancestor</strong>, increment on the item. Resetting on the item itself zeroes it every
 time and every number comes out 1.</p>
-<h2>2.22 Responsive design and media queries</h2>
+<h2 id="222-responsive-design-and-media-queries">2.22 Responsive design and media queries</h2>
 <pre><code class="language-css">/* mobile first: base rules are the small-screen rules */
 .container { padding: 1rem; }
 
@@ -1220,7 +1251,7 @@ it degrades safely on devices you did not anticipate.</p>
 <p>Without it a phone pretends to be 980px wide and renders your desktop layout
 shrunk to illegibility. Omitting it is the number-one reason a "responsive"
 page is not.</p>
-<h2>2.23 Transitions and simple animation</h2>
+<h2 id="223-transitions-and-simple-animation">2.23 Transitions and simple animation</h2>
 <p>The syllabus puts animation in Unit 4 with events, but the CSS half belongs
 here.</p>
 <pre><code class="language-css">.btn { background: #2b4c7e; transition: background .25s ease, transform .25s ease; }
@@ -1237,7 +1268,7 @@ here.</p>
 recalculating layout. Animating <code>width</code>, <code>height</code>, <code>top</code> or <code>margin</code> forces a
 reflow on every frame and stutters.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Given:</p>
@@ -1291,7 +1322,7 @@ without changing the HTML, given `<div class="card" data-badge="NEW">…</p>
 empty green pill appears on them.
 </div></p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What does "cascading" mean in Cascading Style Sheets?</li>
@@ -1327,7 +1358,7 @@ empty green pill appears on them.
    gallery as the example.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

@@ -29,13 +29,27 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-expert-systems">5.1 Expert systems</a></li>
+    <li><a href="#52-probabilistic-reasoning">5.2 Probabilistic reasoning</a></li>
+    <li><a href="#53-fuzzy-logic">5.3 Fuzzy logic</a></li>
+    <li><a href="#54-nlp-basics">5.4 NLP basics</a></li>
+    <li><a href="#55-robotics">5.5 Robotics</a></li>
+    <li><a href="#56-ai-ethics-and-societal-impact">5.6 AI ethics and societal impact</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> Expert Systems — architecture, knowledge base,
 inference engine, explanation facility. Probabilistic Reasoning — Bayes'
 theorem, Bayesian Belief Networks (concepts and examples). Fuzzy Logic and
 uncertainty handling. Emerging topics — NLP basics, Robotics, AI Ethics and
 societal impact.</p>
 <hr />
-<h2>5.1 Expert systems</h2>
+<h2 id="51-expert-systems">5.1 Expert systems</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>An expert system captures a human expert's knowledge as explicit rules, and
@@ -99,7 +113,7 @@ whenever <strong>the rules are known and the decision must be justified</strong>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Two distinctions the exam asks for</h3>
+<h3 id="two-distinctions-the-exam-asks-for">⚠️ Two distinctions the exam asks for</h3>
 <p><strong>Knowledge base vs working memory.</strong> The knowledge base holds <em>general</em>
 knowledge and persists across cases; working memory holds facts about <em>this</em>
 patient and is cleared for the next one.</p>
@@ -204,7 +218,7 @@ accuracy, which is itself a lesson about deploying AI.</p>
 says so; an expert system produces a confident wrong answer.</p>
 </div>
 <hr />
-<h2>5.2 Probabilistic reasoning</h2>
+<h2 id="52-probabilistic-reasoning">5.2 Probabilistic reasoning</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Why logic is not enough</h4>
@@ -334,7 +348,7 @@ the burglary</strong> — given the alarm, his call is independent of the burgla
 <p><strong>The absent edges carry as much information as the present ones.</strong> Saying that
 distinguishes a real answer from a redrawn diagram.</p>
 </div>
-<h3>⚠️ Explaining away — the effect worth knowing</h3>
+<h3 id="explaining-away-the-effect-worth-knowing">⚠️ Explaining away — the effect worth knowing</h3>
 <p>Learning that there was an <strong>earthquake</strong> <em>reduces</em> your belief in a
 <strong>burglary</strong>, even though the two are independent a priori.</p>
 <p><strong>Both are causes of the alarm.</strong> Once the alarm is observed, confirming one
@@ -342,7 +356,7 @@ cause explains the evidence and lowers the need for the other. This is
 <strong>explaining away</strong>, and it is a pattern of reasoning that no purely logical
 system produces naturally.</p>
 <hr />
-<h2>5.3 Fuzzy logic</h2>
+<h2 id="53-fuzzy-logic">5.3 Fuzzy logic</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Fuzzy is not probability, and this is the examinable point</h4>
@@ -442,7 +456,7 @@ anti-lock brakes, train braking. <strong>Control systems</strong>, where a smoot
 matters more than a provably correct one.</p>
 </div>
 <hr />
-<h2>5.4 NLP basics</h2>
+<h2 id="54-nlp-basics">5.4 NLP basics</h2>
 <p><strong>Natural language processing is hard because language is ambiguous at every
 level</strong>, and naming the levels is the exam answer.</p>
 <table class="main-table">
@@ -545,7 +559,7 @@ replaced by learned representations — but the <em>ambiguity levels</em> remain
 right way to describe why the problem is hard.</p>
 </div>
 <hr />
-<h2>5.5 Robotics</h2>
+<h2 id="55-robotics">5.5 Robotics</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -594,7 +608,7 @@ and is done deliberately.</p>
 the hardest cell of every dimension.</p>
 </div>
 <hr />
-<h2>5.6 AI ethics and societal impact</h2>
+<h2 id="56-ai-ethics-and-societal-impact">5.6 AI ethics and societal impact</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The issues, each with a concrete case</h4>
@@ -645,7 +659,7 @@ the hardest cell of every dimension.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Bias is a data problem before it is an algorithm problem</h3>
+<h3 id="bias-is-a-data-problem-before-it-is-an-algorithm-problem">⚠️ Bias is a data problem before it is an algorithm problem</h3>
 <p><strong>A model trained on biased data will be biased, however fair the algorithm
 is.</strong> Three distinct sources, and naming them is the mark:</p>
 <ol>
@@ -670,7 +684,7 @@ A recommender and a diagnostic system may use the same model and face very
 different requirements.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Explain the architecture of an expert system, and its advantages and
@@ -827,7 +841,7 @@ anti-lock brakes, train braking — <strong>control systems</strong>, where a sm
 matters more than a provably correct one.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Name the components of an expert system.</li>
@@ -855,7 +869,7 @@ matters more than a provably correct one.</p>
 <li>Discuss AI ethics — the issues, with concrete cases.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

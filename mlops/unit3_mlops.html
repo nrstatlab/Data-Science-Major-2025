@@ -28,12 +28,25 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-what-makes-mlops-different-from-devops">3.1 What makes MLOps different from DevOps</a></li>
+    <li><a href="#32-the-challenges-and-the-risk-each-carries">3.2 The challenges, and the risk each carries</a></li>
+    <li><a href="#33-the-key-mlops-features-in-order">3.3 The key MLOps features, in order</a></li>
+    <li><a href="#34-experimentation-tracking">3.4 Experimentation tracking</a></li>
+    <li><a href="#35-reproducibility-the-four-things-that-must-be-pinned">3.5 Reproducibility — the four things that must be pinned</a></li>
+    <li><a href="#36-model-versioning">3.6 Model versioning</a></li>
+    <li><a href="#37-responsible-ai-and-scaling">3.7 Responsible AI and scaling</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 15):</strong> MLOps challenges and risk mitigation. Responsible AI
 and scaling ML solutions. Key MLOps features: EDA, feature engineering, model
 training and evaluation, reproducibility. Deployment requirements, monitoring
 basics. Model versioning and experimentation tracking.</p>
 <hr />
-<h2>3.1 What makes MLOps different from DevOps</h2>
+<h2 id="31-what-makes-mlops-different-from-devops">3.1 What makes MLOps different from DevOps</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The one sentence</h4>
@@ -81,12 +94,12 @@ and any one of the three changing changes the output.</strong></p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ The row that causes real incidents</h3>
+<h3 id="the-row-that-causes-real-incidents">⚠️ The row that causes real incidents</h3>
 <p><strong>A model and the code that prepares its features must be versioned and rolled
 back together.</strong> Deploying an old model with new preprocessing produces
 predictions that are silently wrong — no error, no crash, just worse decisions.</p>
 <hr />
-<h2>3.2 The challenges, and the risk each carries</h2>
+<h2 id="32-the-challenges-and-the-risk-each-carries">3.2 The challenges, and the risk each carries</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -132,7 +145,7 @@ from both paths. That is what a feature store is for, and a shared module is
 enough at small scale.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>"Undeclared consumers", which sounds minor and is not</h4>
 <p>You change a column's meaning. Your own pipeline is updated. <strong>Three teams
 were querying that table and you did not know.</strong> The mitigation is access
@@ -140,9 +153,9 @@ control plus a data catalogue — knowing who reads what is a prerequisite for
 being able to change anything.</p>
 </div>
 <hr />
-<h2>3.3 The key MLOps features, in order</h2>
+<h2 id="33-the-key-mlops-features-in-order">3.3 The key MLOps features, in order</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>EDA and feature engineering</h4>
 <p>Before modelling, <strong>profile</strong>:</p>
 <table class="main-table">
@@ -174,7 +187,7 @@ being able to change anything.</p>
 <p><a href="lab_mlops.html#experiment-2">Experiment 2</a> profiles every column and prints the base
 rate before anything is fitted, which is the habit to copy.</p>
 </div>
-<h3>⚠️ Feature engineering, and the leak that ruins projects</h3>
+<h3 id="feature-engineering-and-the-leak-that-ruins-projects">⚠️ Feature engineering, and the leak that ruins projects</h3>
 <p><strong>Data leakage</strong> is any feature that would not be available at prediction
 time.</p>
 <table class="main-table">
@@ -203,7 +216,7 @@ time.</p>
 practical rule, and <code>sklearn</code>'s <code>Pipeline</code> exists to make the second kind
 hard: fit on train, transform test, never the reverse.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Model training and evaluation</h4>
 <p><a href="lab_mlops.html#experiment-7">Experiment 7</a> fits six models and logs each to MLflow:</p>
 <table class="main-table">
@@ -248,7 +261,7 @@ hard: fit on train, transform test, never the reverse.</p>
 </tr>
 </tbody>
 </table>
-<h3>🎯 Log the train score as well as the test score</h3>
+<h3 id="log-the-train-score-as-well-as-the-test-score">🎯 Log the train score as well as the test score</h3>
 <p><strong>The gap column is the only thing in this table that tells you <em>why</em> a
 model underperformed</strong>, and it costs one extra <code>log_metric</code> call.
 <code>rf-depth12</code> has a gap of <strong>0.2783</strong> — it memorised the training set. A
@@ -257,9 +270,9 @@ tracking table without that column records what happened and not why.</p>
 it.</p>
 </div>
 <hr />
-<h2>3.4 Experimentation tracking</h2>
+<h2 id="34-experimentation-tracking">3.4 Experimentation tracking</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What a tracking server stores</h4>
 <table class="main-table">
 <thead>
@@ -318,7 +331,7 @@ before or after you fixed the leak. <strong>That query is the thing a notebook
 cannot do.</strong></p>
 </div>
 <hr />
-<h2>3.5 Reproducibility — the four things that must be pinned</h2>
+<h2 id="35-reproducibility-the-four-things-that-must-be-pinned">3.5 Reproducibility — the four things that must be pinned</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -350,7 +363,7 @@ cannot do.</strong></p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Number 4 is the one everybody forgets</h3>
+<h3 id="number-4-is-the-one-everybody-forgets">⚠️ Number 4 is the one everybody forgets</h3>
 <p><a href="lab_mlops.html#experiment-8">Experiment 8</a> demonstrates it. The same code, with the
 model still seeded and only <code>train_test_split</code>'s <code>random_state</code> removed, run
 three times:</p>
@@ -398,7 +411,7 @@ generated the data:</p>
 parameters which produced the data has.</strong></p>
 </div>
 <hr />
-<h2>3.6 Model versioning</h2>
+<h2 id="36-model-versioning">3.6 Model versioning</h2>
 <p><strong>A model version is not a filename.</strong> It is:</p>
 <table class="main-table">
 <thead>
@@ -431,7 +444,7 @@ parameters which produced the data has.</strong></p>
 </tbody>
 </table>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What DVC does, and why git alone cannot</h4>
 <p><a href="lab_mlops.html#experiment-9">Experiment 9</a> commits a 4,000-row dataset, then a
 drifted version, then rolls back:</p>
@@ -487,7 +500,7 @@ no answer. With it, one git commit identifies the code <em>and</em> the data,
 together.</p>
 </div>
 <hr />
-<h2>3.7 Responsible AI and scaling</h2>
+<h2 id="37-responsible-ai-and-scaling">3.7 Responsible AI and scaling</h2>
 <p><strong>Deployment requirements</strong> — what a model needs before it can be served at
 all — are the subject of <a href="unit4_mlops.html">Unit 4</a>; the monitoring basics that pair
 with them are <a href="unit5_mlops.html">Unit 5</a>.</p>
@@ -522,7 +535,7 @@ with them are <a href="unit5_mlops.html">Unit 5</a>.</p>
 </tbody>
 </table>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Scaling ML, and what breaks first</h4>
 <table class="main-table">
 <thead>
@@ -555,7 +568,7 @@ scale.</strong> Adopting them before the breakage is how teams end up operating 
 platform instead of shipping models.</p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] <strong>Give three ways MLOps differs from DevOps</strong></li>
 <li>[ ] Explain training/serving skew and its architectural fix</li>

@@ -16,11 +16,22 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#do-each-experiment-twice">Do each experiment twice</a></li>
+    <li><a href="#the-experiments">The experiments</a></li>
+    <li><a href="#experiment-2-is-reconstructed">Experiment 2 is reconstructed</a></li>
+    <li><a href="#notes-on-the-harder-experiments">Notes on the harder experiments</a></li>
+    <li><a href="#pspp">PSPP</a></li>
+    <li><a href="#lab-exam-tips">Lab exam tips</a></li>
+  </ol>
+</details>
 <p><strong>1 credit · 2 hrs/week · 15 experiments</strong> (syllabus page 23)</p>
 <p>The prescribed lab is headed <strong>"Advanced Spreadsheets/Excel Lab/PSPP Open
 Source"</strong>. Every experiment is a spreadsheet exercise, and the practical exam
 tests it in a spreadsheet.</p>
-<h2>Do each experiment twice</h2>
+<h2 id="do-each-experiment-twice">Do each experiment twice</h2>
 <p><strong>Once in Excel</strong> — that is what the exam marks.
 <strong>Once in Python</strong> — that is what the degree is for.</p>
 <p>The prescribed lab never uses Python, even though you are learning Python in
@@ -57,7 +68,7 @@ That gap is worth closing yourself. See
 cd labs/course-4-stats/python &amp;&amp; python3 test_statlib.py
 </code></pre>
 <hr />
-<h2>The experiments</h2>
+<h2 id="the-experiments">The experiments</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -161,7 +172,7 @@ cd labs/course-4-stats/python &amp;&amp; python3 test_statlib.py
 </tbody>
 </table>
 <hr />
-<h2>Experiment 2 is reconstructed</h2>
+<h2 id="experiment-2-is-reconstructed">Experiment 2 is reconstructed</h2>
 <p>The official text of experiment 2 survives only as the fragment <strong>"a positive
 result."</strong> — the question stem is missing from the PDF. See review findings
 <strong>D1</strong> and <strong>D3</strong>.</p>
@@ -178,8 +189,8 @@ sheet — it makes the result obvious and it earns marks.</p>
 <p>This is the <strong>base rate fallacy</strong>, and Bayes' theorem is examined despite being
 absent from the syllabus units. Do not skip it.</p>
 <hr />
-<h2>Notes on the harder experiments</h2>
-<h3>Experiment 1 — Contingency tables</h3>
+<h2 id="notes-on-the-harder-experiments">Notes on the harder experiments</h2>
+<h3 id="experiment-1-contingency-tables">Experiment 1 — Contingency tables</h3>
 <p>Build the table with a PivotTable, then compute joint, marginal and conditional
 probabilities from it. The independence check compares each observed cell with
 <code>row_total × column_total / grand_total</code>. They will rarely match exactly —
@@ -188,26 +199,26 @@ than chance.</p>
 <p>The dataset used in the Python version gives χ² = 9.75 on 2 df (p = 0.0076), so
 region and purchase type are genuinely associated. Experiments 1 and 15 are
 answering the same question at two levels of rigour.</p>
-<h3>Experiment 4 — <code>.S</code> or <code>.P</code>?</h3>
+<h3 id="experiment-4-s-or-p">Experiment 4 — <code>.S</code> or <code>.P</code>?</h3>
 <p><code>VAR.S</code>/<code>STDEV.S</code> divide by n − 1 (sample); <code>VAR.P</code>/<code>STDEV.P</code> divide by n
 (population). Almost every exercise here uses a <strong>sample</strong>, so almost always
 <code>.S</code>. Choosing wrongly is the most common error in this lab, and it changes the
 answer.</p>
-<h3>Experiment 8 — Freeze your random numbers</h3>
+<h3 id="experiment-8-freeze-your-random-numbers">Experiment 8 — Freeze your random numbers</h3>
 <p><code>RAND()</code> and <code>RANDBETWEEN()</code> are <strong>volatile</strong> — they recalculate on every edit,
 so your statistics change while you are computing them. Generate the column,
 then copy it and <strong>Paste Special → Values</strong> before doing anything else.</p>
-<h3>Experiment 10 — The <code>FALSE</code>/<code>TRUE</code> argument</h3>
+<h3 id="experiment-10-the-falsetrue-argument">Experiment 10 — The <code>FALSE</code>/<code>TRUE</code> argument</h3>
 <p><code>BINOM.DIST(k, n, p, FALSE)</code> gives P(X = k); <code>TRUE</code> gives P(X ≤ k). Getting
 this backwards is the single most common error in this experiment. Same for
 <code>POISSON.DIST</code>.</p>
-<h3>Experiment 11 — Verify the empirical rule</h3>
+<h3 id="experiment-11-verify-the-empirical-rule">Experiment 11 — Verify the empirical rule</h3>
 <p>Compute P(μ−σ ≤ X ≤ μ+σ) and confirm it comes to 0.6827, then ±2σ → 0.9545 and
 ±3σ → 0.9973. Doing this once makes the rule stick, and it validates that your
 <code>NORM.DIST</code> arguments are in the right order.</p>
 <p>Also demonstrate <strong>memorylessness</strong> for the exponential: show that
 P(X &gt; 5 | X &gt; 2) equals P(X &gt; 3) by computing both sides.</p>
-<h3>Experiment 13 — Reading the regression output</h3>
+<h3 id="experiment-13-reading-the-regression-output">Experiment 13 — Reading the regression output</h3>
 <p>Excel's Regression tool produces a lot of output. The rows that matter:</p>
 <table class="main-table">
 <thead>
@@ -243,7 +254,7 @@ P(X &gt; 5 | X &gt; 2) equals P(X &gt; 3) by computing both sides.</p>
 with about 4.3 more marks" — not just "b₁ = 4.3".</p>
 <p>Two arithmetic checks that come free: <strong>R² = r²</strong> and <strong>t² = F</strong> for simple
 regression. Use them.</p>
-<h3>Experiment 15 — Which test?</h3>
+<h3 id="experiment-15-which-test">Experiment 15 — Which test?</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -288,7 +299,7 @@ regression. Use them.</p>
 <p><strong><code>CHISQ.TEST</code> and <code>F.TEST</code> return p-values, not test statistics.</strong> Reporting a
 <code>CHISQ.TEST</code> result as χ² is a standard mistake.</p>
 <hr />
-<h2>PSPP</h2>
+<h2 id="pspp">PSPP</h2>
 <p>PSPP is the free SPSS alternative named in the syllabus, and may be what your
 lab has installed.</p>
 <table class="main-table">
@@ -329,7 +340,7 @@ lab has installed.</p>
 View</strong> — the opposite order to a spreadsheet, and the usual source of
 confusion.</p>
 <hr />
-<h2>Lab exam tips</h2>
+<h2 id="lab-exam-tips">Lab exam tips</h2>
 <ol>
 <li>
 <p><strong>Label everything.</strong> Chart titles, axis labels, legends. Marks are given

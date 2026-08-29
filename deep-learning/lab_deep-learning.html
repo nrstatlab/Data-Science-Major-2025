@@ -16,13 +16,32 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#what-ran-and-what-did-not">What ran, and what did not</a></li>
+    <li><a href="#experiment-1-a-perceptron-from-scratch">Experiment 1 — a perceptron from scratch</a></li>
+    <li><a href="#experiment-3-activations-and-their-gradients">Experiment 3 — activations and their gradients</a></li>
+    <li><a href="#experiment-4-a-deep-network-for-classification">Experiment 4 — a deep network for classification</a></li>
+    <li><a href="#experiment-5-dropout-batch-norm-activations">Experiment 5 — dropout, batch norm, activations</a></li>
+    <li><a href="#experiment-6-a-cnn-on-fashion-mnist">Experiment 6 — a CNN on Fashion-MNIST</a></li>
+    <li><a href="#experiment-7-filters-and-feature-maps">Experiment 7 — filters and feature maps</a></li>
+    <li><a href="#experiment-8-fine-tuning-a-pre-trained-cnn">Experiment 8 — fine-tuning a pre-trained CNN</a></li>
+    <li><a href="#experiment-9-lstm-sentiment-analysis">Experiment 9 — LSTM sentiment analysis</a></li>
+    <li><a href="#experiment-10-character-level-text-generation">Experiment 10 — character-level text generation</a></li>
+    <li><a href="#experiment-11-a-pre-trained-model-on-a-simple-task">Experiment 11 — a pre-trained model on a simple task</a></li>
+    <li><a href="#experiment-12-attention-from-scratch">Experiment 12 — attention from scratch</a></li>
+    <li><a href="#experiments-2-and-12-the-two-that-cannot-run">Experiments 2 and 12 — the two that cannot run</a></li>
+    <li><a href="#running-it-yourself">Running it yourself</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 3):</strong> twelve practicals, 1 credit, 2 hrs/week.</p>
 <p>Every number on this page was <strong>printed by code in this repository</strong>. Run
 everything with:</p>
 <pre><code class="language-bash">KERAS_BACKEND=torch python3 tools/run_deeplearning_labs.py
 </code></pre>
 <hr />
-<h2>What ran, and what did not</h2>
+<h2 id="what-ran-and-what-did-not">What ran, and what did not</h2>
 <p><strong>Ten of the twelve experiments run against real data and real pre-trained
 weights.</strong></p>
 <table class="main-table">
@@ -113,7 +132,7 @@ weights.</strong></p>
 markers are still present, so neither file can quietly start claiming an
 output it never produced.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>On Keras and TensorFlow</h4>
 <p>The syllabus says Keras/TensorFlow. <strong>TensorFlow is not installed here, but
 Keras 3 is backend-agnostic</strong> — <code>KERAS_BACKEND=torch</code> runs the identical API
@@ -121,7 +140,7 @@ on PyTorch. The lab prints <code>Keras 3.15.1, backend 'torch'</code>, and every
 <code>Sequential</code>, <code>.compile()</code> and <code>.fit()</code> is the real thing.</p>
 </div>
 <hr />
-<h2>Experiment 1 — a perceptron from scratch</h2>
+<h2 id="experiment-1-a-perceptron-from-scratch">Experiment 1 — a perceptron from scratch</h2>
 <p>Pure NumPy, no framework. One perceptron per logic gate:</p>
 <table class="main-table">
 <thead>
@@ -161,7 +180,7 @@ on PyTorch. The lab prints <code>Keras 3.15.1, backend 'torch'</code>, and every
 </table>
 <p><strong>0.50 is chance.</strong> The four-line impossibility proof is in
 <a href="unit1_deep-learning.html#14-the-perceptron-and-the-thing-it-cannot-do">Unit 1 §1.4</a>.</p>
-<h3>Adding one hidden layer</h3>
+<h3 id="adding-one-hidden-layer">Adding one hidden layer</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -180,7 +199,7 @@ on PyTorch. The lab prints <code>Keras 3.15.1, backend 'torch'</code>, and every
 </tr>
 </tbody>
 </table>
-<h3>And a three-layer NumPy network on real MNIST-style digits</h3>
+<h3 id="and-a-three-layer-numpy-network-on-real-mnist-style-digits">And a three-layer NumPy network on real MNIST-style digits</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -209,8 +228,8 @@ on PyTorch. The lab prints <code>Keras 3.15.1, backend 'torch'</code>, and every
 from logistic regression is a claim you can defend.</p>
 </div>
 <hr />
-<h2>Experiment 3 — activations and their gradients</h2>
-<h3>The vanishing gradient, as arithmetic</h3>
+<h2 id="experiment-3-activations-and-their-gradients">Experiment 3 — activations and their gradients</h2>
+<h3 id="the-vanishing-gradient-as-arithmetic">The vanishing gradient, as arithmetic</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -242,11 +261,11 @@ from logistic regression is a claim you can defend.</p>
 </tr>
 </tbody>
 </table>
-<h3>The dying ReLU</h3>
+<h3 id="the-dying-relu">The dying ReLU</h3>
 <pre><code>ReLU        d/dz at z = [-2, -1, -0.5]  -&gt;  [0, 0, 0]
 Leaky ReLU  d/dz at z = [-2, -1, -0.5]  -&gt;  [0.01, 0.01, 0.01]
 </code></pre>
-<h3>Softmax overflow</h3>
+<h3 id="softmax-overflow">Softmax overflow</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -266,10 +285,10 @@ Leaky ReLU  d/dz at z = [-2, -1, -0.5]  -&gt;  [0.01, 0.01, 0.01]
 </tbody>
 </table>
 <hr />
-<h2>Experiment 4 — a deep network for classification</h2>
+<h2 id="experiment-4-a-deep-network-for-classification">Experiment 4 — a deep network for classification</h2>
 <p><strong>The real MNIST</strong>, a stratified 4,000-image subset (400 per class), 1,000
 test.</p>
-<h3>Does depth help?</h3>
+<h3 id="does-depth-help">Does depth help?</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -322,7 +341,7 @@ test.</p>
 linearly separable in raw pixel space, which is exactly why Fashion-MNIST
 was published to replace it — see experiment 6.</p>
 </div>
-<h3>Optimisers</h3>
+<h3 id="optimisers">Optimisers</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -364,7 +383,7 @@ was published to replace it — see experiment 6.</p>
 </tr>
 </tbody>
 </table>
-<h3>Learning rate — the one that can make training fail</h3>
+<h3 id="learning-rate-the-one-that-can-make-training-fail">Learning rate — the one that can make training fail</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -407,7 +426,7 @@ was published to replace it — see experiment 6.</p>
 </tr>
 </tbody>
 </table>
-<h3>Weight initialisation</h3>
+<h3 id="weight-initialisation">Weight initialisation</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -435,7 +454,7 @@ was published to replace it — see experiment 6.</p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 5 — dropout, batch norm, activations</h2>
+<h2 id="experiment-5-dropout-batch-norm-activations">Experiment 5 — dropout, batch norm, activations</h2>
 <p>A 3×256 network on 4,000 images: <strong>335,114 parameters, ~84 per example.</strong></p>
 <table class="main-table">
 <thead>
@@ -521,7 +540,7 @@ was published to replace it — see experiment 6.</p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 6 — a CNN on Fashion-MNIST</h2>
+<h2 id="experiment-6-a-cnn-on-fashion-mnist">Experiment 6 — a CNN on Fashion-MNIST</h2>
 <p><strong>The real Fashion-MNIST</strong>, a stratified 8,000-image subset, 2,000 test.</p>
 <table class="main-table">
 <thead>
@@ -555,7 +574,7 @@ was published to replace it — see experiment 6.</p>
 network fell 0.9410 → 0.8455.</strong> The linear model lost roughly twice as much,
 which is what Fashion-MNIST was published to expose.</p>
 </div>
-<h3>Shift every test image by 3 pixels</h3>
+<h3 id="shift-every-test-image-by-3-pixels">Shift every test image by 3 pixels</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -580,7 +599,7 @@ which is what Fashion-MNIST was published to expose.</p>
 </tr>
 </tbody>
 </table>
-<h3>The output-size arithmetic</h3>
+<h3 id="the-output-size-arithmetic">The output-size arithmetic</h3>
 <p><code>out = floor((in + 2p − k)/s) + 1</code></p>
 <table class="main-table">
 <thead>
@@ -653,8 +672,8 @@ which is what Fashion-MNIST was published to expose.</p>
 </table>
 <p><strong>Convolutions: 3,424 weights. First dense layer: 50,240.</strong></p>
 <hr />
-<h2>Experiment 7 — filters and feature maps</h2>
-<h3>Are the filters edge detectors? Measured, not assumed</h3>
+<h2 id="experiment-7-filters-and-feature-maps">Experiment 7 — filters and feature maps</h2>
+<h3 id="are-the-filters-edge-detectors-measured-not-assumed">Are the filters edge detectors? Measured, not assumed</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -694,7 +713,7 @@ which is what Fashion-MNIST was published to expose.</p>
 <p><strong>0 of 8 kernels are clearly oriented.</strong> See
 <a href="unit3_deep-learning.html#36-what-the-filters-actually-learn">Unit 3 §3.6</a> for why that is the
 honest version of "CNNs learn edge detectors".</p>
-<h3>Feature-map sparsity</h3>
+<h3 id="feature-map-sparsity">Feature-map sparsity</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -744,7 +763,7 @@ input.</strong> The explanation — filter biases and neighbourhood mixing — i
 <a href="unit3_deep-learning.html#36-what-the-filters-actually-learn">Unit 3 §3.6</a>.</p>
 </div>
 <hr />
-<h2>Experiment 8 — fine-tuning a pre-trained CNN</h2>
+<h2 id="experiment-8-fine-tuning-a-pre-trained-cnn">Experiment 8 — fine-tuning a pre-trained CNN</h2>
 <p><strong>Real MobileNetV2 and VGG16 ImageNet weights</strong>, fetched from
 <code>storage.googleapis.com</code>. 500 training images, 50 per class.</p>
 <table class="main-table">
@@ -788,7 +807,7 @@ input.</strong> The explanation — filter biases and neighbourhood mixing — i
 </tr>
 </tbody>
 </table>
-<h3>Then actually fine-tune</h3>
+<h3 id="then-actually-fine-tune">Then actually fine-tune</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -811,13 +830,13 @@ input.</strong> The explanation — filter biases and neighbourhood mixing — i
 </tbody>
 </table>
 <div class="warn">
-<p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
-<h3>⚠️ Two results that contradict the usual story</h3>
+<p><span class="label">WATCH OUT</span></p>
+<h3 id="two-results-that-contradict-the-usual-story">⚠️ Two results that contradict the usual story</h3>
 <p><strong>VGG16 lost to a small CNN trained from scratch</strong>, and <strong>fine-tuning made
 MobileNetV2 worse.</strong> Both are reported as measured and explained in
 <a href="unit5_deep-learning.html#53-transfer-learning-and-fine-tuning">Unit 5 §5.3</a>.</p>
 </div>
-<h3>What the pre-trained head actually knows</h3>
+<h3 id="what-the-pre-trained-head-actually-knows">What the pre-trained head actually knows</h3>
 <p>Fed a Fashion-MNIST <strong>Pullover</strong>, ImageNet's top-3:</p>
 <table class="main-table">
 <thead>
@@ -843,8 +862,8 @@ MobileNetV2 worse.</strong> Both are reported as measured and explained in
 </table>
 <p><strong>ImageNet has 1,000 classes and none is "pullover."</strong></p>
 <hr />
-<h2>Experiment 9 — LSTM sentiment analysis</h2>
-<h3>On a generated dataset (one decisive word per sentence)</h3>
+<h2 id="experiment-9-lstm-sentiment-analysis">Experiment 9 — LSTM sentiment analysis</h2>
+<h3 id="on-a-generated-dataset-one-decisive-word-per-sentence">On a generated dataset (one decisive word per sentence)</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -879,7 +898,7 @@ MobileNetV2 worse.</strong> Both are reported as measured and explained in
 </tr>
 </tbody>
 </table>
-<h3>Ask the model what it learned</h3>
+<h3 id="ask-the-model-what-it-learned">Ask the model what it learned</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -906,7 +925,7 @@ MobileNetV2 worse.</strong> Both are reported as measured and explained in
 </tr>
 </tbody>
 </table>
-<h3>On the real IMDb dataset</h3>
+<h3 id="on-the-real-imdb-dataset">On the real IMDb dataset</h3>
 <p>6,000 training reviews, 3,000 test, 10,000-word vocabulary, 200 tokens.</p>
 <table class="main-table">
 <thead>
@@ -945,7 +964,7 @@ MobileNetV2 worse.</strong> Both are reported as measured and explained in
 Both numbers are real and they measure different things —
 <a href="unit4_deep-learning.html#45-the-measurement-rnn-vs-lstm-vs-gru-twice">Unit 4 §4.5</a>.</p>
 </div>
-<h3>The vanishing gradient</h3>
+<h3 id="the-vanishing-gradient">The vanishing gradient</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -978,7 +997,7 @@ Both numbers are real and they measure different things —
 </tbody>
 </table>
 <hr />
-<h2>Experiment 10 — character-level text generation</h2>
+<h2 id="experiment-10-character-level-text-generation">Experiment 10 — character-level text generation</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1004,7 +1023,7 @@ Both numbers are real and they measure different things —
 <p><strong>It learned spelling and local grammar and not what a sentence is about</strong> —
 which is the dependency length attention was invented to close.</p>
 <hr />
-<h2>Experiment 11 — a pre-trained model on a simple task</h2>
+<h2 id="experiment-11-a-pre-trained-model-on-a-simple-task">Experiment 11 — a pre-trained model on a simple task</h2>
 <p><strong>Real MobileNetV2, 2,257,984 parameters, nothing trained.</strong> 200 query images
 against a 1,000-image database; retrieve the nearest neighbour by cosine
 distance and ask whether it shares the label.</p>
@@ -1031,11 +1050,11 @@ distance and ask whether it shares the label.</p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 12 — attention from scratch</h2>
+<h2 id="experiment-12-attention-from-scratch">Experiment 12 — attention from scratch</h2>
 <p><em>(The Hugging Face deployment itself is
 <code>12_huggingface_app.md</code>,
 marked NOT EXECUTED. What runs is the mechanism.)</em></p>
-<h3>Scaled dot-product attention, on checkable numbers</h3>
+<h3 id="scaled-dot-product-attention-on-checkable-numbers">Scaled dot-product attention, on checkable numbers</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1062,7 +1081,7 @@ marked NOT EXECUTED. What runs is the mechanism.)</em></p>
 </tr>
 </tbody>
 </table>
-<h3>Why <code>√d_k</code> — measured</h3>
+<h3 id="why-d-k-measured">Why <code>√d_k</code> — measured</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1093,7 +1112,7 @@ marked NOT EXECUTED. What runs is the mechanism.)</em></p>
 </tr>
 </tbody>
 </table>
-<h3>A trained transformer encoder</h3>
+<h3 id="a-trained-transformer-encoder">A trained transformer encoder</h3>
 <p>One block, 4 heads, <code>d_model</code> 32 — <strong>10,690 parameters, test accuracy
 1.0000</strong>.</p>
 <p><strong>The sentiment word was the most-attended token in 111/120 = 92.5% of
@@ -1103,7 +1122,7 @@ decisive word: 'wonderful' at position 3
 most-attended: 'wonderful' at position 3
 ...#...
 </code></pre>
-<h3>Positional-encoding ablation</h3>
+<h3 id="positional-encoding-ablation">Positional-encoding ablation</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1124,7 +1143,7 @@ most-attended: 'wonderful' at position 3
 </table>
 <p><strong>A null result, reported as such</strong> — the task is bag-of-words, so order
 carries no information.</p>
-<h3>The <code>O(T²)</code> cost</h3>
+<h3 id="the-ot²-cost">The <code>O(T²)</code> cost</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1152,7 +1171,7 @@ carries no information.</p>
 </tbody>
 </table>
 <hr />
-<h2>Experiments 2 and 12 — the two that cannot run</h2>
+<h2 id="experiments-2-and-12-the-two-that-cannot-run">Experiments 2 and 12 — the two that cannot run</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1177,7 +1196,7 @@ carries no information.</p>
 <p>Neither claims an output. Both name the runnable half that covers the same
 ground.</p>
 <hr />
-<h2>Running it yourself</h2>
+<h2 id="running-it-yourself">Running it yourself</h2>
 <pre><code class="language-bash">pip install -r tools/requirements.txt
 KERAS_BACKEND=torch python3 tools/run_deeplearning_labs.py
 </code></pre>

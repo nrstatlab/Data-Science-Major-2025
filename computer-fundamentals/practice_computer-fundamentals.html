@@ -16,22 +16,37 @@
     <p>Exam-style questions with fully worked solutions.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#section-a-number-system-conversions">Section A — Number system conversions</a></li>
+    <li><a href="#section-b-short-answers">Section B — Short answers</a></li>
+    <li><a href="#section-c-spreadsheet-problems">Section C — Spreadsheet problems</a></li>
+    <li><a href="#section-d-long-answers">Section D — Long answers</a></li>
+    <li><a href="#quick-self-test">Quick self-test</a></li>
+  </ol>
+</details>
 <hr />
-<h2>Section A — Number system conversions</h2>
+<h2 id="section-a-number-system-conversions">Section A — Number system conversions</h2>
 <p>Every answer below was verified computationally.</p>
 <div class="example">
 <p><span class="label">Q1</span></p>
 <h4>Convert (11010110)₂ to decimal, octal and hexadecimal</h4>
+<details>
+<summary>Show answer</summary>
 <p><strong>Decimal:</strong> 128 + 64 + 0 + 16 + 0 + 4 + 2 + 0 = <strong>214</strong></p>
 <p><strong>Octal</strong> — group in threes from the right: <code>011 | 010 | 110</code> → 3, 2, 6 →
 <strong>(326)₈</strong></p>
 <p><strong>Hexadecimal</strong> — group in fours from the right: <code>1101 | 0110</code> → D, 6 →
 <strong>(D6)₁₆</strong></p>
 <p><em>Check:</em> 13 × 16 + 6 = 208 + 6 = 214 ✓</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q2</span></p>
 <h4>Convert (2024)₁₀ to binary, octal and hexadecimal</h4>
+<details>
+<summary>Show answer</summary>
 <p><strong>Binary</strong> — divide by 2 repeatedly:
 2024→1012 r0, 1012→506 r0, 506→253 r0, 253→126 r<strong>1</strong>, 126→63 r0, 63→31 r<strong>1</strong>,
 31→15 r<strong>1</strong>, 15→7 r<strong>1</strong>, 7→3 r<strong>1</strong>, 3→1 r<strong>1</strong>, 1→0 r<strong>1</strong></p>
@@ -42,19 +57,25 @@
 <p><strong>Octal</strong> — group in threes: <code>011 | 111 | 101 | 000</code> → 3, 7, 5, 0 →
 <strong>(3750)₈</strong></p>
 <p><em>Check:</em> 3 × 512 + 7 × 64 + 5 × 8 + 0 = 1536 + 448 + 40 = 2024 ✓</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q3</span></p>
 <h4>Convert (A7C)₁₆ to decimal, binary and octal</h4>
+<details>
+<summary>Show answer</summary>
 <p><strong>Decimal:</strong> A(10) × 256 + 7 × 16 + C(12) × 1 = 2560 + 112 + 12 = <strong>2684</strong></p>
 <p><strong>Binary:</strong> A → <code>1010</code>, 7 → <code>0111</code>, C → <code>1100</code> → <strong>(101001111100)₂</strong></p>
 <p><strong>Octal</strong> — regroup the binary in threes: <code>101 | 001 | 111 | 100</code> → 5, 1, 7, 4
 → <strong>(5174)₈</strong></p>
 <p><em>Check:</em> 5 × 512 + 1 × 64 + 7 × 8 + 4 = 2560 + 64 + 56 + 4 = 2684 ✓</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q4</span></p>
 <h4>Convert (0.6875)₁₀ to binary</h4>
+<details>
+<summary>Show answer</summary>
 <p>Multiply by 2 and read the integer parts <strong>downwards</strong>:</p>
 <table class="main-table">
 <thead>
@@ -89,28 +110,36 @@
 </table>
 <p><strong>(0.1011)₂</strong></p>
 <p><em>Check:</em> 0.5 + 0 + 0.125 + 0.0625 = 0.6875 ✓</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q5</span></p>
 <h4>Perform (110110)₂ − (10111)₂</h4>
+<details>
+<summary>Show answer</summary>
 <pre><code>   110110      (54)
  - 010111      (23)
  --------
    011111      (31)
 </code></pre>
 <p><em>Check:</em> 54 − 23 = 31, and 011111 = 16 + 8 + 4 + 2 + 1 = 31 ✓</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q6</span></p>
 <h4>Find the 1's and 2's complement of (01101001)₂ in 8 bits</h4>
+<details>
+<summary>Show answer</summary>
 <p>The number is 64 + 32 + 8 + 1 = <strong>105</strong>.</p>
 <p><strong>1's complement</strong> — flip every bit: <strong>10010110</strong></p>
 <p><strong>2's complement</strong> — add 1 to that: <strong>10010111</strong></p>
 <p><em>Check:</em> <code>01101001 + 10010111 = 100000000</code>; the ninth bit overflows out of 8
 bits, leaving <code>00000000</code> ✓</p>
+</details>
 </div>
 <hr />
-<h2>Section B — Short answers</h2>
+</details>
+<h2 id="section-b-short-answers">Section B — Short answers</h2>
 <p><strong>Q7. Why do computers use binary rather than decimal?</strong></p>
 <p>A transistor has two stable states — conducting or not — so two symbols map
 directly onto the hardware. A decimal system would need ten distinguishable
@@ -145,10 +174,12 @@ Nothing is missing; the two are counting in different bases.</p>
 slide — text flying in, a chart building (Animations tab).</p>
 </div>
 <hr />
-<h2>Section C — Spreadsheet problems</h2>
+<h2 id="section-c-spreadsheet-problems">Section C — Spreadsheet problems</h2>
 <div class="example">
 <p><span class="label">Q13</span></p>
 <h4>Write a formula to assign grades</h4>
+<details>
+<summary>Show answer</summary>
 <p>Marks are in column B. Assign A ≥ 90, B ≥ 75, C ≥ 60, D ≥ 40, otherwise F.</p>
 <pre><code class="language-excel">=IF(B2&gt;=90,&quot;A&quot;, IF(B2&gt;=75,&quot;B&quot;, IF(B2&gt;=60,&quot;C&quot;, IF(B2&gt;=40,&quot;D&quot;,&quot;F&quot;))))
 </code></pre>
@@ -158,10 +189,13 @@ and the first true condition wins.</p>
 <p>Excel 2019+ alternative:</p>
 <pre><code class="language-excel">=IFS(B2&gt;=90,&quot;A&quot;, B2&gt;=75,&quot;B&quot;, B2&gt;=60,&quot;C&quot;, B2&gt;=40,&quot;D&quot;, TRUE,&quot;F&quot;)
 </code></pre>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q14</span></p>
 <h4>Look up an employee's salary by ID</h4>
+<details>
+<summary>Show answer</summary>
 <p>IDs in A2:A100, names in B, departments in C, salaries in D. The ID to look up
 is in F2.</p>
 <pre><code class="language-excel">=VLOOKUP(F2, $A$2:$D$100, 4, FALSE)
@@ -178,10 +212,13 @@ is in F2.</p>
 <p>The modern equivalent, which can look leftwards and needs no IFERROR:</p>
 <pre><code class="language-excel">=XLOOKUP(F2, $A$2:$A$100, $D$2:$D$100, &quot;Employee not found&quot;)
 </code></pre>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q15</span></p>
 <h4>Split a full name into first and last name</h4>
+<details>
+<summary>Show answer</summary>
 <p>Full name in A2, e.g. <code>Ananya Sharma</code>.</p>
 <pre><code class="language-excel">First name:  =LEFT(A2, FIND(&quot; &quot;,A2)-1)
 Last name:   =RIGHT(A2, LEN(A2)-FIND(&quot; &quot;,A2))
@@ -189,10 +226,13 @@ Last name:   =RIGHT(A2, LEN(A2)-FIND(&quot; &quot;,A2))
 <p><code>FIND(" ",A2)</code> returns 7 for <code>Ananya Sharma</code>. So <code>LEFT(A2,6)</code> gives <code>Ananya</code>,
 and <code>RIGHT(A2, 13-7)</code> = <code>RIGHT(A2,6)</code> gives <code>Sharma</code>.</p>
 <p><strong>Wrap it in IFERROR</strong> for names with no space, or <code>FIND</code> returns <code>#VALUE!</code>.</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q16</span></p>
 <h4>Count and total conditionally</h4>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -221,10 +261,13 @@ and <code>RIGHT(A2, 13-7)</code> = <code>RIGHT(A2,6)</code> gives <code>Sharma</
 </table>
 <p>Note the argument order: <code>SUMIF(range, criteria, sum_range)</code> but
 <code>SUMIFS(sum_range, range1, criteria1, …)</code>.</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q17</span></p>
 <h4>Highlight an entire row where marks are below 40</h4>
+<details>
+<summary>Show answer</summary>
 <ol>
 <li>Select the full data range, <code>A2:F50</code></li>
 <li>
@@ -240,10 +283,13 @@ and <code>RIGHT(A2, 13-7)</code> = <code>RIGHT(A2,6)</code> gives <code>Sharma</
 row is tested against column C, while the relative row number lets each row test
 its own value. <code>$C$2</code> would test every row against one cell; <code>C2</code> would test
 each cell against the column beside it.</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q18</span></p>
 <h4>Using Goal Seek</h4>
+<details>
+<summary>Show answer</summary>
 <p>A budget sheet computes savings in B10 from income (B2) and expenses. Savings
 currently show ₹4,000; you want ₹12,000.</p>
 <p><strong>Data → What-If Analysis → Goal Seek:</strong></p>
@@ -273,37 +319,49 @@ currently show ₹4,000; you want ₹12,000.</p>
 required.</p>
 <p><strong>The changing cell must contain a value, not a formula</strong> — Goal Seek can only
 adjust an input, not a calculated result.</p>
+</details>
 </div>
 <hr />
-<h2>Section D — Long answers</h2>
+</details>
+<h2 id="section-d-long-answers">Section D — Long answers</h2>
 <div class="example">
 <p><span class="label">Q19</span></p>
 <h4>Explain the generations of computers</h4>
+<details>
+<summary>Show answer</summary>
 <p>Give a table with generation, years, technology, languages and examples, then a
 paragraph on each generation's characteristics, then the overall trend —
 smaller, faster, cheaper, more reliable, lower power.</p>
 <p>Full treatment in <a href="unit1_computer-fundamentals.html">unit-1.md §1.4</a>.</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q20</span></p>
 <h4>Explain the network topologies</h4>
+<details>
+<summary>Show answer</summary>
 <p>Draw bus, star and ring. For each give the structure, advantages and
 disadvantages. Then state which is dominant today and why — star, because every
 switched Ethernet network is physically a star, and a single node failing does
 not affect the rest.</p>
 <p>Add the mesh cable-count formula, <strong>n(n−1)/2</strong>, if the question mentions mesh.</p>
+</details>
 </div>
 <div class="example">
 <p><span class="label">Q21</span></p>
 <h4>Explain pivot tables and dashboards</h4>
+<details>
+<summary>Show answer</summary>
 <p>Cover the four areas (Rows, Columns, Values, Filters), creation, value settings,
 grouping and refreshing. Then explain slicers and Report Connections — one
 slicer driving several pivot tables is what makes a dashboard interactive
 rather than a set of static charts.</p>
 <p>Finish with the layout and design principles from <a href="unit5_computer-fundamentals.html">unit-5.md §5.6</a>.</p>
+</details>
 </div>
 <hr />
-<h2>Quick self-test</h2>
+</details>
+<h2 id="quick-self-test">Quick self-test</h2>
 <ol>
 <li>Convert (1010)₂ to decimal and (10)₁₀ to binary.</li>
 <li>How many bits in a nibble? In a byte?</li>

@@ -30,6 +30,21 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-state-space-representation">2.1 State space representation</a></li>
+    <li><a href="#22-the-general-search-algorithm">2.2 The general search algorithm</a></li>
+    <li><a href="#23-measuring-a-search-strategy">2.3 Measuring a search strategy</a></li>
+    <li><a href="#24-breadth-first-search">2.4 Breadth First Search</a></li>
+    <li><a href="#25-depth-first-search">2.5 Depth First Search</a></li>
+    <li><a href="#26-uniform-cost-search">2.6 Uniform Cost Search</a></li>
+    <li><a href="#27-the-three-strategies-compared-measured">2.7 The three strategies compared — measured</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> State space representation — components (state,
 actions, goal test, path cost). Problem formulation and examples (8-puzzle,
 water jug, vacuum cleaner world). Uninformed search strategies — Breadth First
@@ -43,7 +58,7 @@ Norvig's Romania map</strong>, so they can be checked against the textbook as we
 as against the code.</p>
 </div>
 <hr />
-<h2>2.1 State space representation</h2>
+<h2 id="21-state-space-representation">2.1 State space representation</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Formulating the problem <em>is</em> most of the work.</strong> Given a good formulation,
@@ -101,7 +116,7 @@ the search algorithm is a dozen lines. Given a bad one, no algorithm helps.</p>
 </li>
 </ul>
 </div>
-<h3>⚠️ State space ≠ search tree</h3>
+<h3 id="state-space-search-tree">⚠️ State space ≠ search tree</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -176,7 +191,7 @@ correctly reports failure after a very long time.</p>
 half the branching factor — and branching factor is the base of an exponential.</p>
 </div>
 <hr />
-<h2>2.2 The general search algorithm</h2>
+<h2 id="22-the-general-search-algorithm">2.2 The general search algorithm</h2>
 <p>Every strategy in Units 2 and 3 is the same loop with a different queue.</p>
 <pre><code>frontier ← {initial node}
 explored ← {}
@@ -228,13 +243,13 @@ loop:
 </table>
 <p><strong>Learn that table.</strong> It compresses two units into six rows, and it is the
 single most useful thing in the course.</p>
-<h3>⚠️ Tree search vs graph search</h3>
+<h3 id="tree-search-vs-graph-search">⚠️ Tree search vs graph search</h3>
 <p><strong>Graph search keeps an explored set; tree search does not.</strong> Without it,
 search revisits states endlessly and can loop for ever on a graph with cycles.
 The cost is memory proportional to the number of states visited.</p>
 <p><strong>Always use graph search unless the question says otherwise</strong>, and say why.</p>
 <hr />
-<h2>2.3 Measuring a search strategy</h2>
+<h2 id="23-measuring-a-search-strategy">2.3 Measuring a search strategy</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The four properties — the table you will be asked to reproduce</h4>
@@ -322,13 +337,13 @@ The cost is memory proportional to the number of states visited.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ BFS's real problem is memory, not time</h3>
+<h3 id="bfss-real-problem-is-memory-not-time">⚠️ BFS's real problem is memory, not time</h3>
 <p>At b = 10 and 1,000 nodes/second and 100 bytes/node, depth 12 needs about
 <strong>11 hours and 1 petabyte</strong>. The time is bad; <strong>the memory is impossible</strong>.</p>
 <p><strong>Space is the binding constraint on BFS</strong>, and saying so — rather than "it is
 slow" — is the mark.</p>
 <hr />
-<h2>2.4 Breadth First Search</h2>
+<h2 id="24-breadth-first-search">2.4 Breadth First Search</h2>
 <p><strong>Expand the shallowest unexpanded node.</strong> FIFO queue.</p>
 <ul>
 <li><strong>Complete</strong> whenever b is finite.</li>
@@ -348,7 +363,7 @@ Otherwise you expand an entire extra level before noticing, which multiplies
 the work by b.</p>
 </div>
 <hr />
-<h2>2.5 Depth First Search</h2>
+<h2 id="25-depth-first-search">2.5 Depth First Search</h2>
 <p><strong>Expand the deepest unexpanded node.</strong> LIFO stack.</p>
 <ul>
 <li>
@@ -380,14 +395,14 @@ almost nothing by comparison.</p>
 that sentence is the answer to "which uninformed search would you use?"</p>
 </div>
 <hr />
-<h2>2.6 Uniform Cost Search</h2>
+<h2 id="26-uniform-cost-search">2.6 Uniform Cost Search</h2>
 <p><strong>Expand the node with the lowest path cost g(n).</strong> Priority queue.</p>
 <ul>
 <li><strong>Complete and optimal</strong>, provided every step cost is ≥ ε &gt; 0.</li>
 <li><strong>UCS is Dijkstra's algorithm</strong> — the same procedure, arrived at from the AI
   side rather than the graph-theory side. Course 3 met it as Dijkstra.</li>
 </ul>
-<h3>⚠️ Two details that separate UCS from BFS, and both are examined</h3>
+<h3 id="two-details-that-separate-ucs-from-bfs-and-both-are-examined">⚠️ Two details that separate UCS from BFS, and both are examined</h3>
 <ol>
 <li>
 <p><strong>The goal test happens on expansion, not generation.</strong> A goal found early
@@ -401,7 +416,7 @@ that sentence is the answer to "which uninformed search would you use?"</p>
 <p><strong>With equal step costs, UCS degenerates to BFS</strong> — with the goal test moved,
 which is why UCS is slightly slower on such problems.</p>
 <hr />
-<h2>2.7 The three strategies compared — measured</h2>
+<h2 id="27-the-three-strategies-compared-measured">2.7 The three strategies compared — measured</h2>
 <p>Russell and Norvig's Romania map, <strong>Arad → Bucharest</strong>, computed in
 <a href="../labs/course-13a-ai/03_uninformed_search.py"><code>03_uninformed_search.py</code></a>:</p>
 <table class="main-table">
@@ -459,7 +474,7 @@ motivation.</strong> A<em> (§3.3) gets the same 418 while expanding only </em><
 that number is why heuristics exist.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Define a search problem and formulate the water jug problem. Give a solution.
@@ -654,7 +669,7 @@ tree is infinite</strong>, because you can move left and right for ever. That ga
 why graph search keeps an <strong>explored set</strong>.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Name the five components of a search problem.</li>
@@ -680,7 +695,7 @@ why graph search keeps an <strong>explored set</strong>.</p>
    comparison table.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

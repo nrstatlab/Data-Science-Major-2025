@@ -30,15 +30,30 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#21-forward-propagation">2.1 Forward propagation</a></li>
+    <li><a href="#22-backward-propagation">2.2 Backward propagation</a></li>
+    <li><a href="#23-weight-initialisation">2.3 Weight initialisation</a></li>
+    <li><a href="#24-the-learning-rate-the-one-that-can-make-training-fail">2.4 The learning rate — the one that can make training fail</a></li>
+    <li><a href="#25-optimisers">2.5 Optimisers</a></li>
+    <li><a href="#26-overfitting-underfitting-and-the-three-fixes">2.6 Overfitting, underfitting, and the three fixes</a></li>
+    <li><a href="#27-activation-functions-in-deep-networks">2.7 Activation functions in deep networks</a></li>
+    <li><a href="#28-loss-functions-in-detail">2.8 Loss functions in detail</a></li>
+    <li><a href="#29-keras-and-tensorflow">2.9 Keras and TensorFlow</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 2):</strong> Forward and backward propagation. Weight
 initialization, learning rate, and optimization algorithms (SGD, Adam,
 RMSProp). Overfitting &amp; underfitting: Regularization, Dropout, Batch
 normalization. Activation functions in deep networks. Loss functions in detail
 (MSE, cross-entropy, hinge loss). Introduction to Keras/TensorFlow framework.</p>
 <hr />
-<h2>2.1 Forward propagation</h2>
+<h2 id="21-forward-propagation">2.1 Forward propagation</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The whole of it</h4>
 <p>For each layer <code>ℓ</code>:</p>
 <p>$$z^{[\ell]} = W^{[\ell]}a^{[\ell-1]} + b^{[\ell]} \qquad a^{[\ell]} = f(z^{[\ell]})$$</p>
@@ -80,9 +95,9 @@ against the lab: a linear softmax on MNIST is <code>10 × 784 + 10 = 7,850</code
 is exactly what <a href="lab_deep-learning.html#experiment-4">experiment 4</a> prints.</p>
 </div>
 <hr />
-<h2>2.2 Backward propagation</h2>
+<h2 id="22-backward-propagation">2.2 Backward propagation</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The four equations</h4>
 <p>$$dz^{[L]} = a^{[L]} - y \qquad\text{(for softmax + cross-entropy)}$$
 $$dW^{[\ell]} = \tfrac{1}{m}\,dz^{[\ell]}a^{[\ell-1]T} \qquad db^{[\ell]} = \tfrac{1}{m}\textstyle\sum dz^{[\ell]}$$
@@ -96,7 +111,7 @@ cross-entropy is just <em>prediction minus truth</em>. The messy softmax Jacobia
 the <code>1/ŷ</code> from the log cancel exactly. <strong>This cancellation is why the pairing
 is universal</strong>, and it is a standard viva question.</p>
 </div>
-<h3>⚠️ The two things that make it fail</h3>
+<h3 id="the-two-things-that-make-it-fail">⚠️ The two things that make it fail</h3>
 <p>The last equation is a <strong>product</strong> along the chain. Over many layers:</p>
 <table class="main-table">
 <thead>
@@ -123,7 +138,7 @@ is universal</strong>, and it is a standard viva question.</p>
 is fixed with <strong>gradient clipping</strong> — cap the norm of the whole gradient
 vector at some threshold (1.0 is typical) before the update.</p>
 <hr />
-<h2>2.3 Weight initialisation</h2>
+<h2 id="23-weight-initialisation">2.3 Weight initialisation</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The symmetry problem</h4>
@@ -166,7 +181,7 @@ choice between them matters at depth, not at three layers</strong>; what matters
 any depth is that they are not both zero.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The two schemes worth naming</h4>
 <table class="main-table">
 <thead>
@@ -194,7 +209,7 @@ halves the variance of the output. Doubling the initial variance restores it,
 so the signal neither shrinks nor grows as it passes through many layers.</p>
 </div>
 <hr />
-<h2>2.4 The learning rate — the one that can make training fail</h2>
+<h2 id="24-the-learning-rate-the-one-that-can-make-training-fail">2.4 The learning rate — the one that can make training fail</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The measurement</h4>
@@ -242,7 +257,7 @@ learning rate changing:</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ Read the two failure rows carefully</h3>
+<h3 id="read-the-two-failure-rows-carefully">⚠️ Read the two failure rows carefully</h3>
 <p><strong>They fail differently and the fix is opposite.</strong> At <code>lr = 10.0</code> the loss
 is <em>higher than it started</em> — the updates overshoot the minimum and climb
 the other wall. At <code>lr = 0.0001</code> the loss is still 2.2373, essentially
@@ -260,9 +275,9 @@ rate when validation loss stops improving (<code>ReduceLROnPlateau</code>), or u
 decay. Large steps early to travel, small steps late to settle.</p>
 </div>
 <hr />
-<h2>2.5 Optimisers</h2>
+<h2 id="25-optimisers">2.5 Optimisers</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The three the syllabus names</h4>
 <table class="main-table">
 <thead>
@@ -345,7 +360,7 @@ deviate. SGD with momentum plus a schedule still wins on large vision models
 — worth knowing, not where you start.</p>
 </div>
 <hr />
-<h2>2.6 Overfitting, underfitting, and the three fixes</h2>
+<h2 id="26-overfitting-underfitting-and-the-three-fixes">2.6 Overfitting, underfitting, and the three fixes</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>Diagnose before you treat</h4>
@@ -376,7 +391,7 @@ deviate. SGD with momentum plus a schedule still wins on large vision models
 </tbody>
 </table>
 </div>
-<h3>The lab makes it overfit on purpose</h3>
+<h3 id="the-lab-makes-it-overfit-on-purpose">The lab makes it overfit on purpose</h3>
 <p>A 3×256 network on 4,000 MNIST images — <strong>335,114 parameters for 4,000
 examples, about 84 parameters per example.</strong> The network can memorise the
 training set outright, and does:</p>
@@ -423,8 +438,8 @@ training set outright, and does:</p>
 </tbody>
 </table>
 <div class="warn">
-<p><span class="label">EXAMINED BUT NOT IN THE SYLLABUS</span></p>
-<h3>⚠️ Report both columns, and notice they disagree</h3>
+<p><span class="label">WATCH OUT</span></p>
+<h3 id="report-both-columns-and-notice-they-disagree">⚠️ Report both columns, and notice they disagree</h3>
 <p><strong>Dropout 0.5 gave the smallest gap; batch norm gave the best test score.</strong>
 They are not the same question. A regulariser that shrinks the gap by
 dragging the <em>training</em> score down has not helped anyone — and a table that
@@ -434,7 +449,7 @@ thousand. <strong>On this data, regularisation is a refinement.</strong> Say so,
 than claiming dropout transformed the model.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What each one actually does</h4>
 <table class="main-table">
 <thead>
@@ -472,7 +487,7 @@ than claiming dropout transformed the model.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The classic bug</h3>
+<h3 id="the-classic-bug">⚠️ The classic bug</h3>
 <p><strong>Batch norm uses batch statistics while training and running averages at
 inference. Dropout is active while training and off at inference.</strong> Both
 need the model told which mode it is in. Forgetting <code>model.eval()</code> in
@@ -480,7 +495,7 @@ PyTorch — or <code>training=False</code> in Keras — silently corrupts every 
 you run, and the symptom is a test score that jitters between runs.</p>
 </div>
 <hr />
-<h2>2.7 Activation functions in deep networks</h2>
+<h2 id="27-activation-functions-in-deep-networks">2.7 Activation functions in deep networks</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -528,7 +543,7 @@ updates are tiny. Stack thirty such layers and it stops training
 altogether, which is the <code>0.25ⁿ</code> arithmetic from Unit 1.</p>
 </div>
 <hr />
-<h2>2.8 Loss functions in detail</h2>
+<h2 id="28-loss-functions-in-detail">2.8 Loss functions in detail</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -579,7 +594,7 @@ a non-zero gradient. <strong>Hinge loss goes exactly to zero once the example is
 correct by a margin of 1</strong> and stops caring. That is the max-margin idea from
 Course 12 A's SVM, expressed as a loss you can drop into a neural network.</p>
 </div>
-<h3>⚠️ Keras naming, which trips everyone</h3>
+<h3 id="keras-naming-which-trips-everyone">⚠️ Keras naming, which trips everyone</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -601,9 +616,9 @@ Course 12 A's SVM, expressed as a loss you can drop into a neural network.</p>
 <p>Using the wrong one raises a shape error at best, and silently trains on
 nonsense at worst.</p>
 <hr />
-<h2>2.9 Keras and TensorFlow</h2>
+<h2 id="29-keras-and-tensorflow">2.9 Keras and TensorFlow</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What Keras is</h4>
 <p>A high-level API. Since <strong>Keras 3 it is backend-agnostic</strong> — the same code
 runs on TensorFlow, PyTorch or JAX, selected by the <code>KERAS_BACKEND</code>
@@ -614,7 +629,7 @@ lab prints <code>Keras 3.15.1, backend 'torch'</code> and every <code>Sequential
 <code>.compile()</code> and <code>.fit()</code> below is the real API — <strong>character-for-character
 what you would write against TensorFlow.</strong></p>
 </div>
-<h3>The three lines that are the whole framework</h3>
+<h3 id="the-three-lines-that-are-the-whole-framework">The three lines that are the whole framework</h3>
 <pre><code class="language-python">model = keras.Sequential([                       # 1. architecture
     keras.layers.Input((784,)),
     keras.layers.Dense(64, activation=&quot;relu&quot;),
@@ -627,7 +642,7 @@ model.fit(Xtr, ytr, validation_data=(Xte, yte),   # 3. train
           epochs=30, batch_size=32)
 </code></pre>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Sequential vs Functional</h4>
 <table class="main-table">
 <thead>
@@ -651,7 +666,7 @@ model.fit(Xtr, ytr, validation_data=(Xte, yte),   # 3. train
 standard exam example.</strong></p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Write the forward-pass equations and get every shape right</li>
 <li>[ ] Count the parameters of a dense layer and check it against a summary</li>

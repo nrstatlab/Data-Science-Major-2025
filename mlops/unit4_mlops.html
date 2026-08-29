@@ -27,12 +27,24 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-preparing-a-model-for-production">4.1 Preparing a model for production</a></li>
+    <li><a href="#42-runtime-environments">4.2 Runtime environments</a></li>
+    <li><a href="#43-cicd-for-ml">4.3 CI/CD for ML</a></li>
+    <li><a href="#44-deployment-strategies">4.4 Deployment strategies</a></li>
+    <li><a href="#45-containerization">4.5 Containerization</a></li>
+    <li><a href="#46-scaling-with-kubernetes">4.6 Scaling with Kubernetes</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 15):</strong> Preparing models for production. Runtime
 environments: dev to production adaptation. CI/CD pipelines: building ML
 artifacts, testing pipelines. Deployment strategies: batch, online, A/B
 testing, canary releases. Containerization and scaling (Docker, Kubernetes).</p>
 <hr />
-<h2>4.1 Preparing a model for production</h2>
+<h2 id="41-preparing-a-model-for-production">4.1 Preparing a model for production</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>What "production-ready" means, concretely</h4>
@@ -112,7 +124,7 @@ socket and calls it over HTTP:</p>
 </tr>
 </tbody>
 </table>
-<h3>🎯 The two error cases are the experiment</h3>
+<h3 id="the-two-error-cases-are-the-experiment">🎯 The two error cases are the experiment</h3>
 <p><strong>A demo endpoint returns a prediction. A production endpoint decides what
 to do when the caller omits two of the four features, or sends a string
 where a float belongs.</strong></p>
@@ -121,7 +133,7 @@ prediction on garbage input — is what separates the two. The model itself is
 three lines of that file.</p>
 </div>
 <hr />
-<h2>4.2 Runtime environments</h2>
+<h2 id="42-runtime-environments">4.2 Runtime environments</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -148,7 +160,7 @@ three lines of that file.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The differences that cause incidents</h3>
+<h3 id="the-differences-that-cause-incidents">⚠️ The differences that cause incidents</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -183,7 +195,7 @@ three lines of that file.</p>
 as you can, and put the differences in configuration rather than in code.</strong>
 Environment variables, not <code>if ENVIRONMENT == "prod"</code>.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The twelve-factor principle worth borrowing</h4>
 <p><strong>Store configuration in the environment.</strong> The same artefact — the same
 container image — runs in staging and in production, differing only by the
@@ -191,9 +203,9 @@ variables passed in. If you rebuild for production, you did not test what
 you shipped.</p>
 </div>
 <hr />
-<h2>4.3 CI/CD for ML</h2>
+<h2 id="43-cicd-for-ml">4.3 CI/CD for ML</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The pipeline, stage by stage</h4>
 <pre><code>push → lint → unit tests → DATA VALIDATION → train →
        METRIC GATE → build the ML artifact → deploy (with approval)
@@ -252,14 +264,14 @@ if m[&quot;auc&quot;] &lt; MIN_AUC:
 have one. A model above 0.75 but below what is already deployed should not
 ship.</p>
 </div>
-<h3>⚠️ And the prerequisite the gate depends on</h3>
+<h3 id="and-the-prerequisite-the-gate-depends-on">⚠️ And the prerequisite the gate depends on</h3>
 <p><strong>A CI pipeline that runs a non-deterministic training job tells you
 nothing</strong> — the metric moves between runs and the gate becomes a coin toss.</p>
 <p><a href="lab_mlops.html#experiment-8">Experiment 8</a> is the verification: the pinned pipeline
 runs twice and produces <strong>byte-identical</strong> metrics, while the same code with
 the split's <code>random_state</code> removed produces <strong>three different AUCs</strong>.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The workflow's structural decisions</h4>
 <p>From <code>11_github_actions.md</code>:</p>
 <table class="main-table">
@@ -292,7 +304,7 @@ the split's <code>random_state</code> removed produces <strong>three different A
 model that makes credit decisions it should not.</p>
 </div>
 <hr />
-<h2>4.4 Deployment strategies</h2>
+<h2 id="44-deployment-strategies">4.4 Deployment strategies</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -325,7 +337,7 @@ model that makes credit decisions it should not.</p>
 </tbody>
 </table>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>And the release strategies, which are a different axis</h4>
 <table class="main-table">
 <thead>
@@ -374,7 +386,7 @@ user risk</strong>. You find the training/serving skew, the unexpected nulls and
 the latency problem before anybody is affected. It costs compute and nothing
 else.</p>
 </div>
-<h3>⚠️ A/B testing an ML model — the trap</h3>
+<h3 id="ab-testing-an-ml-model-the-trap">⚠️ A/B testing an ML model — the trap</h3>
 <p><strong>You are testing a business outcome, not an accuracy.</strong> A model with better
 AUC can produce worse revenue, because the metric it optimised is not the one
 the business cares about.</p>
@@ -382,15 +394,15 @@ the business cares about.</p>
 an experiment; decide the sample size in advance from the effect you would
 care about — the same discipline as Course 4's hypothesis testing.</p>
 <hr />
-<h2>4.5 Containerization</h2>
+<h2 id="45-containerization">4.5 Containerization</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Why containers, in one line</h4>
 <p><strong>The container is the unit of "it works on my machine" made portable</strong> —
 the code, the libraries, and the OS-level dependencies, shipped as one
 artefact that runs identically wherever there is a runtime.</p>
 </div>
-<h3>⚠️ The seven traps, from <code>10_docker.md</code></h3>
+<h3 id="the-seven-traps-from-10-dockermd">⚠️ The seven traps, from <code>10_docker.md</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -479,7 +491,7 @@ only when the dependencies change — not on every one-line code edit.</p>
 <p><strong>Slim is usually right. Alpine is a trap for scientific Python.</strong></p>
 </div>
 <hr />
-<h2>4.6 Scaling with Kubernetes</h2>
+<h2 id="46-scaling-with-kubernetes">4.6 Scaling with Kubernetes</h2>
 <pre><code class="language-yaml">resources:
   requests: {memory: &quot;256Mi&quot;, cpu: &quot;250m&quot;}
   limits:   {memory: &quot;512Mi&quot;, cpu: &quot;500m&quot;}
@@ -488,7 +500,7 @@ readinessProbe:
 livenessProbe:
   httpGet: {path: /health, port: 8000}
 </code></pre>
-<h3>⚠️ Readiness and liveness are not the same thing</h3>
+<h3 id="readiness-and-liveness-are-not-the-same-thing">⚠️ Readiness and liveness are not the same thing</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -517,14 +529,14 @@ time it is briefly slow</strong>, which turns a latency spike into an outage. Th
 is the standard Kubernetes exam question.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Requests against limits</h4>
 <p><strong><code>requests</code> is what the scheduler reserves; <code>limits</code> is where the container
 is killed.</strong> A container with no memory limit can take down its node — and an
 ML container loading a large model is exactly the kind that does.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Horizontal against vertical scaling</h4>
 <table class="main-table">
 <thead>
@@ -557,7 +569,7 @@ which is why it is the easy case. Training does not: it scales vertically
 until you need distributed training, which is a different problem.</p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] List what a model needs before it is deployable</li>
 <li>[ ] <strong>Say why returning 400 with a reason matters more than the model</strong></li>

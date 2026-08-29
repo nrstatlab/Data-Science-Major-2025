@@ -26,6 +26,17 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#11-what-nlp-is-and-what-makes-it-hard">1.1 What NLP is, and what makes it hard</a></li>
+    <li><a href="#12-applications-and-what-each-one-actually-requires">1.2 Applications, and what each one actually requires</a></li>
+    <li><a href="#13-ambiguity-the-core-of-the-unit">1.3 Ambiguity — the core of the unit</a></li>
+    <li><a href="#14-the-toolchain">1.4 The toolchain</a></li>
+    <li><a href="#15-regular-expressions">1.5 Regular expressions</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 10):</strong> Definition, goals and scope of NLP. Real-world
 applications (assistants, chatbots, translation, summarization, QA, spam
 detection). Fundamentals of language processing. Ambiguities in NLP (lexical,
@@ -33,7 +44,7 @@ structural, contextual). Installations: Python setup, NLTK, spaCy basics.
 Regular expressions (essential patterns, <code>findall</code>, <code>split</code>, <code>sub</code>, matching
 tokens).</p>
 <hr />
-<h2>1.1 What NLP is, and what makes it hard</h2>
+<h2 id="11-what-nlp-is-and-what-makes-it-hard">1.1 What NLP is, and what makes it hard</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The definition, the goals and the scope</h4>
@@ -93,7 +104,7 @@ has.</strong></p>
 </table>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The levels of analysis</h4>
 <p>Worth memorising as a list, because exam questions ask you to place a
 technique at a level.</p>
@@ -148,7 +159,7 @@ levels.</strong> Pragmatics is where current systems are weakest, and it is why
 sarcasm detection is still unsolved.</p>
 </div>
 <hr />
-<h2>1.2 Applications, and what each one actually requires</h2>
+<h2 id="12-applications-and-what-each-one-actually-requires">1.2 Applications, and what each one actually requires</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -193,9 +204,9 @@ less here than elsewhere. Course 15 B's drift-detection material is the
 industrial answer to it.</p>
 </div>
 <hr />
-<h2>1.3 Ambiguity — the core of the unit</h2>
+<h2 id="13-ambiguity-the-core-of-the-unit">1.3 Ambiguity — the core of the unit</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The three kinds</h4>
 <table class="main-table">
 <thead>
@@ -274,13 +285,13 @@ hand-written CFG and gets <strong>exactly 2 parses</strong>:</p>
 </ul>
 <p><strong>Nothing in the grammar prefers either, and nothing in the sentence resolves
 it.</strong></p>
-<h3>🎯 This is why parsing is not enough</h3>
+<h3 id="this-is-why-parsing-is-not-enough">🎯 This is why parsing is not enough</h3>
 <p>A parser gives you the <em>possible</em> structures. Choosing between them needs
 <strong>world knowledge</strong> — telescopes are instruments of seeing — which a
 hand-written CFG cannot have and a statistical parser approximates from a
 treebank.</p>
 </div>
-<h3>The garden-path sentences worth knowing</h3>
+<h3 id="the-garden-path-sentences-worth-knowing">The garden-path sentences worth knowing</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -306,9 +317,9 @@ treebank.</p>
 <p><strong>These are grammatical.</strong> Your parser fails on them for the same reason you
 do: it commits to the likely reading early and cannot cheaply revise.</p>
 <hr />
-<h2>1.4 The toolchain</h2>
+<h2 id="14-the-toolchain">1.4 The toolchain</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>NLTK against spaCy</h4>
 <table class="main-table">
 <thead>
@@ -354,7 +365,7 @@ do: it commits to the likely reading early and cannot cheaply revise.</p>
 <p><strong>Use both, and say which.</strong> This course does: NLTK for corpora and the
 classic algorithms, spaCy for anything you would put in a system.</p>
 </div>
-<h3>The pipeline, which is the thing to understand about spaCy</h3>
+<h3 id="the-pipeline-which-is-the-thing-to-understand-about-spacy">The pipeline, which is the thing to understand about spaCy</h3>
 <pre><code class="language-python">nlp = spacy.load(&quot;en_core_web_sm&quot;)
 print(nlp.pipe_names)
 # ['tok2vec', 'tagger', 'parser', 'attribute_ruler', 'lemmatizer', 'ner']
@@ -364,9 +375,9 @@ before the parser, the parser before the entity recogniser.</p>
 <p><strong>When spaCy is slow, the fix is <code>nlp.pipe(texts, disable=[...])</code></strong> — turn off
 the components you are not using. Doing NER only? Disable the parser.</p>
 <hr />
-<h2>1.5 Regular expressions</h2>
+<h2 id="15-regular-expressions">1.5 Regular expressions</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The four functions the syllabus names</h4>
 <table class="main-table">
 <thead>
@@ -439,7 +450,7 @@ the components you are not using. Doing NER only? Disable the parser.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Greedy against lazy — the single most common regex bug</h3>
+<h3 id="greedy-against-lazy-the-single-most-common-regex-bug">⚠️ Greedy against lazy — the single most common regex bug</h3>
 <p><a href="../labs/course-15a-nlp/01_setup_regex.py"><code>01_setup_regex.py</code></a> measures
 it on <code>&lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt;</code>:</p>
 <table class="main-table">
@@ -463,7 +474,7 @@ it on <code>&lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt;</code>:</p>
 <p><strong><code>*</code> is greedy</strong>: it takes as much as it can and gives back only what it
 must. <strong><code>*?</code> is lazy</strong> and stops at the first <code>&gt;</code>. One character, entirely
 different behaviour.</p>
-<h3>⚠️ And the email pattern everyone writes first</h3>
+<h3 id="and-the-email-pattern-everyone-writes-first">⚠️ And the email pattern everyone writes first</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -494,7 +505,7 @@ deliberate near-misses — <code>asha at nrigroup dot ac dot in</code>, the hand
 <p><strong>"It found some emails" is not a result.</strong> Precision, recall and F1 against
 labelled truth is, and building the truth takes five minutes.</p>
 </div>
-<h3>⚠️ Where regex stops being the right tool</h3>
+<h3 id="where-regex-stops-being-the-right-tool">⚠️ Where regex stops being the right tool</h3>
 <p>The lab splits two sentences on <code>"."</code>:</p>
 <table class="main-table">
 <thead>
@@ -522,7 +533,7 @@ sentence.</p>
 not one</strong> — they need a trained tokeniser, which is <a href="unit2_nlp.html">Unit 2</a>.</p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Define NLP and give the three properties that make language hard</li>
 <li>[ ] List the levels of analysis and place a technique at the right one</li>

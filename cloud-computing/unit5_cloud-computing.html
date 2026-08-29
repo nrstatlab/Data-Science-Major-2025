@@ -28,6 +28,19 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-factors-for-selecting-cloud-ml-platforms">5.1 Factors for selecting cloud ML platforms</a></li>
+    <li><a href="#52-the-six-steps">5.2 The six steps</a></li>
+    <li><a href="#53-monitoring-alarms-and-autoscaling">5.3 Monitoring, alarms and autoscaling</a></li>
+    <li><a href="#54-improving-a-deployed-model">5.4 Improving a deployed model</a></li>
+    <li><a href="#55-case-studies-and-industry-applications">5.5 Case studies and industry applications</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 22):</strong> Factors for selecting cloud ML platforms: ETL/ELT
 pipeline support, scale-up/scale-out training, ML frameworks, pre-tuned
 services. Steps for training ML models in the cloud: data source
@@ -35,9 +48,9 @@ identification, feature engineering, training, validation, deployment,
 monitoring. Monitoring and improving cloud-deployed ML models. Case studies
 and industry applications.</p>
 <hr />
-<h2>5.1 Factors for selecting cloud ML platforms</h2>
+<h2 id="51-factors-for-selecting-cloud-ml-platforms">5.1 Factors for selecting cloud ML platforms</h2>
 <p>The syllabus names four factors. Each is a real question with a real answer.</p>
-<h3>1. ETL/ELT pipeline support</h3>
+<h3 id="1-etlelt-pipeline-support">1. ETL/ELT pipeline support</h3>
 <p><strong>Can the platform get the data to the model without you writing a
 pipeline?</strong></p>
 <table class="main-table">
@@ -69,7 +82,7 @@ pipeline?</strong></p>
 <p><strong>The deciding question is where your data already lives.</strong> A team on BigQuery
 has a real reason to prefer Vertex; a team on S3 has a real reason to prefer
 SageMaker. That is a better answer than a feature comparison.</p>
-<h3>2. Scale-up against scale-out</h3>
+<h3 id="2-scale-up-against-scale-out">2. Scale-up against scale-out</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -116,7 +129,7 @@ have not tried a bigger machine".</p>
 below a few hundred gigabytes it usually loses to one large machine.
 Course 12 B's Spark makes the same point from the other direction.</p>
 </div>
-<h3>3. ML frameworks — version and container support</h3>
+<h3 id="3-ml-frameworks-version-and-container-support">3. ML frameworks — version and container support</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -146,17 +159,17 @@ Course 12 B's Spark makes the same point from the other direction.</p>
 <p><strong>"Bring your own container" is the row that matters</strong>, because it is the
 answer to every future incompatibility — at the cost of maintaining the
 container.</p>
-<h3>4. Pre-tuned services</h3>
+<h3 id="4-pre-tuned-services">4. Pre-tuned services</h3>
 <p><strong>Does a good-enough model already exist?</strong> Unit 4's AIaaS discussion applies:
 generic tasks are already solved better than you will solve them, and specific
 ones are not.</p>
-<h3>⚠️ And the factor the syllabus omits</h3>
+<h3 id="and-the-factor-the-syllabus-omits">⚠️ And the factor the syllabus omits</h3>
 <p><strong>Lock-in, and the cost of leaving.</strong> A SageMaker Pipeline does not run on
 Vertex. The mitigations are ordinary engineering: keep the training code in a
 plain container, keep the data in an open format (Parquet), keep the artefact
 in an open format (ONNX or joblib), and treat the platform as a scheduler.</p>
 <hr />
-<h2>5.2 The six steps</h2>
+<h2 id="52-the-six-steps">5.2 The six steps</h2>
 <p>The syllabus lists them. Here is what actually goes wrong at each.</p>
 <pre><code>  1. IDENTIFY      2. ENGINEER     3. TRAIN      4. VALIDATE
      the data         features        the model     it
@@ -168,7 +181,7 @@ in an open format (ONNX or joblib), and treat the platform as a scheduler.</p>
                               └──────────┘
                              (and retrain)
 </code></pre>
-<h3>Step 1 — Data source identification</h3>
+<h3 id="step-1-data-source-identification">Step 1 — Data source identification</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -198,7 +211,7 @@ in an open format (ONNX or joblib), and treat the platform as a scheduler.</p>
 <p><strong>And the one that ends projects:</strong> <em>does a label exist?</em> An enormous number
 of "machine learning projects" are really "we would need to label 50,000
 examples first" projects, and discovering that in week six is expensive.</p>
-<h3>Step 2 — Feature engineering</h3>
+<h3 id="step-2-feature-engineering">Step 2 — Feature engineering</h3>
 <p><strong>This is where the time goes, and it is Course 12 A's material unchanged.</strong></p>
 <p>The cloud-specific additions:</p>
 <ul>
@@ -212,14 +225,14 @@ examples first" projects, and discovering that in week six is expensive.</p>
 <li><strong>Version the feature definitions</strong> with the model. A model is only
   reproducible if its inputs are.</li>
 </ul>
-<h3>⚠️ Step 2 is also where leakage happens</h3>
+<h3 id="step-2-is-also-where-leakage-happens">⚠️ Step 2 is also where leakage happens</h3>
 <p><strong>Any feature computed using information not available at prediction time is
 leakage</strong> — and in a cloud pipeline it is easy to introduce, because the
 training job reads a warehouse table that has been updated since.</p>
 <p>The classic form: a feature like <code>total_orders_this_month</code> computed from a
 table that already includes the outcome month. <strong>The model scores brilliantly
 and fails in production</strong>, and no infrastructure metric will tell you.</p>
-<h3>Step 3 — Training</h3>
+<h3 id="step-3-training">Step 3 — Training</h3>
 <p>The job is declarative:</p>
 <pre><code class="language-python">estimator = SKLearn(entry_point=&quot;train.py&quot;, role=role,
                     instance_type=&quot;ml.m5.xlarge&quot;,
@@ -235,7 +248,7 @@ Getting the last one wrong is why a job "succeeds" and produces no artefact.</p>
 exceed <code>max_run</code>, and <strong>without <code>checkpoint_s3_uri</code> an interrupted job
 restarts from zero</strong> — free money for a 20-minute job, a trap for a 20-hour
 one.</p>
-<h3>Step 4 — Validation</h3>
+<h3 id="step-4-validation">Step 4 — Validation</h3>
 <p><strong>Everything from Course 12 A applies</strong>, and the cloud adds nothing except the
 temptation to skip it because a leaderboard exists.</p>
 <p>The measured baseline, again:</p>
@@ -264,7 +277,7 @@ temptation to skip it because a leaderboard exists.</p>
 cross-validated mean and standard deviation.</strong> In the AutoML run, the top two
 models differed by 0.0047 with standard deviations around 0.02 — <strong>inside the
 noise</strong>, and not a basis for a decision.</p>
-<h3>Step 5 — Deployment</h3>
+<h3 id="step-5-deployment">Step 5 — Deployment</h3>
 <p><strong>The artefact is the deliverable.</strong> In
 <a href="../labs/course-13b-cloud/15_deploy_endpoint.py"><code>15_deploy_endpoint.py</code></a>
 a 138,945-byte model file is written, reloaded and served — and the endpoint's
@@ -347,7 +360,7 @@ parsing, and a NumPy call whose fixed cost is paid 100 times instead of once.
 <strong>If you are scoring a million rows, calling an endpoint a million times is
 the expensive way to do arithmetic.</strong></p>
 </div>
-<h3>⚠️ And the error codes matter operationally</h3>
+<h3 id="and-the-error-codes-matter-operationally">⚠️ And the error codes matter operationally</h3>
 <p>Every malformed request in the lab returns a <strong>4xx, not a 5xx</strong>:</p>
 <table class="main-table">
 <thead>
@@ -378,10 +391,10 @@ the expensive way to do arithmetic.</strong></p>
 <p><strong>5xx means <em>your</em> service is broken and should page someone.</strong> If malformed
 client input returns 500, your error alarm fires for other people's bugs and
 you stop trusting it.</p>
-<h3>Step 6 — Monitoring</h3>
+<h3 id="step-6-monitoring">Step 6 — Monitoring</h3>
 <p>Covered in §5.3.</p>
 <hr />
-<h2>5.3 Monitoring, alarms and autoscaling</h2>
+<h2 id="53-monitoring-alarms-and-autoscaling">5.3 Monitoring, alarms and autoscaling</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>Alarm on the tail, not the mean</h4>
@@ -392,7 +405,7 @@ you stop trusting it.</p>
 the average absorbed it. <strong>Alarm on p95 or p99, because the tail is where
 users live</strong> — and 5% of requests is a lot of users.</p>
 </div>
-<h3>The six metrics worth alarming on</h3>
+<h3 id="the-six-metrics-worth-alarming-on">The six metrics worth alarming on</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -575,8 +588,8 @@ either pure strategy — which is why every cost-optimisation review starts by
 asking what your floor is.</p>
 </div>
 <hr />
-<h2>5.4 Improving a deployed model</h2>
-<h3>⚠️ The failure that has no error message</h3>
+<h2 id="54-improving-a-deployed-model">5.4 Improving a deployed model</h2>
+<h3 id="the-failure-that-has-no-error-message">⚠️ The failure that has no error message</h3>
 <p><strong>A model does not break. It decays.</strong> The endpoint keeps returning 200 and
 the predictions quietly stop being right.</p>
 <table class="main-table">
@@ -620,7 +633,7 @@ signal.</strong></p>
 <p><strong>The only reliable answer is a holdout group</strong> who receive no intervention —
 which is an ethical and commercial decision, not a technical one.</p>
 </div>
-<h3>Model Monitor, in outline</h3>
+<h3 id="model-monitor-in-outline">Model Monitor, in outline</h3>
 <pre><code class="language-python">monitor.suggest_baseline(baseline_dataset=&quot;s3://bucket/train/train.csv&quot;)
 monitor.create_monitoring_schedule(endpoint_input=predictor.endpoint_name,
                                    schedule_cron_expression=&quot;cron(0 * ? * * *)&quot;)
@@ -628,7 +641,7 @@ monitor.create_monitoring_schedule(endpoint_input=predictor.endpoint_name,
 <p><strong>Baseline the training distribution, then compare production inputs against
 it hourly.</strong> A drift alarm is the only thing that catches a model that has
 stopped working while every infrastructure metric stays green.</p>
-<h3>Retraining</h3>
+<h3 id="retraining">Retraining</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -661,7 +674,7 @@ notebook someone runs, it will stop happening when that person changes team.</p>
 applies: a canary needs a metric you trust, which is why monitoring comes
 first.</p>
 <hr />
-<h2>5.5 Case studies and industry applications</h2>
+<h2 id="55-case-studies-and-industry-applications">5.5 Case studies and industry applications</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -723,7 +736,7 @@ first.</p>
 good answer to a case-study question spends most of its space on them.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. Your endpoint's mean latency is 60 ms and users complain it is slow.
 Explain and diagnose.</strong></p>
 <p><strong>The mean is hiding the tail.</strong> In the measured example, twenty requests with
@@ -862,7 +875,7 @@ duty cycle?</strong> Steady and urgent → provisioned. Occasional → serverles
 latency requirement → batch. <strong>An <code>ml.m5.large</code> endpoint at $70/month for a
 weekly demo is the case this question exists to catch.</strong></p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Name the four factors for selecting a cloud ML platform.</li>
@@ -895,7 +908,7 @@ weekly demo is the case this question exists to catch.</strong></p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

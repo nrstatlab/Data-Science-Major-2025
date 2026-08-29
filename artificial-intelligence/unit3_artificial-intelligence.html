@@ -31,6 +31,22 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-heuristics">3.1 Heuristics</a></li>
+    <li><a href="#32-greedy-best-first-search">3.2 Greedy Best First Search</a></li>
+    <li><a href="#33-a-search">3.3 A* search</a></li>
+    <li><a href="#34-local-search">3.4 Local search</a></li>
+    <li><a href="#35-hill-climbing">3.5 Hill climbing</a></li>
+    <li><a href="#36-simulated-annealing">3.6 Simulated annealing</a></li>
+    <li><a href="#37-genetic-algorithms">3.7 Genetic algorithms</a></li>
+    <li><a href="#38-constraint-satisfaction-problems">3.8 Constraint Satisfaction Problems</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 17):</strong> Informed search strategies — heuristics (concept,
 admissibility, consistency), Greedy Best First Search, A* Algorithm. Local
 search — Hill Climbing, Simulated Annealing. Genetic Algorithms. Constraint
@@ -42,7 +58,7 @@ are asked almost every year. Every figure below is computed in
 <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-13a-ai"><code>labs/course-13a-ai/</code></a>.</p>
 </div>
 <hr />
-<h2>3.1 Heuristics</h2>
+<h2 id="31-heuristics">3.1 Heuristics</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>A heuristic h(n) estimates the cost of the cheapest path from n to a goal.</strong></p>
@@ -154,7 +170,7 @@ for every n, so A* with h₂ expands no more nodes than with h₁.</p>
 "h₂ is better in my experiments".</p>
 </div>
 <hr />
-<h2>3.2 Greedy Best First Search</h2>
+<h2 id="32-greedy-best-first-search">3.2 Greedy Best First Search</h2>
 <p><strong>f(n) = h(n).</strong> Expand whatever <em>looks</em> closest to the goal.</p>
 <ul>
 <li><strong>Not optimal.</strong></li>
@@ -205,7 +221,7 @@ closer <em>as the crow flies</em>. But the road through Rimnicu Vilcea and Pites
 That sentence is the whole diagnosis, and it leads directly to A*.</p>
 </div>
 <hr />
-<h2>3.3 A* search</h2>
+<h2 id="33-a-search">3.3 A* search</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -275,7 +291,7 @@ expand 13 nodes and return 418 — the same algorithm under a different name.</p
 maximum information used badly, not optimal), and takes the good half of
 each.</strong></p>
 </div>
-<h3>⚠️ What breaks without admissibility — measured</h3>
+<h3 id="what-breaks-without-admissibility-measured">⚠️ What breaks without admissibility — measured</h3>
 <p>Multiply the straight-line heuristic by 2, so it now <strong>overestimates</strong>:</p>
 <table class="main-table">
 <thead>
@@ -354,7 +370,7 @@ demonstration above <em>useful</em>: you give up the guarantee knowingly, and ge
 bounded guarantee instead.</p>
 </div>
 <hr />
-<h2>3.4 Local search</h2>
+<h2 id="34-local-search">3.4 Local search</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The shift in thinking</h4>
@@ -400,7 +416,7 @@ to it is irrelevant</strong> — N-Queens, scheduling, VLSI layout, timetabling.
 </table>
 </div>
 <hr />
-<h2>3.5 Hill climbing</h2>
+<h2 id="35-hill-climbing">3.5 Hill climbing</h2>
 <p><strong>Move to the best neighbour. Stop when no neighbour is better.</strong></p>
 <pre><code>current ← initial state
 loop:
@@ -409,7 +425,7 @@ loop:
     current ← neighbour
 </code></pre>
 <p>It is <strong>greedy local search</strong>, and it is sometimes called <em>steepest ascent</em>.</p>
-<h3>⚠️ The three ways it fails — a guaranteed exam question</h3>
+<h3 id="the-three-ways-it-fails-a-guaranteed-exam-question">⚠️ The three ways it fails — a guaranteed exam question</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -434,7 +450,7 @@ loop:
 </table>
 <p><strong>On random 8-queens instances, plain hill climbing solves about 14% of them</strong>
 — the classic figure — and gets stuck the rest of the time.</p>
-<h3>The escapes</h3>
+<h3 id="the-escapes">The escapes</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -469,7 +485,7 @@ loop:
 simply because it eventually starts somewhere from which the peak is reachable.
 That is worth stating.</p>
 <hr />
-<h2>3.6 Simulated annealing</h2>
+<h2 id="36-simulated-annealing">3.6 Simulated annealing</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -520,7 +536,7 @@ enough" is impractically slow</strong>, so real schedules are geometric
 hiding.</p>
 </div>
 <hr />
-<h2>3.7 Genetic algorithms</h2>
+<h2 id="37-genetic-algorithms">3.7 Genetic algorithms</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The idea</h4>
@@ -589,13 +605,13 @@ together"), crossover carries that block into the next generation intact.</p>
 degenerates into an expensive random search. Saying that shows you understand
 why GAs sometimes work and often do not.</p>
 </div>
-<h3>⚠️ An honest assessment</h3>
+<h3 id="an-honest-assessment">⚠️ An honest assessment</h3>
 <p>GAs are <strong>easy to apply and rarely the best tool.</strong> They need no gradient and
 no problem structure, which is their appeal — and they are usually beaten by a
 method that exploits the structure they ignore. <strong>Mention that.</strong> An answer
 that only lists the operators reads like a brochure.</p>
 <hr />
-<h2>3.8 Constraint Satisfaction Problems</h2>
+<h2 id="38-constraint-satisfaction-problems">3.8 Constraint Satisfaction Problems</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The definition</h4>
@@ -715,7 +731,7 @@ moment a constraint is violated.</strong></p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ MRV and LCV pull in opposite directions, and that is correct</h3>
+<h3 id="mrv-and-lcv-pull-in-opposite-directions-and-that-is-correct">⚠️ MRV and LCV pull in opposite directions, and that is correct</h3>
 <p><strong>MRV chooses the variable most likely to fail</strong> — because you want to discover
 failure now.
 <strong>LCV chooses the value least likely to cause failure</strong> — because once you have
@@ -723,7 +739,7 @@ committed to a variable you want the assignment to survive.</p>
 <p><strong>Variables: fail fast. Values: fail late.</strong> That is the one-line answer, and
 it is asked as a trick question.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Explain the A<em> algorithm. What is admissibility, and what happens without it?
@@ -885,7 +901,7 @@ late.</strong> You want to <em>discover</em> a dead end as early as possible, bu
 committed to a variable you want the value you pick to <em>survive</em>.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>Define an admissible heuristic.</li>
@@ -913,7 +929,7 @@ committed to a variable you want the value you pick to <em>survive</em>.</p>
 <li>Explain genetic algorithms with the 8-queens example.</li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

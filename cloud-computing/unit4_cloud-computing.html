@@ -29,12 +29,26 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-machine-learning-in-the-cloud-what-changes-and-what-does-not">4.1 Machine learning in the cloud — what changes, and what does not</a></li>
+    <li><a href="#42-benefits-honestly-weighed">4.2 Benefits, honestly weighed</a></li>
+    <li><a href="#43-limitations">4.3 Limitations</a></li>
+    <li><a href="#44-aiaas-and-gpuaas">4.4 AIaaS and GPUaaS</a></li>
+    <li><a href="#45-managed-ml-platforms">4.5 Managed ML platforms</a></li>
+    <li><a href="#46-automl">4.6 AutoML</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 22):</strong> Machine learning in the cloud: benefits and
 limitations. Cloud-based ML services: AIaaS, GPUaaS. Managed ML platforms:
 overview and advantages. Cloud ML platforms: AWS SageMaker, Azure ML Studio,
 Google Cloud AutoML.</p>
 <hr />
-<h2>4.1 Machine learning in the cloud — what changes, and what does not</h2>
+<h2 id="41-machine-learning-in-the-cloud-what-changes-and-what-does-not">4.1 Machine learning in the cloud — what changes, and what does not</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <h4>The table to lead with</h4>
@@ -129,7 +143,7 @@ found anything at all.</p>
 model trained on somebody else's computer.</strong></p>
 </div>
 <hr />
-<h2>4.2 Benefits, honestly weighed</h2>
+<h2 id="42-benefits-honestly-weighed">4.2 Benefits, honestly weighed</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -223,7 +237,7 @@ tabular data <strong>has no GPU code path</strong>. It would run at exactly the 
 Tree ensembles, linear models and pandas feature engineering do not use them.</p>
 </div>
 <hr />
-<h2>4.3 Limitations</h2>
+<h2 id="43-limitations">4.3 Limitations</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -262,18 +276,18 @@ Tree ensembles, linear models and pandas feature engineering do not use them.</p
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The one that costs real money</h3>
+<h3 id="the-one-that-costs-real-money">⚠️ The one that costs real money</h3>
 <p><strong>A training job ends and stops billing. An endpoint runs until you delete
 it</strong>, at hourly rates, whether or not anything calls it.</p>
 <p><strong>An <code>ml.m5.large</code> endpoint is about $70/month, called or not.</strong></p>
 <p>Every "surprise cloud bill" story is a resource nobody switched off. <strong>Set a
 budget alarm on day one</strong>, before creating anything else.</p>
-<h3>⚠️ And the one that costs credibility</h3>
+<h3 id="and-the-one-that-costs-credibility">⚠️ And the one that costs credibility</h3>
 <p><strong>Nothing about the cloud fixes the data.</strong> A wrong target, a leaked feature,
 an unexamined base rate or a drifted distribution is exactly as wrong on
 eight GPUs. The <code>DummyClassifier</code> at 84.33% is unmoved by hardware.</p>
 <hr />
-<h2>4.4 AIaaS and GPUaaS</h2>
+<h2 id="44-aiaas-and-gpuaas">4.4 AIaaS and GPUaaS</h2>
 <p>The syllabus names these as if they were new layers. <strong>They are not</strong>, and
 saying so is worth the mark:</p>
 <table class="main-table">
@@ -298,7 +312,7 @@ saying so is worth the mark:</p>
 </tr>
 </tbody>
 </table>
-<h3>AIaaS — pre-trained services</h3>
+<h3 id="aiaas-pre-trained-services">AIaaS — pre-trained services</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -369,7 +383,7 @@ billions of examples with your afternoon and your dataset.</p>
 <p><strong>That last one is underrated.</strong> A pre-trained API is a dependency that
 silently changes behaviour, and nothing in your test suite will tell you when.</p>
 </div>
-<h3>GPUaaS — and the honest version</h3>
+<h3 id="gpuaas-and-the-honest-version">GPUaaS — and the honest version</h3>
 <p><strong>Renting a GPU is renting an instance.</strong> The interesting content is <em>which
 one and why</em>:</p>
 <table class="main-table">
@@ -411,9 +425,9 @@ one and why</em>:</p>
    ignore.</li>
 </ol>
 <hr />
-<h2>4.5 Managed ML platforms</h2>
+<h2 id="45-managed-ml-platforms">4.5 Managed ML platforms</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What "managed" covers</h4>
 <p>A managed platform provides the whole lifecycle as services:</p>
 <pre><code>  data  →  prepare  →  train  →  tune  →  register  →  deploy  →  monitor
@@ -424,7 +438,7 @@ one and why</em>:</p>
 <p><strong>The value is not any one box; it is that they are joined</strong>, versioned, and
 logged. An experiment six months old can be re-run from its record.</p>
 </div>
-<h3>The three platforms, compared</h3>
+<h3 id="the-three-platforms-compared">The three platforms, compared</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -499,7 +513,7 @@ capability and gives one vendor's term is worth more than a memorised AWS
 product list. The syllabus's own outcome asks you to <em>apply cloud-based
 platforms</em>, not to recite one.</p>
 </div>
-<h3>The pieces worth knowing by name</h3>
+<h3 id="the-pieces-worth-knowing-by-name">The pieces worth knowing by name</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -535,7 +549,7 @@ training/serving skew, where a feature is computed one way in the batch job
 and another way at request time. The model then sees a distribution it never
 trained on, and every infrastructure metric stays green.</p>
 <hr />
-<h2>4.6 AutoML</h2>
+<h2 id="46-automl">4.6 AutoML</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>What it actually does, run for real</h4>
@@ -586,7 +600,7 @@ trained on, and every infrastructure metric stays green.</p>
 cross-validates each, and ranks them. <strong>There is no intelligence in it — it is
 a search</strong>, and its value is that it is exhaustive where a human would be lazy.</p>
 </div>
-<h3>⚠️ And read the top of it carefully</h3>
+<h3 id="and-read-the-top-of-it-carefully">⚠️ And read the top of it carefully</h3>
 <p><strong>0.9334 against 0.9288 is a gap of 0.0047, with standard deviations of
 0.0210 and 0.0196. The difference is inside the noise.</strong></p>
 <p>Declaring a winner here is not supported by the data, and <strong>"AutoML picked X"
@@ -658,7 +672,7 @@ engineering the search chose, which is the part you would otherwise never see
 and could not defend to anyone.</p>
 </div>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <p><strong>1. A team reports "our model is 97% accurate in the cloud". What do you ask
 next?</strong></p>
 <p><strong>Three questions, in order:</strong></p>
@@ -766,7 +780,7 @@ WebDataset, or reading larger files.</p>
 rates to run a CPU-bound pipeline is the most common way to waste money on a
 managed ML platform.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What does the cloud change about a machine-learning algorithm?</li>
@@ -798,7 +812,7 @@ managed ML platform.</p>
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

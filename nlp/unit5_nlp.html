@@ -26,15 +26,26 @@
     <span class="chip">What to be able to do after this unit</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#51-transformer-architecture-basics-self-attention">5.1 Transformer architecture basics: self-attention</a></li>
+    <li><a href="#52-bert">5.2 BERT</a></li>
+    <li><a href="#53-gpt-and-generative-nlp">5.3 GPT and generative NLP</a></li>
+    <li><a href="#54-text-summarization">5.4 Text summarization</a></li>
+    <li><a href="#55-applications-and-the-hugging-face-ecosystem-in-practice">5.5 Applications, and the Hugging Face ecosystem in practice</a></li>
+    <li><a href="#what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 11):</strong> Transformer architecture basics (self-attention,
 encoder-decoder). BERT: pretraining, fine-tuning. GPT and generative NLP.
 Hugging Face ecosystem (using pre-trained models). Text summarization:
 extractive, abstractive, hybrid approaches. Applications: document
 classification, chatbots, virtual assistants.</p>
 <hr />
-<h2>5.1 Transformer architecture basics: self-attention</h2>
+<h2 id="51-transformer-architecture-basics-self-attention">5.1 Transformer architecture basics: self-attention</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The one equation</h4>
 <p>$$\text{Attention}(Q, K, V) = \text{softmax}!\left(\frac{QK^{T}}{\sqrt{d_k}}\right)V$$</p>
 <table class="main-table">
@@ -132,7 +143,7 @@ Dividing by <code>√d_k</code> holds the score variance at 1 whatever the dimen
 <p><strong>This is the detail most people cannot explain in a viva.</strong></p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Multi-head attention, and the encoder block</h4>
 <p>One head produces one weighted average and can express one kind of
 relationship. <strong>Eight heads attend to eight things at once</strong> — one tracking
@@ -168,7 +179,7 @@ all of them.</p>
 </tbody>
 </table>
 </div>
-<h3>⚠️ Positional encoding</h3>
+<h3 id="positional-encoding">⚠️ Positional encoding</h3>
 <p><strong>Attention is permutation-equivariant</strong>: shuffle the input and the outputs
 shuffle with it. It has <em>no</em> notion of order, so position must be added
 explicitly — as fixed sinusoids or as learned vectors.</p>
@@ -177,7 +188,7 @@ sentiment task — because order carries no information there. <strong>On transl
 or parsing, removing it is catastrophic.</strong> The null result is reported as
 such rather than replaced with a task that flatters the claim.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Encoder-decoder</h4>
 <table class="main-table">
 <thead>
@@ -231,9 +242,9 @@ target words to source words wherever they are.</p>
 </table>
 </div>
 <hr />
-<h2>5.2 BERT</h2>
+<h2 id="52-bert">5.2 BERT</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Pretraining</h4>
 <p>Two objectives, of which only one turned out to matter:</p>
 <table class="main-table">
@@ -316,7 +327,7 @@ bidirectional model can use it. <strong>Word2Vec cannot do this — it assigns <
 one vector, for ever.</strong></p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Fine-tuning</h4>
 <p>Replace the pre-trained head with a task head and train on your labelled data.</p>
 <table class="main-table">
@@ -348,7 +359,7 @@ too much on too little data: <strong>accuracy fell from 0.8260 to 0.7760.</stron
 much data you have.</strong></p>
 </div>
 <hr />
-<h2>5.3 GPT and generative NLP</h2>
+<h2 id="53-gpt-and-generative-nlp">5.3 GPT and generative NLP</h2>
 <p><strong>Decoder-only, causally masked, trained on next-token prediction.</strong> The mask
 is a triangular matrix that stops position <code>t</code> attending to anything after it
 — which is what makes generation coherent and makes right-hand context
@@ -375,14 +386,14 @@ unavailable.</p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The failure mode to name</h3>
+<h3 id="the-failure-mode-to-name">⚠️ The failure mode to name</h3>
 <p><strong>Hallucination.</strong> A generative model produces text that is <em>probable</em>, not
 text that is <em>supported</em>. It has no representation of "I do not know", and
 fluency is uncorrelated with accuracy.</p>
 <hr />
-<h2>5.4 Text summarization</h2>
+<h2 id="54-text-summarization">5.4 Text summarization</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>The three approaches the syllabus names</h4>
 <table class="main-table">
 <thead>
@@ -452,7 +463,7 @@ real 22-sentence Reuters article, and compares it with <strong>lead-3</strong>:<
 </tbody>
 </table>
 <p><strong>They agree on one of three.</strong></p>
-<h3>🎯 Lead-3 is the baseline to beat, and it is free</h3>
+<h3 id="lead-3-is-the-baseline-to-beat-and-it-is-free">🎯 Lead-3 is the baseline to beat, and it is free</h3>
 <p>News writing is deliberately front-loaded — <strong>the inverted pyramid</strong> — so
 "take the first three sentences" is a genuinely strong summarizer on news.
 Many published systems beat it by very little.</p>
@@ -460,7 +471,7 @@ Many published systems beat it by very little.</p>
 data, and omitting the baseline is the most common flaw in summarization
 reports.</p>
 </div>
-<h3>⚠️ Why the extractive/abstractive distinction matters in practice</h3>
+<h3 id="why-the-extractiveabstractive-distinction-matters-in-practice">⚠️ Why the extractive/abstractive distinction matters in practice</h3>
 <p><strong>Abstractive models hallucinate</strong> — they can assert a number, a date or a
 causal claim the source does not contain.</p>
 <div class="tip">
@@ -471,7 +482,7 @@ medical report is at worst badly chosen, while an abstractive one can state
 a dosage that appears nowhere in the source.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Evaluation</h4>
 <table class="main-table">
 <thead>
@@ -509,9 +520,9 @@ number and date in the generated summary, search the source for it. <strong>Anyt
 not there is a hallucination. Report the count.</strong></p>
 </div>
 <hr />
-<h2>5.5 Applications, and the Hugging Face ecosystem in practice</h2>
+<h2 id="55-applications-and-the-hugging-face-ecosystem-in-practice">5.5 Applications, and the Hugging Face ecosystem in practice</h2>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Document classification</h4>
 <p>The pipeline of <a href="unit3_nlp.html">Unit 3</a> with a transformer as the encoder.
 <strong>Report the baseline.</strong> Course 15 A's own measurement: six models on movie
@@ -519,7 +530,7 @@ reviews differed by <strong>less than the spread between cross-validation folds<
 so a transformer that beats TF-IDF by half a point has not beaten anything.</p>
 </div>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Chatbots and virtual assistants — the two kinds</h4>
 <p>A <strong>virtual assistant</strong> is a chatbot with actions attached: it must also
 classify the user's <em>intent</em> and fill the <em>slots</em> that action needs
@@ -592,7 +603,7 @@ right answer, broken by list order, <strong>and both matches came only from the
 function words "are", "the" and "when".</strong> Neither had anything to do with
 meaning.</p>
 </div>
-<h3>⚠️ The threshold every retrieval bot needs</h3>
+<h3 id="the-threshold-every-retrieval-bot-needs">⚠️ The threshold every retrieval bot needs</h3>
 <p><strong><code>argmax</code> always returns something.</strong> Asked <em>"what is the wifi password"</em> —
 not in the FAQ — the bot confidently returns its nearest entry at similarity
 <strong>0.3561</strong>.</p>
@@ -635,7 +646,7 @@ most commonly omitted.</p>
 confidently wrong 20% of the time is worse than no bot.</strong></p>
 </div>
 <hr />
-<h2>What to be able to do after this unit</h2>
+<h2 id="what-to-be-able-to-do-after-this-unit">What to be able to do after this unit</h2>
 <ul>
 <li>[ ] Write the attention equation and say what Q, K and V mean</li>
 <li>[ ] Work an attention example by hand</li>

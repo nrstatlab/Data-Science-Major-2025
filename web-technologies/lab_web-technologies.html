@@ -16,6 +16,29 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#how-the-files-are-organised">How the files are organised</a></li>
+    <li><a href="#experiment-1-html-formatting-options">Experiment 1 — HTML formatting options</a></li>
+    <li><a href="#experiment-2-lists-and-an-image">Experiment 2 — Lists and an image</a></li>
+    <li><a href="#experiment-3-ten-images-aligned-with-a-table">Experiment 3 — Ten images aligned with a table</a></li>
+    <li><a href="#experiment-4-a-form-with-every-control-type">Experiment 4 — A form with every control type</a></li>
+    <li><a href="#experiment-5-embed-a-calendar">Experiment 5 — Embed a calendar</a></li>
+    <li><a href="#experiment-6-mailing-list-subscription-form">Experiment 6 — Mailing-list subscription form</a></li>
+    <li><a href="#experiment-7-style-a-registration-form-with-css">Experiment 7 — Style a registration form with CSS</a></li>
+    <li><a href="#experiment-8-responsive-page-with-flexbox-and-grid">Experiment 8 — Responsive page with Flexbox and Grid</a></li>
+    <li><a href="#experiment-9-hover-effects-and-transitions">Experiment 9 — Hover effects and transitions</a></li>
+    <li><a href="#experiment-10-javascript-string-operations">Experiment 10 — JavaScript string operations</a></li>
+    <li><a href="#experiment-11-form-validation">Experiment 11 — Form validation</a></li>
+    <li><a href="#experiment-12-time-based-greeting">Experiment 12 — Time-based greeting</a></li>
+    <li><a href="#experiment-13-array-and-object-manipulation">Experiment 13 — Array and object manipulation</a></li>
+    <li><a href="#experiment-14-render-json-as-a-table">Experiment 14 — Render JSON as a table</a></li>
+    <li><a href="#experiment-15-fetch-weather-data-from-an-open-api">Experiment 15 — Fetch weather data from an open API</a></li>
+    <li><a href="#experiment-16-jquery-dom-manipulation">Experiment 16 — jQuery DOM manipulation</a></li>
+    <li><a href="#lab-examination">Lab examination</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 9–10):</strong> 16 experiments, 1 credit, 2 hrs/week.</p>
 <p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-7-web"><code>labs/course-7-web/</code></a>.</p>
 <div class="tip">
@@ -30,7 +53,7 @@ appearance: open the pages in a browser for that.</p>
 <pre><code class="language-bash">cd tools &amp;&amp; npm install          # jsdom, once
 node tools/run_web_labs.js       # from the repository root
 </code></pre>
-<h2>How the files are organised</h2>
+<h2 id="how-the-files-are-organised">How the files are organised</h2>
 <p>Each experiment that has logic is split in two:</p>
 <pre><code>labs/course-7-web/
     10_string_ops.js        ← pure functions, exported — testable
@@ -42,7 +65,7 @@ as a parameter and returns a value can be asserted; one that reads
 browser. The <code>.js</code> file holds the logic, the <code>.html</code> file holds the wiring.</p>
 <p>The examiner will ask you to demonstrate in a browser, so know both halves.</p>
 <hr />
-<h2>Experiment 1 — HTML formatting options</h2>
+<h2 id="experiment-1-html-formatting-options">Experiment 1 — HTML formatting options</h2>
 <p><strong>File:</strong> <code>01_formatting.html</code></p>
 <p>Required: bold, italics, underline, headings H1–H6, font type/size/colour,
 coloured or image background, paragraph, line break, horizontal rule, <code>&lt;pre&gt;</code>.</p>
@@ -75,7 +98,7 @@ underline carry meaning. Saying so is worth a mark.</p>
 <p><code>&lt;pre&gt;</code> is the only element that preserves whitespace and newlines. Everything
 else collapses runs of spaces to one.</p>
 <hr />
-<h2>Experiment 2 — Lists and an image</h2>
+<h2 id="experiment-2-lists-and-an-image">Experiment 2 — Lists and an image</h2>
 <p><strong>File:</strong> <code>02_lists.html</code></p>
 <p>Ordered, unordered, nested, plus an image.</p>
 <pre><code class="language-html">&lt;ol type=&quot;I&quot; start=&quot;1&quot;&gt;
@@ -120,7 +143,7 @@ and only the first is announced correctly by a screen reader.</p>
 <p>There are three list types: <code>&lt;ol&gt;</code> ordered, <code>&lt;ul&gt;</code> unordered, <code>&lt;dl&gt;</code>
 description. <code>type</code> on <code>&lt;ol&gt;</code> gives <code>1</code>, <code>A</code>, <code>a</code>, <code>I</code>, <code>i</code>.</p>
 <hr />
-<h2>Experiment 3 — Ten images aligned with a table</h2>
+<h2 id="experiment-3-ten-images-aligned-with-a-table">Experiment 3 — Ten images aligned with a table</h2>
 <p><strong>File:</strong> <code>03_image_table.html</code></p>
 <pre><code class="language-html">&lt;table&gt;
   &lt;caption&gt;Gallery — arranged in a 2 × 5 grid&lt;/caption&gt;
@@ -147,7 +170,7 @@ equivalent, which is three lines and also responsive:</p>
 box by cropping, rather than stretching. <code>display: block</code> removes the few
 pixels of space under an inline image.</p>
 <hr />
-<h2>Experiment 4 — A form with every control type</h2>
+<h2 id="experiment-4-a-form-with-every-control-type">Experiment 4 — A form with every control type</h2>
 <p><strong>File:</strong> <code>04_form_controls.html</code></p>
 <p>Text box, radio buttons, check boxes, reset and submit.</p>
 <pre><code class="language-html">&lt;form action=&quot;/submit&quot; method=&quot;post&quot;&gt;
@@ -178,7 +201,7 @@ once. Checkboxes sharing a name submit as multiple values under that key.</p>
 needs a <code>&lt;label for&gt;</code> matching its <code>id</code>, or clicking the text does not focus
 the field and a screen reader has nothing to announce.</p>
 <hr />
-<h2>Experiment 5 — Embed a calendar</h2>
+<h2 id="experiment-5-embed-a-calendar">Experiment 5 — Embed a calendar</h2>
 <p><strong>File:</strong> <code>05_calendar.html</code>, <code>05_calendar.js</code></p>
 <p>The syllabus says "embed a calendar object", which in 2004 meant an ActiveX
 control. Three modern answers, in increasing order of effort:</p>
@@ -215,7 +238,7 @@ falls on a Saturday.</p>
 (January is 0) but 1-indexed in an ISO string. Mixing the two is the classic
 date bug.</p>
 <hr />
-<h2>Experiment 6 — Mailing-list subscription form</h2>
+<h2 id="experiment-6-mailing-list-subscription-form">Experiment 6 — Mailing-list subscription form</h2>
 <p><strong>File:</strong> <code>06_subscribe.html</code></p>
 <pre><code class="language-html">&lt;form id=&quot;subscribe&quot; action=&quot;/subscribe&quot; method=&quot;post&quot;&gt;
   &lt;label for=&quot;email&quot;&gt;Email address *&lt;/label&gt;
@@ -249,7 +272,7 @@ date bug.</p>
 pre-ticked consent is unlawful under most data-protection regimes and is the
 kind of detail that separates a good answer from a complete one.</p>
 <hr />
-<h2>Experiment 7 — Style a registration form with CSS</h2>
+<h2 id="experiment-7-style-a-registration-form-with-css">Experiment 7 — Style a registration form with CSS</h2>
 <p><strong>Files:</strong> <code>07_styled_form.html</code>, <code>07_styled_form.css</code></p>
 <p>Required: different selectors, colours, borders, spacing.</p>
 <pre><code class="language-css">:root {                                   /* custom properties */
@@ -299,7 +322,7 @@ alien beside your text. And <strong><code>:not(:placeholder-shown)</code></stron
 <code>:invalid</code> fires on an empty required field the moment the page loads, and the
 form is red before the user has typed anything.</p>
 <hr />
-<h2>Experiment 8 — Responsive page with Flexbox and Grid</h2>
+<h2 id="experiment-8-responsive-page-with-flexbox-and-grid">Experiment 8 — Responsive page with Flexbox and Grid</h2>
 <p><strong>Files:</strong> <code>08_responsive.html</code>, <code>08_responsive.css</code></p>
 <pre><code class="language-html">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 </code></pre>
@@ -341,7 +364,7 @@ responsive grid in one declaration.</p>
 reads the content before the sidebar. Named grid areas make that reordering a
 one-line change.</p>
 <hr />
-<h2>Experiment 9 — Hover effects and transitions</h2>
+<h2 id="experiment-9-hover-effects-and-transitions">Experiment 9 — Hover effects and transitions</h2>
 <p><strong>Files:</strong> <code>09_hover.html</code>, <code>09_hover.css</code></p>
 <pre><code class="language-css">.btn {
   background: #2b4c7e; color: #fff; padding: 10px 18px; border-radius: 6px;
@@ -381,7 +404,7 @@ is merely pretty and one that is considerate.</p>
 <p>Note that <code>rgba()</code> fades only the caption's background; <code>opacity</code> there would
 fade the white text too.</p>
 <hr />
-<h2>Experiment 10 — JavaScript string operations</h2>
+<h2 id="experiment-10-javascript-string-operations">Experiment 10 — JavaScript string operations</h2>
 <p><strong>Files:</strong> <code>10_string_ops.js</code>, <code>10_string_ops.html</code></p>
 <p>Reverse, substring, count vowels.</p>
 <pre><code class="language-js">export function reverse(s) {
@@ -420,7 +443,7 @@ matches, not an empty array, and <code>null.length</code> throws.</p>
 so a word count needs the explicit empty check, or every blank input reports
 one word.</p>
 <hr />
-<h2>Experiment 11 — Form validation</h2>
+<h2 id="experiment-11-form-validation">Experiment 11 — Form validation</h2>
 <p><strong>Files:</strong> <code>11_validation.js</code>, <code>11_validation.html</code></p>
 <p>Email format, password length, required fields.</p>
 <pre><code class="language-js">export const RULES = {
@@ -465,7 +488,7 @@ That one line is the most commonly missed detail in this experiment.</p>
 <p>And say it in the viva: this is a convenience, not a control. The server
 validates again.</p>
 <hr />
-<h2>Experiment 12 — Time-based greeting</h2>
+<h2 id="experiment-12-time-based-greeting">Experiment 12 — Time-based greeting</h2>
 <p><strong>Files:</strong> <code>12_greeting.js</code>, <code>12_greeting.html</code></p>
 <pre><code class="language-js">export function greeting(hour = new Date().getHours()) {
   if (hour &lt; 0 || hour &gt; 23 || !Number.isInteger(hour))
@@ -485,7 +508,7 @@ arguments in the page.</p>
 to the edge of the function</strong>, and the logic inside becomes testable. The same
 idea makes Course 9's data pipelines testable.</p>
 <hr />
-<h2>Experiment 13 — Array and object manipulation</h2>
+<h2 id="experiment-13-array-and-object-manipulation">Experiment 13 — Array and object manipulation</h2>
 <p><strong>Files:</strong> <code>13_arrays.js</code>, <code>13_arrays.html</code></p>
 <p>Add, delete, sort, search.</p>
 <pre><code class="language-js">export function addStudent(list, student) {
@@ -531,7 +554,7 @@ strings need <code>localeCompare</code>, which also handles accents correctly.</
 the top scorer is Meena, adding a duplicate roll throws, and <code>summary([])</code>
 returns nulls rather than <code>NaN</code>.</p>
 <hr />
-<h2>Experiment 14 — Render JSON as a table</h2>
+<h2 id="experiment-14-render-json-as-a-table">Experiment 14 — Render JSON as a table</h2>
 <p><strong>Files:</strong> <code>14_json_table.js</code>, <code>14_json_table.html</code>, <code>students.json</code></p>
 <pre><code class="language-js">export function toRows(data) {
   return data.students.map(s =&gt; ({
@@ -570,7 +593,7 @@ goes blank instead of showing a dash.</p>
 <p>The <code>doc</code> parameter defaults to <code>document</code> but can be passed jsdom's document,
 which is how the runner tests this without a browser.</p>
 <hr />
-<h2>Experiment 15 — Fetch weather data from an open API</h2>
+<h2 id="experiment-15-fetch-weather-data-from-an-open-api">Experiment 15 — Fetch weather data from an open API</h2>
 <p><strong>Files:</strong> <code>15_weather.js</code>, <code>15_weather.html</code></p>
 <pre><code class="language-js">export function summarise(json) {              // pure — testable offline
   return {
@@ -609,7 +632,7 @@ through a server that holds the key.</p>
 same request from <code>curl</code> succeeds — and it cannot be worked around from the
 client. If an API does not permit browser access, it needs a server-side proxy.</p>
 <hr />
-<h2>Experiment 16 — jQuery DOM manipulation</h2>
+<h2 id="experiment-16-jquery-dom-manipulation">Experiment 16 — jQuery DOM manipulation</h2>
 <p><strong>Files:</strong> <code>16_jquery.html</code>, <code>16_jquery_native.js</code></p>
 <p>Hide, show, fade, slide, toggle.</p>
 <pre><code class="language-js">$(function () {
@@ -664,7 +687,7 @@ handlers with jQuery.</p>
 rapid clicks queue five animations and the box keeps moving long after you
 stopped clicking.</p>
 <hr />
-<h2>Lab examination</h2>
+<h2 id="lab-examination">Lab examination</h2>
 <p>The lab exam gives you one experiment, a browser and a text editor, roughly an
 hour, and then a viva.</p>
 <p><strong>What actually costs marks:</strong></p>

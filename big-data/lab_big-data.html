@@ -16,9 +16,32 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#read-this-before-you-read-anything-else">Read this before you read anything else</a></li>
+    <li><a href="#experiments-13-installation-commands-architecture">Experiments 1–3 — Installation, commands, architecture</a></li>
+    <li><a href="#experiment-4-blocks-distribution-and-replication">Experiment 4 — Blocks, distribution and replication</a></li>
+    <li><a href="#experiment-5-fault-tolerance-and-recovery">Experiment 5 — Fault tolerance and recovery</a></li>
+    <li><a href="#experiment-6-yarn">Experiment 6 — YARN</a></li>
+    <li><a href="#experiment-7-word-count-in-mapreduce">Experiment 7 — Word count in MapReduce</a></li>
+    <li><a href="#experiment-8-inverted-index">Experiment 8 — Inverted index</a></li>
+    <li><a href="#experiment-9-pig-latin">Experiment 9 — Pig Latin</a></li>
+    <li><a href="#experiment-10-hive">Experiment 10 — Hive</a></li>
+    <li><a href="#experiment-11-sqoop">Experiment 11 — Sqoop</a></li>
+    <li><a href="#experiment-12-flume">Experiment 12 — Flume</a></li>
+    <li><a href="#experiment-13-avro-and-parquet">Experiment 13 — Avro and Parquet</a></li>
+    <li><a href="#experiment-14-batch-and-streaming-joined">Experiment 14 — Batch and streaming, joined</a></li>
+    <li><a href="#experiment-15-hbase">Experiment 15 — HBase</a></li>
+    <li><a href="#experiment-16-zookeeper">Experiment 16 — ZooKeeper</a></li>
+    <li><a href="#experiment-17-spark">Experiment 17 — Spark</a></li>
+    <li><a href="#what-the-runner-asserts">What the runner asserts</a></li>
+    <li><a href="#lab-examination">Lab examination</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 15):</strong> 17 experiments, 1 credit, 2 hrs/week.</p>
 <p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-12b-bigdata"><code>labs/course-12b-bigdata/</code></a>.</p>
-<h2>Read this before you read anything else</h2>
+<h2 id="read-this-before-you-read-anything-else">Read this before you read anything else</h2>
 <p><strong>This is the most environment-constrained course in the programme, and the
 lab is split in two.</strong></p>
 <table class="main-table">
@@ -92,7 +115,7 @@ so in its own header, names the tool it needs, and points at the runnable half
 that verifies its logic. The runner asserts the marker is still there — strip
 it without making the file runnable and the suite fails.</p>
 </div>
-<h3>The cross-course check</h3>
+<h3 id="the-cross-course-check">The cross-course check</h3>
 <p><strong>Experiments 10, 14 and 17 all use Course 11's star schema, imported rather
 than copied.</strong> <code>fixtures.py</code> loads <code>labs/course-11-bi/fixtures.py</code> by path at
 import time, so the two courses cannot drift.</p>
@@ -100,14 +123,14 @@ import time, so the two courses cannot drift.</p>
 experiment 10, and by Spark in experiment 17. <strong>If they ever disagree, one of
 them is wrong and <code>verify_all.sh</code> says so.</strong></p>
 <hr />
-<h2>Experiments 1–3 — Installation, commands, architecture</h2>
+<h2 id="experiments-13-installation-commands-architecture">Experiments 1–3 — Installation, commands, architecture</h2>
 <p><a href="../labs/course-12b-bigdata/01_install_hadoop.sh"><code>01_install_hadoop.sh</code></a> ·
 <a href="../labs/course-12b-bigdata/02_hdfs_commands.sh"><code>02_hdfs_commands.sh</code></a> ·
 <a href="../labs/course-12b-bigdata/03_architecture.sh"><code>03_architecture.sh</code></a> —
 <strong>all NOT EXECUTED</strong></p>
 <p>There is no query logic in an installation, so these three carry the commands
 and the failure modes rather than an equivalent.</p>
-<h3>The three installation failures everyone hits</h3>
+<h3 id="the-three-installation-failures-everyone-hits">The three installation failures everyone hits</h3>
 <ol>
 <li>
 <p><strong><code>JAVA_HOME</code> not set inside <code>hadoop-env.sh</code>.</strong> Exporting it in your shell
@@ -143,7 +166,7 @@ ResourceManager, NodeManager.</p>
    single constraint is why it can drop file locking entirely.</li>
 </ol>
 </div>
-<h3>The log trace to follow in experiment 3</h3>
+<h3 id="the-log-trace-to-follow-in-experiment-3">The log trace to follow in experiment 3</h3>
 <p>RM: application submitted → NM: AM container started → RM: map containers
 assigned → NM: map tasks start → NameNode: block reads served <strong>locally</strong> →
 RM: reduce containers assigned → <strong>NM: reduce fetches map outputs, over HTTP</strong>
@@ -152,7 +175,7 @@ RM: reduce containers assigned → <strong>NM: reduce fetches map outputs, over 
 data crosses the network in bulk, and it is what the combiner in experiment 7
 exists to shrink.</p>
 <hr />
-<h2>Experiment 4 — Blocks, distribution and replication</h2>
+<h2 id="experiment-4-blocks-distribution-and-replication">Experiment 4 — Blocks, distribution and replication</h2>
 <p><a href="../labs/course-12b-bigdata/04_hdfs_store.sh"><code>04_hdfs_store.sh</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/04_blocks_replication.py"><code>04_blocks_replication.py</code></a> — <strong>runs</strong></p>
 <div class="formula">
@@ -283,12 +306,12 @@ two on another. Asserted for all 8 blocks.</p>
 </table>
 <p><strong>A factor of 222,222 for the same gigabyte.</strong></p>
 </div>
-<h3>And the storage trade</h3>
+<h3 id="and-the-storage-trade">And the storage trade</h3>
 <p>1 GB at replication 3 occupies <strong>3,072 MB</strong>; under RS-6-3 erasure coding,
 <strong>1,536 MB</strong> — 200% overhead against 50%, at the cost of expensive
 reconstruction reads.</p>
 <hr />
-<h2>Experiment 5 — Fault tolerance and recovery</h2>
+<h2 id="experiment-5-fault-tolerance-and-recovery">Experiment 5 — Fault tolerance and recovery</h2>
 <p><a href="../labs/course-12b-bigdata/05_fault_tolerance.sh"><code>05_fault_tolerance.sh</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/05_fault_tolerance.py"><code>05_fault_tolerance.py</code></a> — <strong>runs</strong></p>
 <table class="main-table">
@@ -372,11 +395,11 @@ failures only hurt when they straddle the racks.</strong></p>
 still fine.</strong> "Replication 3 fails at 3 nodes" is the worst case, not the rule,
 and stating it that way is the honest answer.</p>
 </div>
-<h3>The 630-second delay</h3>
+<h3 id="the-630-second-delay">The 630-second delay</h3>
 <p><code>10 × 3 s + 2 × 5 min = 630 s</code> before a DataNode is declared dead. <strong>The delay
 is deliberate</strong> — a node that reboots in five minutes should not trigger a
 cluster-wide copy storm.</p>
-<h3>⚠️ The NameNode's block map is never persisted</h3>
+<h3 id="the-namenodes-block-map-is-never-persisted">⚠️ The NameNode's block map is never persisted</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -407,7 +430,7 @@ cluster-wide copy storm.</p>
 minutes to leave safe mode. <strong>And the Secondary NameNode is a checkpointer,
 not a standby</strong> — the most misleadingly named component in Hadoop.</p>
 <hr />
-<h2>Experiment 6 — YARN</h2>
+<h2 id="experiment-6-yarn">Experiment 6 — YARN</h2>
 <p><a href="../labs/course-12b-bigdata/06_yarn.sh"><code>06_yarn.sh</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/06_yarn_scheduling.py"><code>06_yarn_scheduling.py</code></a> — <strong>runs</strong></p>
 <p>The workload: an 8-container cluster; <code>big_etl</code> needs all 8 for 10 s;
@@ -474,17 +497,17 @@ not a standby</strong> — the most misleadingly named component in Hadoop.</p>
 </li>
 </ul>
 </div>
-<h3>The Capacity Scheduler's guarantee</h3>
+<h3 id="the-capacity-schedulers-guarantee">The Capacity Scheduler's guarantee</h3>
 <p>The adhoc queue holds <strong>2 containers whatever else is running</strong>, so a short
 query has a guarantee rather than a hope. The cost: those 2 sit idle when
 adhoc is empty, unless <code>maximum-capacity</code> is raised to allow <strong>elasticity</strong> —
 which is exactly the difference between "capacity" and "fair".</p>
-<h3>And the row about Hadoop 1</h3>
+<h3 id="and-the-row-about-hadoop-1">And the row about Hadoop 1</h3>
 <p><strong>One ApplicationMaster per job</strong> is the change that defined YARN. Hadoop 1's
 JobTracker did both scheduling and per-job management, so it was the
 bottleneck <em>and</em> the single point of failure, and it could run only MapReduce.</p>
 <hr />
-<h2>Experiment 7 — Word count in MapReduce</h2>
+<h2 id="experiment-7-word-count-in-mapreduce">Experiment 7 — Word count in MapReduce</h2>
 <p><a href="../labs/course-12b-bigdata/WordCount.java"><code>WordCount.java</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/07_wordcount.py"><code>07_wordcount.py</code></a> +
 <a href="../labs/course-12b-bigdata/mapreduce.py"><code>mapreduce.py</code></a> — <strong>run</strong></p>
@@ -548,7 +571,7 @@ by orders of magnitude.</p>
 <p><strong>The combiner's value scales with split size</strong>, which is the point this tiny
 dataset makes precisely by failing to impress.</p>
 </div>
-<h3>⚠️ The combiner that is wrong</h3>
+<h3 id="the-combiner-that-is-wrong">⚠️ The combiner that is wrong</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -574,16 +597,16 @@ dataset makes precisely by failing to impress.</p>
 <p>Demonstrated: <code>[1,1,1,10]</code> and <code>[10]</code> give <strong>mean of means 6.6250</strong> against
 <strong>true mean 4.6000</strong>. Emit <code>(sum, count)</code> and divide only in the reducer —
 the same average-of-averages trap Course 11 met in DAX.</p>
-<h3>Partitioning</h3>
+<h3 id="partitioning">Partitioning</h3>
 <p>3 reducers give partitions of <strong>[20, 17, 11]</strong>, ratio 1.82. Hash partitioning
 is only as balanced as the key distribution, and <strong>skew, not volume, is what
 usually kills a MapReduce job</strong>.</p>
-<h3>The three Java details</h3>
+<h3 id="the-three-java-details">The three Java details</h3>
 <p><strong>The map key is a byte offset, not a line number.</strong> <strong>Reuse the <code>Writable</code>
 objects</strong> — a <code>new Text()</code> per word makes GC the job. <strong>The reduce <code>Iterable</code>
 can be walked once</strong> — it streams from disk.</p>
 <hr />
-<h2>Experiment 8 — Inverted index</h2>
+<h2 id="experiment-8-inverted-index">Experiment 8 — Inverted index</h2>
 <p><a href="../labs/course-12b-bigdata/InvertedIndex.java"><code>InvertedIndex.java</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/08_inverted_index.py"><code>08_inverted_index.py</code></a> — <strong>runs</strong></p>
 <p>6 documents in, <strong>26 index terms</strong> out, from <strong>48 postings</strong>.</p>
@@ -612,7 +635,7 @@ can be walked once</strong> — it streams from disk.</p>
 <p><strong><code>quick</code> appears twice in doc3, and the posting records it.</strong> Frequency is
 the difference between "does this word occur" and "how relevant is this
 document" — boolean retrieval against ranked retrieval, in one number.</p>
-<h3>Queries answered from the index alone</h3>
+<h3 id="queries-answered-from-the-index-alone">Queries answered from the index alone</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -641,7 +664,7 @@ document" — boolean retrieval against ranked retrieval, in one number.</p>
 </table>
 <p><strong>Not one document was read.</strong> Query cost depends on the number of <strong>matches</strong>,
 not on the size of the corpus — which is the entire point of an inverted index.</p>
-<h3>The index is not free</h3>
+<h3 id="the-index-is-not-free">The index is not free</h3>
 <p>226 characters of corpus → 26 terms, <strong>39 postings</strong>. A full-text index
 typically runs 20–40% of the corpus size, before positions. Search is a
 space-for-time trade.</p>
@@ -652,14 +675,14 @@ space-for-time trade.</p>
 be the biggest list on any English corpus, and one reducer holding it is the
 job's critical path.</p>
 </div>
-<h3>The Java detail that is examined</h3>
+<h3 id="the-java-detail-that-is-examined">The Java detail that is examined</h3>
 <p><strong>The filename is in neither the key nor the value.</strong> It comes from the input
 split — <code>((FileSplit) context.getInputSplit()).getPath().getName()</code>.</p>
 <p>And <strong>this job cannot use a combiner</strong>: the reducer's output type (a posting
 string) differs from its input type (a document id), and a combiner must match
 the reducer on both.</p>
 <hr />
-<h2>Experiment 9 — Pig Latin</h2>
+<h2 id="experiment-9-pig-latin">Experiment 9 — Pig Latin</h2>
 <p><a href="../labs/course-12b-bigdata/09_analysis.pig"><code>09_analysis.pig</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/09_pig_equivalent.py"><code>09_pig_equivalent.py</code></a> — <strong>runs</strong></p>
 <p>The Python half walks the dataflow <strong>one operator at a time</strong>, which is how you
@@ -670,7 +693,7 @@ C = GROUP B BY category          -- 3 groups: Grocery {4}, Personal {1}, Station
 D = FOREACH C GENERATE group, SUM(B.qty), SUM(B.revenue)
 E = ORDER D BY revenue DESC      -- top category: Grocery
 </code></pre>
-<h3>⚠️ <code>GROUP</code> produces a bag, not an aggregate</h3>
+<h3 id="group-produces-a-bag-not-an-aggregate">⚠️ <code>GROUP</code> produces a bag, not an aggregate</h3>
 <p><code>(Grocery, {4 tuples})</code> — the bag is the value, and <code>FOREACH … GENERATE</code> turns
 it into numbers. <strong>Hive fuses the two; Pig keeps them apart</strong>, which is why Pig
 can do things to a group that SQL cannot express without a window function.</p>
@@ -682,18 +705,18 @@ SQL assumes a table exists. <strong><code>ILLUSTRATE</code></strong> pushes samp
 step</em> of the plan.</p>
 <p>Those two are the reason to reach for Pig on ETL.</p>
 </div>
-<h3>Lazy evaluation</h3>
+<h3 id="lazy-evaluation">Lazy evaluation</h3>
 <p><strong>Nothing runs until <code>STORE</code> or <code>DUMP</code>.</strong> Pig sees the whole dataflow first, so
 it merges the <code>FILTER</code> into the <code>LOAD</code> and fuses consecutive <code>FOREACH</code>es into
 one job. <strong>Writing the steps separately costs nothing</strong> — which is the whole
 argument against nesting sub-queries "to avoid extra passes".</p>
-<h3>The join hint that matters</h3>
+<h3 id="the-join-hint-that-matters">The join hint that matters</h3>
 <p><code>USING 'replicated'</code> is a <strong>map-side join</strong>: the small relation loads into
 every mapper's memory and there is <strong>no shuffle</strong>. It dies with an
 <code>OutOfMemoryError</code> if the relation does not fit — which is why broadcast joins
 have a size threshold.</p>
 <hr />
-<h2>Experiment 10 — Hive</h2>
+<h2 id="experiment-10-hive">Experiment 10 — Hive</h2>
 <p><a href="../labs/course-12b-bigdata/10_hive.hql"><code>10_hive.hql</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/10_hive_duckdb.py"><code>10_hive_duckdb.py</code></a> — <strong>runs</strong></p>
 <div class="concept">
@@ -778,10 +801,10 @@ bucket 2: ['Vijayawada']
 an empty bucket is still a file the job opens. Reporting that is worth more
 than pretending the hash was balanced.</p>
 </div>
-<h3>Managed against external</h3>
+<h3 id="managed-against-external">Managed against external</h3>
 <p><strong><code>DROP TABLE</code> on a MANAGED table deletes the data.</strong> Use <code>EXTERNAL</code> for
 anything you did not produce and cannot recreate — the classic Hive accident.</p>
-<h3><code>HAVING</code> against <code>WHERE</code></h3>
+<h3 id="having-against-where"><code>HAVING</code> against <code>WHERE</code></h3>
 <p>Four products clear ₹1,000 (Grocery total ₹9,800). <strong><code>WHERE</code> filters rows,
 <code>HAVING</code> filters groups</strong> — and in Hive that is a job-plan difference: a
 <code>WHERE</code> on a partition column prunes directories before the job starts, a
@@ -822,7 +845,7 @@ anything you did not produce and cannot recreate — the classic Hive accident.<
 <p><strong>Hive is a compiler.</strong> Everything surprising follows from that sentence.</p>
 </div>
 <hr />
-<h2>Experiment 11 — Sqoop</h2>
+<h2 id="experiment-11-sqoop">Experiment 11 — Sqoop</h2>
 <p><a href="../labs/course-12b-bigdata/11_sqoop.sh"><code>11_sqoop.sh</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/11_sqoop_equivalent.py"><code>11_sqoop_equivalent.py</code></a> — <strong>runs</strong></p>
 <p><strong>A real SQLite database at one end and a real Parquet file at the other.</strong>
@@ -869,7 +892,7 @@ step 2: four ranges, one per mapper
 parallelism — <code>-m 20</code> against a production OLTP box is a denial of service you
 wrote yourself.</p>
 </div>
-<h3>⚠️ Splitting by a skewed column</h3>
+<h3 id="splitting-by-a-skewed-column">⚠️ Splitting by a skewed column</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -904,7 +927,7 @@ wrote yourself.</p>
 <p><strong>Forty against ten.</strong> Sqoop assumes the split column is uniformly distributed
 between min and max. The job's wall clock is the slowest mapper, so a bad
 <code>--split-by</code> wastes three quarters of your parallelism.</p>
-<h3>The import is verified two ways</h3>
+<h3 id="the-import-is-verified-two-ways">The import is verified two ways</h3>
 <p><strong>90 rows and ₹128,800 both check out.</strong> Counting rows alone would not catch a
 truncated numeric type — an Oracle <code>NUMBER(38)</code> silently becoming a Java
 <code>double</code> is the classic Sqoop corruption bug.</p>
@@ -917,10 +940,10 @@ fix is a periodic full re-import — and knowing that is the difference between
 having used Sqoop and having read about it.</p>
 </div>
 <hr />
-<h2>Experiment 12 — Flume</h2>
+<h2 id="experiment-12-flume">Experiment 12 — Flume</h2>
 <p><a href="../labs/course-12b-bigdata/12_flume.conf"><code>12_flume.conf</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/12_flume_equivalent.py"><code>12_flume_equivalent.py</code></a> — <strong>runs</strong></p>
-<h3>The interceptor</h3>
+<h3 id="the-interceptor">The interceptor</h3>
 <pre><code>headers {'host': '10.0.0.1', 'status': '200'}
 body    (unchanged, 78 chars)
 </code></pre>
@@ -974,21 +997,21 @@ and the source gave up".</strong></p>
 nothing once the sink is permanently slower. <strong>Buffers smooth bursts; they
 cannot fix a throughput deficit.</strong></p>
 </div>
-<h3>What landed</h3>
+<h3 id="what-landed">What landed</h3>
 <p><code>{'200': 24, '404': 8, '500': 8}</code>, evenly over four hosts (10 each).
 <strong>Those same numbers appear in experiments 14 and 17</strong> — three code paths, one
 set of figures.</p>
-<h3>⚠️ The defaults manufacture the small-files problem</h3>
+<h3 id="the-defaults-manufacture-the-small-files-problem">⚠️ The defaults manufacture the small-files problem</h3>
 <p><code>rollInterval</code> 30 s, <code>rollSize</code> 1024 bytes, <code>rollCount</code> 10 events → <strong>40 events
 produce ~4 HDFS files</strong>, each a few hundred bytes. Left alone, Flume generates
 the Unit 2 small-files problem at two files a minute.</p>
 <hr />
-<h2>Experiment 13 — Avro and Parquet</h2>
+<h2 id="experiment-13-avro-and-parquet">Experiment 13 — Avro and Parquet</h2>
 <p><a href="../labs/course-12b-bigdata/13_avro_parquet.py"><code>13_avro_parquet.py</code></a> —
 <strong>fully runs, on the real formats</strong></p>
 <p><code>fastavro</code> and <code>pyarrow</code> are real implementations, so <strong>the files written here
 are byte-for-byte readable by Hadoop, Hive and Spark.</strong></p>
-<h3>Avro: self-describing</h3>
+<h3 id="avro-self-describing">Avro: self-describing</h3>
 <p>9 records, <strong>933 bytes</strong>, round-trip exact. The writer's schema is in the file
 header — full name <code>in.ac.apsche.sales.Sale</code>, namespace included.</p>
 <div class="concept">
@@ -1001,7 +1024,7 @@ the added field 'channel' comes back as None -- its DEFAULT
 reader's, field by field. <strong>A field added without a default breaks exactly
 this</strong>, and that is the one rule to remember.</p>
 </div>
-<h3>Parquet: column projection</h3>
+<h3 id="parquet-column-projection">Parquet: column projection</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1052,7 +1075,7 @@ this</strong>, and that is the one rule to remember.</p>
 <p><strong>Predicate pushdown:</strong> row-group statistics for <code>revenue</code> are <strong>min 600, max
 2,800</strong>, so a query for <code>revenue &gt; 5000</code> skips the entire row group without
 decoding a byte.</p>
-<h3>⚠️ The compression claim, told honestly</h3>
+<h3 id="the-compression-claim-told-honestly">⚠️ The compression claim, told honestly</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1094,7 +1117,7 @@ falls to <strong>12.0×</strong> — and even that is optimistic. In production,
 repetitive your data is</strong>, and a benchmark on duplicated rows says nothing at
 all.</p>
 <hr />
-<h2>Experiment 14 — Batch and streaming, joined</h2>
+<h2 id="experiment-14-batch-and-streaming-joined">Experiment 14 — Batch and streaming, joined</h2>
 <p><a href="../labs/course-12b-bigdata/14_pipeline.py"><code>14_pipeline.py</code></a> — <strong>runs
 end to end</strong></p>
 <p>SQLite → Parquet (batch), log events → Parquet (streaming), then a real DuckDB
@@ -1165,7 +1188,7 @@ tables are joined directly.</p>
 reconcile with the sources. That single rule prevents most wrong numbers in a
 data warehouse.</p>
 </div>
-<h3>The row that changes the design</h3>
+<h3 id="the-row-that-changes-the-design">The row that changes the design</h3>
 <p><strong>"Late data is normal."</strong> A streaming aggregate for 09:00 is not final at
 10:00, so either you accept eventual correctness or you keep a watermark and
 re-emit. The batch leg has no such problem — which is exactly why the <strong>Lambda
@@ -1174,28 +1197,28 @@ the stream replayable.</p>
 <p><strong>Lambda's real cost is not machines — it is the same business rule living in
 two codebases and drifting.</strong></p>
 <hr />
-<h2>Experiment 15 — HBase</h2>
+<h2 id="experiment-15-hbase">Experiment 15 — HBase</h2>
 <p><a href="../labs/course-12b-bigdata/15_hbase.rb"><code>15_hbase.rb</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/15_hbase_model.py"><code>15_hbase_model.py</code></a> — <strong>runs</strong></p>
-<h3>⚠️ The row key that silently loses a sale</h3>
+<h3 id="the-row-key-that-silently-loses-a-sale">⚠️ The row key that silently loses a sale</h3>
 <pre><code>row key 'region#store#date' over 9 fact rows
 produces only 8 DISTINCT KEYS -- 1 row would be overwritten
 </code></pre>
 <p>Vijayawada sold Rice <strong>and</strong> Shampoo on D1. <strong>HBase would not complain</strong> — it
 would version one over the other. <strong>A row key must be unique at the grain</strong>,
 and in HBase nothing checks that for you.</p>
-<h3>Versions</h3>
+<h3 id="versions">Versions</h3>
 <pre><code>ts=38   111
 ts=37    99
 ts=19    20
 </code></pre>
 <p><strong>A <code>put</code> to an existing cell adds a version; it does not overwrite.</strong></p>
-<h3>⚠️ A delete makes the table bigger</h3>
+<h3 id="a-delete-makes-the-table-bigger">⚠️ A delete makes the table bigger</h3>
 <pre><code>DELETE info:category   readable? no    cells: 38 -&gt; 39
 </code></pre>
 <p><strong>A tombstone.</strong> Data and marker disappear only at major compaction — the
 answer to "I deleted a billion rows and disk usage went up".</p>
-<h3>Scans</h3>
+<h3 id="scans">Scans</h3>
 <p><code>SCAN 'South'..'South~'</code> → 6 rows; <code>'North'..'North~'</code> → 3. <strong>A prefix scan
 reads exactly the rows you want, sequentially</strong> — and works only because
 <code>region</code> is the <em>first</em> component of the key.</p>
@@ -1239,10 +1262,10 @@ scan</strong>. HBase has no secondary index.</p>
 dimension. Choosing is what row-key design means.</strong></p>
 </div>
 <hr />
-<h2>Experiment 16 — ZooKeeper</h2>
+<h2 id="experiment-16-zookeeper">Experiment 16 — ZooKeeper</h2>
 <p><a href="../labs/course-12b-bigdata/16_zookeeper.sh"><code>16_zookeeper.sh</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/16_zookeeper_model.py"><code>16_zookeeper_model.py</code></a> — <strong>runs</strong></p>
-<h3>Leader election</h3>
+<h3 id="leader-election">Leader election</h3>
 <pre><code>nn1 -&gt; lock-0000000000     LEADER: nn1
 nn2 -&gt; lock-0000000001
 nn3 -&gt; lock-0000000002
@@ -1252,10 +1275,10 @@ nn1's session expires:  new LEADER: nn2
 <p><strong>Nobody ran a failover script.</strong> The ephemeral node was deleted <strong>by the
 server</strong>, the watch fired, and nn2 saw itself at the head of the queue. <strong>That
 is how HDFS NameNode HA works</strong> — the link back to experiment 5.</p>
-<h3>⚠️ Watch your predecessor, not the leader</h3>
+<h3 id="watch-your-predecessor-not-the-leader">⚠️ Watch your predecessor, not the leader</h3>
 <p>Watching the leader wakes <strong>every</strong> candidate on one failure — the <strong>herd
 effect</strong>. Watching your immediate predecessor wakes exactly one.</p>
-<h3>The lock is the same recipe</h3>
+<h3 id="the-lock-is-the-same-recipe">The lock is the same recipe</h3>
 <pre><code>jobA holds the lock
 jobA CRASHES -- lock passes to jobB automatically
 </code></pre>
@@ -1311,7 +1334,7 @@ cannot.</p>
 machine buys nothing and adds a write to every quorum. <strong>3, 5 or 7.</strong></p>
 </div>
 <hr />
-<h2>Experiment 17 — Spark</h2>
+<h2 id="experiment-17-spark">Experiment 17 — Spark</h2>
 <p><a href="../labs/course-12b-bigdata/17_spark_hbase.scala"><code>17_spark_hbase.scala</code></a> (NOT EXECUTED) ·
 <a href="../labs/course-12b-bigdata/17_spark.py"><code>17_spark.py</code></a> — <strong>runs on a
 REAL SparkSession</strong></p>
@@ -1321,7 +1344,7 @@ REAL SparkSession</strong></p>
 starts, real RDDs are built, and a <strong>real shuffle</strong> happens inside
 <code>reduceByKey</code>. <strong>What is not real is HBase</strong> — the connector code is in the
 Scala file.</p>
-<h3>The RDD word count</h3>
+<h3 id="the-rdd-word-count">The RDD word count</h3>
 <p><strong>26 distinct words, 48 total — identical to experiment 7's MapReduce answer</strong>,
 on a real distributed engine.</p>
 <div class="concept">
@@ -1350,7 +1373,7 @@ documents, so more merging happens per task. <strong>The combiner's saving depen
 on the split</strong>, exactly as Unit 3 said — and this is the same measurement made
 two ways.</p>
 </div>
-<h3>Lazy evaluation</h3>
+<h3 id="lazy-evaluation-2">Lazy evaluation</h3>
 <p>Three transformations queued; <strong><code>.collect()</code> is the action</strong> that submits the
 DAG. That is why a typo in a <code>map()</code> surfaces at <code>collect()</code>.</p>
 <div class="concept">
@@ -1379,25 +1402,25 @@ DAG. That is why a typo in a <code>map()</code> surfaces at <code>collect()</cod
 </table>
 <p><strong>Course 11's DAX, DuckDB and Spark all produce ₹10,360.</strong></p>
 </div>
-<h3>The logs from experiment 12</h3>
+<h3 id="the-logs-from-experiment-12">The logs from experiment 12</h3>
 <p><code>HTTP 200: 24, 404: 8, 500: 8</code> — <strong>the same 24 / 8 / 8 the Flume agent
 produced.</strong> Ingest with Flume, analyse with Spark, on bytes never transformed
 in between.</p>
-<h3><code>cache()</code></h3>
+<h3 id="cache"><code>cache()</code></h3>
 <pre><code>two actions over the same RDD, sum = 39,999,800,000
 storage level: Memory Serialized 1x Replicated
 </code></pre>
 <p><strong>Without <code>cache()</code> the second action recomputes the whole lineage.</strong> Caching
 is the highest-value Spark optimisation and the one students forget —
 <strong>because nothing fails without it; the job is merely twice as slow.</strong></p>
-<h3>⚠️ The Spark-over-HBase caveat</h3>
+<h3 id="the-spark-over-hbase-caveat">⚠️ The Spark-over-HBase caveat</h3>
 <p><strong>One Spark partition per HBase region</strong> is the whole integration. But <strong>never
 <code>put()</code> per row from a Spark job</strong> — write HFiles and bulk-load them.</p>
 <p>And: <strong>a full-table Spark scan of HBase is slower than the same data in
 Parquet</strong>, because HBase stores every cell with its row key, family, qualifier
 and timestamp. <strong>If every job is a full scan, the data is in the wrong store.</strong></p>
 <hr />
-<h2>What the runner asserts</h2>
+<h2 id="what-the-runner-asserts">What the runner asserts</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1484,7 +1507,7 @@ and timestamp. <strong>If every job is a full scan, the data is in the wrong sto
 graceful-skip pattern Course 7 uses for jsdom. A skip is not a pass, and the
 runner says so.</p>
 <hr />
-<h2>Lab examination</h2>
+<h2 id="lab-examination">Lab examination</h2>
 <p>Two hours on a cluster, one experiment number, then a viva.</p>
 <p><strong>What costs marks:</strong></p>
 <ul>

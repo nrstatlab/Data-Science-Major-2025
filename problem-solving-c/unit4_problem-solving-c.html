@@ -27,6 +27,18 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-pointers">4.1 Pointers</a></li>
+    <li><a href="#42-functions">4.2 Functions</a></li>
+    <li><a href="#43-parameter-passing-the-exams-favourite-topic">4.3 Parameter passing — the exam&#x27;s favourite topic</a></li>
+    <li><a href="#44-local-and-global-variables">4.4 Local and global variables</a></li>
+    <li><a href="#45-storage-classes">4.5 Storage classes</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 10):</strong> Unit 4 is titled <strong>"Functions"</strong>, but the printed topic
 list opens with pointers:</p>
 <div class="tip">
@@ -44,7 +56,7 @@ revise "functions" from the unit title alone you will be unprepared for the
 pointer questions, which carry the heavier marks.</p>
 <p><strong>This is the hardest unit in the course.</strong> Budget extra time.</p>
 <hr />
-<h2>4.1 Pointers</h2>
+<h2 id="41-pointers">4.1 Pointers</h2>
 <p>Every variable lives at an <strong>address</strong> in memory. A <strong>pointer</strong> is a variable
 whose value is such an address.</p>
 <pre><code class="language-c">int x = 10;
@@ -79,7 +91,7 @@ printf(&quot;%d&quot;, *p);    /* 10        -- * dereferences: &quot;value at&qu
 </tbody>
 </table>
 <p>They are inverses: <code>*(&amp;x)</code> is <code>x</code>.</p>
-<h3>A diagram is worth more than the syntax</h3>
+<h3 id="a-diagram-is-worth-more-than-the-syntax">A diagram is worth more than the syntax</h3>
 <pre><code>   x                        p
 +------+                +----------+
 |  10  |  &lt;-----------  |   1000   |
@@ -93,7 +105,7 @@ addr 1000                addr 2000
 </code></pre>
 <p><strong>Draw this for every pointer question.</strong> Pointer bugs are obvious in a diagram
 and invisible in code.</p>
-<h3>Modifying through a pointer</h3>
+<h3 id="modifying-through-a-pointer">Modifying through a pointer</h3>
 <pre><code class="language-c">int x = 10;
 int *p = &amp;x;
 *p = 25;              /* writes THROUGH the pointer */
@@ -101,7 +113,7 @@ printf(&quot;%d&quot;, x);      /* 25 -- x itself changed */
 </code></pre>
 <p>This is why pointers matter: they let a function reach out and change something
 the caller owns.</p>
-<h3>The null pointer</h3>
+<h3 id="the-null-pointer">The null pointer</h3>
 <pre><code class="language-c">int *p = NULL;        /* points to nothing, deliberately */
 if (p != NULL)        /* always check before dereferencing */
     printf(&quot;%d&quot;, *p);
@@ -113,7 +125,7 @@ corrupts whatever memory it happens to address.</p>
 *p = 10;              /* writes 10 somewhere random */
 </code></pre>
 <p>Always initialise a pointer, to a real address or to <code>NULL</code>.</p>
-<h3>Pointer arithmetic</h3>
+<h3 id="pointer-arithmetic">Pointer arithmetic</h3>
 <p>Pointer arithmetic is scaled by the size of the pointed-to type.</p>
 <pre><code class="language-c">int a[5] = {10, 20, 30, 40, 50};
 int *p = a;           /* an array name is the address of its first element */
@@ -165,7 +177,7 @@ p++;                     /* now points at a[1] */
 </tr>
 </tbody>
 </table>
-<h3>Pointers and arrays</h3>
+<h3 id="pointers-and-arrays">Pointers and arrays</h3>
 <p>The array/pointer relationship is the source of most exam questions here.</p>
 <pre><code class="language-c">int a[5] = {10, 20, 30, 40, 50};
 
@@ -218,8 +230,8 @@ sizeof(p)    /* 8  -- one address on a 64-bit machine */
 </code></pre>
 <p>That <code>sizeof</code> difference is why passing an array to a function loses its size —
 the parameter is a pointer, and the function must be told the length separately.</p>
-<h2>4.2 Functions</h2>
-<h3>Prototype, definition, call</h3>
+<h2 id="42-functions">4.2 Functions</h2>
+<h3 id="prototype-definition-call">Prototype, definition, call</h3>
 <pre><code class="language-c">int add(int a, int b);        /* 1. PROTOTYPE -- declares the signature */
 
 int main(void)
@@ -239,7 +251,7 @@ meets the call. Without it, the compiler assumes <code>int</code> and cannot che
 arguments.</p>
 <p><strong>Terminology that gets asked:</strong> the names in the <em>definition</em> are <strong>formal
 parameters</strong>; the values in the <em>call</em> are <strong>actual arguments</strong>.</p>
-<h3>The <code>return</code> statement</h3>
+<h3 id="the-return-statement">The <code>return</code> statement</h3>
 <ul>
 <li>Sends a value back and <strong>exits the function immediately</strong></li>
 <li>A function may have several <code>return</code>s; the first one reached wins</li>
@@ -247,7 +259,7 @@ parameters</strong>; the values in the <em>call</em> are <strong>actual argument
 <li>Only <strong>one value</strong> can be returned. To return several, use a structure or
   pass pointers to output variables.</li>
 </ul>
-<h3>Categories of functions</h3>
+<h3 id="categories-of-functions">Categories of functions</h3>
 <p>Four combinations, and exams ask you to name and illustrate all of them:</p>
 <table class="main-table">
 <thead>
@@ -275,7 +287,7 @@ parameters</strong>; the values in the <em>call</em> are <strong>actual argument
 </tr>
 </tbody>
 </table>
-<h3>Nesting of functions</h3>
+<h3 id="nesting-of-functions">Nesting of functions</h3>
 <p>C allows a function to <strong>call</strong> another function (which the syllabus calls
 nesting):</p>
 <pre><code class="language-c">void inner(void) { printf(&quot;inner\n&quot;); }
@@ -284,7 +296,7 @@ void outer(void) { inner(); }
 <p>C does <strong>not</strong> allow a function to be <strong>defined inside</strong> another function.
 Unlike Python, <code>main()</code> cannot contain a nested definition. (GCC offers this as
 a non-standard extension — do not rely on it.)</p>
-<h3>Recursion</h3>
+<h3 id="recursion">Recursion</h3>
 <p>A function that calls itself. Every recursive function needs:</p>
 <ol>
 <li>A <strong>base case</strong> that returns without recursing — otherwise it never stops</li>
@@ -344,8 +356,8 @@ because the base case is never reached.</p>
 </tbody>
 </table>
 </div>
-<h2>4.3 Parameter passing — the exam's favourite topic</h2>
-<h3>Call by value</h3>
+<h2 id="43-parameter-passing-the-exams-favourite-topic">4.3 Parameter passing — the exam's favourite topic</h2>
+<h3 id="call-by-value">Call by value</h3>
 <p>A <strong>copy</strong> of the argument is passed. The function cannot touch the original.</p>
 <pre><code class="language-c">void swap(int a, int b)
 {
@@ -356,7 +368,7 @@ int x = 10, y = 20;
 swap(x, y);
 printf(&quot;%d %d&quot;, x, y);    /* STILL 10 20 -- only the copies were swapped */
 </code></pre>
-<h3>Call by address (call by reference)</h3>
+<h3 id="call-by-address-call-by-reference">Call by address (call by reference)</h3>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>The <strong>address</strong> is passed, so the function reaches the original.</p>
@@ -419,7 +431,7 @@ pointer, so a function can modify the caller's array without any <code>&amp;</co
 </code></pre>
 <p>Working demonstration:
 <a href="../labs/course-2-c/05_swap_value_address.c"><code>labs/course-2-c/05_swap_value_address.c</code></a>.</p>
-<h2>4.4 Local and global variables</h2>
+<h2 id="44-local-and-global-variables">4.4 Local and global variables</h2>
 <pre><code class="language-c">int count = 0;              /* GLOBAL -- visible to every function */
 
 void increment(void)
@@ -474,7 +486,7 @@ void f(void) {
     printf(&quot;%d&quot;, x);         /* 20 */
 }
 </code></pre>
-<h2>4.5 Storage classes</h2>
+<h2 id="45-storage-classes">4.5 Storage classes</h2>
 <p>A storage class fixes a variable's <strong>scope</strong>, <strong>lifetime</strong>, <strong>default value</strong>
 and <strong>storage location</strong>. The four-row table below is a guaranteed exam
 question — memorise it.</p>
@@ -524,10 +536,10 @@ question — memorise it.</p>
 </tr>
 </tbody>
 </table>
-<h3><code>auto</code></h3>
+<h3 id="auto"><code>auto</code></h3>
 <p>The default for local variables. <code>auto int x;</code> and <code>int x;</code> are identical, so
 the keyword is essentially never written.</p>
-<h3><code>static</code> — the one worth understanding</h3>
+<h3 id="static-the-one-worth-understanding"><code>static</code> — the one worth understanding</h3>
 <p>A <code>static</code> local keeps its value <strong>between calls</strong>, but stays invisible outside
 its function:</p>
 <pre><code class="language-c">void counter(void)
@@ -542,21 +554,21 @@ its function:</p>
 <p>Compare with a plain local, which resets to 0 every call and prints <code>1 1 1</code>.</p>
 <p>A <code>static</code> <strong>global</strong> restricts a variable or function to its own source file —
 the C equivalent of "private".</p>
-<h3><code>extern</code></h3>
+<h3 id="extern"><code>extern</code></h3>
 <p>Declares that a variable exists <strong>in another file</strong>, so this file may use it.</p>
 <pre><code class="language-c">/* file1.c */  int total = 100;
 /* file2.c */  extern int total;    /* not a new variable -- the same one */
 </code></pre>
 <p><code>extern</code> declares; it does not allocate. The definition lives in exactly one
 file.</p>
-<h3><code>register</code></h3>
+<h3 id="register"><code>register</code></h3>
 <p>Requests that the variable be kept in a CPU register for speed. It is only a
 <em>hint</em> — the compiler may ignore it. <strong>You cannot take the address of a
 <code>register</code> variable</strong> (<code>&amp;x</code> is a compile error), because registers have no
 memory address. Modern optimisers make far better decisions than the
 programmer, so the keyword is obsolete in practice; it remains examinable.</p>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is a pointer? How is it declared and initialized?</li>
@@ -584,7 +596,7 @@ programmer, so the keyword is obsolete in practice; it remains examinable.</p>
    storage location and an example each.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

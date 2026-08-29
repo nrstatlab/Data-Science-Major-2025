@@ -16,72 +16,143 @@
     <p>Exam-style questions with fully worked solutions.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#section-a-two-mark-questions">Section A — Two-mark questions</a></li>
+    <li><a href="#section-b-five-mark-questions">Section B — Five-mark questions</a></li>
+    <li><a href="#section-c-ten-mark-questions">Section C — Ten-mark questions</a></li>
+    <li><a href="#the-six-things-most-likely-to-be-examined">The six things most likely to be examined</a></li>
+  </ol>
+</details>
 <p>Every figure quoted here is produced by
 <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-12a-ml"><code>labs/course-12a-ml/</code></a> and checked by
 <a href="../tools/run_ml_labs.py"><code>tools/run_ml_labs.py</code></a>.</p>
 <hr />
-<h2>Section A — Two-mark questions</h2>
-<p><strong>1. State Mitchell's definition of machine learning.</strong>
-A program learns from experience <strong>E</strong> with respect to tasks <strong>T</strong> and
+<h2 id="section-a-two-mark-questions">Section A — Two-mark questions</h2>
+<p><strong>1. State Mitchell's definition of machine learning.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A program learns from experience <strong>E</strong> with respect to tasks <strong>T</strong> and
 performance measure <strong>P</strong> if its performance at T, as measured by P, improves
 with E.</p>
-<p><strong>2. Give one difference between classification and regression.</strong>
-Classification predicts a <strong>category</strong>; regression predicts a <strong>number</strong>.</p>
-<p><strong>3. Is logistic regression a regression or a classification method?</strong>
-<strong>Classification.</strong> It is a <em>linear model fitted like</em> a regression, which is
+</details>
+<p><strong>2. Give one difference between classification and regression.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Classification predicts a <strong>category</strong>; regression predicts a <strong>number</strong>.</p>
+</details>
+<p><strong>3. Is logistic regression a regression or a classification method?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>Classification.</strong> It is a <em>linear model fitted like</em> a regression, which is
 where the name comes from.</p>
-<p><strong>4. What shape does scikit-learn expect <code>X</code> to be?</strong>
-<strong>2-D</strong>, n × p. <code>y</code> is 1-D. A single feature still needs double brackets:
+</details>
+<p><strong>4. What shape does scikit-learn expect <code>X</code> to be?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p><strong>2-D</strong>, n × p. <code>y</code> is 1-D. A single feature still needs double brackets:
 <code>df[["hours"]]</code>.</p>
-<p><strong>5. Why must the test set be split off before preprocessing?</strong>
-Otherwise the transformer learns from test rows, and the test score stops being
+</details>
+<p><strong>5. Why must the test set be split off before preprocessing?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Otherwise the transformer learns from test rows, and the test score stops being
 an estimate of performance on unseen data.</p>
-<p><strong>6. Give the formula for precision and for recall.</strong>
-Precision = TP/(TP+FP). Recall = TP/(TP+FN).</p>
-<p><strong>7. What does AUC = 0.5 mean?</strong>
-No better than random.</p>
-<p><strong>8. What is the difference between a parameter and a hyperparameter?</strong>
-Parameters are <strong>learned by fitting</strong>; hyperparameters are <strong>set by you</strong> and
+</details>
+<p><strong>6. Give the formula for precision and for recall.</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Precision = TP/(TP+FP). Recall = TP/(TP+FN).</p>
+</details>
+<p><strong>7. What does AUC = 0.5 mean?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>No better than random.</p>
+</details>
+<p><strong>8. What is the difference between a parameter and a hyperparameter?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Parameters are <strong>learned by fitting</strong>; hyperparameters are <strong>set by you</strong> and
 chosen on validation folds.</p>
-<p><strong>9. Which algorithms require feature scaling?</strong>
-Anything measuring a <strong>distance</strong> or penalising <strong>coefficient size</strong> — k-NN,
+</details>
+<p><strong>9. Which algorithms require feature scaling?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Anything measuring a <strong>distance</strong> or penalising <strong>coefficient size</strong> — k-NN,
 K-Means, DBSCAN, SVM, PCA, Ridge/Lasso, neural networks. Trees and Naive Bayes
 do not.</p>
-<p><strong>10. What is the dummy variable trap?</strong>
-One-hot encoding k categories into k columns makes them sum to 1 and therefore
+</details>
+<p><strong>10. What is the dummy variable trap?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>One-hot encoding k categories into k columns makes them sum to 1 and therefore
 collinear with the intercept. Drop one for linear and logistic regression.</p>
-<p><strong>11. Why does R² never decrease when a predictor is added?</strong>
-Least squares can always set the new coefficient to zero, so the fit can only
+</details>
+<p><strong>11. Why does R² never decrease when a predictor is added?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Least squares can always set the new coefficient to zero, so the fit can only
 improve or stay the same. Use adjusted R² to compare models of different sizes.</p>
-<p><strong>12. What does "naive" mean in Naive Bayes?</strong>
-Every feature is assumed <strong>conditionally independent</strong> of every other, given
+</details>
+<p><strong>12. What does "naive" mean in Naive Bayes?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Every feature is assumed <strong>conditionally independent</strong> of every other, given
 the class.</p>
-<p><strong>13. What is Laplace smoothing for?</strong>
-The <strong>zero-frequency problem</strong> — one unseen feature value gives a probability of
+</details>
+<p><strong>13. What is Laplace smoothing for?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The <strong>zero-frequency problem</strong> — one unseen feature value gives a probability of
 0, and since the likelihood is a <strong>product</strong>, that zeroes the whole posterior.</p>
-<p><strong>14. Why is k-NN called a lazy learner?</strong>
-Fitting only stores the data; all computation happens at prediction time.</p>
-<p><strong>15. What is a support vector?</strong>
-A training point lying on the margin. <strong>They alone define the hyperplane</strong> —
+</details>
+<p><strong>14. Why is k-NN called a lazy learner?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>Fitting only stores the data; all computation happens at prediction time.</p>
+</details>
+<p><strong>15. What is a support vector?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>A training point lying on the margin. <strong>They alone define the hyperplane</strong> —
 remove any other point and the solution is unchanged.</p>
-<p><strong>16. What does C control in an SVM?</strong>
-The penalty for margin violations. <strong>Large C = narrow margin, less
+</details>
+<p><strong>16. What does C control in an SVM?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The penalty for margin violations. <strong>Large C = narrow margin, less
 regularised, higher variance.</strong> It runs in the opposite direction to <code>alpha</code>.</p>
-<p><strong>17. What fraction of rows is out of bag, and why?</strong>
-About <strong>36.8%</strong>. The chance of never drawing a row in n draws with replacement
+</details>
+<p><strong>17. What fraction of rows is out of bag, and why?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>About <strong>36.8%</strong>. The chance of never drawing a row in n draws with replacement
 is (1 − 1/n)ⁿ → 1/e ≈ 0.368.</p>
-<p><strong>18. Why does K-Means always converge?</strong>
-WCSS never increases across iterations — but it converges to a <strong>local</strong>
+</details>
+<p><strong>18. Why does K-Means always converge?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>WCSS never increases across iterations — but it converges to a <strong>local</strong>
 minimum.</p>
-<p><strong>19. What does a negative silhouette value mean?</strong>
-The point is <strong>closer to a neighbouring cluster than to its own</strong> — it is in the
+</details>
+<p><strong>19. What does a negative silhouette value mean?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>The point is <strong>closer to a neighbouring cluster than to its own</strong> — it is in the
 wrong cluster.</p>
-<p><strong>20. Why is ARI preferred to the Rand Index?</strong>
-ARI is <strong>corrected for chance</strong>, so a random clustering scores 0. The
+</details>
+<p><strong>20. Why is ARI preferred to the Rand Index?</strong></p>
+<details>
+<summary>Show answer</summary>
+<p>ARI is <strong>corrected for chance</strong>, so a random clustering scores 0. The
 unadjusted index gives random clusterings a score well above zero.</p>
 <hr />
-<h2>Section B — Five-mark questions</h2>
-<h3>1. Compare machine learning with traditional programming</h3>
+</details>
+<h2 id="section-b-five-mark-questions">Section B — Five-mark questions</h2>
+<h3 id="1-compare-machine-learning-with-traditional-programming">1. Compare machine learning with traditional programming</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> Draw the contrast:</p>
 <pre><code>TRADITIONAL PROGRAMMING              MACHINE LEARNING
    data ──┐                             data ──┐
@@ -132,7 +203,10 @@ unadjusted index gives random clusterings a score well above zero.</p>
 </table>
 <p>Add <strong>when not to use it</strong>: known stable rules, very little data, decisions that
 must be explained, or a simple baseline that already suffices.</p>
-<h3>2. Explain cross-validation and its variants</h3>
+</details>
+<h3 id="2-explain-cross-validation-and-its-variants">2. Explain cross-validation and its variants</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> k-fold splits the training data into k parts; each part serves
 once as validation while the rest train. The score is the mean of the k runs.</p>
 <table class="main-table">
@@ -172,8 +246,10 @@ scores <code>[0.975, 0.9625, 0.925, 0.900, 0.950]</code> — <strong>mean 0.9425
 single split could have reported anything from 0.90 to 0.975, which is why you
 quote <strong>mean ± sd</strong> and not one number.</p>
 </div>
-<h3>3. Distinguish bagging from boosting</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="3-distinguish-bagging-from-boosting">3. Distinguish bagging from boosting</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -216,8 +292,10 @@ quote <strong>mean ± sd</strong> and not one number.</p>
 </tbody>
 </table>
 <p><strong>One line: bagging averages away variance; boosting chips away at bias.</strong></p>
-<h3>4. Explain the three families of feature selection</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="4-explain-the-three-families-of-feature-selection">4. Explain the three families of feature selection</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -253,7 +331,10 @@ features individually uncorrelated with the target can be jointly predictive —
 XOR is the classic case, where each alone carries zero information. A filter
 drops both.</p>
 <p>Add that <strong>selection must happen inside cross-validation folds</strong>, or it leaks.</p>
-<h3>5. Explain data leakage with examples and how to prevent it</h3>
+</details>
+<h3 id="5-explain-data-leakage-with-examples-and-how-to-prevent-it">5. Explain data leakage with examples and how to prevent it</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> Leakage is information from outside the training data reaching
 the model, producing a score that cannot be reproduced in production.</p>
 <ol>
@@ -273,7 +354,10 @@ the model, producing a score that cannot be reproduced in production.</p>
 the moment I need the prediction?</em></p>
 <p><strong>The symptom is a suspiciously excellent score.</strong> AUC 1.0 is nearly always a
 leak.</p>
-<h3>6. How would you handle class imbalance?</h3>
+</details>
+<h3 id="6-how-would-you-handle-class-imbalance">6. How would you handle class imbalance?</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Solution.</strong> First <strong>measure the base rate</strong>, because it decides everything: on
 15%-positive data a <code>DummyClassifier</code> scores <strong>0.8500 accuracy and 0.0000
 recall</strong>.</p>
@@ -311,9 +395,11 @@ recall</strong>.</p>
 keep the real distribution.</p>
 <p><strong>Change the metric too:</strong> precision, recall, F1 or AUC-PR, not accuracy.</p>
 <hr />
-<h2>Section C — Ten-mark questions</h2>
-<h3>1. Why is accuracy inadequate? Explain the confusion matrix and derive precision, recall and F1</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h2 id="section-c-ten-mark-questions">Section C — Ten-mark questions</h2>
+<h3 id="1-why-is-accuracy-inadequate-explain-the-confusion-matrix-and-derive-precision-recall-and-f1">1. Why is accuracy inadequate? Explain the confusion matrix and derive precision, recall and F1</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Open with the base rate and a number.</strong> On 15%-positive data, a
 <code>DummyClassifier</code> predicting the majority class scores <strong>accuracy 0.8500 and
 recall 0.0000</strong> — 85% accurate, and it identifies not one positive case. In
@@ -377,8 +463,10 @@ and abandoning the other — precision 1.0 with recall 0.0 gives F1 = <strong>0<
 better: on the worked data, <strong>0.9882 against the dummy's 0.5</strong>, where accuracy
 compressed the same difference into 9 points. On severely imbalanced data
 prefer the <strong>precision–recall curve</strong>.</p>
-<h3>2. Explain the bias–variance trade-off; how would you detect and fix overfitting?</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="2-explain-the-biasvariance-trade-off-how-would-you-detect-and-fix-overfitting">2. Explain the bias–variance trade-off; how would you detect and fix overfitting?</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Expected error = bias² + variance + irreducible error.</strong> Bias is error from
 wrong assumptions (too simple); variance is sensitivity to the particular
 training sample (too complex); irreducible error is noise no model removes.</p>
@@ -454,8 +542,10 @@ training accuracy of 1.0 is a warning, not an achievement.</p>
 averages variance away; early stopping; fewer features. And <strong>cross-validation
 is how you detect it reliably</strong>, because on this data a single split ranges
 from 0.90 to 0.975.</p>
-<h3>3. Explain PCA with a worked example and its limitations</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="3-explain-pca-with-a-worked-example-and-its-limitations">3. Explain PCA with a worked example and its limitations</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Definition:</strong> an <strong>unsupervised</strong> technique finding new axes — linear
 combinations of the original features — ordered by the variance they capture.</p>
 <p><strong>The algorithm:</strong> standardise; compute the covariance/correlation matrix; find
@@ -524,8 +614,10 @@ They disagree, which is normal — Kaiser under-selects when p is small.</p>
 <p><strong>Close with the distinction from feature selection:</strong> PCA creates new features
 and <strong>still needs every original at prediction time</strong>. If the aim is to stop
 collecting an expensive measurement, you need <em>selection</em>, not PCA.</p>
-<h3>4. Explain logistic regression and why linear regression cannot classify</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="4-explain-logistic-regression-and-why-linear-regression-cannot-classify">4. Explain logistic regression and why linear regression cannot classify</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>State first that logistic regression is a classifier</strong>, despite its name.</p>
 <div class="tip">
 <p><span class="label">WHY IT MATTERS</span></p>
@@ -572,8 +664,10 @@ p = 2/3.</p>
 <p><strong>One model, three different classifiers.</strong> Choose the cut-off from the cost of
 each error.</p>
 <p>Finish with multi-class: one-vs-rest, or multinomial softmax.</p>
-<h3>5. Explain Naive Bayes, the naive assumption and the zero-frequency problem</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="5-explain-naive-bayes-the-naive-assumption-and-the-zero-frequency-problem">5. Explain Naive Bayes, the naive assumption and the zero-frequency problem</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>Bayes' theorem:</strong> P(C|X) = P(X|C)P(C)/P(X), naming posterior, likelihood,
 prior and evidence — and noting the evidence is the same across classes, so it
 is dropped for comparison.</p>
@@ -593,8 +687,10 @@ restores it to <strong>0.001443</strong>.</p>
 <p><strong>The variants:</strong> Gaussian (continuous), <strong>Multinomial</strong> (counts — text),
 Bernoulli (binary). And <strong>why it owns spam filtering</strong>: linear in the number of
 features, one training pass, little data needed, updates incrementally.</p>
-<h3>6. Compare K-Means, hierarchical clustering and DBSCAN</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="6-compare-k-means-hierarchical-clustering-and-dbscan">6. Compare K-Means, hierarchical clustering and DBSCAN</h3>
+<details>
+<summary>Show answer</summary>
 <table class="main-table">
 <thead>
 <tr>
@@ -670,8 +766,10 @@ apart: eps = 0.30 discards the sparse blob as <strong>60 noise points</strong>; 
 <strong>merges them</strong> (ARI 0.0178). No single eps recovers both, and <strong>K-Means scores
 0.8335</strong> here because both blobs are convex.</p>
 <p><strong>Neither algorithm is better in general</strong> — that is the answer to give.</p>
-<h3>7. How do you evaluate a clustering when there are no labels?</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="7-how-do-you-evaluate-a-clustering-when-there-are-no-labels">7. How do you evaluate a clustering when there are no labels?</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>The difficulty first:</strong> with no labels there is no accuracy, and <strong>a
 clustering algorithm always returns clusters</strong> — ask K-Means for four groups in
 pure noise and it gives four, with centroids and a tidy plot.</p>
@@ -696,8 +794,10 @@ correctness:</strong></p>
 <p><strong>Conclude honestly:</strong> no metric establishes correctness, because correctness is
 undefined without a purpose. The real tests are whether the clusters are
 <strong>actionable</strong>, <strong>stable in new data</strong>, and <strong>nameable by a domain expert</strong>.</p>
-<h3>8. Explain random forest, its two sources of randomness, and out-of-bag error</h3>
-<p><strong>Solution.</strong></p>
+</details>
+<h3 id="8-explain-random-forest-its-two-sources-of-randomness-and-out-of-bag-error">8. Explain random forest, its two sources of randomness, and out-of-bag error</h3>
+<details>
+<summary>Show answer</summary>
 <p><strong>The algorithm:</strong> many decision trees, each on a bootstrap sample, each
 choosing splits from a <strong>random subset of features</strong>; majority vote.</p>
 <p><strong>The two sources of randomness:</strong></p>
@@ -728,7 +828,8 @@ noise. The CV figures (0.9467 ± 0.0267 against 0.9600 ± 0.0249) <strong>overla
 almost entirely</strong>, so the honest conclusion is that the models are not
 distinguishable here.</p>
 <hr />
-<h2>The six things most likely to be examined</h2>
+</details>
+<h2 id="the-six-things-most-likely-to-be-examined">The six things most likely to be examined</h2>
 <ol>
 <li>
 <p><strong>Accuracy is inadequate — the confusion matrix, precision, recall, F1.</strong>

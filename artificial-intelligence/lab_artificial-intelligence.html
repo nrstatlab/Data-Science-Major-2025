@@ -16,12 +16,29 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#read-this-before-you-read-anything-else">Read this before you read anything else</a></li>
+    <li><a href="#experiment-1-a-family-tree">Experiment 1 — A family tree</a></li>
+    <li><a href="#experiments-27-lists-arithmetic-and-the-cut">Experiments 2–7 — Lists, arithmetic and the cut</a></li>
+    <li><a href="#experiments-811-a-graph-dfs-bfs-and-the-comparison">Experiments 8–11 — A graph, DFS, BFS, and the comparison</a></li>
+    <li><a href="#experiment-12-greedy-best-first-and-a">Experiment 12 — Greedy Best-First and A*</a></li>
+    <li><a href="#experiments-13-and-14-csp-map-colouring-and-n-queens">Experiments 13 and 14 — CSP: map colouring and N-Queens</a></li>
+    <li><a href="#experiments-1517-logic-chaining-and-an-expert-system">Experiments 15–17 — Logic, chaining and an expert system</a></li>
+    <li><a href="#experiment-18-a-dcg-grammar-for-english">Experiment 18 — A DCG grammar for English</a></li>
+    <li><a href="#experiment-19-deterministic-naive-bayes">Experiment 19 — Deterministic Naive Bayes</a></li>
+    <li><a href="#the-unit-3-extras-that-share-07-bayes-and-local-searchpy">The unit-3 extras that share 07_bayes_and_local_search.py</a></li>
+    <li><a href="#what-the-runner-asserts">What the runner asserts</a></li>
+    <li><a href="#lab-examination">Lab examination</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 20):</strong> 19 experiments, 1 credit, 2 hrs/week.
 The syllabus names <strong>SWI-Prolog</strong> and adds <em>"environment for practice without
 installation"</em> — meaning <a href="https://swish.swi-prolog.org/">swish.swi-prolog.org</a>,
 which runs in a browser.</p>
 <p>Code lives in <a href="https://github.com/nrstatlab/Data-Science-Major-2025/tree/main/labs/course-13a-ai"><code>labs/course-13a-ai/</code></a>.</p>
-<h2>Read this before you read anything else</h2>
+<h2 id="read-this-before-you-read-anything-else">Read this before you read anything else</h2>
 <p><strong>SWI-Prolog is not installed in the verification environment.</strong> The Debian
 repositories that host it are blocked by the egress policy, the same wall that
 stopped R in Course 6, WEKA in Course 8 and <code>mongod</code> in Course 10.</p>
@@ -64,7 +81,7 @@ covering all 19 prescribed experiments
 <p><strong>Nineteen experiments, sixteen files</strong> because experiments 8–11 are one graph
 asked four ways — represent it, DFS it, BFS it, compare the path lengths — so
 they share <code>08_graph_search.pl</code>.</p>
-<h3>⚠️ Five experiments <em>do</em> run as real logic programs</h3>
+<h3 id="five-experiments-do-run-as-real-logic-programs">⚠️ Five experiments <em>do</em> run as real logic programs</h3>
 <p><code>pytholog</code> is a small Prolog engine on PyPI, and PyPI is reachable. It performs
 <strong>genuine SLD resolution</strong> over facts and recursive rules, so experiments <strong>1,
 15, 16, 17 and the backward-chaining half of 16</strong> are not simulated — they are
@@ -116,7 +133,7 @@ it</strong> rather than quietly avoiding it:</p>
 on it. <strong>The <code>.pl</code> file uses the idiomatic nested form because SWI-Prolog
 handles it correctly.</strong> The engine limitation is documented, not hidden.</p>
 <hr />
-<h2>Experiment 1 — A family tree</h2>
+<h2 id="experiment-1-a-family-tree">Experiment 1 — A family tree</h2>
 <p><a href="../labs/course-13a-ai/01_family_tree.pl"><code>01_family_tree.pl</code></a> ·
 <a href="../labs/course-13a-ai/01_family_tree.py"><code>01_family_tree.py</code></a> — <strong>runs
 through real SLD resolution</strong></p>
@@ -176,7 +193,7 @@ distinct                          : ['ravi']
 once down each parent. <code>setof/3</code> collapses it. This is a property of
 resolution, not a bug, and examiners like the answer.</p>
 </div>
-<h3>⚠️ Where pytholog gets <code>cousin/2</code> wrong</h3>
+<h3 id="where-pytholog-gets-cousin2-wrong">⚠️ Where pytholog gets <code>cousin/2</code> wrong</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -200,7 +217,7 @@ propagate the inequality guard correctly through a nested derived predicate.
 <strong>SWI-Prolog handles the nested form correctly</strong>, and the <code>.pl</code> file uses it
 because it is the idiomatic encoding. This is an <strong>engine</strong> limitation.</p>
 <hr />
-<h2>Experiments 2–7 — Lists, arithmetic and the cut</h2>
+<h2 id="experiments-27-lists-arithmetic-and-the-cut">Experiments 2–7 — Lists, arithmetic and the cut</h2>
 <p><a href="../labs/course-13a-ai/02_lists.pl"><code>02_lists.pl</code></a> ·
 <a href="../labs/course-13a-ai/03_maximum.pl"><code>03_maximum.pl</code></a> ·
 <a href="../labs/course-13a-ai/04_flatten.pl"><code>04_flatten.pl</code></a> ·
@@ -211,7 +228,7 @@ because it is the idiomatic encoding. This is an <strong>engine</strong> limitat
 <p>pytholog has neither list terms nor arithmetic evaluation, and the script
 <strong>asserts both failures first</strong> — <code>mem(b, [a,b,c]) -&gt; ['No']</code> and
 <code>fact(5, X) -&gt; ['No']</code> — before executing the logic in Python.</p>
-<h3>Experiment 2 — <code>member/2</code>, <code>append/3</code>, <code>reverse/2</code>, <code>length/2</code></h3>
+<h3 id="experiment-2-member2-append3-reverse2-length2">Experiment 2 — <code>member/2</code>, <code>append/3</code>, <code>reverse/2</code>, <code>length/2</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -249,7 +266,7 @@ because a Prolog rule states a <strong>relation</strong>, not a function. A Pyth
 <code>append()</code> can never do this. If the viva asks "what makes Prolog different",
 this is the two-line answer.</p>
 </div>
-<h3>Experiments 3 and 4 — maximum, and flatten</h3>
+<h3 id="experiments-3-and-4-maximum-and-flatten">Experiments 3 and 4 — maximum, and flatten</h3>
 <pre><code>max([3,7,2,9,4]) -&gt; 9
 flatten([1, [2, [3, 4], 5], [[6]], 7]) -&gt; [1, 2, 3, 4, 5, 6, 7]
 flatten([[], [[]], 1])                 -&gt; [1]
@@ -259,7 +276,7 @@ flatten([[], [[]], 1])                 -&gt; [1]
 numbers. For <code>flatten/2</code> there are three clauses: empty list, list head
 (recurse and append), atom head (keep). <strong>Empty sublists disappear</strong> — the
 second example is the case people forget.</p>
-<h3>Experiments 5 and 6 — factorial, Fibonacci, GCD</h3>
+<h3 id="experiments-5-and-6-factorial-fibonacci-gcd">Experiments 5 and 6 — factorial, Fibonacci, GCD</h3>
 <pre><code>factorial 0..5 -&gt; [1, 1, 2, 6, 24, 120]
 fibonacci 0..9 -&gt; [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 naive fib(10) makes 177 recursive calls
@@ -270,7 +287,7 @@ gcd(17, 5)  = 1   (coprime)
 <p><strong>177 calls for <code>fib(10)</code></strong> is the number to quote: the naive Prolog definition
 is exponential for exactly the reason the Python one is. The fix is an
 accumulator, or <code>assertz/1</code> to memoise — Prolog's dynamic programming.</p>
-<h3>Experiment 7 — cut and fail</h3>
+<h3 id="experiment-7-cut-and-fail">Experiment 7 — cut and fail</h3>
 <p>pytholog has no cut, so this experiment is documented as <strong>semantics</strong> and the
 <code>.pl</code> file carries the real program.</p>
 <table class="main-table">
@@ -305,7 +322,7 @@ fly(X) :- bird(X).
 <p>For a penguin the first clause commits and fails, so <strong>the second is never
 tried</strong>. Remove the cut and every penguin flies.</p>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>Green cut and red cut</h4>
 <ul>
 <li>
@@ -320,7 +337,7 @@ tried</strong>. Remove the cut and every penguin flies.</p>
 become semantically load-bearing, which is why it is the hardest thing to
 debug.</p>
 </div>
-<h3>⚠️ <code>\+</code> is not logical negation</h3>
+<h3 id="is-not-logical-negation">⚠️ <code>\+</code> is not logical negation</h3>
 <pre><code>known birds: ['polly', 'tweety'], known penguins: ['pingu']
 \+ penguin(tweety)  succeeds  -- tweety is not known to be one
 \+ bird(kiwi)       succeeds  -- but we simply do not know
@@ -328,13 +345,13 @@ debug.</p>
 <p>Prolog assumes a <strong>closed world</strong>: anything not derivable is false. Logical
 negation would require <em>proving</em> the fact untrue. A kiwi is a bird.</p>
 <hr />
-<h2>Experiments 8–11 — A graph, DFS, BFS, and the comparison</h2>
+<h2 id="experiments-811-a-graph-dfs-bfs-and-the-comparison">Experiments 8–11 — A graph, DFS, BFS, and the comparison</h2>
 <p><a href="../labs/course-13a-ai/08_graph_search.pl"><code>08_graph_search.pl</code></a> ·
 <a href="../labs/course-13a-ai/03_uninformed_search.py"><code>03_uninformed_search.py</code></a></p>
 <p>Four experiments, one graph. The Python half runs both on the <strong>Romania map</strong>
 from Russell &amp; Norvig (20 cities, real distances) and on a six-node graph built
 to make one specific point.</p>
-<h3>The Romania run — the table to memorise</h3>
+<h3 id="the-romania-run-the-table-to-memorise">The Romania run — the table to memorise</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -399,7 +416,7 @@ Rimnicu Vilcea and Pitesti and neither strategy has any reason to go that way.</
 <p><strong>140 + 80 + 97 + 101 = 418</strong> — the optimal route accumulated one city at a
 time. Same procedure, reached from the AI side rather than from graph theory.</p>
 </div>
-<h3>The six-node graph — same work, twice the path</h3>
+<h3 id="the-six-node-graph-same-work-twice-the-path">The six-node graph — same work, twice the path</h3>
 <pre><code>a -&gt; b, c    b -&gt; d    d -&gt; e    e -&gt; g    c -&gt; g
 </code></pre>
 <table class="main-table">
@@ -489,7 +506,7 @@ costs almost nothing. IDS is the preferred uninformed search when the depth is
 unknown — and 111,111 / 123,456 are pleasing enough to remember.</p>
 </div>
 <hr />
-<h2>Experiment 12 — Greedy Best-First and A*</h2>
+<h2 id="experiment-12-greedy-best-first-and-a">Experiment 12 — Greedy Best-First and A*</h2>
 <p><a href="../labs/course-13a-ai/12_astar.pl"><code>12_astar.pl</code></a> ·
 <a href="../labs/course-13a-ai/04_informed_search.py"><code>04_informed_search.py</code></a></p>
 <div class="formula">
@@ -532,7 +549,7 @@ unknown — and 111,111 / 123,456 are pleasing enough to remember.</p>
 <p><strong>A* found the optimal 418 expanding 6 nodes where UCS needed 13.</strong> Same
 answer, less than half the work. That one sentence is why heuristics exist.</p>
 </div>
-<h3>Why greedy goes wrong, in two numbers</h3>
+<h3 id="why-greedy-goes-wrong-in-two-numbers">Why greedy goes wrong, in two numbers</h3>
 <p>At Sibiu, greedy compares <code>h</code> only:</p>
 <pre><code>h(Fagaras)        = 176   &lt;- looks closer, so it goes here
 h(Rimnicu Vilcea) = 193
@@ -550,7 +567,7 @@ uniform cost    : expanded 13, cost 418
 <p><strong>Identical, not merely similar.</strong> A* sits between UCS (no information,
 optimal) and greedy (maximum information, used badly, not optimal).</p>
 </div>
-<h3>⚠️ An inadmissible heuristic is faster and wrong</h3>
+<h3 id="an-inadmissible-heuristic-is-faster-and-wrong">⚠️ An inadmissible heuristic is faster and wrong</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -635,11 +652,11 @@ than A</em> with h1. <em>Dominance</em> is the right way to compare two heuristi
 far stronger claim than "it was faster on my example".</p>
 </div>
 <hr />
-<h2>Experiments 13 and 14 — CSP: map colouring and N-Queens</h2>
+<h2 id="experiments-13-and-14-csp-map-colouring-and-n-queens">Experiments 13 and 14 — CSP: map colouring and N-Queens</h2>
 <p><a href="../labs/course-13a-ai/13_map_colouring.pl"><code>13_map_colouring.pl</code></a> ·
 <a href="../labs/course-13a-ai/14_n_queens.pl"><code>14_n_queens.pl</code></a> ·
 <a href="../labs/course-13a-ai/05_csp_backtracking.py"><code>05_csp_backtracking.py</code></a></p>
-<h3>Experiment 13 — Australia, 3 colours, 7 regions</h3>
+<h3 id="experiment-13-australia-3-colours-7-regions">Experiment 13 — Australia, 3 colours, 7 regions</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -794,13 +811,13 @@ There is no formula; they are computed by search. That is <em>why</em> N-Queens 
 search problem at all, and it is a better answer than "92" on its own.</p>
 </div>
 <hr />
-<h2>Experiments 15–17 — Logic, chaining and an expert system</h2>
+<h2 id="experiments-1517-logic-chaining-and-an-expert-system">Experiments 15–17 — Logic, chaining and an expert system</h2>
 <p><a href="../labs/course-13a-ai/15_logic.pl"><code>15_logic.pl</code></a> ·
 <a href="../labs/course-13a-ai/16_chaining.pl"><code>16_chaining.pl</code></a> ·
 <a href="../labs/course-13a-ai/17_expert_system.pl"><code>17_expert_system.pl</code></a> ·
 <a href="../labs/course-13a-ai/06_logic_and_chaining.py"><code>06_logic_and_chaining.py</code></a>
 — <strong>16 and 17 run through real SLD resolution</strong></p>
-<h3>Experiment 15 — truth tables and entailment</h3>
+<h3 id="experiment-15-truth-tables-and-entailment">Experiment 15 — truth tables and entailment</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -889,7 +906,7 @@ second form is what resolution mechanises.</p>
 <p>Modus ponens and modus tollens were verified over all 4 models. <strong>Affirming the
 consequent (P⇒Q, Q ⊢ P) is not valid</strong>, and the table shows why in one cell:
 row (F, T) has P false and Q true.</p>
-<h3>Experiment 16 — forward and backward chaining</h3>
+<h3 id="experiment-16-forward-and-backward-chaining">Experiment 16 — forward and backward chaining</h3>
 <p><strong>Forward</strong>, from <code>{a, b}</code> and 3 rules:</p>
 <pre><code>derived, in order: ['c', 'd', 'e']
 final KB:          ['a', 'b', 'c', 'd', 'e']
@@ -948,7 +965,7 @@ pytholog raises <code>IndexError</code> on 0-arity terms — so the KB is writte
 Prolog is backward chaining with depth-first search — which is why a
 left-recursive rule loops for ever, closing the circle back to Experiment 1.</p>
 </div>
-<h3>Experiment 17 — the expert system, and its explanation facility</h3>
+<h3 id="experiment-17-the-expert-system-and-its-explanation-facility">Experiment 17 — the expert system, and its explanation facility</h3>
 <p>Working memory: <code>fever</code>, <code>cough</code>, <code>fatigue</code>.</p>
 <pre><code>?- viral(patient)         -&gt; Yes
 ?- flu(patient)           -&gt; Yes
@@ -975,7 +992,7 @@ system's conclusions change <em>and it can say which fact changed them</em>.</p>
 limit: an expert system knows only what someone wrote down.</p>
 </div>
 <hr />
-<h2>Experiment 18 — A DCG grammar for English</h2>
+<h2 id="experiment-18-a-dcg-grammar-for-english">Experiment 18 — A DCG grammar for English</h2>
 <p><a href="../labs/course-13a-ai/18_dcg.pl"><code>18_dcg.pl</code></a> ·
 <a href="../labs/course-13a-ai/07_bayes_and_local_search.py"><code>07_bayes_and_local_search.py</code></a></p>
 <p>pytholog does not parse <code>--&gt;</code>, so the Python half runs the equivalent recursive
@@ -997,7 +1014,7 @@ descent and the <code>.pl</code> file carries the real DCG.</p>
 'cat the chases'  does NOT parse
 </code></pre>
 <div class="tip">
-<p><span class="label">STORY</span></p>
+<p><span class="label">IN DEPTH</span></p>
 <h4>What a DCG actually is</h4>
 <p><strong>A DCG compiles to exactly this recursive descent</strong>, with the token list
 threaded through as <strong>difference lists</strong>. <code>s --&gt; np, vp.</code> expands to
@@ -1006,7 +1023,7 @@ rules, so this experiment is Unit 4's machinery applied to language. That is
 why it sits in an AI course rather than a compilers course.</p>
 </div>
 <hr />
-<h2>Experiment 19 — Deterministic Naive Bayes</h2>
+<h2 id="experiment-19-deterministic-naive-bayes">Experiment 19 — Deterministic Naive Bayes</h2>
 <p><a href="../labs/course-13a-ai/19_naive_bayes.pl"><code>19_naive_bayes.pl</code></a> ·
 <a href="../labs/course-13a-ai/07_bayes_and_local_search.py"><code>07_bayes_and_local_search.py</code></a></p>
 <p>The 14-day play-tennis table: <strong>9 play, 5 do not</strong>.</p>
@@ -1039,7 +1056,7 @@ and a hand calculation in Course 12 A, and this — and the same
 0.005291 / 0.020571. <strong>If they ever disagree, one of them is wrong</strong>, and
 <a href="../tools/verify_all.sh"><code>tools/verify_all.sh</code></a> says so.</p>
 </div>
-<h3>⚠️ Zero frequency vetoes a class</h3>
+<h3 id="zero-frequency-vetoes-a-class">⚠️ Zero frequency vetoes a class</h3>
 <pre><code>'overcast' appears 0 times with play=no
   P(no | overcast, ...) without smoothing = 0.0
   with Laplace (+1, 3 outlook values)     = 0.044643
@@ -1048,7 +1065,7 @@ and a hand calculation in Course 12 A, and this — and the same
 because the likelihood is a <strong>product</strong>. Laplace smoothing adds 1 to every
 count and 3 (the number of outlook values) to every denominator.</p>
 <hr />
-<h2>The unit-3 extras that share <code>07_bayes_and_local_search.py</code></h2>
+<h2 id="the-unit-3-extras-that-share-07-bayes-and-local-searchpy">The unit-3 extras that share <code>07_bayes_and_local_search.py</code></h2>
 <p>The syllabus lists hill climbing, simulated annealing and genetic algorithms in
 Unit 3 but prescribes <strong>no experiment</strong> for them. They are verified anyway,
 because §3.5–3.7 quote numbers.</p>
@@ -1147,7 +1164,7 @@ and the GA degenerates into an expensive random search. <strong>That is the
 criticism to raise</strong> when the exam asks you to evaluate genetic algorithms.</p>
 </div>
 <hr />
-<h2>What the runner asserts</h2>
+<h2 id="what-the-runner-asserts">What the runner asserts</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -1198,7 +1215,7 @@ criticism to raise</strong> when the exam asks you to evaluate genetic algorithm
 If someone deletes that marker without running the file, the suite fails —
 which is the point. The claim "this was verified" is never made by accident.</p>
 <hr />
-<h2>Lab examination</h2>
+<h2 id="lab-examination">Lab examination</h2>
 <p>Two hours in SWiSH, one experiment number, then a viva.</p>
 <p><strong>What costs marks:</strong></p>
 <ul>

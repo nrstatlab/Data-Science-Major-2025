@@ -32,11 +32,31 @@
     <span class="chip">Exception handling</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#31-dhtml">3.1 DHTML</a></li>
+    <li><a href="#32-what-javascript-is">3.2 What JavaScript is</a></li>
+    <li><a href="#33-variables">3.3 Variables</a></li>
+    <li><a href="#34-operators">3.4 Operators</a></li>
+    <li><a href="#35-statements">3.5 Statements</a></li>
+    <li><a href="#36-functions">3.6 Functions</a></li>
+    <li><a href="#37-string-manipulation">3.7 String manipulation</a></li>
+    <li><a href="#38-mathematical-functions">3.8 Mathematical functions</a></li>
+    <li><a href="#39-arrays">3.9 Arrays</a></li>
+    <li><a href="#310-objects">3.10 Objects</a></li>
+    <li><a href="#311-regular-expressions">3.11 Regular expressions</a></li>
+    <li><a href="#312-exception-handling">3.12 Exception handling</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 7):</strong> What is DHTML, JavaScript, basics, variables, operators,
 statements, string manipulations, mathematical functions, arrays, functions,
 objects, regular expressions, exception handling.</p>
 <hr />
-<h2>3.1 DHTML</h2>
+<h2 id="31-dhtml">3.1 DHTML</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>DHTML</strong> — Dynamic HTML — is not a language. It is a <em>name for the combination</em>
@@ -71,11 +91,11 @@ of HTML, CSS, JavaScript and the DOM used to change a page after it has loaded.<
 in industry now. It is examined, so know the definition — and know that
 answering "DHTML is a scripting language" loses the mark.</p>
 </div>
-<h2>3.2 What JavaScript is</h2>
+<h2 id="32-what-javascript-is">3.2 What JavaScript is</h2>
 <p>Created by <strong>Brendan Eich at Netscape in 1995</strong>, reportedly in ten days.
 Standardised as <strong>ECMAScript</strong>; ES6 (2015) is the version that modernised it,
 and everything since is named by year (ES2016, ES2017, …).</p>
-<h3>⚠️ JavaScript is not Java</h3>
+<h3 id="javascript-is-not-java">⚠️ JavaScript is not Java</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -114,7 +134,7 @@ and everything since is named by year (ES2016, ES2017, …).</p>
 </table>
 <p>The name was a marketing decision. The languages are unrelated. This <em>is</em> an
 exam question.</p>
-<h3>Where the code goes</h3>
+<h3 id="where-the-code-goes">Where the code goes</h3>
 <pre><code class="language-html">&lt;script&gt;
   console.log(&quot;inline&quot;);
 &lt;/script&gt;
@@ -157,7 +177,7 @@ exam question.</p>
 guarantees the DOM exists when the code runs. A plain <code>&lt;script&gt;</code> in the head
 that touches the DOM will fail, because the elements do not exist yet — which
 is why the old advice was "put scripts at the end of <code>&lt;body&gt;</code>".</p>
-<h2>3.3 Variables</h2>
+<h2 id="33-variables">3.3 Variables</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -203,7 +223,7 @@ is why the old advice was "put scripts at the end of <code>&lt;body&gt;</code>".
 console.log(a);   // 1  — var leaked out of the block
 console.log(b);   // ReferenceError — let did not
 </code></pre>
-<h3>⚠️ <code>const</code> does not mean immutable</h3>
+<h3 id="const-does-not-mean-immutable">⚠️ <code>const</code> does not mean immutable</h3>
 <p>It means the <strong>binding</strong> cannot be reassigned. The object it points at can
 still be changed.</p>
 <pre><code class="language-js">const arr = [1, 2, 3];
@@ -211,7 +231,7 @@ arr.push(4);        // fine — arr still points at the same array
 arr = [9];          // TypeError: Assignment to constant variable
 </code></pre>
 <p>Use <code>Object.freeze(obj)</code> if you actually need the contents locked.</p>
-<h3>The eight types</h3>
+<h3 id="the-eight-types">The eight types</h3>
 <p>Seven primitives plus objects:</p>
 <p><code>number</code>, <code>string</code>, <code>boolean</code>, <code>undefined</code>, <code>null</code>, <code>symbol</code>, <code>bigint</code>, and
 <code>object</code> (which covers arrays, functions and dates).</p>
@@ -229,7 +249,7 @@ without breaking the web. Use <code>Array.isArray(x)</code> to test for arrays, 
 <p><strong><code>undefined</code> vs <code>null</code></strong> — <code>undefined</code> means "no value has been assigned"
 (the language's doing); <code>null</code> means "deliberately empty" (the programmer's
 doing).</p>
-<h2>3.4 Operators</h2>
+<h2 id="34-operators">3.4 Operators</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -294,26 +314,26 @@ no real program benefits from them. The one accepted exception is
 <code>x == null</code>, which tests for <code>null</code> <strong>or</strong> <code>undefined</code> in one go.</p>
 <p>To test for <code>NaN</code>, use <code>Number.isNaN(x)</code> — never <code>x === NaN</code>.</p>
 </div>
-<h3>Truthy and falsy</h3>
+<h3 id="truthy-and-falsy">Truthy and falsy</h3>
 <p>Exactly <strong>eight</strong> falsy values; everything else is truthy.</p>
 <pre><code>false, 0, -0, 0n, &quot;&quot;, null, undefined, NaN
 </code></pre>
 <p>Note what is <strong>truthy</strong>: <code>"0"</code>, <code>"false"</code>, <code>[]</code>, <code>{}</code>. An empty array being
 truthy catches people constantly — use <code>arr.length === 0</code> to test emptiness.</p>
-<h3><code>??</code> vs <code>||</code></h3>
+<h3 id="vs"><code>??</code> vs <code>||</code></h3>
 <pre><code class="language-js">const a = 0 || 10;    // 10  — 0 is falsy, so the fallback fires
 const b = 0 ?? 10;    // 0   — 0 is not null/undefined, so it is kept
 </code></pre>
 <p><code>||</code> falls back on any falsy value; <code>??</code> falls back only on <code>null</code> and
 <code>undefined</code>. When 0 or <code>""</code> are legitimate values — a count, a search box — <code>??</code>
 is the correct operator.</p>
-<h3>Optional chaining</h3>
+<h3 id="optional-chaining">Optional chaining</h3>
 <pre><code class="language-js">const city = user?.address?.city;        // undefined instead of TypeError
 const n    = list?.length ?? 0;
 obj.method?.();                          // call only if it exists
 </code></pre>
 <p>Without <code>?.</code>, reading <code>.city</code> of an undefined <code>address</code> throws.</p>
-<h2>3.5 Statements</h2>
+<h2 id="35-statements">3.5 Statements</h2>
 <pre><code class="language-js">// conditionals
 if (x &gt; 0) { … } else if (x &lt; 0) { … } else { … }
 
@@ -330,7 +350,7 @@ for (const k in object)          { … }   // keys       — objects
 while (cond)   { … }
 do { … } while (cond);
 </code></pre>
-<h3>⚠️ <code>for…in</code> vs <code>for…of</code></h3>
+<h3 id="forin-vs-forof">⚠️ <code>for…in</code> vs <code>for…of</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -370,7 +390,7 @@ for (const i in a) console.log(i);   // &quot;0&quot;, &quot;1&quot;  ← string
 so <code>i + 1</code> gives <code>"01"</code>.</p>
 <p><code>switch</code> compares with <code>===</code>, and a missing <code>break</code> falls through to the next
 case — occasionally deliberate, usually a bug.</p>
-<h2>3.6 Functions</h2>
+<h2 id="36-functions">3.6 Functions</h2>
 <pre><code class="language-js">// declaration — hoisted, callable before its definition
 function add(a, b) { return a + b; }
 
@@ -387,7 +407,7 @@ function greet(name = &quot;student&quot;, ...rest) {
   return `Hello, ${name}! (${rest.length} extra)`;
 }
 </code></pre>
-<h3>Arrow functions vs regular functions</h3>
+<h3 id="arrow-functions-vs-regular-functions">Arrow functions vs regular functions</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -427,7 +447,7 @@ function greet(name = &quot;student&quot;, ...rest) {
 <p>The <code>this</code> difference is the one that matters, and Unit 4 shows why: inside an
 event handler written as a regular function, <code>this</code> is the element; inside an
 arrow function it is not.</p>
-<h3>Closures</h3>
+<h3 id="closures">Closures</h3>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>closure</strong> is a function that keeps access to the variables of the scope it
@@ -468,7 +488,7 @@ console.log(l);      // ReferenceError — let is in the temporal dead zone
 let l = 5;
 </code></pre>
 </div>
-<h2>3.7 String manipulation</h2>
+<h2 id="37-string-manipulation">3.7 String manipulation</h2>
 <p>Strings are <strong>immutable</strong>: every method returns a new string.</p>
 <pre><code class="language-js">const s = &quot;Data Science&quot;;
 
@@ -494,7 +514,7 @@ s.split(&quot; &quot;)             // [&quot;Data&quot;, &quot;Science&quot;]
 s.concat(&quot;!&quot;)            // &quot;Data Science!&quot;
 [...s].reverse().join(&quot;&quot;)// &quot;ecneicS ataD&quot;
 </code></pre>
-<h3>⚠️ <code>slice</code> vs <code>substring</code> vs <code>substr</code></h3>
+<h3 id="slice-vs-substring-vs-substr">⚠️ <code>slice</code> vs <code>substring</code> vs <code>substr</code></h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -523,7 +543,7 @@ s.concat(&quot;!&quot;)            // &quot;Data Science!&quot;
 </table>
 <p>Use <code>slice</code>. <code>substring</code>'s silent argument-swapping hides bugs, and <code>substr</code> is
 deprecated.</p>
-<h3>Template literals</h3>
+<h3 id="template-literals">Template literals</h3>
 <pre><code class="language-js">const name = &quot;Priya&quot;, marks = 87;
 const msg = `${name} scored ${marks}%, which is ${marks &gt;= 75 ? &quot;a distinction&quot; : &quot;a pass&quot;}.`;
 const multi = `line one
@@ -547,7 +567,7 @@ countVowels(&quot;Data Science&quot;);   // 5  — a, a, i, e, e
 <p>The <code>|| []</code> in the second version matters: <code>match</code> returns <code>null</code>, not an empty
 array, when nothing matches, and <code>null.length</code> throws. This is lab experiment 10.</p>
 </div>
-<h2>3.8 Mathematical functions</h2>
+<h2 id="38-mathematical-functions">3.8 Mathematical functions</h2>
 <pre><code class="language-js">Math.PI            // 3.141592653589793
 Math.E             // 2.718281828459045
 
@@ -571,12 +591,12 @@ Math.exp(1)        // 2.718…
 Math.hypot(3, 4)   // 5
 Math.sin(Math.PI/2)// 1      — radians, not degrees
 </code></pre>
-<h3>⚠️ <code>Math.round(-4.5)</code> is <code>-4</code></h3>
+<h3 id="mathround-45-is--4">⚠️ <code>Math.round(-4.5)</code> is <code>-4</code></h3>
 <p>JavaScript rounds half <strong>up</strong> (toward +∞), not away from zero. So
 <code>Math.round(4.5) === 5</code> but <code>Math.round(-4.5) === -4</code>. Note also that
 <code>Math.log</code> is the natural logarithm, not base 10 — a frequent error when
 porting formulas.</p>
-<h3>Random integers</h3>
+<h3 id="random-integers">Random integers</h3>
 <pre><code class="language-js">// integer in [min, max] inclusive
 const randInt = (min, max) =&gt; Math.floor(Math.random() * (max - min + 1)) + min;
 randInt(1, 6);   // a die roll
@@ -584,7 +604,7 @@ randInt(1, 6);   // a die roll
 <p>The <code>+ 1</code> is essential. <code>Math.random()</code> never returns 1, so without it the
 maximum is unreachable — an off-by-one that is easy to miss because it only
 shows up in the distribution.</p>
-<h3>Number formatting and floating point</h3>
+<h3 id="number-formatting-and-floating-point">Number formatting and floating point</h3>
 <pre><code class="language-js">(3.14159).toFixed(2)          // &quot;3.14&quot;   ← a STRING
 (1234.5678).toFixed(0)        // &quot;1235&quot;
 parseInt(&quot;42px&quot;)              // 42
@@ -602,13 +622,13 @@ Math.abs(0.1 + 0.2 - 0.3) &lt; Number.EPSILON   // true — the correct test
 <p>Floating-point binary cannot represent 0.1 exactly, exactly as in C (Course 2)
 and Python (Course 3). <strong>Never compare floats with <code>===</code>.</strong> For money, work in
 paise as integers.</p>
-<h2>3.9 Arrays</h2>
+<h2 id="39-arrays">3.9 Arrays</h2>
 <pre><code class="language-js">const a = [10, 20, 30];
 const b = new Array(3);       // length 3, all empty — rarely what you want
 const c = Array.of(3);        // [3]
 const d = Array.from(&quot;abc&quot;);  // [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
 </code></pre>
-<h3>Mutating methods — they change the original</h3>
+<h3 id="mutating-methods-they-change-the-original">Mutating methods — they change the original</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -660,7 +680,7 @@ const d = Array.from(&quot;abc&quot;);  // [&quot;a&quot;,&quot;b&quot;,&quot;c&
 </tr>
 </tbody>
 </table>
-<h3>Non-mutating methods — they return something new</h3>
+<h3 id="non-mutating-methods-they-return-something-new">Non-mutating methods — they return something new</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -727,7 +747,7 @@ marks.every(m =&gt; m &gt; 30)                 // true
 marks.at(-1)                             // 38
 [...marks].sort((x, y) =&gt; y - x)         // [91,72,66,45,38] — copy first
 </code></pre>
-<h3>⚠️ <code>sort()</code> sorts as strings by default</h3>
+<h3 id="sort-sorts-as-strings-by-default">⚠️ <code>sort()</code> sorts as strings by default</h3>
 <pre><code class="language-js">[10, 9, 100, 1].sort()                   // [1, 10, 100, 9]   ← wrong
 [10, 9, 100, 1].sort((a, b) =&gt; a - b)    // [1, 9, 10, 100]   ← right
 </code></pre>
@@ -756,7 +776,7 @@ const passers = students
 <p>That chain — filter, sort, map — is the shape of most real array code, and it
 is exactly what Course 9's Pandas does with <code>df[df.mark &gt;= 50]</code>.</p>
 </div>
-<h3>Destructuring and spread</h3>
+<h3 id="destructuring-and-spread">Destructuring and spread</h3>
 <pre><code class="language-js">const [first, second, ...rest] = [1, 2, 3, 4, 5];   // 1, 2, [3,4,5]
 const { name, mark = 0 } = students[0];
 const copy   = [...marks];                          // shallow copy
@@ -764,7 +784,7 @@ const merged = [...a, ...b];
 const maxOf  = Math.max(...marks);                  // 91
 [x, y] = [y, x];                                    // swap
 </code></pre>
-<h2>3.10 Objects</h2>
+<h2 id="310-objects">3.10 Objects</h2>
 <pre><code class="language-js">const student = {
   name: &quot;Asha&quot;,
   roll: 23,
@@ -828,7 +848,7 @@ Object.freeze(student)   // shallow immutability
 <p>The arrow function has no <code>this</code> of its own, so it uses <code>good</code>'s — which is
 <code>o</code>. This is the single most useful thing arrows do.</p>
 </div>
-<h3>Classes</h3>
+<h3 id="classes">Classes</h3>
 <p>ES6 syntax over the same prototype machinery.</p>
 <pre><code class="language-js">class Student {
   #private = &quot;hidden&quot;;                 // truly private field
@@ -858,7 +878,7 @@ console.log(String(t));                // &quot;Meena (91.3) 🏆 Gold&quot;
 </code></pre>
 <p>Forgetting <code>super()</code> in a derived constructor is a <code>ReferenceError</code>, not a
 silent failure.</p>
-<h2>3.11 Regular expressions</h2>
+<h2 id="311-regular-expressions">3.11 Regular expressions</h2>
 <pre><code class="language-js">const re1 = /\d{3}-\d{4}/;              // literal
 const re2 = new RegExp(&quot;\\d{3}&quot;, &quot;g&quot;);  // from a string — note doubled backslashes
 </code></pre>
@@ -973,7 +993,7 @@ s.search(/marks/)                // 10
 const m = &quot;2026-08-26&quot;.match(/(?&lt;y&gt;\d{4})-(?&lt;mo&gt;\d{2})-(?&lt;d&gt;\d{2})/);
 m.groups.y                       // &quot;2026&quot;
 </code></pre>
-<h3>Common validation patterns</h3>
+<h3 id="common-validation-patterns">Common validation patterns</h3>
 <pre><code class="language-js">const patterns = {
   email:  /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
   phoneIN:/^[6-9]\d{9}$/,
@@ -987,7 +1007,7 @@ patterns.email.test(&quot;asha@nrstat.in&quot;)   // true
 be matched from here without consuming it. Four lookaheads mean "must contain a
 lowercase, an uppercase, a digit and a symbol", in any order, and <code>.{8,}</code> then
 does the actual matching.</p>
-<h3>⚠️ Two regex traps</h3>
+<h3 id="two-regex-traps">⚠️ Two regex traps</h3>
 <p><strong>The <code>g</code> flag makes <code>test()</code> stateful.</strong> A regex with <code>g</code> remembers
 <code>lastIndex</code> between calls:</p>
 <pre><code class="language-js">const re = /\d/g;
@@ -1009,7 +1029,7 @@ const avg   = marks.reduce((a, b) =&gt; a + b, 0) / marks.length;  // 86
 <p><code>.map(Number)</code> is essential — <code>match</code> returns <strong>strings</strong>, and without it
 <code>"88" + "91"</code> is <code>"8891"</code>.</p>
 </div>
-<h2>3.12 Exception handling</h2>
+<h2 id="312-exception-handling">3.12 Exception handling</h2>
 <pre><code class="language-js">try {
   const data = JSON.parse(input);
   if (!data.name) throw new Error(&quot;name is required&quot;);
@@ -1021,7 +1041,7 @@ const avg   = marks.reduce((a, b) =&gt; a + b, 0) / marks.length;  // 86
 }
 </code></pre>
 <p><code>catch</code> may omit its binding (<code>catch { … }</code>) if you do not need the error.</p>
-<h3>Built-in error types</h3>
+<h3 id="built-in-error-types">Built-in error types</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -1056,7 +1076,7 @@ const avg   = marks.reduce((a, b) =&gt; a + b, 0) / marks.length;  // 86
 </tr>
 </tbody>
 </table>
-<h3>Custom errors</h3>
+<h3 id="custom-errors">Custom errors</h3>
 <pre><code class="language-js">class ValidationError extends Error {
   constructor(field, message) {
     super(message);
@@ -1083,7 +1103,7 @@ catch (e) {
 <p><strong>Re-throwing what you cannot handle is the discipline that matters.</strong> A
 <code>catch</code> that swallows every error turns a crash into a silent wrong answer,
 which is far worse.</p>
-<h3>⚠️ <code>finally</code> overrides <code>return</code></h3>
+<h3 id="finally-overrides-return">⚠️ <code>finally</code> overrides <code>return</code></h3>
 <pre><code class="language-js">function f() {
   try    { return 1; }
   finally{ return 2; }      // returns 2 — the try's return is discarded
@@ -1097,7 +1117,7 @@ catch { /* never runs — the callback fires long after try/catch has exited */ 
 <p>The <code>try</code> block finished before the callback ran. Put the <code>try</code> <em>inside</em> the
 callback, or use <code>async/await</code> where <code>try/catch</code> works normally.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Predict the output and justify each line.</p>
@@ -1200,7 +1220,7 @@ for (const [a, b] of [[10, 2], [1, 0], [&quot;x&quot;, 2], [1, Infinity]]) {
 unlike the global <code>isFinite()</code>, which coerces <code>"5"</code> to 5 and accepts it.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is DHTML?</li>
@@ -1233,7 +1253,7 @@ unlike the global <code>isFinite()</code>, which coerces <code>"5"</code> to 5 a
 <li>Write a program using arrays and objects to compute student statistics, and
    explain every method used.</li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

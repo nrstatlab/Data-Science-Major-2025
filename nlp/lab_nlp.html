@@ -16,12 +16,33 @@
     <p>Every prescribed lab experiment, with code and expected output.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#what-ran-and-what-did-not">What ran, and what did not</a></li>
+    <li><a href="#experiment-1-the-toolchain">Experiment 1 — the toolchain</a></li>
+    <li><a href="#experiment-2-regular-expressions-scored">Experiment 2 — regular expressions, scored</a></li>
+    <li><a href="#experiment-3-ambiguity">Experiment 3 — ambiguity</a></li>
+    <li><a href="#experiment-4-tokenization">Experiment 4 — tokenization</a></li>
+    <li><a href="#experiment-5-stopwords">Experiment 5 — stopwords</a></li>
+    <li><a href="#experiment-6-stemming-vs-lemmatization">Experiment 6 — stemming vs lemmatization</a></li>
+    <li><a href="#experiment-7-parsing">Experiment 7 — parsing</a></li>
+    <li><a href="#experiment-8-ner-scored-against-13-hand-labelled-entities">Experiment 8 — NER, scored against 13 hand-labelled entities</a></li>
+    <li><a href="#experiment-9-text-representation">Experiment 9 — text representation</a></li>
+    <li><a href="#experiment-10-sentiment-classification">Experiment 10 — sentiment classification</a></li>
+    <li><a href="#experiment-11-character-level-generation">Experiment 11 — character-level generation</a></li>
+    <li><a href="#experiment-12-masked-language-modelling-mechanism">Experiment 12 — masked language modelling (mechanism)</a></li>
+    <li><a href="#experiment-13-summarization-extractive-half">Experiment 13 — summarization (extractive half)</a></li>
+    <li><a href="#experiment-14-faq-retrieval-scored">Experiment 14 — FAQ retrieval, scored</a></li>
+    <li><a href="#running-it-yourself">Running it yourself</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 12):</strong> fourteen practicals, 1 credit, 2 hrs/week.</p>
 <p>Every number on this page was <strong>printed by code in this repository</strong>:</p>
 <pre><code class="language-bash">python3 tools/run_nlp_labs.py
 </code></pre>
 <hr />
-<h2>What ran, and what did not</h2>
+<h2 id="what-ran-and-what-did-not">What ran, and what did not</h2>
 <p><strong>Eleven of the fourteen experiments run against real corpora and real
 models.</strong></p>
 <table class="main-table">
@@ -126,7 +147,7 @@ with a masked-LM objective, builds TextRank extractive summarization, and
 scores an FAQ retriever. <code>tools/run_nlp_labs.py</code> asserts all three
 <code>*** NOT EXECUTED ***</code> markers survive.</p>
 <hr />
-<h2>Experiment 1 — the toolchain</h2>
+<h2 id="experiment-1-the-toolchain">Experiment 1 — the toolchain</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -191,7 +212,7 @@ scores an FAQ retriever. <code>tools/run_nlp_labs.py</code> asserts all three
 </tbody>
 </table>
 <hr />
-<h2>Experiment 2 — regular expressions, scored</h2>
+<h2 id="experiment-2-regular-expressions-scored">Experiment 2 — regular expressions, scored</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -231,7 +252,7 @@ scores an FAQ retriever. <code>tools/run_nlp_labs.py</code> asserts all three
 <p>Scored against a hand-labelled text containing deliberate near-misses:
 <code>asha at nrigroup dot ac dot in</code>, the handle <code>@nri_official</code>, <code>C#</code>, and a
 number too short to be a phone number.</p>
-<h3>The naive pattern, and what it costs</h3>
+<h3 id="the-naive-pattern-and-what-it-costs">The naive pattern, and what it costs</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -248,7 +269,7 @@ number too short to be a phone number.</p>
 </table>
 <p><code>\w</code> does not match <code>.</code> or <code>-</code>, <strong>so it truncates silently</strong> — and the output
 still looks like a list of emails.</p>
-<h3>Greedy vs lazy</h3>
+<h3 id="greedy-vs-lazy">Greedy vs lazy</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -267,7 +288,7 @@ still looks like a list of emails.</p>
 </tr>
 </tbody>
 </table>
-<h3>Where regex stops working</h3>
+<h3 id="where-regex-stops-working">Where regex stops working</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -287,7 +308,7 @@ still looks like a list of emails.</p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 3 — ambiguity</h2>
+<h2 id="experiment-3-ambiguity">Experiment 3 — ambiguity</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -314,7 +335,7 @@ still looks like a list of emails.</p>
 CFG — the PP attaching to the VP or to the NP, both grammatical, with nothing
 in the sentence to choose.</p>
 <hr />
-<h2>Experiment 4 — tokenization</h2>
+<h2 id="experiment-4-tokenization">Experiment 4 — tokenization</h2>
 <p>On <code>Dr. Reddy didn't visit the U.S.A. in 2024. He said, "It's far!" -- the
 trip cost Rs. 1,20,000. Email: a.b@nri.ac.in</code>:</p>
 <table class="main-table">
@@ -343,7 +364,7 @@ trip cost Rs. 1,20,000. Email: a.b@nri.ac.in</code>:</p>
 on different annotation guidelines, and abbreviations are where guidelines
 differ. <strong>Report which tokeniser you used.</strong></p>
 <hr />
-<h2>Experiment 5 — stopwords</h2>
+<h2 id="experiment-5-stopwords">Experiment 5 — stopwords</h2>
 <p>On 100,000 words of Brown: <strong>roughly 50% of tokens removed, and almost none of
 the vocabulary.</strong></p>
 <table class="main-table">
@@ -369,7 +390,7 @@ the vocabulary.</strong></p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 6 — stemming vs lemmatization</h2>
+<h2 id="experiment-6-stemming-vs-lemmatization">Experiment 6 — stemming vs lemmatization</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -416,7 +437,7 @@ the vocabulary.</strong></p>
 <strong><code>was</code> → <code>wa</code> untagged</strong> is not an English word, so "lemmatization always
 returns a real word" is only true when the tag is right.</p>
 <hr />
-<h2>Experiment 7 — parsing</h2>
+<h2 id="experiment-7-parsing">Experiment 7 — parsing</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -442,7 +463,7 @@ returns a real word" is only true when the tag is right.</p>
 <p><strong>Shift-reduce commits to a reduction and never backtracks.</strong> The rule that
 kills a top-down parser is <code>NP -&gt; NP PP</code> — <strong>left recursion</strong>, not ambiguity.</p>
 <hr />
-<h2>Experiment 8 — NER, scored against 13 hand-labelled entities</h2>
+<h2 id="experiment-8-ner-scored-against-13-hand-labelled-entities">Experiment 8 — NER, scored against 13 hand-labelled entities</h2>
 <p><strong>11 of 13 exactly right, 2 wrong labels, 0 missed.</strong></p>
 <table class="main-table">
 <thead>
@@ -501,15 +522,15 @@ kills a top-down parser is <code>NP -&gt; NP PP</code> — <strong>left recursio
 <p><strong>Both failures are states; both cities were correct.</strong> <code>en_core_web_sm</code> was
 trained on OntoNotes — mostly American news — so Indian state names are rare
 and the model falls back on surface cues.</p>
-<h3>The gazetteer fix</h3>
+<h3 id="the-gazetteer-fix">The gazetteer fix</h3>
 <p>Nine lines of <code>EntityRuler</code> patterns took it from <strong>11/13 to 13/13</strong>. When
 your domain has a closed list of entities, matching it beats inference.</p>
-<h3>And a lesson about the gold standard</h3>
+<h3 id="and-a-lesson-about-the-gold-standard">And a lesson about the gold standard</h3>
 <p>spaCy also found <code>2,400</code> (CARDINAL) and <code>three years</code> (DATE), <strong>which were not
 in the hand-built truth list — and both are correct.</strong> The gold list was
 incomplete. <strong>Annotate exhaustively, or state which categories you covered.</strong></p>
 <hr />
-<h2>Experiment 9 — text representation</h2>
+<h2 id="experiment-9-text-representation">Experiment 9 — text representation</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -565,7 +586,7 @@ incomplete. <strong>Annotate exhaustively, or state which categories you covered
 (0.0925).</strong> Documents 0 and 3 share <code>the</code>, <code>and</code>, <code>are</code> — function words and
 nothing else. TF-IDF narrows the gap but does not reverse it.</p>
 </div>
-<h3>What IDF is</h3>
+<h3 id="what-idf-is">What IDF is</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -585,7 +606,7 @@ nothing else. TF-IDF narrows the gap but does not reverse it.</p>
 </tbody>
 </table>
 <p><strong>IDF is a learned stopword list</strong>, derived from your corpus.</p>
-<h3>N-grams and word order</h3>
+<h3 id="n-grams-and-word-order">N-grams and word order</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -605,7 +626,7 @@ nothing else. TF-IDF narrows the gap but does not reverse it.</p>
 </tbody>
 </table>
 <hr />
-<h2>Experiment 10 — sentiment classification</h2>
+<h2 id="experiment-10-sentiment-classification">Experiment 10 — sentiment classification</h2>
 <p>NLTK <code>movie_reviews</code>: 2,000 documents, 1,500 train / 500 test, perfectly
 balanced, mean length 746 words.</p>
 <table class="main-table">
@@ -651,7 +672,7 @@ balanced, mean length 746 words.</p>
 </table>
 <p>Confusion matrix for the best model: <strong>206 / 44 / 44 / 206</strong> — errors evenly
 split, macro-F1 0.82.</p>
-<h3>5-fold cross-validation</h3>
+<h3 id="5-fold-cross-validation">5-fold cross-validation</h3>
 <p><code>[0.8225, 0.825, 0.825, 0.8175, 0.8175]</code> — <strong>mean 0.8215, spread 0.0075.</strong></p>
 <table class="main-table">
 <thead>
@@ -686,7 +707,7 @@ between folds.</strong> The honest conclusion is that they are indistinguishable
 this data — and that is the finding most lab reports get wrong.</p>
 </div>
 <hr />
-<h2>Experiment 11 — character-level generation</h2>
+<h2 id="experiment-11-character-level-generation">Experiment 11 — character-level generation</h2>
 <p>Jane Austen's <em>Emma</em> from NLTK's Gutenberg corpus: <strong>119,232 characters, 47
 distinct, 39,724 training sequences, 197,183 parameters.</strong></p>
 <p><strong>Perplexity fell from ~6.5 to ~2.7</strong>, against <strong>47</strong> for uniform guessing.</p>
@@ -715,7 +736,7 @@ distinct, 39,724 training sequences, 197,183 parameters.</strong></p>
 <p><strong>Correct spelling, plausible word boundaries, no meaning</strong> — which is exactly
 what a character model can learn.</p>
 <hr />
-<h2>Experiment 12 — masked language modelling (mechanism)</h2>
+<h2 id="experiment-12-masked-language-modelling-mechanism">Experiment 12 — masked language modelling (mechanism)</h2>
 <p>A <strong>2-layer bidirectional transformer encoder</strong> trained on the Brown corpus
 with BERT's masked-LM objective.</p>
 <table class="main-table">
@@ -752,7 +773,7 @@ small version yourself.</p>
 <code>12_bert_mlm.md</code>, marked NOT
 EXECUTED.</p>
 <hr />
-<h2>Experiment 13 — summarization (extractive half)</h2>
+<h2 id="experiment-13-summarization-extractive-half">Experiment 13 — summarization (extractive half)</h2>
 <p>A real Reuters article: <strong>2,858 characters, 22 sentences.</strong></p>
 <table class="main-table">
 <thead>
@@ -778,7 +799,7 @@ news because news is front-loaded — <strong>and it is the baseline nobody repo
 <code>13_summarization.md</code>,
 marked NOT EXECUTED.</p>
 <hr />
-<h2>Experiment 14 — FAQ retrieval, scored</h2>
+<h2 id="experiment-14-faq-retrieval-scored">Experiment 14 — FAQ retrieval, scored</h2>
 <p>Six FAQ entries, six test queries, <strong>none copying an FAQ question</strong>.</p>
 <table class="main-table">
 <thead>
@@ -808,7 +829,7 @@ marked NOT EXECUTED.</p>
 </table>
 <p><strong>Character n-grams got every one</strong>, because <em>exams</em> and <em>examination</em> share
 <code>exam</code>, <code>xam</code>. <strong>On this FAQ there is nothing for a transformer to improve.</strong></p>
-<h3>The one word-level failure</h3>
+<h3 id="the-one-word-level-failure">The one word-level failure</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -833,14 +854,14 @@ marked NOT EXECUTED.</p>
 </table>
 <p><strong>An exact tie, broken by list order</strong> — and both matches came only from the
 function words <em>are</em>, <em>the</em>, <em>when</em>.</p>
-<h3>The threshold</h3>
+<h3 id="the-threshold">The threshold</h3>
 <p><code>what is the wifi password</code> → best similarity <strong>0.3561</strong> against an unrelated
 entry. <strong><code>argmax</code> always returns something.</strong></p>
 <p>The sentence-transformer version is in
 <code>14_faq_chatbot.md</code>, marked
 NOT EXECUTED.</p>
 <hr />
-<h2>Running it yourself</h2>
+<h2 id="running-it-yourself">Running it yourself</h2>
 <pre><code class="language-bash">pip install -r tools/requirements.txt
 python3 -m spacy download en_core_web_sm
 python3 tools/fetch_nlp_data.py     # 17 NLTK corpora

@@ -23,7 +23,7 @@ experiment asks for and how to do it well.</p>
 <p>For the same spreadsheet functions applied to statistical data, see
 <code>labs/course-4-stats/excel-walkthroughs.md</code>.</p>
 <hr />
-<h2>The experiments</h2>
+<h2 id="the-experiments">The experiments</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -123,8 +123,8 @@ experiment asks for and how to do it well.</p>
 <p><em>(The syllabus writes experiment 1 as "Dessembling" — a typo in the official
 document for "Disassembling".)</em></p>
 <hr />
-<h2>Notes on each experiment</h2>
-<h3>1 — Assembling and disassembling</h3>
+<h2 id="notes-on-each-experiment">Notes on each experiment</h2>
+<h3 id="1-assembling-and-disassembling">1 — Assembling and disassembling</h3>
 <p>Identify and be able to name: the motherboard, CPU and its heatsink, RAM
 modules and their slots, SMPS (power supply), hard disk or SSD, SATA and power
 cables, expansion cards, and the front-panel connectors.</p>
@@ -132,7 +132,7 @@ cables, expansion cards, and the front-panel connectors.</p>
 touching the metal chassis or wearing an anti-static strap, never force a
 component, and note the orientation of everything before removing it.</p>
 <p><strong>Write notes as you go</strong> — the practical record matters as much as the doing.</p>
-<h3>2 — Network topology of your institution</h3>
+<h3 id="2-network-topology-of-your-institution">2 — Network topology of your institution</h3>
 <p>Walk the lab and record what you actually see: how many machines, how they
 connect to the switch, where the switch sits, how the switch reaches the router,
 and how the router reaches the ISP.</p>
@@ -140,18 +140,18 @@ and how the router reaches the ISP.</p>
 central switch. Draw it, label the devices, and state the topology with your
 reasoning. If several labs each have a switch, all feeding one core switch, that
 is a <strong>tree</strong> (a hierarchy of stars) and saying so earns extra credit.</p>
-<h3>3 — Resume</h3>
+<h3 id="3-resume">3 — Resume</h3>
 <p>Use <strong>styles</strong> for the section headings, not manual formatting. One page for a
 first-year student. Include: name and contact details, objective, education with
 percentages, skills, projects, certifications, achievements.</p>
 <p><strong>Export to PDF</strong> so the layout cannot shift on someone else's machine.</p>
-<h3>4 — Leave letter</h3>
+<h3 id="4-leave-letter">4 — Leave letter</h3>
 <p>Standard business letter format: sender's address, date, recipient's
 designation and address, subject line, salutation, body (reason, dates,
 handover arrangements), closing, signature.</p>
 <p>Ten days' leave means stating the <strong>exact dates</strong> and what happens to your work
 in the meantime.</p>
-<h3>5 — Presentation with text, audio and video</h3>
+<h3 id="5-presentation-with-text-audio-and-video">5 — Presentation with text, audio and video</h3>
 <p>The requirement is specifically <strong>all three media</strong>.</p>
 <ul>
 <li><strong>Audio:</strong> Insert → Audio → Audio on My PC, or Record Audio</li>
@@ -162,12 +162,12 @@ in the meantime.</p>
 examiner's machine.</p>
 <p>Add transitions between slides and animations within one slide, so both are
 demonstrated.</p>
-<h3>6 — Class timetable</h3>
+<h3 id="6-class-timetable">6 — Class timetable</h3>
 <p>A grid with days down the side and periods across the top. Use <strong>Merge Cells</strong>
 for double periods, borders for the grid, and colour-coding by subject.</p>
 <p>Use <strong>Freeze Panes</strong> so the day column stays visible when scrolling — a small
 touch that shows understanding.</p>
-<h3>7 — Gross and net salary</h3>
+<h3 id="7-gross-and-net-salary">7 — Gross and net salary</h3>
 <p>The standard allowance structure:</p>
 <pre><code>DA        = 30% of Basic Pay
 HRA       = 15% of Basic Pay
@@ -182,7 +182,7 @@ numbers.</p>
 <p>Format as currency, and total the columns.</p>
 <p><em>(The same calculation in C is lab experiment 12 of Course 2 — comparing the two
 is instructive.)</em></p>
-<h3>8 — Class results</h3>
+<h3 id="8-class-results">8 — Class results</h3>
 <p>Twenty students, several subjects. Compute per student: total, average, result
 (pass/fail), grade. Compute per subject: highest, lowest, average, pass count.</p>
 <pre><code class="language-excel">Total          =SUM(C2:G2)
@@ -195,7 +195,7 @@ Pass count     =COUNTIF(C2:C21,&quot;&gt;=40&quot;)
 </code></pre>
 <p>Note the <code>Result</code> formula uses <code>MIN</code> — a student must pass <strong>every</strong> subject,
 not merely average 40.</p>
-<h3>9 — Grade evaluation with IF, AND, OR, IFERROR</h3>
+<h3 id="9-grade-evaluation-with-if-and-or-iferror">9 — Grade evaluation with IF, AND, OR, IFERROR</h3>
 <p>The syllabus specifies all four functions.</p>
 <pre><code class="language-excel">Grade with a missing-mark guard:
 =IFERROR(IF(B2&gt;=90,&quot;A&quot;,IF(B2&gt;=75,&quot;B&quot;,IF(B2&gt;=60,&quot;C&quot;,IF(B2&gt;=40,&quot;D&quot;,&quot;F&quot;)))), &quot;No data&quot;)
@@ -208,7 +208,7 @@ Distinction in at least one subject:
 </code></pre>
 <p><strong>Test it with a blank cell and with text</strong> in the marks column, so you can show
 <code>IFERROR</code> actually doing something. An examiner will try exactly that.</p>
-<h3>10 — Employee search, four ways</h3>
+<h3 id="10-employee-search-four-ways">10 — Employee search, four ways</h3>
 <p>Build <code>Name, ID, Department, Salary</code>, then implement the same lookup four ways:</p>
 <pre><code class="language-excel">VLOOKUP      =VLOOKUP($F$2, $A$2:$D$50, 4, FALSE)
 HLOOKUP      =HLOOKUP($F$2, $A$1:$Z$5, 3, FALSE)        (for row-oriented data)
@@ -222,7 +222,7 @@ left and breaks when a column is inserted; XLOOKUP does neither; INDEX+MATCH
 matches XLOOKUP's flexibility and works in every Excel version.</p>
 </div>
 <p>Be ready to explain that in the viva — it is the obvious question.</p>
-<h3>11 — Sales report with pivot tables</h3>
+<h3 id="11-sales-report-with-pivot-tables">11 — Sales report with pivot tables</h3>
 <p>Dataset: Product, Region, Date, Quantity, Revenue.</p>
 <ol>
 <li>Insert → PivotTable</li>
@@ -234,7 +234,7 @@ matches XLOOKUP's flexibility and works in every Excel version.</p>
 </ol>
 <p>Right-click a date → <strong>Group</strong> → Months and Years, to turn transactions into a
 monthly trend.</p>
-<h3>12 — Data entry form with validation</h3>
+<h3 id="12-data-entry-form-with-validation">12 — Data entry form with validation</h3>
 <p>A student registration form using <strong>Data → Data Validation</strong>:</p>
 <table class="main-table">
 <thead>
@@ -269,7 +269,7 @@ monthly trend.</p>
 <p>For each, fill in the <strong>Input Message</strong> tab (the hint shown on selection) and
 the <strong>Error Alert</strong> tab (Stop / Warning / Information, with your own message).
 The syllabus asks for all three parts explicitly.</p>
-<h3>13 — Budget with Goal Seek and Scenario Manager</h3>
+<h3 id="13-budget-with-goal-seek-and-scenario-manager">13 — Budget with Goal Seek and Scenario Manager</h3>
 <p>Build a personal budget: income, expense categories, total expenses, savings.</p>
 <p><strong>Goal Seek:</strong> set the savings cell to a target, changing the income cell.
 Report the income required.</p>
@@ -279,7 +279,7 @@ Summary</strong> report comparing them side by side.</p>
 <p><strong>One-variable data table:</strong> list several expense values down a column and show
 the resulting savings for each.</p>
 <p>All three are required — do not stop at Goal Seek.</p>
-<h3>14 — Dashboard</h3>
+<h3 id="14-dashboard">14 — Dashboard</h3>
 <p>The capstone. Combine everything:</p>
 <ol>
 <li>
@@ -298,7 +298,7 @@ the resulting savings for each.</p>
 updates. If one does not, its pivot is not connected — the commonest fault, and
 the first thing an examiner will check.</p>
 <hr />
-<h2>Lab exam tips</h2>
+<h2 id="lab-exam-tips">Lab exam tips</h2>
 <ol>
 <li><strong>Save constantly</strong>, under a filename containing your roll number.</li>
 <li>

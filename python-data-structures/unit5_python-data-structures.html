@@ -32,6 +32,23 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#a1-what-an-adt-is">A.1 What an ADT is</a></li>
+    <li><a href="#a2-linked-lists">A.2 Linked lists</a></li>
+    <li><a href="#a3-stacks">A.3 Stacks</a></li>
+    <li><a href="#a4-queues">A.4 Queues</a></li>
+    <li><a href="#b1-the-minimal-program">B.1 The minimal program</a></li>
+    <li><a href="#b2-widgets">B.2 Widgets</a></li>
+    <li><a href="#b3-geometry-managers">B.3 Geometry managers</a></li>
+    <li><a href="#b4-event-handling">B.4 Event handling</a></li>
+    <li><a href="#b5-reading-and-writing-widgets">B.5 Reading and writing widgets</a></li>
+    <li><a href="#b6-a-complete-example">B.6 A complete example</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (pages 15–16):</strong> Abstract Data Structures (ADTs) — concepts and
 importance. Linked list — definition, types (singly, doubly, circular), node
 structure, insertion, deletion, traversal (<strong>singly linked list implementation
@@ -50,7 +67,7 @@ carries the lab marks (2 of the 18 lab programs). They share nothing. See
 </div>
 <hr />
 <h1>Part A — Abstract Data Structures</h1>
-<h2>A.1 What an ADT is</h2>
+<h2 id="a1-what-an-adt-is">A.1 What an ADT is</h2>
 <p>An <strong>Abstract Data Type</strong> specifies <em>what</em> operations a data structure supports
 and what they mean, without saying <em>how</em> they are implemented.</p>
 <div class="concept">
@@ -96,7 +113,7 @@ implementation (a dynamic array) you never see.</p>
 </tr>
 </tbody>
 </table>
-<h2>A.2 Linked lists</h2>
+<h2 id="a2-linked-lists">A.2 Linked lists</h2>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>linked list</strong> is a chain of <strong>nodes</strong>. Each node holds data and a reference
@@ -115,7 +132,7 @@ to the next node.</p>
         self.data = data
         self.next = None
 </code></pre>
-<h3>Types</h3>
+<h3 id="types">Types</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -140,7 +157,7 @@ to the next node.</p>
 </table>
 <p>The syllabus requires <strong>implementation of the singly linked list only</strong> —
 define the other two and describe them, but you are not asked to code them.</p>
-<h3>Operations</h3>
+<h3 id="operations">Operations</h3>
 <pre><code class="language-python">class SinglyLinkedList:
     def __init__(self):
         self.head = None
@@ -183,7 +200,7 @@ define the other two and describe them, but you are not asked to code them.</p>
 <code>None</code> you must move <code>self.head</code>, not <code>previous.next</code>.</p>
 <p>Full implementation, including reversal:
 <a href="../labs/course-3-python/16_linked_list.py"><code>16_linked_list.py</code></a>.</p>
-<h3>Linked list vs array/list</h3>
+<h3 id="linked-list-vs-arraylist">Linked list vs array/list</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -228,7 +245,7 @@ define the other two and describe them, but you are not asked to code them.</p>
 <p><strong>When to use which:</strong> a linked list wins when you insert and delete at the
 front often and rarely need random access. Otherwise a list is usually better —
 and in Python, <code>collections.deque</code> gives O(1) at both ends.</p>
-<h2>A.3 Stacks</h2>
+<h2 id="a3-stacks">A.3 Stacks</h2>
 <p><strong>LIFO — Last In, First Out.</strong> Like a stack of plates: the last one placed is
 the first one taken.</p>
 <pre><code class="language-python">class Stack:
@@ -256,7 +273,7 @@ the first one taken.</p>
 </code></pre>
 <p><strong>Underflow</strong> is popping from an empty stack; <strong>overflow</strong> is pushing onto a
 full one (only meaningful for a fixed-size implementation).</p>
-<h3>Applications — a guaranteed exam question</h3>
+<h3 id="applications-a-guaranteed-exam-question">Applications — a guaranteed exam question</h3>
 <ol>
 <li><strong>Function call management</strong> — the call stack; how recursion works</li>
 <li><strong>Expression evaluation</strong> — infix to postfix conversion, postfix evaluation</li>
@@ -265,7 +282,7 @@ full one (only meaningful for a fixed-size implementation).</p>
 <li><strong>Backtracking</strong> — maze solving, browser back button</li>
 <li><strong>Depth-first search</strong> in graphs</li>
 </ol>
-<h3>Balanced brackets — the standard worked example</h3>
+<h3 id="balanced-brackets-the-standard-worked-example">Balanced brackets — the standard worked example</h3>
 <pre><code class="language-python">def balanced(expression):
     pairs = {&quot;)&quot;: &quot;(&quot;, &quot;]&quot;: &quot;[&quot;, &quot;}&quot;: &quot;{&quot;}
     stack = []
@@ -279,7 +296,7 @@ full one (only meaningful for a fixed-size implementation).</p>
 </code></pre>
 <p><code>{[()]}</code> → True. <code>{[(])}</code> → False. <code>(((</code> → False, because the stack is not
 empty at the end.</p>
-<h2>A.4 Queues</h2>
+<h2 id="a4-queues">A.4 Queues</h2>
 <p><strong>FIFO — First In, First Out.</strong> Like a queue at a counter.</p>
 <pre><code class="language-python">class Queue:
     def __init__(self):
@@ -308,7 +325,7 @@ q.popleft()          # dequeue -- O(1)
 </code></pre>
 <p>The syllabus asks for the list implementation, so write that in the exam, but
 mentioning the <code>deque</code> alternative and <em>why</em> shows understanding.</p>
-<h3>Types of queue</h3>
+<h3 id="types-of-queue">Types of queue</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -335,7 +352,7 @@ mentioning the <code>deque</code> alternative and <em>why</em> shows understandi
 </tr>
 </tbody>
 </table>
-<h3>Priority queue</h3>
+<h3 id="priority-queue">Priority queue</h3>
 <pre><code class="language-python">class PriorityQueue:
     def __init__(self):
         self.items = []                      # list of (priority, value)
@@ -354,7 +371,7 @@ a routine checkup is still seen first.</p>
 <p>This implementation is O(n log n) per insertion because it re-sorts. A real one
 uses a <strong>heap</strong> — Python's <code>heapq</code> module — giving O(log n). Worth a sentence
 in a long answer.</p>
-<h3>Applications of queues</h3>
+<h3 id="applications-of-queues">Applications of queues</h3>
 <ol>
 <li><strong>CPU and disk scheduling</strong></li>
 <li><strong>Printer job queues</strong></li>
@@ -362,7 +379,7 @@ in a long answer.</p>
 <li><strong>Call-centre systems</strong></li>
 <li><strong>Buffering</strong> — keyboard input, network packets</li>
 </ol>
-<h3>Stack vs queue</h3>
+<h3 id="stack-vs-queue">Stack vs queue</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -411,7 +428,7 @@ in a long answer.</p>
 <p>Tkinter is Python's standard GUI library. It ships with Python, so nothing
 needs installing (on Debian/Ubuntu Linux it is a separate package,
 <code>python3-tk</code>).</p>
-<h2>B.1 The minimal program</h2>
+<h2 id="b1-the-minimal-program">B.1 The minimal program</h2>
 <pre><code class="language-python">import tkinter as tk
 
 window = tk.Tk()                     # the main window
@@ -426,7 +443,7 @@ window.mainloop()                    # start the event loop -- BLOCKS here
 <p><strong><code>mainloop()</code> must be the last line.</strong> It hands control to Tkinter, which then
 waits for events. Anything written after it does not run until the window
 closes.</p>
-<h2>B.2 Widgets</h2>
+<h2 id="b2-widgets">B.2 Widgets</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -485,7 +502,7 @@ closes.</p>
 </tr>
 </tbody>
 </table>
-<h2>B.3 Geometry managers</h2>
+<h2 id="b3-geometry-managers">B.3 Geometry managers</h2>
 <p>Three ways to place widgets. <strong>Never mix them within the same container</strong> — the
 result is undefined and typically a blank window.</p>
 <pre><code class="language-python">widget.pack()                                  # stacks vertically or by side
@@ -517,7 +534,7 @@ widget.place(x=50, y=100)                      # absolute pixels -- avoid
 </tr>
 </tbody>
 </table>
-<h2>B.4 Event handling</h2>
+<h2 id="b4-event-handling">B.4 Event handling</h2>
 <p>The <code>command</code> parameter binds a function to a button:</p>
 <pre><code class="language-python">def on_click():
     name = entry.get()                 # read the Entry widget
@@ -530,13 +547,13 @@ button = tk.Button(window, text=&quot;Submit&quot;, command=on_click)
 <p>To pass arguments, use a lambda:</p>
 <pre><code class="language-python">tk.Button(window, text=&quot;7&quot;, command=lambda: press(&quot;7&quot;))
 </code></pre>
-<h3><code>bind()</code> for other events</h3>
+<h3 id="bind-for-other-events"><code>bind()</code> for other events</h3>
 <pre><code class="language-python">widget.bind(&quot;&lt;Button-1&gt;&quot;, handler)      # left mouse click
 widget.bind(&quot;&lt;Return&gt;&quot;, handler)        # Enter key
 widget.bind(&quot;&lt;KeyPress&gt;&quot;, handler)      # any key
 </code></pre>
 <p>Handlers bound this way receive an <code>event</code> object as their argument.</p>
-<h2>B.5 Reading and writing widgets</h2>
+<h2 id="b5-reading-and-writing-widgets">B.5 Reading and writing widgets</h2>
 <pre><code class="language-python">value = entry.get()                     # read an Entry
 entry.delete(0, tk.END)                 # clear it
 entry.insert(0, &quot;default text&quot;)         # set it
@@ -546,7 +563,7 @@ label.config(text=&quot;new text&quot;)           # update a Label
 listbox.insert(tk.END, &quot;item&quot;)
 listbox.get(listbox.curselection())     # the selected item
 </code></pre>
-<h2>B.6 A complete example</h2>
+<h2 id="b6-a-complete-example">B.6 A complete example</h2>
 <pre><code class="language-python">import tkinter as tk
 from tkinter import messagebox
 
@@ -589,7 +606,7 @@ verification, because <code>tkinter</code> is not installed in that environment 
 GUI needs a display. Run them on your own machine.</p>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is an abstract data type?</li>
@@ -627,7 +644,7 @@ GUI needs a display. Run them on your own machine.</p>
    explain event handling.</p>
 </li>
 </ol>
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

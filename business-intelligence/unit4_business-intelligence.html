@@ -32,6 +32,23 @@
     <span class="chip">Mistakes that cost marks</span>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#41-a-note-on-the-overlap-with-course-8">4.1 A note on the overlap with Course 8</a></li>
+    <li><a href="#42-dimensional-modeling-the-vocabulary">4.2 Dimensional modeling — the vocabulary</a></li>
+    <li><a href="#43-star-and-snowflake-schemas">4.3 Star and snowflake schemas</a></li>
+    <li><a href="#44-power-bi-relationships-and-cardinality">4.4 Power BI relationships and cardinality</a></li>
+    <li><a href="#45-cross-filter-direction-where-the-worst-bugs-come-from">4.5 Cross-filter direction — where the worst bugs come from</a></li>
+    <li><a href="#46-tableau-joins-and-blending">4.6 Tableau — joins and blending</a></li>
+    <li><a href="#47-data-governance-metadata-hierarchies-quality">4.7 Data governance — metadata, hierarchies, quality</a></li>
+    <li><a href="#48-data-model-design-best-practices">4.8 Data model design best practices</a></li>
+    <li><a href="#49-case-study-retail-bi-for-sales-optimization">4.9 Case study — retail BI for sales optimization</a></li>
+    <li><a href="#practice-problems">Practice problems</a></li>
+    <li><a href="#exam-questions-from-this-unit">Exam questions from this unit</a></li>
+    <li><a href="#mistakes-that-cost-marks">Mistakes that cost marks</a></li>
+  </ol>
+</details>
 <p><strong>Syllabus (page 2):</strong> Dimensional modeling — dimension, dimension table, fact,
 fact table, schema; star and snowflake schemas. Power BI — relationships,
 cardinality, cross-filtering. Tableau — joins (inner, left, full), blending.
@@ -47,7 +64,7 @@ This unit is where the thinking is, and where a wrong answer produces a
 dashboard that is confidently and silently incorrect.</p>
 </div>
 <hr />
-<h2>4.1 A note on the overlap with Course 8</h2>
+<h2 id="41-a-note-on-the-overlap-with-course-8">4.1 A note on the overlap with Course 8</h2>
 <p><strong>If you took Course 8 (Data Mining), you have already studied half of this
 unit.</strong> Course 8 Unit 1 covered data warehousing, star and snowflake schemas,
 fact constellations, fact and dimension tables, and OLAP cube operations. Do
@@ -102,7 +119,7 @@ not study that material twice.</p>
 Course 8 revision written in BI vocabulary — which is itself worth doing once,
 because the exam asks it in <em>this</em> course's words.</p>
 <hr />
-<h2>4.2 Dimensional modeling — the vocabulary</h2>
+<h2 id="42-dimensional-modeling-the-vocabulary">4.2 Dimensional modeling — the vocabulary</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Split every table into things you measure and things you measure them by.</strong></p>
@@ -209,7 +226,7 @@ trap exists. You cannot add or average percentages; you must re-derive them
 from their additive components. That connects the two units and is worth saying.</p>
 </div>
 <hr />
-<h2>4.3 Star and snowflake schemas</h2>
+<h2 id="43-star-and-snowflake-schemas">4.3 Star and snowflake schemas</h2>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <h4>The star</h4>
@@ -294,7 +311,7 @@ edge is what makes it a snowflake rather than a star.</p>
 tools are optimised for the star. Snowflake only when a dimension is genuinely
 enormous, or an attribute is shared and changes often.</p>
 </div>
-<h3>⚠️ "Why not just one flat table?" — the question worth answering properly</h3>
+<h3 id="why-not-just-one-flat-table-the-question-worth-answering-properly">⚠️ "Why not just one flat table?" — the question worth answering properly</h3>
 <p>Beginners import one wide spreadsheet and build on it. It works, and then it
 does not. Measured on the sample model, and asserted in
 <a href="../labs/course-11-bi/13_data_model.py"><code>13_data_model.py</code></a>:</p>
@@ -372,7 +389,7 @@ dimensions do not grow and the fact table does:</strong></p>
 <p><strong>Point 3 is the one that convinces people.</strong> "Which products sold nothing last
 month?" is unanswerable from a flat table and trivial from a star.</p>
 <hr />
-<h2>4.4 Power BI relationships and cardinality</h2>
+<h2 id="44-power-bi-relationships-and-cardinality">4.4 Power BI relationships and cardinality</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>A relationship is a join you declare once in the model instead of writing in
@@ -420,14 +437,14 @@ query time; the filter simply flowed along the relationship.</p>
 relationship if the key repeats — and that refusal is usually telling you the
 grain is wrong, not that the tool is being difficult.</p>
 </div>
-<h3>⚠️ Many-to-many is a warning, not a feature</h3>
+<h3 id="many-to-many-is-a-warning-not-a-feature">⚠️ Many-to-many is a warning, not a feature</h3>
 <p>Power BI added many-to-many relationships, and they are usually the wrong
 answer. The right answer is a <strong>bridge (junction) table</strong> — which is Course 5's
 junction table and Course 10's junction collection, unchanged.</p>
 <p><strong>Students → Courses</strong> is many-to-many; the fix is an <code>enrollments</code> table with
 one row per pairing, related 1:* from each side. Course 10 §4.2 made exactly
 this argument about MongoDB, and the reasoning survives the move to a BI tool.</p>
-<h3>Active and inactive relationships</h3>
+<h3 id="active-and-inactive-relationships">Active and inactive relationships</h3>
 <p><strong>Only one relationship between two tables can be active at a time.</strong> With both
 an Order Date and a Ship Date pointing at <code>dim_date</code>, one is active (solid) and
 one inactive (dashed). Activate the other for a specific measure with
@@ -440,7 +457,7 @@ shipping. Both are correct; <code>USERELATIONSHIP</code> keeps one date table, a
 second table is easier for users to understand. Name both and say which you
 would choose, and why.</p>
 <hr />
-<h2>4.5 Cross-filter direction — where the worst bugs come from</h2>
+<h2 id="45-cross-filter-direction-where-the-worst-bugs-come-from">4.5 Cross-filter direction — where the worst bugs come from</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Cross-filter direction decides which way a filter travels along a
@@ -469,7 +486,7 @@ relationship.</strong></p>
 <p>Single direction is the default because it is unambiguous: dimensions filter
 facts, and facts do not filter dimensions.</p>
 </div>
-<h3>⚠️ Turning on bidirectional filtering is the commonest self-inflicted wound</h3>
+<h3 id="turning-on-bidirectional-filtering-is-the-commonest-self-inflicted-wound">⚠️ Turning on bidirectional filtering is the commonest self-inflicted wound</h3>
 <p>It looks harmless and it solves the immediate problem. Then:</p>
 <ol>
 <li>
@@ -500,7 +517,7 @@ dimension. That is the real use case, it is narrow, and doing it per-measure
 with <code>CROSSFILTER</code> is better than doing it model-wide.</p>
 </div>
 <hr />
-<h2>4.6 Tableau — joins and blending</h2>
+<h2 id="46-tableau-joins-and-blending">4.6 Tableau — joins and blending</h2>
 <p>The syllabus lists <strong>joins (inner, left, full) and blending</strong> in this unit,
 beside Power BI's relationships. Unit 3 §3.6 covered them as tool operation;
 here they belong to the <em>modelling</em> question, and the comparison with Power
@@ -595,7 +612,7 @@ relationship <em>propagates filters</em>. That is why a Power BI model can hold 
 tables and never duplicate anything, while one careless Tableau join doubles
 your revenue.</p>
 </div>
-<h3>⚠️ Blending, and why it cannot fan out</h3>
+<h3 id="blending-and-why-it-cannot-fan-out">⚠️ Blending, and why it cannot fan out</h3>
 <p><strong>Blending is a left join performed after aggregation.</strong> Each source is
 aggregated to the linking field first, then the results are matched.</p>
 <table class="main-table">
@@ -681,14 +698,14 @@ two fact tables sharing conformed dimensions cannot fan out, because the tables
 are never joined — filters flow from the dimensions into each fact
 independently. The fan trap is a symptom of modelling by joining.</p>
 </div>
-<h2>4.7 Data governance — metadata, hierarchies, quality</h2>
+<h2 id="47-data-governance-metadata-hierarchies-quality">4.7 Data governance — metadata, hierarchies, quality</h2>
 <div class="concept">
 <p><span class="label">THE BIG IDEA</span></p>
 <p><strong>Self-service BI's failure mode is five dashboards with five different revenue
 figures, all defensible.</strong> Governance is what prevents that, and it is
 organisational before it is technical.</p>
 </div>
-<h3>Metadata</h3>
+<h3 id="metadata">Metadata</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -719,7 +736,7 @@ organisational before it is technical.</p>
 every measure into the model.</strong> In Power BI that is a measure's Description; it
 appears as a tooltip. It takes five minutes and prevents the five-figures
 problem.</p>
-<h3>Hierarchies</h3>
+<h3 id="hierarchies">Hierarchies</h3>
 <div class="concept">
 <p><span class="label">DEFINITION</span></p>
 <p>A <strong>hierarchy</strong> is an ordered set of levels within a dimension, giving
@@ -749,7 +766,7 @@ drill-down for free:</p>
 </table>
 <p><strong>Define hierarchies in the model, not per visual.</strong> Then every visual drills
 consistently, and Unit 5's drilldowns work without extra configuration.</p>
-<h3>⚠️ Every model needs a proper Date dimension</h3>
+<h3 id="every-model-needs-a-proper-date-dimension">⚠️ Every model needs a proper Date dimension</h3>
 <p><strong>Do not use the date column in the fact table.</strong> Create a separate date table,
 mark it as a date table, and relate it.</p>
 <p>Why it is not optional:</p>
@@ -768,7 +785,7 @@ mark it as a date table, and relate it.</p>
   year probably does not start in January.</p>
 </li>
 </ul>
-<h3>Data quality — the six dimensions</h3>
+<h3 id="data-quality-the-six-dimensions">Data quality — the six dimensions</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -819,7 +836,7 @@ system. <strong>Escalate the root cause; patch only to keep moving.</strong> Say
 distinguishes a governance answer from a tooling answer.</p>
 </div>
 <hr />
-<h2>4.8 Data model design best practices</h2>
+<h2 id="48-data-model-design-best-practices">4.8 Data model design best practices</h2>
 <p>A checklist worth memorising — it answers several ten-mark questions.</p>
 <ol>
 <li>
@@ -858,7 +875,7 @@ distinguishes a governance answer from a tooling answer.</p>
     drifting.</li>
 </ol>
 <hr />
-<h2>4.9 Case study — retail BI for sales optimization</h2>
+<h2 id="49-case-study-retail-bi-for-sales-optimization">4.9 Case study — retail BI for sales optimization</h2>
 <p>The syllabus sets this case here, and it is the natural ten-mark modelling
 question. It continues Unit 1 §1.8's inventory case.</p>
 <p><strong>The requirement.</strong> Which products, in which stores, are driving and dragging
@@ -920,7 +937,7 @@ YoY Growth     = DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY])
 Pct of Category= DIVIDE([Total Revenue],
                         CALCULATE([Total Revenue], ALLEXCEPT(dim_product, dim_product[category])))
 </code></pre>
-<h3>⚠️ The modelling trap in this case</h3>
+<h3 id="the-modelling-trap-in-this-case">⚠️ The modelling trap in this case</h3>
 <p><strong>Stock on hand does not belong in the sales fact table.</strong> It is a <em>state</em>, not
 an <em>event</em>: it has a value at every instant, not a value per transaction.</p>
 <p>Putting it there produces two failures — the grain becomes mixed, and <code>SUM</code> of
@@ -934,7 +951,7 @@ constellation</strong>, exactly as Course 8 §1.5 defined it.</p>
 own fact table, and naming the resulting schema, is what distinguishes a full
 answer from a diagram.</p>
 <hr />
-<h2>Practice problems</h2>
+<h2 id="practice-problems">Practice problems</h2>
 <div class="example">
 <p><span class="label">PROBLEM 1</span></p>
 <p>Distinguish star and snowflake schemas. Which would you choose for a retail
@@ -1020,7 +1037,7 @@ Attrition Rate = DIVIDE([Leavers], [Avg Headcount])
 </ol>
 </div>
 <hr />
-<h2>Exam questions from this unit</h2>
+<h2 id="exam-questions-from-this-unit">Exam questions from this unit</h2>
 <p><strong>Two marks</strong></p>
 <ol>
 <li>What is the grain of a fact table?</li>
@@ -1052,7 +1069,7 @@ Attrition Rate = DIVIDE([Leavers], [Avg Headcount])
 </li>
 </ol>
 <hr />
-<h2>Mistakes that cost marks</h2>
+<h2 id="mistakes-that-cost-marks">Mistakes that cost marks</h2>
 <div class="warn">
 <p><span class="label">COMMON ERRORS</span></p>
 <ul>

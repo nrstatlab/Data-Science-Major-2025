@@ -16,11 +16,23 @@
     <p>Every formula from the five units on one page for revision.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#unit-1-probability-and-descriptive-statistics">Unit 1 — Probability and descriptive statistics</a></li>
+    <li><a href="#unit-2-random-variables-and-expectation">Unit 2 — Random variables and expectation</a></li>
+    <li><a href="#unit-3-distributions">Unit 3 — Distributions</a></li>
+    <li><a href="#unit-4-correlation-and-regression">Unit 4 — Correlation and regression</a></li>
+    <li><a href="#unit-5-inference-and-hypothesis-testing">Unit 5 — Inference and hypothesis testing</a></li>
+    <li><a href="#critical-values">Critical values</a></li>
+    <li><a href="#excel-functions">Excel functions</a></li>
+  </ol>
+</details>
 <p>Everything from the five units on one page. Print it, and use it for the last
 week before the exam. Each section links back to the unit that explains it.</p>
 <hr />
-<h2>Unit 1 — Probability and descriptive statistics</h2>
-<h3>Probability rules</h3>
+<h2 id="unit-1-probability-and-descriptive-statistics">Unit 1 — Probability and descriptive statistics</h2>
+<h3 id="probability-rules">Probability rules</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -63,13 +75,13 @@ week before the exam. Each section links back to the unit that explains it.</p>
 </tr>
 </tbody>
 </table>
-<h3>Bayes' theorem <em>(examined but not in the syllabus — finding <span class="finding">D1</span>)</em></h3>
+<h3 id="bayes-theorem-examined-but-not-in-the-syllabus-finding-d1">Bayes' theorem <em>(examined but not in the syllabus — finding <span class="finding">D1</span>)</em></h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>P(A|B) = P(B|A) · P(A) / P(B)</strong></p>
 <p><strong>P(B) = P(B|A)·P(A) + P(B|A′)·P(A′)</strong>   <em>(law of total probability)</em></p>
 </div>
-<h3>Central tendency</h3>
+<h3 id="central-tendency">Central tendency</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -96,7 +108,7 @@ week before the exam. Each section links back to the unit that explains it.</p>
 </tr>
 </tbody>
 </table>
-<h3>Dispersion</h3>
+<h3 id="dispersion">Dispersion</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -142,7 +154,7 @@ week before the exam. Each section links back to the unit that explains it.</p>
 <p><strong>The n vs n−1 rule:</strong> population → divide by n; sample → divide by <strong>n − 1</strong>.
 This is the most common arithmetic error in the course.</p>
 <hr />
-<h2>Unit 2 — Random variables and expectation</h2>
+<h2 id="unit-2-random-variables-and-expectation">Unit 2 — Random variables and expectation</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -174,13 +186,13 @@ This is the most common arithmetic error in the course.</p>
 </tr>
 </tbody>
 </table>
-<h3>Variance</h3>
+<h3 id="variance">Variance</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>Var(X) = E[(X − μ)²] = E(X²) − [E(X)]²</strong>   ← use the shortcut
 <strong>SD(X) = √Var(X)</strong></p>
 </div>
-<h3>Properties</h3>
+<h3 id="properties">Properties</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -211,7 +223,7 @@ This is the most common arithmetic error in the course.</p>
 </tr>
 </tbody>
 </table>
-<h3>Moments</h3>
+<h3 id="moments">Moments</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -244,8 +256,8 @@ This is the most common arithmetic error in the course.</p>
 <li>MGF: <strong>Mₓ(t) = E(e^{tX})</strong>, and μ′ᵣ = d^r M/dt^r at t = 0</li>
 </ul>
 <hr />
-<h2>Unit 3 — Distributions</h2>
-<h3>Discrete</h3>
+<h2 id="unit-3-distributions">Unit 3 — Distributions</h2>
+<h3 id="discrete">Discrete</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -282,7 +294,7 @@ This is the most common arithmetic error in the course.</p>
 </tr>
 </tbody>
 </table>
-<h3>Continuous</h3>
+<h3 id="continuous">Continuous</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -319,7 +331,7 @@ This is the most common arithmetic error in the course.</p>
 </tr>
 </tbody>
 </table>
-<h3>Normal distribution essentials</h3>
+<h3 id="normal-distribution-essentials">Normal distribution essentials</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p><strong>z = (x − μ) / σ</strong></p>
@@ -348,20 +360,20 @@ This is the most common arithmetic error in the course.</p>
 </table>
 <p><strong>Exponential CDF:</strong> F(x) = 1 − e^{−λx}, so P(X &gt; x) = e^{−λx}
 <strong>Memorylessness:</strong> P(X &gt; s+t | X &gt; s) = P(X &gt; t) — exponential and geometric only</p>
-<h3>Joint distributions</h3>
+<h3 id="joint-distributions">Joint distributions</h3>
 <ul>
 <li>Marginal: p(x) = Σ_y p(x, y)</li>
 <li>Conditional: p(y|x) = p(x, y) / p(x)</li>
 <li>Independent when <strong>p(x, y) = p(x)·p(y)</strong> for every pair</li>
 </ul>
-<h3>Central Limit Theorem</h3>
+<h3 id="central-limit-theorem">Central Limit Theorem</h3>
 <div class="formula">
 <p><span class="label">FORMULA</span></p>
 <p>Mean of x̄ = <strong>μ</strong> · Standard error = <strong>σ/√n</strong> · Shape → normal as n grows
 Rule of thumb: <strong>n ≥ 30</strong></p>
 </div>
 <hr />
-<h2>Unit 4 — Correlation and regression</h2>
+<h2 id="unit-4-correlation-and-regression">Unit 4 — Correlation and regression</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -426,7 +438,7 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 <li>Residuals sum to zero</li>
 <li>For <strong>simple</strong> regression: <strong>R² = r²</strong> and <strong>t² = F</strong></li>
 </ul>
-<h3>Regression ANOVA</h3>
+<h3 id="regression-anova">Regression ANOVA</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -462,14 +474,14 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 </tbody>
 </table>
 <hr />
-<h2>Unit 5 — Inference and hypothesis testing</h2>
-<h3>Confidence intervals</h3>
+<h2 id="unit-5-inference-and-hypothesis-testing">Unit 5 — Inference and hypothesis testing</h2>
+<h3 id="confidence-intervals">Confidence intervals</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p><strong>σ known:  x̄ ± z(α/2)·σ/√n</strong>
 <strong>σ unknown: x̄ ± t(α/2, n−1)·s/√n</strong></p>
 </div>
-<h3>Test statistics</h3>
+<h3 id="test-statistics">Test statistics</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -521,7 +533,7 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 </tr>
 </tbody>
 </table>
-<h3>Errors and power</h3>
+<h3 id="errors-and-power">Errors and power</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -546,8 +558,8 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 <p><strong>Decision rule:</strong> p &lt; α → reject H₀. Otherwise <strong>fail to reject</strong> — never
 "accept".</p>
 <hr />
-<h2>Critical values</h2>
-<h3>Standard normal (z)</h3>
+<h2 id="critical-values">Critical values</h2>
+<h3 id="standard-normal-z">Standard normal (z)</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -578,7 +590,7 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 </tr>
 </tbody>
 </table>
-<h3>Student's t — two-tailed at α = 0.05</h3>
+<h3 id="students-t-two-tailed-at-α-005">Student's t — two-tailed at α = 0.05</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -622,7 +634,7 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 </tbody>
 </table>
 <p><em>(One-tailed at α = 0.05: df 10 → 1.812, df 24 → 1.711.)</em></p>
-<h3>Chi-square — right tail at α = 0.05</h3>
+<h3 id="chi-square-right-tail-at-α-005">Chi-square — right tail at α = 0.05</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -659,7 +671,7 @@ Rule of thumb: <strong>n ≥ 30</strong></p>
 </tr>
 </tbody>
 </table>
-<h3>F — right tail at α = 0.05</h3>
+<h3 id="f-right-tail-at-α-005">F — right tail at α = 0.05</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -698,7 +710,7 @@ in <a href="../labs/course-4-stats/python/test_statlib.py"><code>test_statlib.py
 pass, so the numbers here and the code agree.</p>
 </div>
 <hr />
-<h2>Excel functions</h2>
+<h2 id="excel-functions">Excel functions</h2>
 <table class="main-table">
 <thead>
 <tr>
