@@ -55,7 +55,7 @@ domain names with your department before choosing.
 
 ---
 
-## 2. Detailed unit map (Courses 1–13)
+## 2. Detailed unit map (Courses 1–10)
 
 **Nineteen course numbers** make up the Major — Courses 1–11, plus both halves
 of each elective pair in Semesters V and VI: 12 A/B, 13 A/B, 14 A/B and
@@ -357,8 +357,11 @@ Grafana are servers. Each names a runnable half.
 
 ## 4. Every course is now written up
 
-All fifteen major courses across four source documents have unit-level notes,
-laboratory material and practice questions in this repository.
+**All nineteen course numbers** have unit-level notes, laboratory material and
+practice questions here. A student takes fifteen of them — Courses 1–11, then
+one track's pair in Semester V and the same track's pair in Semester VI — but
+both halves of every elective pair are written out, so you can read each before
+choosing.
 
 | Semester | Courses | Status |
 |:---:|---|---|

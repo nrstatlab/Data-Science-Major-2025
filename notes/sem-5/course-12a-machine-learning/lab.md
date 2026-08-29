@@ -9,9 +9,14 @@ Code lives in `labs/course-12a-ml/`.
 > figure in these notes is asserted by
 > `tools/run_ml_labs.py`.
 >
-> **There is no "NOT EXECUTED" file anywhere in Course 12 A.** Unlike Courses
-> 6 (R), 8 (WEKA), 10 (mongod), 11 (Power BI and Tableau) and 13 B (AWS),
-> nothing this course needs is blocked by the verification environment.
+> **There is no "NOT EXECUTED" file anywhere in Course 12 A.** Nothing this
+> course needs is blocked by the verification environment — unlike Course 6
+> (R), 8 (WEKA), 10 (`mongod`), 11 (Power BI and Tableau), 12 B (Hadoop and
+> its ecosystem), 13 A (SWI-Prolog), 13 B (a cloud account), 14 A and 15 A
+> (`huggingface.co`) and 15 B (Kafka and Docker).
+>
+> Five courses run every experiment: **2**, **7**, **9**, **12 A** and
+> **14 B**.
 >
 > Every script fixes `random_state`, so **the numbers below reproduce on your
 > machine**. If you get something different, something differs — that is the

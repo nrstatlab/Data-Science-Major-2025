@@ -7,8 +7,11 @@ Code lives in `labs/course-14b-timeseries/`.
 
 ## 🎯 Every experiment in this course runs
 
-**There is no `NOT EXECUTED` file anywhere in Course 14 B.** It is one of only
-two such courses in the whole programme — the other is Course 12 A.
+**There is no `NOT EXECUTED` file anywhere in Course 14 B.** Five courses in
+the programme can say that of every experiment — **2** (C), **7** (Web
+Technologies), **9** (Pandas), **12 A** (Machine Learning) and this one.
+Everywhere else at least one thing is documented rather than run, because the
+tool it needs cannot be installed here.
 
 statsmodels implements everything the syllabus names, so decomposition, STL,
 ACF/PACF, ADF, KPSS, ARMA, ARIMA, SARIMA, Ljung-Box, VAR, Granger causality,

@@ -46,11 +46,11 @@ including damaged bibliographies in all five Semester III–IV courses, a
 Semester V objective that stops mid-sentence, and a course with three
 objectives against four outcomes against five units.
 
-**And a pattern worth naming:** **fifteen of the thirty-three findings are the
-same defect** — text lost, truncated or merged at a word or sentence boundary —
-and they appear in all four documents: D3, D11, D12, D13, D14, D17, D18, D22,
-D23, D24, D25, D26, D27, D28 and D31. That is a production problem, not a
-scattering of typos.
+**And a pattern worth naming:** **ten of the thirty-three findings are the same
+defect** — text lost or inserted at a word or sentence boundary, **fourteen
+instances in all**, across every one of the four documents: D3 (three
+instances), D13, D14, D17, D23, D24 (two), D25, D26, D28 (two) and D29. That is
+a production problem, not a scattering of typos.
 
 ---
 
@@ -98,14 +98,14 @@ formula sheet.
 |---|---|---|
 | 1 — Office | 14 experiments + 2 unit checks | 8 spreadsheet computations run and asserted, plus every number-system conversion and text-function result in the notes; 6 experiments produce documents, with nothing to compute |
 | 2 — C | 15 programs | Compiled `-Wall -Wextra`, no warnings, run |
-| 3 — Python | 18 programs | 16 run; 2 Tkinter syntax-checked only |
+| 3 — Python | 18 experiments, 22 files | 20 files run; the 2 Tkinter programs syntax-checked only |
 | 4 — Statistics | 15 Excel walkthroughs + Python equivalents | Python run; `statlib` checked against tables |
 | 5 — SQL | 3 experiments + PL/SQL | SQL executed; PL/SQL desk-checked only |
 | 6 — R | 18 R scripts + 14 Python equivalents | R structurally checked (uninstallable here); equivalents run |
 | 7 — Web | 16 experiments, HTML/CSS/JS | Run under jsdom, **184 assertions** on the resulting DOM |
 | 8 — Data Mining | 15 experiments | WEKA click-paths documented; scikit-learn/mlxtend equivalents run |
 | 9 — Pandas | 18 practicals | **All run**, outputs asserted |
-| 10 — MongoDB | 20 experiments | 16 executed through mongomock; 4 need a server and say **NOT EXECUTED** |
+| 10 — MongoDB | 20 experiments | 16 executed through mongomock; 4 have no runnable half — installation, replication, GridFS, transactions. All 20 `mongosh` scripts say **NOT EXECUTED** |
 | 11 — BI | 15 experiments | Every DAX, Power Query and LOD figure computed; tool click-paths **NOT EXECUTED** |
 | 12 A — ML | 12 practicals | **All run** under scikit-learn. Nothing in this course is marked NOT EXECUTED |
 | 13 A — AI | 19 experiments | 16 Prolog programs **NOT EXECUTED**; 7 Python halves run, **five as real logic programs** |
@@ -153,6 +153,7 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 
 | Suite | What it proves |
 |---|---|
+| `run_office_labs.py` | Course 1's 8 computable experiments, plus every number-system conversion and text-function result the notes quote |
 | `run_c_labs.sh` | 15 C programs compile warning-free and produce correct output |
 | `run_python_labs.sh` | 20 Python files run; 2 Tkinter files syntax-check |
 | `run_stats_labs.sh` | `statlib` matches 23 published table values; 5 experiment scripts run |
@@ -164,7 +165,7 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 | `run_ml_labs.py` | Course 12 A's 12 practicals run under scikit-learn |
 | `run_ai_labs.py` | Course 13 A's search and logic programs; 5 run as real Prolog |
 | `run_bigdata_labs.py` | 14 of 17 Course 12 B experiments, including real Spark, Avro and Parquet |
-| `run_cloud_labs.py` | Course 13 B's runnable halves, and 15 NOT EXECUTED markers audited |
+| `run_cloud_labs.py` | Course 13 B's runnable halves, and 14 NOT EXECUTED markers audited |
 | `run_deeplearning_labs.py` | Course 14 A on **real MNIST, Fashion-MNIST, IMDb and real ImageNet weights**; 2 markers audited |
 | `run_timeseries_labs.py` | **All 13** Course 14 B experiments; no NOT EXECUTED file exists |
 | `run_nlp_labs.py` | Course 15 A on **real NLTK corpora and real spaCy models**, every result scored; 3 markers audited |
@@ -190,13 +191,17 @@ Honest limits, stated rather than hidden:
   experiments were run.
 - **R, WEKA and `mongod`** — none can be installed here: the Debian
   repositories that host them are blocked by this environment's egress policy.
-  Courses 6, 8 and 10 therefore ship the native script *and* an executed
-  equivalent, and each native file says **NOT EXECUTED** in its own first lines.
-- **Replication, GridFS and transactions** (Course 10 experiments 17–19) —
-  these need a running server, and mongomock is a library. **No runnable
-  equivalent exists**, and `tools/run_mongo_labs.py` asserts that each of the
-  three still carries its marker, so they can never quietly start looking like
-  test results.
+  Course 6 ships the `.R` script beside an executed Python equivalent, and
+  Course 10 the `mongosh` script beside a mongomock one; both native files
+  declare in their first lines that they were not run. WEKA has no script to
+  ship, so Course 8 documents the **click-path** in its lab notes instead and
+  runs a scikit-learn equivalent.
+- **Four Course 10 experiments have no runnable equivalent** — replication
+  (17), GridFS (18) and transactions (19) need a running server and mongomock
+  is a library; experiment 1 is installing the server, which has no query
+  logic to run. `tools/run_mongo_labs.py` names those four with a reason and
+  fails if a fifth quietly joins them. **All twenty `mongosh` scripts** carry
+  the NOT EXECUTED marker, not just those four, because none of them ran.
 
 ---
 

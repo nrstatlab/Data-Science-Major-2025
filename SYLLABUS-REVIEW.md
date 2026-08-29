@@ -49,20 +49,21 @@ consequence is the same as the other two.
 | D24 | "HadoopSpark" and "HBaseSpark" — separators lost, twice | Low |
 
 D1–D11 come from the Semester I–II document, **D12–D16 from the Semester III–IV
-document**, and **D17–D24 from the Semester V document**. Every one was found by
+document**, **D17–D24 from the Semester V document** and **D25–D33 from the
+Semester VI document**. Every one was found by
 the same method — reading the extracted text rather than the formatted PDF,
 where truncation is invisible.
 
 ### 🎯 The pattern that emerged once all four documents were read
 
-**Fourteen of the thirty-three findings are the same defect: text lost or
-inserted at a word or sentence boundary.** D3 (three instances), D13, D14,
-D17, D23, D24 (two), D25, D26, D28 (two) and D29.
+**Ten of the thirty-three findings are the same defect: text lost or inserted
+at a word or sentence boundary — fourteen instances in all.** D3 (three
+instances), D13, D14, D17, D23, D24 (two), D25, D26, D28 (two) and D29.
 
-Three separate documents, one recurring mechanism. That is no longer a
-scattering of typos — it is a defect in how the PDFs were produced, and the
-honest conclusion is that **all three need a proofreading pass against their
-extracted text before being issued to students.**
+Four documents, one recurring mechanism. That is no longer a scattering of
+typos — it is a defect in how the documents were produced, and the honest
+conclusion is that **all four need a proofreading pass against their extracted
+text before being issued to students.**
 
 **And a second, milder pattern:** D15 and D20 are the same inconsistency
 (one course numbering its units differently from every other), D12, D21 and
@@ -567,9 +568,9 @@ method. **This repository resolves it by using Python throughout**, and says so
 — but a student following the syllabus literally has no basis for the choice.
 
 **Updating the count from D24:** across the four documents there are now
-**fourteen** places where text has been lost or inserted at a word or sentence
-boundary — D3 (three), D13, D14, D17, D23, D24 (two), D25, D26, D28 (two), and
-D29. **Semester VI contributes five of them in seventeen pages** — one defect
+**fourteen places** where text has been lost or inserted at a word or sentence
+boundary, spread over **ten findings** — D3 (three), D13, D14, D17, D23,
+D24 (two), D25, D26, D28 (two), and D29. **Semester VI contributes five of them in seventeen pages** — one defect
 per 3.4 pages, and it is the shortest of the four documents.
 
 The recommendation from D24 stands and strengthens: **all four PDFs need a

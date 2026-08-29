@@ -390,7 +390,7 @@ the project usually lands.** You stay in the track you chose for Semester V:
 
 ### ⚠️ Two things to plan for in Semester VI
 
-**1. The labs are heavier than the credit count suggests.** Track A prescribes
+**1. The labs are heavier than the timetable suggests.** Track A prescribes
 **26 experiments** (12 + 14) and Track B **29** (13 + 16), and several are
 genuinely slow to run — training a CNN or a transformer is not a two-hour
 exercise on a laptop.

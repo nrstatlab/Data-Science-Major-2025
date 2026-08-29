@@ -58,11 +58,14 @@ the egress policy. So each experiment comes in two halves:</p>
   asserted, verified by
   <code>tools/run_mongo_labs.py</code>.</li>
 </ul>
-<p><strong>Three experiments have no runnable half.</strong> mongomock implements the query
-and aggregation language but is not a server, so <strong>replication (17), GridFS
-(18) and transactions (19) genuinely cannot be executed here</strong>. Those three
-are documented only, and their files say so in the first line. Nothing in
-this course implies a test that did not run.</p>
+<p><strong>Sixteen of the twenty experiments have a runnable half; four do not.</strong>
+Experiment 1 is installing the server and opening the shell — there is no
+query logic to run. mongomock implements the query and aggregation language
+but is not a server, so <strong>replication (17), GridFS (18) and transactions
+(19) genuinely cannot be executed here</strong> either. Those four are documented
+only, the runner asserts that list against what is on disk, and <strong>every one
+of the twenty <code>mongosh</code> scripts says NOT EXECUTED in its first lines</strong> —
+not just the four. Nothing in this course implies a test that did not run.</p>
 </div>
 <pre><code class="language-bash">pip install -r tools/requirements.txt
 python3 tools/run_mongo_labs.py

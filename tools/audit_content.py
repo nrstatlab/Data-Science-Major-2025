@@ -125,28 +125,39 @@ def main():
           f"**{word} further findings**" in readme,
           f"expected the word {word!r}")
 
-    # The pattern claim names the findings it counts, so the count and the
-    # list can be checked against each other and against the review itself.
-    mo = re.search(r"\*\*(\w+) of the ([\w-]+) findings are the\s+same defect\*\*"
-                   r"(.*?)(?:\n\n|That is a production)", readme, re.S)
-    if not mo:
-        check("README's defect-pattern claim is parseable", False, "not found")
-    else:
+    # The text-loss pattern is stated in two documents, with the findings named
+    # in both. They disagreed: the review counted fourteen INSTANCES and called
+    # them findings, and the README carried a second, independently-made
+    # classification of fifteen. One list now, checked in both places.
+    WORDNUM = {"nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
+               "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16,
+               "twenty-four": 24, "thirty-three": 33}
+    pattern_claim = re.compile(
+        r"\*\*(\w+) of the ([\w-]+) findings are the\s+same\s*defect"
+        r"(.*?)(?:\n\n|That is a production|Four documents)", re.S)
+    lists, problems_here = {}, []
+    for name, text in (("README", readme), ("SYLLABUS-REVIEW", review)):
+        mo = pattern_claim.search(text)
+        if not mo:
+            problems_here.append(f"{name}: the defect-pattern claim is missing")
+            continue
         ids = re.findall(r"\bD\d+\b", mo.group(3))
-        stated = {"fifteen": 15, "nine": 9, "fourteen": 14, "sixteen": 16}.get(
-            mo.group(1).lower())
-        total = {"thirty-three": 33, "twenty-four": 24}.get(mo.group(2).lower())
-        problems_here = []
-        if stated != len(ids):
-            problems_here.append(f"says {mo.group(1)} but lists {len(ids)}")
-        if total != len(findings):
-            problems_here.append(f"says {mo.group(2)} findings, there are "
-                                 f"{len(findings)}")
-        missing = [i for i in ids if i not in findings]
-        if missing:
-            problems_here.append(f"names findings that do not exist: {missing}")
-        check(f"README's defect-pattern claim: {len(ids)} of {len(findings)}",
-              not problems_here, "; ".join(problems_here))
+        lists[name] = ids
+        if WORDNUM.get(mo.group(1).lower()) != len(ids):
+            problems_here.append(f"{name} says {mo.group(1)} but lists "
+                                 f"{len(ids)}")
+        if WORDNUM.get(mo.group(2).lower()) != len(findings):
+            problems_here.append(f"{name} says {mo.group(2)} findings, there "
+                                 f"are {len(findings)}")
+        absent = [i for i in ids if i not in findings]
+        if absent:
+            problems_here.append(f"{name} names findings that do not exist: "
+                                 f"{absent}")
+    if len(lists) == 2 and lists["README"] != lists["SYLLABUS-REVIEW"]:
+        problems_here.append("the two documents name different findings")
+    n = len(lists.get("README", []))
+    check(f"the defect-pattern claim: {n} of {len(findings)}, stated the same "
+          "in both documents", not problems_here, "; ".join(problems_here[:3]))
 
     # -- 3b ----------------------------------------------------------------
     # The hub is hand-maintained while every other page is generated, so it is
@@ -221,6 +232,47 @@ def main():
               if marker not in h.read_text()]
     check(f"{len(set(declared))} declared files carry the marker",
           not silent, str(silent))
+
+    # -- 5b ----------------------------------------------------------------
+    # Two lab pages name the courses in which every experiment actually runs.
+    # That claim had gone stale in both -- "one of only two such courses" was
+    # written before Semester VI existed and only counted the courses that
+    # announce the fact, missing 2, 7 and 9, which simply never needed to.
+    print("\n5b. THE 'EVERY EXPERIMENT RUNS' COURSES")
+    FULLY_RUN = {
+        "2":    "labs/course-2-c",
+        "7":    "labs/course-7-web",
+        "9":    "labs/course-9-python-da",
+        "12 A": "labs/course-12a-ml",
+        "14 B": "labs/course-14b-timeseries",
+    }
+    stale = []
+    for lab in (ROOT / "notes/sem-6/course-14b-time-series/lab.md",
+                ROOT / "notes/sem-5/course-12a-machine-learning/lab.md"):
+        text = lab.read_text()
+        mo = re.search(r"[Ff]ive courses[^.]*?run every experiment[^.]*\.|"
+                       r"[Ff]ive courses in\s+the programme can say that of "
+                       r"every experiment(.*?)\.", text, re.S)
+        if not mo:
+            stale.append(f"{lab.name}: the five-course claim is missing")
+            continue
+        named = set(re.findall(r"\*\*(\d+(?: [AB])?)\*\*", mo.group(0)))
+        # "this one" stands in for the page's own course
+        own = "14 B" if "14b" in lab.parent.name else "12 A"
+        named.add(own)
+        if named != set(FULLY_RUN):
+            stale.append(f"{lab.name} names {sorted(named)}, "
+                         f"expected {sorted(FULLY_RUN)}")
+    for course, labdir in FULLY_RUN.items():
+        marked = [f for f in (ROOT / labdir).rglob("*")
+                  if f.is_file() and "__pycache__" not in f.parts
+                  and f.suffix not in (".pyc", ".png")
+                  and marker in f.read_text(errors="ignore")]
+        if marked:
+            stale.append(f"Course {course} is listed as fully run but "
+                         f"{marked[0].name} carries the marker")
+    check(f"{len(FULLY_RUN)} courses run every experiment, and both pages "
+          "agree", not stale, "; ".join(stale[:3]))
 
     # -- 6 -----------------------------------------------------------------
     print("\n6. MARKDOWN TABLES ARE WELL FORMED")
@@ -321,6 +373,7 @@ def main():
     admin = []
     patterns = [
         (r"\b\d+\s*credits?\b",            "a credit count"),
+        (r"\bcredit (count|hours?|load|weight)\b", "a credit reference"),
         (r"\bhrs?\s*/\s*w(?:k|eek)\b",      "an hours-per-week figure"),
         (r"\bsyllabus\s*\(?pages?\s*\d+",   "a syllabus page number"),
         (r"\bverbatim,\s*pages?\s*\d+",     "a syllabus page number"),

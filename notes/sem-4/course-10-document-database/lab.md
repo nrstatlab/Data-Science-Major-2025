@@ -15,11 +15,14 @@ Code lives in `labs/course-10-mongodb/`.
 >   asserted, verified by
 >   `tools/run_mongo_labs.py`.
 >
-> **Three experiments have no runnable half.** mongomock implements the query
-> and aggregation language but is not a server, so **replication (17), GridFS
-> (18) and transactions (19) genuinely cannot be executed here**. Those three
-> are documented only, and their files say so in the first line. Nothing in
-> this course implies a test that did not run.
+> **Sixteen of the twenty experiments have a runnable half; four do not.**
+> Experiment 1 is installing the server and opening the shell — there is no
+> query logic to run. mongomock implements the query and aggregation language
+> but is not a server, so **replication (17), GridFS (18) and transactions
+> (19) genuinely cannot be executed here** either. Those four are documented
+> only, the runner asserts that list against what is on disk, and **every one
+> of the twenty `mongosh` scripts says NOT EXECUTED in its first lines** —
+> not just the four. Nothing in this course implies a test that did not run.
 
 ```bash
 pip install -r tools/requirements.txt

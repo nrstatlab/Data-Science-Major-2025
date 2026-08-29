@@ -88,10 +88,13 @@ the repetition falls so you do not study it twice.
 >   **mongomock** and asserting the results, verified by
 >   `tools/run_mongo_labs.py`.
 >
-> mongomock implements the query and aggregation language faithfully but is not
-> a server, so **replication (17), GridFS (18) and transactions (19) genuinely
-> cannot be executed** — those three are documented only, and say so plainly.
-> Nothing here implies a test that did not run.
+> **Sixteen of the twenty experiments have a runnable half.** Experiment 1 is
+> installation, with no query logic to run; and mongomock, faithful as it is
+> to the query and aggregation language, is not a server, so **replication
+> (17), GridFS (18) and transactions (19) genuinely cannot be executed**.
+> Those four are documented only. Every one of the twenty `mongosh` scripts
+> says NOT EXECUTED regardless, because none of them ran. Nothing here implies
+> a test that did not run.
 
 ## Textbooks
 
