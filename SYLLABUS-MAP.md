@@ -3,14 +3,15 @@
 **Prepared by:** Adikavi Nannaya University, Rajahmundry
 **Effective:** AY 2025-26 · 4-Year UG Honours · Course structure for Semesters I–VI
 
-Sources, all four extracted verbatim:
+Sources, all four extracted verbatim. The extracted text is what everything
+here is checked against, so that is what is named:
 
-| Document | Covers | Extracted text |
+| Source document | Covers | Extracted text |
 |---|---|---|
-| [`docs/Data-Science-Major-Sem1-2.pdf`](docs/Data-Science-Major-Sem1-2.pdf) | Programme structure + Courses 1–5 | `syllabus-extracted.md` |
-| [`docs/Data-Science-Major-Sem3-4.pdf`](docs/Data-Science-Major-Sem3-4.pdf) | Courses 6–10 | `syllabus-extracted-sem3-4.md` |
-| [`docs/Data-Science-Major-Sem5.pdf`](docs/Data-Science-Major-Sem5.pdf) | Course 11 + both Semester V pairs | `syllabus-extracted-sem5.md` |
-| [`docs/Data-Science-Major-Sem6.pdf`](docs/Data-Science-Major-Sem6.pdf) | Both Semester VI pairs | `syllabus-extracted-sem6.md` |
+| Semester I–II syllabus, 37 pages | Programme structure + Courses 1–5 | `docs/syllabus-extracted.md` |
+| Semester III–IV syllabus, 25 pages | Courses 6–10 | `docs/syllabus-extracted-sem3-4.md` |
+| Semester V syllabus, 24 pages | Course 11 + both Semester V pairs | `docs/syllabus-extracted-sem5.md` |
+| Semester VI syllabus, 17 pages | Both Semester VI pairs | `docs/syllabus-extracted-sem6.md` |
 
 ---
 
@@ -309,7 +310,7 @@ Notes: [`notes/sem-5/course-13b-cloud-computing/`](notes/sem-5/course-13b-cloud-
 
 ## 3b. Semester VI — both elective tracks
 
-Source: **`docs/Data-Science-Major-Sem6.pdf`**, 17 pages, extracted to
+Source: the **Semester VI syllabus**, 17 pages, extracted to
 `docs/syllabus-extracted-sem6.md`.
 
 **The Semester VI document confirms the track pairing** that §1 inferred and

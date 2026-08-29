@@ -1,8 +1,7 @@
 # Course 8 — Data Mining
 
 **Semester IV · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 11–15 of [the Sem III–IV PDF](../../../docs/Data-Science-Major-Sem3-4.pdf)
-
+Syllabus source: pages 11–15 of the Semester III–IV syllabus
 ---
 
 ## What this course actually is

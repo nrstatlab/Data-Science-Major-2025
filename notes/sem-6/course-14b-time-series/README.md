@@ -1,8 +1,7 @@
 # Course 14 B — Time Series Analysis and Forecasting
 
 **Semester VI · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 6–9 of [the Sem VI PDF](../../../docs/Data-Science-Major-Sem6.pdf)
-
+Syllabus source: pages 6–9 of the Semester VI syllabus
 **This is a Track B course**, paired with
 [Course 15 B (Data Engineering & MLOps)](../course-15b-mlops/), and it
 continues the track you began in Semester V with Big Data and Cloud Computing.

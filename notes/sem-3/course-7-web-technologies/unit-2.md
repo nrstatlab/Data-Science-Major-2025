@@ -86,7 +86,7 @@ h1 {
 | Attribute | `input[type="text"]` | Text inputs |
 | Attribute prefix | `a[href^="https"]` | Links starting with https |
 | Attribute suffix | `a[href$=".pdf"]` | Links ending in .pdf |
-| Attribute contains | `a[href*="apsche"]` | Substring match |
+| Attribute contains | `a[href*="syllabus"]` | Substring match |
 
 ### 🔢 CSS combinators
 

@@ -120,15 +120,15 @@ formula sheet.
 
 ## Scope
 
-**Four** source documents, all extracted verbatim and committed under
-[`docs/`](docs/):
+**Four** source documents, all extracted verbatim. The extracted text is
+committed under `docs/` and is what every claim here is checked against:
 
-| Document | Pages | Covers |
-|---|:---:|---|
-| `Data-Science-Major-Sem1-2.pdf` | 37 | Programme structure for Semesters I–VI, plus full syllabi for Courses 1–5 |
-| `Data-Science-Major-Sem3-4.pdf` | 25 | Full syllabi for Courses 6–10 |
-| `Data-Science-Major-Sem5.pdf` | 24 | Full syllabi for Course 11 and **both** Semester V elective pairs — 12 A/B and 13 A/B |
-| `Data-Science-Major-Sem6.pdf` | 17 | Full syllabi for **both** Semester VI elective pairs — 14 A/B and 15 A/B |
+| Source document | Pages | Covers | Extracted to |
+|---|:---:|---|---|
+| Semester I–II syllabus | 37 | Programme structure for Semesters I–VI, plus full syllabi for Courses 1–5 | `syllabus-extracted.md` |
+| Semester III–IV syllabus | 25 | Full syllabi for Courses 6–10 | `syllabus-extracted-sem3-4.md` |
+| Semester V syllabus | 24 | Full syllabi for Course 11 and **both** Semester V elective pairs — 12 A/B and 13 A/B | `syllabus-extracted-sem5.md` |
+| Semester VI syllabus | 17 | Full syllabi for **both** Semester VI elective pairs — 14 A/B and 15 A/B | `syllabus-extracted-sem6.md` |
 
 Together they give **all 15 major courses at unit level**, across four source
 documents. Nothing in the programme is now titles-and-credits only.
@@ -248,10 +248,7 @@ textbook list. `resolve_contents()` handles both forms.
 
 ## A note on the source
 
-The official PDF is published at
-`apsche.ap.gov.in/Pdf/major_minor1/Data%20Science%20Major.pdf`.
-
-It has defects — truncated sentences, broken question numbering, and the two
+The official syllabus document has defects — truncated sentences, broken question numbering, and the two
 missing-but-examined topics above. Where the notes reconstruct something, it is
 **marked as a reconstruction** so you can tell it from the official text.
 Always check against your own copy and your department's guidance.

@@ -589,8 +589,8 @@ are byte-for-byte readable by Hadoop, Hive and Spark.**
 
 ### Avro: self-describing
 
-9 records, **933 bytes**, round-trip exact. The writer's schema is in the file
-header — full name `in.ac.apsche.sales.Sale`, namespace included.
+9 records, **938 bytes**, round-trip exact. The writer's schema is in the file
+header — full name `in.ac.datascience.sales.Sale`, namespace included.
 
 ### 🎯 Schema evolution, demonstrated
 
@@ -627,7 +627,7 @@ decoding a byte.
 
 | Data | CSV | Avro | Parquet | CSV/Parquet |
 |---|---:|---:|---:|---:|
-| **9 rows** | 533 | 933 | **2,584** | **0.2×** |
+| **9 rows** | 533 | 938 | **2,584** | **0.2×** |
 | 108,000 rows, **repetitive** | 5,700,058 | 5,924,190 | 18,790 | **303.4×** |
 | 108,000 rows, **varied** | 6,269,519 | 6,380,506 | 522,264 | **12.0×** |
 

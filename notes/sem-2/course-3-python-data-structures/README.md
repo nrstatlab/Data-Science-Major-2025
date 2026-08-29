@@ -1,8 +1,7 @@
 # Course 3 — Python Programming and Data Structures
 
 **Semester II · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 14–19 of [the PDF](../../../docs/Data-Science-Major-Sem1-2.pdf)
-
+Syllabus source: pages 14–19 of the Semester I–II syllabus
 ---
 
 ## Why this course matters more than any other in the first year

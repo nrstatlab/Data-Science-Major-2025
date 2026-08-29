@@ -1,8 +1,7 @@
 # Course 11 — Business Intelligence Tools
 
 **Semester V · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 1–7 of [the Sem V PDF](../../../docs/Data-Science-Major-Sem5.pdf)
-
+Syllabus source: pages 1–7 of the Semester V syllabus
 **This is the one Semester V course everyone takes.** Courses 12 and 13 fork
 into Track A and Track B; this one does not.
 

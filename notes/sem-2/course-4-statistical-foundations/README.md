@@ -1,8 +1,7 @@
 # Course 4 — Statistical Foundations for Data Science
 
 **Semester II · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 20–23 of [the PDF](../../../docs/Data-Science-Major-Sem1-2.pdf)
-
+Syllabus source: pages 20–23 of the Semester I–II syllabus
 ---
 
 ## Why this is the most important course in the degree

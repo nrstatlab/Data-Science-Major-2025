@@ -111,8 +111,13 @@ def main():
 
     # -- 4 -----------------------------------------------------------------
     print("\n4. NO ISSUING-BODY BRANDING")
+    # -i matters. This check passed for weeks while six LOWERCASE occurrences
+    # sat in the tree: a source URL in the README, a CSS selector example that
+    # used the name as its substring, and an Avro namespace carried through
+    # two note files and a lab script. A case-sensitive check for a proper
+    # noun is not a check.
     hits = subprocess.run(
-        ["grep", "-rl", "APSCHE", "--include=*.md", "--include=*.py",
+        ["grep", "-rli", "APSCHE", "--include=*.md", "--include=*.py",
          "--include=*.html", "--include=*.txt", "--include=*.sh", "."],
         cwd=ROOT, capture_output=True, text=True).stdout.split()
     # this file names the string it searches for, so it always matches itself
@@ -181,6 +186,20 @@ def main():
         for mo in re.finditer(r'href="([^"]*\.md[^"]*)"', text):
             md_links.append(f"{p.relative_to(ROOT)} -> {mo.group(1)}")
     check("no page links to a .md file", not md_links, str(md_links[:5]))
+
+    # a link to a PDF has the same problem, and worse: it hands the visitor a
+    # few hundred kilobytes of binary instead of a page. The syllabus PDFs
+    # stay in docs/ because the extractor and verify_all.sh run against them,
+    # but nothing the reader can click points at one -- the extracted TEXT is
+    # what every claim here is checked against, so that is what is cited.
+    pdf_links = []
+    for p in pages:
+        text = p.read_text(errors="replace")
+        text = re.sub(r"<code>.*?</code>", "", text, flags=re.S)
+        text = re.sub(r"<pre.*?</pre>", "", text, flags=re.S)
+        for mo in re.finditer(r'href="([^"]*\.pdf[^"]*)"', text, re.I):
+            pdf_links.append(f"{p.relative_to(ROOT)} -> {mo.group(1)}")
+    check("no page links to a PDF", not pdf_links, str(pdf_links[:5]))
 
     # a contents entry pointing at a heading that is not on the page is worse
     # than no contents at all -- the click does nothing and the reader assumes

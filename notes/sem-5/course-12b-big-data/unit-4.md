@@ -228,7 +228,7 @@ header.** An Avro file is **self-describing** — a reader five years later need
 no external metadata, which is exactly what a CSV cannot promise.
 
 *(A detail worth knowing: the schema's stored name is the **full** name,
-namespace included — `in.ac.apsche.sales.Sale`, not `Sale`.)*
+namespace included — `in.ac.datascience.sales.Sale`, not `Sale`.)*
 
 ### 🎯 Schema evolution, demonstrated
 
@@ -279,7 +279,7 @@ compression.
 
 | Size | CSV | Avro | Parquet | CSV/Parquet |
 |---|---:|---:|---:|---:|
-| **9 rows** | 533 | 933 | **2,584** | **0.2×** — Parquet is *larger* |
+| **9 rows** | 533 | 938 | **2,584** | **0.2×** — Parquet is *larger* |
 | 108,000 rows, **repetitive** | 5,700,058 | 5,924,190 | 18,790 | **303.4×** |
 | 108,000 rows, **varied** | 6,269,519 | 6,380,506 | 522,264 | **12.0×** |
 

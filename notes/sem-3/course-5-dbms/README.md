@@ -1,8 +1,7 @@
 # Course 5 — Database Management Systems
 
 **Semester III · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 24–37 of [the PDF](../../../docs/Data-Science-Major-Sem1-2.pdf)
-
+Syllabus source: pages 24–37 of the Semester I–II syllabus
 ---
 
 ## Why this course matters

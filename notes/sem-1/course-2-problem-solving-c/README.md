@@ -1,8 +1,7 @@
 # Course 2 — Problem Solving Using C
 
 **Semester I · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 9–13 of [the PDF](../../../docs/Data-Science-Major-Sem1-2.pdf)
-
+Syllabus source: pages 9–13 of the Semester I–II syllabus
 ---
 
 ## Why this course exists

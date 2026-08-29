@@ -22,7 +22,7 @@ import fixtures as f
 AVRO_SCHEMA = {
     "type": "record",
     "name": "Sale",
-    "namespace": "in.ac.apsche.sales",
+    "namespace": "in.ac.datascience.sales",
     "fields": [
         {"name": "date_key", "type": "string"},
         {"name": "store", "type": "string"},
@@ -57,12 +57,20 @@ def main():
         back = list(fastavro.reader(fh))
     assert back == rows, "Avro must round-trip exactly"
     avro_size = os.path.getsize(avro_path)
+    # The notes quote this figure, so it is asserted. It is deterministic --
+    # fixed rows, fixed schema -- but NOT independent of the schema's text:
+    # the namespace is stored in the file header, so renaming it moves the
+    # byte count. That is how this assertion earns its place; the figure had
+    # already drifted once, silently, when the namespace changed.
+    assert avro_size == 938, (
+        f"Avro file is {avro_size} bytes, the notes say 938 -- "
+        "update lab.md and unit-4.md, or find out what changed")
     print(f"\n    Avro   : {len(rows)} records, {avro_size} bytes, round-trip exact")
 
     # the schema travels INSIDE the file -- this is the property that matters
     with open(avro_path, "rb") as fh:
         embedded = fastavro.reader(fh).writer_schema
-    assert embedded["name"] == "in.ac.apsche.sales.Sale", (
+    assert embedded["name"] == "in.ac.datascience.sales.Sale", (
         "Avro stores the FULL name -- namespace + name -- not the short one")
     assert [fl["name"] for fl in embedded["fields"]] == FIELDS
     print(f"\n      the embedded schema's full name is {embedded['name']!r}")

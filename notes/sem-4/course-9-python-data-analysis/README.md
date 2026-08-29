@@ -1,8 +1,7 @@
 # Course 9 — Python for Data Analysis and Visualization
 
 **Semester IV · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 16–20 of [the Sem III–IV PDF](../../../docs/Data-Science-Major-Sem3-4.pdf)
-
+Syllabus source: pages 16–20 of the Semester III–IV syllabus
 ---
 
 ## Why this is the most important course in the degree

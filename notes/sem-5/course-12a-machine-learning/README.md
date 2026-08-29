@@ -1,8 +1,7 @@
 # Course 12 A — Machine Learning
 
 **Semester V · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 8–11 of [the Sem V PDF](../../../docs/Data-Science-Major-Sem5.pdf)
-
+Syllabus source: pages 8–11 of the Semester V syllabus
 **This is a Track A course.** Semester V is Course 11 plus one elective pair:
 **12 A + 13 A** (Machine Learning → Artificial Intelligence) or **12 B + 13 B**
 (Big Data → Cloud Computing). Taking this means taking

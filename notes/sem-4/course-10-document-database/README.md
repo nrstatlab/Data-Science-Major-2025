@@ -1,8 +1,7 @@
 # Course 10 — Document Oriented Database (MongoDB)
 
 **Semester IV · 3 credits theory (3 hrs/week) + 1 credit lab (2 hrs/week)**
-Syllabus source: pages 21–25 of [the Sem III–IV PDF](../../../docs/Data-Science-Major-Sem3-4.pdf)
-
+Syllabus source: pages 21–25 of the Semester III–IV syllabus
 ---
 
 ## The one thing to understand before anything else
