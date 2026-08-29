@@ -69,7 +69,9 @@ it is worth learning for that alone.
 - `data/course-6-r/` — **practice datasets**, CSV: `car-mileage.csv`.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; `data/README.md` lists what each was built
-  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  from, `data/PRACTICE-QUESTIONS.md` sets questions on each with a computed
+  answer key, and `tools/check_datasets.py` proves every one of those
+  answers against the file.
   Also `flowers.csv` in `data/shared/`, which several courses
   analyse so their answers can be compared.
 

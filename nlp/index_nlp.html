@@ -16,12 +16,27 @@
     <p>B.Sc. (Hons) Data Science — Year III, Semester VI, Course 15</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</a></li>
+    <li><a href="#what-runs-here">What runs here</a></li>
+    <li><a href="#course-objectives-verbatim">Course objectives (verbatim)</a></li>
+    <li><a href="#the-five-units">The five units</a></li>
+    <li><a href="#also-here">Also here</a></li>
+    <li><a href="#how-this-course-connects-to-the-rest-of-the-programme">How this course connects to the rest of the programme</a></li>
+    <li><a href="#textbooks">Textbooks</a></li>
+    <li><a href="#how-to-study-this-course">How to study this course</a></li>
+    <li><a href="#if-you-read-one-thing">If you read one thing</a></li>
+    <li><a href="#units-in-this-course">Units in this Course</a></li>
+  </ol>
+</details>
 <p><strong>Semester VI</strong></p>
 <p><strong>This is a Track A course</strong>, paired with
 Course 14 A (Neural Networks &amp; Deep Learning),
 and it is the last course of the track you began in Semester V.</p>
 <hr />
-<h2>The one thing to understand before anything else</h2>
+<h2 id="the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</h2>
 <p><strong>Every other course in this programme works on data that was already
 numeric, or was numeric once you encoded it. Language is not, and every
 technique here is an answer to the question "how do I turn this text into
@@ -70,7 +85,7 @@ senses for one word.</p>
 the ones that work choose using <strong>context</strong>, which is why the field ended up
 at contextual embeddings.</p>
 </div>
-<h3>⚠️ The measurement that makes the point</h3>
+<h3 id="the-measurement-that-makes-the-point">⚠️ The measurement that makes the point</h3>
 <p><a href="lab_nlp.html#experiment-9">Experiment 9</a> compares four documents where the answer
 is known in advance. Two of them are paraphrases; a third is about the
 monsoon. <strong>Bag-of-words scores the paraphrase at 0.0925 and the unrelated
@@ -79,7 +94,7 @@ document at 0.3077</strong> — it ranks the wrong one higher, because documents
 <p><strong>A representation that ranks by function words is not measuring meaning at
 all</strong>, and that single table is the argument for everything in Units 3–5.</p>
 <hr />
-<h2>What runs here</h2>
+<h2 id="what-runs-here">What runs here</h2>
 <p><strong>Eleven of the fourteen experiments run against real corpora and real
 models.</strong></p>
 <table class="main-table">
@@ -108,7 +123,7 @@ models.</strong></p>
 </tr>
 </tbody>
 </table>
-<h3>The three that do not run</h3>
+<h3 id="the-three-that-do-not-run">The three that do not run</h3>
 <p>All three fail for the same reason: <strong><code>huggingface.co</code> is refused by this
 environment's egress policy with a 403 at the gateway.</strong></p>
 <table class="main-table">
@@ -182,7 +197,7 @@ against hand-labelled truth</strong> instead:</p>
 them rather than hide them.</strong> That is the point of grading.</p>
 </div>
 <hr />
-<h2>Course objectives (verbatim)</h2>
+<h2 id="course-objectives-verbatim">Course objectives (verbatim)</h2>
 <ol>
 <li>
 <p>Introduce the foundations of Natural Language Processing and its
@@ -206,7 +221,7 @@ them rather than hide them.</strong> That is the point of grading.</p>
    document classification.</p>
 </li>
 </ol>
-<h2>The five units</h2>
+<h2 id="the-five-units">The five units</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -252,7 +267,7 @@ them rather than hide them.</strong> That is the point of grading.</p>
 <p>Plus <a href="lab_nlp.html">lab.md</a> — all fourteen experiments with their measured output —
 and <a href="practice_nlp.html">practice.md</a> — exam questions with worked solutions.</p>
 <hr />
-<h2>Also here</h2>
+<h2 id="also-here">Also here</h2>
 <ul>
 <li><a href="practice_nlp.html">practice.md</a> — exam questions with worked solutions</li>
 <li><a href="lab_nlp.html">lab.md</a> — all 14 practicals</li>
@@ -264,10 +279,12 @@ and <a href="practice_nlp.html">practice.md</a> — exam questions with worked s
 <p><code>data/course-15a-nlp/</code> — <strong>practice datasets</strong>, CSV: <code>ner-sentences.csv</code>, <code>sentiment-reviews.csv</code>.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; <code>data/README.md</code> lists what each was built
-  from, and <code>tools/check_datasets.py</code> proves each truth is recoverable.</p>
+  from, <code>data/PRACTICE-QUESTIONS.md</code> sets questions on each with a computed
+  answer key, and <code>tools/check_datasets.py</code> proves every one of those
+  answers against the file.</p>
 </li>
 </ul>
-<h2>How this course connects to the rest of the programme</h2>
+<h2 id="how-this-course-connects-to-the-rest-of-the-programme">How this course connects to the rest of the programme</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -300,13 +317,13 @@ and <a href="practice_nlp.html">practice.md</a> — exam questions with worked s
 </table>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
-<h3>💡 Read Course 14 A's Units 4 and 5 alongside this course's Units 4 and 5</h3>
+<h3 id="read-course-14-as-units-4-and-5-alongside-this-courses-units-4-and-5">💡 Read Course 14 A's Units 4 and 5 alongside this course's Units 4 and 5</h3>
 <p>They cover the same architectures from two directions. Course 14 A builds
 attention from scratch and measures it; this course applies it to language.
 <strong>Doing them in the same week roughly halves the work.</strong></p>
 </div>
 <hr />
-<h2>Textbooks</h2>
+<h2 id="textbooks">Textbooks</h2>
 <ul>
 <li>
 <p>Pulari, Maramreddy &amp; Vasudevan, <em>Natural Language Processing</em>, Oxford
@@ -323,12 +340,12 @@ Retrieval</em>, Oxford University Press · Kulkarni &amp; Shivananda, <em>Natura
 Processing Recipes</em>, Apress, 2019.</p>
 <div class="warn">
 <p><span class="label">WATCH OUT</span></p>
-<h3>⚠️ The second reference is numbered "2. 2."</h3>
+<h3 id="the-second-reference-is-numbered-2-2">⚠️ The second reference is numbered "2. 2."</h3>
 <p>The list reads "Reference Book: 1. … 2. <strong>2.</strong> Natural Language Processing
 Recipes …" — a duplicated numeral, not a missing entry. There are two
 reference books, not three. See review finding <span class="finding">D27</span>.</p>
 </div>
-<h2>How to study this course</h2>
+<h2 id="how-to-study-this-course">How to study this course</h2>
 <ol>
 <li>
 <p><strong>Install NLTK and spaCy on your own machine, and download the models.</strong>
@@ -361,55 +378,55 @@ reference books, not three. See review finding <span class="finding">D27</span>.
    ever run at scale.</p>
 </li>
 </ol>
-<h2>If you read one thing</h2>
+<h2 id="if-you-read-one-thing">If you read one thing</h2>
 <p><strong>Unit 1's section on ambiguity</strong>, and then run
 <code>03_ambiguity_tokenize.py</code>.</p>
 <p>Six sentences, each ambiguous in a documented way, with WordNet sense counts
 and actual parse trees for the structural cases. <strong>Everything else in the
 course is a technique for resolving what those six sentences demonstrate</strong>,
 and the techniques make far more sense once you have seen the problem clearly.</p>
-  <h2>Units in this Course</h2>
+  <h2 id="units-in-this-course">Units in this Course</h2>
   <div class="unit-grid">
 
     <a class="unit-card" href="unit1_nlp.html">
       <span class="tag">UNIT 1</span>
-      <h3>Introduction to NLP and Language Fundamentals</h3>
+      <h3 id="introduction-to-nlp-and-language-fundamentals">Introduction to NLP and Language Fundamentals</h3>
       <p>What NLP is and the three properties that make language hard; the levels of analysis from phonology to discourse; applications, and why spam detection is adversarial; lexical, structural and contextual ambiguity told apart, with WordNet sense counts and actual parse trees; garden-path sentences; NLTK against spaCy and when to use each; regular expressions scored against hand-labelled truth, greedy against lazy quantifiers, and where a regex stops being the right tool.</p>
     </a>
 
     <a class="unit-card" href="unit2_nlp.html">
       <span class="tag">UNIT 2</span>
-      <h3>Text Preprocessing and Linguistic Analysis</h3>
+      <h3 id="text-preprocessing-and-linguistic-analysis">Text Preprocessing and Linguistic Analysis</h3>
       <p>Morphology, lexicon, orthographic rules; inflectional against derivational morphology; finite state transducers and why bidirectionality matters; sentence and word tokenization, and why two trained tokenisers disagree; stopword removal measured on the Brown corpus, and the sentences it destroys; stemming against lemmatization on &#x27;ran&#x27;, &#x27;better&#x27; and &#x27;university&#x27;/&#x27;universal&#x27;; context-free grammars and the Chomsky hierarchy; top-down, bottom-up and chart parsing; why left recursion kills a top-down parser; CYK and its O(n³); semantic analysis and meaning representation.</p>
     </a>
 
     <a class="unit-card" href="unit3_nlp.html">
       <span class="tag">UNIT 3</span>
-      <h3>Information Extraction and Representation</h3>
+      <h3 id="information-extraction-and-representation">Information Extraction and Representation</h3>
       <p>Named entity recognition, the BIO scheme, and spaCy scored against thirteen hand-assigned labels — including the two Indian state names it gets wrong and the gazetteer that fixes them; bag of words, TF-IDF and what IDF actually is; n-grams and the word order unigrams cannot see; the measurement where counts rank an unrelated document above a paraphrase; the distributional hypothesis, CBOW against skip-gram, negative sampling, GloVe; the classification pipeline and why the vectoriser is fitted on train only; comparing a model gap against the cross-validation spread; the ethics of preprocessing.</p>
     </a>
 
     <a class="unit-card" href="unit4_nlp.html">
       <span class="tag">UNIT 4</span>
-      <h3>Deep Learning for NLP</h3>
+      <h3 id="deep-learning-for-nlp">Deep Learning for NLP</h3>
       <p>Why sequences break feedforward networks; RNN against CNN for text; the vanishing gradient as arithmetic, stated precisely enough to say that 3e-151 is not zero; LSTM gates and the additive cell path; GRU; the LSTM-RNN gap measured on both a constructed dataset and real IMDb, and why it narrows; perplexity and what value means no better than guessing; temperature; the O(T²) cost and why parallelism won; BERT against GPT; what pre-training buys, measured by training the small version; subword tokenization and the Hugging Face ecosystem.</p>
     </a>
 
     <a class="unit-card" href="unit5_nlp.html">
       <span class="tag">UNIT 5</span>
-      <h3>Transformers and Modern NLP</h3>
+      <h3 id="transformers-and-modern-nlp">Transformers and Modern NLP</h3>
       <p>Self-attention worked on checkable numbers; why the scores are divided by √d_k, measured against softmax saturation; multi-head attention, the encoder block, residuals and layer norm; positional encoding; encoder-decoder and what cross-attention does; BERT&#x27;s pretraining, the full masking recipe including the 10% random and 10% unchanged, and why NSP was dropped; fine-tuning; GPT and hallucination; extractive, abstractive and hybrid summarization, the lead-3 baseline, and why regulated domains stay extractive; document classification, retrieval against generative chatbots, and the threshold every retrieval bot needs.</p>
     </a>
 
     <a class="unit-card" href="practice_nlp.html">
       <span class="tag">PRACTICE</span>
-      <h3>Practice</h3>
+      <h3 id="practice">Practice</h3>
       <p>Exam-style questions with fully worked solutions.</p>
     </a>
 
     <a class="unit-card" href="lab_nlp.html">
       <span class="tag">LAB</span>
-      <h3>Lab</h3>
+      <h3 id="lab">Lab</h3>
       <p>Every prescribed lab experiment, with code and expected output.</p>
     </a>
 

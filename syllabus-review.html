@@ -16,6 +16,17 @@
     <p>Thirty-three findings from checking the four official syllabus documents.</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#findings-that-affect-your-marks">Findings that affect your marks</a></li>
+    <li><a href="#defects-in-the-document">Defects in the document</a></li>
+    <li><a href="#design-and-sequencing-issues">Design and sequencing issues</a></li>
+    <li><a href="#what-the-five-semester-v-courses-do-well">What the five Semester V courses do well</a></li>
+    <li><a href="#verification-notes-for-this-repository">Verification notes for this repository</a></li>
+  </ol>
+</details>
 <p>A check of the official syllabus documents, not a transcription of them. Every
 finding below was verified against
 <code>docs/syllabus-extracted.md</code> (Semesters I–II),
@@ -32,7 +43,7 @@ study only the unit lists, you will walk into those questions unprepared. D13
 sits below with the document defects because that is what caused it, but its
 consequence is the same as the other two.</p>
 <hr />
-<h2>Summary</h2>
+<h2 id="summary">Summary</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -190,8 +201,8 @@ semesters and the two elective tracks are internally consistent; nothing below
 disputes them.</p>
 </div>
 <hr />
-<h2>Findings that affect your marks</h2>
-<h3>D1 — Bayes' theorem is examined but never listed as a topic</h3>
+<h2 id="findings-that-affect-your-marks">Findings that affect your marks</h2>
+<h3 id="d1-bayes-theorem-is-examined-but-never-listed-as-a-topic">D1 — Bayes' theorem is examined but never listed as a topic</h3>
 <p>Course 4, Unit 1 lists the probability topics as: "Concept of
 Uncertainty, Axioms and rules of probability, Conditional probability". Bayes'
 theorem does not appear in Unit 1, or in any other unit of the course.</p>
@@ -206,7 +217,7 @@ list you would revise from.</p>
 covered in Course 4 Unit 1,
 where it is flagged as an off-syllabus-but-examined addition, with the
 reconstructed medical-test problem worked in full.</p>
-<h3>D2 — Database triggers are examined but never listed as a topic</h3>
+<h3 id="d2-database-triggers-are-examined-but-never-listed-as-a-topic">D2 — Database triggers are examined but never listed as a topic</h3>
 <p>Course 5, Unit 5 (PL/SQL) lists: "Introduction, Shortcomings of SQL,
 Structure of PL/SQL, PL/SQL Language Elements, Data Types, Operators Precedence,
 Control Structures, Steps to Create a PL/SQL Program, Iterative Control,
@@ -235,8 +246,8 @@ inconsistent with the assessment.</p>
 Course 5 Unit 5, with both lab triggers
 written out.</p>
 <hr />
-<h2>Defects in the document</h2>
-<h3>D3 — Truncated text in three places</h3>
+<h2 id="defects-in-the-document">Defects in the document</h2>
+<h3 id="d3-truncated-text-in-three-places">D3 — Truncated text in three places</h3>
 <ol>
 <li>
 <p><strong>Course 4, Outcome 1</strong> reads: "Apply the basic rules of probability,
@@ -259,7 +270,7 @@ written out.</p>
    your department before committing to a track in Year III.</p>
 </li>
 </ol>
-<h3>D4 — Lab question numbering is broken in all three DBMS experiments</h3>
+<h3 id="d4-lab-question-numbering-is-broken-in-all-three-dbms-experiments">D4 — Lab question numbering is broken in all three DBMS experiments</h3>
 <p>Verified by extracting every numbered item:</p>
 <table class="main-table">
 <thead>
@@ -301,7 +312,7 @@ employee's salary exceeds some threshold".</p>
 ("Update the stock quantity of" — of what?).</p>
 <p><strong>What to do:</strong> the lab notes renumber cleanly and reconstruct the missing items,
 marking each reconstruction as such so you can tell it from the official text.</p>
-<h3>D5 — Course 2 Unit 4 is titled "Functions" but opens with pointers</h3>
+<h3 id="d5-course-2-unit-4-is-titled-functions-but-opens-with-pointers">D5 — Course 2 Unit 4 is titled "Functions" but opens with pointers</h3>
 <p>The unit is headed "Unit 4. Functions:" and its first topics are
 "Pointers: Pointer data type, Pointer declaration, initialization, accessing
 values using pointers. Pointer arithmetic, Pointers and arrays." Functions follow
@@ -309,13 +320,13 @@ values using pointers. Pointer arithmetic, Pointers and arrays." Functions follo
 <p>Harmless to the content, but if you revise from unit titles you will not expect
 pointers to be examined under "Functions". The notes cover them in the order
 printed and flag the mismatch.</p>
-<h3>D11 — Orphaned activity in Course 2</h3>
+<h3 id="d11-orphaned-activity-in-course-2">D11 — Orphaned activity in Course 2</h3>
 <p>Every activity in the document follows the pattern <code>Outcome: … /
 Activity: … / Evaluation Method: …</code>. The "Recursive Problem Solver" activity
 appears with no <code>Outcome:</code> heading above it, unlike its four siblings — its
 outcome line was dropped. It maps to Course Outcome 4 (modular code using
 functions, recursion and parameter passing).</p>
-<h3>D12 — Bibliographies are damaged in all five Semester III–IV courses</h3>
+<h3 id="d12-bibliographies-are-damaged-in-all-five-semester-iiiiv-courses">D12 — Bibliographies are damaged in all five Semester III–IV courses</h3>
 <p>Every one of the five courses has at least one book entry that is unusable as
 written. This is worse than it sounds: a bibliography exists so you can <em>order
 the book</em>, and none of these five entries names one you could order.</p>
@@ -365,7 +376,7 @@ the book</em>, and none of these five entries names one you could order.</p>
 course README in this repository lists them with the missing details filled in
 and marked as reconstructed, so you can tell my additions from the document's
 own text.</p>
-<h3>D13 — Course 10's Objective 4 is a fragment, and GridFS and transactions go missing with it</h3>
+<h3 id="d13-course-10s-objective-4-is-a-fragment-and-gridfs-and-transactions-go-missing-with-it">D13 — Course 10's Objective 4 is a fragment, and GridFS and transactions go missing with it</h3>
 <p>The five course objectives read:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -419,7 +430,7 @@ experiments 18 and
 19 for that reason — and both of
 those lab files also say plainly that they need a running server, which is the
 other half of the answer when an examiner asks you to demonstrate them.</p>
-<h3>D14 — Course 10 Unit 1's "Installation &amp; Setup" topic has lost text</h3>
+<h3 id="d14-course-10-unit-1s-installation-setup-topic-has-lost-text">D14 — Course 10 Unit 1's "Installation &amp; Setup" topic has lost text</h3>
 <p>Unit 1's topic list ends across the page break as:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -436,14 +447,14 @@ or GUI."</p>
 evidently intended — Atlas, Docker and a local install, the <code>mongod</code> service,
 and connecting with <code>mongosh</code> or Compass — and says in the section itself that
 the source text is damaged.</p>
-<h3>D15 — Course 8 numbers its units differently from every other course</h3>
+<h3 id="d15-course-8-numbers-its-units-differently-from-every-other-course">D15 — Course 8 numbers its units differently from every other course</h3>
 <p>Data Mining heads its units <code>Unit-1:</code>, <code>Unit-2:</code> … with a
 hyphen and a colon. All nine other courses in both documents use <code>Unit 1.</code>,
 <code>Unit 2.</code> … with a space and a full stop.</p>
 <p>Cosmetic, and listed only because it is the kind of inconsistency that suggests
 this course's text was pasted in from a different source document — which is
 also the most likely explanation for <strong>D16</strong>.</p>
-<h3>D16 — Course 8's objectives are unnumbered, unlike every other course's</h3>
+<h3 id="d16-course-8s-objectives-are-unnumbered-unlike-every-other-courses">D16 — Course 8's objectives are unnumbered, unlike every other course's</h3>
 <p>Every course in both documents numbers its five objectives 1–5.
 Course 8 runs them together as unnumbered sentences:</p>
 <div class="tip">
@@ -459,8 +470,8 @@ you to "state the third course objective", the document does not tell you which
 one that is. Counting in printed order gives association rule mining, which is
 also Unit 3 and Outcome 3.</p>
 <hr />
-<h2>Design and sequencing issues</h2>
-<h3>D6 — Course 3 Unit 4 carries roughly double the load of a normal unit</h3>
+<h2 id="design-and-sequencing-issues">Design and sequencing issues</h2>
+<h3 id="d6-course-3-unit-4-carries-roughly-double-the-load-of-a-normal-unit">D6 — Course 3 Unit 4 carries roughly double the load of a normal unit</h3>
 <p>Unit 4 is "File Handling, Exception Handling &amp; Object Oriented
 Programming" and contains:</p>
 <ul>
@@ -479,7 +490,7 @@ Programming" and contains:</p>
 unit. Compare Unit 1, which covers only literals, variables and operators.</p>
 <p><strong>What to do:</strong> budget roughly twice the study time for Unit 4 as for Unit 1. The
 <a href="study-plan.html">study plan</a> already does this, splitting it across three weeks.</p>
-<h3>D7 — Course 3 Unit 5 fuses two unrelated subjects</h3>
+<h3 id="d7-course-3-unit-5-fuses-two-unrelated-subjects">D7 — Course 3 Unit 5 fuses two unrelated subjects</h3>
 <p>Unit 5 is "Abstract Data Structures and GUI Programming" —
 linked lists, stacks, queues and priority queues, <em>and</em> Tkinter widgets and event
 handling. These share nothing conceptually. Data structures are algorithmic and
@@ -487,7 +498,7 @@ carry the exam weight; Tkinter is applied and carries the lab weight (2 of the 1
 lab programs).</p>
 <p><strong>What to do:</strong> treat them as two separate topics. The notes split
 <code>unit-5.md</code> into two clearly divided halves.</p>
-<h3>D8 — The statistics lab never touches Python</h3>
+<h3 id="d8-the-statistics-lab-never-touches-python">D8 — The statistics lab never touches Python</h3>
 <p>Course 4's lab is headed "Advanced Spreadsheets/Excel Lab/PSPP Open
 Source", and all 15 experiments are spreadsheet exercises — <code>NORM.DIST</code>,
 <code>NORM.INV</code>, <code>EXPON.DIST</code>, the Data Analysis ToolPak, the Regression tool.</p>
@@ -501,12 +512,12 @@ you just spent a semester learning.</p>
 <p><strong>What to do:</strong> do each experiment <strong>twice</strong> — once in Excel exactly as prescribed
 (that is what the exam tests) and once in Python (that is what the degree is for).
 The Course 4 lab notes give both versions of all 15.</p>
-<h3>D9 — Conditional formatting appears twice in Course 1</h3>
+<h3 id="d9-conditional-formatting-appears-twice-in-course-1">D9 — Conditional formatting appears twice in Course 1</h3>
 <p>Unit 4 lists "Data Handling: Sorting, filtering, <strong>conditional
 formatting</strong>". Unit 5 then opens with "<strong>Conditional Formatting</strong>: Custom rules,
 Color scales, Icon sets, Data bars" as a headline topic. Minor, but worth knowing
 that Unit 5's treatment is the substantive one.</p>
-<h3>D10 — Three-semester gap between statistics and its first real application</h3>
+<h3 id="d10-three-semester-gap-between-statistics-and-its-first-real-application">D10 — Three-semester gap between statistics and its first real application</h3>
 <p>Regression, correlation and hypothesis testing are taught in <strong>Semester II</strong>
 (Course 4). Their first genuine application is Data Mining in <strong>Semester IV</strong>, and
 Machine Learning is a Year III elective in <strong>Semester V</strong> — three semesters after
@@ -514,7 +525,7 @@ the theory.</p>
 <p>Statistical intuition decays without use. The <a href="study-plan.html">study plan</a>
 schedules a short Course 4 refresher before Semester IV begins, so Data Mining
 does not start with re-learning what a p-value is.</p>
-<h3>D17 — Course 11's Objective 3 stops mid-sentence</h3>
+<h3 id="d17-course-11s-objective-3-stops-mid-sentence">D17 — Course 11's Objective 3 stops mid-sentence</h3>
 <p>The third objective of Business Intelligence Tools reads:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -531,7 +542,7 @@ Semesters I–II document) and <strong>D13</strong> (Course 10's Objective 4). F
 truncations across two documents in the same position — the end of a numbered
 objective — suggests a systematic problem in whatever produced the PDF rather
 than four independent typing errors.</p>
-<h3>D18 — "Business IntelligenceI" — a stray capital in Course 11 Unit 1</h3>
+<h3 id="d18-business-intelligencei-a-stray-capital-in-course-11-unit-1">D18 — "Business IntelligenceI" — a stray capital in Course 11 Unit 1</h3>
 <p>Unit 1's topic list reads:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -542,7 +553,7 @@ than four independent typing errors.</p>
 Trivially cosmetic — but it sits in the <em>first line of the first unit of the
 first course of the semester</em>, which is the last place a proofreading pass
 should miss.</p>
-<h3>D19 — Course 12 A has three objectives against four outcomes against five units</h3>
+<h3 id="d19-course-12-a-has-three-objectives-against-four-outcomes-against-five-units">D19 — Course 12 A has three objectives against four outcomes against five units</h3>
 <p>Every other course in both documents has <strong>five objectives and
 five outcomes</strong>, mapping one-to-one onto five units. Machine Learning has
 <strong>three objectives and four outcomes</strong> — and five units.</p>
@@ -602,7 +613,7 @@ give it the same weight as the other four.</p>
 <p><strong>And Outcome 4 has no full stop</strong> — it runs straight into "Unit 1." on the
 same line — which is the same boundary defect as D17 and D23, in a milder
 form.</p>
-<h3>D20 — Course 11 numbers its units in Roman numerals</h3>
+<h3 id="d20-course-11-numbers-its-units-in-roman-numerals">D20 — Course 11 numbers its units in Roman numerals</h3>
 <p>Business Intelligence Tools heads its units <code>Unit-I:</code>,
 <code>Unit-II:</code> … Every other course in the Semester V document uses <code>Unit 1.</code> with
 an Arabic numeral, a space and a full stop.</p>
@@ -610,7 +621,7 @@ an Arabic numeral, a space and a full stop.</p>
 everything else used <code>Unit 1.</code> — and it is the same signal: these course
 descriptions were assembled from separately-authored sources and never passed
 through a single formatting pass.</p>
-<h3>D21 — Course 12 B's reference books are numbered 3 and 4</h3>
+<h3 id="d21-course-12-bs-reference-books-are-numbered-3-and-4">D21 — Course 12 B's reference books are numbered 3 and 4</h3>
 <p>The bibliography reads:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -627,7 +638,7 @@ Reference Books
 damaged in all five courses, and this is the same section behaving oddly
 again.</li>
 </ol>
-<h3>D22 — Course 13 B's reference list has an empty entry 4</h3>
+<h3 id="d22-course-13-bs-reference-list-has-an-empty-entry-4">D22 — Course 13 B's reference list has an empty entry 4</h3>
 <p>The list runs:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -640,7 +651,7 @@ again.</li>
 <p><strong>Entry 4 is a number with nothing after it.</strong> A book was removed, or failed to
 paste, and the numbering was never closed up. The list claims five references
 and supplies four.</p>
-<h3>D23 — "e.g., SudoStudents" — a merged word in Course 13 A's activities</h3>
+<h3 id="d23-eg-sudostudents-a-merged-word-in-course-13-as-activities">D23 — "e.g., SudoStudents" — a merged word in Course 13 A's activities</h3>
 <p>The Outcome 4 activity reads:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -652,7 +663,7 @@ closing bracket with them. The intended text is almost certainly "(e.g.,
 Sudoku). Students write…".</p>
 <p><strong>Same defect class as D3, D13, D14 and D17</strong>, and the fourth instance of text
 being lost at a boundary in this pair of documents.</p>
-<h3>D24 — "HadoopSpark" appears twice in Course 12 B</h3>
+<h3 id="d24-hadoopspark-appears-twice-in-course-12-b">D24 — "HadoopSpark" appears twice in Course 12 B</h3>
 <p>Objective 5 and Outcome 5 both read "<strong>HadoopSpark</strong>
 integration", and the case-study activity reads "<strong>HBaseSpark</strong> integration".</p>
 <p>The missing character is presumably a hyphen or a slash — "Hadoop-Spark",
@@ -664,7 +675,7 @@ D13, D14, D17, D23, and D24 (two). That is no longer a scattering of typos; it
 is a defect in the production of the documents, and the honest summary is that
 <strong>both PDFs need a proofreading pass before they are issued to students.</strong></p>
 <hr />
-<h3>D25 — "design an end-to-ple:" — a truncated sentence in Course 14 B</h3>
+<h3 id="d25-design-an-end-to-ple-a-truncated-sentence-in-course-14-b">D25 — "design an end-to-ple:" — a truncated sentence in Course 14 B</h3>
 <p>The activity for Outcome 4 reads:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -675,7 +686,7 @@ retail sales.</p>
 <strong>"pipeline" has been chopped to "ple:"</strong> — the colon is what survived of the
 word plus the punctuation that followed it. This is the most severe of the
 truncation class because the sentence no longer parses at all.</p>
-<h3>D26 — "Coders(Based" — a missing space in Course 14 A's references</h3>
+<h3 id="d26-codersbased-a-missing-space-in-course-14-as-references">D26 — "Coders(Based" — a missing space in Course 14 A's references</h3>
 <p>Reference 2 reads:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -684,7 +695,7 @@ truncation class because the sentence no longer parses at all.</p>
 </div>
 <p>A space has been lost before the opening parenthesis. <strong>Same mechanism as
 D23 and D24</strong> — a word boundary that did not survive whatever produced the PDF.</p>
-<h3>D27 — Course 15 A numbers its second reference "2. 2."</h3>
+<h3 id="d27-course-15-a-numbers-its-second-reference-2-2">D27 — Course 15 A numbers its second reference "2. 2."</h3>
 <p>The reference list reads:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -694,7 +705,7 @@ D23 and D24</strong> — a word boundary that did not survive whatever produced 
 <p>A duplicated list marker. Cosmetic, but it is the third distinct
 list-numbering defect in the programme, after D21 (Roman numerals in Course</p>
 <p>11) and D22 (an empty entry 4 in Course 13 B).</p>
-<h3>D28 — "Tensor Flow" and "Mobile Net" split in Course 14 A's practicals</h3>
+<h3 id="d28-tensor-flow-and-mobile-net-split-in-course-14-as-practicals">D28 — "Tensor Flow" and "Mobile Net" split in Course 14 A's practicals</h3>
 <p>Practical 2 reads "Google Teachable Machine or <strong>Tensor Flow</strong>
 Playground" and practical 8 reads "Fine-tune a pre-trained CNN (<strong>Mobile Net</strong>,
 VGG)".</p>
@@ -702,7 +713,7 @@ VGG)".</p>
 noun rather than lost between two words. Both product names are single words —
 TensorFlow, MobileNet. That the same document contains both failure modes
 points at automated text extraction rather than typing.</p>
-<h3>D29 — A "short reflective note (12 pages)" in Course 14 A</h3>
+<h3 id="d29-a-short-reflective-note-12-pages-in-course-14-a">D29 — A "short reflective note (12 pages)" in Course 14 A</h3>
 <p>The evaluation method for the Unit 5 activity asks for:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -715,7 +726,7 @@ D25, D26 and the rest, but here it changes the <em>workload</em> a student is be
 asked for by a factor of six to twelve. <strong>This one has a practical
 consequence</strong>, not just a cosmetic one: a student reading it literally would
 write twelve pages, and a marker expecting one page would not know why.</p>
-<h3>D30 — Course 14 B's evaluation names R and Python; the practicals assume both</h3>
+<h3 id="d30-course-14-bs-evaluation-names-r-and-python-the-practicals-assume-both">D30 — Course 14 B's evaluation names R and Python; the practicals assume both</h3>
 <p>The course objectives say "hands-on practice with
 real-world datasets using <strong>R/Python</strong> statistical libraries", and the
 practical list is headed "Using <strong>R/Python</strong> statsmodels, pandas, forecast, or
@@ -736,7 +747,7 @@ D24 (two), D25, D26, D28 (two), and D29. <strong>Semester VI contributes five of
 per 3.4 pages, and it is the shortest of the four documents.</p>
 <p>The recommendation from D24 stands and strengthens: <strong>all four PDFs need a
 proofreading pass before they are issued to students.</strong></p>
-<h3>D31 — Course 15 B's only textbook has no publisher and no year</h3>
+<h3 id="d31-course-15-bs-only-textbook-has-no-publisher-and-no-year">D31 — Course 15 B's only textbook has no publisher and no year</h3>
 <p>The reading list reads, in full:</p>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
@@ -750,7 +761,7 @@ incompletely cited.</strong></p>
 <p><strong>Compare this with the other Semester VI courses</strong>, which give author,
 year, title, edition and publisher. Course 15 B is the only one whose
 students cannot locate their single prescribed text from the syllabus alone.</p>
-<h3>D32 — Course 15 B prescribes a paywalled article as a course resource</h3>
+<h3 id="d32-course-15-b-prescribes-a-paywalled-article-as-a-course-resource">D32 — Course 15 B prescribes a paywalled article as a course resource</h3>
 <p>Among the three web resources is a Towards Data Science article.
 <strong>That publication moved to a Medium members-only model</strong>, so a student
 following the syllabus may find the prescribed reading behind a paywall.</p>
@@ -759,7 +770,7 @@ production error — somebody chose that link — but it is a maintenance
 failure: <strong>a syllabus that cites a URL has taken on the obligation to check
 that the URL still serves what it did.</strong> The IBM and Martin Fowler links
 alongside it remain freely readable.</p>
-<h3>D33 — The Semester VI practical lists name tools the theory never mentions</h3>
+<h3 id="d33-the-semester-vi-practical-lists-name-tools-the-theory-never-mentions">D33 — The Semester VI practical lists name tools the theory never mentions</h3>
 <p>Three cases, across both tracks:</p>
 <table class="main-table">
 <thead>
@@ -796,7 +807,7 @@ hours, and the syllabus allots no theory time to it. Either the unit should
 name the technology it expects, or the practical should say that learning it
 is part of the exercise.</p>
 <hr />
-<h2>What the five Semester V courses do well</h2>
+<h2 id="what-the-five-semester-v-courses-do-well">What the five Semester V courses do well</h2>
 <p>The defects above are worth recording, but a review that lists only faults
 misrepresents the document. Four things in Semester V are genuinely well done.</p>
 <p><strong>The elective tracks are coherent.</strong> Track A (Machine Learning → AI → Neural
@@ -817,7 +828,7 @@ before Hive, HDFS before HBase, and the Spark comparison stated in terms of
 what MapReduce does between stages. A student who follows the order will
 understand <em>why</em> Spark replaced MapReduce rather than merely that it did.</p>
 <hr />
-<h2>Verification notes for this repository</h2>
+<h2 id="verification-notes-for-this-repository">Verification notes for this repository</h2>
 <p>The lab code in <code>labs/</code> was checked as follows. Run
 <code>bash tools/verify_all.sh</code> to reproduce all of it.</p>
 <p><strong>What runs, and is asserted</strong></p>
@@ -1033,7 +1044,7 @@ was added: the checker now folds <strong>-ise/-ize</strong> spellings and en-das
 <strong>collapses whitespace</strong>, because a keyword that happened to straddle a line
 wrap was being reported as a missing topic. The check currently reports
 <strong>1,273 of 1,273 topics across 95 unit files</strong>.</p>
-<h3>And the harness itself failed, in the way harnesses do</h3>
+<h3 id="and-the-harness-itself-failed-in-the-way-harnesses-do">And the harness itself failed, in the way harnesses do</h3>
 <p><code>tools/verify_all.sh</code> reported <strong>ALL VERIFICATIONS PASSED</strong> while six lab
 programs were failing underneath it.</p>
 <p>Every suite in that script is piped into <code>tail</code> so the summary stays readable:</p>

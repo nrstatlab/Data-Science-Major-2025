@@ -80,7 +80,9 @@ the repetition falls so you do not study it twice.
 - `data/course-10-mongodb/` — **practice datasets**, CSV: `courses.csv`, `students.csv`.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; `data/README.md` lists what each was built
-  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  from, `data/PRACTICE-QUESTIONS.md` sets questions on each with a computed
+  answer key, and `tools/check_datasets.py` proves every one of those
+  answers against the file.
 
 > **On the lab code.** `mongod` cannot be installed here — the Debian
 > repositories are blocked by the egress policy — so each experiment has two

@@ -16,13 +16,28 @@
     <p>B.Sc. (Hons) Data Science — Year III, Semester VI, Course 14</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</a></li>
+    <li><a href="#what-runs-here">What runs here</a></li>
+    <li><a href="#course-objectives-verbatim">Course objectives (verbatim)</a></li>
+    <li><a href="#the-five-units">The five units</a></li>
+    <li><a href="#also-here">Also here</a></li>
+    <li><a href="#how-this-course-connects-to-the-rest-of-the-programme">How this course connects to the rest of the programme</a></li>
+    <li><a href="#textbooks">Textbooks</a></li>
+    <li><a href="#how-to-study-this-course">How to study this course</a></li>
+    <li><a href="#if-you-read-one-thing">If you read one thing</a></li>
+    <li><a href="#units-in-this-course">Units in this Course</a></li>
+  </ol>
+</details>
 <p><strong>Semester VI</strong></p>
 <p><strong>This is a Track A course</strong>, paired with
 Course 15 A (Natural Language Processing), and it
 continues the track you began in Semester V with Machine Learning and
 Artificial Intelligence.</p>
 <hr />
-<h2>The one thing to understand before anything else</h2>
+<h2 id="the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</h2>
 <p><strong>A neural network is not a new idea bolted onto machine learning. It is the
 same idea — fit parameters to minimise a loss — with one change: the features
 are learned rather than chosen.</strong></p>
@@ -68,7 +83,7 @@ activation between them, <code>W₃(W₂(W₁x))</code> is just <code>Wx</code> 
 (<code>01_perceptron_scratch.py</code> reports accuracy <strong>0.50</strong>, converged <strong>never</strong>),
 and one hidden layer with a non-linearity solves it exactly (<strong>1.00</strong>).</p>
 </div>
-<h3>⚠️ The mistake this course exists to prevent</h3>
+<h3 id="the-mistake-this-course-exists-to-prevent">⚠️ The mistake this course exists to prevent</h3>
 <div class="tip">
 <p><span class="label">NOTE</span></p>
 <p>Reporting an accuracy without a baseline. <strong>A deep network that gets 94% on
@@ -78,7 +93,7 @@ it is the kind of number that should change what you build.</p>
 </div>
 <p>Every experiment here reports a baseline next to the headline number.</p>
 <hr />
-<h2>What runs here</h2>
+<h2 id="what-runs-here">What runs here</h2>
 <p><strong>Ten of the twelve experiments run against real data and real pre-trained
 weights.</strong> That is worth stating plainly, because the usual assumption about
 a sandboxed environment is the opposite.</p>
@@ -112,7 +127,7 @@ a sandboxed environment is the opposite.</p>
 </tr>
 </tbody>
 </table>
-<h3>The two that do not run, and why</h3>
+<h3 id="the-two-that-do-not-run-and-why">The two that do not run, and why</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -167,7 +182,7 @@ between a lab report and a demo.</p>
 <p>The lab does both, every time, and says which is which.</p>
 </div>
 <hr />
-<h2>Course objectives (verbatim)</h2>
+<h2 id="course-objectives-verbatim">Course objectives (verbatim)</h2>
 <ol>
 <li>
 <p>Introduce the fundamental concepts of Artificial Neural Networks and Deep
@@ -190,7 +205,7 @@ between a lab report and a demo.</p>
    overfitting, bias, and ethical concerns.</p>
 </li>
 </ol>
-<h2>The five units</h2>
+<h2 id="the-five-units">The five units</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -236,7 +251,7 @@ between a lab report and a demo.</p>
 <p>Plus <a href="lab_deep-learning.html">lab.md</a> — all twelve experiments with their measured output —
 and <a href="practice_deep-learning.html">practice.md</a> — exam questions with worked solutions.</p>
 <hr />
-<h2>Also here</h2>
+<h2 id="also-here">Also here</h2>
 <ul>
 <li><a href="practice_deep-learning.html">practice.md</a> — exam questions with worked solutions</li>
 <li><a href="lab_deep-learning.html">lab.md</a> — all 12 practicals</li>
@@ -248,12 +263,14 @@ and <a href="practice_deep-learning.html">practice.md</a> — exam questions wit
 <p><code>data/course-14a-deeplearning/</code> — <strong>practice datasets</strong>, CSV: <code>sensor-failures.csv</code>, <code>xor.csv</code>.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; <code>data/README.md</code> lists what each was built
-  from, and <code>tools/check_datasets.py</code> proves each truth is recoverable.
+  from, <code>data/PRACTICE-QUESTIONS.md</code> sets questions on each with a computed
+  answer key, and <code>tools/check_datasets.py</code> proves every one of those
+  answers against the file.
   Also <code>flowers.csv</code> in <code>data/shared/</code>, which several courses
   analyse so their answers can be compared.</p>
 </li>
 </ul>
-<h2>How this course connects to the rest of the programme</h2>
+<h2 id="how-this-course-connects-to-the-rest-of-the-programme">How this course connects to the rest of the programme</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -289,7 +306,7 @@ and <a href="practice_deep-learning.html">practice.md</a> — exam questions wit
 </tbody>
 </table>
 <hr />
-<h2>Textbooks</h2>
+<h2 id="textbooks">Textbooks</h2>
 <ul>
 <li>
 <p>Chollet, <em>Deep Learning with Python</em>, 1st edition, Manning, 2018 — written by
@@ -310,12 +327,12 @@ I Love You</em>, Voracious/Hachette, 2019 — the one on Unit 5's ethics, and th
 only genuinely funny book on the syllabus.</p>
 <div class="warn">
 <p><span class="label">WATCH OUT</span></p>
-<h3>⚠️ "Coders(Based" — a lost space</h3>
+<h3 id="codersbased-a-lost-space">⚠️ "Coders(Based" — a lost space</h3>
 <p>The reference list reads "Practical Deep Learning for <strong>Coders(Based</strong> on the
 fast.ai course)". The title ends at <em>Coders</em>; the rest is a parenthetical.
 See review finding <span class="finding">D26</span>.</p>
 </div>
-<h2>How to study this course</h2>
+<h2 id="how-to-study-this-course">How to study this course</h2>
 <ol>
 <li>
 <p><strong>Fix the seed and read the numbers.</strong> Every script here sets one, so the
@@ -349,55 +366,55 @@ See review finding <span class="finding">D26</span>.</p>
    tidied away, because the tidy version would have taught you something false.</p>
 </li>
 </ol>
-<h2>If you read one thing</h2>
+<h2 id="if-you-read-one-thing">If you read one thing</h2>
 <p><strong>Unit 2</strong>, and specifically the part on what makes training fail. Depth,
 width and architecture are choices you can reason about. A learning rate that
 is 100× too large produces a model that never learns anything, and the
 experiment 4 table shows exactly that — <strong><code>lr=10.0</code> finished at accuracy
 0.1000 with the loss having gone <em>up</em>.</strong></p>
 <p>Nothing else in the course matters if training does not converge.</p>
-  <h2>Units in this Course</h2>
+  <h2 id="units-in-this-course">Units in this Course</h2>
   <div class="unit-grid">
 
     <a class="unit-card" href="unit1_deep-learning.html">
       <span class="tag">UNIT 1</span>
-      <h3>Foundations of Deep Learning</h3>
+      <h3 id="foundations-of-deep-learning">Foundations of Deep Learning</h3>
       <p>AI, machine learning and deep learning as nested sets; the history from McCulloch–Pitts to the Transformer and what actually changed in 2012; biological against artificial neurons and the limits of the analogy; the perceptron, its learning rule, and a four-line proof that it cannot compute XOR; linear, ReLU, sigmoid, tanh and softmax with their derivative bounds; why a stack of linear layers is one linear layer; the dying ReLU and softmax overflow; MSE against cross-entropy; gradient descent and backpropagation.</p>
     </a>
 
     <a class="unit-card" href="unit2_deep-learning.html">
       <span class="tag">UNIT 2</span>
-      <h3>Deep Neural Networks</h3>
+      <h3 id="deep-neural-networks">Deep Neural Networks</h3>
       <p>Forward propagation and getting every shape right; backpropagation as the chain rule and why dz = a − y for softmax with cross-entropy; the symmetry problem and why He initialisation uses 2/fan_in; the learning rate as the one hyperparameter that makes training fail, with the two opposite failures distinguished; SGD, RMSProp and Adam measured; overfitting against underfitting; dropout, batch normalisation, early stopping and why both need a train/eval mode; MSE, cross-entropy and hinge loss; Keras 3 on any backend.</p>
     </a>
 
     <a class="unit-card" href="unit3_deep-learning.html">
       <span class="tag">UNIT 3</span>
-      <h3>Convolutional Neural Networks</h3>
+      <h3 id="convolutional-neural-networks">Convolutional Neural Networks</h3>
       <p>Images, pixels and the channel-order trap; the three properties convolution has that a dense layer lacks; the output-size formula and where a classical CNN&#x27;s parameters actually live; padding and pooling and what each costs; measuring whether the learned filters are really edge detectors, and reporting zero when that is the answer; feature map sparsity and the layer where it goes the wrong way; LeNet-5, AlexNet and VGG, and why two 3×3 convolutions beat one 5×5; classification, detection, segmentation and face embeddings.</p>
     </a>
 
     <a class="unit-card" href="unit4_deep-learning.html">
       <span class="tag">UNIT 4</span>
-      <h3>Recurrent Neural Networks and NLP</h3>
+      <h3 id="recurrent-neural-networks-and-nlp">Recurrent Neural Networks and NLP</h3>
       <p>Why sequences break a feedforward network; the recurrence and weight sharing along time; the many-to-one, one-to-many and many-to-many patterns; the vanishing gradient as arithmetic, stated precisely enough to say that 3e-151 is not zero; LSTM gates, the additive cell path, and the forget-gate bias of 1; GRU; RNN against LSTM against GRU measured on both a constructed dataset and real IMDb, and why the gap narrows; Word2Vec, GloVe and the biases embeddings inherit; contextual embeddings and BERT; character-level generation and temperature.</p>
     </a>
 
     <a class="unit-card" href="unit5_deep-learning.html">
       <span class="tag">UNIT 5</span>
-      <h3>Advanced and Emerging Topics</h3>
+      <h3 id="advanced-and-emerging-topics">Advanced and Emerging Topics</h3>
       <p>Scaled dot-product attention worked through on checkable numbers; why the scores are divided by √d_k, measured against softmax saturation; multi-head attention and the encoder block; positional encoding and an honest null ablation; attention weights scored against a known ground truth, and why 92.5% is not an explanation; the O(T²) cost and context length; BERT against GPT; transfer learning on real ImageNet weights, including the two results that contradict the usual story; GANs and mode collapse; VAEs; bias, the three incompatible fairness definitions, privacy, safety and explainability.</p>
     </a>
 
     <a class="unit-card" href="practice_deep-learning.html">
       <span class="tag">PRACTICE</span>
-      <h3>Practice</h3>
+      <h3 id="practice">Practice</h3>
       <p>Exam-style questions with fully worked solutions.</p>
     </a>
 
     <a class="unit-card" href="lab_deep-learning.html">
       <span class="tag">LAB</span>
-      <h3>Lab</h3>
+      <h3 id="lab">Lab</h3>
       <p>Every prescribed lab experiment, with code and expected output.</p>
     </a>
 

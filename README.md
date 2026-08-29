@@ -170,7 +170,7 @@ python3 tools/check_coverage.py   # every syllabus topic has notes
 | `run_timeseries_labs.py` | **All 13** Course 14 B experiments; no NOT EXECUTED file exists |
 | `run_nlp_labs.py` | Course 15 A on **real NLTK corpora and real spaCy models**, every result scored; 3 markers audited |
 | `run_mlops_labs.py` | Course 15 B against **real MLflow, git, DVC and Flask**; 5 markers audited |
-| `check_datasets.py` | **113 checks over 50 practice datasets** — the regression slope, the AR(2) coefficients, the cluster centres, the Granger direction and the drift score are all recovered from the CSV on disk |
+| `check_datasets.py` | **117 checks over 50 practice datasets** — the regression slope, the AR(2) coefficients, the cluster centres, the Granger direction and the drift score are all recovered from the CSV on disk, and the 266-question answer key is rebuilt and compared |
 | `extract_syllabus.py` | Every page of every source document yields text |
 | `check_coverage.py` | **1,273 syllabus topics across 95 unit files** all map to a notes section |
 | `audit_content.py` | The documents' own **stated counts match the files on disk**; every course has its full note set; no malformed table; every link resolves |
@@ -245,9 +245,16 @@ merely produce one. `data/README.md` says what each file was built from, and
 `tools/check_datasets.py` recovers every one of those truths from the CSV
 itself.
 
+`data/PRACTICE-QUESTIONS.md` sets **266 questions** across those files, graded
+warm-up → core → stretch, with an answer key that is **computed from the CSV
+when the page is generated** rather than written from memory. Three figures I
+did write from memory while building the datasets turned out wrong, which is
+why none of the 266 is typed by hand.
+
 ```bash
-python3 tools/make_datasets.py    # regenerate; deterministic, seeded
-python3 tools/check_datasets.py   # 113 checks over 50 datasets
+python3 tools/make_datasets.py     # regenerate; deterministic, seeded
+python3 tools/make_questions.py    # rebuild the answer key from the data
+python3 tools/check_datasets.py    # 117 checks over 50 datasets
 ```
 
 Markdown stays the source of truth: edit `notes/**/*.md`, re-run the build, and

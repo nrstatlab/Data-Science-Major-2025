@@ -135,7 +135,9 @@ and [practice.md](practice.md) — exam questions with worked solutions.
 - `data/course-15a-nlp/` — **practice datasets**, CSV: `ner-sentences.csv`, `sentiment-reviews.csv`.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; `data/README.md` lists what each was built
-  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  from, `data/PRACTICE-QUESTIONS.md` sets questions on each with a computed
+  answer key, and `tools/check_datasets.py` proves every one of those
+  answers against the file.
 
 ## How this course connects to the rest of the programme
 

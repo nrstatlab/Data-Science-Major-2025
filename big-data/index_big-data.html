@@ -16,12 +16,26 @@
     <p>B.Sc. (Hons) Data Science — Year III, Semester V, Course 12</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</a></li>
+    <li><a href="#what-actually-runs-here-and-what-does-not">What actually runs here, and what does not</a></li>
+    <li><a href="#course-objectives-verbatim">Course objectives (verbatim)</a></li>
+    <li><a href="#the-five-units-and-how-they-fit-together">The five units, and how they fit together</a></li>
+    <li><a href="#also-here">Also here</a></li>
+    <li><a href="#cross-course-connections">Cross-course connections</a></li>
+    <li><a href="#textbooks">Textbooks</a></li>
+    <li><a href="#how-to-study-this-course">How to study this course</a></li>
+    <li><a href="#units-in-this-course">Units in this Course</a></li>
+  </ol>
+</details>
 <p><strong>Semester V</strong></p>
 <p><strong>This is a Track B course</strong>, paired with
 Course 13 B (Cloud Computing). Take one track
 and you take it for Semester VI too.</p>
 <hr />
-<h2>The one thing to understand before anything else</h2>
+<h2 id="the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</h2>
 <p><strong>"Big data" is not a size. It is the point at which the data does not fit on
 one machine, and everything you know stops working.</strong></p>
 <p>That threshold moves. In 2006 it was a few hundred gigabytes; a laptop now
@@ -74,7 +88,7 @@ it.</strong></p>
 </tr>
 </tbody>
 </table>
-<h3>⚠️ The honest framing your syllabus does not give you</h3>
+<h3 id="the-honest-framing-your-syllabus-does-not-give-you">⚠️ The honest framing your syllabus does not give you</h3>
 <p><strong>This course teaches a stack that peaked around 2015.</strong> MapReduce has been
 superseded by Spark; Sqoop and Flume were retired to the Apache Attic in 2021;
 Hadoop-on-premises is losing to object storage plus a query engine.</p>
@@ -100,7 +114,7 @@ Hadoop-on-premises is losing to object storage plus a query engine.</p>
 in the exam — an answer that places Hadoop in time reads as understanding
 rather than memorisation.</p>
 <hr />
-<h2>What actually runs here, and what does not</h2>
+<h2 id="what-actually-runs-here-and-what-does-not">What actually runs here, and what does not</h2>
 <p>This is the most environment-constrained course in the programme, and the
 notes are explicit about it throughout.</p>
 <table class="main-table">
@@ -145,7 +159,7 @@ asserts that the marker is still there.</p>
 the same wall that stopped R in Course 6, WEKA in Course 8, <code>mongod</code> in
 Course 10 and SWI-Prolog in Course 13 A.</p>
 <hr />
-<h2>Course objectives (verbatim)</h2>
+<h2 id="course-objectives-verbatim">Course objectives (verbatim)</h2>
 <ol>
 <li>
 <p>Introduce students to the concepts, characteristics, and challenges of Big
@@ -170,12 +184,12 @@ Course 10 and SWI-Prolog in Course 13 A.</p>
 </ol>
 <div class="warn">
 <p><span class="label">WATCH OUT</span></p>
-<h3>⚠️ "HadoopSpark" is two words</h3>
+<h3 id="hadoopspark-is-two-words">⚠️ "HadoopSpark" is two words</h3>
 <p>Objective 5 and Outcome 5 both read <strong>HadoopSpark</strong>, with the space lost.
 They mean <strong>Hadoop and Spark</strong> — two systems, and the distinction is the
 whole point of Unit 5. See review finding <span class="finding">D24</span>.</p>
 </div>
-<h2>The five units, and how they fit together</h2>
+<h2 id="the-five-units-and-how-they-fit-together">The five units, and how they fit together</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -210,7 +224,7 @@ whole point of Unit 5. See review finding <span class="finding">D24</span>.</p>
 explain almost everything else in the course</strong>, and a student who understands
 blocks, replication and the NameNode's memory can derive most of Units 3–5.</p>
 <hr />
-<h2>Also here</h2>
+<h2 id="also-here">Also here</h2>
 <ul>
 <li><a href="practice_big-data.html">practice.md</a> — exam questions with worked solutions</li>
 <li><a href="lab_big-data.html">lab.md</a> — all 17 experiments</li>
@@ -222,12 +236,14 @@ blocks, replication and the NameNode's memory can derive most of Units 3–5.</p
 <p><code>data/course-12b-bigdata/</code> — <strong>practice datasets</strong>, CSV: <code>web-logs.csv</code>, <code>wordcount-corpus.csv</code>.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; <code>data/README.md</code> lists what each was built
-  from, and <code>tools/check_datasets.py</code> proves each truth is recoverable.
+  from, <code>data/PRACTICE-QUESTIONS.md</code> sets questions on each with a computed
+  answer key, and <code>tools/check_datasets.py</code> proves every one of those
+  answers against the file.
   Also <code>sales-transactions.csv</code> in <code>data/shared/</code>, which several courses
   analyse so their answers can be compared.</p>
 </li>
 </ul>
-<h2>Cross-course connections</h2>
+<h2 id="cross-course-connections">Cross-course connections</h2>
 <p>This course does not stand alone, and the labs make the links checkable.</p>
 <table class="main-table">
 <thead>
@@ -266,7 +282,7 @@ blocks, replication and the NameNode's memory can derive most of Units 3–5.</p
 </tbody>
 </table>
 <hr />
-<h2>Textbooks</h2>
+<h2 id="textbooks">Textbooks</h2>
 <ul>
 <li>
 <p>White, <em>Hadoop: The Definitive Guide</em>, 4th edition, O'Reilly — the reference
@@ -281,13 +297,13 @@ blocks, replication and the NameNode's memory can derive most of Units 3–5.</p
 Chellappan, <em>Big Data and Analytics</em>, Wiley, 2016.</p>
 <div class="warn">
 <p><span class="label">WATCH OUT</span></p>
-<h3>⚠️ The reference list starts at 3</h3>
+<h3 id="the-reference-list-starts-at-3">⚠️ The reference list starts at 3</h3>
 <p>The syllabus numbers its two textbooks 1 and 2, then numbers the reference
 books <strong>3 and 4</strong> rather than restarting — so the four titles read as one
 list and the distinction between prescribed and recommended is lost. See
 review finding <span class="finding">D21</span>.</p>
 </div>
-<h2>How to study this course</h2>
+<h2 id="how-to-study-this-course">How to study this course</h2>
 <ol>
 <li>
 <p><strong>Draw the HDFS write path once, from memory.</strong> Client → NameNode →
@@ -322,48 +338,48 @@ bucketed joins, broadcast joins — <strong>every optimisation in big data is an
 attempt to shuffle less.</strong></p>
 <p>Say that in an exam and you have framed the whole subject.</p>
 </div>
-  <h2>Units in this Course</h2>
+  <h2 id="units-in-this-course">Units in this Course</h2>
   <div class="unit-grid">
 
     <a class="unit-card" href="unit1_big-data.html">
       <span class="tag">UNIT 1</span>
-      <h3>Foundations of Big Data and the Hadoop Ecosystem</h3>
+      <h3 id="foundations-of-big-data-and-the-hadoop-ecosystem">Foundations of Big Data and the Hadoop Ecosystem</h3>
       <p>What big data means and why a byte count is the wrong definition; the five Vs and which of them actually drive a design; big data against a traditional RDBMS; the Hadoop ecosystem by layer; the four core components including the one everybody forgets; the two-cluster architecture, data locality and why the cloud has weakened it; use cases, and when Hadoop is the wrong answer.</p>
     </a>
 
     <a class="unit-card" href="unit2_big-data.html">
       <span class="tag">UNIT 2</span>
-      <h3>Hadoop Distributed File System and YARN</h3>
+      <h3 id="hadoop-distributed-file-system-and-yarn">Hadoop Distributed File System and YARN</h3>
       <p>The NameNode and DataNode split, and why the NameNode never touches your data; block arithmetic and why a block is a maximum rather than an allocation; the small-files problem measured; replica placement, rack awareness and what replication 3 really guarantees; the read and write paths, and why a pipeline; DataNode and NameNode failure; YARN&#x27;s four components and the three schedulers, measured.</p>
     </a>
 
     <a class="unit-card" href="unit3_big-data.html">
       <span class="tag">UNIT 3</span>
-      <h3>MapReduce and High-Level Tools</h3>
+      <h3 id="mapreduce-and-high-level-tools">MapReduce and High-Level Tools</h3>
       <p>The map, shuffle and reduce phases, and why the shuffle is the only expensive step; combiners, their measured saving and when one silently gives wrong answers; partitioning and skew; the three Java details that are examined; Hive as a compiler, partitioning, bucketing and managed against external tables; Pig as a dataflow language and its two operators with no SQL equivalent; Crunch, the abstraction ladder, and why Spark replaced MapReduce.</p>
     </a>
 
     <a class="unit-card" href="unit4_big-data.html">
       <span class="tag">UNIT 4</span>
-      <h3>Data Ingestion and Serialization</h3>
+      <h3 id="data-ingestion-and-serialization">Data Ingestion and Serialization</h3>
       <p>Sqoop&#x27;s whole trick in two lines of SQL, split columns and what skew costs; incremental imports and the deletes they never catch; Flume&#x27;s source, channel and sink, back-pressure, channel durability and the defaults that manufacture the small-files problem; Avro, Parquet and SequenceFile; schema evolution demonstrated; column projection and predicate pushdown; batch and streaming joined, the fan trap, and Lambda against Kappa.</p>
     </a>
 
     <a class="unit-card" href="unit5_big-data.html">
       <span class="tag">UNIT 5</span>
-      <h3>NoSQL and Ecosystem Enhancements</h3>
+      <h3 id="nosql-and-ecosystem-enhancements">NoSQL and Ecosystem Enhancements</h3>
       <p>Why HBase exists and what HDFS cannot do; the sparse sorted-map model, versions, tombstones and compaction; row-key design and the hotspot-against-scans trade you cannot escape; HBase against Hive and against MongoDB; CAP and why HBase is CP; ZooKeeper&#x27;s ephemeral and sequential znodes, leader election, distributed locking and quorum arithmetic; Spark&#x27;s RDDs, lineage, lazy evaluation, caching and the HBase integration.</p>
     </a>
 
     <a class="unit-card" href="practice_big-data.html">
       <span class="tag">PRACTICE</span>
-      <h3>Practice</h3>
+      <h3 id="practice">Practice</h3>
       <p>Exam-style questions with fully worked solutions.</p>
     </a>
 
     <a class="unit-card" href="lab_big-data.html">
       <span class="tag">LAB</span>
-      <h3>Lab</h3>
+      <h3 id="lab">Lab</h3>
       <p>Every prescribed lab experiment, with code and expected output.</p>
     </a>
 

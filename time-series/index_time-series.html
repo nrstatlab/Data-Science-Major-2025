@@ -16,12 +16,26 @@
     <p>B.Sc. (Hons) Data Science — Year III, Semester VI, Course 14</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</a></li>
+    <li><a href="#what-runs-here">What runs here</a></li>
+    <li><a href="#course-objectives-verbatim">Course objectives (verbatim)</a></li>
+    <li><a href="#the-five-units">The five units</a></li>
+    <li><a href="#also-here">Also here</a></li>
+    <li><a href="#cross-course-connections">Cross-course connections</a></li>
+    <li><a href="#textbooks">Textbooks</a></li>
+    <li><a href="#how-to-study-this-course">How to study this course</a></li>
+    <li><a href="#units-in-this-course">Units in this Course</a></li>
+  </ol>
+</details>
 <p><strong>Semester VI</strong></p>
 <p><strong>This is a Track B course</strong>, paired with
 Course 15 B (Data Engineering &amp; MLOps), and it
 continues the track you began in Semester V with Big Data and Cloud Computing.</p>
 <hr />
-<h2>The one thing to understand before anything else</h2>
+<h2 id="the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</h2>
 <p><strong>Everything you learned in Courses 4, 8 and 12 A assumed your observations
 were independent. In a time series they are not, and that single fact breaks
 almost every technique you know.</strong></p>
@@ -69,7 +83,7 @@ and getting there</strong>, and once you have it, the modelling in Unit 2 is
 comparatively easy.</p>
 </div>
 <hr />
-<h2>What runs here</h2>
+<h2 id="what-runs-here">What runs here</h2>
 <p><strong>Everything.</strong> This is one of only two courses in the whole programme with no
 <code>NOT EXECUTED</code> file anywhere — the other is Course 12 A.</p>
 <p>statsmodels 0.14 implements every technique the syllabus names:</p>
@@ -138,7 +152,7 @@ it is why the labs found — and report — a coefficient estimate 2.5 standard
 errors from the truth on one draw.</p>
 </div>
 <hr />
-<h2>Course objectives (verbatim)</h2>
+<h2 id="course-objectives-verbatim">Course objectives (verbatim)</h2>
 <p>The course aims to:</p>
 <ol>
 <li>
@@ -163,13 +177,13 @@ errors from the truth on one draw.</p>
 </ol>
 <div class="warn">
 <p><span class="label">WATCH OUT</span></p>
-<h3>⚠️ Objective 5 says R <strong>or</strong> Python, and never chooses</h3>
+<h3 id="objective-5-says-r-or-python-and-never-chooses">⚠️ Objective 5 says R <strong>or</strong> Python, and never chooses</h3>
 <p>The evaluation method names both languages, and the practicals assume
 whichever you have. These notes use <strong>Python throughout</strong> and say so; a
 student following the syllabus literally has no basis for the choice. See
 review finding <span class="finding">D30</span>.</p>
 </div>
-<h2>The five units</h2>
+<h2 id="the-five-units">The five units</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -204,7 +218,7 @@ review finding <span class="finding">D30</span>.</p>
 bolted on, and Unit 5 is where you learn that the answer to "which model is
 best?" depends on a metric you should have chosen first.</p>
 <hr />
-<h2>Also here</h2>
+<h2 id="also-here">Also here</h2>
 <ul>
 <li><a href="practice_time-series.html">practice.md</a> — exam questions with worked solutions</li>
 <li><a href="lab_time-series.html">lab.md</a> — all 13 experiments</li>
@@ -216,10 +230,12 @@ best?" depends on a metric you should have chosen first.</p>
 <p><code>data/course-14b-timeseries/</code> — <strong>practice datasets</strong>, CSV: <code>ar2-series.csv</code>, <code>macro-indicators.csv</code>, <code>seasonal-sales.csv</code>.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; <code>data/README.md</code> lists what each was built
-  from, and <code>tools/check_datasets.py</code> proves each truth is recoverable.</p>
+  from, <code>data/PRACTICE-QUESTIONS.md</code> sets questions on each with a computed
+  answer key, and <code>tools/check_datasets.py</code> proves every one of those
+  answers against the file.</p>
 </li>
 </ul>
-<h2>Cross-course connections</h2>
+<h2 id="cross-course-connections">Cross-course connections</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -257,7 +273,7 @@ best?" depends on a metric you should have chosen first.</p>
 </tbody>
 </table>
 <hr />
-<h2>Textbooks</h2>
+<h2 id="textbooks">Textbooks</h2>
 <ul>
 <li>Brockwell &amp; Davis, <em>Introduction to Time Series and Forecasting</em>, 2nd edition,
   Springer — the prescribed text, and it covers Units 1–4 closely.</li>
@@ -270,7 +286,7 @@ Examples</em>.</p>
 <p><strong>Free and current:</strong> Hyndman &amp; Athanasopoulos, <em>Forecasting: Principles and
 Practice</em>, is open access at <code>otexts.com/fpp3</code>. It is
 not on the syllabus, and it is the book most working forecasters actually use.</p>
-<h2>How to study this course</h2>
+<h2 id="how-to-study-this-course">How to study this course</h2>
 <ol>
 <li>
 <p><strong>Learn the two identification rules and be able to apply them.</strong> ACF cuts
@@ -293,7 +309,7 @@ not on the syllabus, and it is the book most working forecasters actually use.</
    generated truth.</p>
 </li>
 </ol>
-<h3>⚠️ The four sentences that carry the most marks</h3>
+<h3 id="the-four-sentences-that-carry-the-most-marks">⚠️ The four sentences that carry the most marks</h3>
 <ul>
 <li>
 <p><strong>"The ADF's null is that a unit root is present, so a small p-value means
@@ -311,48 +327,48 @@ not on the syllabus, and it is the book most working forecasters actually use.</
 <p><strong>"Granger causality means 'helps predict', not 'causes'."</strong></p>
 </li>
 </ul>
-  <h2>Units in this Course</h2>
+  <h2 id="units-in-this-course">Units in this Course</h2>
   <div class="unit-grid">
 
     <a class="unit-card" href="unit1_time-series.html">
       <span class="tag">UNIT 1</span>
-      <h3>Fundamentals and Stationary Processes</h3>
+      <h3 id="fundamentals-and-stationary-processes">Fundamentals and Stationary Processes</h3>
       <p>Why a random split lets a model see the future, and which of your habits from Courses 4, 8 and 12 A stop being valid; time series types, components and the forecasting process; stationarity defined; autocovariance, ACF and PACF, and reading them together to identify a model; decomposition into trend, seasonal and residual, classical against STL, checked against known coefficients.</p>
     </a>
 
     <a class="unit-card" href="unit2_time-series.html">
       <span class="tag">UNIT 2</span>
-      <h3>ARMA and Forecasting</h3>
+      <h3 id="arma-and-forecasting">ARMA and Forecasting</h3>
       <p>AR, MA and ARMA(p,q) definitions and their signatures in the ACF and PACF; estimation, and a 200-draw Monte Carlo showing the estimator unbiased when a single fit misses; AIC and BIC against rolling-origin cross-validation, and what to do when they disagree; Ljung–Box residual diagnostics; forecasting from an ARMA and where the intervals come from.</p>
     </a>
 
     <a class="unit-card" href="unit3_time-series.html">
       <span class="tag">UNIT 3</span>
-      <h3>Non-Stationary and Seasonal Models</h3>
+      <h3 id="non-stationary-and-seasonal-models">Non-Stationary and Seasonal Models</h3>
       <p>Differencing, the ADF and KPSS tests, and using the ct regression to tell a trend-stationary series from a random walk; over-differencing measured as a variance increase; ARIMA and SARIMA with seasonal orders; the airline model; prediction intervals and a measured coverage of 75% against a nominal 95%.</p>
     </a>
 
     <a class="unit-card" href="unit4_time-series.html">
       <span class="tag">UNIT 4</span>
-      <h3>Multivariate and State-Space Models</h3>
+      <h3 id="multivariate-and-state-space-models">Multivariate and State-Space Models</h3>
       <p>Vector autoregression on a macro system built with known causality; Granger causality tested in all four directions; state-space form and the Kalman filter through unobserved components; what a zero variance estimate means; spectral analysis and the periodogram, and why detrending first changes the answer.</p>
     </a>
 
     <a class="unit-card" href="unit5_time-series.html">
       <span class="tag">UNIT 5</span>
-      <h3>Forecast Evaluation and Comparison</h3>
+      <h3 id="forecast-evaluation-and-comparison">Forecast Evaluation and Comparison</h3>
       <p>ARIMA against exponential smoothing against machine learning on the same series; naive and seasonal-naive baselines; RMSE, MAE, MAPE and MASE, and the cases where they disagree; why MAPE reaches 75% on a uniform error of 1.0; recursive forecasting and a measured result that contradicts the textbook; tree models that cannot extrapolate; testing a forecast for bias.</p>
     </a>
 
     <a class="unit-card" href="practice_time-series.html">
       <span class="tag">PRACTICE</span>
-      <h3>Practice</h3>
+      <h3 id="practice">Practice</h3>
       <p>Exam-style questions with fully worked solutions.</p>
     </a>
 
     <a class="unit-card" href="lab_time-series.html">
       <span class="tag">LAB</span>
-      <h3>Lab</h3>
+      <h3 id="lab">Lab</h3>
       <p>Every prescribed lab experiment, with code and expected output.</p>
     </a>
 

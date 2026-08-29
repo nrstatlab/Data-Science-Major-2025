@@ -95,7 +95,9 @@ and both are asked every year.
 - `data/course-13a-ai/` — **practice datasets**, CSV: `family-relations.csv`, `graph-edges.csv`, `map-colouring.csv`.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; `data/README.md` lists what each was built
-  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  from, `data/PRACTICE-QUESTIONS.md` sets questions on each with a computed
+  answer key, and `tools/check_datasets.py` proves every one of those
+  answers against the file.
 
 > **On the lab code.** SWI-Prolog cannot be installed here — the Debian
 > repositories that host it are blocked by the egress policy — so each

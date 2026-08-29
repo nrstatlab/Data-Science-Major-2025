@@ -74,6 +74,51 @@ def check_determinism():
           "byte for byte", not changed, changed[:3])
 
 
+def check_questions():
+    """The published answer key must equal what the code computes now.
+
+    Same trick as the datasets: regenerate into a temporary directory and
+    compare. If a dataset changes and the questions are not rebuilt, the
+    answer key silently starts lying, and this is what notices.
+    """
+    import tempfile
+    live = (DATA / "PRACTICE-QUESTIONS.md")
+    with tempfile.TemporaryDirectory() as tmp:
+        r = subprocess.run([sys.executable,
+                            str(ROOT / "tools" / "make_questions.py"), tmp],
+                           capture_output=True, text=True)
+        fresh = pathlib.Path(tmp) / "PRACTICE-QUESTIONS.md"
+        check("every dataset has a question set",
+              r.returncode == 0, r.stdout.strip()[:200])
+        if not fresh.exists():
+            check("the answer key regenerates", False, "not produced")
+            return
+        check("the published answer key matches a fresh computation",
+              live.read_bytes() == fresh.read_bytes(),
+              "data/PRACTICE-QUESTIONS.md is stale -- run "
+              "tools/make_questions.py")
+
+    text = live.read_text()
+    datasets = sorted(p.relative_to(DATA).as_posix()
+                      for p in DATA.rglob("*.csv"))
+    absent = [d for d in datasets if f"### `data/{d}`" not in text]
+    check(f"{len(datasets)} datasets each appear in the answer key",
+          not absent, absent[:3])
+
+    # every question must have an answer beside it, tier by tier
+    import re as _re
+    mismatched = []
+    for block in text.split("### `data/")[1:]:
+        name = block.split("`")[0]
+        body, _, answers = block.partition("<details><summary>Answers")
+        qn = len(_re.findall(r"^\d+\. ", body, _re.M))
+        an = len(_re.findall(r"^\d+\. ", answers, _re.M))
+        if qn != an or qn < 3:
+            mismatched.append(f"{name}: {qn} questions, {an} answers")
+    check("every question has an answer, and no set has fewer than three",
+          not mismatched, mismatched[:3])
+
+
 def check_shared():
     df = load("shared/sales-transactions.csv")
     check("sales: revenue is quantity x unit_price on every row",
@@ -693,7 +738,7 @@ def check_course_14_15():
 def main():
     print(f"\n{'=' * 66}\nPractice datasets -- recovering each planted truth"
           f"\n{'=' * 66}")
-    for fn in (check_determinism, check_shared, check_course_01,
+    for fn in (check_determinism, check_questions, check_shared, check_course_01,
                check_course_02_03, check_course_04, check_course_05, check_course_06_07,
                check_course_08, check_course_09, check_course_10_11,
                check_course_12, check_course_12b_13, check_course_14_15):

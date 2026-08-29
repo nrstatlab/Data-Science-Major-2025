@@ -16,12 +16,28 @@
     <p>B.Sc. (Hons) Data Science — Year III, Semester VI, Course 15</p>
   </div>
 
+<details class="toc">
+  <summary>On this page</summary>
+  <ol>
+    <li><a href="#the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</a></li>
+    <li><a href="#what-runs-here">What runs here</a></li>
+    <li><a href="#course-objectives-verbatim">Course objectives (verbatim)</a></li>
+    <li><a href="#the-five-units">The five units</a></li>
+    <li><a href="#also-here">Also here</a></li>
+    <li><a href="#the-result-that-surprised-the-lab">The result that surprised the lab</a></li>
+    <li><a href="#how-this-course-connects-to-the-rest-of-the-programme">How this course connects to the rest of the programme</a></li>
+    <li><a href="#textbooks">Textbooks</a></li>
+    <li><a href="#how-to-study-this-course">How to study this course</a></li>
+    <li><a href="#if-you-read-one-thing">If you read one thing</a></li>
+    <li><a href="#units-in-this-course">Units in this Course</a></li>
+  </ol>
+</details>
 <p><strong>Semester VI</strong></p>
 <p><strong>This is a Track B course</strong>, paired with
 Course 14 B (Time Series Analysis), and it is
 the last course of the track you began in Semester V.</p>
 <hr />
-<h2>The one thing to understand before anything else</h2>
+<h2 id="the-one-thing-to-understand-before-anything-else">The one thing to understand before anything else</h2>
 <p><strong>Every other course in this programme ends when the model works. This one
 starts there.</strong></p>
 <table class="main-table">
@@ -61,7 +77,7 @@ starts there.</strong></p>
 change, dependencies that drift, users who complain, regulators who ask, and
 an owner who must be nameable. The model file is the smallest part of it.</p>
 </div>
-<h3>⚠️ The measurement that makes the point</h3>
+<h3 id="the-measurement-that-makes-the-point">⚠️ The measurement that makes the point</h3>
 <p><a href="lab_mlops.html#experiment-3">Experiment 3</a> runs an ETL job on deliberately messy
 data. Three defects — a region spelled in lowercase, a price written with a
 currency prefix, a duplicated order — produce errors of <strong>−₹1,680, −₹700 and
@@ -76,7 +92,7 @@ by luck, and next month they will not.</p>
 why this repository has five engines agreeing on that number.</p>
 </div>
 <hr />
-<h2>What runs here</h2>
+<h2 id="what-runs-here">What runs here</h2>
 <p><strong>Eleven of the sixteen experiments run against the real tools</strong>, not
 descriptions of them:</p>
 <table class="main-table">
@@ -109,7 +125,7 @@ descriptions of them:</p>
 </tr>
 </tbody>
 </table>
-<h3>The five that do not run, and why</h3>
+<h3 id="the-five-that-do-not-run-and-why">The five that do not run, and why</h3>
 <table class="main-table">
 <thead>
 <tr>
@@ -184,7 +200,7 @@ makes two things checkable that otherwise could only be reported:</p>
 </table>
 </div>
 <hr />
-<h2>Course objectives (verbatim)</h2>
+<h2 id="course-objectives-verbatim">Course objectives (verbatim)</h2>
 <ol>
 <li>To introduce the lifecycle and roles in Data Engineering.</li>
 <li>
@@ -198,7 +214,7 @@ makes two things checkable that otherwise could only be reported:</p>
 <li>To understand monitoring, governance, and Responsible AI compliance in
    production ML.</li>
 </ol>
-<h2>The five units</h2>
+<h2 id="the-five-units">The five units</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -243,7 +259,7 @@ makes two things checkable that otherwise could only be reported:</p>
 </table>
 <p>Plus <a href="lab_mlops.html">lab.md</a> and <a href="practice_mlops.html">practice.md</a>.</p>
 <hr />
-<h2>Also here</h2>
+<h2 id="also-here">Also here</h2>
 <ul>
 <li><a href="practice_mlops.html">practice.md</a> — exam questions with worked solutions</li>
 <li><a href="lab_mlops.html">lab.md</a> — all 16 practicals</li>
@@ -255,12 +271,14 @@ makes two things checkable that otherwise could only be reported:</p>
 <p><code>data/course-15b-mlops/</code> — <strong>practice datasets</strong>, CSV: <code>loan-current.csv</code>, <code>loan-reference.csv</code>.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; <code>data/README.md</code> lists what each was built
-  from, and <code>tools/check_datasets.py</code> proves each truth is recoverable.
+  from, <code>data/PRACTICE-QUESTIONS.md</code> sets questions on each with a computed
+  answer key, and <code>tools/check_datasets.py</code> proves every one of those
+  answers against the file.
   Also <code>sales-transactions.csv</code> in <code>data/shared/</code>, which several courses
   analyse so their answers can be compared.</p>
 </li>
 </ul>
-<h2>The result that surprised the lab</h2>
+<h2 id="the-result-that-surprised-the-lab">The result that surprised the lab</h2>
 <p><a href="lab_mlops.html#experiment-14">Experiment 14</a> builds an automatic retraining loop:
 detect drift, retrain, deploy. It fires at four batches — and improves
 accuracy by <strong>+0.0016</strong>, which is nothing.</p>
@@ -277,7 +295,7 @@ expensive and can make things worse.</p>
 <p>That is a more useful lesson than a demo where retraining rescues the model,
 and it is the honest result of the code as written.</p>
 <hr />
-<h2>How this course connects to the rest of the programme</h2>
+<h2 id="how-this-course-connects-to-the-rest-of-the-programme">How this course connects to the rest of the programme</h2>
 <table class="main-table">
 <thead>
 <tr>
@@ -316,7 +334,7 @@ and it is the honest result of the code as written.</p>
 here by a fifth independent engine, after Course 11's DAX, Course 12 B's Hive
 and Spark, and Course 13 B's warehouse.</p>
 <hr />
-<h2>Textbooks</h2>
+<h2 id="textbooks">Textbooks</h2>
 <p>The syllabus prescribes a single combined <strong>Text / Reference</strong> list, and it has
 exactly one book in it:</p>
 <ul>
@@ -329,7 +347,7 @@ Martin Fowler on microservices · a <em>Towards Data Science</em> introduction t
 MLOps.</p>
 <div class="warn">
 <p><span class="label">WATCH OUT</span></p>
-<h3>⚠️ One incomplete citation, and one resource behind a paywall</h3>
+<h3 id="one-incomplete-citation-and-one-resource-behind-a-paywall">⚠️ One incomplete citation, and one resource behind a paywall</h3>
 <p>The reading list ends "Fundamentals of Data Engineering, Joe Reis &amp; Matt
 Housley<strong>,</strong>" — the trailing comma is where the publisher and year should
 be, and item 2 turns out to be the heading "Web Resources" rather than a
@@ -341,7 +359,7 @@ web resource may be <strong>paywalled</strong>. See review finding <span class="
 <em>Practitioners Guide to MLOps</em> and Microsoft's MLOps documentation cover the
 same ground and are free.</p>
 </div>
-<h2>How to study this course</h2>
+<h2 id="how-to-study-this-course">How to study this course</h2>
 <ol>
 <li>
 <p><strong>Run MLflow locally in week 3.</strong> <code>mlflow ui</code> against a SQLite backend takes
@@ -376,55 +394,55 @@ same ground and are free.</p>
    this course different from Course 12 A.</p>
 </li>
 </ol>
-<h2>If you read one thing</h2>
+<h2 id="if-you-read-one-thing">If you read one thing</h2>
 <p><strong>Unit 5's section on the three kinds of drift</strong>, and then run
 <code>12_serve_drift_govern.py</code>.</p>
 <p>Data drift, concept drift and label drift are routinely conflated, they need
 different detectors, and only one of them is detectable before the damage is
 done. <strong>The experiment demonstrates the distinction rather than asserting
 it</strong> — which is why the retraining loop it builds barely helps.</p>
-  <h2>Units in this Course</h2>
+  <h2 id="units-in-this-course">Units in this Course</h2>
   <div class="unit-grid">
 
     <a class="unit-card" href="unit1_mlops.html">
       <span class="tag">UNIT 1</span>
-      <h3>Foundations of Data Engineering</h3>
+      <h3 id="foundations-of-data-engineering">Foundations of Data Engineering</h3>
       <p>What data engineering is, and why &#x27;systems&#x27; and &#x27;maintenance&#x27; are the load-bearing words; the activities from ingestion to monitoring; the data lifecycle against the data ENGINEERING lifecycle, with the five undercurrents and why they are drawn underneath; the evolution of the role; ETL against ELT and why ELT won; technical against business responsibilities, internal against external; how data engineering relates to data science, in both directions; and the measured demonstration that a pipeline reporting a 1% error is more dangerous than one that crashes.</p>
     </a>
 
     <a class="unit-card" href="unit2_mlops.html">
       <span class="tag">UNIT 2</span>
-      <h3>Data Architecture and Distributed Systems</h3>
+      <h3 id="data-architecture-and-distributed-systems">Data Architecture and Distributed Systems</h3>
       <p>Enterprise, data and solution architecture; the principles of good architecture and why reversibility deserves your design effort; availability, reliability, RTO and RPO, with what each nine actually costs; tiers; monolith against microservices MEASURED, including the honest admission that microservices are slower and the one-database-per-service cost; event-driven architecture and batch against streaming ingestion measured at a 160x latency difference; dead-letter queues; hybrid cloud, multicloud and edge; and TCO, where the licence fee is rarely the largest line.</p>
     </a>
 
     <a class="unit-card" href="unit3_mlops.html">
       <span class="tag">UNIT 3</span>
-      <h3>MLOps Fundamentals</h3>
+      <h3 id="mlops-fundamentals">MLOps Fundamentals</h3>
       <p>How MLOps differs from DevOps — code, data and model versioned together; training/serving skew and its architectural fix; data leakage and the three ways it happens; EDA, feature engineering and recording the base rate first; experiment tracking with real MLflow, and why the train/test gap belongs in the table; the four things that must be pinned for reproducibility, with the split&#x27;s random_state demonstrated as the one people forget; model versioning; what DVC stores in git and what it does not; Responsible AI controls and what breaks at each scale.</p>
     </a>
 
     <a class="unit-card" href="unit4_mlops.html">
       <span class="tag">UNIT 4</span>
-      <h3>Model Deployment and CI/CD Pipelines</h3>
+      <h3 id="model-deployment-and-cicd-pipelines">Model Deployment and CI/CD Pipelines</h3>
       <p>What production-ready means concretely, and why returning 400 with a reason matters more than the model; dev, staging and production, and putting the differences in configuration; CI/CD for ML including the two stages with no software equivalent — data validation and the metric gate; why a non-deterministic pipeline makes CI meaningless; batch, online, streaming and embedded deployment; canary, blue-green, A/B and shadow releases; the seven Docker traps; layer caching and image size; and Kubernetes readiness against liveness probes.</p>
     </a>
 
     <a class="unit-card" href="unit5_mlops.html">
       <span class="tag">UNIT 5</span>
-      <h3>Monitoring, Feedback Loops and Governance</h3>
+      <h3 id="monitoring-feedback-loops-and-governance">Monitoring, Feedback Loops and Governance</h3>
       <p>Data, concept and label drift told apart, and the asymmetry that only one is detectable early; PSI and the KS test scored against drift injected at a known magnitude — 4 of 5 batches caught with no false alarms and a one-batch lag; why statistical significance is not operational significance; ground truth evaluation and the partial-label feedback trap; the seven-step retraining loop and the step that must stay human; metrics against logs, the four Prometheus types, and why latency needs a histogram; GDPR, CCPA, GxP and the EU AI Act; why Article 17 breaks trained models; fairness measured with a control condition; and a model risk management template.</p>
     </a>
 
     <a class="unit-card" href="practice_mlops.html">
       <span class="tag">PRACTICE</span>
-      <h3>Practice</h3>
+      <h3 id="practice">Practice</h3>
       <p>Exam-style questions with fully worked solutions.</p>
     </a>
 
     <a class="unit-card" href="lab_mlops.html">
       <span class="tag">LAB</span>
-      <h3>Lab</h3>
+      <h3 id="lab">Lab</h3>
       <p>Every prescribed lab experiment, with code and expected output.</p>
     </a>
 

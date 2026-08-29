@@ -56,7 +56,9 @@ underestimate: the lab exam asks you to *build* things, not describe them.
 - `data/course-7-web/` — **practice datasets**, CSV: `products.csv`.
   Every one was generated from a known truth, so you can score your answer
   rather than just produce one; `data/README.md` lists what each was built
-  from, and `tools/check_datasets.py` proves each truth is recoverable.
+  from, `data/PRACTICE-QUESTIONS.md` sets questions on each with a computed
+  answer key, and `tools/check_datasets.py` proves every one of those
+  answers against the file.
 
 > **On the lab code:** unlike the R labs, these **do run**. Node 22 with jsdom
 > is available in the verification environment, so every JavaScript and DOM

@@ -931,6 +931,9 @@ TOP_PAGES = [
      "Week-by-week schedule, revision cycles and a progress checklist."),
     ("data/README.md", "practice-data", "Practice Data",
      "Fifty CSV datasets, one per method, each generated from a known truth."),
+    ("data/PRACTICE-QUESTIONS.md", "practice-questions", "Practice Questions",
+     "266 questions across those datasets, graded warm-up to stretch, with a "
+     "computed answer key."),
 ]
 
 
@@ -1581,6 +1584,10 @@ def build_course(course, link_map):
             + '\n  <h2>Units in this Course</h2>\n  <div class="unit-grid">\n\n'
             + "\n\n".join(cards)
             + '\n\n  </div>\n')
+    # Course landing pages were short when this site was built. They are not
+    # any more -- several now run to nine sections -- so they get the same
+    # contents list every other generated page has.
+    body = add_anchors_and_toc(body)
 
     out = out_dir / f"index_{slug}.html"
     out.write_text(page(
@@ -1611,6 +1618,11 @@ def build_top_pages(link_map):
         heading, body_md = strip_first_heading(raw)
         body_md = rewrite_links(body_md, link_map, ROOT, ROOT)
         body = promote_boxes(render_markdown(promote_markdown_boxes(body_md)))
+        # These are the longest documents on the site -- the study plan runs
+        # to twelve sections and the question sets to twenty -- and until now
+        # they were the only generated pages with no anchors and no contents
+        # list, so there was no way to jump or to link a classmate to one.
+        body = add_anchors_and_toc(body)
 
         out = ROOT / f"{out_slug}.html"
         out.write_text(page(
